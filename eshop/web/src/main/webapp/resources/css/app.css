@@ -1,0 +1,74 @@
+@import url(bootstrap.min.css);
+
+/*对bootstrap进行样式重定义*/
+.text-center th {
+    text-align: center;
+}
+
+pre.form-control {
+    height: auto;
+}
+
+a {
+    cursor: pointer;
+}
+
+
+/*一些bootstrap没有的可以简化变成的css内容*/
+.pt-1 {
+    padding-top: 1em;
+}
+.pt-2 {
+    padding-top: 2em;
+}
+.pt-3 {
+    padding-top: 3em;
+}
+.pt-4 {
+    padding-top: 4em;
+}
+.pt-5 {
+    padding-top: 5em;
+}
+.pb-1 {
+    padding-bottom: 1em;
+}
+.pb-2 {
+    padding-bottom: 2em;
+}
+.pt-twenty {
+    padding-top: 20%;
+}
+.pt-forty {
+    padding-top: 40%;
+}
+.mgt-half {
+    margin-top: 0.5em;
+}
+.mgt-1 {
+    margin-top: 1em;
+}
+.mgt-2 {
+    margin-top: 2em;
+}
+.mgt-3 {
+    margin-top: 3em;
+}
+.mgt-4 {
+    margin-top: 4em;
+}
+.mgt-5 {
+    margin-top: 5em;
+}
+.mgb-1 {
+    margin-bottom: 1em;
+}
+.mgb-2 {
+    margin-bottom: 2em;
+}
+.mgl-1 {
+    margin-left: 1em;
+}
+.mgl-2 {
+    margin-left: 2em;
+}
