@@ -4,13 +4,14 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
+import com.fenghuangzhujia.eshop.core.authentication.authority.AbstractAuthority;
 import com.fenghuangzhujia.eshop.core.authentication.authority.Authority;
 import com.fenghuangzhujia.eshop.core.authentication.authority.opration.OperationAuthority;
-import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 
 /**
  * 资源类型，标识某种资源
@@ -19,7 +20,8 @@ import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
  *
  */
 @Entity
-public class ResourceAuthority extends UUIDBaseModel implements Authority {
+@DiscriminatorValue("RESOURCE")
+public class ResourceAuthority extends AbstractAuthority implements Authority {
 	
 	private String name;
 	private String description;

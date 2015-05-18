@@ -11,9 +11,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
-import com.fenghuangzhujia.eshop.core.authentication.authority.concrete.ConcreteAuthority;
-import com.fenghuangzhujia.eshop.core.authentication.authority.opration.OperationAuthority;
-import com.fenghuangzhujia.eshop.core.authentication.authority.resource.ResourceAuthority;
+import com.fenghuangzhujia.eshop.core.authentication.authority.AbstractAuthority;
 import com.fenghuangzhujia.eshop.core.authentication.role.Role;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 import com.fenghuangzhujia.foundation.core.enums.BloodType;
@@ -29,37 +27,16 @@ public class User extends UUIDBaseModel {
 	private Set<Role> roles;
 	private Boolean verified;
 	private String salt;
-	private Set<ResourceAuthority> resourceAuthorities;
-	private Set<OperationAuthority> operationAuthorities;
-	private Set<ConcreteAuthority> concreteAuthorities;
+	private Set<AbstractAuthority> authorities;
 	
 	@ManyToMany
 	@JoinTable
-	public Set<ResourceAuthority> getResourceAuthorities() {
-		return resourceAuthorities;
+	public Set<AbstractAuthority> getAuthorities() {
+		return authorities;
 	}
-	public void setResourceAuthorities(Set<ResourceAuthority> resourceAuthorities) {
-		this.resourceAuthorities = resourceAuthorities;
+	public void setAuthorities(Set<AbstractAuthority> authorities) {
+		this.authorities = authorities;
 	}
-	
-	@ManyToMany
-	@JoinTable
-	public Set<OperationAuthority> getOperationAuthorities() {
-		return operationAuthorities;
-	}
-	public void setOperationAuthorities(Set<OperationAuthority> operationAuthorities) {
-		this.operationAuthorities = operationAuthorities;
-	}
-	
-	@ManyToMany
-	@JoinTable
-	public Set<ConcreteAuthority> getConcreteAuthorities() {
-		return concreteAuthorities;
-	}
-	public void setConcreteAuthorities(Set<ConcreteAuthority> concreteAuthorities) {
-		this.concreteAuthorities = concreteAuthorities;
-	}
-	
 	/**
 	 * @return the username
 	 */
@@ -127,6 +104,8 @@ public class User extends UUIDBaseModel {
 		this.salt = salt;
 	}
 	
+	
+	//传值属性
 	private String[] roleids;
 	/**
 	 * 方便保存时传值
@@ -141,8 +120,18 @@ public class User extends UUIDBaseModel {
 	 */
 	public void setRoleids(String[] roleids) {
 		this.roleids = roleids;
-	}	
+	}
 	
+	private String[] authorityids;
+	
+	public String[] getAuthorityids() {
+		return authorityids;
+	}
+	public void setAuthorityids(String[] authorityids) {
+		this.authorityids = authorityids;
+	}
+
+
 	//授权检测过程无关属性定义
 	private String question;
 	private String answer;
@@ -375,7 +364,7 @@ public class User extends UUIDBaseModel {
 	 * QQ号码
 	 * @return
 	 */
-	public String getQQnum() {
+	public String getQqnum() {
 		return qqnum;
 	}
 	public void setQqnum(String qqnum) {
@@ -528,10 +517,10 @@ public class User extends UUIDBaseModel {
 	 * 绑定QQ
 	 * @return
 	 */
-	public String getQQid() {
+	public String getQqid() {
 		return qqid;
 	}
-	public void setQQid(String qqid) {
+	public void setQqid(String qqid) {
 		this.qqid = qqid;
 	}
 	

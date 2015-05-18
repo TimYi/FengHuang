@@ -1,6 +1,7 @@
 package com.fenghuangzhujia.eshop.core.authentication.authority.opration;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -8,9 +9,9 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
+import com.fenghuangzhujia.eshop.core.authentication.authority.AbstractAuthority;
 import com.fenghuangzhujia.eshop.core.authentication.authority.Authority;
 import com.fenghuangzhujia.eshop.core.authentication.authority.resource.ResourceAuthority;
-import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 
 /**
  * 操作权限，针对某种资源的某种操作
@@ -18,12 +19,13 @@ import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
  *
  */
 @Entity
+@DiscriminatorValue("OPERATION")
 @Table(
 		//同种资源只能有同种操作
 	    uniqueConstraints=
 	        @UniqueConstraint(columnNames={"resource", "name"})
 	)
-public class OperationAuthority extends UUIDBaseModel implements Authority {
+public class OperationAuthority extends AbstractAuthority implements Authority {
 	
 	private ResourceAuthority resource;
 	private String name;	

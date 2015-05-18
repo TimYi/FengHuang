@@ -8,9 +8,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Transient;
 
-import com.fenghuangzhujia.eshop.core.authentication.authority.concrete.ConcreteAuthority;
-import com.fenghuangzhujia.eshop.core.authentication.authority.opration.OperationAuthority;
-import com.fenghuangzhujia.eshop.core.authentication.authority.resource.ResourceAuthority;
+import com.fenghuangzhujia.eshop.core.authentication.authority.AbstractAuthority;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 
@@ -19,9 +17,7 @@ public class Role extends UUIDBaseModel {
 	
 	private String name;
 	private String description;
-	private Set<ResourceAuthority> resourceAuthorities;
-	private Set<OperationAuthority> operationAuthorities;
-	private Set<ConcreteAuthority> concreteAuthorities;
+	private Set<AbstractAuthority> authorities;
 	private Set<User> users;
 	
 	@Column(unique=true)
@@ -36,33 +32,15 @@ public class Role extends UUIDBaseModel {
 	}
 	public void setDescription(String description) {
 		this.description = description;
-	}
+	}	
 	
 	@ManyToMany
 	@JoinTable
-	public Set<ResourceAuthority> getResourceAuthorities() {
-		return resourceAuthorities;
+	public Set<AbstractAuthority> getAuthorities() {
+		return authorities;
 	}
-	public void setResourceAuthorities(Set<ResourceAuthority> resourceAuthorities) {
-		this.resourceAuthorities = resourceAuthorities;
-	}
-	
-	@ManyToMany
-	@JoinTable
-	public Set<OperationAuthority> getOperationAuthorities() {
-		return operationAuthorities;
-	}
-	public void setOperationAuthorities(Set<OperationAuthority> operationAuthorities) {
-		this.operationAuthorities = operationAuthorities;
-	}
-	
-	@ManyToMany
-	@JoinTable
-	public Set<ConcreteAuthority> getConcreteAuthorities() {
-		return concreteAuthorities;
-	}
-	public void setConcreteAuthorities(Set<ConcreteAuthority> concreteAuthorities) {
-		this.concreteAuthorities = concreteAuthorities;
+	public void setAuthorities(Set<AbstractAuthority> authorities) {
+		this.authorities = authorities;
 	}
 	
 	@ManyToMany
@@ -76,8 +54,6 @@ public class Role extends UUIDBaseModel {
 	
 	//数据传输属性
 	private String[] userids;
-	private String[] resourceids;
-	private String[] operationids;
 	private String[] authorityids;
 
 	@Transient
@@ -87,20 +63,7 @@ public class Role extends UUIDBaseModel {
 	public void setUserids(String[] userids) {
 		this.userids = userids;
 	}
-	@Transient
-	public String[] getResourceids() {
-		return resourceids;
-	}
-	public void setResourceids(String[] resourceids) {
-		this.resourceids = resourceids;
-	}
-	@Transient
-	public String[] getOperationids() {
-		return operationids;
-	}
-	public void setOperationids(String[] operationids) {
-		this.operationids = operationids;
-	}
+	
 	@Transient
 	public String[] getAuthorityids() {
 		return authorityids;
