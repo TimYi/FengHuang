@@ -66,6 +66,7 @@
 		</dependency>	
 		<!-- spring end -->	
 
+		<!-- common tools begin -->
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
@@ -76,6 +77,18 @@
 			<artifactId>commons-lang3</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+			<groupId>net.sf.dozer</groupId>
+			<artifactId>dozer</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- google java library -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- common tools end -->
 		
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>

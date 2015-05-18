@@ -16,5 +16,6 @@
 		<module>core</module>
 		<module>api</module>
 		<module>web</module>
+		<module>third</module>
 	</modules>
 </project>
