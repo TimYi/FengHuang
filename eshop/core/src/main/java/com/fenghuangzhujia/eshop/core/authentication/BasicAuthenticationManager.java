@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fenghuangzhujia.eshop.core.authentication.authority.Authority;
+import com.fenghuangzhujia.eshop.core.authentication.authority.concrete.ConcreteAuthority;
 import com.fenghuangzhujia.eshop.core.authentication.role.Role;
 import com.fenghuangzhujia.eshop.core.authentication.token.TokenRepository;
 import com.fenghuangzhujia.eshop.core.authentication.token.UserToken;
@@ -157,9 +157,9 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 		if(roles==null) {
 			return user;
 		}
-		Set<Authority> authorities=new HashSet<>();
+		Set<ConcreteAuthority> authorities=new HashSet<>();
 		for (Role role : roles) {
-			Set<Authority> roleAuthorities=role.getAuthorities();
+			Set<ConcreteAuthority> roleAuthorities=role.getAuthorities();
 			if(roleAuthorities==null)continue;
 			authorities.addAll(roleAuthorities);
 		}

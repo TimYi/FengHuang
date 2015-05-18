@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationManager;
-import com.fenghuangzhujia.eshop.core.authentication.authority.Authority;
+import com.fenghuangzhujia.eshop.core.authentication.authority.concrete.ConcreteAuthority;
 import com.fenghuangzhujia.eshop.core.authentication.role.Role;
 import com.fenghuangzhujia.eshop.core.authentication.role.RoleRepository;
 import com.fenghuangzhujia.foundation.core.service.AbstractPagingAndSortingService;
@@ -95,7 +95,7 @@ public class UserService extends AbstractPagingAndSortingService<User, String> {
 	 */
 	public boolean hasAuthority(User user, Set<String> authorities) {
 		Set<String> authoritiesSet=new HashSet<>();
-		for (Authority authority : user.getAuthorities()) {
+		for (ConcreteAuthority authority : user.getAuthorities()) {
 			authoritiesSet.add(authority.getAuthority());
 		}
 		for (String au : authorities) {

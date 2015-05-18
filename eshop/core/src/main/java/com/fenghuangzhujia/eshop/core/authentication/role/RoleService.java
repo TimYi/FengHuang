@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fenghuangzhujia.eshop.core.authentication.authority.Authority;
-import com.fenghuangzhujia.eshop.core.authentication.authority.AuthorityRepository;
+import com.fenghuangzhujia.eshop.core.authentication.authority.concrete.ConcreteAuthorityRepository;
+import com.fenghuangzhujia.eshop.core.authentication.authority.concrete.ConcreteAuthority;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.foundation.core.service.AbstractPagingAndSortingService;
@@ -19,7 +19,7 @@ import com.fenghuangzhujia.foundation.core.service.AbstractPagingAndSortingServi
 public class RoleService extends AbstractPagingAndSortingService<Role, String> {
 	
 	@Autowired
-	private AuthorityRepository authorityRepository;
+	private ConcreteAuthorityRepository authorityRepository;
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -43,7 +43,9 @@ public class RoleService extends AbstractPagingAndSortingService<Role, String> {
 		Role role=super.findOne(id);
 		if(role==null) return null;
 		Hibernate.initialize(role.getUsers());
-		Hibernate.initialize(role.getAuthorities());
+		Hibernate.initialize(role.getResourceAuthorities());
+		Hibernate.initialize(role.getOperationAuthorities());
+		Hibernate.initialize(role.getConcreteAuthorities());
 		return role;
 	}
 	
@@ -63,9 +65,9 @@ public class RoleService extends AbstractPagingAndSortingService<Role, String> {
 			role.setAuthorities(null);
 			return role;
 		}
-		Set<Authority> authorities=new HashSet<>();
+		Set<ConcreteAuthority> authorities=new HashSet<>();
 		for (String authorityid : authorityids) {
-			Authority authority=authorityRepository.findOne(authorityid);
+			ConcreteAuthority authority=authorityRepository.findOne(authorityid);
 			authorities.add(authority);
 		}
 		role.setAuthorities(authorities);

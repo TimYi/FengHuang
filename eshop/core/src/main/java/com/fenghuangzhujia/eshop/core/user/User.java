@@ -1,19 +1,19 @@
 package com.fenghuangzhujia.eshop.core.user;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
-import org.springframework.security.core.userdetails.UserDetails;
-
-import com.fenghuangzhujia.eshop.core.authentication.authority.Authority;
+import com.fenghuangzhujia.eshop.core.authentication.authority.concrete.ConcreteAuthority;
+import com.fenghuangzhujia.eshop.core.authentication.authority.opration.OperationAuthority;
+import com.fenghuangzhujia.eshop.core.authentication.authority.resource.ResourceAuthority;
 import com.fenghuangzhujia.eshop.core.authentication.role.Role;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 import com.fenghuangzhujia.foundation.core.enums.BloodType;
@@ -23,14 +23,42 @@ import com.fenghuangzhujia.foundation.core.enums.Sex;
 import com.fenghuangzhujia.foundation.media.MediaContent;
 
 @Entity
-public class User extends UUIDBaseModel implements UserDetails {
-	private static final long serialVersionUID = 8173403045355645001L;
-	
+public class User extends UUIDBaseModel {
 	private String username;	
 	private String password;	
 	private Set<Role> roles;
 	private Boolean verified;
 	private String salt;
+	private Set<ResourceAuthority> resourceAuthorities;
+	private Set<OperationAuthority> operationAuthorities;
+	private Set<ConcreteAuthority> concreteAuthorities;
+	
+	@ManyToMany
+	@JoinTable
+	public Set<ResourceAuthority> getResourceAuthorities() {
+		return resourceAuthorities;
+	}
+	public void setResourceAuthorities(Set<ResourceAuthority> resourceAuthorities) {
+		this.resourceAuthorities = resourceAuthorities;
+	}
+	
+	@ManyToMany
+	@JoinTable
+	public Set<OperationAuthority> getOperationAuthorities() {
+		return operationAuthorities;
+	}
+	public void setOperationAuthorities(Set<OperationAuthority> operationAuthorities) {
+		this.operationAuthorities = operationAuthorities;
+	}
+	
+	@ManyToMany
+	@JoinTable
+	public Set<ConcreteAuthority> getConcreteAuthorities() {
+		return concreteAuthorities;
+	}
+	public void setConcreteAuthorities(Set<ConcreteAuthority> concreteAuthorities) {
+		this.concreteAuthorities = concreteAuthorities;
+	}
 	
 	/**
 	 * @return the username
@@ -80,46 +108,23 @@ public class User extends UUIDBaseModel implements UserDetails {
 		this.roles = roles;
 	}
 	
-	@Transient
-	@Override
-	public boolean isAccountNonExpired() {
-		return true;
-	}
-	@Transient
-	@Override
-	public boolean isAccountNonLocked() {
-		return true;
-	}
-	@Transient
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return true;
-	}
 	/**
 	 * 通过是否通过认证给予权限
 	 */
 	@Transient
-	@Override
 	public boolean isEnabled() {
 		return verified;
 	}	
 	
-	private Set<Authority> authorities;
 	/**
-	 * @return the authorities
-	 * never <code>null</code>
+	 * 加密盐
+	 * @return
 	 */
-	@Transient
-	@Override
-	public Set<Authority> getAuthorities() {
-		return authorities==null?Collections.<Authority>emptySet():authorities;
+	public String getSalt() {
+		return salt;
 	}
-	/**
-	 * 在认证之前，服务层要保证authorities被赋值
-	 * @param authorities the authorities to set
-	 */
-	public void setAuthorities(Set<Authority> authorities) {
-		this.authorities = authorities;
+	public void setSalt(String salt) {
+		this.salt = salt;
 	}
 	
 	private String[] roleids;
@@ -136,19 +141,7 @@ public class User extends UUIDBaseModel implements UserDetails {
 	 */
 	public void setRoleids(String[] roleids) {
 		this.roleids = roleids;
-	}
-	
-	/**
-	 * 加密盐
-	 * @return
-	 */
-	public String getSalt() {
-		return salt;
-	}
-	public void setSalt(String salt) {
-		this.salt = salt;
-	}
-	
+	}	
 	
 	//授权检测过程无关属性定义
 	private String question;

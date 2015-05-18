@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.fenghuangzhujia.eshop.core.authentication.authority.Authority;
-import com.fenghuangzhujia.eshop.core.authentication.authority.AuthorityService;
+import com.fenghuangzhujia.eshop.core.authentication.authority.concrete.ConcreteAuthorityService;
+import com.fenghuangzhujia.eshop.core.authentication.authority.concrete.ConcreteAuthority;
 import com.fenghuangzhujia.eshop.core.authentication.role.Role;
 import com.fenghuangzhujia.eshop.core.authentication.role.RoleService;
 
@@ -20,22 +20,22 @@ import com.fenghuangzhujia.eshop.core.authentication.role.RoleService;
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
 public class AuthorityInitializer {
 	@Autowired
-	AuthorityService authorityService;
+	ConcreteAuthorityService authorityService;
 	@Autowired
 	RoleService roleService;
 	
 	@Test
 	public void init() {
-		Authority authority;
+		ConcreteAuthority authority;
 		Role role;
 		String[] authorities={DESIGNER,ADMIN,ENTER};
 		for (String au : authorities) {
-			authority=new Authority();
+			authority=new ConcreteAuthority();
 			authority.setAuthority(au);
 			authorityService.add(authority);
 			role=new Role();
 			role.setName(StringUtils.removeStart(au, PREFIX));
-			HashSet<Authority> roleAuthorities=new HashSet<>();
+			HashSet<ConcreteAuthority> roleAuthorities=new HashSet<>();
 			roleAuthorities.add(authority);
 			role.setAuthorities(roleAuthorities);
 			roleService.add(role);

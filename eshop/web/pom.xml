@@ -38,21 +38,16 @@
         </dependency>        
         <!-- spring end -->
         
-        <!-- spring security begin -->
-        <dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-		</dependency>
+        <!-- apache shiro begin -->
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-		</dependency>
-		
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+		</dependency>		
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-taglibs</artifactId>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-ehcache</artifactId>
 		</dependency>
-        <!-- spring security end -->
+        <!-- apache shiro end -->
         
         <!-- commons begin -->		
 		<dependency>

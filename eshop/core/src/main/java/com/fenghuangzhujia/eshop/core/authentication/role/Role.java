@@ -8,7 +8,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Transient;
 
-import com.fenghuangzhujia.eshop.core.authentication.authority.Authority;
+import com.fenghuangzhujia.eshop.core.authentication.authority.concrete.ConcreteAuthority;
+import com.fenghuangzhujia.eshop.core.authentication.authority.opration.OperationAuthority;
+import com.fenghuangzhujia.eshop.core.authentication.authority.resource.ResourceAuthority;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 
@@ -17,115 +19,93 @@ public class Role extends UUIDBaseModel {
 	
 	private String name;
 	private String description;
-	private Set<Authority> authorities;
-	private Set<User> users;	
+	private Set<ResourceAuthority> resourceAuthorities;
+	private Set<OperationAuthority> operationAuthorities;
+	private Set<ConcreteAuthority> concreteAuthorities;
+	private Set<User> users;
 	
-
-	/**
-	 * @return the name
-	 */
 	@Column(unique=true)
 	public String getName() {
 		return name;
 	}
-
-	/**
-	 * @param name the name to set
-	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	/**
-	 * @return the description
-	 */
 	public String getDescription() {
 		return description;
 	}
-
-	/**
-	 * @param description the description to set
-	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	/**
-	 * @return the users
-	 */
+	
 	@ManyToMany
-	@JoinTable(name="user_roles")
+	@JoinTable
+	public Set<ResourceAuthority> getResourceAuthorities() {
+		return resourceAuthorities;
+	}
+	public void setResourceAuthorities(Set<ResourceAuthority> resourceAuthorities) {
+		this.resourceAuthorities = resourceAuthorities;
+	}
+	
+	@ManyToMany
+	@JoinTable
+	public Set<OperationAuthority> getOperationAuthorities() {
+		return operationAuthorities;
+	}
+	public void setOperationAuthorities(Set<OperationAuthority> operationAuthorities) {
+		this.operationAuthorities = operationAuthorities;
+	}
+	
+	@ManyToMany
+	@JoinTable
+	public Set<ConcreteAuthority> getConcreteAuthorities() {
+		return concreteAuthorities;
+	}
+	public void setConcreteAuthorities(Set<ConcreteAuthority> concreteAuthorities) {
+		this.concreteAuthorities = concreteAuthorities;
+	}
+	
+	@ManyToMany
+	@JoinTable
 	public Set<User> getUsers() {
 		return users;
 	}
-
-	/**
-	 * @param users the users to set
-	 */
 	public void setUsers(Set<User> users) {
 		this.users = users;
-	}
-
-	/**
-	 * @return the authorities
-	 */
-	@ManyToMany
-	@JoinTable(name="role_authorities")
-	public Set<Authority> getAuthorities() {
-		return authorities;
-	}
-
-	/**
-	 * @param authorities the authorities to set
-	 */
-	public void setAuthorities(Set<Authority> authorities) {
-		this.authorities = authorities;
-	}
+	}	
 	
-	
+	//数据传输属性
+	private String[] userids;
+	private String[] resourceids;
+	private String[] operationids;
 	private String[] authorityids;
 
-	/**
-	 * 保存时方便传值
-	 * @return the authorityids
-	 */
+	@Transient
+	public String[] getUserids() {
+		return userids;
+	}
+	public void setUserids(String[] userids) {
+		this.userids = userids;
+	}
+	@Transient
+	public String[] getResourceids() {
+		return resourceids;
+	}
+	public void setResourceids(String[] resourceids) {
+		this.resourceids = resourceids;
+	}
+	@Transient
+	public String[] getOperationids() {
+		return operationids;
+	}
+	public void setOperationids(String[] operationids) {
+		this.operationids = operationids;
+	}
 	@Transient
 	public String[] getAuthorityids() {
 		return authorityids;
 	}
-
-	/**
-	 * @param authorityids the authorityids to set
-	 */
 	public void setAuthorityids(String[] authorityids) {
 		this.authorityids = authorityids;
-	}	
-	
-	private String[] userids;
-
-
-	/**
-	 * @return the userids
-	 */
-	public String[] getUserids() {
-		return userids;
-	}
-
-	/**
-	 * @param userids the userids to set
-	 */
-	@Transient
-	public void setUserids(String[] userids) {
-		this.userids = userids;
-	}
-	
-	public boolean hasAuthority(Authority authority) {
-		if(authorities==null) return false;
-		for (Authority basicAuthority : authorities) {
-			if(basicAuthority.getId().equals(authority.getId())) {
-				return true;
-			}
-		}
-		return false;
 	}
 }

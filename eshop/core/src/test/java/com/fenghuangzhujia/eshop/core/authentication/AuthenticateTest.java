@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.fenghuangzhujia.eshop.core.authentication.authority.Authority;
-import com.fenghuangzhujia.eshop.core.authentication.authority.AuthorityService;
+import com.fenghuangzhujia.eshop.core.authentication.authority.concrete.ConcreteAuthorityService;
+import com.fenghuangzhujia.eshop.core.authentication.authority.concrete.ConcreteAuthority;
 import com.fenghuangzhujia.eshop.core.authentication.role.Role;
 import com.fenghuangzhujia.eshop.core.authentication.role.RoleService;
 import com.fenghuangzhujia.eshop.core.user.User;
@@ -21,7 +21,7 @@ import com.fenghuangzhujia.eshop.core.user.UserService;
 public class AuthenticateTest {
 
 	@Autowired
-	private AuthorityService authorityService;
+	private ConcreteAuthorityService authorityService;
 	@Autowired
 	private RoleService roleService;
 	@Autowired
@@ -29,12 +29,12 @@ public class AuthenticateTest {
 	
 	//@Test
 	public void addRole() {
-		Authority authority=new Authority();
+		ConcreteAuthority authority=new ConcreteAuthority();
 		authority.setAuthority("ROLE_DESIGNER");
 		authority=authorityService.add(authority);
 		Role role=new Role();
 		role.setName("Designer");
-		Set<Authority> authorities=new HashSet<>();
+		Set<ConcreteAuthority> authorities=new HashSet<>();
 		authorities.add(authority);
 		role.setAuthorities(authorities);
 		roleService.add(role);		
