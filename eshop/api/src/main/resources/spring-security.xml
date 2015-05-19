@@ -11,13 +11,12 @@
 		http://www.springframework.org/schema/security/spring-security-4.0.xsd">  
 	<context:component-scan base-package="com.fenghuangzhujia.yunyichu.service,com.fenghuangzhujia.yunyichu.security,com.fenghuangzhujia.yunyichu.cache"/>
 	
-	
 	<!-- 一套可以启动的配置  -->
 	<http security-context-repository-ref="nullSecurityContextRepository"><!-- 禁用session验证功能，统一使用token验证 -->
 		<csrf disabled="true"/>
 		<custom-filter after="SECURITY_CONTEXT_FILTER" ref="tokenAuthFilter" />
 		<!-- 所有因没有登录而报错的接口将重定向到/unauth，返回错误消息 -->
-		<form-login login-page="/unauth"/>
+		<form-login login-page="/unauth" login-processing-url="/lg"/>
 		<access-denied-handler error-page="/accessDenied"/>
 		<!-- 
 		<intercept-url pattern="/admin" access="hasAnyRole('${authority.designer}','${authority.admin}','${authority.enter}')"/>
@@ -35,9 +34,12 @@
 	</http>
 	 
 	<authentication-manager alias="authenticationManager">
-		<authentication-provider user-service-ref="authenticateService"/>
+		<authentication-provider user-service-ref="authenticateService">
+			<password-encoder ref="bcryptEncoder"/>
+		</authentication-provider>
 	</authentication-manager>
 	
-	
+	<beans:bean name="bcryptEncoder"
+	class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
 	
 </beans:beans>

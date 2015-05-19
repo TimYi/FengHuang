@@ -16,6 +16,23 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 	    <tracking-mode>COOKIE</tracking-mode>
 	</session-config>
 	
+	<servlet>    
+        <servlet-name>SimpleCaptcha</servlet-name>    
+        <servlet-class>nl.captcha.servlet.SimpleCaptchaServlet</servlet-class>    
+        <init-param>    
+            <param-name>width</param-name>    
+            <param-value>150</param-value>    
+        </init-param>    
+        <init-param>    
+            <param-name>height</param-name>    
+            <param-value>75</param-value>    
+        </init-param>    
+    </servlet>  
+    <servlet-mapping>     
+        <servlet-name>SimpleCaptcha</servlet-name>    
+        <url-pattern>/captcha</url-pattern>    
+    </servlet-mapping>
+	
 	<filter>
     	<filter-name>characterEncodingFilter</filter-name>
     	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

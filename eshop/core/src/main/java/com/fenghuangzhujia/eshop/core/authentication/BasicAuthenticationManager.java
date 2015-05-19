@@ -2,8 +2,6 @@ package com.fenghuangzhujia.eshop.core.authentication;
 
 import static com.fenghuangzhujia.eshop.core.base.SystemErrorCodes.*;
 
-import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -14,6 +12,7 @@ import com.fenghuangzhujia.eshop.core.authentication.token.UserToken;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
+import com.fenghuangzhujia.foundation.utils.Identities;
 import com.fenghuangzhujia.foundation.utils.PhoneNumberValidator;
 
 @Service(value="authenticateService")
@@ -62,7 +61,7 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 		//确保用户经过认证
 		if(!user.isEnabled())throw new ErrorCodeException(LOGIN_ERROR, "用户尚未通过认证，请先注册");
 		String pwd=user.getPassword();
-		if(!pwd.equals(password)) {
+		if(!ENCODER.matches(password, pwd)) {
 			throw new ErrorCodeException(LOGIN_ERROR, "密码错误，请重新输入");
 		}
 		UserToken token=tokenRepository.getByUser(user);
@@ -74,26 +73,6 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 		}
 		token=refreshToken(token);
 		return token;
-	}
-	
-	@Override
-	public void preRegist(String username, String password)
-			throws Exception {
-		User user=userRepository.getByUsername(username);
-		//不能覆盖已有账户
-		if(user!=null) {
-			return;			
-		}
-		try {
-			checkAccount(username);
-		} catch (Exception e) {
-			throw new Exception(e);
-		}
-		user=new User();
-		user.setUsername(username);
-		user.setPassword(password);
-		user.setVerified(false);
-		userRepository.save(user);		
 	}
 
 	@Override
@@ -116,14 +95,27 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 		}
 		user.setPassword(password);
 		user.setVerified(true);
-		userRepository.save(user);
+		entryptPassword(user);
+		user=userRepository.save(user);
 		UserToken token=tokenRepository.getByUser(user);
 		if(token==null){
 			token=new UserToken();
-			tokenRepository.save(token);
+			token.setUser(user);
 		}
 		token=refreshToken(token);
 		return token;
+	}
+	
+	/**
+	 * 设定安全的密码，生成随机的salt并经过1024次 sha-1 hash
+	 */
+	private void entryptPassword(User user) {
+		String password=entryptPassword(user.getPassword());
+		user.setPassword(password);
+	}
+	
+	private String entryptPassword(String password) {
+		return ENCODER.encode(password);
 	}
 
 	@Override
@@ -134,6 +126,7 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 			User user=t.getUser();
 			checkPassword(newPassword);
 			user.setPassword(newPassword);
+			entryptPassword(user);
 			userRepository.save(user);
 			return t;
 		} catch (Exception e) {
@@ -147,8 +140,7 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	 * @return
 	 */
 	protected UserToken refreshToken(UserToken token) {
-		UUID uuid=UUID.randomUUID();
-		String tokenString=uuid.toString();
+		String tokenString=Identities.uuid();
 		token.setToken(tokenString);
 		tokenRepository.save(token);
 		return token;
