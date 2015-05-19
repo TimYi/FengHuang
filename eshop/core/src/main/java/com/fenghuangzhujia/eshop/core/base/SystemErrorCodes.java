@@ -24,6 +24,8 @@ public class SystemErrorCodes {
 	
 	public static final ErrorCode CHANGE_PASSWORD_ERROR;
 	
+	public static final ErrorCode CREDENTIAL_ERROR;
+	
 	/**
 	 * 数据库实体没有找到
 	 */
@@ -64,6 +66,7 @@ public class SystemErrorCodes {
 		CHANGE_PASSWORD_ERROR=new ErrorCode(5, "修改密码错误");	
 		ENTITY_NOT_FOUND=new ErrorCode(6, "实体未找到");
 		ILLEGAL_ARGUMENT=new ErrorCode(7, "非法参数");
+		CREDENTIAL_ERROR=new ErrorCode(8, "用户名错误");
 		
 		SCHEDUAL_CONFILICT=new ErrorCode(101, "出现时间重叠，请重新选择时间！");
 		SCHEDUAL_OCCUPIED=new ErrorCode(102, "此时间段已经被预约，请您重新选择！");

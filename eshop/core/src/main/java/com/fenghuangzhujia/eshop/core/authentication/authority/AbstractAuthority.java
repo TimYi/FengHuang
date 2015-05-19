@@ -8,8 +8,7 @@ import javax.persistence.InheritanceType;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorColumn(name="level")
 public abstract class AbstractAuthority extends UUIDBaseModel implements Authority {
-
 }

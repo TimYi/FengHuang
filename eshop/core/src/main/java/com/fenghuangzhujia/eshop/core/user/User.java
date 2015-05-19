@@ -1,6 +1,8 @@
 package com.fenghuangzhujia.eshop.core.user;
 
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -102,8 +104,50 @@ public class User extends UUIDBaseModel {
 	}
 	public void setSalt(String salt) {
 		this.salt = salt;
-	}
+	}	
 	
+	@Transient
+	private Set<String> authorityList;
+	private Set<String> roleList;
+	
+	/**
+	 * 初始化AuthorityList和roleList
+	 */
+	public void initAuthorityAndRoles() {
+		//初始化authorityList
+		Set<String> authorityList=new HashSet<>();
+		if(roles!=null) {
+			for (Role role : roles) {
+				if(role.getAuthorities()==null)continue;
+				for (AbstractAuthority authority : role.getAuthorities()) {
+					authorityList.add(authority.getAuthority());
+				}
+			}
+		}
+		if(authorities!=null) {
+			for (AbstractAuthority authority : authorities) {
+				authorityList.add(authority.getAuthority());
+			}
+		}
+		this.authorityList=authorityList;		
+		//初始化roleList
+		if(roles==null)this.roleList=Collections.emptySet();
+		Set<String> roleList=new HashSet<>();
+		for (Role role : roles) {
+			roleList.add(role.getName());
+		}
+		this.roleList=roleList;
+	}
+	@Transient
+	public Set<String> getAuthorityList() {
+		if(this.authorityList==null)throw new RuntimeException("未初始化");
+		return this.authorityList;
+	}
+	@Transient
+	public Set<String> getRoleList() {
+		if(this.authorityList==null)throw new RuntimeException("未初始化");
+		return this.roleList;
+	}
 	
 	//传值属性
 	private String[] roleids;
@@ -123,7 +167,7 @@ public class User extends UUIDBaseModel {
 	}
 	
 	private String[] authorityids;
-	
+	@Transient
 	public String[] getAuthorityids() {
 		return authorityids;
 	}

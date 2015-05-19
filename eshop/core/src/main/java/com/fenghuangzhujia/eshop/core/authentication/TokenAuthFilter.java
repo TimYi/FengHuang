@@ -15,8 +15,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;
 
-import com.fenghuangzhujia.eshop.core.user.User;
-
 @Component(value="tokenAuthFilter")
 public class TokenAuthFilter extends GenericFilterBean {
 	
@@ -44,10 +42,11 @@ public class TokenAuthFilter extends GenericFilterBean {
 		//标识是否需要清除Authentication，防止重复请求接口产生大量Authentication
 		boolean shouldClean=false;
 		try {
-			User user=authenticationManager.authenticate(token);
+			SimpleUserDetails user=authenticationManager.authenticate(token);
 			if(user!=null) {
 				UsernamePasswordAuthenticationToken authentication=
-						new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword(), user.getAuthorities());				
+						new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword(), user.getAuthorities());	
+				authentication.setDetails(user);
 				context.setAuthentication(authentication);
 				SecurityContextHolder.setContext(context);
 				shouldClean=true;			

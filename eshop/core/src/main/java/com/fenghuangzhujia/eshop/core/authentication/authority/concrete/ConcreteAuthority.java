@@ -49,12 +49,14 @@ public class ConcreteAuthority extends AbstractAuthority implements Authority {
 	}
 	
 	@Override
+	@Transient
 	public String getAuthority() {
 		String operationName=getOperation().getAuthority();
 		String authority=operationName+getResourceid();
 		return authority;
 	}
-	
+
+
 	//数据传输属性
 	private String operationid;
 

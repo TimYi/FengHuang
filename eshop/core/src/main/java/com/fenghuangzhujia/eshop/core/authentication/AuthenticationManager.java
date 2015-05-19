@@ -4,8 +4,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.fenghuangzhujia.eshop.core.authentication.token.UserToken;
-import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
+
 
 public interface AuthenticationManager extends UserDetailsService {
 	
@@ -13,7 +13,7 @@ public interface AuthenticationManager extends UserDetailsService {
 	 * 需要保证返回的User中加载了全部权限信息
 	 */
 	@Override
-	User loadUserByUsername(String username) throws UsernameNotFoundException;
+	SimpleUserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
 	
 	/**
 	 * 用户登录并获取返回token
@@ -30,7 +30,7 @@ public interface AuthenticationManager extends UserDetailsService {
 	 * @return
 	 * @throws TokenErrorException
 	 */
-	User authenticate(String token) throws ErrorCodeException;
+	SimpleUserDetails authenticate(String token) throws ErrorCodeException;
 	
 	/**
 	 * 在某些情况下允许用户预注册，但是标记用户isValidated为false，不分配任何角色

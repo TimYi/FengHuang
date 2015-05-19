@@ -44,7 +44,6 @@ public class Role extends UUIDBaseModel {
 	}
 	
 	@ManyToMany
-	@JoinTable
 	public Set<User> getUsers() {
 		return users;
 	}

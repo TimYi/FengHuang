@@ -5,12 +5,11 @@ import java.util.Set;
 
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fenghuangzhujia.eshop.core.authentication.AuthenticationManager;
-import com.fenghuangzhujia.eshop.core.authentication.authority.concrete.ConcreteAuthority;
+import com.fenghuangzhujia.eshop.core.authentication.authority.AbstractAuthority;
+import com.fenghuangzhujia.eshop.core.authentication.authority.AuthorityRepository;
 import com.fenghuangzhujia.eshop.core.authentication.role.Role;
 import com.fenghuangzhujia.eshop.core.authentication.role.RoleRepository;
 import com.fenghuangzhujia.foundation.core.service.AbstractPagingAndSortingService;
@@ -22,7 +21,7 @@ public class UserService extends AbstractPagingAndSortingService<User, String> {
 	@Autowired
 	private RoleRepository roleRepository;
 	@Autowired
-	private AuthenticationManager manager;
+	private AuthorityRepository authorityRepository;
 	
 	/**
 	 * 根据用户名称获取用户实体
@@ -30,8 +29,8 @@ public class UserService extends AbstractPagingAndSortingService<User, String> {
 	 * @return
 	 * @throws UsernameNotFoundException
 	 */
-	public User getByUsername(String username) throws UsernameNotFoundException {
-		return manager.loadUserByUsername(username);
+	public User getByUsername(String username) {
+		return getRepository().getByUsername(username);
 	}
 	
 	@Override
@@ -49,6 +48,7 @@ public class UserService extends AbstractPagingAndSortingService<User, String> {
 			throw new RuntimeException("用户名重复！");
 		}
 		t=loadRoles(t, t.getRoleids());
+		t=loadAuthorities(t, t.getAuthorityids());
 		getRepository().save(t);
 		return t;
 	}
@@ -57,10 +57,8 @@ public class UserService extends AbstractPagingAndSortingService<User, String> {
 	public User update(User t) {
 		User user=getRepository().findOne(t.getId());
 		user.setVerified(t.isVerified());
-		//应该禁止非用户本人对用户名和密码的修改（只有创建时可以添加）
-		//user.setUsername(t.getUsername());
-		//user.setPassword(t.getPassword());
 		user=loadRoles(user, t.getRoleids());
+		user=loadAuthorities(user, t.getAuthorityids());
 		return user;
 	}
 	
@@ -78,6 +76,21 @@ public class UserService extends AbstractPagingAndSortingService<User, String> {
 		return user;
 	}
 	
+	private User loadAuthorities(User user, String[] authorityids) {
+		if(authorityids==null) {
+			return user;
+		}
+		Set<AbstractAuthority> authorities=new HashSet<>();
+		for (String authorityid : authorityids) {
+			AbstractAuthority authority=authorityRepository.findOne(authorityid);
+			if(authority!=null) {
+				authorities.add(authority);
+			}			
+		}
+		user.setAuthorities(authorities);
+		return user;
+	}
+	
 	@Autowired
 	public void setUserRepository(UserRepository repository) {
 		super.setRepository(repository);
@@ -85,39 +98,6 @@ public class UserService extends AbstractPagingAndSortingService<User, String> {
 	@Override
 	public UserRepository getRepository() {
 		return (UserRepository)super.getRepository();
-	}
-	
-	/**
-	 * 判断用户是否有指定权限集合
-	 * @param user
-	 * @param authorities
-	 * @return
-	 */
-	public boolean hasAuthority(User user, Set<String> authorities) {
-		Set<String> authoritiesSet=new HashSet<>();
-		for (ConcreteAuthority authority : user.getAuthorities()) {
-			authoritiesSet.add(authority.getAuthority());
-		}
-		for (String au : authorities) {
-			if(!authoritiesSet.contains(au))return false;
-		}
-		return true;
-	}
-	
-	/**
-	 * 判断用户是否有指定权限集合
-	 * @param username
-	 * @param authorities
-	 * @return
-	 */
-	public boolean hasAuthority(String username, Set<String> authorities) {
-		User user;
-		try {
-			user=getByUsername(username);
-		} catch (UsernameNotFoundException e) {
-			return false;
-		}
-		return hasAuthority(user, authorities);
 	}
 }
 
