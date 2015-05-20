@@ -74,10 +74,8 @@
 	</bean>
 	
 	<!-- 上传文件自定义组件初始化 -->
-    <bean class="com.fenghuangzhujia.foundation.media.LocalMediaService">
+    <bean class="com.fenghuangzhujia.foundation.media.ApplicationMediaService">
   		<property name="serverName" value="${imageServer.name}"/>
-  		<property name="serverAddress" value="${imageServer.address}"/>
-  		<property name="basePath" value="${imageServer.basePath}"/>
   		<property name="relativePath" value="${imageServer.relativePath}"/>
   	</bean> 
   	

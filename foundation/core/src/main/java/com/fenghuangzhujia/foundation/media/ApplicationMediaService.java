@@ -22,4 +22,9 @@ public class ApplicationMediaService extends LocalMediaService {
 	public String getBasePath() {
 		return context.getRealPath("/");
 	}
+	
+	@Override
+	public String getServerAddress() {
+		return context.getContextPath();
+	}
 }
