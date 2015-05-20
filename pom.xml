@@ -58,7 +58,7 @@
 	<repositories>
 	    <repository>
 	      <id>my</id>
-	      <url>file://${basedir}/repo</url>
+	      <url>file://${project.basedir}/repo</url>
 	    </repository>
     </repositories>
 

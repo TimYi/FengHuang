@@ -14,14 +14,14 @@ import com.fenghuangzhujia.foundation.core.model.PagedList;
 @Service
 @Transactional
 public class MessageService extends DtoPagingService<Message, MessageDto, String> {
-	public PagedList<MessageDto> findPage(Integer page, Integer size, User user) {
+	public PagedList<MessageDto> findPage(int page, int size, User user) {
 		PageRequest request=new PageRequest(page-1, size);
 		Page<Message> list=getRepository().findByUser(user, request);
 		Page<MessageDto> result=list.map(adapter);
 		return new PagedList<>(result);
 	}
 	
-	public PagedList<MessageDto> findPage(Integer page, Integer size, String userid) {
+	public PagedList<MessageDto> findPage(int page, int size, String userid) {
 		PageRequest request=new PageRequest(page-1, size);
 		Page<Message> list=getRepository().findByUserId(userid, request);
 		Page<MessageDto> result=list.map(adapter);

@@ -15,14 +15,14 @@ import com.fenghuangzhujia.foundation.core.model.PagedList;
 @Transactional
 public class CollectService extends DtoPagingService<Collect, CollectDto, String> {
 	
-	public PagedList<CollectDto> findPage(Integer page, Integer size, User user) {
+	public PagedList<CollectDto> findPage(int page, int size, User user) {
 		PageRequest request=new PageRequest(page-1, size);
 		Page<Collect> list=getRepository().findByUser(user, request);
 		Page<CollectDto> result=list.map(adapter);
 		return new PagedList<>(result);
 	}
 	
-	public PagedList<CollectDto> findPage(Integer page, Integer size, String userid) {
+	public PagedList<CollectDto> findPage(int page, int size, String userid) {
 		PageRequest request=new PageRequest(page-1, size);
 		Page<Collect> list=getRepository().findByUserId(userid, request);
 		Page<CollectDto> result=list.map(adapter);

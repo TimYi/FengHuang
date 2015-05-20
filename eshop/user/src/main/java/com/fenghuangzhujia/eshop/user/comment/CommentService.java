@@ -14,14 +14,14 @@ import com.fenghuangzhujia.foundation.core.model.PagedList;
 @Service
 @Transactional
 public class CommentService extends DtoPagingService<Comment, CommentDto, String> {
-	public PagedList<CommentDto> findPage(Integer page, Integer size, User user) {
+	public PagedList<CommentDto> findPage(int page, int size, User user) {
 		PageRequest request=new PageRequest(page-1, size);
 		Page<Comment> list=getRepository().findByUser(user, request);
 		Page<CommentDto> result=list.map(adapter);
 		return new PagedList<>(result);
 	}
 	
-	public PagedList<CommentDto> findPage(Integer page, Integer size, String userid) {
+	public PagedList<CommentDto> findPage(int page, int size, String userid) {
 		PageRequest request=new PageRequest(page-1, size);
 		Page<Comment> list=getRepository().findByUserId(userid, request);
 		Page<CommentDto> result=list.map(adapter);
