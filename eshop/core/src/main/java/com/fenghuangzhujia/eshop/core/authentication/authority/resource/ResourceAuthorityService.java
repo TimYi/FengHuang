@@ -5,11 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fenghuangzhujia.foundation.core.service.AbstractPagingAndSortingService;
+import com.fenghuangzhujia.foundation.core.service.AbstractPagingService;
 
 @Service
 @Transactional
-public class ResourceAuthorityService extends AbstractPagingAndSortingService<ResourceAuthority, String> {
+public class ResourceAuthorityService extends AbstractPagingService<ResourceAuthority, String> {
 
 	@Override
 	public ResourceAuthority findOne(String id) {

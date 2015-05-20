@@ -6,11 +6,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.eshop.core.authentication.authority.opration.OperationAuthority;
 import com.fenghuangzhujia.eshop.core.authentication.authority.opration.OperationAuthorityRepository;
-import com.fenghuangzhujia.foundation.core.service.AbstractPagingAndSortingService;
+import com.fenghuangzhujia.foundation.core.service.AbstractPagingService;
 
 @Service
 @Transactional
-public class ConcreteAuthorityService extends AbstractPagingAndSortingService<ConcreteAuthority, String> {
+public class ConcreteAuthorityService extends AbstractPagingService<ConcreteAuthority, String> {
 	
 	@Autowired
 	private OperationAuthorityRepository operationRepository;

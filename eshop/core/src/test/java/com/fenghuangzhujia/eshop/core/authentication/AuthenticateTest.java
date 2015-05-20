@@ -39,12 +39,12 @@ public class AuthenticateTest {
 		//authenticationManager.regist("18612444099", "12345678");
 	}
 	
-	//@Test
+	@Test
 	public void addRole() {	
 		Role role=new Role();
-		role.setName("test");
-		String[] userids={"404040e64d6a23b1014d6a23b64d0001"};
-		role.setUserids(userids);
+		role.setName("test1");
+		//String[] userids={"404040e64d6a23b1014d6a23b64d0001"};
+		//role.setUserids(userids);
 		roleService.add(role);
 	}
 	
@@ -59,7 +59,7 @@ public class AuthenticateTest {
 	}
 	
 
-	@Test
+	//@Test
 	public void allocateRole() {
 		User user=userService.getByUsername("18612444099");
 		String[] roleids={"404040e64d6a2358014d6a235d320000"};

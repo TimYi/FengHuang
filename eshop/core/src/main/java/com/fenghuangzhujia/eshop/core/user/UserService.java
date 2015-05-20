@@ -12,11 +12,11 @@ import com.fenghuangzhujia.eshop.core.authentication.authority.AbstractAuthority
 import com.fenghuangzhujia.eshop.core.authentication.authority.AuthorityRepository;
 import com.fenghuangzhujia.eshop.core.authentication.role.Role;
 import com.fenghuangzhujia.eshop.core.authentication.role.RoleRepository;
-import com.fenghuangzhujia.foundation.core.service.AbstractPagingAndSortingService;
+import com.fenghuangzhujia.foundation.core.service.AbstractPagingService;
 
 @Service
 @Transactional
-public class UserService extends AbstractPagingAndSortingService<User, String> {
+public class UserService extends AbstractPagingService<User, String> {
 	
 	@Autowired
 	private RoleRepository roleRepository;

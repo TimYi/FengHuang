@@ -19,7 +19,7 @@ public class AccountController {
 	@Autowired
 	AuthenticationManager manager;
 	
-	@RequestMapping(value="login",method=RequestMethod.GET)
+	@RequestMapping(value="login",method=RequestMethod.POST)
 	public String login(String username, String password) {
 		UserToken token=manager.login(username, password);
 		String tokenString=token.getToken();
@@ -34,7 +34,7 @@ public class AccountController {
 	 * @param validater 短信验证码
 	 * @return
 	 */
-	@RequestMapping(value="regist",method=RequestMethod.GET)
+	@RequestMapping(value="regist",method=RequestMethod.POST)
 	public String regist(String username, String password, String mobile, String validater) {
 		messageManager.validate(mobile, validater);
 		UserToken token=manager.regist(username, password);

@@ -111,6 +111,12 @@
 				<version>${fenghuangzhujia.version}</version>
 				<scope>compile</scope>
 			</dependency>	
+			<dependency>
+				<groupId>com.fenghuangzhujia</groupId>
+				<artifactId>fenghuangzhujia-eshop-user</artifactId>
+				<version>${fenghuangzhujia.version}</version>
+				<scope>compile</scope>
+			</dependency>
 			<!-- fenghuangzhujia MODULES end -->
 			
 			<!-- spring-->

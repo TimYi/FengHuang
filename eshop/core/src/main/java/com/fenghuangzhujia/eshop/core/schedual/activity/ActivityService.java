@@ -3,11 +3,11 @@ package com.fenghuangzhujia.eshop.core.schedual.activity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fenghuangzhujia.foundation.core.service.AbstractPagingAndSortingService;
+import com.fenghuangzhujia.foundation.core.service.AbstractPagingService;
 
 @Transactional
 @Service
-public class ActivityService extends AbstractPagingAndSortingService<Activity, String> {
+public class ActivityService extends AbstractPagingService<Activity, String> {
 
 	@Override
 	public Activity update(Activity t) {

@@ -16,7 +16,7 @@ public class ValidateController {
 	@Autowired
 	private MessageManager manager;
 	
-	@RequestMapping(value="message",method=RequestMethod.GET)
+	@RequestMapping(value="message",method=RequestMethod.POST)
 	public String shortMessage(String mobile) {
 		if(!PhoneNumberValidator.isMobile(mobile)) {
 			return RequestResult.error(SystemErrorCodes.CAPTCHA_ERROR, "请输入正确的手机号码").toJson();
