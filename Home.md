@@ -1,4 +1,11 @@
 Welcome to the FengHuang wiki!
-#用户部分
-##用户注册接口
-[用户注册接口](regist)
+### 接口说明
+
+### 用户相关接口
+
+* [获取短信验证码](message)
+* [新用户注册](regist)
+* [用户登录](login)
+* [获取我的收藏列表](mycollects)
+* [获取我的评论列表](mycomments)
+* [获取我的留言列表](mymessages)
