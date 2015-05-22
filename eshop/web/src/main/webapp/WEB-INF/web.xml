@@ -26,7 +26,8 @@
   <servlet-mapping>
     <servlet-name>SimpleCaptcha</servlet-name>
     <url-pattern>/captcha</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping>  
+  
   <filter>
     <filter-name>characterEncodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -51,13 +52,15 @@
     <filter-name>springSecurityFilterChain</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  
+  <!-- 解决put请求requestbody读取问题 -->
   <filter>
     <filter-name>httpPutFormContentFilter</filter-name>
     <filter-class>org.springframework.web.filter.HttpPutFormContentFilter</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>httpPutFormContentFilter</filter-name>
-    <servlet-name>spring-mvc</servlet-name>
+    <url-pattern>/*</url-pattern>
   </filter-mapping>
   <servlet>
     <servlet-name>spring-mvc</servlet-name>

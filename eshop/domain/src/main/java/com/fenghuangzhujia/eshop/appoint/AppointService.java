@@ -27,6 +27,12 @@ public class AppointService extends DtoPagingService<Appoint, AppointDto, String
 		return new PagedList<>(result);
 	}
 	
+	public AppointDto getUserAppoint(String userid, String id) {
+		Appoint appoint=getRepository().findOne(id);
+		if(!appoint.getUser().getId().equals(userid))return null;
+		return adapter.convert(appoint);
+	}
+	
 	@Autowired
 	public void setAppointRepository(AppointRepository repository) {
 		super.setRepository(repository);

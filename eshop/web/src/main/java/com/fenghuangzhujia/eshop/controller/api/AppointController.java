@@ -1,5 +1,6 @@
 package com.fenghuangzhujia.eshop.controller.api;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,5 +32,13 @@ public class AppointController {
 		String userid=details.getId();
 		PagedList<AppointDto> appoints=appointService.findByUserId(userid, page, size);
 		return RequestResult.success(appoints).toJson();
+	}
+	
+	@RequestMapping(value="user/appoint/{id}",method=RequestMethod.GET)
+	public String myAppoint(@PathVariable String id) {
+		SimpleUserDetails details=AuthenticationService.getUserDetail();
+		String userid=details.getId();
+		AppointDto appoint=appointService.getUserAppoint(userid, id);
+		return RequestResult.success(appoint).toJson();
 	}
 }
