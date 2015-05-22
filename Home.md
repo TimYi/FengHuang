@@ -9,3 +9,8 @@ Welcome to the FengHuang wiki!
 * [获取我的收藏列表](mycollects)
 * [获取我的评论列表](mycomments)
 * [获取我的留言列表](mymessages)
+
+### 预约接口
+* [预约](appoint)
+* [我的预约列表](user/appoints)
+* [个人预约详情](user/appoint)
