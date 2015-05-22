@@ -28,7 +28,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.fenghuangzhujia</groupId>
-			<artifactId>fenghuangzhujia-eshop-user</artifactId>
+			<artifactId>fenghuangzhujia-eshop-domain</artifactId>
 		</dependency>
 		<!-- fenghuangzhujia end -->
 		
