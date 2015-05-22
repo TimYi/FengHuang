@@ -5,12 +5,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
 
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "categoryitem")
+@Table(name = "categoryitem",
+uniqueConstraints={@UniqueConstraint(columnNames={"name","category_id"})})
 public class CategoryItem extends UUIDBaseModel {
 	private String name;
 	private String attr;            // 属性，对于颜色，此处显示颜色代码，例如#FFFFFF

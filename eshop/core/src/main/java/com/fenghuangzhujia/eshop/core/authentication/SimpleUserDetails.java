@@ -46,7 +46,8 @@ public class SimpleUserDetails implements UserDetails {
 		}
 		if(user.getAuthorities()!=null) {
 			for (AbstractAuthority authority : user.getAuthorities()) {
-				authorityList.add(new PermissionAuthority(authority));
+				//authorityList.add(new PermissionAuthority(authority));
+				//暂时不允许细粒度的权限配置
 			}
 		}
 		//初始化roleList

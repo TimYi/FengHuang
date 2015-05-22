@@ -14,9 +14,8 @@
 
 	<modules>
 		<module>core</module>
-		<module>api</module>
 		<module>web</module>
 		<module>third</module>
-		<module>user</module>
+		<module>domain</module>
 	</modules>
 </project>

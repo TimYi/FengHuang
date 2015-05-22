@@ -12,7 +12,7 @@
 	<context:component-scan base-package="com.fenghuangzhujia.yunyichu.service,com.fenghuangzhujia.yunyichu.security,com.fenghuangzhujia.yunyichu.cache"/>
 	
 	<!-- 一套可以启动的配置  -->
-	<http security-context-repository-ref="nullSecurityContextRepository"><!-- 禁用session验证功能，统一使用token验证 -->
+	<http>
 		<csrf disabled="true"/>
 		<custom-filter after="SECURITY_CONTEXT_FILTER" ref="tokenAuthFilter" />
 		<!-- 所有因没有登录而报错的接口将重定向到/unauth，返回错误消息 -->

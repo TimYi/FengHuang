@@ -25,15 +25,15 @@ public class DicsInitializer {
 	 */
 	@Test
 	public void initServiceType() {
-		String name="服务类型";
-		String remark="服务类型";
-		String type=Dics.IMD_SERVICE_TYPE;
+		String name="预约类型";
+		String remark="预约类型";
+		String type=Dics.APPOINT_TYPE;
 		CategoryDTO t=new CategoryDTO();
 		t.setName(name);
 		t.setRemark(remark);
 		t.setType(type);
 		t=categoryService.add(t);
-		String[] names = { "pair", "clean", "buy"};
+		String[] names = { "validate", "measure", "design"};
 		for (int i = 0; i < names.length; i++) {
 			name=names[i];
 			Integer priority=i+1;
