@@ -16,7 +16,7 @@
 		<csrf disabled="true"/>
 		<custom-filter after="SECURITY_CONTEXT_FILTER" ref="tokenAuthFilter" />
 		<!-- 所有因没有登录而报错的接口将重定向到/unauth，返回错误消息 -->
-		<form-login login-page="/unauth" login-processing-url="/lg"/>
+		<form-login login-page="/admin/login" login-processing-url="/admin/login"/>
 		<access-denied-handler error-page="/accessDenied"/>
 		<!-- 
 		<intercept-url pattern="/admin" access="hasAnyRole('${authority.designer}','${authority.admin}','${authority.enter}')"/>
