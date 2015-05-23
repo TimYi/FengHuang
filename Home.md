@@ -14,3 +14,6 @@ Welcome to the FengHuang wiki!
 * [预约](appoint)
 * [我的预约列表](user/appoints)
 * [个人预约详情](user/appoint)
+
+### 字典接口
+* [字典列表](dics)
