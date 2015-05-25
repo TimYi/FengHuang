@@ -30,7 +30,7 @@ public class AppointController {
 	}
 	
 	@RequestMapping(value="user/appoints",method=RequestMethod.GET)
-	public String myAppoints(@RequestParam(defaultValue="1") Integer page,@RequestParam(defaultValue="8") Integer size) {
+	public String myAppoints(@RequestParam(defaultValue="1") Integer page, @RequestParam(defaultValue="8") Integer size) {
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userid=details.getId();
 		PagedList<AppointDto> appoints=appointService.findByUserId(userid, page, size);
