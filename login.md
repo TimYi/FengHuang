@@ -1,7 +1,7 @@
  
  **请求URL**  
      
-    http://101.200.229.135:8080/regist?username=18612444875&password=123456
+    http://101.200.229.135:8080/login?username=18612444875&password=123456
     
  **请求方式**  
     
