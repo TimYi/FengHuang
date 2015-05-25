@@ -12,6 +12,6 @@ public interface BrandTypeRepository extends PagingAndSortingRepository<BrandTyp
 	 * @param pageable
 	 * @return
 	 */
-	@Query("select from t BrandType t where t.superType is null")
+	@Query("select t from BrandType t where t.superType is null")
 	public Page<BrandType> findTopBrandTypes(Pageable pageable);
 }
