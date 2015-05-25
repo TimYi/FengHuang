@@ -8,8 +8,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.fenghuangzhujia.eshop.core.PermissionAuthority;
 import com.fenghuangzhujia.eshop.core.authentication.authority.AbstractAuthority;
+import com.fenghuangzhujia.eshop.core.authentication.authority.PermissionAuthority;
 import com.fenghuangzhujia.eshop.core.authentication.role.Role;
 import com.fenghuangzhujia.eshop.core.user.User;
 
@@ -40,7 +40,7 @@ public class SimpleUserDetails implements UserDetails {
 			for (Role role : user.getRoles()) {
 				if(role.getAuthorities()==null)continue;
 				for (AbstractAuthority authority : role.getAuthorities()) {
-					authorityList.add(new PermissionAuthority(authority));
+					//authorityList.add(new PermissionAuthority(authority));
 				}
 			}
 		}

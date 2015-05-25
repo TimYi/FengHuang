@@ -34,6 +34,8 @@ public class Engine {
 	private OrderRepository orderRepository;
 	@Autowired
 	private CargoOrderRepository cargoOrderRepository;
+	@Autowired
+	private Processor processor;
 	
 	/**
 	 * 用户从购物车下单，购买商品
@@ -43,25 +45,31 @@ public class Engine {
 	 * @return
 	 */
 	public Order order(User user, Shop shop, Set<CargoOrder> cargoOrders) {
-		if(user==null || shop==null || cargoOrders==null)throw new ErrorCodeException(ILLEGAL_ARGUMENT,"有非空参数为空");
+		if(user==null || shop==null || cargoOrders==null)throw new ErrorCodeException(ILLEGAL_ARGUMENT,"请检查是否有非法空参数");
 		for (CargoOrder cargoOrder : cargoOrders) {
 			if(!cargoOrder.getShop().getId().equals(shop.getId()))throw new ErrorCodeException(ILLEGAL_ARGUMENT, "无法为不同店铺商品合并下单！");
 			if(!cargoOrder.getUser().getId().equals(user.getId()))throw new ErrorCodeException(ILLEGAL_ARGUMENT, "只能为用户下单本人购物车内商品！");
 		}
+		Order order=new Order();
+		order.setBuyer(user);
+		order.setSolder(shop);
 		Set<GoodOrder> goodOrders=new HashSet<>();
 		for (CargoOrder cargoOrder : cargoOrders) {
 			Good good=cargoOrder.getGood();
 			Integer count=cargoOrder.getCount();
 			GoodOrder goodOrder=new GoodOrder();
 			goodOrder.setGood(good);
-			goodOrder.setPrice(good.getPrice());
+			goodOrder.setPrice(good.getRealPrice());
 			goodOrder.setCount(count);
+			goodOrder.setOrder(order);//添加订单
+			goodOrders.add(goodOrder);
+			//对每个商品订单进行检查，比如库存，如果不能购买此商品，抛出异常
+			processor.process(goodOrder);
 		}
-		Order order=new Order();
-		order.setBuyer(user);
-		order.setSolder(shop);
 		order.setGoodOrders(goodOrders);
 		order=orderRepository.save(order);
+		//删除购物车中的已购买商品
+		cargoOrderRepository.delete(cargoOrders);
 		return order;
 	}
 	
@@ -85,6 +93,8 @@ public class Engine {
 		goodOrder.setCount(count);
 		Set<GoodOrder> goodOrders=new HashSet<>();
 		goodOrders.add(goodOrder);
+		//对每个商品订单进行检查，比如库存，如果不能购买此商品，抛出异常
+		processor.process(goodOrder);
 		order.setGoodOrders(goodOrders);
 		order=orderRepository.save(order);
 		return order;

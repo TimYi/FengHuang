@@ -1,8 +1,6 @@
-package com.fenghuangzhujia.eshop.core;
+package com.fenghuangzhujia.eshop.core.authentication.authority;
 
 import org.springframework.security.core.GrantedAuthority;
-
-import com.fenghuangzhujia.eshop.core.authentication.authority.AbstractAuthority;
 
 public class PermissionAuthority implements GrantedAuthority {
 

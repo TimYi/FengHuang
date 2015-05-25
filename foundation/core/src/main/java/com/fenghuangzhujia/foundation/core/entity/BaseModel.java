@@ -23,6 +23,8 @@ public abstract class BaseModel implements IBaseModel,LogicDeleteModel {
 	private Date updateTime;
 	@JsonIgnore
 	private boolean deleted;
+	@JsonIgnore
+	private Date deleteTime;
 	
 	public BaseModel() {
 		createTime=new Date();
@@ -66,5 +68,15 @@ public abstract class BaseModel implements IBaseModel,LogicDeleteModel {
 
 	public void setDeleted(boolean deleted) {
 		this.deleted = deleted;
+	}
+	/**
+	 * 删除时间
+	 * @return
+	 */
+	public Date getDeleteTime() {
+		return deleteTime;
+	}
+	public void setDeleteTime(Date deleteTime) {
+		this.deleteTime = deleteTime;
 	}
 }

@@ -6,11 +6,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fenghuangzhujia.eshop.core.commerce.eshop.Shop;
-import com.fenghuangzhujia.eshop.core.commerce.payment.OrderPayment;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 
@@ -25,7 +23,6 @@ public class Order extends UUIDBaseModel {
 	private User buyer;
 	private Shop solder;
 	private Set<GoodOrder> goodOrders;
-	//private OrderPayment payment;
 	
 	/**
      * 返回购买者
@@ -62,18 +59,4 @@ public class Order extends UUIDBaseModel {
 	public void setGoodOrders(Set<GoodOrder> goodOrders) {
 		this.goodOrders = goodOrders;
 	}
-	
-	
-	/*
-	 * 订单支付信息
-	 * @return
-	 */
-	/*
-	@OneToOne(cascade=CascadeType.ALL)
-	public OrderPayment getPayment() {
-		return payment;
-	}
-	public void setPayment(OrderPayment payment) {
-		this.payment = payment;
-	}*/
 }
