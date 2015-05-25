@@ -1,10 +1,9 @@
 package com.fenghuangzhujia.eshop.controller.api;
 
-import static com.fenghuangzhujia.eshop.controller.Const.*;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
@@ -29,9 +28,7 @@ public class UserController {
 	private MessageService messageService;
 	
 	@RequestMapping(value="user/collects",method=RequestMethod.GET)
-	public String collects(Integer page,Integer size) {
-		if(page==null)page=PAGE;
-		if(size==null)size=SIZE;
+	public String collects(@RequestParam(defaultValue="1") Integer page,@RequestParam(defaultValue="8") Integer size) {
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userid=details.getId();
 		PagedList<CollectDto> collects=collectService.findPage(page, size, userid);
@@ -39,9 +36,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="user/comments",method=RequestMethod.GET)
-	public String comments(Integer page,Integer size) {
-		if(page==null)page=PAGE;
-		if(size==null)size=SIZE;
+	public String comments(@RequestParam(defaultValue="1") Integer page,@RequestParam(defaultValue="8") Integer size) {
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userid=details.getId();
 		PagedList<CommentDto> comments=commentService.findPage(page, size, userid);
@@ -49,9 +44,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="user/messages",method=RequestMethod.GET)
-	public String messages(Integer page,Integer size) {
-		if(page==null)page=PAGE;
-		if(size==null)size=SIZE;
+	public String messages(@RequestParam(defaultValue="1") Integer page,@RequestParam(defaultValue="8") Integer size) {
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userid=details.getId();
 		PagedList<MessageDto> comments=messageService.findPage(page, size, userid);
