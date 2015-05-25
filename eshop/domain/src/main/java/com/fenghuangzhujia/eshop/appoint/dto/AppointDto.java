@@ -1,6 +1,9 @@
 package com.fenghuangzhujia.eshop.appoint.dto;
 
+import java.util.Date;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fenghuangzhujia.foundation.area.dto.AreaVo;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 import com.fenghuangzhujia.foundation.dics.dto.CategoryItemDto;
 
@@ -12,6 +15,9 @@ public class AppointDto extends DtoBaseModel {
 	private String typeid;
 	private String address;
 	private String mobile;
+	private Date appointTime;
+	private String areaid;
+	private AreaVo area;
 	
 	public String getUserid() {
 		return userid;
@@ -42,5 +48,23 @@ public class AppointDto extends DtoBaseModel {
 	}
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
+	}
+	public Date getAppointTime() {
+		return appointTime;
+	}
+	public void setAppointTime(Date appointTime) {
+		this.appointTime = appointTime;
+	}
+	public String getAreaid() {
+		return areaid;
+	}
+	public void setAreaid(String areaid) {
+		this.areaid = areaid;
+	}
+	public AreaVo getArea() {
+		return area;
+	}
+	public void setArea(AreaVo area) {
+		this.area = area;
 	}
 }

@@ -59,6 +59,17 @@ public class SystemErrorCodes {
 	 * 活动时间已经被占用
 	 */
 	public static final ErrorCode ACTIVITY_OCCUPIED;
+	
+	//短信验证相关，121~130
+	
+	public static final ErrorCode VALIDATE_ERROR;
+	
+	
+	//其它错误，999
+	/**
+	 * 其它错误,999
+	 */
+	public static final ErrorCode OTHER;
 
 	static {
 		UNAUTH=new ErrorCode(1, "您需要登录");
@@ -76,5 +87,9 @@ public class SystemErrorCodes {
 		ACTIVE_ILLEGAL=new ErrorCode(103, "活动时间不符合规则！");
 		
 		ACTIVITY_OCCUPIED=new ErrorCode(111, "您选择的活动时间已经被占用");
+		
+		VALIDATE_ERROR=new ErrorCode(121, "验证码相关异常");
+		
+		OTHER=new ErrorCode(999, "其它");
 	}
 }

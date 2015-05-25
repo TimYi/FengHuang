@@ -2,13 +2,13 @@ package com.fenghuangzhujia.eshop.core.validate.message;
 
 import java.util.HashMap;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import com.cloopen.rest.sdk.CCPRestSmsSDK;
 import com.fenghuangzhujia.eshop.core.validate.core.CredentialCreater;
 import com.fenghuangzhujia.eshop.core.validate.util.Config;
 
-@Service("messageSender")
+@Component("messageSender")
 public class MessageSender implements CredentialCreater {
 	
 	private CCPRestSmsSDK smsSDK;

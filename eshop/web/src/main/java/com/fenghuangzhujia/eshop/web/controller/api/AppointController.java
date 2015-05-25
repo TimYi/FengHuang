@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.controller.api;
+package com.fenghuangzhujia.eshop.web.controller.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;

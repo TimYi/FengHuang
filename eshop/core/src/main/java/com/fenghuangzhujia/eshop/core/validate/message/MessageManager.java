@@ -1,5 +1,6 @@
 package com.fenghuangzhujia.eshop.core.validate.message;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fenghuangzhujia.eshop.core.validate.core.AbstractValidateManager;
@@ -9,10 +10,14 @@ import com.fenghuangzhujia.eshop.core.validate.core.AbstractValidateManager;
  * @author pc
  *
  */
-@Component
+@Component(value="messageManager")
 public class MessageManager extends AbstractValidateManager {
 	public MessageManager(){
-		setCredentialCreater(new MessageSender());
 		validaterCreater.setExpireMinutes(5);
+	}
+	
+	@Autowired
+	public void setMessageSender(MessageSender credentialCreater) {
+		super.setCredentialCreater(credentialCreater);
 	}
 }

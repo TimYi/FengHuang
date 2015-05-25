@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import com.fenghuangzhujia.eshop.core.validate.core.Validater;
-import com.fenghuangzhujia.eshop.core.validate.core.exception.ErrorCodeException;
+import com.fenghuangzhujia.eshop.core.validate.core.exception.ValidaterWrongException;
 import com.fenghuangzhujia.eshop.core.validate.core.exception.ExpireException;
 
 public class BasicValidater implements Validater {
@@ -12,6 +12,8 @@ public class BasicValidater implements Validater {
 	private String id;
 	private String code;
 	private Date expireTime;
+	
+	public BasicValidater(){}
 	
 	public BasicValidater(String id, String code, Integer expireMinutes){
 		this.id=id;
@@ -29,7 +31,7 @@ public class BasicValidater implements Validater {
 			throw new ExpireException();
 		}
 		if(!(id.equals(this.id) || code.equals(this.code))){
-			throw new ErrorCodeException();
+			throw new ValidaterWrongException();
 		}
 	}
 	

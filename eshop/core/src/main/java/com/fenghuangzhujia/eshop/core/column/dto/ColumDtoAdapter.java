@@ -1,5 +1,6 @@
 package com.fenghuangzhujia.eshop.core.column.dto;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -8,7 +9,6 @@ import com.fenghuangzhujia.eshop.core.column.ColumnRepository;
 import com.fenghuangzhujia.foundation.core.dto.AbstractDtoAdapter;
 import com.fenghuangzhujia.foundation.dics.CategoryItem;
 import com.fenghuangzhujia.foundation.dics.CategoryItemRepository;
-import com.fenghuangzhujia.foundation.mapper.BeanMapper;
 
 @Component
 public class ColumDtoAdapter extends AbstractDtoAdapter<Column, ColumnDto> {
@@ -19,44 +19,28 @@ public class ColumDtoAdapter extends AbstractDtoAdapter<Column, ColumnDto> {
 	private CategoryItemRepository categoryItemRepository;
 
 	@Override
-	public Column convertToDo(ColumnDto t) {
-		if(t==null)return null;
-		Column column=BeanMapper.map(t, Column.class);
-		String fatherid=t.getFatherid();
-		if(fatherid!=null) {
-			Column father=columnRepository.findOne(fatherid);
-			column.setFather(father);
-		}
-		String typeid=t.getTypeid();
-		if(typeid!=null) {
-			CategoryItem type=categoryItemRepository.findOne(typeid);
-			column.setType(type);
-		}
-		return column;
+	public ColumnDto postConvert(Column d, ColumnDto t) {
+		return t;
 	}
 
 	@Override
-	public Column update(ColumnDto t, Column d) {
-		if(t==null||d==null)return null;
-		BeanMapper.copy(t, d);
+	public Column postConvertToDo(ColumnDto t, Column d) {
+		return postUpdate(t, d);
+	}
+
+	@Override
+	public Column postUpdate(ColumnDto t, Column d) {
 		String fatherid=t.getFatherid();
-		if(fatherid!=null) {
+		if(StringUtils.isNotBlank(fatherid)) {
 			Column father=columnRepository.findOne(fatherid);
 			d.setFather(father);
 		}
 		String typeid=t.getTypeid();
-		if(typeid!=null) {
+		if(StringUtils.isNotBlank(typeid)) {
 			CategoryItem type=categoryItemRepository.findOne(typeid);
 			d.setType(type);
 		}
 		return d;
-	}
-
-	@Override
-	public ColumnDto convert(Column source) {
-		if(source==null)return null;
-		ColumnDto t=BeanMapper.map(source, ColumnDto.class);
-		return t;
 	}
 
 }

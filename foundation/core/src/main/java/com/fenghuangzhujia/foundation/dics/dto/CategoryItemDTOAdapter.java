@@ -16,43 +16,30 @@ public class CategoryItemDTOAdapter extends AbstractDtoAdapter<CategoryItem, Cat
 	private CategoryRepository categoryRepository;
 
 	@Override
-	public CategoryItem convertToDo(CategoryItemDto t) {
-		CategoryItem d=new CategoryItem();
-		d=update(t, d);
+	public CategoryItemDto postConvert(CategoryItem d, CategoryItemDto t) {
+		t.setCategoryid(d.getCategory().getId());
+		return t;
+	}
+
+	@Override
+	public CategoryItem postConvertToDo(CategoryItemDto t, CategoryItem d) {
+		return postUpdate(t, d);
+	}
+
+	@Override
+	public CategoryItem postUpdate(CategoryItemDto t, CategoryItem d) {
 		String type=t.getType();
+		String categoryid=t.getCategoryid();
 		Category category=null;
 		if(StringUtils.isNotEmpty(type)) {
 			category=categoryRepository.getByType(type);
 		} else {
-			String categoryId=t.getCategoryid();
-			if(StringUtils.isNotEmpty(categoryId)) {
-				category=categoryRepository.findOne(categoryId);
+			if(StringUtils.isNotEmpty(categoryid)) {
+				category=categoryRepository.findOne(categoryid);
 			}
 		}
 		d.setCategory(category);
 		return d;
 	}
-
-	@Override
-	public CategoryItem update(CategoryItemDto t, CategoryItem d) {
-		d.setAttr(t.getAttr());
-		d.setAttr2(t.getAttr2());
-		d.setRemark(t.getRemark());
-		d.setName(t.getName());
-		d.setPriority(t.getPriority());
-		return d;
-	}
-
-	@Override
-	public CategoryItemDto convert(CategoryItem source) {
-		CategoryItemDto t=new CategoryItemDto();
-		t.setId(source.getId());
-		t.setAttr(source.getAttr());
-		t.setAttr2(source.getAttr2());
-		t.setCategoryid(source.getCategory().getId());
-		t.setName(source.getName());
-		t.setPriority(source.getPriority());
-		t.setRemark(source.getRemark());
-		return t;
-	}
+	
 }

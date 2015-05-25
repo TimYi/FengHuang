@@ -1,7 +1,8 @@
 package com.fenghuangzhujia.eshop.core.validate.core;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.fenghuangzhujia.eshop.core.validate.BasicValidaterCreater;
-import com.fenghuangzhujia.eshop.core.validate.InMemoryValidaterService;
 import com.fenghuangzhujia.eshop.core.validate.core.exception.NotFoundException;
 import com.fenghuangzhujia.eshop.core.validate.core.exception.ValidateException;
 
@@ -13,10 +14,11 @@ public abstract class AbstractValidateManager implements ValidateManager {
 	/**
 	 * 保存和获取验证凭据
 	 */
-	protected ValidaterService validaterService=new InMemoryValidaterService();
+	protected ValidaterService validaterService;
 	/**
 	 * 负责验证信息的发送，生成。
 	 */
+	@Autowired
 	protected CredentialCreater credentialCreater;
 	
 	@Override
@@ -44,18 +46,21 @@ public abstract class AbstractValidateManager implements ValidateManager {
 	/**
 	 * @param validaterCreater the validaterCreater to set
 	 */
+	@Autowired(required=false)
 	public void setValidaterCreater(ValidaterCreater validaterCreater) {
 		this.validaterCreater = validaterCreater;
 	}
 	/**
 	 * @param validaterService the validaterService to set
 	 */
+	@Autowired
 	public void setValidaterService(ValidaterService validaterService) {
 		this.validaterService = validaterService;
 	}
 	/**
 	 * @param credentialCreater the credentialCreater to set
 	 */
+	@Autowired
 	public void setCredentialCreater(CredentialCreater credentialCreater) {
 		this.credentialCreater = credentialCreater;
 	}		

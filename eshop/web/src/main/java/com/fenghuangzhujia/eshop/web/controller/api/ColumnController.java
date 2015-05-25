@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.controller.api;
+package com.fenghuangzhujia.eshop.web.controller.api;
 
 import java.util.List;
 

@@ -19,6 +19,10 @@ public class ErrorCodeException extends RuntimeException {
 		super(cause);
 		setErrorCode(errorCode);
 	}
+	
+	public ErrorCodeException(ErrorCode errorCode, String message, Throwable cause) {
+		super(message,cause);
+	}
 	/**
 	 * @return the errorCode
 	 */

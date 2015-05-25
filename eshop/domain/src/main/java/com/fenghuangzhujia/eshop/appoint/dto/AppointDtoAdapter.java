@@ -1,15 +1,18 @@
 package com.fenghuangzhujia.eshop.appoint.dto;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fenghuangzhujia.eshop.appoint.Appoint;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
+import com.fenghuangzhujia.foundation.area.Area;
+import com.fenghuangzhujia.foundation.area.AreaRepository;
+import com.fenghuangzhujia.foundation.area.dto.AreaVo;
 import com.fenghuangzhujia.foundation.core.dto.AbstractDtoAdapter;
 import com.fenghuangzhujia.foundation.dics.CategoryItem;
 import com.fenghuangzhujia.foundation.dics.CategoryItemRepository;
-import com.fenghuangzhujia.foundation.mapper.BeanMapper;
 
 @Component
 public class AppointDtoAdapter extends AbstractDtoAdapter<Appoint, AppointDto> {
@@ -18,43 +21,38 @@ public class AppointDtoAdapter extends AbstractDtoAdapter<Appoint, AppointDto> {
 	private UserRepository userRepository;
 	@Autowired
 	private CategoryItemRepository categoryItemRepository;
+	@Autowired
+	private AreaRepository areaRepository;
 
 	@Override
-	public Appoint convertToDo(AppointDto t) {
-		Appoint d=BeanMapper.map(t, Appoint.class);
-		String userid=t.getUserid();
-		if(userid!=null) {
-			User user=userRepository.findOne(userid);
-			d.setUser(user);
-		}
-		String typeid=t.getTypeid();
-		if(typeid!=null) {
-			CategoryItem categoryItem=categoryItemRepository.findOne(typeid);
-			d.setType(categoryItem);
-		}
-		return d;
-	}
-
-	@Override
-	public Appoint update(AppointDto t, Appoint d) {
-		BeanMapper.copy(d, t);
-		String userid=t.getUserid();
-		if(userid!=null) {
-			User user=userRepository.findOne(userid);
-			d.setUser(user);
-		}
-		String typeid=t.getTypeid();
-		if(typeid!=null) {
-			CategoryItem categoryItem=categoryItemRepository.findOne(typeid);
-			d.setType(categoryItem);
-		}
-		return d;
-	}
-
-	@Override
-	public AppointDto convert(Appoint source) {
-		AppointDto t=BeanMapper.map(source, AppointDto.class);
-		t.setUserid(source.getUser().getId());
+	public AppointDto postConvert(Appoint d, AppointDto t) {
+		t.setUserid(d.getUser().getId());
+		t.setArea(new AreaVo(d.getArea()));
 		return t;
+	}
+
+	@Override
+	public Appoint postConvertToDo(AppointDto t, Appoint d) {
+		return postUpdate(t, d);
+	}
+
+	@Override
+	public Appoint postUpdate(AppointDto t, Appoint d) {
+		String userid=t.getUserid();
+		if(StringUtils.isNotBlank(userid)) {
+			User user=userRepository.findOne(userid);
+			d.setUser(user);
+		}
+		String typeid=t.getTypeid();
+		if(StringUtils.isNotBlank(typeid)) {
+			CategoryItem categoryItem=categoryItemRepository.findOne(typeid);
+			d.setType(categoryItem);
+		}
+		String areaid=t.getAreaid();
+		if(StringUtils.isNotBlank(areaid)) {
+			Area area=areaRepository.findOne(areaid);
+			d.setArea(area);
+		}
+		return d;
 	}
 }

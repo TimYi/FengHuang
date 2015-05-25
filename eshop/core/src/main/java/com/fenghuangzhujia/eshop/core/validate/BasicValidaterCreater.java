@@ -1,9 +1,12 @@
 package com.fenghuangzhujia.eshop.core.validate;
 
+import org.springframework.stereotype.Component;
+
 import com.fenghuangzhujia.eshop.core.validate.core.Validater;
 import com.fenghuangzhujia.eshop.core.validate.core.ValidaterCreater;
 import com.fenghuangzhujia.eshop.core.validate.util.CodeUtil;
 
+@Component
 public class BasicValidaterCreater implements ValidaterCreater {
 	private Integer charCount=4;
 	private Integer expireMinutes=10;

@@ -19,7 +19,7 @@ public class DicsTest {
 	@Autowired
 	private CategoryItemService itemService;
 
-	//@Test
+	@Test
 	public void addCategory() {
 		CategoryDTO category=new CategoryDTO();
 		category.setName("test3");
@@ -28,7 +28,7 @@ public class DicsTest {
 		System.out.println(category.getId());
 	}
 	
-	@Test
+	//@Test
 	public void deleteByType() {
 		service.deleteByType("test3");
 	}
