@@ -1,5 +1,7 @@
 package com.fenghuangzhujia.eshop.controller.api;
 
+import static com.fenghuangzhujia.eshop.controller.Const.*;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;

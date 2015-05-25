@@ -31,21 +31,26 @@ public class AuthenticateTest {
 	private RoleService roleService;
 	@Autowired
 	private UserService userService;
-	//@Autowired
-	//private AuthenticationManager authenticationManager;
+	@Autowired
+	private AuthenticationManager authenticationManager;
 	
 	//@Test
 	public void regist() {
 		//authenticationManager.regist("18612444099", "12345678");
 	}
 	
-	@Test
+	//@Test
 	public void addRole() {	
 		Role role=new Role();
 		role.setName("test1");
 		//String[] userids={"404040e64d6a23b1014d6a23b64d0001"};
 		//role.setUserids(userids);
 		roleService.add(role);
+	}
+	
+	@Test
+	public void addUser() {
+		authenticationManager.regist("18612444099", "123456");
 	}
 	
 	//@Test

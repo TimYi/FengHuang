@@ -1,5 +1,8 @@
 package com.fenghuangzhujia.eshop.controller.api;
 
+import static com.fenghuangzhujia.eshop.controller.Const.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,9 +18,10 @@ import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 @RestController
 public class AppointController {
 
+	@Autowired
 	private AppointService appointService;	
 	
-	@RequestMapping(value="appoint",method=RequestMethod.POST)
+	@RequestMapping(value="user/appoint",method=RequestMethod.POST)
 	public String appoint(AppointDto appoint) {
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userid=details.getId();
@@ -28,6 +32,8 @@ public class AppointController {
 	
 	@RequestMapping(value="user/appoints",method=RequestMethod.GET)
 	public String myAppoints(Integer page, Integer size) {
+		if(page==null)page=PAGE;
+		if(size==null)size=SIZE;
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userid=details.getId();
 		PagedList<AppointDto> appoints=appointService.findByUserId(userid, page, size);

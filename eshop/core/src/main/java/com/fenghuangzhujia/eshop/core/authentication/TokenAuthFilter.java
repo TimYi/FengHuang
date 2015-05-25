@@ -6,6 +6,7 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -34,7 +35,7 @@ public class TokenAuthFilter extends GenericFilterBean {
 			return;
 		}
 		
-		String token=getToken(request);		
+		String token=getToken((HttpServletRequest)request);		
 		if(token==null) {
 			chain.doFilter(request, response);
 			return;
@@ -65,7 +66,7 @@ public class TokenAuthFilter extends GenericFilterBean {
 	 * @param request
 	 * @return
 	 */
-	protected String getToken(ServletRequest request) {
+	protected String getToken(HttpServletRequest request) {
 		String token=(String)request.getParameter(TOKEN_NAME);
 		return token;
 	}

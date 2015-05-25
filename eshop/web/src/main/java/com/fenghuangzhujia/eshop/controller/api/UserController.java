@@ -1,5 +1,7 @@
 package com.fenghuangzhujia.eshop.controller.api;
 
+import static com.fenghuangzhujia.eshop.controller.Const.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,9 +20,6 @@ import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
 @RestController
 public class UserController {
-	
-	private static final int PAGE=1;
-	private static final int SIZE=8;
 	
 	@Autowired
 	private CollectService collectService;
