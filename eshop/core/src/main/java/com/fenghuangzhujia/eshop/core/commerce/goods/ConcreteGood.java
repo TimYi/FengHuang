@@ -4,6 +4,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 /**
  * 实物商品
@@ -11,6 +12,7 @@ import javax.persistence.InheritanceType;
  *
  */
 @Entity
+@Table(name="fhzj_concrete_good")
 @DiscriminatorValue("CONCRETE")
 @Inheritance(strategy=InheritanceType.JOINED)
 public abstract class ConcreteGood extends Good {

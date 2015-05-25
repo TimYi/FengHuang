@@ -21,6 +21,7 @@ import com.fenghuangzhujia.eshop.core.authentication.authority.resource.Resource
 @Entity
 @DiscriminatorValue("OPERATION")
 @Table(
+		name="fhzj_operation_authority",
 		//同种资源只能有同种操作
 	    uniqueConstraints=
 	        @UniqueConstraint(columnNames={"resource", "name"})

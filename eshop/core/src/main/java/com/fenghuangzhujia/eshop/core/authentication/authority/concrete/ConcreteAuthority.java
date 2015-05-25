@@ -15,7 +15,8 @@ import com.fenghuangzhujia.eshop.core.authentication.authority.opration.Operatio
 
 @Entity
 @DiscriminatorValue(value="CONCRETE")
-@Table(	uniqueConstraints=
+@Table(	name="fhzj_concrete_authority",
+		uniqueConstraints=
 		    @UniqueConstraint(columnNames={"operation", "resourceid"})
 	)
 public class ConcreteAuthority extends AbstractAuthority implements Authority {

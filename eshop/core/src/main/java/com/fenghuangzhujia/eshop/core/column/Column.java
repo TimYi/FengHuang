@@ -12,7 +12,7 @@ import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 import com.fenghuangzhujia.foundation.dics.CategoryItem;
 
 @Entity
-@Table(name="column_def")
+@Table(name="fhzj_column")
 public class Column extends UUIDBaseModel {
 	private Column father;
 	private String name;

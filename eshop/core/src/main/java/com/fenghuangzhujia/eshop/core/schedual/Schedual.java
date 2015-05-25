@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fenghuangzhujia.eshop.core.schedual.activity.Activity;
@@ -17,6 +18,7 @@ import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
  *
  */
 @Entity
+@Table(name="fhzj_schedual")
 public class Schedual extends UUIDBaseModel {
 	
 	

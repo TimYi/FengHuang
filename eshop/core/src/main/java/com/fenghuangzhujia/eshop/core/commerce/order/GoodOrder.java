@@ -3,6 +3,7 @@ package com.fenghuangzhujia.eshop.core.commerce.order;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.fenghuangzhujia.eshop.core.commerce.goods.Good;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
@@ -13,6 +14,7 @@ import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
  *
  */
 @Entity
+@Table(name="fhzj_good_order")
 public class GoodOrder extends UUIDBaseModel {
 	
 	private double price;

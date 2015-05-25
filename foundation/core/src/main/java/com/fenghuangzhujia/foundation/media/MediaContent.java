@@ -12,7 +12,7 @@ import com.fenghuangzhujia.foundation.core.entity.BaseModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name="medias")
+@Table(name="fhzj_medias")
 public class MediaContent extends BaseModel {
 	@JsonIgnore
 	private String id;

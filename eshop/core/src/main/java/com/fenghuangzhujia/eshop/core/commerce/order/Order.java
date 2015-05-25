@@ -20,7 +20,7 @@ import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
  *
  */
 @Entity
-@Table(name="order_header")
+@Table(name="fhzj_order_header")
 public class Order extends UUIDBaseModel {
 	private User buyer;
 	private Shop solder;

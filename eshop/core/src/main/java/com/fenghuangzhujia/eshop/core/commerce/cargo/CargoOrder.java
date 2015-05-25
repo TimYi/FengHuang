@@ -2,6 +2,7 @@ package com.fenghuangzhujia.eshop.core.commerce.cargo;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fenghuangzhujia.eshop.core.commerce.eshop.Shop;
@@ -15,6 +16,7 @@ import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
  *
  */
 @Entity
+@Table(name="fhzj_cargo_order")
 public class CargoOrder extends UUIDBaseModel {
 	
 	private User user;

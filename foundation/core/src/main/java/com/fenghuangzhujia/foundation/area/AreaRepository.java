@@ -13,7 +13,7 @@ public interface AreaRepository extends PagingAndSortingRepository<Area, String>
 	 * @param level
 	 * @return
 	 */
-	List<Area> findByAreaLevel(AreaLevel level);
+	List<Area> findByLevel(AreaLevel level);
 	
 	/**
 	 * 按照上级区域id获取全部区域

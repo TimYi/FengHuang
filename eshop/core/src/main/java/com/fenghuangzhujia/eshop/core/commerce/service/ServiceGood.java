@@ -1,6 +1,5 @@
 package com.fenghuangzhujia.eshop.core.commerce.service;
 
-import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
 

@@ -2,7 +2,9 @@ package com.fenghuangzhujia.foundation.area;
 
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -22,6 +24,8 @@ public class Area extends UUIDBaseModel {
 	 * 区域等级
 	 * @return
 	 */
+	@Column(nullable=false)
+	@Enumerated
 	public AreaLevel getLevel() {
 		return level;
 	}
@@ -57,6 +61,7 @@ public class Area extends UUIDBaseModel {
 	 * 区域名称
 	 * @return
 	 */
+	@Column(nullable=false)
 	public String getName() {
 		return name;
 	}

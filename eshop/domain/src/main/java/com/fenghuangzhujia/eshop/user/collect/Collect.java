@@ -8,12 +8,14 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 import com.fenghuangzhujia.foundation.media.MediaContent;
 
 @Entity
+@Table(name="fhzj_collect")
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorColumn(name="collect_type")
 @DiscriminatorValue(value="BASIC")

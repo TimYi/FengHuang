@@ -6,6 +6,7 @@ import java.time.temporal.ChronoUnit;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fenghuangzhujia.eshop.core.schedual.Schedual;
@@ -19,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  *
  */
 @Entity
+@Table(name="fhzj_activity")
 public class Activity extends UUIDBaseModel {
 	
 	private boolean isOccupied=false;

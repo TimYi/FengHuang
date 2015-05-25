@@ -7,11 +7,13 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 
 @Entity
+@Table(name="fhzj_comment")
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorColumn(name="comment_type")
 @DiscriminatorValue(value="BASIC")

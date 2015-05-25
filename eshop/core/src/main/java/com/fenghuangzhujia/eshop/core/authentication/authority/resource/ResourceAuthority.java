@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fenghuangzhujia.eshop.core.authentication.authority.AbstractAuthority;
@@ -20,6 +21,7 @@ import com.fenghuangzhujia.eshop.core.authentication.authority.opration.Operatio
  *
  */
 @Entity
+@Table(name="fhzj_resource_authority")
 @DiscriminatorValue("RESOURCE")
 public class ResourceAuthority extends AbstractAuthority implements Authority {
 	

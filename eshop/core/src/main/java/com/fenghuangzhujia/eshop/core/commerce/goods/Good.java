@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fenghuangzhujia.eshop.core.commerce.eshop.Shop;
@@ -16,6 +17,7 @@ import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
  *
  */
 @Entity
+@Table(name="fhzj_good")
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorColumn(name="discrininator")
 public abstract class Good extends UUIDBaseModel {

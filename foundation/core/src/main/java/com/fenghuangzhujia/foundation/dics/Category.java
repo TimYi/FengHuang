@@ -17,7 +17,7 @@ import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "category",
+@Table(name = "fhzj_category",
 	indexes=@Index(name="type_index",columnList="type")
 )
 public class Category extends UUIDBaseModel {

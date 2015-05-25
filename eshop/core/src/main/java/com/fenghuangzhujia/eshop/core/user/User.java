@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fenghuangzhujia.eshop.core.authentication.authority.AbstractAuthority;
@@ -23,6 +24,7 @@ import com.fenghuangzhujia.foundation.core.enums.Sex;
 import com.fenghuangzhujia.foundation.media.MediaContent;
 
 @Entity
+@Table(name="fhzj_user")
 public class User extends UUIDBaseModel {
 	private String username;	
 	private String password;	

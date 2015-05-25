@@ -2,6 +2,7 @@ package com.fenghuangzhujia.eshop.appoint;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
@@ -13,6 +14,7 @@ import com.fenghuangzhujia.foundation.dics.CategoryItem;
  *
  */
 @Entity
+@Table(name="fhzj_appoint")
 public class Appoint extends UUIDBaseModel {
 	private User user;
 	private CategoryItem type;

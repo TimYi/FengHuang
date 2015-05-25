@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fenghuangzhujia.eshop.core.authentication.authority.AbstractAuthority;
@@ -13,6 +14,7 @@ import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 
 @Entity
+@Table(name="fhzj_role")
 public class Role extends UUIDBaseModel {
 	
 	private String name;
