@@ -11,7 +11,7 @@ import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "fhzh_categoryitem",
+@Table(name = "fhzj_categoryitem",
 uniqueConstraints={@UniqueConstraint(columnNames={"name","category_id"})})
 public class CategoryItem extends UUIDBaseModel {
 	private String name;
