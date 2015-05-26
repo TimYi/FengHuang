@@ -1,9 +1,10 @@
 package com.fenghuangzhujia.eshop.core.commerce.order;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
+import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.fenghuangzhujia.eshop.core.commerce.goods.Good;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
@@ -19,11 +20,33 @@ public class GoodOrder extends UUIDBaseModel {
 	
 	private double price;
 	
+	private OrderStatus status;
+	
 	private Good good;
 	
 	private Integer count;
 	
-	private Order order;
+	@Transient
+	public String getName() {
+		return good.getName();
+	}
+	
+	@Transient
+	public String getMainPic() {
+		return good.getMainPic();
+	}
+
+	/**
+	 * 订单状态
+	 * @return
+	 */
+	@Enumerated
+	public OrderStatus getStatus() {
+		return status;
+	}
+	public void setStatus(OrderStatus status) {
+		this.status = status;
+	}
 
 	/**
 	 * 商品购买时单价
@@ -62,17 +85,22 @@ public class GoodOrder extends UUIDBaseModel {
 		this.count = count;
 	}
 	
-	/**
-	 * 获取从属的订单
-	 * @return
-	 */
-	@ManyToOne(optional=false)
-	@JoinColumn(name="order_id")
-	public Order getOrder() {
-		return order;
-	}
-
-	public void setOrder(Order order) {
-		this.order = order;
+	public static enum OrderStatus {
+		/**
+		 * 未确认
+		 */
+		UNCONFIRM,
+		/**
+		 * 进行中
+		 */
+		PROCESSING,
+		/**
+		 * 已取消
+		 */
+		CANCEL,
+		/**
+		 * 已完成
+		 */
+		COMPLETE;
 	}
 }
