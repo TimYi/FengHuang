@@ -1,0 +1,22 @@
+/*
+Popup Calendar Offical Style for Discuz!(R)
+URL: http://www.discuz.net
+(C) 2001-2007 Comsenz Inc.
+<style type="text/css">
+*/
+/*Popup Calendar*/
+#calendar { border: 1px solid #9DB3C5; background: #F5FAFE; margin-bottom: 0.8em;}
+	#calendar td { padding: 2px; font-weight: bold;}
+	#calendar_week td { height: 2em; line-height: 2em; border-bottom: 1px solid #CAD9EA;}
+	#hourminute td {padding: 4px 2px; border-top: 1px solid #CAD9EA;}
+		.calendar_expire, .calendar_expire a:link, .calendar_expire a:visited {	color: #666; font-weight: normal; }
+		.calendar_default, .calendar_default a:link, .calendar_default a:visited { color: #069;}
+		.calendar_checked, .calendar_checked a:link, .calendar_checked a:visited { color: #090; font-weight: bold;}
+		td.calendar_checked, span.calendar_checked{ background: #CAD9EA;}
+		.calendar_today, .calendar_today a:link, .calendar_today a:visited { color: #000; font-weight: bold; }
+	#calendar_header td{ width: 30px; height: 20px; border-bottom: 1px solid #CAD9EA; font-weight: normal; }
+	#calendar_year { display: none;	line-height: 130%; background: #F5FAFE; position: absolute; z-index: 100000; }
+		#calendar_year .col { float: left; background: #F5FAFE; margin-left: 1px; border: 1px solid #CAD9EA; padding: 4px; position:relative; z-index:1; }
+	#calendar_month { display: none; background: #F5FAFE; line-height: 130%; border: 1px solid #DDD; padding: 4px; position: absolute; z-index: 100001; }
+
+
