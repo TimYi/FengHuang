@@ -6,7 +6,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fenghuangzhujia.eshop.core.commerce.eshop.Shop;
 import com.fenghuangzhujia.eshop.core.commerce.goods.Good;
+import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 
 /**
@@ -18,6 +20,8 @@ import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 @Table(name="fhzj_good_order")
 public class GoodOrder extends UUIDBaseModel {
 	
+	private User user;
+	
 	private double price;
 	
 	private OrderStatus status;
@@ -26,14 +30,52 @@ public class GoodOrder extends UUIDBaseModel {
 	
 	private Integer count;
 	
+	/**
+	 * 商品名称
+	 * @return
+	 */
 	@Transient
 	public String getName() {
 		return good.getName();
 	}
 	
+	/**
+	 * 商品类型
+	 * @return
+	 */
+	@Transient
+	public String getType() {
+		return good.getType();
+	}
+	
+	/**
+	 * 商品主图
+	 * @return
+	 */
 	@Transient
 	public String getMainPic() {
 		return good.getMainPic();
+	}
+	
+	/**
+	 * 商品卖家
+	 * @return
+	 */
+	@Transient
+	public Shop getShop() {
+		return good.getShop();
+	}
+	
+	/**
+	 * 商品买家
+	 * @return
+	 */
+	@ManyToOne(optional=false)
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	/**

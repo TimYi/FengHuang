@@ -1,0 +1,195 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>凤凰筑家</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<!-- Header -->
+<div data-am-sticky>
+<header data-am-widget="header" class="am-header am-header-default" style="background:#fff;box-shadow: inset -1px -1px 1px -1px #666;">
+  <h1 class="am-header-title">
+    <!--img src="images/park_green.png" width=30 height=22 -->
+    <span style="color:#333;font-size:18px;font-weight:bold">智能报价</span>
+  </h1>
+  <div class="am-header-left am-header-nav">
+    <a href="service.html" class="">
+      <i class="am-header-icon am-icon-chevron-left" style="font-size:16px;color:#999;margin-left:-15px"></i>
+    </a>
+  </div> 
+  <div class="am-header-right am-header-nav">
+    <a href="service_price_result.html" class="">
+      <i class="am-header-icon am-icon-check" style="font-size:22px;color:#f25618;margin-left:-15px"></i>
+    </a>
+  </div> 
+</header>
+</div>
+
+<script>
+var socket = new WebSocket("ws://www.qgfan.com/parkwin/");
+    socket.onopen = function () {
+        alert("Socket has been opened!");
+    }
+    socket.onmessage = function (msg) {
+        alert(msg); //Awesome!
+    }
+</script>
+<!-- List -->
+<div data-am-widget="list_news" style="width:96%;margin:0 auto;padding:0 5px">
+  <!--列表标题-->
+  <div class="am-list-news-bd">
+    <ul class="am-list">
+
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-folder-o f_g w18" style="padding-left:0px;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:bold;color:#000;">面积</span>
+			  </div> 
+			  <div class="am-fr">
+			  	<input type="tel" id="price" name="price" class="valueinput_mj" value="0" onfocus="if(value=='0' || value!=='') {value=''}" onblur="if (value=='') {value='0'}"> m²&nbsp;
+					<span class="am-icon-chevron-right" style="font-size:12px;color:#999"></span>
+			  </div> 
+			</div>
+
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-building-o f_g w18" style="padding-left:0;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:bold;color:#000;">户型</span>
+			  </div> 
+	  		<div class="am-fr">
+					<!--input type="tel" id="price" name="price" class="valueinput_h" value="0" onfocus="if(value=='0' || value!=='') {value=''}" onblur="if (value=='') {value='0'}"> 元-->
+					<select class="select_price">
+						<option value="1">小户型</option>
+					  <option value="2">商品房</option>
+					  <option value="3">复式房</option>
+					  <option value="4">别墅房</option>
+					</select>&nbsp;
+					<span class="am-icon-chevron-right" style="font-size:12px;color:#999"></span>
+			  </div> 
+			</div>    
+      
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-tag f_g w18" style="padding-left:0;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:bold;color:#000;">卧 / 客  /书房</span>
+			  </div> 
+			  <div class="am-fr">
+					<select class="select_price">
+					  <option value="1">一房</option>
+					  <option value="2">二房</option>
+					  <option value="3">三房</option>
+					  <option value="4">四房</option>
+					  <option value="5">五房</option>					  					  
+					</select>&nbsp;
+					<span class="am-icon-chevron-right" style="font-size:12px;color:#999"></span>
+			  </div> 
+			</div>
+
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-tag f_g w18" style="padding-left:0;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:bold;color:#000;">客 / 餐厅</span>
+			  </div> 
+			  <div class="am-fr">
+					<select class="select_price">
+					  <option value="1">一厅</option>
+					  <option value="2">二厅</option>
+					  <option value="3">三厅</option>
+					  <option value="4">四厅</option>
+					  <option value="5">五厅</option>		
+					</select>&nbsp;
+					<span class="am-icon-chevron-right" style="font-size:12px;color:#999"></span>
+			  </div> 
+			</div>
+			
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-tag f_g w18" style="padding-left:0;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:bold;color:#000;">卫生间</span>
+			  </div> 
+			  <div class="am-fr">
+					<select class="select_price">
+					  <option value="1">一卫</option>
+					  <option value="2">二卫</option>
+					  <option value="3">三卫</option>
+					  <option value="4">四卫</option>
+					  <option value="5">五卫</option>		
+					</select>&nbsp;
+					<span class="am-icon-chevron-right" style="font-size:12px;color:#999"></span>
+			  </div> 
+			</div>			
+      
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-bookmark f_g w18" style="padding-left:2px;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:bold;color:#000;">装修档次</span>
+			  </div> 
+			  <div class="am-fr">
+					<select class="select_price">
+					  <option value="1">经济实惠</option>
+					  <option value="2">中档舒适</option>
+					  <option value="3">高档豪华</option>
+					</select>&nbsp;
+					<span class="am-icon-chevron-right" style="font-size:12px;color:#999"></span>
+			  </div>  
+			</div> 
+
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-flag f_g w18" style="padding-left:0;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:bold;color:#000;">装修风格</span>
+			  </div> 
+			  <div class="am-fr">
+					<select class="select_price">
+					  <option value="1">简约</option>
+					  <option value="2">现代</option>
+					  <option value="3">中式</option>
+					  <option value="1">欧式</option>
+					  <option value="2">美式</option>
+					  <option value="3">田园</option>
+					  <option value="1">古典</option>
+					  <option value="2">混搭</option>
+					  <option value="3">热带</option>
+					  <option value="1">日式</option>
+					  <option value="2">宜家</option>
+					  <option value="3">北欧</option>
+					  <option value="1">简欧</option>
+					</select>&nbsp;
+					<span class="am-icon-chevron-right" style="font-size:12px;color:#999"></span>
+			  </div>  
+			</div>
+      
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-map-marker f_g w18" style="padding:0 0 0 4px;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:bold;color:#000;">居住地</span>
+			  </div> 
+			  <div class="am-fr">
+					<select class="select_price">
+					  <option value="1">北京</option>
+					  <option value="2">上海</option>
+					  <option value="3">广州</option>
+					  <option value="1">深圳</option>
+					</select>&nbsp;			  	
+					<span class="am-icon-chevron-right" style="font-size:12px;color:#999"></span>
+			  </div> 
+			</div>
+                                         
+    </ul>
+  </div>
+</div>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+</body>
+</html>
+

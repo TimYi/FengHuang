@@ -1,5 +1,6 @@
 package com.fenghuangzhujia.eshop.core.commerce.goods;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
@@ -19,12 +20,13 @@ import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 @Entity
 @Table(name="fhzj_good")
 @Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(name="discrininator")
+@DiscriminatorColumn(name="good_type")
 public abstract class Good extends UUIDBaseModel {
 	private String name;
 	private double price;
 	private double realPrice;
 	private Shop shop;
+	private String type;
 	
 	/**
 	 * 商品名称
@@ -70,7 +72,18 @@ public abstract class Good extends UUIDBaseModel {
 	public void setShop(Shop shop) {
 		this.shop = shop;
 	}
-	
+
+	/**
+	 * 商品类型导览属性
+	 * @return
+	 */
+	@Column(insertable=false,updatable=false,name="good_type")
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	/**
 	 * 商品主图
 	 * @return

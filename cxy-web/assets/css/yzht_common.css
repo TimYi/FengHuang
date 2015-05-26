@@ -1,0 +1,109 @@
+@charset "utf-8";
+/* CSS Document */
+
+a{color: #666;}
+a:hover{color: #f25618;}
+.content_wrap { width:100%; height:auto;}
+
+  /****业主后台 个人中心 左侧菜单********/
+  .mc_menu_box{
+      width:160px;
+      height:auto;
+      float:left;
+      border:1px solid #eee;
+	  margin-bottom:40px;
+  }
+  .mcmb_title{
+      width:100%;
+      height:60px;
+      line-height: 60px;
+      text-align: center;
+      background-color:#940b13;
+      color:#fff;
+      font-size:16px;
+  }
+  .mcmb_title a{color: #fff;}
+  .mcmb_menu{
+     width:100%;
+     height:auto;
+  }
+  .mcmb_menu a:hover{color: #940b13;}
+  .mcmb_menu  li{
+     line-height:25px;
+     text-indent:15px;
+  }
+  .parent_menu{
+      position: relative;
+      border-bottom: 1px dashed #eee;
+      padding: 10px 0;
+   }
+   .parent_menu a{
+      display: block;
+      color:#333;
+      font-size: 14px;
+	  height:30px; line-height:30px;
+   }
+  .pm_icon_open{
+      display:inline-block;
+      width:11px;
+      height:12px;
+      background-position:-77px -3px; 
+      margin-right:7px;
+      *vertical-align: middle;
+      overflow: hidden;
+  }
+  .pm_icon_close{
+      display:inline-block;
+      width:11px;
+      height:12px;
+      background-position:-61px -3px; 
+      margin-right:7px;
+      *vertical-align: middle;
+      overflow: hidden;
+  }
+  .child_menu{
+       font-size:12px; width:100%;      
+   }
+   .child_menu a{
+       display:block;
+       color:#666;
+       width:100%;
+      height:100%;
+       font-size: 12px;
+   }
+   .child_menu li{
+      height:30px;
+      line-height:30px;
+      text-indent:32px;
+      border-left:2px solid #fff;
+   }
+   .child_menu_on{
+      border-left:2px solid #01af69!important; background:#f8f8f8;
+   }
+   .child_menu_on a{
+      display: block;
+      width:100%;
+      height:100%;
+      color:#01af69;
+      position: relative;
+   }
+
+   .icon_newtips{
+      display: inline-block;
+      width:18px;
+      height: 11px;
+      background-position: -93px -2px;
+      padding-top: 6px;
+      margin-left: 5px;
+   }
+   .collect_count{
+       color:#ff4a4a;
+       margin-left:5px;
+   }
+   
+    .sprite_img1{
+    background-image:url(http://www.to8to.com/img/to8to_img/yzht/sprite_img1.png);
+    overflow: hidden;
+ }
+.content_wrap .global_pie{ border-bottom:none;}
+input,select{color: #333;}

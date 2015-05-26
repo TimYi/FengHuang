@@ -48,13 +48,35 @@ public class DicsInitializer {
 	public void initColumnType() {
 		String name="栏目类型";
 		String remark="栏目类型";
-		String type=Dics.COLUMN_TYPE_STRING;
+		String type=Dics.COLUMN_TYPE;
 		CategoryDTO t=new CategoryDTO();
 		t.setName(name);
 		t.setRemark(remark);
 		t.setType(type);
 		t=categoryService.add(t);
 		String[] names = { "product", "artical" };
+		for (int i = 0; i < names.length; i++) {
+			name=names[i];
+			Integer priority=i+1;
+			CategoryItemDto item=new CategoryItemDto();
+			item.setType(type);
+			item.setName(name);
+			item.setPriority(priority);
+			categoryItemService.add(item);
+		}
+	}
+	
+	@Test
+	public void initHouseType() {
+		String name="房屋类型";
+		String remark="房屋类型";
+		String type=Dics.HOUSE_TYPE;
+		CategoryDTO t=new CategoryDTO();
+		t.setName(name);
+		t.setRemark(remark);
+		t.setType(type);
+		t=categoryService.add(t);
+		String[] names = { "新房", "旧房" };
 		for (int i = 0; i < names.length; i++) {
 			name=names[i];
 			Integer priority=i+1;

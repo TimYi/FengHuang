@@ -1,0 +1,208 @@
+@charset "utf-8";
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+body,html{ height: 100%; width: 100%}
+.right_aside{ padding: 0 20px ; margin-top: 15px;}
+.headTitle{ height: 50px; line-height: 50px;
+    padding-left: 12px;
+    font-size: 14px;
+    position: relative;
+}
+
+.headTitle span{ position: absolute; right: 0; width: 40px; height: 40px;
+font-size: 24px;}
+.headTitle span:hover{ color: green; cursor: pointer}
+
+.right_noPadd{
+    width: 798px;
+    padding: 0;
+}
+/*icon style*/
+.project-icon{ background: url(../../../img/yzht/msg-icon.png) no-repeat; display: inline-block}
+.project-flower-icon{ background-position: 0 2px;height: 20px; color:#999;margin-left:20px;padding-left:20px;}
+.project-set-icon{ background-position: 0 -18px;height: 20px; margin-left:20px;padding-left:20px;}
+
+.tabmenu-frames{ position: relative}
+.tabmenu-frames div{position: absolute;
+    right: 0;
+    z-index: 10;
+    top:0;
+    right:0;
+
+    border-right: solid #eee 1px; height: 50px;
+
+}
+.tabmenu-frames div a{
+    color: #666;
+    margin-top:15px;
+    padding-right: 30px;
+    font-size: 14px;
+}
+.tabmenu-frames div a:hover{ background-position: 0 -36px; color: #01af63}
+.right_content { position: relative}
+.right_content ul{
+    width: 1000px;
+    padding: 0!important;
+    margin: 0!important;
+    display: block;
+    border-bottom: solid #eee 1px;
+    /*overflow: hidden;*/
+    height: 50px;
+    background: #f8f8f8;position: relative;
+}
+.right_content ul li{
+    float: left;
+    border-left: solid 1px #eee;
+    height: 50px;
+    line-height: 50px;
+}
+
+.user-myzx li:hover{ background: #fbfbfb;}
+
+.right_content ul li a{
+    color: #333;
+    display: block;
+    font-size: 16px;
+    font-family: "微软雅黑";
+    padding: 0 30px;
+}
+.right_content ul li a.actives,.right_content ul li a:hover{
+    border-top: solid 2px #01af63;
+    color: #01af63;
+    height: 52px;
+    background: #fff;
+}
+
+.right_content ul li span{ color: red;}
+.right_content ul li:nth-of-type(1){border-left: none}
+.receive-info-set{
+    padding: 0 20px;
+    padding-top: 20px;
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border: solid 1px #e3e3e3;}
+.receive-info-set dl{ position: relative; width: 93%;margin-left: -10px; margin-top: 10px; padding-left: 90px;}
+.receive-info-set dd,.receive-info-set dt{float: left; font-size: 14px; height:24px; line-height: 24px }
+.receive-info-set dt{width:86px;left: 0; color: #666; top: -2px; text-align: right; position: absolute; height: 100%; padding-right:10px;}
+.receive-info-set dd{
+    margin-left:5px;
+    color: #999;
+    width: 45%;
+    height: auto;
+    line-height:20px;
+    word-break: break-all;
+    text-align: left;
+    position:relative;
+    padding-left: 15px;
+ }
+.receive-info-set dd input[type="checkbox"]{
+    border:solid 1px #eeeeee;
+    margin-right: 2px;
+   left: 0px;
+    width: 14px;
+    height: 14px;
+    background: none;
+    position: absolute;
+    top: 3px;
+}
+.save-btn-frame{ text-align: center;margin:30px auto;}
+.input-save-btn{ background: #00b34b; color: #fff; border: none; width: 66px; height:31px;}
+
+/*tabmask*/
+.tabmask{ background: rgba(0,0,0,.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1111; opacity: filter(opacity ="50");
+    display: none;
+}
+.delMask{ background: rgba(0,0,0,.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1112; opacity: filter(opacity ="50");
+    display: none;
+}
+
+.user-myzx{ display: block; width: 100%; }
+.user-myzx li{ position: relative;width:100%; padding: 15px 0; height: 50px;border-bottom: dotted 1px #e6e6e6}
+.user-myzx li div{float: left; width:80%;}
+.user-myzx li div h1{ font-weight: normal; width: 100%; height:24px; font-size: 14px; line-height: 24px;}
+.user-myzx li b{ font-size: 20px; width: 30px; text-align: center; margin-top: 5px; color: red; float: left;}
+.user-myzx li i{ float: left; margin-right: 10px; overflow: hidden; display: inline-block;}
+.user-myzx li i img{ width:50px; height:50px;border-radius: 26px;}
+.user-myzx li div h1 span{position: absolute; right: 0; font-size: 12px;color: #999;  }
+
+.user-myzx li div h2{overflow: hidden;  word-break: break-all; font-weight: normal; color:#999; height:28px; line-height: 22px; }
+.user-myzx li div h2 a{position: absolute; padding: 0; font-size: 12px; color: #999; right: 0; top: 40px;}
+.fontred{ color: red;}
+.user-myzx h1 input[type="button"]{ height:24px!important; width:53px;}
+.user-myzx h2 input[type="text"]{ height:24px; width:167px; padding-left: 8px; border:solid 1px #e8e8e8;}
+
+.input-btn{height: 25px; border: solid 1px #d3d3d3; width: 53px; margin-left: 10px;}
+.input-white-btn{background: #fff;}
+.input-grey-btn{ background: #ccc;}
+
+.greytxt{ color: #999;}
+.page-counts{  margin:40px auto; width: 400px;border-left: solid 1px #eee; display:block;}
+.page-counts li{
+    float: left;
+    height: 38px;
+    border: solid 1px #eee;
+    border-left: none;
+}
+.page-counts li a{ color: #999;  padding: 0 15px; font-family: "宋体"; display: block;line-height: 38px;}
+.page-counts li a.actives,.page-counts li a:hover{background: #00b34a; color: #fff;}
+#tab-myproject,#tab-myrj,#tab-systemMsg{ display: none}
+#tab-myproject li div h2 a,#tab-myrj li div h2 a,#tab-myzx li div h2 a{ display: none;}
+#tab-myset{
+    width: 800px;
+    position: relative;
+    background: #fff;
+    padding-bottom: 5px;
+    margin: 0 auto;
+    margin-top: 10%;
+}
+
+.tipDelete{
+    border: solid #e3e3e3 1px;
+    position: absolute;
+    width: 400px;
+    padding: 10px 0 15px 0;
+    text-align: center;
+    height: 60px;
+    background: #fff;
+    z-index: 1211;
+    height: 150px;
+    margin: 15% 33%;
+
+}
+.tipDelete p{ height: 45px; line-height: 45px;}
+.btnFrame{ position: absolute; bottom: 15px; text-align: center; width: 100%;left: 0;}
+.sureBtns{ background: #00b34b; color: #fff;
+padding:10px 25px; margin-right: 15px;
+}
+.sureBtns:hover{color: #fff;}
+.cancelBtns{ background: #e3e3e3; color: #999;
+    padding:10px 25px;
+}
+.cancelBtns:hover{color: #999;}
+.tipDeleteMsg{
+    position: absolute;
+    width: 200px;
+    border: #dedede 1px solid;
+    height: 36px; line-height: 36px;
+    z-index: 15;
+    background: #fffce8;
+    margin: 6% 33%;
+    text-align: center;
+}
+.tipDelete,.tipDeleteMsg{ display: none}
+.noMsgDiv{ font-size: 28px; color: #999; text-align:center; margin-top: 15%;}
+.msg-title{cursor:pointer;}

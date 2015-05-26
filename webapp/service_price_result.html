@@ -1,0 +1,84 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>凤凰筑家</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<!-- Header -->
+<div data-am-sticky>
+<header data-am-widget="header" class="am-header am-header-default" style="background:#fff;box-shadow: inset -1px -1px 1px -1px #666;">
+  <h1 class="am-header-title">
+    <!--img src="images/park_green.png" width=30 height=22 -->
+    <span style="color:#333;font-size:18px;font-weight:bold">智能报价</span>
+  </h1>
+  <div class="am-header-left am-header-nav">
+    <a href="service_price.html" class="">
+      <i class="am-header-icon am-icon-chevron-left" style="font-size:16px;color:#999;margin-left:-15px"></i>
+    </a>
+  </div> 
+  <div class="am-header-right am-header-nav">
+    <a href="tel:4006008888" class="">
+      <i class="am-header-icon am-icon-phone" style="font-size:22px;color:#f25618;margin-left:-15px"></i>
+    </a>
+  </div> 
+</header>
+</div>
+
+<script>
+var socket = new WebSocket("ws://www.qgfan.com/parkwin/");
+    socket.onopen = function () {
+        alert("Socket has been opened!");
+    }
+    socket.onmessage = function (msg) {
+        alert(msg); //Awesome!
+    }
+</script>
+<!-- List -->
+<div data-am-widget="list_news" style="width:96%;margin:0 auto;padding:0 5px">
+  <!--列表标题-->
+  <div class="am-list-news-bd">
+    <ul class="am-list">
+
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-rmb f_g w18" style="padding-left:4px;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:bold;color:#000;">半包预算</span>
+			  </div> 
+			  <div class="am-fr">
+					<span style="color:#f25618">88890.00</span> 元&nbsp;
+			  </div> 
+			</div>
+
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-rmb f_g w18" style="padding-left:4px;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:bold;color:#000;">全包预算</span>
+			  </div> 
+			  <div class="am-fr">
+					<span style="color:#f25618">168890.00</span> 元&nbsp;
+			  </div> 
+			</div>    
+      
+			<div style="padding:5px;font-size:13px;">
+				温馨提示：以上价格仅供参考，如需更精确报价，请致电凤凰筑家客服 <a href="tel:4006008888" style="color:#f25618">400-600-8888</a>
+			</div>
+                                         
+    </ul>
+  </div>
+</div>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+</body>
+</html>
+

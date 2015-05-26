@@ -1,0 +1,250 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>凤凰筑家</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<!-- Header -->
+<div data-am-sticky>
+<header data-am-widget="header" class="am-header am-header-default" style="background:#fff;box-shadow: inset -1px -1px 1px -1px #666;">
+  <h1 class="am-header-title">
+    <!--img src="images/park_green.png" width=30 height=22 -->
+    <span style="color:#333;font-size:18px;font-weight:bold">我的</span>
+  </h1>
+  <div class="am-header-left am-header-nav">
+    <a href="javascript:history.back(-1)" class="">
+      <!--i class="am-header-icon am-icon-chevron-left" style="font-size:16px;color:#999;margin-left:-15px"></i-->
+    </a>
+  </div> 
+  <div class="am-header-right am-header-nav">
+    <a href="?a=logout" class="">
+      <i class="am-header-icon am-icon-envelope-o" style="font-size:22px;color:#999;margin-left:-15px"></i>
+    </a>
+  </div> 
+</header>
+</div>
+
+<script>
+var socket = new WebSocket("ws://www.qgfan.com/parkwin/");
+    socket.onopen = function () {
+        alert("Socket has been opened!");
+    }
+    socket.onmessage = function (msg) {
+        alert(msg); //Awesome!
+    }
+</script>
+
+
+<style>
+	.lf{float:left;}
+	.lf li, .lf2 li{list-style:none;}
+	.lf2{float:left;margin-top:-5px;}
+	.user_logo{margin-left:-30px;height:60px;width:60px;border:3px solid #eee;-moz-border-radius: 50px;-webkit-border-radius: 50px;border-radius:50px;}
+</style>
+
+<!-- List -->
+<div data-am-widget="list_news" style="width:96%;margin:0 auto;padding:0 5px">
+  <!--列表标题-->
+  <div class="am-list-news-bd">
+    <ul class="am-list">
+      <li class="am-g" style="border-top:0 none;box-shadow: inset 0 -1px 1px -1px #999;">
+				<div style="height:80px;width:100%;margin:0 auto;margin:15px 0 -20px 0;">
+          <ul class="lf"> 
+        			<li class="user_logo">
+        				<img src="../web/index_files/538.jpg" style="-moz-border-radius: 50px;-webkit-border-radius: 50px;border-radius:50px;">
+        			</li>
+					</ul>
+					<ul class="lf2">
+						  <li style="margin-top:10px;font-size:18px;">海涛_1015</li>
+        			<li style="font-size:14px;color:#666">积分: 10</li>
+					</ul>
+
+				</div>
+      </li>    	
+      <li class="am-g" style="border-top:0 none;box-shadow: inset 0 -1px 1px -1px #999;">
+        <a href="#" class="am-list-item-hd">
+        	<div>
+        		<div style="float:left;line-height:30px;">
+        			<div style="float:left;height:46px;width:46px;background:#f25618;margin:0 0 10px 0;-moz-border-radius: 30px;-webkit-border-radius: 30px;border-radius:30px;">
+        				&nbsp;<div class="am-icon-home w18" style="color:#fff;font-size:30px;margin:7px 0 0 5px"></div>
+        			</div>
+        			<div style="float:left;line-height:22px;">
+        				&nbsp;&nbsp;<span style="font-weight:bold;color:#000;text-algin:right">装修进行时</span>
+        				<br>
+        				&nbsp;&nbsp;<span style="font-size:13px;color:#aaa;text-algin:right">随时随地，查看装修进度和工地实景</span>
+        			</div>
+        		</div>
+        		<div style="float:right;line-height:45px">
+        			<span class="am-icon-chevron-right" style="font-size:12px;color:#999"></span>
+        		</div>	
+        	</div>
+        </a>
+      </li>
+      <li class="am-g" style="border-top:0 none;box-shadow: inset 0 -1px 1px -1px #999;">
+        <a href="#" class="am-list-item-hd">
+        	<div>
+        		<div style="float:left;line-height:30px;">
+        			<div style="float:left;height:46px;width:46px;background:#0fc4a8;margin:0 0 10px 0;-moz-border-radius: 30px;-webkit-border-radius: 30px;border-radius:30px;">
+        				&nbsp;<div class="am-icon-calendar" style="color:#fff;font-size:24px;margin:8px 0 0 7px"></div>
+        			</div>
+        			<div style="float:left;line-height:22px;">
+        				&nbsp;&nbsp;<span style="font-weight:bold;color:#000;text-algin:right">我的预约</span>
+        				<br>
+        				&nbsp;&nbsp;<span style="font-size:13px;color:#aaa;text-algin:right">开始分享你的装修经验和乐趣吧</span>
+        			</div>
+        		</div>
+        		<div style="float:right;line-height:45px">
+        			<span class="am-icon-chevron-right" style="font-size:12px;color:#999"></span>
+        		</div>	
+        	</div>
+        </a>
+      </li>
+      <li class="am-g" style="border-top:0 none;box-shadow: inset 0 -1px 1px -1px #999;">
+        <a href="#" class="am-list-item-hd">
+        	<div>
+        		<div style="float:left;line-height:30px;">
+        			<div style="float:left;height:46px;width:46px;background:#0fc4a8;margin:0 0 10px 0;-moz-border-radius: 30px;-webkit-border-radius: 30px;border-radius:30px;">
+        				&nbsp;<div class="am-icon-calendar" style="color:#fff;font-size:24px;margin:8px 0 0 7px"></div>
+        			</div>
+        			<div style="float:left;line-height:22px;">
+        				&nbsp;&nbsp;<span style="font-weight:bold;color:#000;text-algin:right">我的订单</span>
+        				<br>
+        				&nbsp;&nbsp;<span style="font-size:13px;color:#aaa;text-algin:right">开始分享你的装修经验和乐趣吧</span>
+        			</div>
+        		</div>
+        		<div style="float:right;line-height:45px">
+        			<span class="am-icon-chevron-right" style="font-size:12px;color:#999"></span>
+        		</div>	
+        	</div>
+        </a>
+      </li>      
+      <li class="am-g" style="border-top:0 none;box-shadow: inset 0 -1px 1px -1px #999;">
+        <a href="#" class="am-list-item-hd">
+        	<div>
+        		<div style="float:left;line-height:30px;">
+        			<div style="float:left;height:46px;width:46px;background:#6bade2;margin:0 0 10px 0;-moz-border-radius: 30px;-webkit-border-radius: 30px;border-radius:30px;">
+        				&nbsp;<div class="am-icon-star" style="color:#fff;font-size:28px;margin:8px 0 0 6px"></div>
+        			</div>
+        			<div style="float:left;line-height:22px;">
+        				&nbsp;&nbsp;<span style="font-weight:bold;color:#000;text-algin:right">我的收藏</span>
+        				<br>
+        				&nbsp;&nbsp;<span style="font-size:13px;color:#aaa;text-algin:right">你喜欢的，都可以收藏下来哦</span>
+        			</div>
+        		</div>
+        		<div style="float:right;line-height:45px">
+        			<span class="am-icon-chevron-right" style="font-size:12px;color:#999"></span>
+        		</div>	
+        	</div>
+        </a>
+      </li>
+      <li class="am-g" style="border-top:0 none;box-shadow: inset 0 -1px 1px -1px #999;">
+        <a href="#" class="am-list-item-hd">
+        	<div>
+        		<div style="float:left;line-height:30px;">
+        			<div style="float:left;height:46px;width:46px;background:#6bade2;margin:0 0 10px 0;-moz-border-radius: 30px;-webkit-border-radius: 30px;border-radius:30px;">
+        				&nbsp;<div class="am-icon-star" style="color:#fff;font-size:28px;margin:8px 0 0 6px"></div>
+        			</div>
+        			<div style="float:left;line-height:22px;">
+        				&nbsp;&nbsp;<span style="font-weight:bold;color:#000;text-algin:right">我的评论</span>
+        				<br>
+        				&nbsp;&nbsp;<span style="font-size:13px;color:#aaa;text-algin:right">你喜欢的，都可以收藏下来哦</span>
+        			</div>
+        		</div>
+        		<div style="float:right;line-height:45px">
+        			<span class="am-icon-chevron-right" style="font-size:12px;color:#999"></span>
+        		</div>	
+        	</div>
+        </a>
+      </li>      
+      <li class="am-g" style="border-top:0 none;box-shadow: inset 0 -1px 1px -1px #999;">
+        <a href="#" class="am-list-item-hd">
+        	<div>
+        		<div style="float:left;line-height:30px;">
+        			<div style="float:left;height:46px;width:46px;background:#f0a957;margin:0 0 10px 0;-moz-border-radius: 30px;-webkit-border-radius: 30px;border-radius:30px;">
+        				&nbsp;<div class="am-icon-money" style="color:#fff;font-size:26px;margin:8px 0 0 5px"></div>
+        			</div>
+        			<div style="float:left;line-height:22px;">
+        				&nbsp;&nbsp;<span style="font-weight:bold;color:#000;text-algin:right">优惠券</span>
+        				<br>
+        				&nbsp;&nbsp;<span style="font-size:13px;color:#aaa;text-algin:right">绝对不可错过的装修优惠</span>
+        			</div>
+        		</div>
+        		<div style="float:right;line-height:45px">
+        			<span class="am-icon-chevron-right" style="font-size:12px;color:#999"></span>
+        		</div>	
+        	</div>
+        </a>
+      </li>
+      <!--li class="am-g" style="border-top:0 none;box-shadow: inset 0 -1px 1px -1px #999;">
+        <a href="#" class="am-list-item-hd">
+        	<div>
+        		<div style="float:left;line-height:30px;">
+        			<div style="float:left;height:46px;width:46px;background:#fd8da5;margin:0 0 10px 0;-moz-border-radius: 30px;-webkit-border-radius: 30px;border-radius:30px;">
+        				&nbsp;<div class="am-icon-gear" style="color:#fff;font-size:30px;margin:8px 0 0 6px"></div>
+        			</div>
+        			<div style="float:left;line-height:22px;">
+        				&nbsp;&nbsp;<span style="font-weight:bold;color:#000;text-algin:right">系统设置</span>
+        				<br>
+        				&nbsp;&nbsp;<span style="font-size:13px;color:#aaa;text-algin:right">关于凤凰筑家的更多内容</span>
+        			</div>
+        		</div>
+        		<div style="float:right;line-height:45px">
+        			<span class="am-icon-chevron-right" style="font-size:12px;color:#999"></span>
+        		</div>	
+        	</div>
+        </a>
+      </li-->                        
+    </ul>
+  </div>
+</div>
+
+<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default" id="">
+  <ul class="am-navbar-nav am-cf am-avg-sm-4" style="box-shadow: inset 0 1px 1px -1px #666;">
+    <li>
+      <a href="index.html">
+        <span class="am-icon-home" style="font-size:21px;"></span>
+        <span class="am-navbar-label">体验馆</span>
+      </a>
+    </li>
+    <li>
+      <a href="package.html">
+        <span class="am-icon-check-circle-o" style="font-size:20px;"></span>
+        <span class="am-navbar-label">套餐预订</span>
+      </a>
+    </li>
+    <li>
+      <a href="case.html">
+        <span class="am-icon-image" style="font-size:18px;padding-top:2px"></span>
+        <span class="am-navbar-label">装修案例</span>
+      </a>
+    </li>
+    <li>
+      <a href="service.html">
+        <span class="am-icon-suitcase" style="font-size:20px;"></span>
+        <span class="am-navbar-label">装修服务</span>
+      </a>
+    </li>
+    <li>
+      <a href="center.html">
+        <span class="am-icon-user" style="font-size:20px;color:#f25618"></span>
+        <span class="am-navbar-label"  style="color:#f25618">我的</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+</body>
+</html>
+

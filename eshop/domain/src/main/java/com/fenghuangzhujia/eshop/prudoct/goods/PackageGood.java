@@ -2,19 +2,24 @@ package com.fenghuangzhujia.eshop.prudoct.goods;
 
 import java.util.Date;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fenghuangzhujia.eshop.core.commerce.goods.Good;
-import com.fenghuangzhujia.eshop.prudoct.packaging.DecoratingPackage;
+import com.fenghuangzhujia.eshop.prudoct.decorateCase.DecorateCase;
+import com.fenghuangzhujia.eshop.prudoct.packaging.DecoratePackage;
 import com.fenghuangzhujia.foundation.area.Area;
 
 @Entity
-@Table(name="fhzj_decorating_good")
+@Table(name="fhzj_decorat_good")
+@DiscriminatorValue(value="DECORATE_PACKAGE")
 public class PackageGood extends Good {
 	
-	private DecoratingPackage decoratingPackage;	
+	private DecoratePackage decoratingPackage;
+	private DecorateCase decorateCase;
 	private Date appointTime;
 	private Area area;
 	private String address;
@@ -25,13 +30,28 @@ public class PackageGood extends Good {
 	 * 购买的套餐
 	 * @return
 	 */
-	public DecoratingPackage getDecoratingPackage() {
+	@ManyToOne(optional=false)
+	public DecoratePackage getDecoratingPackage() {
 		return decoratingPackage;
 	}
-	public void setDecoratingPackage(DecoratingPackage decoratingPackage) {
+	public void setDecoratingPackage(DecoratePackage decoratingPackage) {
 		this.decoratingPackage = decoratingPackage;
+		setPrice(decoratingPackage.getMarketPrice());
+		setRealPrice(decoratingPackage.getSalePrice());
 	}
 
+	/**
+	 * 选择的装修案例
+	 * @return
+	 */
+	@ManyToOne
+	public DecorateCase getDecorateCase() {
+		return decorateCase;
+	}
+	public void setDecorateCase(DecorateCase decorateCase) {
+		this.decorateCase = decorateCase;
+	}
+	
 	/**
 	 * 客户选择的装修时间
 	 * @return
@@ -47,6 +67,7 @@ public class PackageGood extends Good {
 	 * 客户所在地区
 	 * @return
 	 */
+	@ManyToOne
 	public Area getArea() {
 		return area;
 	}
@@ -80,13 +101,13 @@ public class PackageGood extends Good {
 	@Transient
 	public double getPrice() {
 		return decoratingPackage.getMarketPrice();
-	}
+	}	
 	
 	@Override
 	@Transient
 	public double getRealPrice() {
 		return decoratingPackage.getSalePrice();
-	}
+	}	
 	
 	@Override
 	@Transient

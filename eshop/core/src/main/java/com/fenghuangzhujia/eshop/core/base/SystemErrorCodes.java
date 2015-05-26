@@ -27,6 +27,10 @@ public class SystemErrorCodes {
 	public static final ErrorCode CREDENTIAL_ERROR;
 	
 	public static final ErrorCode CAPTCHA_ERROR;
+	/**
+	 * 文件处理异常
+	 */
+	public static final ErrorCode FILE_ERROR;
 	
 	/**
 	 * 数据库实体没有找到
@@ -81,6 +85,7 @@ public class SystemErrorCodes {
 		ILLEGAL_ARGUMENT=new ErrorCode(7, "非法参数");
 		CREDENTIAL_ERROR=new ErrorCode(8, "用户名错误");
 		CAPTCHA_ERROR=new ErrorCode(9, "图形验证码错误");
+		FILE_ERROR=new ErrorCode(10, "文件处理异常");
 		
 		SCHEDUAL_CONFILICT=new ErrorCode(101, "出现时间重叠，请重新选择时间！");
 		SCHEDUAL_OCCUPIED=new ErrorCode(102, "此时间段已经被预约，请您重新选择！");
