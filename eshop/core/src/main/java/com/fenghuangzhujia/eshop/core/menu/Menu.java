@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.core.column;
+package com.fenghuangzhujia.eshop.core.menu;
 
 import java.util.Set;
 
@@ -12,13 +12,13 @@ import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 import com.fenghuangzhujia.foundation.dics.CategoryItem;
 
 @Entity
-@Table(name="fhzj_column")
-public class Column extends UUIDBaseModel {
-	private Column father;
+@Table(name="fhzj_menu")
+public class Menu extends UUIDBaseModel {
+	private Menu father;
 	private String name;
 	private String description;
 	private Integer priority;
-	private Set<Column> sons;
+	private Set<Menu> sons;
 	private CategoryItem type;
 	
 	/**
@@ -26,10 +26,10 @@ public class Column extends UUIDBaseModel {
 	 * @return
 	 */
 	@ManyToOne
-	public Column getFather() {
+	public Menu getFather() {
 		return father;
 	}
-	public void setFather(Column father) {
+	public void setFather(Menu father) {
 		this.father = father;
 	}
 	
@@ -53,10 +53,10 @@ public class Column extends UUIDBaseModel {
 		this.priority = priority;
 	}
 	@OneToMany(mappedBy="father",cascade=CascadeType.ALL)
-	public Set<Column> getSons() {
+	public Set<Menu> getSons() {
 		return sons;
 	}
-	public void setSons(Set<Column> sons) {
+	public void setSons(Set<Menu> sons) {
 		this.sons = sons;
 	}
 	

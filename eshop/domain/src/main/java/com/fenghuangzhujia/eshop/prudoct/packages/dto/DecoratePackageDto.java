@@ -1,22 +1,20 @@
-package com.fenghuangzhujia.eshop.prudoct.packaging.dto;
+package com.fenghuangzhujia.eshop.prudoct.packages.dto;
 
 import java.util.Set;
 
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fenghuangzhujia.eshop.prudoct.decorateDetail.DecorateDetail;
+import com.fenghuangzhujia.eshop.prudoct.detail.DecorateDetail;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 import com.fenghuangzhujia.foundation.dics.dto.CategoryItemDto;
 import com.fenghuangzhujia.foundation.media.MediaContentDto;
 
 public class DecoratePackageDto extends DtoBaseModel {
-	private String columnid;
-	private String column;
+	private String menuid;
+	private String menu;
 	private String brandid;
 	private String brand;
-	private String shopid;
-	private String shop;
 	private String title;
 	private Double marketPrice;
 	private Double salePrice;
@@ -47,18 +45,17 @@ public class DecoratePackageDto extends DtoBaseModel {
 	private String keywrods;
 	private Set<DecorateDetail> details;
 	
-	
-	public String getColumnid() {
-		return columnid;
+	public String getMenuid() {
+		return menuid;
 	}
-	public void setColumnid(String columnid) {
-		this.columnid = columnid;
+	public void setMenuid(String menuid) {
+		this.menuid = menuid;
 	}
-	public String getColumn() {
-		return column;
+	public String getMenu() {
+		return menu;
 	}
-	public void setColumn(String column) {
-		this.column = column;
+	public void setMenu(String menu) {
+		this.menu = menu;
 	}
 	public String getBrandid() {
 		return brandid;
@@ -71,18 +68,6 @@ public class DecoratePackageDto extends DtoBaseModel {
 	}
 	public void setBrand(String brand) {
 		this.brand = brand;
-	}
-	public String getShopid() {
-		return shopid;
-	}
-	public void setShopid(String shopid) {
-		this.shopid = shopid;
-	}
-	public String getShop() {
-		return shop;
-	}
-	public void setShop(String shop) {
-		this.shop = shop;
 	}
 	public String getTitle() {
 		return title;

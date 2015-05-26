@@ -1,18 +1,20 @@
-package com.fenghuangzhujia.eshop.prudoct.decorateCase;
+package com.fenghuangzhujia.eshop.prudoct.cases;
 
 import java.util.Set;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
 import com.fenghuangzhujia.eshop.core.brand.Brand;
-import com.fenghuangzhujia.eshop.core.column.Column;
-import com.fenghuangzhujia.eshop.prudoct.decorateDetail.DecorateDetail;
+import com.fenghuangzhujia.eshop.core.menu.Menu;
+import com.fenghuangzhujia.eshop.prudoct.detail.DecorateDetail;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 import com.fenghuangzhujia.foundation.dics.CategoryItem;
 import com.fenghuangzhujia.foundation.media.MediaContent;
@@ -21,7 +23,7 @@ import com.fenghuangzhujia.foundation.media.MediaContent;
 @Table(name="fhzj_decorate_case")
 public class DecorateCase extends UUIDBaseModel {
 	private String title;
-	private Column column;
+	private Menu menu;
 	private Brand brand;
 	private MediaContent mainPic;
 	private MediaContent thumbnails;
@@ -52,11 +54,11 @@ public class DecorateCase extends UUIDBaseModel {
 	 * @return
 	 */
 	@ManyToOne
-	public Column getColumn() {
-		return column;
+	public Menu getMenu() {
+		return menu;
 	}
-	public void setColumn(Column column) {
-		this.column = column;
+	public void setMenu(Menu menu) {
+		this.menu = menu;
 	}
 	
 	/**
@@ -202,8 +204,9 @@ public class DecorateCase extends UUIDBaseModel {
 	 * 装修详情
 	 * @return
 	 */
-	@ElementCollection
+	@ElementCollection(fetch=FetchType.EAGER)
 	@CollectionTable(name="fhzj_decorate_case_details")
+	@OrderColumn
 	public Set<DecorateDetail> getDetails() {
 		return details;
 	}

@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.prudoct.packaging;
+package com.fenghuangzhujia.eshop.prudoct.packages;
 
 import java.util.Set;
 
@@ -6,18 +6,19 @@ import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
 
 import com.fenghuangzhujia.eshop.core.brand.Brand;
-import com.fenghuangzhujia.eshop.core.column.Column;
-import com.fenghuangzhujia.eshop.core.commerce.eshop.Shop;
-import com.fenghuangzhujia.eshop.prudoct.decorateDetail.DecorateDetail;
+import com.fenghuangzhujia.eshop.core.menu.Menu;
+import com.fenghuangzhujia.eshop.prudoct.detail.DecorateDetail;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 import com.fenghuangzhujia.foundation.dics.CategoryItem;
 import com.fenghuangzhujia.foundation.media.MediaContent;
@@ -30,9 +31,8 @@ import com.fenghuangzhujia.foundation.media.MediaContent;
 @Entity
 @Table(name="fhzj_decorate_package")
 public class DecoratePackage extends UUIDBaseModel {
-	private Column column;
+	private Menu menu;
 	private Brand brand;
-	private Shop shop;
 	private String title;
 	private Double marketPrice;
 	private Double salePrice;
@@ -57,11 +57,11 @@ public class DecoratePackage extends UUIDBaseModel {
 	 * @return
 	 */
 	@ManyToOne
-	public Column getColumn() {
-		return column;
+	public Menu getMenu() {
+		return menu;
 	}
-	public void setColumn(Column column) {
-		this.column = column;
+	public void setMenu(Menu menu) {
+		this.menu = menu;
 	}
 	
 	/**
@@ -74,18 +74,6 @@ public class DecoratePackage extends UUIDBaseModel {
 	}
 	public void setBrand(Brand brand) {
 		this.brand = brand;
-	}
-	
-	/**
-	 * 所属商家
-	 * @return
-	 */
-	@ManyToOne
-	public Shop getShop() {
-		return shop;
-	}
-	public void setShop(Shop shop) {
-		this.shop = shop;
 	}
 	
 	/**
@@ -287,8 +275,9 @@ public class DecoratePackage extends UUIDBaseModel {
 	 * 装修细节
 	 * @return
 	 */
-	@ElementCollection
+	@ElementCollection(fetch=FetchType.EAGER)
 	@CollectionTable(name="fhzj_decorate_package_details")
+	@OrderColumn
 	public Set<DecorateDetail> getDetails() {
 		return details;
 	}

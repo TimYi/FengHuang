@@ -8,25 +8,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.fenghuangzhujia.eshop.core.column.dto.ColumnDto;
+import com.fenghuangzhujia.eshop.core.menu.MenuService;
+import com.fenghuangzhujia.eshop.core.menu.dto.MenuDto;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
 public class ColumnTest {
 	@Autowired
-	private ColumnService columnService;
+	private MenuService columnService;
 	
-	
+	@Test
 	public void add() {
-		ColumnDto c=new ColumnDto();
+		MenuDto c=new MenuDto();
 		c.setName("test");
-		c.setTypeid("404040e64d7a697c014d7a69866a0001");
+		c.setTypeid("404040e64d8f6dc0014d8f6dcf520007");
 		columnService.add(c);
 	}
 	
-	@Test
+	//@Test
 	public void findByTypeName() {
-		List<ColumnDto> result=columnService.findByTypeName("artical");
+		List<MenuDto> result=columnService.findByTypeName("artical");
 		System.out.println(result.size());
 	}
 	

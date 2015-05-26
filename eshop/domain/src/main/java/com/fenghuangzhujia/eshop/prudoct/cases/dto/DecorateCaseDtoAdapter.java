@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.prudoct.packaging.dto;
+package com.fenghuangzhujia.eshop.prudoct.cases.dto;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -12,11 +12,10 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.brand.Brand;
 import com.fenghuangzhujia.eshop.core.brand.BrandRepository;
-import com.fenghuangzhujia.eshop.core.column.Column;
-import com.fenghuangzhujia.eshop.core.column.ColumnRepository;
-import com.fenghuangzhujia.eshop.core.commerce.eshop.Shop;
 import com.fenghuangzhujia.eshop.core.commerce.eshop.ShopRepository;
-import com.fenghuangzhujia.eshop.prudoct.packaging.DecoratePackage;
+import com.fenghuangzhujia.eshop.core.menu.Menu;
+import com.fenghuangzhujia.eshop.core.menu.MenuRepository;
+import com.fenghuangzhujia.eshop.prudoct.cases.DecorateCase;
 import com.fenghuangzhujia.foundation.core.dto.AbstractDtoAdapter;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.dics.CategoryItem;
@@ -25,10 +24,11 @@ import com.fenghuangzhujia.foundation.media.MediaContent;
 import com.fenghuangzhujia.foundation.media.MediaService;
 
 @Component
-public class DecoratePackageDtoAdapter extends AbstractDtoAdapter<DecoratePackage, DecoratePackageDto> {
+public class DecorateCaseDtoAdapter extends AbstractDtoAdapter<DecorateCase, DecorateCaseDto> {
 
+	
 	@Autowired
-	private ColumnRepository columnRepository;
+	private MenuRepository columnRepository;
 	@Autowired
 	private BrandRepository brandRepository;
 	@Autowired
@@ -38,21 +38,22 @@ public class DecoratePackageDtoAdapter extends AbstractDtoAdapter<DecoratePackag
 	@Autowired
 	private CategoryItemRepository categoryItemRepository;
 	
+	
 	@Override
-	public DecoratePackageDto postConvert(DecoratePackage d,
-			DecoratePackageDto t) {
-		t.setColumnid(d.getColumn().getId());
-		t.setColumn(d.getColumn().getName());
-		t.setBrandid(d.getBrand().getId());
-		t.setBrand(d.getBrand().getName());
-		t.setShopid(d.getShop().getId());
-		t.setShop(d.getShop().getName());
+	public DecorateCaseDto postConvert(DecorateCase d, DecorateCaseDto t) {
+		if(d.getMenu()!=null) {
+			t.setMenuid(d.getMenu().getId());
+			t.setMenu(d.getMenu().getName());
+		}
+		if(d.getBrand()!=null) {
+			t.setBrandid(d.getBrand().getId());
+			t.setBrand(d.getBrand().getName());
+		}
 		return t;
 	}
 
 	@Override
-	public DecoratePackage postConvertToDo(DecoratePackageDto t,
-			DecoratePackage d) {
+	public DecorateCase postConvertToDo(DecorateCaseDto t, DecorateCase d) {
 		d=postUpdate(t, d);
 		try {
 			MultipartFile[] picFiles=t.getPicFiles();
@@ -71,22 +72,17 @@ public class DecoratePackageDtoAdapter extends AbstractDtoAdapter<DecoratePackag
 	}
 
 	@Override
-	public DecoratePackage postUpdate(DecoratePackageDto t, DecoratePackage d) {
+	public DecorateCase postUpdate(DecorateCaseDto t, DecorateCase d) {
 		try {
-			String columnid=t.getColumnid();
-			if(StringUtils.isNotBlank(columnid)) {
-				Column column=columnRepository.findOne(columnid);
-				d.setColumn(column);
+			String menuid=t.getMenuid();
+			if(StringUtils.isNotBlank(menuid)) {
+				Menu menu=columnRepository.findOne(menuid);
+				d.setMenu(menu);
 			}
 			String brandid=t.getBrandid();
 			if(StringUtils.isNotBlank(brandid)) {
 				Brand brand=brandRepository.findOne(brandid);
 				d.setBrand(brand);
-			}
-			String shopid=t.getShopid();
-			if(StringUtils.isNotBlank(shopid)) {
-				Shop shop=shopRepository.findOne(shopid);
-				d.setShop(shop);
 			}
 			MultipartFile mainPicFile=t.getMainPicFile();
 			if(mainPicFile!=null) {
@@ -100,21 +96,22 @@ public class DecoratePackageDtoAdapter extends AbstractDtoAdapter<DecoratePackag
 				thumbnails=mediaService.update(thumbnails, thumbnailsFile);
 				d.setThumbnails(thumbnails);
 			}
-			String houseTypeId=t.getHouseTypeId();
-			if(StringUtils.isNotBlank(houseTypeId)) {
-				CategoryItem houseType=categoryItemRepository.findOne(houseTypeId);
-				d.setHouseType(houseType);
+			String categoryid=t.getCategoryid();
+			if(StringUtils.isNotBlank(categoryid)) {
+				CategoryItem category=categoryItemRepository.findOne(categoryid);
+				d.setCategory(category);
 			}
-			String decorateTypeId=t.getDecorateTypeId();
-			if(StringUtils.isNotBlank(decorateTypeId)) {
-				CategoryItem decorateType=categoryItemRepository.findOne(decorateTypeId);
-				d.setDecorateType(decorateType);
+			String styleid=t.getStyleid();
+			if(StringUtils.isNotBlank(styleid)) {
+				CategoryItem style=categoryItemRepository.findOne(styleid);
+				d.setStyle(style);
 			}
-			String responseTypeId=t.getResponseTypeId();
-			if(StringUtils.isNotBlank(responseTypeId)) {
-				CategoryItem responseType=categoryItemRepository.findOne(responseTypeId);
-				d.setResponseType(responseType);
+			String apartmentTypeId=t.getApartmentTypeId();
+			if(StringUtils.isNotBlank(apartmentTypeId)) {
+				CategoryItem apartmentType=categoryItemRepository.findOne(apartmentTypeId);
+				d.setApartmentType(apartmentType);
 			}		
+			d.setDetails(t.getDetails());
 			return d;
 		} catch (IOException e) {
 			throw new ErrorCodeException(SystemErrorCodes.FILE_ERROR, e.getMessage());

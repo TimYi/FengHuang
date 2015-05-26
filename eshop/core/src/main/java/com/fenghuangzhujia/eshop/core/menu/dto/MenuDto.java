@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.core.column.dto;
+package com.fenghuangzhujia.eshop.core.menu.dto;
 
 import java.util.Set;
 
@@ -6,12 +6,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 import com.fenghuangzhujia.foundation.dics.dto.CategoryItemDto;
 
-public class ColumnDto extends DtoBaseModel {
+public class MenuDto extends DtoBaseModel {
 	@JsonIgnore
 	private String fatherid;
 	private String name;
 	private String description;
-	private Set<ColumnDto> sons;
+	private Set<MenuDto> sons;
 	@JsonIgnore
 	private String typeid;
 	private CategoryItemDto type;
@@ -34,10 +34,10 @@ public class ColumnDto extends DtoBaseModel {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Set<ColumnDto> getSons() {
+	public Set<MenuDto> getSons() {
 		return sons;
 	}
-	public void setSons(Set<ColumnDto> sons) {
+	public void setSons(Set<MenuDto> sons) {
 		this.sons = sons;
 	}
 	public String getTypeid() {

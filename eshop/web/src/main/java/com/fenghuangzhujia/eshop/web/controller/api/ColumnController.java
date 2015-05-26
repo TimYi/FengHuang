@@ -8,37 +8,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fenghuangzhujia.eshop.core.column.ColumnService;
-import com.fenghuangzhujia.eshop.core.column.dto.ColumnDto;
+import com.fenghuangzhujia.eshop.core.menu.MenuService;
+import com.fenghuangzhujia.eshop.core.menu.dto.MenuDto;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
 @RestController
 public class ColumnController {
 	
 	@Autowired
-	private ColumnService columnService;
+	private MenuService columnService;
 	
 	@RequestMapping(value="column",method=RequestMethod.POST)
-	public String add(ColumnDto column) {
+	public String add(MenuDto column) {
 		column=columnService.add(column);
 		return RequestResult.success(column).toJson();
 	}
 	
 	@RequestMapping(value="column/{id}",method=RequestMethod.POST)
-	public String edit(ColumnDto column) {
+	public String edit(MenuDto column) {
 		column=columnService.update(column);
 		return RequestResult.success(column).toJson();
 	}
 	
 	@RequestMapping(value="column/{id}",method=RequestMethod.GET)
 	public String findOne(@PathVariable String id) {
-		ColumnDto column=columnService.findOne(id);
+		MenuDto column=columnService.findOne(id);
 		return RequestResult.success(column).toJson();
 	}
 	
 	@RequestMapping(value="columns",method=RequestMethod.GET)
 	public String findByType(String type) {
-		List<ColumnDto> columns=columnService.findByTypeName(type);
+		List<MenuDto> columns=columnService.findByTypeName(type);
 		return RequestResult.success(columns).toJson();
 	}
 	

@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.prudoct.decorateDetail;
+package com.fenghuangzhujia.eshop.prudoct.detail;
 
 import javax.persistence.Embeddable;
 

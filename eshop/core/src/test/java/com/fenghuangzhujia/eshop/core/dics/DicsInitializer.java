@@ -87,4 +87,114 @@ public class DicsInitializer {
 			categoryItemService.add(item);
 		}
 	}
+	
+	@Test
+	public void initDecorateType() {
+		String name="装修类型";
+		String remark="装修类型";
+		String type=Dics.DECORATE_TYPE;
+		CategoryDTO t=new CategoryDTO();
+		t.setName(name);
+		t.setRemark(remark);
+		t.setType(type);
+		t=categoryService.add(t);
+		String[] names = { "旧房到精装", "新房到精装" };
+		for (int i = 0; i < names.length; i++) {
+			name=names[i];
+			Integer priority=i+1;
+			CategoryItemDto item=new CategoryItemDto();
+			item.setType(type);
+			item.setName(name);
+			item.setPriority(priority);
+			categoryItemService.add(item);
+		}
+	}
+	
+	@Test
+	public void initResponseType() {
+		String name="包装类型";
+		String remark="包装类型";
+		String type=Dics.RESPONSE_TYPE;
+		CategoryDTO t=new CategoryDTO();
+		t.setName(name);
+		t.setRemark(remark);
+		t.setType(type);
+		t=categoryService.add(t);
+		String[] names = { "全包", "半包" };
+		for (int i = 0; i < names.length; i++) {
+			name=names[i];
+			Integer priority=i+1;
+			CategoryItemDto item=new CategoryItemDto();
+			item.setType(type);
+			item.setName(name);
+			item.setPriority(priority);
+			categoryItemService.add(item);
+		}
+	}
+	
+	@Test
+	public void initCategory() {
+		String name="类型";
+		String remark="类型";
+		String type=Dics.CATEGORY;
+		CategoryDTO t=new CategoryDTO();
+		t.setName(name);
+		t.setRemark(remark);
+		t.setType(type);
+		t=categoryService.add(t);
+		String[] names = { "客厅", "厨房" };
+		for (int i = 0; i < names.length; i++) {
+			name=names[i];
+			Integer priority=i+1;
+			CategoryItemDto item=new CategoryItemDto();
+			item.setType(type);
+			item.setName(name);
+			item.setPriority(priority);
+			categoryItemService.add(item);
+		}
+	}
+	
+	@Test
+	public void initStyle() {
+		String name="风格";
+		String remark="风格";
+		String type=Dics.STYLE;
+		CategoryDTO t=new CategoryDTO();
+		t.setName(name);
+		t.setRemark(remark);
+		t.setType(type);
+		t=categoryService.add(t);
+		String[] names = { "美式", "欧式" };
+		for (int i = 0; i < names.length; i++) {
+			name=names[i];
+			Integer priority=i+1;
+			CategoryItemDto item=new CategoryItemDto();
+			item.setType(type);
+			item.setName(name);
+			item.setPriority(priority);
+			categoryItemService.add(item);
+		}
+	}
+	
+	@Test
+	public void initApartment() {
+		String name="户型";
+		String remark="户型";
+		String type=Dics.APARTMENT_TYPE;
+		CategoryDTO t=new CategoryDTO();
+		t.setName(name);
+		t.setRemark(remark);
+		t.setType(type);
+		t=categoryService.add(t);
+		String[] names = { "三居室", "两居室" };
+		for (int i = 0; i < names.length; i++) {
+			name=names[i];
+			Integer priority=i+1;
+			CategoryItemDto item=new CategoryItemDto();
+			item.setType(type);
+			item.setName(name);
+			item.setPriority(priority);
+			categoryItemService.add(item);
+		}
+	}
 }

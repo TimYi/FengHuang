@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.prudoct.packaging;
+package com.fenghuangzhujia.eshop.prudoct.packages;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 

@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.prudoct.packaging;
+package com.fenghuangzhujia.eshop.prudoct.cases;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
-import com.fenghuangzhujia.eshop.prudoct.packaging.dto.DecoratePackageDto;
+import com.fenghuangzhujia.eshop.prudoct.cases.dto.DecorateCaseDto;
 import com.fenghuangzhujia.foundation.core.dto.DtoPagingService;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.media.MediaContent;
@@ -17,12 +17,11 @@ import com.fenghuangzhujia.foundation.media.MediaService;
 
 @Service
 @Transactional
-public class DecoratePackageService extends DtoPagingService<DecoratePackage, DecoratePackageDto, String> {
-	
+public class DecorateCaseService extends DtoPagingService<DecorateCase, DecorateCaseDto, String> {
 	@Autowired
 	private MediaService mediaService;
 	@Autowired
-	private DecoratePackageRepository repository;
+	private DecorateCaseRepository repository;
 	
 	/**
 	 * 删除组图中某个图片
@@ -30,7 +29,7 @@ public class DecoratePackageService extends DtoPagingService<DecoratePackage, De
 	 * @param picid 图片id
 	 */
 	public void deletePic(String id,String picid) {
-		DecoratePackage p=repository.findOne(id);
+		DecorateCase p=repository.findOne(id);
 		if(p==null)return;
 		MediaContent pic=mediaService.getMedia(picid);
 		if(pic==null)return;
@@ -49,7 +48,7 @@ public class DecoratePackageService extends DtoPagingService<DecoratePackage, De
 	 * @param picFile
 	 */
 	public void addPic(String id, MultipartFile picFile) {
-		DecoratePackage p=repository.findOne(id);
+		DecorateCase p=repository.findOne(id);
 		if(p==null)return;
 		try {
 			MediaContent pic=mediaService.save(picFile);
