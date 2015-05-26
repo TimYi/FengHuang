@@ -1,68 +1,20 @@
 <!DOCTYPE html>
-<!--[if IE 6]><html lang="en" class="ielt7  ielt8  ielt9 ielt10 en"><![endif]-->
-<!--[if IE 7]><html lang="en" class="ie7  ielt8  ielt9 ielt10 en"><![endif]-->
-<!--[if IE 8 ]><html lang="en" class="ie8 ielt9 ielt10 en"><![endif]-->
-<!--[if IE 9 ]><html lang="en" class="ie9 ielt10 en"><![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
-<html class=" en" lang="en">
- <!--<![endif]-->
- <head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <meta charset="utf-8" />
-  <meta name="renderer" content="webkit" />
-  <title>凤凰筑家_首页</title>
-  <meta name="keywords" content="济南装修,济南装修网,济南装修公司" />
-  <meta name="description" content="凤凰筑家济南装修网致力于为广大业主提供透明、保障、省心的装修服务！汇集济南各大装饰公司，并有权威济南装修公司排名可供参考。" />
-  <link rel="shortcut icon" href="http://jn.phoenixzj.com/favicon.ico" />
-  <link rel="stylesheet" type="text/css" href="assets/css/new_global.css" />
-  <link href="assets/css/new_index.css" rel="stylesheet" type="text/css" />
-  <!--
-  <script type="text/javascript" src="assets/js/zzsc.js"></script>
-  -->
-  <link href="assets/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
-  <!--[if lt IE 9]>
-<script src="http://static.phoenixzj.com/gb_js/jquery-1.9.1.min.js?v=1411152719" type="text/javascript"></script>
-<![endif]-->
-  <!--[if gte IE 9]>
-<script src="http://static.phoenixzj.com/gb_js/jquery-1.10.2.min.js?v=1411152719" type="text/javascript"></script>
-<![endif]-->
-  <!--[if !IE]><!-->
-  <script src="assets/js/lxb.js" charset="utf-8"></script>
-  <!--
-  <script src="assets/js/v.html" charset="utf-8"></script>
-  -->
-  <script src="assets/js/hm.js"></script>
-  <script src="assets/js/mvl.js" async="" type="text/javascript"></script>
-  <script src="assets/js/jquery-1.js" type="text/javascript"></script>
-  <!--<![endif]-->
-  <script>
-   var jq = jQuery.noConflict();
-</script>
-  <script src="assets/js/common_new.js" type="text/javascript"></script>
+<html >
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta charset="utf-8" />
+	<meta name="renderer" content="webkit" />
+	<title>凤凰筑家_首页</title>
+	<meta name="keywords" content="济南装修,济南装修网,济南装修公司" />
+	<meta name="description" content="凤凰筑家济南装修网致力于为广大业主提供透明、保障、省心的装修服务！汇集济南各大装饰公司，并有权威济南装修公司排名可供参考。" />
+	<link rel="shortcut icon" href="http://jn.phoenixzj.com/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="assets/css/new_global.css" />
+	<link href="assets/css/new_index.css" rel="stylesheet" type="text/css" />
+	<link href="assets/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+</head>
 
- </head>
- <body class="narrow_1220">
-  <script type="text/javascript">
-    /*var webScreen = window.screen.width;
-    if(webScreen<1250){
-        jq('body').addClass('narrow_980');
-    }else{*/
-        jq('body').addClass('narrow_1220');
-    /*};*/
-</script>
-  <script type="text/javascript">
-   var city_id         = getCookie('townid', 1);
-   city_id = city_id?city_id:1130;
-   function checkSerachForm(){
-     if(jq('.header_search_input').val()==""){
-       jq('.header_search_input').focus()
-       return false
-     }else{
-       try{clickStream.getCvParams(searchclicktage);}catch(e){}
-       return true;
-     }
-   }
-</script>
+<body class="narrow_1220">
+
   <div class="global_wrap clear" id="gloWrap">
    <div class="header">
     <div class="header_center">
@@ -80,8 +32,10 @@
         <div class="header_search">
          <div class="header_select">
          </div>
-         <input class="header_search_input" name="keyword" type="text" />
+         <input placeholder="挑选您心仪的装修公司"  class="header_search_input" name="keyword" type="text" />
+         <!--
          <em style="right: 58px;" v="58" class="header_search_input_text">挑选您心仪的装修公司</em>
+         -->
          <input searchtage="1_8_3_2" class="header_search_submit" value="搜 索" type="submit" />
         </div>
 	     </form>
@@ -159,16 +113,19 @@
    </div>
 
 
-   <div class="container">
+	<div class="container">
 
-    <div class="index_module_header_tip" ">
-      凤 凰 小 贴 士 :&nbsp;&nbsp;<span style="color:#940b13"> 稳中求进，精益求精，每个案例都是一个凤凰筑家的“样板间”</span>
-      <span style="float:right">
-      	<i class="fa fa-pause" style="font-size: 1.1em;width:20px;color:#ccc"></i>
+
+		<div class="index_module_header_tip" >
+			凤 凰 小 贴 士 :&nbsp;&nbsp;<span id="spantip" style="color:#940b13"> 稳中求进，精益求精，每个案例都是一个凤凰筑家的“样板间”</span>
+			<span style="float:right">
+				<i class="fa fa-pause" style="font-size: 1.1em;width:20px;color:#ccc"></i>
 				<i class="fa fa-chevron-left" style="font-size: 1.1em;width:20px;color:#ccc"></i>
 				<i class="fa fa-chevron-right" style="font-size: 1.1em;width:20px;color:#ccc"></i>
-      </span>
-    </div>
+			</span>
+		</div>
+
+
     <div class="sec_top clearfix">
      <div class="col_r">
       <div class="sec_topr_bd">
@@ -430,79 +387,7 @@
     </div>
    </div>
   </div>
-  <script type="text/javascript">
- //dean
-try{
-  var footHeight = Number(document.getElementById('footerHeight').offsetHeight)+100,
-      windowDomHeight  = document.documentElement.clientHeight || document.body.clientHeight,
-      windowScrollHeihgt =  document.documentElement.scrollHeight || document.body.scrollHeight,
-      headerHeight = document.getElementById('gloWrap').offsetHeight,
-      cb = checkBrowser();
 
-  if(headerHeight < windowDomHeight && jq('.xmp_container').length !=1){
-    if(cb.version == "6"){
-      document.getElementById('footerHeight').style.position = 'absolute';
-    }else{
-      document.getElementById('footerHeight').style.position = 'fixed';
-    }
-    var wfHeight = windowDomHeight+footHeight;
-    document.getElementById('gloWrap').style.height =  windowDomHeight + "px";
-  }else if(headerHeight == windowDomHeight  && jq('.xmp_container').length !=1){
-    if(cb.version == "6"){
-      document.getElementById('footerHeight').style.position = 'absolute';
-    }else{
-      document.getElementById('footerHeight').style.position = 'fixed';
-    }
-     document.getElementById('footerHeight').style.padding = "30px 0 0 0 ";
-    var wfHeight = windowDomHeight+footHeight;
-    document.getElementById('gloWrap').style.height =  windowDomHeight + "px";
-  }
-}catch(e){
-
-}
-
- try{
-    jq(function() {
-        weChatQrcode.init();
-    })
-  }catch(e){
-  }
- var _mvq = window._mvq || [];
- window._mvq = _mvq;
-_mvq.push(['$setAccount', 'm-128767-0']);
- _mvq.push(['$logConversion']);
- (function() {
-     var mvl = document.createElement('script');
-     mvl.type = 'text/javascript'; mvl.async = true;
-     mvl.src = ('https:' == document.location.protocol ? 'https://static-ssl.mediav.com/mvl.js' : 'http://static.mediav.com/mvl.js');
-     var s = document.getElementsByTagName('script')[0];
-     s.parentNode.insertBefore(mvl, s);
- })();
-
-</script>
-  <div style="display:none;">
-   <script src="assets/js/GlobalProvinces.js" type="text/javascript"></script>
-   <script type="text/javascript">
-    var gpm = new GlobalProvincesModule;
-     try{headerFooter.init();}catch(e){}
-</script>
-   <script src="assets/js/seoStatis.js" type="text/javascript"></script>
-   <script type="text/javascript">
-  var _hmt = _hmt || [];
-  (function() {
-    var hm = document.createElement("script");
-    hm.src = "//hm.baidu.com/hm.js?dbdd94468cf0ef471455c47f380f58d2";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-  })();
-</script>
-  </div>
-  <link type="text/css" rel="stylesheet" href="assets/css/popupsubModal.css" />
-  <script src="assets/js/subModal.js" type="text/javascript"></script>
-  <script src="assets/js/2a19dc2ac1471a7470fe7187a5537960.js" type="text/javascript"></script>
-  <script type="text/javascript">
-try{goTopInit();}catch(e){}
-</script>
   <div id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd"></div>
   <div id="popupMask"></div>
   <div id="popupContainer">
@@ -540,5 +425,11 @@ try{goTopInit();}catch(e){}
   <div style="display: none; width: 0px;" class="wechat_broadside" id="wechat_broadside">
    <i class="my_wechat_broadside"></i>
   </div>
+
+
+	<script type="text/javascript" src="libs/jquery-1.11.2.js" ></script>
+	<script type="text/javascript" src="libs/jquery_ex.js" ></script>
+	<script type="text/javascript" src="libs/base.js" ></script>
+	<script type="text/javascript" src="js/index.js" ></script>
  </body>
 </html>
