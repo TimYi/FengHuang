@@ -25,6 +25,7 @@ public class PackageGood extends Good {
 	private String address;
 	private String remark;
 	private Double houseArea;
+	private String mobile;
 	
 	/**
 	 * 购买的套餐
@@ -36,8 +37,12 @@ public class PackageGood extends Good {
 	}
 	public void setDecoratingPackage(DecoratePackage decoratingPackage) {
 		this.decoratingPackage = decoratingPackage;
-		setPrice(decoratingPackage.getMarketPrice());
-		setRealPrice(decoratingPackage.getSalePrice());
+		if(decoratingPackage==null)return;
+		if(decoratingPackage.getMarketPrice()!=null) {
+			setPrice(decoratingPackage.getMarketPrice());
+		} if(decoratingPackage.getSalePrice()!=null) {
+			setRealPrice(decoratingPackage.getSalePrice());
+		}
 	}
 
 	/**
@@ -124,5 +129,12 @@ public class PackageGood extends Good {
 	}
 	public void setHouseArea(Double houseArea) {
 		this.houseArea = houseArea;
+	}
+	
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 }

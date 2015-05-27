@@ -38,7 +38,7 @@ public abstract class AbstractDtoAdapter<D, T> implements DtoAdapter<D, T> {
 	}
 	
 	@Override
-	public final T convert(D source) {
+	public T convert(D source) {
 		if(source==null)return null;
 		T t=BeanMapper.map(source, getTClass());
 		return postConvert(source, t);
@@ -53,7 +53,7 @@ public abstract class AbstractDtoAdapter<D, T> implements DtoAdapter<D, T> {
 	public abstract T postConvert(D d, T t);
 	
 	@Override
-	public final D convertToDo(T t) {
+	public D convertToDo(T t) {
 		if(t==null)return null;
 		D d=BeanMapper.map(t, getDClass());
 		return postConvertToDo(t, d);
@@ -68,7 +68,7 @@ public abstract class AbstractDtoAdapter<D, T> implements DtoAdapter<D, T> {
 	public abstract D postConvertToDo(T t, D d);
 	
 	@Override
-	public final D update(T t, D d) {
+	public D update(T t, D d) {
 		if(t==null || d==null)return null;
 		BeanMapper.copy(t, d);
 		return postUpdate(t, d);

@@ -41,6 +41,21 @@ public class SystemErrorCodes {
 	 */
 	public static final ErrorCode ILLEGAL_ARGUMENT;
 	
+	//订单相关异常91~100
+	public static final ErrorCode GOOD_CONVERTER_MISSING;
+	/**
+	 * 无货
+	 */
+	public static final ErrorCode NO_GOOD;
+	/**
+	 * 商品类型不匹配
+	 */
+	public static final ErrorCode GOOD_TYPE_DISMISS;
+	/**
+	 * 商品信息不完整
+	 */
+	public static final ErrorCode GOOD_INFO_MISSING;
+	
 	
 	//Schedual相关，101~110
 	/**
@@ -86,6 +101,11 @@ public class SystemErrorCodes {
 		CREDENTIAL_ERROR=new ErrorCode(8, "用户名错误");
 		CAPTCHA_ERROR=new ErrorCode(9, "图形验证码错误");
 		FILE_ERROR=new ErrorCode(10, "文件处理异常");
+		
+		GOOD_CONVERTER_MISSING=new ErrorCode(91, "商品转换器缺失！");
+		NO_GOOD=new ErrorCode(92, "无货");
+		GOOD_TYPE_DISMISS=new ErrorCode(93,"商品类型不统一");
+		GOOD_INFO_MISSING=new ErrorCode(94, "商品信息不完整");
 		
 		SCHEDUAL_CONFILICT=new ErrorCode(101, "出现时间重叠，请重新选择时间！");
 		SCHEDUAL_OCCUPIED=new ErrorCode(102, "此时间段已经被预约，请您重新选择！");

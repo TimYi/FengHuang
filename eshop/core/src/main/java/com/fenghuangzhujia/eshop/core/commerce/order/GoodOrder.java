@@ -30,6 +30,8 @@ public class GoodOrder extends UUIDBaseModel {
 	
 	private Integer count;
 	
+	private String mobile;
+	
 	/**
 	 * 商品名称
 	 * @return
@@ -115,18 +117,34 @@ public class GoodOrder extends UUIDBaseModel {
 		this.good = good;
 	}
 
-	public Integer getCount() {
-		return count;
-	}
-
 	/**
 	 * 购买总数
 	 * @return
 	 */
+	public Integer getCount() {
+		return count;
+	}
 	public void setCount(Integer count) {
 		this.count = count;
 	}
 	
+	/**
+	 * 获得用户手机号码
+	 * @return
+	 */
+	public String getMobile() {
+		if(this.mobile==null) {
+			return user.getMobile();
+		} else {
+			return this.mobile;
+		}
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+
+
 	public static enum OrderStatus {
 		/**
 		 * 未确认

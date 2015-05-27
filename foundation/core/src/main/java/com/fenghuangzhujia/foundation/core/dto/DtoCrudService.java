@@ -4,10 +4,12 @@ import java.io.Serializable;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.foundation.core.entity.Identified;
 import com.fenghuangzhujia.foundation.core.service.CrudService;
 
+@Transactional
 public abstract class DtoCrudService<D extends Identified<ID>, T extends Identified<ID>, ID extends Serializable>
 	implements CrudService<T, ID> {
 	

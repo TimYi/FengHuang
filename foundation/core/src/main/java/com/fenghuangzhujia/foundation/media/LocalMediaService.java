@@ -64,7 +64,7 @@ public class LocalMediaService implements MediaService {
 		String realFilePath=FilenameUtils.normalize(getBasePath()+path, true);
 		File realFile=new File(realFilePath);
 		FileUtils.writeByteArrayToFile(realFile, file.getBytes());
-		repository.save(media);
+		media=repository.save(media);
 		return media;
 	}
 	

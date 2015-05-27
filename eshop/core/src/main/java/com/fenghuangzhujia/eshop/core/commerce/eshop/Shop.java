@@ -19,6 +19,7 @@ public class Shop extends UUIDBaseModel {
 	
 	private User owner;
 	private String name;	
+	private String title;
 	private boolean verified;
 	
 	/**
@@ -33,7 +34,7 @@ public class Shop extends UUIDBaseModel {
 	}
 	
 	/**
-	 * 店铺名称
+	 * 店铺系统名称
 	 * @return
 	 */
 	@Column(unique=true)
@@ -42,6 +43,17 @@ public class Shop extends UUIDBaseModel {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	/**
+	 * 店铺显示名称
+	 * @return
+	 */
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	
 	/**

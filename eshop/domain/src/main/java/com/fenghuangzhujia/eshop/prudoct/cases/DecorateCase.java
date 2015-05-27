@@ -2,12 +2,13 @@ package com.fenghuangzhujia.eshop.prudoct.cases;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.OrderColumn;
 import javax.persistence.Table;
@@ -101,7 +102,8 @@ public class DecorateCase extends UUIDBaseModel {
 	 * 轮播组图
 	 * @return
 	 */
-	@ManyToMany
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="fhzj_decorate_case_pics")
 	public Set<MediaContent> getPics() {
 		return pics;
 	}
@@ -204,7 +206,7 @@ public class DecorateCase extends UUIDBaseModel {
 	 * 装修详情
 	 * @return
 	 */
-	@ElementCollection(fetch=FetchType.EAGER)
+	@ElementCollection
 	@CollectionTable(name="fhzj_decorate_case_details")
 	@OrderColumn
 	public Set<DecorateDetail> getDetails() {

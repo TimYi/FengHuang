@@ -39,8 +39,17 @@ public class DecorateCaseTest {
 		dto.setDetails(details);
 		File file=new File("C:/Users/pc/Desktop/预约流程.png");
 		MultipartFile mainPicFile=new JpegMultipartFile(file);
-		dto.setMainPicFile(mainPicFile);
+		dto.setMainPicFile(mainPicFile);		
+		MultipartFile[] picFiles={mainPicFile};
+		dto.setPicFiles(picFiles);
 		service.add(dto);
+	}
+	
+	//@Test
+	public void addFile() {
+		File file=new File("C:/Users/pc/Desktop/预约流程.png");
+		MultipartFile picFile=new JpegMultipartFile(file);
+		service.addPic("404040e64d8fcb55014d8fcb65760001", picFile);
 	}
 	
 	@Test
