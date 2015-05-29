@@ -2,7 +2,7 @@ package com.fenghuangzhujia.eshop.core.event.service;
 
 import java.util.List;
 
-import com.fenghuangzhujia.eshop.core.event.core.EventConfig;
+import com.fenghuangzhujia.eshop.core.event.entity.EventConfigEntity;
 
 /**
  * 从数据库（或者其它源）获取事件定义
@@ -16,7 +16,7 @@ public interface ConfigService {
 	 * @param event
 	 * @return
 	 */
-	List<EventConfig> getConfigs(String eventType);
+	List<EventConfigEntity> getConfigs(String eventType);
 	
 	/**
 	 * 删除事件定义

@@ -12,13 +12,12 @@ import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorColumn(name="type")
-public abstract class HandlerConfigEntity extends UUIDBaseModel implements EventConfig {
+public abstract class EventConfigEntity extends UUIDBaseModel implements EventConfig {
 
 	private String type;
 	private String eventType;
 	private String name;
 
-	@Override
 	@Column(name="type",updatable=false,insertable=false)
 	public String getType() {
 		return type;
@@ -27,7 +26,6 @@ public abstract class HandlerConfigEntity extends UUIDBaseModel implements Event
 		this.type = type;
 	}
 	
-	@Override
 	public String getEventType() {
 		return eventType;
 	}

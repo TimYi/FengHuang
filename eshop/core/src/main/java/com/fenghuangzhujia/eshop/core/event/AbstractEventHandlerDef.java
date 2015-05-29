@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fenghuangzhujia.eshop.core.event.core.EventConfig;
-import com.fenghuangzhujia.eshop.core.event.core.EventHandler;
 import com.fenghuangzhujia.eshop.core.event.core.EventHandlerDef;
 import com.fenghuangzhujia.eshop.core.event.core.ServiceEvent;
 
@@ -25,11 +24,11 @@ public abstract class AbstractEventHandlerDef implements EventHandlerDef {
 			logger.error("不支持的事件类型！");
 			return;
 		}
-		List<EventConfig> configs=getConfigs(event);
+		List<? extends EventConfig> configs=getConfigs(event);
 		if(configs==null)return;
 		for (EventConfig config : configs) {
-			EventHandler handler=createHandler(config);
-			handler.handle(event);
+			EventExecuter executer=createHandler(event, config);
+			executer.execute();
 		}
 	}
 	
@@ -47,7 +46,7 @@ public abstract class AbstractEventHandlerDef implements EventHandlerDef {
 	
 	protected abstract String getSupportType();
 
-	protected abstract List<EventConfig> getConfigs(ServiceEvent event);
+	protected abstract List<? extends EventConfig> getConfigs(ServiceEvent event);
 	
-	protected abstract EventHandler createHandler(EventConfig config);
+	protected abstract EventExecuter createHandler(ServiceEvent event, EventConfig config);
 }

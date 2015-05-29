@@ -7,23 +7,23 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fenghuangzhujia.eshop.core.event.core.EventConfig;
 import com.fenghuangzhujia.eshop.core.event.core.EventHandlerDef;
 import com.fenghuangzhujia.eshop.core.event.core.EventPublisher;
-import com.fenghuangzhujia.eshop.core.event.entity.HandlerConfigRepository;
+import com.fenghuangzhujia.eshop.core.event.entity.EventConfigEntity;
+import com.fenghuangzhujia.eshop.core.event.entity.EventConfigRepository;
 
 @Service
 @Transactional
 public class SimpleConfigService implements ConfigService {
 	
 	@Autowired
-	private HandlerConfigRepository repository;
+	private EventConfigRepository repository;
 	@Autowired
 	private EventPublisher publisher;
 
 	@Override
-	public List<EventConfig> getConfigs(String eventType) {
-		List<EventConfig> configs=repository.findByEventType(eventType);
+	public List<EventConfigEntity> getConfigs(String eventType) {
+		List<EventConfigEntity> configs=repository.findByEventType(eventType);
 		return configs;
 	}
 
