@@ -16,6 +16,12 @@ public interface CouponsStragy extends Identified<String> {
 	String getName();
 	
 	/**
+	 * 优惠策略类型
+	 * @return
+	 */
+	String getType();
+	
+	/**
 	 * 计算具体的优惠数额
 	 * @param args 代表应用场景，比如有上限的打折优惠，args为购买商品的总金额
 	 * @return

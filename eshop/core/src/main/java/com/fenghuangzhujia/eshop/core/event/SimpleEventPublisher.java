@@ -9,10 +9,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fenghuangzhujia.eshop.core.event.core.EventHandlerDef;
+import com.fenghuangzhujia.eshop.core.event.core.EventHandler;
 import com.fenghuangzhujia.eshop.core.event.core.EventPublisher;
 import com.fenghuangzhujia.eshop.core.event.core.ServiceEvent;
 
+/**
+ * 事件发布总线，需要注入EventHandler
+ * @author pc
+ *
+ */
 @Service
 @Transactional
 public class SimpleEventPublisher implements EventPublisher {
@@ -20,27 +25,42 @@ public class SimpleEventPublisher implements EventPublisher {
 	private static Logger logger=LoggerFactory.getLogger(SimpleEventPublisher.class);
 	
 	@Autowired
-	private List<EventHandlerDef> defs;
+	private List<EventHandler> handlers;
 	
-	@Override
-	public List<EventHandlerDef> getDefs() {
-		return this.defs;
-	}
-	
+	/**
+	 * 发布事件，按异步处理
+	 */
 	@Override
 	public void publish(ServiceEvent event) {
-		//多线程异步事件处理，防止阻塞应用
-		Thread thread=new Thread(new Runnable() {			
-			@Override
-			public void run() {
-				try {
-					pub(event);
-				} catch (Exception e) {
-					logger.error(e.getMessage(), e);
-				}
+		publish(event,false);
+	}
+	
+	/**
+	 * 发布事件
+	 * @param event
+	 * @param isSynchronized 是否按照同步处理
+	 */
+	public void publish(ServiceEvent event, boolean isSynchronized) {
+		if(isSynchronized) {
+			try {
+				pub(event);
+			} catch (Exception e) {
+				logger.error(e.getMessage(), e);
 			}
-		});
-		thread.start();
+		} else {
+			//多线程异步事件处理，防止阻塞应用
+			Thread thread=new Thread(new Runnable() {			
+				@Override
+				public void run() {
+					try {
+						pub(event);
+					} catch (Exception e) {
+						logger.error(e.getMessage(), e);
+					}
+				}
+			});
+			thread.start();
+		}
 	}
 	
 	/**
@@ -48,10 +68,8 @@ public class SimpleEventPublisher implements EventPublisher {
 	 * @param event
 	 */
 	protected void pub(ServiceEvent event) {
-		for (EventHandlerDef def : defs) {
-			if(def.support(event)) {
-				def.handle(event);
-			}
+		for (EventHandler handler : handlers) {
+			handler.handle(event);
 		}
 	}
 }

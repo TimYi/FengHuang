@@ -8,7 +8,7 @@ package com.fenghuangzhujia.eshop.core.event.core;
 public interface EventConfig {
 	/**
 	 * 自身类型
-	 * @return
+	 * @return 应该是一个静态返回值，不需要setter提前注入
 	 */
 	String getType();
 	

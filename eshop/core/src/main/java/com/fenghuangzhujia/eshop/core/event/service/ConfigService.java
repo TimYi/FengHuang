@@ -2,10 +2,11 @@ package com.fenghuangzhujia.eshop.core.event.service;
 
 import java.util.List;
 
-import com.fenghuangzhujia.eshop.core.event.entity.EventConfigEntity;
+import com.fenghuangzhujia.eshop.core.event.core.EventConfig;
+import com.fenghuangzhujia.eshop.core.event.core.ServiceEvent;
 
 /**
- * 从数据库（或者其它源）获取事件定义
+ * 为前端提供的事件定义服务
  * @author pc
  *
  */
@@ -16,7 +17,7 @@ public interface ConfigService {
 	 * @param event
 	 * @return
 	 */
-	List<EventConfigEntity> getConfigs(String eventType);
+	List<EventConfig> getConfigs(ServiceEvent event);
 	
 	/**
 	 * 删除事件定义

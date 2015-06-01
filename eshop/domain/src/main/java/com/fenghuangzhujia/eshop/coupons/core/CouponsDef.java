@@ -51,7 +51,9 @@ public interface CouponsDef extends Identified<String> {
 	 * 是否能够继续分发优惠券
 	 * @return
 	 */
-	boolean couldAllocate();
+	boolean isUsedUp();
+	
+	boolean isExpired();
 	
 	/**
 	 * 生成优惠券

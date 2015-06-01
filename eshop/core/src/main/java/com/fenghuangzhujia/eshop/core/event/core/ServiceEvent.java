@@ -11,7 +11,7 @@ public abstract class ServiceEvent extends EventObject {
 	}
 	
 	/**
-	 * 事件类型
+	 * 事件类型，应该是一个静态的返回值，和类型绑定在一起
 	 * @return
 	 */
 	public abstract String getType();

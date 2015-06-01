@@ -1,5 +1,7 @@
 package com.fenghuangzhujia.eshop.web.controller.api;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -8,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
 import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
+import com.fenghuangzhujia.eshop.coupons.CouponsService;
+import com.fenghuangzhujia.eshop.coupons.dto.CouponsDto;
 import com.fenghuangzhujia.eshop.user.collect.CollectService;
 import com.fenghuangzhujia.eshop.user.collect.dto.CollectDto;
 import com.fenghuangzhujia.eshop.user.comment.CommentService;
@@ -26,6 +30,8 @@ public class UserController {
 	private CommentService commentService;
 	@Autowired
 	private MessageService messageService;
+	@Autowired
+	private CouponsService couponsService;
 	
 	@RequestMapping(value="user/collects",method=RequestMethod.GET)
 	public String collects(@RequestParam(defaultValue="1") Integer page,@RequestParam(defaultValue="8") Integer size) {
@@ -49,5 +55,18 @@ public class UserController {
 		String userid=details.getId();
 		PagedList<MessageDto> comments=messageService.findPage(page, size, userid);
 		return RequestResult.success(comments).toJson();
+	}
+	
+	@RequestMapping(value="user/coupons",method=RequestMethod.GET)
+	public String coupons(@RequestParam(defaultValue="true") boolean notUsed) {
+		SimpleUserDetails details=AuthenticationService.getUserDetail();
+		String userid=details.getId();
+		List<CouponsDto> result;
+		if(notUsed) {
+			result=couponsService.findUnUsedCoupons(userid);
+		} else {
+			result=couponsService.findUserCoupons(userid);
+		}
+		return RequestResult.success(result).toJson();
 	}
 }

@@ -140,7 +140,7 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	 * @return
 	 */
 	protected UserToken refreshToken(UserToken token) {
-		String tokenString=Identities.uuid();
+		String tokenString=Identities.uuid2();
 		token.setToken(tokenString);
 		tokenRepository.save(token);
 		return token;

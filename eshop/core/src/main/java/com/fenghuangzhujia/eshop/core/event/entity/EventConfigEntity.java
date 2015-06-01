@@ -5,25 +5,27 @@ import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 import com.fenghuangzhujia.eshop.core.event.core.EventConfig;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(name="type")
+@Table(name="fhzj_event_config")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="config_type")
 public abstract class EventConfigEntity extends UUIDBaseModel implements EventConfig {
 
-	private String type;
+	private String configType;
 	private String eventType;
 	private String name;
 
-	@Column(name="type",updatable=false,insertable=false)
-	public String getType() {
-		return type;
+	@Column(name="config_type",updatable=false,insertable=false)
+	public String getConfigType() {
+		return configType;
 	}
-	public void setType(String type) {
-		this.type = type;
+	public void setConfigType(String configType) {
+		this.configType = configType;
 	}
 	
 	public String getEventType() {

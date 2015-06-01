@@ -48,10 +48,22 @@ public interface Coupons extends Identified<String> {
 	CouponsStragy getStragy();
 	
 	/**
+	 * 获取优惠策略类型
+	 * @return
+	 */
+	String getStragyType();
+	
+	/**
 	 * 获取优惠名称
 	 * @return
 	 */
 	String getStragyName();
+	
+	/**
+	 * 实际使用时的低值金额
+	 * @return
+	 */
+	Double getCouponsMoney();
 	
 	/**
 	 * 获取过期时间
@@ -70,4 +82,8 @@ public interface Coupons extends Identified<String> {
 	 * @return
 	 */
 	boolean isUsed();
+	
+	boolean couldUse(Object[] args);
+	
+	Double getCoupons(Object[] args);
 }
