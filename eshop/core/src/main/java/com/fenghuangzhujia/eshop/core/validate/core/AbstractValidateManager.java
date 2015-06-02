@@ -1,5 +1,7 @@
 package com.fenghuangzhujia.eshop.core.validate.core;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fenghuangzhujia.eshop.core.validate.BasicValidaterCreater;
@@ -53,7 +55,7 @@ public abstract class AbstractValidateManager implements ValidateManager {
 	/**
 	 * @param validaterService the validaterService to set
 	 */
-	@Autowired
+	@Resource(name="validaterService")
 	public void setValidaterService(ValidaterService validaterService) {
 		this.validaterService = validaterService;
 	}

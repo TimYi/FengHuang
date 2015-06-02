@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 import com.cloopen.rest.sdk.CCPRestSmsSDK;
 import com.fenghuangzhujia.eshop.core.validate.core.CredentialCreater;
-import com.fenghuangzhujia.eshop.core.validate.util.Config;
 
 @Component("messageSender")
 public class MessageSender implements CredentialCreater {

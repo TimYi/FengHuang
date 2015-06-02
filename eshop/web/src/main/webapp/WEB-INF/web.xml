@@ -10,23 +10,7 @@
   </context-param>
   <session-config>
     <tracking-mode>COOKIE</tracking-mode>
-  </session-config>
-  <servlet>
-    <servlet-name>SimpleCaptcha</servlet-name>
-    <servlet-class>nl.captcha.servlet.SimpleCaptchaServlet</servlet-class>
-    <init-param>
-      <param-name>width</param-name>
-      <param-value>150</param-value>
-    </init-param>
-    <init-param>
-      <param-name>height</param-name>
-      <param-value>75</param-value>
-    </init-param>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SimpleCaptcha</servlet-name>
-    <url-pattern>/captcha</url-pattern>
-  </servlet-mapping>  
+  </session-config> 
   
   <filter>
     <filter-name>corsFilter</filter-name>

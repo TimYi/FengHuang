@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fenghuangzhujia.eshop.core.validate.core.AbstractValidateManager;
+import com.fenghuangzhujia.eshop.core.validate.dao.DaoValidaterService;
 
 /**
  * 管理短信发送
@@ -19,5 +20,10 @@ public class MessageManager extends AbstractValidateManager {
 	@Autowired
 	public void setMessageSender(MessageSender credentialCreater) {
 		super.setCredentialCreater(credentialCreater);
+	}
+	
+	@Autowired
+	public void setDaoValidaterService(DaoValidaterService validaterService) {
+		super.setValidaterService(validaterService);
 	}
 }

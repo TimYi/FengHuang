@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.core.validate.util;
+package com.fenghuangzhujia.eshop.core.validate.message;
 
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;

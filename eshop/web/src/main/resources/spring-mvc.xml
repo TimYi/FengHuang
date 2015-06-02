@@ -23,6 +23,7 @@
                     </list>
                 </property>
             </bean>
+            <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
         </mvc:message-converters>
    </mvc:annotation-driven>
    

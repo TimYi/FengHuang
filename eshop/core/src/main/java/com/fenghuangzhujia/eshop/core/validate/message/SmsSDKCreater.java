@@ -1,7 +1,6 @@
 package com.fenghuangzhujia.eshop.core.validate.message;
 
 import com.cloopen.rest.sdk.CCPRestSmsSDK;
-import com.fenghuangzhujia.eshop.core.validate.util.Config;
 
 public class SmsSDKCreater {
 	private static CCPRestSmsSDK smsSDK;
