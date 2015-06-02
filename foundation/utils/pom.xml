@@ -23,6 +23,10 @@
 			<artifactId>commons-codec</artifactId>
 			<optional>true</optional>
     	</dependency> 
+    	<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+		</dependency>
     	
     	<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -33,6 +37,25 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<optional>true</optional>
-		</dependency>  	
+		</dependency>  
+		
+		<!-- slf4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		
+		<!-- google java library -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
+		
+		<!-- container begin -->	
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+		</dependency>
+		<!-- container end -->	
     </dependencies>
 </project>
