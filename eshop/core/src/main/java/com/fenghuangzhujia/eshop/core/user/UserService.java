@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fenghuangzhujia.eshop.core.authentication.AuthenticationManager;
 import com.fenghuangzhujia.eshop.core.authentication.authority.AbstractAuthority;
 import com.fenghuangzhujia.eshop.core.authentication.authority.AuthorityRepository;
 import com.fenghuangzhujia.eshop.core.authentication.role.Role;
@@ -49,17 +50,27 @@ public class UserService extends AbstractPagingService<User, String> {
 		}
 		t=loadRoles(t, t.getRoleids());
 		t=loadAuthorities(t, t.getAuthorityids());
+		encryptPassword(t);
 		getRepository().save(t);
 		return t;
 	}
 	
 	@Override
-	public User update(User t) {
+	public User update(User t) {		
 		User user=getRepository().findOne(t.getId());
+		if(t.getPassword()!=null) {
+			user.setPassword(t.getPassword());
+			encryptPassword(user);
+		}
 		user.setVerified(t.isVerified());
 		user=loadRoles(user, t.getRoleids());
 		user=loadAuthorities(user, t.getAuthorityids());
 		return user;
+	}
+	
+	private void encryptPassword(User user) {
+		String password=AuthenticationManager.ENCODER.encode(user.getPassword());
+		user.setPassword(password);
 	}
 	
 	private User loadRoles(User user, String[] roleids) {

@@ -14,6 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fenghuangzhujia.eshop.core.authentication.authority.AbstractAuthority;
 import com.fenghuangzhujia.eshop.core.authentication.role.Role;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
@@ -27,9 +28,10 @@ import com.fenghuangzhujia.foundation.media.MediaContent;
 @Table(name="fhzj_user")
 public class User extends UUIDBaseModel {
 	private String username;	
+	@JsonIgnore
 	private String password;	
 	private Set<Role> roles;
-	private Boolean verified;
+	private boolean verified;
 	private String salt;
 	private Set<AbstractAuthority> authorities;
 	
@@ -68,10 +70,10 @@ public class User extends UUIDBaseModel {
 	}
 	
 	@Column(name="verified")
-	public Boolean isVerified() {
+	public boolean isVerified() {
 		return verified;
 	}
-	public void setVerified(Boolean verified) {
+	public void setVerified(boolean verified) {
 		this.verified = verified;
 	}
 	

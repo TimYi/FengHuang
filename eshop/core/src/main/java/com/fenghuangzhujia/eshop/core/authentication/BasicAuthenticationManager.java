@@ -66,8 +66,8 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 		}
 		UserToken token=tokenRepository.getByUser(user);
 		if(token==null) {
-			token=new UserToken();			
-			tokenRepository.save(token);
+			token=new UserToken();		
+			token.setUser(user);
 			token=refreshToken(token);
 			return token;
 		}

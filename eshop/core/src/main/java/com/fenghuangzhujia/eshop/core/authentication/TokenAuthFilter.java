@@ -58,6 +58,8 @@ public class TokenAuthFilter extends GenericFilterBean {
 		chain.doFilter(request, response);
 		if(shouldClean) {
 			SecurityContextHolder.clearContext();
+			context.setAuthentication(null);
+			SecurityContextHolder.setContext(context);			
 		}
 	}
 	

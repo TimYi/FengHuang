@@ -9,7 +9,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fenghuangzhujia.eshop.core.authentication.authority.AbstractAuthority;
-import com.fenghuangzhujia.eshop.core.authentication.authority.PermissionAuthority;
 import com.fenghuangzhujia.eshop.core.authentication.role.Role;
 import com.fenghuangzhujia.eshop.core.user.User;
 
