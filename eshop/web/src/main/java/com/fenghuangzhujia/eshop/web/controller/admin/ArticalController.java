@@ -8,7 +8,7 @@ import com.fenghuangzhujia.eshop.artical.ArticalService;
 import com.fenghuangzhujia.eshop.artical.dto.ArticalDto;
 import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 
-@RestController
+@RestController(value="adminArticalController")
 @RequestMapping("admin/artical")
 public class ArticalController extends SpecificationController<ArticalDto> {
 
