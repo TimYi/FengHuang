@@ -4,77 +4,59 @@
  * date:2015-05-23
 */
 
+//页面初始化
+$(function(){
+	var g = {};
+	g.codeId = "";
 
-var PageManager = function (obj){
-	this.init.apply(this,arguments);
-};
+	$("#updatecodebtn").bind("click",updateCodeImg);
+	$("#regbtn").bind("click",openRegPage);
+	$("#loginbtn").bind("click",loginBtnUp);
 
-PageManager.prototype = {
-	constructor:PageManager,
-	phone:"",
-	init: function(){
-		$(window).onbind("load",this.pageLoad,this);
-		this.bindEvent();
-	},
-	bindEvent:function(){
-		$("#loginbtn").onbind("click",this.loginBtnUp,this);
+	//$("#loginbtn").onbind("click",this.loginBtnUp,this);
 
-	},
-	pageLoad:function(){
-		console.log("pageLoad");
-	},
-	pageBack:function(evt){
-		history.go(-1);
-	},
-	pageMove:function(evt){
-		this.moved = true;
-	},
+	updateCodeImg();
+	//换一组图片
+	function updateCodeImg(evt){
+		g.codeId = new Date() - 0;
+		console.log(g.codeId);
+		$("#updatecodebtn").attr("src","http://101.200.229.135:8080/api/captcha?id=" + g.codeId);
+	}
 
-	/**
-	 * 隐藏dom 卸载资源
-	*/
-	pageHide:function(){
-	},
+	//打开注册用户页面
+	function openRegPage(evt){
+		window.open("reg.html");
+	}
 
-
-	btnDown:function(evt){
-		//按钮按下通用高亮效果
-		this.moved = false;
-		var ele = evt.currentTarget;
-		$(ele).addClass("curr");
-	},
-
-	loginBtnUp:function(evt){
-		var phone = $("#userName").val() || "";
-		var pwd = $("#userPwd").val() || "";
-		if(phone !== ""){
-			var reg = /^1[3,5,7,8]\d{9}$/g;
-			if(reg.test(phone)){
-				//this.phone = phone;
-				phone = "18612444099";
-				pwd = "123456";
-				this.sendLoginHttp(phone,pwd);
+	function loginBtnUp(evt){
+		var userName = $("#inputEmail3").val() || "";
+		var pwd = $("#password").val() || "";
+		var code = $("#inputCode3").val() || "";
+		if(userName !== ""){
+			if(pwd !== ""){
+				if(code !== ""){
+					var autoLogin =$("#autologin")[0].checked;
+					sendLoginHttp(userName,pwd,code,autoLogin);
+				}
+				else{
+					$("#inputCode3").focus();
+				}
 			}
 			else{
-				alert("手机输入不合法");
+				$("#password").focus();
 			}
 		}
-	},
-
-	forgetBtnUp:function(evt){
-		var ele = evt.currentTarget;
-		$(ele).removeClass("curr");
-		if(!this.moved){
-			console.log("忘记密码");
+		else{
+			$("#inputEmail3").focus();
 		}
-	},
+	}
 
-
-	sendLoginHttp:function(phone,pwd){
+	function sendLoginHttp(phone,pwd,code,autoLogin){
 		var url = Base.loginUrl;
 		var condi = {};
 		condi.username = phone;
 		condi.password = pwd;
+		condi.code = code;
 		$.ajax({
 			url:url,
 			data:condi,
@@ -84,9 +66,11 @@ PageManager.prototype = {
 			global:false,
 			success: function(data){
 				console.log(data);
+				//保存数据
+				Utils.offLineStore.set("userinfo_login",data);
 				var status = data.status || "";
 				if(status == "OK"){
-					location.href = "index.html";
+					location.href = "center.html";
 				}
 				else{
 					alert("登录失败");
@@ -96,10 +80,4 @@ PageManager.prototype = {
 			}
 		});
 	}
-
-};
-
-//页面初始化
-$(function(){
-	var page = new PageManager({});
 });

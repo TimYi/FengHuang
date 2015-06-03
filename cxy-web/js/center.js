@@ -1,5 +1,5 @@
 /**
- * file:注册
+ * file:个人中心
  * author:chenxy
  * date:2015-05-23
 */
@@ -8,30 +8,11 @@ $(function(){
 	var g = {};
 	g.phone = "";
 
-	$("#getcodebtn").bind("click",getValidCode);
-	$("#resetbtn").bind("click",resetRegInfo);
-	$("#sendbtn").bind("click",regBtnUp);
+	$("#updatebtn").bind("click",updateUserInfo);
 
-	//获取验证码
-	function getValidCode(evt){
-		var ele = evt.currentTarget;
-		//$(ele).removeClass("curr");
-		//if(!this.moved){}
-		var p = $("#inputPhone3").val() || "";
-		if(p !== ""){
-			var reg = /^1[3,5,7,8]\d{9}$/g;
-			if(reg.test(p)){
-				g.phone = p;
-				sendGetCodeHttp();
-			}
-			else{
-				alert("手机输入不合法");
-			}
-		}
-		else{
-			console.log("没填手机号");
-			$("#inputPhone3").focus();
-		}
+	//更新个人信息
+	function updateUserInfo(evt){
+		var nikeName = $("#
 	}
 
 	//重置信息
