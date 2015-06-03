@@ -1,5 +1,7 @@
 package com.fenghuangzhujia.foundation.core.rest;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,7 +17,7 @@ public abstract class PagingController<T> {
 	protected abstract PagingService<T, String> getService();
 	
 	@RequestMapping(value="",method=RequestMethod.GET)
-	public String page(@RequestParam(defaultValue="1") Integer page,@RequestParam(defaultValue="8") Integer size) {
+	public String page(@RequestParam(defaultValue="1") Integer page,@RequestParam(defaultValue="8") Integer size,HttpServletRequest request) {
 		PagedList<T> result=getService().findPage(page, size);
 		return RequestResult.success(result).toJson();
 	}

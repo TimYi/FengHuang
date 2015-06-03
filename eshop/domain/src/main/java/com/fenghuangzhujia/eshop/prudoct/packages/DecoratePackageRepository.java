@@ -1,7 +1,7 @@
 package com.fenghuangzhujia.eshop.prudoct.packages;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
+import com.fenghuangzhujia.foundation.core.persistance.SpecificationRepository;
 
-public interface DecoratePackageRepository extends PagingAndSortingRepository<DecoratePackage, String> {
+public interface DecoratePackageRepository extends SpecificationRepository<DecoratePackage, String> {
 
 }

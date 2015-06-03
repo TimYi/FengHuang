@@ -12,28 +12,30 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.domain.Sort.Order;
 
+import com.fenghuangzhujia.foundation.utils.Collections3;
+
 /**
  * 将map参数转换成spring data 框架使用的排序参数
  * @author pc
  *
  */
-public class SearchSorter {
+public class SortFilter {
 	
 	/**
 	 * 转换为Order数组
 	 * @param sortParams
 	 * @return
 	 */
-	public static List<Order> parse(Map<String, String> sortParams) {
+	public static List<Order> parse(Map<String, Object> sortParams) {
 		List<Order> orders=new ArrayList<Order>();
-		for (Entry<String, String> entry : sortParams.entrySet()) {
+		for (Entry<String, Object> entry : sortParams.entrySet()) {
 			// 过滤掉空值
 			String key = entry.getKey();
-			String value = entry.getValue();
+			String value = (String)entry.getValue();
 			if (StringUtils.isBlank(value)) {
 				continue;
 			}
-			Direction direction=Direction.valueOf(value);
+			Direction direction=Direction.fromString(value);
 			Order order=new Order(direction, key);
 
 			orders.add(order);
@@ -48,10 +50,15 @@ public class SearchSorter {
 	 * @param sortParams
 	 * @return
 	 */
-	public static Pageable toPageable(int page, int size, Map<String, String> sortParams) {
+	public static Pageable toPageable(int page, int size, Map<String, Object> sortParams) {
 		List<Order> orders=parse(sortParams);
-		Sort sort=new Sort(orders);
-		PageRequest request=new PageRequest(page, size, sort);
+		PageRequest request;
+		if(Collections3.isEmpty(orders)) {
+			request=new PageRequest(page-1, size);
+		} else {
+			Sort sort=new Sort(orders);
+			request=new PageRequest(page-1, size, sort);
+		}		
 		return request;
 	}
 }

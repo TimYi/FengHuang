@@ -10,18 +10,16 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.prudoct.cases.dto.DecorateCaseDto;
-import com.fenghuangzhujia.foundation.core.dto.DtoPagingService;
+import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.media.MediaContent;
 import com.fenghuangzhujia.foundation.media.MediaService;
 
 @Service
 @Transactional
-public class DecorateCaseService extends DtoPagingService<DecorateCase, DecorateCaseDto, String> {
+public class DecorateCaseService extends DtoSpecificationService<DecorateCase, DecorateCaseDto, String> {
 	@Autowired
 	private MediaService mediaService;
-	@Autowired
-	private DecorateCaseRepository repository;
 	
 	/**
 	 * 删除组图中某个图片
@@ -29,12 +27,12 @@ public class DecorateCaseService extends DtoPagingService<DecorateCase, Decorate
 	 * @param picid 图片id
 	 */
 	public void deletePic(String id,String picid) {
-		DecorateCase p=repository.findOne(id);
+		DecorateCase p=getRepository().findOne(id);
 		if(p==null)return;
 		MediaContent pic=mediaService.getMedia(picid);
 		if(pic==null)return;
 		p.getPics().remove(pic);
-		repository.save(p);
+		getRepository().save(p);
 		try {
 			mediaService.delete(pic);
 		} catch (IOException e) {
@@ -48,15 +46,25 @@ public class DecorateCaseService extends DtoPagingService<DecorateCase, Decorate
 	 * @param picFile
 	 */
 	public void addPic(String id, MultipartFile picFile) {
-		DecorateCase p=repository.findOne(id);
+		DecorateCase p=getRepository().findOne(id);
 		if(p==null)return;
 		try {
 			MediaContent pic=mediaService.save(picFile);
 			if(p.getPics()==null)p.setPics(new HashSet<>());
 			p.getPics().add(pic);
-			repository.save(p);
+			getRepository().save(p);
 		} catch (IOException e) {
 			throw new ErrorCodeException(SystemErrorCodes.FILE_ERROR, e.getMessage());
 		}
+	}
+	
+	@Override
+	public DecorateCaseRepository getRepository() {
+		return (DecorateCaseRepository)super.getRepository();
+	}
+	
+	@Autowired
+	public void setDecorateCaseRepository(DecorateCaseRepository repository) {
+		super.setRepository(repository);
 	}
 }

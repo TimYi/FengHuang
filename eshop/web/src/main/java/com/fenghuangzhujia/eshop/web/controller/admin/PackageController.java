@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackageService;
 import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageDto;
-import com.fenghuangzhujia.foundation.core.rest.PagingController;
+import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 
 @RestController
 @RequestMapping("admin/package")
-public class PackageController extends PagingController<DecoratePackageDto> {
+public class PackageController extends SpecificationController<DecoratePackageDto> {
 
 	@Autowired
 	private DecoratePackageService service;

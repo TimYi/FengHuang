@@ -1,7 +1,6 @@
 package com.fenghuangzhujia.foundation.core.service;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,7 @@ import org.springframework.data.jpa.domain.Specification;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.persistance.DynamicSpecifications;
 import com.fenghuangzhujia.foundation.core.persistance.SearchFilter;
-import com.fenghuangzhujia.foundation.core.persistance.SearchSorter;
+import com.fenghuangzhujia.foundation.core.persistance.SortFilter;
 import com.fenghuangzhujia.foundation.core.persistance.SpecificationRepository;
 
 public abstract class AbstractSpecificationService<T, ID extends Serializable>
@@ -21,9 +20,10 @@ public abstract class AbstractSpecificationService<T, ID extends Serializable>
 
 	@Override
 	public PagedList<T> findAll(int page, int size,
-			List<SearchFilter> filters, Map<String, String> orders) {
-		Pageable pageable=SearchSorter.toPageable(page, size, orders);
-		Specification<T> specification=DynamicSpecifications.bySearchFilter(filters, null);
+			Map<String, Object> filters, Map<String, Object> orders) {
+		Pageable pageable=SortFilter.toPageable(page, size, orders);
+		Map<String, SearchFilter> filterMap=SearchFilter.parse(filters);
+		Specification<T> specification=DynamicSpecifications.bySearchFilter(filterMap.values(), null);
 		Page<T> list=getRepository().findAll(specification, pageable);
 		return new PagedList<T>(list);
 	}
