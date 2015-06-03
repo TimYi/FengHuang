@@ -3,6 +3,7 @@ package com.fenghuangzhujia.eshop.web.controller.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,13 +18,13 @@ public class ArticalController {
 	@Autowired
 	private ArticalService service;
 	
-	@RequestMapping("articals")
+	@RequestMapping(value="articals",method=RequestMethod.GET)
 	public String list(@RequestParam(defaultValue="1") int page, @RequestParam(defaultValue="8") int size) {
 		PagedList<ArticalDto> result=service.findPage(page, size);
 		return RequestResult.success(result).toJson();
 	}
 	
-	@RequestMapping("artical/{id}")
+	@RequestMapping(value="artical/{id}",method=RequestMethod.GET)
 	public String getOne(@PathVariable String id) {
 		ArticalDto result=service.findOne(id);
 		return RequestResult.success(result).toJson();
