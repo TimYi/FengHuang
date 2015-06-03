@@ -12,17 +12,18 @@ var PageManager = function (obj){
 PageManager.prototype = {
 	constructor:PageManager,
 	phone:"",
+	tipArray:['稳中求进，精益求精，每个案例都是一个凤凰筑家的"样板间"','稳中求进，精益求精','每个案例都是一个凤凰筑家的"样板间"'],
+	tipIndex:0,
+	hasChange:true,
 	init: function(){
 		$(window).onbind("load",this.pageLoad,this);
 		this.bindEvent();
 	},
 	bindEvent:function(){
+		$("#spantipbtn i").onbind("click",this.spanTipBtnClick,this);
 	},
 	pageLoad:function(){
 		this.spanTipShow();
-	},
-	pageBack:function(evt){
-		history.go(-1);
 	},
 	pageMove:function(evt){
 		this.moved = true;
@@ -42,12 +43,44 @@ PageManager.prototype = {
 		$(ele).addClass("curr");
 	},
 
+	spanTipBtnClick:function(evt){
+		var ele = evt.currentTarget;
+		var className = ele.className;
+
+		//fa-play
+		if(className.indexOf("fa-play")){
+			this.hasChange = false;
+			$(ele).removeClass("fa-play").addClass("fa-pause");
+		}
+		else if(className.indexOf("fa-pause")){
+			if(this.hasChange){
+				this.hasChange = false;
+			}
+			else{
+				this.hasChange = true;
+			}
+		}
+		else if(className.indexOf("fa-chevron-left")){
+
+		}
+		else if(className.indexOf("fa-chevron-right")){
+
+		}
+	},
 	spanTipShow:function(){
 		var t = this;
-		$("#spantip").animate({"opacity":0},2000,"linear",function(){
-			$("#spantip").html('稳中求进，精益求精，每个案例都是一个凤凰筑家的"样板间"');
+		this.tipIndex = this.tipIndex == (this.tipArray.length - 1) ? 0 : this.tipIndex + 1;
+
+		$("#spantip").animate({"opacity":0},4000,"linear",function(){
+			var str = t.tipArray[t.tipIndex];
+			$("#spantip").html(str);
 			$("#spantip").css({"opacity":1});
-			t.spanTipShow();
+
+			setTimeout(function(){
+				if(t.hasChange){
+					t.spanTipShow();
+				}
+			},1500);
 		});
 	},
 
