@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.validate.captcha.CaptchaManager;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
+import com.fenghuangzhujia.eshop.utils.web.ImageResponseUtil;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 import com.fenghuangzhujia.foundation.utils.PhoneNumberValidator;
 
@@ -35,8 +36,8 @@ public class ValidateController {
 	}
 	
 	@RequestMapping(value="captcha",method=RequestMethod.GET)
-	public BufferedImage captcha(@RequestParam String id,HttpServletResponse response) {
+	public void captcha(@RequestParam String id,HttpServletResponse response) {
 		BufferedImage image=captchaManager.create(id);
-		return image;
+		ImageResponseUtil.writeBufferedImage(response, image, "png");
 	}
 }
