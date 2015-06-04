@@ -1,55 +1,49 @@
 package com.fenghuangzhujia.eshop.collect.dto;
 
-import java.io.IOException;
+import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.fenghuangzhujia.eshop.collect.Collect;
-import com.fenghuangzhujia.eshop.core.user.User;
+import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
-import com.fenghuangzhujia.foundation.core.dto.AbstractDtoAdapter;
-import com.fenghuangzhujia.foundation.media.MediaContent;
+import com.fenghuangzhujia.foundation.core.dto.SimpleDtoAdapter;
+import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
+import com.fenghuangzhujia.foundation.mapper.BeanMapper;
 import com.fenghuangzhujia.foundation.media.MediaService;
 
 @Component
-public class CollectDtoAdapter extends AbstractDtoAdapter<Collect, CollectDto> {
+public class CollectDtoAdapter extends SimpleDtoAdapter<Collect, CollectDto> {
 	
 	@Autowired
 	private UserRepository userRepository;
 	@Autowired
 	private MediaService mediaService;
-
+	@Autowired
+	private List<CollectDtoConverter> converters;
+	
 	@Override
-	public CollectDto postConvert(Collect d, CollectDto t) {
-		t.setUserid(d.getUser().getId());
-		return t;
-	}
-
-	@Override
-	public Collect postConvertToDo(CollectDto t, Collect d) {
-		return postUpdate(t, d);
-	}
-
-	@Override
-	public Collect postUpdate(CollectDto t, Collect d) {
-		String userid=t.getUserid();
-		if(StringUtils.isNotBlank(userid)) {
-			User user=userRepository.findOne(userid);
-			d.setUser(user);
-		}
-		MultipartFile mainPicFile=t.getMainPicFile();
-		if(mainPicFile!=null) {
-			try {
-				MediaContent media=d.getMainPic();
-				media=mediaService.update(media, mainPicFile);
-				d.setMainPic(media);
-			} catch (IOException e) {
-				logger.error(e.getMessage(), e);
+	public Collect convertToDo(CollectDto t) {
+		for (CollectDtoConverter converter : converters) {
+			if(converter.support(t)) {
+				return converter.convert(t);
 			}
 		}
-		return d;
+		throw new ErrorCodeException(SystemErrorCodes.OTHER,"没有合适的转换器");
+	}
+	
+	@Override
+	public Collect update(CollectDto t, Collect d) {
+		for (CollectDtoConverter converter : converters) {
+			if(converter.support(t)) {
+				return converter.update(t, d);
+			}
+		}
+		throw new ErrorCodeException(SystemErrorCodes.OTHER,"没有合适的转换器");
+	}
+	@Override
+	public CollectDto convert(Collect source) {
+		return BeanMapper.map(source, CollectDto.class);
 	}
 }
