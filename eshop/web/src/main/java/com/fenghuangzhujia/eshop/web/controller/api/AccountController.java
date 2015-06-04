@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationManager;
 import com.fenghuangzhujia.eshop.core.authentication.token.UserToken;
+import com.fenghuangzhujia.eshop.core.validate.captcha.CaptchaManager;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
@@ -18,9 +19,12 @@ public class AccountController {
 	
 	@Autowired
 	AuthenticationManager manager;
+	@Autowired
+	private CaptchaManager captchaManager;
 	
 	@RequestMapping(value="login",method=RequestMethod.POST)
-	public String login(String username, String password) {
+	public String login(String username, String password, String captcha) {
+		captchaManager.validate(username, captcha);
 		UserToken token=manager.login(username, password);
 		String tokenString=token.getToken();
 		return RequestResult.success(tokenString).toJson();
