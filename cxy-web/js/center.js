@@ -12,7 +12,40 @@ $(function(){
 
 	//更新个人信息
 	function updateUserInfo(evt){
-		var nikeName = $("#
+		//昵称
+		var nikeName = $("#nikename").val();
+		//真实姓名
+		var validName = $("#validname").val();
+		//英文名
+		var eName = $("#ename").val();
+		//性别1男2女
+		var sex = 1;
+		var sexRadio = $("#inlineRadio2")[0].checked;
+		if(sexRadio){
+			sex = 2;
+		}
+		//个人简介
+		var message = $("#message").val();
+		//电子邮箱
+		var email = $("#emailtext").val();
+		//手机号
+		var phone = $("#phonetext").val();
+		//QQ号
+		var qq = $("#qqtext").val();
+		//微信
+		var weixin = $("#weixintext").val();
+		//生日
+		var birthday = $("#birthday").val();
+		//行业
+		var profession = $("#profession").val();
+		//现居住地
+		var address = $("#address").val();
+		//星座
+		var constellation = $("#constellation").val();
+		//血型
+		var bloodgroup = $("#bloodgroup").val();
+
+		console.log(nikeName,validName);
 	}
 
 	//重置信息

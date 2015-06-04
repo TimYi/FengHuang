@@ -9,18 +9,24 @@ $(function(){
 	var g = {};
 	g.codeId = "";
 
-	$("#updatecodebtn").bind("click",updateCodeImg);
+	$("#inputEmail3").bind("blur",getImgCode);
+	//$("#updatecodebtn").bind("click",updateCodeImg);
 	$("#regbtn").bind("click",openRegPage);
 	$("#loginbtn").bind("click",loginBtnUp);
 
 	//$("#loginbtn").onbind("click",this.loginBtnUp,this);
 
-	updateCodeImg();
+	setTimeout(function(){
+		getImgCode();
+	},3000);
 	//换一组图片
-	function updateCodeImg(evt){
-		g.codeId = new Date() - 0;
-		console.log(g.codeId);
-		$("#updatecodebtn").attr("src","http://101.200.229.135:8080/api/captcha?id=" + g.codeId);
+	function getImgCode(evt){
+		var userName = $("#inputEmail3").val() || "";
+		if(userName !== ""){
+			g.codeId = userName;
+			console.log(g.codeId);
+			$("#updatecodebtn").attr("src",Base.imgCodeUrl + "?id=" + g.codeId);
+		}
 	}
 
 	//打开注册用户页面
@@ -56,7 +62,7 @@ $(function(){
 		var condi = {};
 		condi.username = phone;
 		condi.password = pwd;
-		condi.code = code;
+		condi.captcha = code;
 		$.ajax({
 			url:url,
 			data:condi,
