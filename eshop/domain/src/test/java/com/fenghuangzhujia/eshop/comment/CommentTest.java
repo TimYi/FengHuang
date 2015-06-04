@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.user.comment;
+package com.fenghuangzhujia.eshop.comment;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

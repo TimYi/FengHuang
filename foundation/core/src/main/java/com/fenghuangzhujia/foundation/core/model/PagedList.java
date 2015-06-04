@@ -1,5 +1,6 @@
 package com.fenghuangzhujia.foundation.core.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -29,6 +30,9 @@ public class PagedList<T> {
 		this.page=page.getNumber();
 		this.size=page.getSize();
 		this.result=page.getContent();
+		if(result==null || result.isEmpty()) {
+			result=new ArrayList<T>();
+		}
 	}
 	
 	/**

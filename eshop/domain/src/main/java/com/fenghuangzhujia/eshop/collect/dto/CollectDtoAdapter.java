@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.user.collect.dto;
+package com.fenghuangzhujia.eshop.collect.dto;
 
 import java.io.IOException;
 
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.fenghuangzhujia.eshop.user.collect.Collect;
+import com.fenghuangzhujia.eshop.collect.Collect;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.foundation.core.dto.AbstractDtoAdapter;
