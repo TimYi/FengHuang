@@ -400,6 +400,27 @@ Array.prototype.remove = function(n){
 		},3000);
 	};
 
+	//判断是否已登录
+	function getUserInfo(){
+		var info = offLineStore.get("userinfo",false) || "";
+		if(info !== ""){
+			var obj = JSON.parse(info) || {};
+			var userName = obj.username;
+			//已登录
+			var html = [];
+
+			html.push('<i class="fa fa-sign-out"></i>');
+			html.push('<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="javascript:void(0);" style="width:100px;">' + userName + ',你好!</a></b>');
+			html.push('<b style="padding:0 10px;font-weight:normal"><a href="javascript:alert(\'退出\');" style="width:70px">安全退出</a></b>');
+
+			$("#loginstatus > li")[0].innerHTML = html.join('');
+		}
+		else{
+			//未登录
+		}
+	}
+
+
 	Utils.offLineStore = offLineStore;
 	Utils.secondToDate = secondToDate;
 	Utils.getScript = getScript;
@@ -410,4 +431,5 @@ Array.prototype.remove = function(n){
 	Utils.alert = alert;
 	Utils.getPlatform = getPlatform;
 	Utils.isMobile = isMobile;
+	Utils.getUserInfo = getUserInfo;
 }(window));

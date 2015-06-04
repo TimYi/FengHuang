@@ -169,6 +169,8 @@ $(function(){
 					var token = data.result || "";
 					//保存token
 					Utils.offLineStore.set("token",token,false);
+					//保存用户数据
+					Utils.offLineStore.set("userinfo",JSON.tostringify(condi),false);
 					location.href = "center.html";
 				}
 				else{

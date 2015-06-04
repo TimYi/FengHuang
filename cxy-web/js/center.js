@@ -8,6 +8,9 @@ $(function(){
 	var g = {};
 	g.phone = "";
 
+	//验证登录状态
+	Utils.getUserInfo();
+
 	$("#updatebtn").bind("click",updateUserInfo);
 
 	//更新个人信息

@@ -76,6 +76,8 @@ $(function(){
 				Utils.offLineStore.set("userinfo_login",data);
 				var status = data.status || "";
 				if(status == "OK"){
+					//保存用户数据
+					Utils.offLineStore.set("userinfo",JSON.stringify(condi),false);
 					location.href = "center.html";
 				}
 				else{
