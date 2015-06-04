@@ -14,6 +14,10 @@ public class UsernameValidater {
 	public static boolean isUsername(String username) {
 		Pattern pattern=Pattern.compile(USERNAME_REGEX);
 		Matcher matcher=pattern.matcher(username);
-		return matcher.matches();
+		if(matcher.matches()) {
+			return true;
+		} else {
+			return EmailValidater.isEmail(username);
+		}
 	}
 }

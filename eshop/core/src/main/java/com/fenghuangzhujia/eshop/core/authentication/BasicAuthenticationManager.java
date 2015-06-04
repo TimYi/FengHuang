@@ -13,7 +13,6 @@ import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.utils.Identities;
-import com.fenghuangzhujia.foundation.utils.validater.PhoneNumberValidater;
 import com.fenghuangzhujia.foundation.utils.validater.UsernameValidater;
 
 @Service(value="authenticateService")
