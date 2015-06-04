@@ -15,7 +15,7 @@ import com.fenghuangzhujia.eshop.core.validate.captcha.CaptchaManager;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
 import com.fenghuangzhujia.eshop.utils.web.ImageResponseUtil;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
-import com.fenghuangzhujia.foundation.utils.PhoneNumberValidator;
+import com.fenghuangzhujia.foundation.utils.validater.PhoneNumberValidater;
 
 @RestController
 public class ValidateController {
@@ -28,7 +28,7 @@ public class ValidateController {
 	@RequestMapping(value="message",method=RequestMethod.POST)
 	public String shortMessage(@RequestParam String mobile,@RequestParam String captcha) {
 		captchaManager.validate(mobile, captcha);
-		if(!PhoneNumberValidator.isMobile(mobile)) {
+		if(!PhoneNumberValidater.isMobile(mobile)) {
 			return RequestResult.error(SystemErrorCodes.CAPTCHA_ERROR, "请输入正确的手机号码").toJson();
 		}
 		manager.create(mobile);

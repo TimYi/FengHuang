@@ -13,7 +13,8 @@ import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.utils.Identities;
-import com.fenghuangzhujia.foundation.utils.PhoneNumberValidator;
+import com.fenghuangzhujia.foundation.utils.validater.PhoneNumberValidater;
+import com.fenghuangzhujia.foundation.utils.validater.UsernameValidater;
 
 @Service(value="authenticateService")
 @Transactional
@@ -153,8 +154,8 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	 * @return
 	 */
 	protected void checkAccount(String account) throws Exception {
-		if(!PhoneNumberValidator.isMobile(account)) {
-			throw new Exception("请输入正确的11位手机号码！");
+		if(!UsernameValidater.isUsername(account)) {
+			throw new Exception("请输入数字、英文字母、下划线或者汉字组成的用户名");
 		}
 	}
 	/**

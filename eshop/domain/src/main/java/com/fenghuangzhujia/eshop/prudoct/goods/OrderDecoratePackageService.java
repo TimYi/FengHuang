@@ -25,7 +25,7 @@ import com.fenghuangzhujia.foundation.area.Area;
 import com.fenghuangzhujia.foundation.area.AreaRepository;
 import com.fenghuangzhujia.foundation.area.Area.AreaLevel;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
-import com.fenghuangzhujia.foundation.utils.PhoneNumberValidator;
+import com.fenghuangzhujia.foundation.utils.validater.PhoneNumberValidater;
 
 @Service
 @Transactional
@@ -136,7 +136,7 @@ public class OrderDecoratePackageService {
 		}
 		PackageGood pg=(PackageGood)good;
 		checkGoodCompletion(pg);
-		if(!PhoneNumberValidator.isMobile(mobile))throw new ErrorCodeException(ILLEGAL_ARGUMENT,"不是标准11位手机号码");
+		if(!PhoneNumberValidater.isMobile(mobile))throw new ErrorCodeException(ILLEGAL_ARGUMENT,"不是标准11位手机号码");
 		pg.setMobile(mobile);
 		order.setStatus(OrderStatus.PROCESSING);
 		orderRepository.save(order);
