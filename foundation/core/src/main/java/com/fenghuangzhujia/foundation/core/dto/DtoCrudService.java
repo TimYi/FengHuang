@@ -32,7 +32,7 @@ public abstract class DtoCrudService<D extends Identified<ID>, T extends Identif
 		if(entity==null) return null;
 		D d=adapter.convertToDo(entity);
 		d=getRepository().save(d);
-		entity=adapter.convert(d);
+		entity=adapter.convertToDto(d);
 		return entity;
 	}
 
@@ -44,14 +44,14 @@ public abstract class DtoCrudService<D extends Identified<ID>, T extends Identif
 		if(d==null) return null;
 		d=adapter.update(entity, d);
 		d=getRepository().save(d);
-		entity=adapter.convert(d);
+		entity=adapter.convertToDto(d);
 		return entity;
 	}
 
 	@Override
 	public Iterable<T> addAll(Iterable<T> entities) {
 		if(entities==null) return null;
-		Iterable<D> ds=adapter.convertToList(entities);
+		Iterable<D> ds=adapter.convertDtoList(entities);
 		ds=getRepository().save(ds);
 		return adapter.convertDoList(ds);
 	}
@@ -60,7 +60,7 @@ public abstract class DtoCrudService<D extends Identified<ID>, T extends Identif
 	public T findOne(ID id) {
 		D d=getRepository().findOne(id);
 		if(d==null) return null;
-		return adapter.convert(d);
+		return adapter.convertToDto(d);
 	}
 
 	@Override

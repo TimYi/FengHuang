@@ -30,7 +30,7 @@ public class BasicValidater implements Validater {
 		if(now.after(expireTime)){
 			throw new ExpireException();
 		}
-		if(!(id.equals(this.id) || code.equals(this.code))){
+		if(!(id.equals(this.id) && code.equals(this.code))){
 			throw new ValidaterWrongException();
 		}
 	}

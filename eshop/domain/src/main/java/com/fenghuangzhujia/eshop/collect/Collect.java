@@ -1,13 +1,10 @@
-package com.fenghuangzhujia.eshop.user.collect;
+package com.fenghuangzhujia.eshop.collect;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fenghuangzhujia.eshop.core.user.User;
@@ -16,15 +13,13 @@ import com.fenghuangzhujia.foundation.media.MediaContent;
 
 @Entity
 @Table(name="fhzj_collect")
-@Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(name="collect_type")
-@DiscriminatorValue(value="BASIC")
-public class Collect extends UUIDBaseModel {
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+public abstract class Collect extends UUIDBaseModel {
+
 	private User user;
 	private String name;
-	private MediaContent mainPic;
 	private String url;
-	private String type;
+	private String sourceid;
 	
 	/**
 	 * 用户
@@ -37,11 +32,6 @@ public class Collect extends UUIDBaseModel {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	/**
-	 * 收藏名称，可选
-	 * @return
-	 */
 	public String getName() {
 		return name;
 	}
@@ -53,18 +43,8 @@ public class Collect extends UUIDBaseModel {
 	 * 收藏主图片
 	 * @return
 	 */
-	@OneToOne
-	public MediaContent getMainPic() {
-		return mainPic;
-	}
-	public void setMainPic(MediaContent mainPic) {
-		this.mainPic = mainPic;
-	}
+	public abstract MediaContent getMainPic();
 	
-	/**
-	 * 收藏地址，可选
-	 * @return
-	 */
 	public String getUrl() {
 		return url;
 	}
@@ -72,15 +52,17 @@ public class Collect extends UUIDBaseModel {
 		this.url = url;
 	}
 	
+	@Column(unique=true,nullable=false)
+	public String getSourceid() {
+		return sourceid;
+	}
+	public void setSourceid(String sourceid) {
+		this.sourceid = sourceid;
+	}
+	
 	/**
-	 * 只读type属性
+	 * 通过type区分收藏类型
 	 * @return
 	 */
-	@Column(updatable=false,insertable=false,name="collect_type")
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
+	public abstract String getType();
 }

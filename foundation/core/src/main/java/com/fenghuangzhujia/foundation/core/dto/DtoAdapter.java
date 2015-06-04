@@ -1,6 +1,6 @@
 package com.fenghuangzhujia.foundation.core.dto;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.springframework.core.convert.converter.Converter;
 
@@ -22,6 +22,15 @@ public interface DtoAdapter<D, T> extends Converter<D, T> {
 	D convertToDo(T t);
 	
 	/**
+	 * 将Do转换为Dto
+	 * 此方法用户单个转换，会转换较多细节
+	 * 而convert方法用户列表转换，理论上会转换较少的细节
+	 * @param d
+	 * @return
+	 */
+	T convertToDto(D d);
+	
+	/**
 	 * 更新Do
 	 * @param t never null
 	 * @param d never null
@@ -29,7 +38,7 @@ public interface DtoAdapter<D, T> extends Converter<D, T> {
 	 */
 	D update(T t, D d);
 	
-	Collection<T> convertDoList(Iterable<? extends D> ds);
+	List<T> convertDoList(Iterable<? extends D> ds);
 	
-	Collection<D> convertToList(Iterable<? extends T> ts);
+	List<D> convertDtoList(Iterable<? extends T> ts);
 }

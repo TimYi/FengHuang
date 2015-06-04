@@ -1,9 +1,9 @@
-package com.fenghuangzhujia.foundation.utils;
+package com.fenghuangzhujia.foundation.utils.validater;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class PhoneNumberValidator {
+public class PhoneNumberValidater {
 	public final static String MOBILE_REGEX="1[3|5|7|8|][0-9]{9}";
 	/**
 	 * 检验是否是标准的11位手机号码

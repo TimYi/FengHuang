@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.user.collect;
+package com.fenghuangzhujia.eshop.collect;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -6,8 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.fenghuangzhujia.eshop.user.collect.CollectService;
-import com.fenghuangzhujia.eshop.user.collect.dto.CollectDto;
+import com.fenghuangzhujia.eshop.collect.dto.CollectDto;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 

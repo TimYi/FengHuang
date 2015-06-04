@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.user.collect.dto;
+package com.fenghuangzhujia.eshop.collect.dto;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -6,11 +6,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 import com.fenghuangzhujia.foundation.media.MediaContentDto;
 
-public class CollectDto extends DtoBaseModel {	
+public class CollectDto extends DtoBaseModel {
+	
 	private String name;
 	private MediaContentDto mainPic;
 	private String url;
 	private String type;
+	private String sourceid;
 	
 	@JsonIgnore
 	private String userid;
@@ -51,5 +53,11 @@ public class CollectDto extends DtoBaseModel {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	public String getSourceid() {
+		return sourceid;
+	}
+	public void setSourceid(String sourceid) {
+		this.sourceid = sourceid;
 	}
 }
