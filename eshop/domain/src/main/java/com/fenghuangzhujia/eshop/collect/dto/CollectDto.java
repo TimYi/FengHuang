@@ -3,6 +3,7 @@ package com.fenghuangzhujia.eshop.collect.dto;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fenghuangzhujia.eshop.ResourceType;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 import com.fenghuangzhujia.foundation.media.MediaContentDto;
 
@@ -11,7 +12,7 @@ public class CollectDto extends DtoBaseModel {
 	private String name;
 	private MediaContentDto mainPic;
 	private String url;
-	private String type;
+	private ResourceType type;
 	private String sourceid;
 	
 	@JsonIgnore
@@ -48,10 +49,10 @@ public class CollectDto extends DtoBaseModel {
 	public void setMainPicFile(MultipartFile mainPicFile) {
 		this.mainPicFile = mainPicFile;
 	}
-	public String getType() {
+	public ResourceType getType() {
 		return type;
 	}
-	public void setType(String type) {
+	public void setType(ResourceType type) {
 		this.type = type;
 	}
 	public String getSourceid() {

@@ -2,10 +2,12 @@ package com.fenghuangzhujia.eshop.collect;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fenghuangzhujia.eshop.ResourceType;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 import com.fenghuangzhujia.foundation.media.MediaContent;
@@ -18,8 +20,8 @@ public class Collect extends UUIDBaseModel {
 	private String name;
 	private MediaContent mainPic;
 	private String url;
-	private String type;
 	private String sourceid;
+	private ResourceType type;
 	
 	/**
 	 * 用户
@@ -58,14 +60,14 @@ public class Collect extends UUIDBaseModel {
 	}
 	
 	/**
-	 * 通过type区分收藏类型，不可为空
+	 * 通过type区分收藏类型
 	 * @return
 	 */
-	@Column(nullable=false)
-	public String getType() {
+	@Enumerated
+	public ResourceType getType() {
 		return type;
 	}
-	public void setType(String type) {
+	public void setType(ResourceType type) {
 		this.type = type;
 	}
 	@Column(unique=true,nullable=false)

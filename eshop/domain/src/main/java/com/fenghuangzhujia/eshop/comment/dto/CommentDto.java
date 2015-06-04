@@ -1,5 +1,6 @@
 package com.fenghuangzhujia.eshop.comment.dto;
 
+import com.fenghuangzhujia.eshop.ResourceType;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
 public class CommentDto extends DtoBaseModel {
@@ -11,6 +12,7 @@ public class CommentDto extends DtoBaseModel {
 	private String categoryid;
 	private String ownerid;
 	private String metadata;
+	private ResourceType type;
 	
 	public String getTitle() {
 		return title;
@@ -53,5 +55,11 @@ public class CommentDto extends DtoBaseModel {
 	}
 	public void setMetadata(String metadata) {
 		this.metadata = metadata;
+	}
+	public ResourceType getType() {
+		return type;
+	}
+	public void setType(ResourceType type) {
+		this.type = type;
 	}
 }

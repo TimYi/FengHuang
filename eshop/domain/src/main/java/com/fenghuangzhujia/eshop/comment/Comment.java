@@ -5,10 +5,12 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
+import com.fenghuangzhujia.eshop.ResourceType;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 
 @Entity
@@ -22,6 +24,7 @@ public class Comment extends UUIDBaseModel {
 	private String categoryid;
 	private String ownerid;
 	private String metadata;
+	private ResourceType type;
 	private Set<CommentItem> comments;
 	
 	/**
@@ -106,5 +109,12 @@ public class Comment extends UUIDBaseModel {
 	}
 	public void setComments(Set<CommentItem> comments) {
 		this.comments = comments;
+	}
+	@Enumerated
+	public ResourceType getType() {
+		return type;
+	}
+	public void setType(ResourceType type) {
+		this.type = type;
 	}
 }
