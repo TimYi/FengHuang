@@ -1,7 +1,6 @@
 package com.fenghuangzhujia.foundation.core.dto;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -12,7 +11,7 @@ public abstract class SimpleDtoAdapter<D,T> implements DtoAdapter<D, T> {
 	protected static Logger logger=LoggerFactory.getLogger(SimpleDtoAdapter.class);
 	
 	@Override
-	public Collection<T> convertDoList(Iterable<? extends D> ds) {
+	public List<T> convertDoList(Iterable<? extends D> ds) {
 		if(ds==null)return null;
 		List<T> ts=new ArrayList<T>();
 		for (D d : ds) {
@@ -23,7 +22,7 @@ public abstract class SimpleDtoAdapter<D,T> implements DtoAdapter<D, T> {
 	}
 
 	@Override
-	public Collection<D> convertToList(Iterable<? extends T> ts) {
+	public List<D> convertDtoList(Iterable<? extends T> ts) {
 		if(ts==null)return null;
 		List<D> ds=new ArrayList<D>();
 		for (T t : ts) {
@@ -31,5 +30,13 @@ public abstract class SimpleDtoAdapter<D,T> implements DtoAdapter<D, T> {
 			ds.add(d);
 		}
 		return ds;
+	}
+	
+	/**
+	 * 临时解决方案，将单个转换和列表转换用同一个
+	 */
+	@Override
+	public T convertToDto(D d) {
+		return convert(d);
 	}
 }

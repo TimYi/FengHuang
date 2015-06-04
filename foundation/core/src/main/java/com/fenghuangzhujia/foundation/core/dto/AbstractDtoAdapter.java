@@ -23,6 +23,11 @@ public abstract class AbstractDtoAdapter<D, T> extends SimpleDtoAdapter<D, T> {
 	public abstract T postConvert(D d, T t);
 	
 	@Override
+	public T convertToDto(D d) {
+		return convert(d);
+	}
+	
+	@Override
 	public D convertToDo(T t) {
 		if(t==null)return null;
 		D d=BeanMapper.map(t, getDClass());
