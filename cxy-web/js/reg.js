@@ -3,74 +3,51 @@
  * author:chenxy
  * date:2015-05-23
 */
+//页面初始化
+$(function(){
+	var g = {};
+	g.phone = "";
 
+	$("#getcodebtn").bind("click",getValidCode);
+	$("#resetbtn").bind("click",resetRegInfo);
+	$("#sendbtn").bind("click",regBtnUp);
 
-var PageManager = function (obj){
-	this.init.apply(this,arguments);
-};
-
-PageManager.prototype = {
-	constructor:PageManager,
-	phone:"",
-	init: function(){
-		$(window).onbind("load",this.pageLoad,this);
-		this.bindEvent();
-	},
-	bindEvent:function(){
-		$("#hqyzm").onbind("click",this.getValidCode,this);
-		$("#regbtn").onbind("click",this.regBtnUp,this);
-	},
-	pageLoad:function(){
-		console.log("pageLoad");
-	},
-	pageBack:function(evt){
-		history.go(-1);
-	},
-	pageMove:function(evt){
-		this.moved = true;
-	},
-
-	/**
-	 * 隐藏dom 卸载资源
-	*/
-	pageHide:function(){
-	},
-
-
-	btnDown:function(evt){
-		//按钮按下通用高亮效果
-		this.moved = false;
+	//获取验证码
+	function getValidCode(evt){
 		var ele = evt.currentTarget;
-		$(ele).addClass("curr");
-	},
-
-	getValidCode:function(evt){
-		var ele = evt.currentTarget;
-		$(ele).removeClass("curr");
+		//$(ele).removeClass("curr");
 		//if(!this.moved){}
-		var phone = $("#emailAndPhone").val() || "";
-		if(phone !== ""){
+		var p = $("#inputPhone3").val() || "";
+		if(p !== ""){
 			var reg = /^1[3,5,7,8]\d{9}$/g;
-			if(reg.test(phone)){
-				this.phone = phone;
-				this.sendGetCodeHttp();
+			if(reg.test(p)){
+				g.phone = p;
+				sendGetCodeHttp();
 			}
 			else{
 				alert("手机输入不合法");
 			}
 		}
 		else{
-			$("#emailAndPhone").focus();
+			console.log("没填手机号");
+			$("#inputPhone3").focus();
 		}
+	}
 
-	},
+	//重置信息
+	function resetRegInfo(evt){
+		$("#inputEmail3").val("");
+		$("#inputPassword3").val("");
+		$("#inputPhone3").val("");
+		$("#inputCode3").val("");
+	}
 
-	regBtnUp:function(evt){
-		debugger
-		var phone = $("#emailAndPhone").val() || "";
-		var userName = $("#userName").val() || "";
-		var usePwd = $("#usePwd").val() || "";
-		var autoCode = $("#autoCode").val() || "";
+	//注册
+	function regBtnUp(evt){
+		var phone = $("#inputPhone3").val() || "";
+		var userName = $("#inputEmail3").val() || "";
+		var usePwd = $("#inputPassword3").val() || "";
+		var autoCode = $("#inputCode3").val() || "";
 
 		if(phone != "" && userName != "" && usePwd != "" && autoCode != ""){
 			this.sendRegHttp(phone,userName,usePwd,autoCode);
@@ -78,13 +55,13 @@ PageManager.prototype = {
 		else{
 			alert("账户信息未填");
 		}
-	},
+	}
 
 	//请求验证码
-	sendGetCodeHttp:function(){
+	function sendGetCodeHttp(){
 		var url = Base.getCodeUrl;
 		var condi = {};
-		condi.mobile = this.phone;
+		condi.mobile = g.phone;
 		$.ajax({
 			url:url,
 			data:condi,
@@ -105,12 +82,13 @@ PageManager.prototype = {
 			error:function(data){
 			}
 		});
-	},
+	}
 
-	sendRegHttp:function(phone,userName,usePwd,autoCode){
+	//注册
+	function sendRegHttp(phone,userName,usePwd,autoCode){
 		var url = Base.regUrl;
 		var condi = {};
-		condi.mobile = phone;
+		condi.mobile = g.phone;
 		condi.username = userName;
 		condi.password = usePwd;
 		condi.validater = autoCode;
@@ -139,9 +117,4 @@ PageManager.prototype = {
 			}
 		});
 	}
-};
-
-//页面初始化
-$(function(){
-	var page = new PageManager({});
 });
