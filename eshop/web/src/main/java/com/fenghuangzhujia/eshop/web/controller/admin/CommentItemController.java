@@ -1,5 +1,6 @@
 package com.fenghuangzhujia.eshop.web.controller.admin;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,6 +12,7 @@ import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 @RequestMapping("admin/commentItem")
 public class CommentItemController extends SpecificationController<CommentItemDto> {
 
+	@Autowired
 	private CommentItemService service;
 	
 	@Override
