@@ -3,6 +3,7 @@ package com.fenghuangzhujia.eshop.web.controller.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationManager;
@@ -23,7 +24,7 @@ public class AccountController {
 	private CaptchaManager captchaManager;
 	
 	@RequestMapping(value="login",method=RequestMethod.POST)
-	public String login(String username, String password, String captcha) {
+	public String login(@RequestParam String username,@RequestParam String password,@RequestParam String captcha) {
 		captchaManager.validate(username, captcha);
 		UserToken token=manager.login(username, password);
 		String tokenString=token.getToken();
@@ -39,7 +40,8 @@ public class AccountController {
 	 * @return
 	 */
 	@RequestMapping(value="regist",method=RequestMethod.POST)
-	public String regist(String username, String password, String mobile, String validater) {
+	public String regist(@RequestParam String username,@RequestParam String password,
+			@RequestParam String mobile,@RequestParam String validater) {
 		messageManager.validate(mobile, validater);
 		UserToken token=manager.regist(username, password);
 		String tokenString=token.getToken();
