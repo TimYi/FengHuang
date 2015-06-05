@@ -9,7 +9,6 @@ public class BrandDto extends DtoBaseModel {
 	private String name;
 	private Set<BrandDto> subBrands;
 	private String brandType;
-	@JsonIgnore
 	private String brandTypeId;
 	@JsonIgnore
 	private String superBrandId;

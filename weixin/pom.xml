@@ -23,6 +23,14 @@
 		</dependency>
 		<!-- fenghuangzhujia end -->
 		
+		<!-- weixin java tools -->
+		<dependency>
+		  <groupId>me.chanjar</groupId>
+		  <artifactId>weixin-java-mp</artifactId>
+		  <version>1.1.5</version>
+		</dependency>
+		<!-- weixin java tools -->
+		
 		<!-- j2ee web spec -->
 		<!-- update to servlet 3.0 for spring 4.0 MockHttpServletRequest  -->
 		<dependency>

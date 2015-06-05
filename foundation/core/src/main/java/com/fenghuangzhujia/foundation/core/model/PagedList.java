@@ -27,7 +27,7 @@ public class PagedList<T> {
 	public PagedList(Page<T> page) {
 		this.totalCount=page.getTotalElements();
 		this.totalPages=page.getTotalPages();
-		this.page=page.getNumber();
+		this.page=page.getNumber()+1;
 		this.size=page.getSize();
 		this.result=page.getContent();
 		if(result==null || result.isEmpty()) {
