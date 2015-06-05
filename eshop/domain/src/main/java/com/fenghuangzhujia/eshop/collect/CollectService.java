@@ -1,18 +1,39 @@
 package com.fenghuangzhujia.eshop.collect;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fenghuangzhujia.eshop.ResourceType;
+import com.fenghuangzhujia.eshop.artical.Artical;
+import com.fenghuangzhujia.eshop.artical.ArticalRepository;
 import com.fenghuangzhujia.eshop.collect.dto.CollectDto;
+import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
+import com.fenghuangzhujia.eshop.core.user.User;
+import com.fenghuangzhujia.eshop.core.user.UserRepository;
+import com.fenghuangzhujia.eshop.prudoct.cases.DecorateCase;
+import com.fenghuangzhujia.eshop.prudoct.cases.DecorateCaseRepository;
+import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage;
+import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackageRepository;
 import com.fenghuangzhujia.foundation.core.dto.DtoPagingService;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
+import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 
 @Service
 @Transactional
 public class CollectService extends DtoPagingService<Collect, CollectDto, String> {
+	
+	@Autowired
+	private UserRepository userRepository;
+	@Autowired
+	private ArticalRepository articalRepository;
+	@Autowired
+	private DecoratePackageRepository packageRepository;
+	@Autowired
+	private DecorateCaseRepository caseRepository;
 	
 	public PagedList<CollectDto> findPage(int page, int size, String userid) {
 		PageRequest request=new PageRequest(page-1, size);
@@ -29,5 +50,48 @@ public class CollectService extends DtoPagingService<Collect, CollectDto, String
 	@Override
 	public CollectRepository getRepository() {
 		return (CollectRepository)super.getRepository();
+	}
+	
+	/**
+	 * 保存不同类型的收藏
+	 * @param userid
+	 * @param sourceid
+	 * @param type
+	 * @param url
+	 * @return
+	 */
+	public CollectDto add(String userid, String sourceid, ResourceType type, String url) {
+		if(StringUtils.isBlank(sourceid) || type==null || StringUtils.isBlank(userid)){
+			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT);
+		}
+		Collect collect=new Collect();
+		User user=userRepository.findOne(userid);
+		collect.setUser(user);
+		collect.setSourceid(sourceid);
+		collect.setUrl(url);
+		switch (type) {
+		case ARTICAL:
+			Artical artical=articalRepository.findOne(sourceid);
+			collect.setName(artical.getTitle());
+			collect.setType(ResourceType.ARTICAL);
+			collect.setMainPic(artical.getMainPic());
+			break;
+		case PACKAGE:
+			DecoratePackage package1=packageRepository.findOne(sourceid);
+			collect.setName(package1.getTitle());
+			collect.setType(ResourceType.PACKAGE);
+			collect.setMainPic(package1.getMainPic());
+			break;
+		case CASE:
+			DecorateCase case1=caseRepository.findOne(sourceid);
+			collect.setName(case1.getTitle());
+			collect.setType(ResourceType.CASE);
+			collect.setMainPic(case1.getMainPic());
+			break;
+		default:
+			break;
+		}
+		collect=getRepository().save(collect);
+		return adapter.convert(collect);
 	}
 }

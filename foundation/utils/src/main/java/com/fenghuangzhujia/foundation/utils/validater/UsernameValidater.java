@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class UsernameValidater {
 
-	public static final String USERNAME_REGEX="^[\\u4E00-\\u9FA5\\uF900-\\uFA2D\\w]{2,10}$";
+	public static final String USERNAME_REGEX="^[\\u4E00-\\u9FA5\\uF900-\\uFA2D\\w]{2,11}$";
 	/**
 	 * 检验是否是标准的11位手机号码
 	 * @param number

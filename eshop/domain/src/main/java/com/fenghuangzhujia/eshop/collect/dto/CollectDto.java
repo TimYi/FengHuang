@@ -18,6 +18,7 @@ public class CollectDto extends DtoBaseModel {
 	private String userid;
 	@JsonIgnore
 	private MultipartFile mainPicFile;
+	
 	public String getUserid() {
 		return userid;
 	}
