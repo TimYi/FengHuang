@@ -20,7 +20,7 @@ public class CommentTest {
 	@Autowired
 	private CommentService commentService;
 	
-	//@Test
+	@Test
 	public void addComment() {
 		CommentDto comment=new CommentDto();
 		comment.setSourceid("123456");

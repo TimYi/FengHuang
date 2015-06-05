@@ -32,6 +32,7 @@ public class User extends UUIDBaseModel {
 	private String password;	
 	private Set<Role> roles;
 	private boolean verified;
+	@JsonIgnore
 	private String salt;
 	private Set<AbstractAuthority> authorities;
 	

@@ -4,18 +4,22 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.fenghuangzhujia</groupId>
-		<artifactId>fenghuangzhujia-eshop</artifactId>
+		<artifactId>fenghuangzhujia-parent</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>	
-	<artifactId>fenghuangzhujia-eshop-third</artifactId>
-	<name>Fenghuangzhujia :: Eshop :: Third</name>
-	<packaging>jar</packaging>
+	<artifactId>fenghuangzhujia-weixin</artifactId>
+	<name>Fenghuangzhujia :: Weixin</name>
+	<packaging>war</packaging>
 	<dependencies>
 		<!-- fenghuangzhujia begin -->
 		<dependency>
 			<groupId>com.fenghuangzhujia</groupId>
-			<artifactId>fenghuangzhujia-eshop-core</artifactId>
+			<artifactId>fenghuangzhujia-foundation-utils</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fenghuangzhujia</groupId>
+			<artifactId>fenghuangzhujia-foundation-core</artifactId>
 		</dependency>
 		<!-- fenghuangzhujia end -->
 		

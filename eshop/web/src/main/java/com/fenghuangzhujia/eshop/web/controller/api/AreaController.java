@@ -24,7 +24,7 @@ public class AreaController {
 		return RequestResult.success(result).toJson();
 	}
 	
-	@RequestMapping("area/subsof/{id}")
+	@RequestMapping("area/subareas/{id}")
 	public String areaByUpper(@PathVariable String id) {
 		List<AreaDto> result=areaService.findByUpperArea(id);
 		return RequestResult.success(result).toJson();
