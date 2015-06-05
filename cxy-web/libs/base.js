@@ -19,12 +19,14 @@
 	var getCodeUrl = serverUrl + "/api/message";
 	var regUrl = serverUrl + "/api/regist";
 	var loginUrl = serverUrl + "/api/login";
+	var imgCodeUrl = serverUrl + "/api/captcha";
 
 	Base.urlPort = urlPort;
 	Base.maskTimeOut = maskTimeOut;
 	Base.getCodeUrl = getCodeUrl;
 	Base.regUrl = regUrl;
 	Base.loginUrl = loginUrl;
+	Base.imgCodeUrl = imgCodeUrl;
 }(window));
 
 
