@@ -8,7 +8,7 @@ import com.fenghuangzhujia.foundation.area.AreaService;
 import com.fenghuangzhujia.foundation.area.dto.AreaDto;
 import com.fenghuangzhujia.foundation.core.rest.PagingController;
 
-@RestController
+@RestController(value="adminAreaController")
 @RequestMapping("admin/area")
 public class AreaController extends PagingController<AreaDto> {
 

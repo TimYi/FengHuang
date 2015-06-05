@@ -16,6 +16,7 @@ public class AppointDto extends DtoBaseModel {
 	private String address;
 	private String mobile;
 	private Date appointTime;
+	@JsonIgnore
 	private String areaid;
 	private AreaVo area;
 	
