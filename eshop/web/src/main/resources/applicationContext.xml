@@ -67,9 +67,13 @@
 			<!-- Connection Pooling Info -->
 			<property name="maxActive" value="${jdbc.pool.maxActive}" />
 			<property name="maxIdle" value="${jdbc.pool.maxIdle}" />
-			<property name="minIdle" value="0" />
+			<property name="minIdle" value="2" />
+			<property name="maxWait" value="5000" />	
 			<property name="testOnBorrow" value="${jdbc.pool.testOnBorrow}" />
-			<property name="maxAge" value="${jdbc.pool.maxActive}" />
+			<property name="maxAge" value="${jdbc.pool.maxAge}" />
+			<!-- 连接Idle10分钟后超时，每1分钟检查一次 -->
+			<property name="timeBetweenEvictionRunsMillis" value="60000" />			
+			<property name="minEvictableIdleTimeMillis" value="600000" />
 			<property name="defaultAutoCommit" value="false" />
 	</bean>
 	
