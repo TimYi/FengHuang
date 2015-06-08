@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>首页 | 凤凰筑家 PHOENIXZJ.COM</title>
-
+	
 	<!-- core CSS -->
     <link href="css/bootstrap.min1.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -17,7 +17,7 @@
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
-    <![endif]-->
+    <![endif]-->       
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-sm-6 col-xs-8">
                        <div class="social">
-                            <ul id="loginstatus" class="social-share">
+                            <ul class="social-share">
                                 <li style="padding-right:10px;"><i class="fa fa-sign-in hui"></i> <b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal"><a href="login.html" style="width:30px">登录</a></b></li>
                                 <li><i class="fa fa-user hui"></i> <a href="center.html" style="width:60px">会员中心</a></li>
                             </ul>
@@ -71,7 +71,7 @@
                     </button>
                     <a class="navbar-brand" href="index.html"><img src="images/fhzj.jpg" alt="logo"></a>
                 </div>
-
+				
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.html">首页</a></li>
@@ -93,7 +93,7 @@
                                 <li><a href="gyzs.html">工艺展示</a></li>
                                 <li><a href="zczs.html">主材展示</a></li>
                             </ul>
-                        </li>
+                        </li>                        
                         <li><a href="about-us.html">体验馆</a></li>
                         <li class="dropdown" style="border:0px">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">案例 / Live直播 <i class="fa fa-angle-down"></i></a>
@@ -107,7 +107,7 @@
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
-
+		
     </header><!--/header-->
 
     <section id="main-slider" class="no-margin">
@@ -119,52 +119,155 @@
                 <li data-target="#main-slider" data-slide-to="3"></li>
             </ol>
             <ol>
-            </ol>
+            </ol>            
             <div class="carousel-inner">
 
-                <div class="item active" style="background-image: url(images/slider_1.jpg)">
+                <div class="item active" style="background-image: url(images/slider/n_004.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
                             <div class="col-sm-6">
                                 <div class="carousel-content">
-                                    <h1 class="animation animated-item-1" style="font-weight: normal;">凤凰管家，您的家装卫士</h1>
-                                    <h2 class="animation animated-item-2" style="font-weight: normal;">无论您是否是我们的客户，都可以通过凤凰筑平台预约家装维修服务，我们已在全国32个省市地区开通了预约直通车</h2>
-                                    <a class="btn-slide animation animated-item-3" href="#">了解详情</a>
+                                    <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">凤凰之上 装修无双</h1>
+                                    <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">
+                                    	给自己一个舒适的家<br/>
+                                    	给爱人和孩子一个温馨的家<br/><br/>
+                                    	2015年，我们来了....<br/>
+                                    </h2>
+                                    <!--a class="btn-slide animation animated-item-3" href="#">了解详情</a-->
                                 </div>
                             </div>
 
-                            <div class="col-sm-6 hidden-xs animation animated-item-4">
-                                <div class="slider-img">
-                                    <img src="images/slider/img4.png" class="img-responsive">
-                                </div>
-                            </div>
+                            
+						                <div class="col-xs-12 col-sm-5 wow fadeInDown" style="margin:50px 0 0 90px">
+																<div class="form-horizontal piao_mid">
+																	  <div class="form-group">
+																		    <label for="inputEmail3" class="col-sm-2 control-label">预约类型</label>
+																		    <div class="col-sm-10" style="width:83%">
+																					<select name="zhuangxiu" class="u_sel" style="width:278px">
+																						<option value="volvo" selected="selected">预约免费量房</option>
+																						<option value="saab">预约免费设计</option>
+																						<option value="fiat">预约家装套餐</option>
+																						<option value="fiat">预约体验馆</option>
+																					</select>
+																		    </div>
+																	  </div> 																	
+															 	 		<div class="form-group">
+															 					<label for="inputEmail3" class="col-sm-2 control-label">姓　名</label>
+															    			<div class="col-sm-10" style="width:83%">
+															      				<input type="" class="form-control" id="inputEmail3" placeholder="">
+															    			</div>
+															  		</div>
+																	  <div class="form-group">
+																		    <label for="inputEmail3" class="col-sm-2 control-label">手机号</label>
+																		    <div class="col-sm-10" style="width:83%">
+																		      	<input type="" class="form-control" id="inputEmail3" placeholder="中国大陆手机号">
+																		    </div>
+																	  </div>  
+																	  <div class="form-group">
+																	    	<label for="inputEmail3" class="col-sm-2 control-label">验证码</label>
+																	    	<div class="col-sm-10" style="width:83%">
+																	      		<input type="" class="form-control" id="inputEmail3" placeholder="" style="width:120px">
+																	      		<button type="submit" class="btn btn-default" style="float:right;margin-top:-34px;width:150px">发送短信</button>      
+																	    	</div>
+																	  </div> 																	  
+																	  <div class="form-group" style="margin-top:-20px">
+																	    	<div class="col-sm-offset-2 col-sm-10">
+																	      		<a class="btn-slide" href="#" style="background:orange;font-size:20px;color:#000;padding:15px 65px;font-weight:800;-moz-border-radius: 7px;-webkit-border-radius: 7px;border-radius:7px;">
+																	      			立即预约
+																	      		</a>
+																	    	</div>
+																	  </div>
+																</div>																	
+						                </div>
 
                         </div>
                     </div>
                 </div><!--/.item-->
 
-                <div class="item" style="background-image: url(images/slider/bg2.jpg)">
+                <div class="item" style="background-image: url(images/slider/n_012.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
                             <div class="col-sm-6">
                                 <div class="carousel-content">
-                                    <h1 class="animation animated-item-1" style="font-weight: normal;">家装款</h1>
-                                    <h2 class="animation animated-item-2" style="font-weight: normal;">最高20万元，无抵押，0手续费，1日审批放款。</h2>
+                                    <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">互联网家装新体验</h1>
+                                    <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">
+                                    	499元/平米，全网性价比最高家装解决方案。<br/>
+                                    	从毛坯到精装只需35天，55道标准工序。
+                                    </h2>
                                     <a class="btn-slide animation animated-item-3" href="#">了解详情</a>
                                 </div>
                             </div>
-
-                            <div class="col-sm-6 hidden-xs animation animated-item-4">
+						                <div class="col-xs-12 col-sm-5 wow fadeInDown" style="margin:50px 0 0 90px">
+																<div class="form-horizontal piao_mid">
+																	  <div class="form-group">
+																		    <label for="inputEmail3" class="col-sm-2 control-label">预约类型</label>
+																		    <div class="col-sm-10" style="width:83%">
+																					<select name="zhuangxiu" class="u_sel" style="width:278px">
+																						<option value="volvo" selected="selected">预约免费量房</option>
+																						<option value="saab">预约免费设计</option>
+																						<option value="fiat">预约家装套餐</option>
+																						<option value="fiat">预约体验馆</option>
+																					</select>
+																		    </div>
+																	  </div> 																	
+															 	 		<div class="form-group">
+															 					<label for="inputEmail3" class="col-sm-2 control-label">姓　名</label>
+															    			<div class="col-sm-10" style="width:83%">
+															      				<input type="" class="form-control" id="inputEmail3" placeholder="">
+															    			</div>
+															  		</div>
+																	  <div class="form-group">
+																		    <label for="inputEmail3" class="col-sm-2 control-label">手机号</label>
+																		    <div class="col-sm-10" style="width:83%">
+																		      	<input type="" class="form-control" id="inputEmail3" placeholder="中国大陆手机号">
+																		    </div>
+																	  </div>  
+																	  <div class="form-group">
+																	    	<label for="inputEmail3" class="col-sm-2 control-label">验证码</label>
+																	    	<div class="col-sm-10" style="width:83%">
+																	      		<input type="" class="form-control" id="inputEmail3" placeholder="" style="width:120px">
+																	      		<button type="submit" class="btn btn-default" style="float:right;margin-top:-34px;width:150px">发送短信</button>      
+																	    	</div>
+																	  </div> 																	  
+																	  <div class="form-group" style="margin-top:-20px">
+																	    	<div class="col-sm-offset-2 col-sm-10">
+																	      		<a class="btn-slide" href="#" style="background:orange;font-size:20px;color:#000;padding:15px 65px;font-weight:800;-moz-border-radius: 7px;-webkit-border-radius: 7px;border-radius:7px;">
+																	      			立即预约
+																	      		</a>
+																	    	</div>
+																	  </div>
+																</div>																	
+						                </div>
+                            <!--div class="col-sm-6 hidden-xs animation animated-item-4">
                                 <div class="slider-img">
                                     <img src="images/slider/img5.png" class="img-responsive">
                                 </div>
-                            </div>
+                            </div-->
 
                         </div>
                     </div>
                 </div><!--/.item-->
 
-                <div class="item" style="background-image: url(images/slider/bg3.jpg)">
+                <div class="item" style="background-image: url(images/slider/n_010.jpg)">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">城市体验馆</h1>
+                                    <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">如果您已经抢购了我们的套餐产品，即可预约体验馆实景参观服务。</h2>
+                                    <a class="btn-slide animation animated-item-3" href="#">了解详情</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 hidden-xs animation animated-item-4">
+                                <div class="slider-img">
+                                    <!--img src="images/slider/img3.png" class="img-responsive"-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.item-->
+                
+                <div class="item" style="background-image: url(images/slider/n_001.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
                             <div class="col-sm-6">
@@ -181,26 +284,7 @@
                             </div>
                         </div>
                     </div>
-                </div><!--/.item-->
-
-                <div class="item" style="background-image: url(images/slider/bg1.jpg)">
-                    <div class="container">
-                        <div class="row slide-margin">
-                            <div class="col-sm-6">
-                                <div class="carousel-content">
-                                    <h1 class="animation animated-item-1" style="font-weight: normal;">城市体验馆</h1>
-                                    <h2 class="animation animated-item-2" style="font-weight: normal;">如果您已经抢购了我们的套餐产品，即可预约体验馆实景参观服务。</h2>
-                                    <a class="btn-slide animation animated-item-3" href="#">了解详情</a>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 hidden-xs animation animated-item-4">
-                                <div class="slider-img">
-                                    <!--img src="images/slider/img3.png" class="img-responsive"-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!--/.item-->
+                </div><!--/.item-->                
             </div><!--/.carousel-inner-->
         </div><!--/.carousel-->
         <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
@@ -222,7 +306,7 @@
             <div class="row">
                 <div class="features">
                     <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
+                        <div class="feature-wrap" style="height:240px">
                             <!--i class="fa fa-bullhorn"></i-->
                             <h3>
                             	<span style="font-weight:600;color:#666">RMB</span>&nbsp;&nbsp;
@@ -246,11 +330,11 @@
                         </div>
                         <div style="height:240px;width:360px;">
                         	<img src="images/u_1.jpg" width=360 height=240>
-                        </div>
+                        </div>                        
                     </div><!--/.col-md-4-->
 
                     <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
+                        <div class="feature-wrap" style="height:240px">
                             <!--i class="fa fa-comments"></i-->
                             <h3>
                             	<span style="font-weight:600;color:#666">RMB</span>&nbsp;&nbsp;
@@ -279,7 +363,7 @@
                     </div><!--/.col-md-4-->
 
                     <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
+                        <div class="feature-wrap" style="height:240px">
                             <!--i class="fa fa-cloud-download"></i-->
                             <h3>
                             	<span style="font-weight:600;color:#666">RMB</span>&nbsp;&nbsp;
@@ -321,7 +405,7 @@
 		          <h2>服务流程 <span style="font-size:24px">Service Process</span></h2>
 		          <p class="lead">新房从毛坯到精装，只需35个天。从旧房到毛坯到精装，只需40天。“互联网+”颠覆传统家装模式，给业主们带来全新的体验和感受</p>
 					</div>
-
+			
 					<!-- about us slider -->
 					<div id="about-slider">
 						<div id="carousel-slider" class="carousel slide" data-ride="carousel">
@@ -331,86 +415,81 @@
 							    <li data-target="#carousel-slider" data-slide-to="1"></li>
 							    <li data-target="#carousel-slider" data-slide-to="2"></li>
 						  	</ol>
-
+		
 							<div class="carousel-inner">
 								<div class="item active">
-									<img src="images/slider_two.jpg" class="img-responsive" alt="">
+									<img src="images/slider_two.jpg" class="img-responsive" alt=""> 
 							   </div>
 							   <div class="item">
-									<img src="images/slider_two.jpg" class="img-responsive" alt="">
-							   </div>
+									<img src="images/slider_two.jpg" class="img-responsive" alt=""> 
+							   </div> 
 							   <div class="item">
-									<img src="images/slider_two.jpg" class="img-responsive" alt="">
-							   </div>
+									<img src="images/slider_two.jpg" class="img-responsive" alt=""> 
+							   </div> 
 							</div>
-
+							
 							<a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
-								<i class="fa fa-angle-left"></i>
+								<i class="fa fa-angle-left"></i> 
 							</a>
-
+							
 							<a class=" right carousel-control hidden-xs"href="#carousel-slider" data-slide="next">
-								<i class="fa fa-angle-right"></i>
+								<i class="fa fa-angle-right"></i> 
 							</a>
 						</div> <!--/#carousel-slider-->
-
-						<style>
-						.pd_bd{border:none;padding:0px}
-						.wt_0{font-weight:400;}
-						.f_16{font-size:15px;color:#999}
-						</style>
-
-						<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-						    <div class="feature-wrap pd_bd">
-						        <i class="fa fa-cubes"></i>
-						        <h2 class="wt_0">免成品保护费</h2>
-						        <h3 class="f_16">使用专用泡沫材料封包，确保材料无损伤</h3>
-						    </div>
-						</div><!--/.col-md-4-->
-
-						<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-						    <div class="feature-wrap pd_bd">
-						        <i class="fa fa-dropbox"></i>
-						        <h2 class="wt_0">免垃圾清运费</h2>
-						        <h3 class="f_16">每天负责打扫和清运装修垃圾，确保装修现场整洁有序</h3>
-						    </div>
-						</div><!--/.col-md-4-->
-
-						<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-						    <div class="feature-wrap pd_bd">
-						        <i class="fa fa-truck"></i>
-						        <h2 class="wt_0">免材料二次搬运费</h2>
-						        <h3 class="f_16">材料运输一站达，不另收取任何搬运费用</h3>
-						    </div>
-						</div><!--/.col-md-4-->
-
-						<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-						    <div class="feature-wrap pd_bd">
-						        <i class="fa fa-paint-brush"></i>
-						        <h2 class="wt_0">免制图费</h2>
-						        <h3 class="f_16">免费设计、免费测量，直到客户满意为止</h3>
-						    </div>
-						</div><!--/.col-md-4-->
-
-						<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-						    <div class="feature-wrap pd_bd">
-						        <i class="fa fa-trash"></i>
-						        <h2 class="wt_0">免保洁费</h2>
-						        <h3 class="f_16">环境清理服务，不在另收取费用</h3>
-						    </div>
-						</div><!--/.col-md-4-->
-
-						<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-						    <div class="feature-wrap pd_bd">
-						        <i class="fa fa-cog"></i>
-						        <h2 class="wt_0">免杂物和管理费</h2>
-						        <h3 class="f_16">全程托管，一站式管理</h3>
-						    </div>
-						</div><!--/.col-md-4-->
-
+						
+						<div class="row" style="margin:-50px 0 50px 0">
+								<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+								    <div class="feature-wrap pd_bd">
+								        <i class="fa fa-cubes"></i>
+								        <h2 class="wt_0">免成品保护费</h2>
+								        <h3 class="f_16">使用专用泡沫材料封包，确保材料无损伤</h3>
+								    </div>
+								</div><!--/.col-md-4-->
+								
+								<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+								    <div class="feature-wrap pd_bd">
+								        <i class="fa fa-dropbox"></i>
+								        <h2 class="wt_0">免垃圾清运费</h2>
+								        <h3 class="f_16">每天负责打扫和清运装修垃圾，确保装修现场整洁有序</h3>
+								    </div>
+								</div><!--/.col-md-4-->
+								
+								<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+								    <div class="feature-wrap pd_bd">
+								        <i class="fa fa-truck"></i>
+								        <h2 class="wt_0">免材料二次搬运费</h2>
+								        <h3 class="f_16">材料运输一站达，不另收取任何搬运费用</h3>
+								    </div>
+								</div><!--/.col-md-4-->
+								
+								<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+								    <div class="feature-wrap pd_bd">
+								        <i class="fa fa-paint-brush"></i>
+								        <h2 class="wt_0">免制图费</h2>
+								        <h3 class="f_16">免费设计、免费测量，直到客户满意为止</h3>
+								    </div>
+								</div><!--/.col-md-4-->
+								
+								<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+								    <div class="feature-wrap pd_bd">
+								        <i class="fa fa-trash"></i>
+								        <h2 class="wt_0">免保洁费</h2>
+								        <h3 class="f_16">环境清理服务，不在另收取费用</h3>
+								    </div>
+								</div><!--/.col-md-4-->
+								
+								<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+								    <div class="feature-wrap pd_bd">
+								        <i class="fa fa-cog"></i>
+								        <h2 class="wt_0">免杂物和管理费</h2>
+								        <h3 class="f_16">全程托管，一站式管理</h3>
+								    </div>
+								</div><!--/.col-md-4-->    						
+						</div>
 					</div><!--/#about-slider-->
 
 
-
+			
 			</div><!--/.container-->
     </section><!--/about-us-->
 
@@ -431,10 +510,10 @@
                                 <h3><a href="#">设计团队</a> </h3>
                                 <p>每个家装项目都有专属的设计团队负责，每个作品都是凤凰筑家的样板间。</p>
                                 <a class="preview" href="images/team/team_1.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                            </div>
+                            </div> 
                         </div>
                     </div>
-                </div>
+                </div>   
 
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
@@ -444,10 +523,10 @@
                                 <h3><a href="#">验房团队</a></h3>
                                 <p>专业设备和团队，对您的房屋进行全面的检测，发现问题并提供修缮意见，为业主提供强有力的参考依据。</p>
                                 <a class="preview" href="images/team/team_2.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                            </div>
+                            </div> 
                         </div>
                     </div>
-                </div>
+                </div> 
 
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
@@ -457,10 +536,10 @@
                                 <h3><a href="#">客服团队</a></h3>
                                 <p>在线客服24小时竭诚为您服务</p>
                                 <a class="preview" href="images/team/team_3.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                            </div>
+                            </div> 
                         </div>
                     </div>
-                </div>
+                </div>   
 
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
@@ -470,11 +549,11 @@
                                 <h3><a href="#">资深设计师</a></h3>
                                 <p>家装赋予艺术的灵感，便是一座精品。</p>
                                 <a class="preview" href="images/team/team_12.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                            </div>
+                            </div> 
                         </div>
                     </div>
-                </div>
-
+                </div>   
+                
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
                         <img class="img-responsive" src="images/team/team_5.jpg" alt="">
@@ -483,10 +562,10 @@
                                 <h3><a href="#">量房团队</a></h3>
                                 <p>精准、精确</p>
                                 <a class="preview" href="images/team/team_5.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                            </div>
+                            </div> 
                         </div>
                     </div>
-                </div>
+                </div>   
 
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
@@ -496,10 +575,10 @@
                                 <h3><a href="#">导购团队</a></h3>
                                 <p>所有客户都享受一对一的专属导购服务</p>
                                 <a class="preview" href="images/team/team_10.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                            </div>
+                            </div> 
                         </div>
                     </div>
-                </div>
+                </div> 
 
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
@@ -509,10 +588,10 @@
                                 <h3><a href="#">售后维修团队 </a></h3>
                                 <p>终身保修是凤凰的承诺，我们不仅筑巢，更是爱巢的卫士。</p>
                                 <a class="preview" href="images/team/team_7.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                            </div>
+                            </div> 
                         </div>
                     </div>
-                </div>
+                </div>   
 
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
@@ -522,10 +601,10 @@
                                 <h3><a href="#">施工团队 </a></h3>
                                 <p>自有专业施工人员，标准化作业。</p>
                                 <a class="preview" href="images/team/team_9.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                            </div>
+                            </div> 
                         </div>
                     </div>
-                </div>
+                </div>   
             </div><!--/.row-->
         </div><!--/.container-->
     </section><!--/#recent-works-->
@@ -553,9 +632,9 @@
                   			<div style="text-align:center;line-height:45px;font-size:20px;color:#fff;">400-699-2888</div>
                   		</a>
                   	</div>
-                </div>
+                </div> 
             </div>
-        </div><!--/.container-->
+        </div><!--/.container-->    
     </section><!--/#conatcat-info-->
 
     <section id="bottom" style="padding:40px 0">
@@ -569,7 +648,7 @@
                             <li><a href="zffs.html">支付方式</a></li>
                             <li><a href="cjwt.html">常见问题</a></li>
                         </ul>
-                    </div>
+                    </div>    
                 </div><!--/.col-md-3-->
 
                 <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
@@ -580,7 +659,7 @@
                             <li><a href="zzfw.html">自助服务</a></li>
                             <li><a href="xgxz.html">相关下载</a></li>
                         </ul>
-                    </div>
+                    </div>    
                 </div><!--/.col-md-3-->
 
                 <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
@@ -591,20 +670,20 @@
                             <li><a href="hyhd.html">会员活动</a></li>
                             <li><a href="vip.html">VIP服务</a></li>
                         </ul>
-                    </div>
+                    </div>    
                 </div><!--/.col-md-3-->
 
                 <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
                     <div class="widget">
                         <h3>关于我们</h3>
                         <ul>
-                            <li><a href="contactus">联系我们</a></li>
-                            <li><a href="aboutus">了解我们</a></li>
-                            <li><a href="enjoyus">加入我们</a></li>
+                            <li><a href="contactus.html">联系我们</a></li>
+                            <li><a href="aboutus.html">了解我们</a></li>
+                            <li><a href="enjoyus.html">加入我们</a></li>
                         </ul>
-                    </div>
+                    </div>  
                 </div><!--/.col-md-3-->
-
+                
                 <div class="col-md-3 col-sm-6" style="width:190px;margin-right:45px">
                     <div class="widget">
                         <h3>官方媒体</h3>
@@ -613,8 +692,8 @@
                             <li><a href="#">微信公众号</a></li>
                             <li><a href="#">天猫网店</a></li>
                         </ul>
-                    </div>
-                </div><!--/.col-md-3-->
+                    </div>    
+                </div><!--/.col-md-3-->                
             </div>
         </div>
     </section><!--/#bottom-->
@@ -639,10 +718,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/main.js"></script>
     <script src="js/wow.min.js"></script>
-	<script src="libs/json.js"></script>
-	<script src="libs/base.js"></script>
-	<script src="libs/utils.js"></script>
-	<script src="js/main.js"></script>
 </body>
 </html>

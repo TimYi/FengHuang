@@ -8,17 +8,16 @@
 $(function(){
 	var g = {};
 	g.codeId = "";
+	g.tout = null;
 
 	$("#inputEmail3").bind("blur",getImgCode);
-	//$("#updatecodebtn").bind("click",updateCodeImg);
-	$("#regbtn").bind("click",openRegPage);
 	$("#loginbtn").bind("click",loginBtnUp);
-
-	//$("#loginbtn").onbind("click",this.loginBtnUp,this);
+	$("#regbtn").bind("click",openRegPage);
+	$("#inputCode3").bind("keydown",codeKeyDown);
 
 	setTimeout(function(){
 		getImgCode();
-	},3000);
+	},2000);
 	//换一组图片
 	function getImgCode(evt){
 		var userName = $("#inputEmail3").val() || "";
@@ -26,6 +25,19 @@ $(function(){
 			g.codeId = userName;
 			console.log(g.codeId);
 			$("#updatecodebtn").attr("src",Base.imgCodeUrl + "?id=" + g.codeId);
+
+			clearTimeout(g.tout);
+			g.tout = setTimeout(function(){
+				getImgCode();
+			},60000);
+		}
+	}
+
+	function codeKeyDown(evt){
+		evt = evt || event;
+		if(evt.keyCode == 13){
+			//
+			$("#loginbtn").trigger("click");
 		}
 	}
 
@@ -41,7 +53,8 @@ $(function(){
 		if(userName !== ""){
 			if(pwd !== ""){
 				if(code !== ""){
-					var autoLogin =$("#autologin")[0].checked;
+					//var autoLogin = $("#autologin")[0].checked;
+					var autoLogin = false;
 					sendLoginHttp(userName,pwd,code,autoLogin);
 				}
 				else{
@@ -73,12 +86,17 @@ $(function(){
 			success: function(data){
 				console.log(data);
 				//保存数据
-				Utils.offLineStore.set("userinfo_login",data);
+				//Utils.offLineStore.set("userinfo_login",data);
 				var status = data.status || "";
 				if(status == "OK"){
 					//保存用户数据
 					Utils.offLineStore.set("userinfo",JSON.stringify(condi),false);
-					location.href = "center.html";
+					if(autoLogin){
+						//保存自动登录数据
+					}
+					//location.href = "center.html";
+					var token = data.result || "";
+					location.href = "c_my.html?token=" + token;
 				}
 				else{
 					alert("登录失败");

@@ -20,6 +20,7 @@
 	var regUrl = serverUrl + "/api/regist";
 	var loginUrl = serverUrl + "/api/login";
 	var imgCodeUrl = serverUrl + "/api/captcha";
+	var profileUrl = serverUrl + "/api/user/profile";
 
 	Base.urlPort = urlPort;
 	Base.maskTimeOut = maskTimeOut;
@@ -27,6 +28,7 @@
 	Base.regUrl = regUrl;
 	Base.loginUrl = loginUrl;
 	Base.imgCodeUrl = imgCodeUrl;
+	Base.profileUrl = profileUrl;
 }(window));
 
 

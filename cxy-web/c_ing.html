@@ -112,11 +112,11 @@
 
 
     <section id="blog" class="container">
-    		<div style="margin-top:-30px" class="alert alert-warning" role="alert"><b>温馨提示：</b>请尽快绑定你的微信号码</div>
+    		<div style="margin-top:-30px" class="alert alert-warning" role="alert"><b>温馨提示：</b>您有一条新的留言。<a href="#">[ 查看 ]</a></div>
         <div class="blog">
             <div class="row">
 
-                <aside class="col-md-4">
+                <aside class="col-md-4" style="margin-top:10px">
 										<div class="widget categories">
 												
 												<div class="row">
@@ -150,7 +150,7 @@
                         
                         <div class="row">
                             <div class="col-sm-12">
-                                <ul class="blog_archieve" style="width:300px>
+                                <ul class="blog_archieve" style="width:300px">
                                     <li>登录 IP<span class="pull-right">123.57.218.171 [ 北京海淀 ]</span></li>
                                     <li>注册时间<span class="pull-right">2015-06-02 18:00:12</span></li>
                                     <li>登录时间<span class="pull-right">2015-06-02 18:00:12</span></li>
@@ -168,7 +168,7 @@
                                 		<li><a href="c_my.html">个人信息 </a></li>
                                 		<li><a href="c_safe.html">安全设置 </a></li>
                                 		<li><a href="c_home.html">房屋信息 </a></li>
-                                		<li><a href="c_ing.html"  style="background:#b9090e;color:#fff">家装进度 </a></li>
+                                		<li><a href="c_ing.html"  style="background:#b9090e;color:#fff">家装进度 </a></li>                                		
                                     <li><a href="c_message.html">我的留言 <span class="badge">2</span></a></li>
                                     <li><a href="c_sub.html">我的预约 <span class="badge">1</span></a></li>
                                     <li><a href="c_order.html">我的订单 <span class="badge">1</span></a></li>
@@ -196,114 +196,166 @@
 
                 </aside>     
                 <div class="col-md-8">
-										<button type="submit" class="btn btn-primary btn-lg" required="required" style="font-size:15px;">更新</button>
                         <div id="contact-page clearfix">
-                            <div class="status alert alert-success" style="display: none"></div>
-                            <div class="message_heading">
-                                <h4>家装进度</h4>
-                                <p>请您完善个人信息，完整信息有助于获取更多优质的服务。</p>
-                                <hr/>
-                            </div> 
-      
-                            <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php" role="form">
-		                            <div class="message_heading">
-		                                <h4 style="margin:-20px 0">基本资料</h4>
-		                            </div> 
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="form-group">
-                                            <label>昵称 *</label>
-                                            <input type="text" class="form-control" required="required">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>真实姓名 *</label>
-                                            <input type="email" class="form-control" required="required">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>英文名 </label>
-                                            <input type="email" class="form-control" required="required">
-                                        </div>                                        
-                                        <div class="form-group">
-                                            <label>性别 </label>
-                                            <div style="clear:both"></div>
-                                            <label class="radio-inline">
-																							<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 男
-																						</label>
-																						<label class="radio-inline">
-																							<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 女
-																						</label>
-                                        </div>                                                                                
-                                    </div>
-                                    <div class="col-sm-7">                        
-                                        <div class="form-group">
-                                            <label>个人简介 *</label>
-                                            <textarea name="message" id="message" required="required" class="form-control" rows="8" style="height:187px"></textarea>
-                                        </div>                        
-                                    </div>
-                                    <div class="col-sm-5" style="margin-bottom:-40px">                        
-                                        <div class="form-group">
-                                            <label>电子邮箱 *</label>
-                                            <input type="url" class="form-control">
-	                                            <button class="btn btn-default" type="submit" style="margin:-60px 0 0 325px ">验证</button>
-	                                            <p style="margin-top:-15px;color:#b9090e"></p>	                                            
-                                        </div>                        
-                                    </div>
-                                    <div style="clear:both"></div>
-	                                  <div class="col-sm-5">
-	                                        <div class="form-group">
-	                                            <label>手机号 *</label>
-	                                            <input type="text" class="form-control" required="required"> 
-	                                            <button class="btn btn-default" type="submit" style="margin:-60px 0 0 325px ">发送短信验证码</button>
-	                                            <p style="margin-top:-15px;color:#b9090e">变更手机号码需要短信验证</p>
-	                                        </div>
-
-	                                        <div class="form-group">
-	                                            <label>QQ号码</label>
-	                                            <input type="email" class="form-control" required="required">
-	                                            <button class="btn btn-default" type="submit" style="margin:-60px 0 0 325px ">绑定</button>
-	                                            <p style="margin-top:-15px;color:#b9090e"></p>	                                            
-	                                        </div>
-	                                        <div class="form-group" style="margin-top:-20px">
-	                                            <label>微信号码</label>
-	                                            <input type="url" class="form-control">
-	                                            <button class="btn btn-default" type="submit" style="margin:-60px 0 0 325px ">绑定</button>
-	                                            <p style="margin-top:-15px;color:#b9090e"></p>	                                            
-	                                        </div>                    
-	                                  </div>
-	                              </div>
-	                              <hr/>
-		                            <div class="message_heading">
-		                                <h4 style="margin:-20px 0">扩展资料</h4>
-		                            </div>
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="form-group">
-                                            <label>生日</label>
-                                            <input type="date" class="form-control" required="required">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>行业</label>
-                                            <input type="email" class="form-control" required="required">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>现居住地</label>
-                                            <input type="email" class="form-control" required="required">
-                                        </div>                                        
-	                                  </div>
-                                    <div class="col-sm-5">                        
-                                        <div class="form-group">
-                                            <label>星座</label>
-                                            <input type="text" class="form-control" required="required">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>血型</label>
-                                            <input type="email" class="form-control" required="required">
-                                        </div>
-                                    </div>	                                  
-	                              </div>		                                                          
+                            <div class="status alert alert-success" style="display: none"></div>      
+                            <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php" role="form">															
+					                    <div class="message_heading right_margin_top_1">
+					                        <h4>家装进度列表</h4>
+							                    <div style="float:right;margin-top:-35px;">
+																			<select name="zhuangxiu" class="u_sel" style="width:200px">
+																				<option value="volvo" selected="selected">#1 海淀黄庄小区</option>
+																				<option value="saab">#2 朝阳区东花市小区</option>
+																				<option value="fiat">#3 朝阳区酒仙桥小区</option>
+																			</select>
+							                    </div>					                        
+					                    </div> 										
+															<div class="table table-striped">
+															  <table class="table u_ct">
+															    <tr class="u_th">
+															    	<th width=100>工期</th>
+															    	<th width=150>日期</th>
+															    	<th>施工内容</th>
+															    	<th width=80>操作</th>    	    	    																    		    	    	
+															    </tr>
+															    <tr>
+															    	<td>第20天</td>
+															    	<td>2015-06-02</td>
+															    	<td>闭水试验和隐蔽验收</td>
+															    	<td><a href="#">查看</a></td>									    	  	    	    	
+															    </tr>
+															    <tr>
+															    	<td>第19天</td>
+															    	<td>2015-06-02</td>
+															    	<td>闭水试验和隐蔽验收</td>
+															    	<td><a href="#">查看</a></td>									    	  	    	    	
+															    </tr>
+															    <tr>
+															    	<td>第18天</td>
+															    	<td>2015-06-02</td>
+															    	<td>闭水试验和隐蔽验收</td>
+															    	<td><a href="#">查看</a></td>									    	  	    	    	
+															    </tr>
+															    <tr>
+															    	<td>第17天</td>
+															    	<td>2015-06-02</td>
+															    	<td>闭水试验和隐蔽验收</td>
+															    	<td><a href="#">查看</a></td>									    	  	    	    	
+															    </tr>
+															    <tr>
+															    	<td>第16天</td>
+															    	<td>2015-06-02</td>
+															    	<td>闭水试验和隐蔽验收</td>
+															    	<td><a href="#">查看</a></td>									    	  	    	    	
+															    </tr>
+															    <tr>
+															    	<td>第15天</td>
+															    	<td>2015-06-02</td>
+															    	<td>闭水试验和隐蔽验收</td>
+															    	<td><a href="#">查看</a></td>									    	  	    	    	
+															    </tr>
+															    <tr>
+															    	<td>第14天</td>
+															    	<td>2015-06-02</td>
+															    	<td>闭水试验和隐蔽验收</td>
+															    	<td><a href="#">查看</a></td>									    	  	    	    	
+															    </tr>
+															    <tr>
+															    	<td>第13天</td>
+															    	<td>2015-06-02</td>
+															    	<td>闭水试验和隐蔽验收</td>
+															    	<td><a href="#">查看</a></td>									    	  	    	    	
+															    </tr>
+															    <tr>
+															    	<td>第12天</td>
+															    	<td>2015-06-02</td>
+															    	<td>闭水试验和隐蔽验收</td>
+															    	<td><a href="#">查看</a></td>									    	  	    	    	
+															    </tr>
+															    <tr>
+															    	<td>第11天</td>
+															    	<td>2015-06-02</td>
+															    	<td>闭水试验和隐蔽验收</td>
+															    	<td><a href="#">查看</a></td>									    	  	    	    	
+															    </tr>
+															    <tr>
+															    	<td>第10天</td>
+															    	<td>2015-06-02</td>
+															    	<td>闭水试验和隐蔽验收</td>
+															    	<td><a href="#">查看</a></td>									    	  	    	    	
+															    </tr>
+															    <tr>
+															    	<td>第9天</td>
+															    	<td>2015-06-02</td>
+															    	<td>闭水试验和隐蔽验收</td>
+															    	<td><a href="#">查看</a></td>									    	  	    	    	
+															    </tr>
+															    <tr>
+															    	<td>第8天</td>
+															    	<td>2015-06-02</td>
+															    	<td>闭水试验和隐蔽验收</td>
+															    	<td><a href="#">查看</a></td>									    	  	    	    	
+															    </tr>
+															    <tr>
+															    	<td>第7天</td>
+															    	<td>2015-06-02</td>
+															    	<td>闭水试验和隐蔽验收</td>
+															    	<td><a href="#">查看</a></td>									    	  	    	    	
+															    </tr>
+															    <tr>
+															    	<td>第6天</td>
+															    	<td>2015-06-02</td>
+															    	<td>闭水试验和隐蔽验收</td>
+															    	<td><a href="#">查看</a></td>									    	  	    	    	
+															    </tr>
+															    <tr>
+															    	<td>第5天</td>
+															    	<td>2015-06-02</td>
+															    	<td>闭水试验和隐蔽验收</td>
+															    	<td><a href="#">查看</a></td>									    	  	    	    	
+															    </tr>
+															    <tr>
+															    	<td>第4天</td>
+															    	<td>2015-06-02</td>
+															    	<td>闭水试验和隐蔽验收</td>
+															    	<td><a href="#">查看</a></td>									    	  	    	    	
+															    </tr>
+															    <tr>
+															    	<td>第3天</td>
+															    	<td>2015-06-02</td>
+															    	<td>闭水试验和隐蔽验收</td>
+															    	<td><a href="#">查看</a></td>									    	  	    	    	
+															    </tr>
+															    <tr>
+															    	<td>第2天</td>
+															    	<td>2015-06-02</td>
+															    	<td>闭水试验和隐蔽验收</td>
+															    	<td><a href="#">查看</a></td>									    	  	    	    	
+															    </tr>
+															    <tr>
+															    	<td>第1天</td>
+															    	<td>2015-06-02</td>
+															    	<td>闭水试验和隐蔽验收</td>
+															    	<td><a href="#">查看</a></td>									    	  	    	    	
+															    </tr>
+															  </table>
+															</div>		                                                          
+				        <div style="clear:both" class="center">
+					          <ul class="pagination pagination-lg ">
+					              <li><a href="#"><i class="fa fa-step-backward"></i></a></li> 
+					              <li><a href="#"><i class="fa fa-caret-left" style="font-size:1.5em"></i></a></li> 
+					              <li class="active"><a href="#">1</a></li>
+					              <li><a href="#">2</a></li>
+					              <li><a href="#">3</a></li>
+					              <li><a href="#">...</a></li>
+					              <li><a href="#">49</a></li>
+					              <li><a href="#">50</a></li>
+					              <li><a href="#"><i class="fa fa-caret-right" style="font-size:1.5em"></i></a></li> 
+					              <li><a href="#"><i class="fa fa-step-forward"></i></a></li>
+					          </ul><!--/.pagination-->
+				        </div> 
                             </form>     
                         </div><!--/#contact-page-->
-										<button type="submit" class="btn btn-primary btn-lg" required="required" style="font-size:15px;">更新</button>                        
+										                     
                     </div><!--/.col-md-8-->
             </div><!--/.row-->
 

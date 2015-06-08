@@ -414,9 +414,10 @@ Array.prototype.remove = function(n){
 			html.push('<b style="padding:0 10px;font-weight:normal"><a href="javascript:alert(\'退出\');" style="width:70px">安全退出</a></b>');
 
 			$("#loginstatus > li")[0].innerHTML = html.join('');
+			return true;
 		}
 		else{
-			//未登录
+			return false;
 		}
 	}
 
