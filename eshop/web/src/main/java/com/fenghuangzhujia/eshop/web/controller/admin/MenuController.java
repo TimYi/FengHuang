@@ -10,7 +10,7 @@ import com.fenghuangzhujia.foundation.core.rest.PagingController;
 
 @RestController
 @RequestMapping("admin/menu")
-public class MenuController extends PagingController<MenuDto> {
+public class MenuController extends PagingController<MenuDto,MenuDto> {
 	
 	@Autowired
 	private MenuService service;

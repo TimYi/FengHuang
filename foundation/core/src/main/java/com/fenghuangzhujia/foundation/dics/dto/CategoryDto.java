@@ -4,7 +4,7 @@ import java.util.Set;
 
 import com.fenghuangzhujia.foundation.core.entity.Identified;
 
-public class CategoryDTO implements Identified<String> {
+public class CategoryDto implements Identified<String> {
 	private String id;
 	private String parentType;
 	private String name;
@@ -12,7 +12,7 @@ public class CategoryDTO implements Identified<String> {
 	private Set<CategoryItemDto> items;
 	private String type;
 	private String parentid;
-	private Set<CategoryDTO> subCategories;
+	private Set<CategoryDto> subCategories;
 	/**
 	 * @return the id
 	 */
@@ -101,13 +101,13 @@ public class CategoryDTO implements Identified<String> {
 	/**
 	 * @return the subCategories
 	 */
-	public Set<CategoryDTO> getSubCategories() {
+	public Set<CategoryDto> getSubCategories() {
 		return subCategories;
 	}
 	/**
 	 * @param subCategories the subCategories to set
 	 */
-	public void setSubCategories(Set<CategoryDTO> subCategories) {
+	public void setSubCategories(Set<CategoryDto> subCategories) {
 		this.subCategories = subCategories;
 	}
 }

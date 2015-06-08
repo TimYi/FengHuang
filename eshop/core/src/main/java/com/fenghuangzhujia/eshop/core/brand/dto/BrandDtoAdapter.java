@@ -8,10 +8,10 @@ import com.fenghuangzhujia.eshop.core.brand.Brand;
 import com.fenghuangzhujia.eshop.core.brand.BrandRepository;
 import com.fenghuangzhujia.eshop.core.brand.BrandType;
 import com.fenghuangzhujia.eshop.core.brand.BrandTypeRepository;
-import com.fenghuangzhujia.foundation.core.dto.AbstractDtoAdapter;
+import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
 
 @Component
-public class BrandDtoAdapter extends AbstractDtoAdapter<Brand, BrandDto> {
+public class BrandDtoAdapter extends AbstractDtoAdapter<Brand, BrandDto, BrandDto> {
 	
 	@Autowired
 	private BrandRepository brandRepository;

@@ -10,7 +10,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 
 public abstract class AbstractPagingService<T, ID extends Serializable>
-	extends AbstractCrudService<T, ID> implements PagingService<T, ID> {
+	extends AbstractCrudService<T, ID> implements PagingService<T, T, ID> {
 	
 	@Autowired
 	public void setPagingAndSortingRepository(PagingAndSortingRepository<T, ID> repository) {

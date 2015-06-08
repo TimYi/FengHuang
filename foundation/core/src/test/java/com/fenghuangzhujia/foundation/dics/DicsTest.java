@@ -7,7 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.fenghuangzhujia.foundation.core.model.PagedList;
-import com.fenghuangzhujia.foundation.dics.dto.CategoryDTO;
+import com.fenghuangzhujia.foundation.dics.dto.CategoryDto;
 import com.fenghuangzhujia.foundation.dics.dto.CategoryItemDto;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -21,7 +21,7 @@ public class DicsTest {
 
 	@Test
 	public void addCategory() {
-		CategoryDTO category=new CategoryDTO();
+		CategoryDto category=new CategoryDto();
 		category.setName("test3");
 		category.setType("test3");
 		category=service.add(category);
@@ -35,7 +35,7 @@ public class DicsTest {
 	
 	//@Test
 	public void getCategories() {
-		PagedList<CategoryDTO> page=service.findPage(1, 2);
+		PagedList<CategoryDto> page=service.findPage(1, 2);
 		System.out.println(page.getTotalCount());
 	}
 	

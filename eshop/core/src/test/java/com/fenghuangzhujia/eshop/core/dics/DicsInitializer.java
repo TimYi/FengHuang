@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.fenghuangzhujia.eshop.core.base.Dics;
 import com.fenghuangzhujia.foundation.dics.CategoryItemService;
 import com.fenghuangzhujia.foundation.dics.CategoryService;
-import com.fenghuangzhujia.foundation.dics.dto.CategoryDTO;
+import com.fenghuangzhujia.foundation.dics.dto.CategoryDto;
 import com.fenghuangzhujia.foundation.dics.dto.CategoryItemDto;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -27,7 +27,7 @@ public class DicsInitializer {
 		String name="预约类型";
 		String remark="预约类型";
 		String type=Dics.APPOINT_TYPE;
-		CategoryDTO t=new CategoryDTO();
+		CategoryDto t=new CategoryDto();
 		t.setName(name);
 		t.setRemark(remark);
 		t.setType(type);
@@ -49,7 +49,7 @@ public class DicsInitializer {
 		String name="栏目类型";
 		String remark="栏目类型";
 		String type=Dics.COLUMN_TYPE;
-		CategoryDTO t=new CategoryDTO();
+		CategoryDto t=new CategoryDto();
 		t.setName(name);
 		t.setRemark(remark);
 		t.setType(type);
@@ -71,7 +71,7 @@ public class DicsInitializer {
 		String name="房屋类型";
 		String remark="房屋类型";
 		String type=Dics.HOUSE_TYPE;
-		CategoryDTO t=new CategoryDTO();
+		CategoryDto t=new CategoryDto();
 		t.setName(name);
 		t.setRemark(remark);
 		t.setType(type);
@@ -93,7 +93,7 @@ public class DicsInitializer {
 		String name="装修类型";
 		String remark="装修类型";
 		String type=Dics.DECORATE_TYPE;
-		CategoryDTO t=new CategoryDTO();
+		CategoryDto t=new CategoryDto();
 		t.setName(name);
 		t.setRemark(remark);
 		t.setType(type);
@@ -115,7 +115,7 @@ public class DicsInitializer {
 		String name="包装类型";
 		String remark="包装类型";
 		String type=Dics.RESPONSE_TYPE;
-		CategoryDTO t=new CategoryDTO();
+		CategoryDto t=new CategoryDto();
 		t.setName(name);
 		t.setRemark(remark);
 		t.setType(type);
@@ -137,7 +137,7 @@ public class DicsInitializer {
 		String name="类型";
 		String remark="类型";
 		String type=Dics.CATEGORY;
-		CategoryDTO t=new CategoryDTO();
+		CategoryDto t=new CategoryDto();
 		t.setName(name);
 		t.setRemark(remark);
 		t.setType(type);
@@ -159,7 +159,7 @@ public class DicsInitializer {
 		String name="风格";
 		String remark="风格";
 		String type=Dics.STYLE;
-		CategoryDTO t=new CategoryDTO();
+		CategoryDto t=new CategoryDto();
 		t.setName(name);
 		t.setRemark(remark);
 		t.setType(type);
@@ -181,7 +181,7 @@ public class DicsInitializer {
 		String name="户型";
 		String remark="户型";
 		String type=Dics.APARTMENT_TYPE;
-		CategoryDTO t=new CategoryDTO();
+		CategoryDto t=new CategoryDto();
 		t.setName(name);
 		t.setRemark(remark);
 		t.setType(type);

@@ -2,33 +2,32 @@ package com.fenghuangzhujia.foundation.core.service;
 
 import java.io.Serializable;
 
-public interface CrudService<T, ID extends Serializable> {
+/**
+ * 增删改查Service
+ * @author pc
+ *
+ * @param <T> dto类型
+ * @param <I> 数据录入类型
+ * @param <ID> 主键类型
+ */
+public interface CrudService<T, I, ID extends Serializable> {
 	/**
 	 * Add a given entity. Use the returned instance for further operations as the save operation might have changed the
 	 * entity instance completely.
 	 * 
-	 * @param entity
+	 * @param args
 	 * @return the saved entity
 	 */
-	T add(T entity);
+	T add(I args);
 	
 	/**
 	 * Update a given entity. Use the returned instance for further operations as the save operation might have changed
 	 * the entity instance completely.
 	 * 
-	 * @param entity
+	 * @param args
 	 * @return the updated entity
 	 */
-	T update(T entity);
-
-	/**
-	 * Add all given entities.
-	 * 
-	 * @param entities
-	 * @return the saved entities
-	 * @throws IllegalArgumentException in case the given entity is (@literal null}.
-	 */
-	Iterable<T> addAll(Iterable<T> entities);
+	T update(I args);
 
 	/**
 	 * Retrieves an entity by its id.

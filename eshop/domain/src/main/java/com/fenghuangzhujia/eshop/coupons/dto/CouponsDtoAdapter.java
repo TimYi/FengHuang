@@ -8,11 +8,11 @@ import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.eshop.coupons.entity.CouponsConstrainEntity;
 import com.fenghuangzhujia.eshop.coupons.entity.CouponsEntity;
 import com.fenghuangzhujia.eshop.coupons.entity.CouponsStragyEntity;
-import com.fenghuangzhujia.foundation.core.dto.AbstractDtoAdapter;
+import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
 
 @Component
 public class CouponsDtoAdapter 
-	extends AbstractDtoAdapter<CouponsEntity, CouponsDto> {
+	extends AbstractDtoAdapter<CouponsEntity, CouponsDto, CouponsDto> {
 
 	@Autowired
 	private CouponsConstrainDtoAdapter constrainAdapter;

@@ -4,13 +4,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.fenghuangzhujia.foundation.core.dto.AbstractDtoAdapter;
+import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
 import com.fenghuangzhujia.foundation.dics.Category;
 import com.fenghuangzhujia.foundation.dics.CategoryItem;
 import com.fenghuangzhujia.foundation.dics.CategoryRepository;
 
 @Component
-public class CategoryItemDTOAdapter extends AbstractDtoAdapter<CategoryItem, CategoryItemDto> {
+public class CategoryItemDtoAdapter extends AbstractDtoAdapter<CategoryItem, CategoryItemDto, CategoryItemDto> {
 
 	@Autowired
 	private CategoryRepository categoryRepository;

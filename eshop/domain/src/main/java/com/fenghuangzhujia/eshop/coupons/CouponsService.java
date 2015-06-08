@@ -14,7 +14,7 @@ import com.fenghuangzhujia.foundation.core.dto.DtoPagingService;
 
 @Service
 @Transactional
-public class CouponsService extends DtoPagingService<CouponsEntity, CouponsDto, String> {
+public class CouponsService extends DtoPagingService<CouponsEntity, CouponsDto, CouponsDto, String> {
 
 	public List<CouponsDto> findUserCoupons(String userid) {
 		List<CouponsEntity> list=getRepository().findByUserId(userid);

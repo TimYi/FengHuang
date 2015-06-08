@@ -17,9 +17,10 @@ import com.fenghuangzhujia.foundation.core.persistance.SpecificationRepository;
 import com.fenghuangzhujia.foundation.core.service.SpecifactionService;
 
 public class DtoSpecificationService
-	<D extends Identified<ID>, T extends Identified<ID>, ID extends Serializable>
-	extends DtoPagingService<D, T, ID>
-	implements SpecifactionService<T, ID> {
+	<D extends Identified<ID>, T extends Identified<ID>,
+	I extends Identified<ID>, ID extends Serializable>
+	extends DtoPagingService<D, T, I, ID>
+	implements SpecifactionService<T, I, ID> {
 	
 	@Override
 	public PagedList<T> findAll(int page, int size,

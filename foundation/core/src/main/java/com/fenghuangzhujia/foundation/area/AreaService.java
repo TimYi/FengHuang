@@ -12,7 +12,7 @@ import com.fenghuangzhujia.foundation.core.dto.DtoPagingService;
 
 @Service
 @Transactional
-public class AreaService extends DtoPagingService<Area, AreaDto, String> {
+public class AreaService extends DtoPagingService<Area, AreaDto, AreaDto, String> {
 	
 	/**
 	 * 按照区域等级获取全部区域

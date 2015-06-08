@@ -10,12 +10,12 @@ import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.foundation.area.Area;
 import com.fenghuangzhujia.foundation.area.AreaRepository;
 import com.fenghuangzhujia.foundation.area.dto.AreaVo;
-import com.fenghuangzhujia.foundation.core.dto.AbstractDtoAdapter;
+import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
 import com.fenghuangzhujia.foundation.dics.CategoryItem;
 import com.fenghuangzhujia.foundation.dics.CategoryItemRepository;
 
 @Component
-public class AppointDtoAdapter extends AbstractDtoAdapter<Appoint, AppointDto> {
+public class AppointDtoAdapter extends AbstractDtoAdapter<Appoint, AppointDto, AppointDto> {
 	
 	@Autowired
 	private UserRepository userRepository;

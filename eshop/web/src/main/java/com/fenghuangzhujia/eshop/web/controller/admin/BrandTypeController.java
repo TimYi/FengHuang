@@ -10,7 +10,7 @@ import com.fenghuangzhujia.foundation.core.rest.PagingController;
 
 @RestController
 @RequestMapping("admin/brandType")
-public class BrandTypeController extends PagingController<BrandTypeDto> {
+public class BrandTypeController extends PagingController<BrandTypeDto,BrandTypeDto> {
 
 	@Autowired
 	private BrandTypeService service;

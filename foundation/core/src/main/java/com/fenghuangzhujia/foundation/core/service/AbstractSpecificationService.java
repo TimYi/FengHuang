@@ -16,7 +16,7 @@ import com.fenghuangzhujia.foundation.core.persistance.SpecificationRepository;
 
 public abstract class AbstractSpecificationService<T, ID extends Serializable>
 	extends AbstractPagingService<T, ID>
-	implements SpecifactionService<T, ID> {
+	implements SpecifactionService<T, T, ID> {
 
 	@Override
 	public PagedList<T> findAll(int page, int size,

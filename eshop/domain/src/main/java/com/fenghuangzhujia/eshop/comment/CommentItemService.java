@@ -12,7 +12,7 @@ import com.fenghuangzhujia.foundation.core.model.PagedList;
 
 @Service
 @Transactional
-public class CommentItemService extends DtoSpecificationService<CommentItem, CommentItemDto, String> {
+public class CommentItemService extends DtoSpecificationService<CommentItem, CommentItemDto, CommentItemDto, String> {
 
 	public PagedList<CommentItemDto> findByUser(int page, int size, String userid) {
 		PageRequest request=new PageRequest(page-1, size);

@@ -5,7 +5,7 @@ import java.io.Serializable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 
-public abstract class AbstractCrudService<T,ID extends Serializable> implements CrudService<T, ID> {
+public abstract class AbstractCrudService<T,ID extends Serializable> implements CrudService<T, T, ID> {
 	
 	private CrudRepository<T, ID> repository;
 	
@@ -23,12 +23,6 @@ public abstract class AbstractCrudService<T,ID extends Serializable> implements 
 	public T add(T entity) {
 		if(entity==null)return null;
 		return getRepository().save(entity);
-	}
-
-	@Override
-	public Iterable<T> addAll(Iterable<T> entities) {
-		if(entities==null)return null;
-		return getRepository().save(entities);
 	}
 
 	@Override

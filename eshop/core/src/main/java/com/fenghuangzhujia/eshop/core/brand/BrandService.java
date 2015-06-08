@@ -12,7 +12,7 @@ import com.fenghuangzhujia.foundation.core.model.PagedList;
 
 @Service
 @Transactional
-public class BrandService extends DtoPagingService<Brand, BrandDto, String> {
+public class BrandService extends DtoPagingService<Brand, BrandDto, BrandDto, String> {
 	
 	public PagedList<BrandDto> findByType(String typeid, int page, int size) {
 		PageRequest pageable=new PageRequest(page-1, size);

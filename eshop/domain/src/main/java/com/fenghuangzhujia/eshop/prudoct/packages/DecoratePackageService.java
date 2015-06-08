@@ -17,7 +17,7 @@ import com.fenghuangzhujia.foundation.media.MediaService;
 
 @Service
 @Transactional
-public class DecoratePackageService extends DtoSpecificationService<DecoratePackage, DecoratePackageDto, String> {
+public class DecoratePackageService extends DtoSpecificationService<DecoratePackage, DecoratePackageDto, DecoratePackageDto, String> {
 	
 	@Autowired
 	private MediaService mediaService;

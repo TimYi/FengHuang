@@ -10,7 +10,7 @@ import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 
 @RestController(value="adminArticalController")
 @RequestMapping("admin/artical")
-public class ArticalController extends SpecificationController<ArticalDto> {
+public class ArticalController extends SpecificationController<ArticalDto,ArticalDto> {
 
 	@Autowired
 	private ArticalService service;

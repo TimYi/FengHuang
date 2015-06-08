@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 
 import com.fenghuangzhujia.eshop.core.brand.BrandType;
 import com.fenghuangzhujia.eshop.core.brand.BrandTypeRepository;
-import com.fenghuangzhujia.foundation.core.dto.AbstractDtoAdapter;
+import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
 
 @Component
-public class BrandTypeDtoAdapter extends AbstractDtoAdapter<BrandType, BrandTypeDto> {
+public class BrandTypeDtoAdapter extends AbstractDtoAdapter<BrandType, BrandTypeDto, BrandTypeDto> {
 
 	@Autowired
 	private BrandTypeRepository brandTypeRepository;

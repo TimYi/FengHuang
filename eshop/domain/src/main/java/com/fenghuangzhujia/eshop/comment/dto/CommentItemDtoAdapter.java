@@ -11,11 +11,11 @@ import com.fenghuangzhujia.eshop.comment.CommentRepository;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
-import com.fenghuangzhujia.foundation.core.dto.AbstractDtoAdapter;
+import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 
 @Component
-public class CommentItemDtoAdapter extends AbstractDtoAdapter<CommentItem, CommentItemDto> {
+public class CommentItemDtoAdapter extends AbstractDtoAdapter<CommentItem, CommentItemDto, CommentItemDto> {
 
 	@Autowired
 	private CommentRepository commentRepository;

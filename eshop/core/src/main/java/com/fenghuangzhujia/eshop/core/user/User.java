@@ -1,8 +1,6 @@
 package com.fenghuangzhujia.eshop.core.user;
 
-import java.util.Collections;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -10,18 +8,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fenghuangzhujia.eshop.core.authentication.authority.AbstractAuthority;
 import com.fenghuangzhujia.eshop.core.authentication.role.Role;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
-import com.fenghuangzhujia.foundation.core.enums.BloodType;
-import com.fenghuangzhujia.foundation.core.enums.CardType;
-import com.fenghuangzhujia.foundation.core.enums.Constellation;
-import com.fenghuangzhujia.foundation.core.enums.Sex;
+import com.fenghuangzhujia.foundation.dics.CategoryItem;
 import com.fenghuangzhujia.foundation.media.MediaContent;
 
 @Entity
@@ -90,14 +85,6 @@ public class User extends UUIDBaseModel {
 	 */
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
-	}
-	
-	/**
-	 * 通过是否通过认证给予权限
-	 */
-	@Transient
-	public boolean isEnabled() {
-		return verified;
 	}	
 	
 	/**
@@ -110,137 +97,38 @@ public class User extends UUIDBaseModel {
 	public void setSalt(String salt) {
 		this.salt = salt;
 	}	
-	
-	@Transient
-	private Set<String> authorityList;
-	private Set<String> roleList;
-	
-	/**
-	 * 初始化AuthorityList和roleList
-	 */
-	public void initAuthorityAndRoles() {
-		//初始化authorityList
-		Set<String> authorityList=new HashSet<>();
-		if(roles!=null) {
-			for (Role role : roles) {
-				if(role.getAuthorities()==null)continue;
-				for (AbstractAuthority authority : role.getAuthorities()) {
-					authorityList.add(authority.getAuthority());
-				}
-			}
-		}
-		if(authorities!=null) {
-			for (AbstractAuthority authority : authorities) {
-				authorityList.add(authority.getAuthority());
-			}
-		}
-		this.authorityList=authorityList;		
-		//初始化roleList
-		if(roles==null)this.roleList=Collections.emptySet();
-		Set<String> roleList=new HashSet<>();
-		for (Role role : roles) {
-			roleList.add(role.getName());
-		}
-		this.roleList=roleList;
-	}
-	@Transient
-	public Set<String> getAuthorityList() {
-		if(this.authorityList==null)throw new RuntimeException("未初始化");
-		return this.authorityList;
-	}
-	@Transient
-	public Set<String> getRoleList() {
-		if(this.authorityList==null)throw new RuntimeException("未初始化");
-		return this.roleList;
-	}
-	
-	//传值属性
-	private String[] roleids;
-	/**
-	 * 方便保存时传值
-	 * @return the roleids
-	 */
-	@Transient
-	public String[] getRoleids() {
-		return roleids;
-	}
-	/**
-	 * @param roleids the roleids to set
-	 */
-	public void setRoleids(String[] roleids) {
-		this.roleids = roleids;
-	}
-	
-	private String[] authorityids;
-	@Transient
-	public String[] getAuthorityids() {
-		return authorityids;
-	}
-	public void setAuthorityids(String[] authorityids) {
-		this.authorityids = authorityids;
-	}
-
 
 	//授权检测过程无关属性定义
-	private String question;
-	private String answer;
+	//目前用到的定义
 	private String cnname;
+	private String realName;
 	private String ename;
-	private MediaContent avatar;
-	private Sex sex;
-	private Date birthDay;
-	private Constellation astro;
-	private BloodType bloodType;
-	private String trade;
-	private String liveProv;
-	private String liveCity;
-	private String homeCountry;
-	private CardType cardType;
-	private String cardNum;
+	private CategoryItem sex;
+	private String mobile;
 	private String intro;
 	private String email;
 	private String qqnum;
-	private String mobile;
-	private String telephone;
-	private String addressProv;
-	private String addressCity;
-	private String addressCountry;
+	private String qqid;
+	private String weixinnum;
+	private String weixinid;
+	
+	private Date birthDay;
+	private CategoryItem bloodType;
+	private CategoryItem constellation;
+	private MediaContent avatar;
+	private String trade;
 	private String address;
-	private String zipcode;
+	
 	private Long expVal;
 	private Long integra;
 	private Date regTime;
 	private String regIp;
 	private Date loginTime;
-	private String loginip;
-	private String qqid;
+	private String loginip;	
 	private String weiboid;
-	private String weixinid;
 
 	/**
-	 * 提问
-	 * @return
-	 */
-	public String getQuestion() {
-		return question;
-	}
-	public void setQuestion(String question) {
-		this.question = question;
-	}
-	
-	/**
-	 * 回答
-	 * @return
-	 */
-	public String getAnswer() {
-		return answer;
-	}
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
-	
-	/**
-	 * 中文名
+	 * 昵称
 	 * @return
 	 */
 	public String getCnname() {
@@ -251,7 +139,18 @@ public class User extends UUIDBaseModel {
 	}
 	
 	/**
-	 * 英文名
+	 * 真实姓名
+	 * @return
+	 */
+	public String getRealName() {
+		return realName;
+	}
+	public void setRealName(String realName) {
+		this.realName = realName;
+	}
+	
+	/**
+	 * 英文姓名
 	 * @return
 	 */
 	public String getEname() {
@@ -262,32 +161,85 @@ public class User extends UUIDBaseModel {
 	}
 	
 	/**
-	 * 头像
-	 * @return
-	 */
-	@OneToOne
-	public MediaContent getAvatar() {
-		return avatar;
-	}
-	public void setAvatar(MediaContent avatar) {
-		this.avatar = avatar;
-	}
-	
-	@Transient
-	public String getAvatarUrl() {
-		if(avatar==null)return null;
-		return avatar.getUrl();
-	}
-	
-	/**
 	 * 性别
 	 * @return
 	 */
-	public Sex getSex() {
+	@ManyToOne
+	public CategoryItem getSex() {
 		return sex;
 	}
-	public void setSex(Sex sex) {
+	public void setSex(CategoryItem sex) {
 		this.sex = sex;
+	}
+	/**
+	 * 手机号码
+	 * @return
+	 */
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	/**
+	 * 个人简介
+	 * @return
+	 */
+	public String getIntro() {
+		return intro;
+	}
+	public void setIntro(String intro) {
+		this.intro = intro;
+	}
+	/**
+	 * 邮箱
+	 * @return
+	 */
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	/**
+	 * qq号码
+	 * @return
+	 */
+	public String getQqnum() {
+		return qqnum;
+	}
+	public void setQqnum(String qqnum) {
+		this.qqnum = qqnum;
+	}
+	/**
+	 * qqid
+	 * @return
+	 */
+	public String getQqid() {
+		return qqid;
+	}
+	public void setQqid(String qqid) {
+		this.qqid = qqid;
+	}
+	/**
+	 * 微信号码
+	 * @return
+	 */
+	public String getWeixinnum() {
+		return weixinnum;
+	}
+	public void setWeixinnum(String weixinnum) {
+		this.weixinnum = weixinnum;
+	}
+	/**
+	 * 微信id
+	 * @return
+	 */
+	public String getWeixinid() {
+		return weixinid;
+	}
+	public void setWeixinid(String weixinid) {
+		this.weixinid = weixinid;
 	}
 	/**
 	 * 生日
@@ -300,29 +252,40 @@ public class User extends UUIDBaseModel {
 		this.birthDay = birthDay;
 	}
 	/**
-	 * 星座
-	 * @return
-	 */
-	public Constellation getAstro() {
-		return astro;
-	}
-	public void setAstro(Constellation astro) {
-		this.astro = astro;
-	}
-	
-	/**
 	 * 血型
 	 * @return
 	 */
-	public BloodType getBloodType() {
+	@ManyToOne
+	public CategoryItem getBloodType() {
 		return bloodType;
 	}
-	public void setBloodType(BloodType bloodType) {
+	public void setBloodType(CategoryItem bloodType) {
 		this.bloodType = bloodType;
 	}
-	
 	/**
-	 * 行业
+	 * 星座
+	 * @return
+	 */
+	@ManyToOne
+	public CategoryItem getConstellation() {
+		return constellation;
+	}
+	public void setConstellation(CategoryItem constellation) {
+		this.constellation = constellation;
+	}
+	/**
+	 * 用户头像
+	 * @return
+	 */
+	@OneToOne(cascade=CascadeType.ALL)
+	public MediaContent getAvatar() {
+		return avatar;
+	}
+	public void setAvatar(MediaContent avatar) {
+		this.avatar = avatar;
+	}
+	/**
+	 * 职业
 	 * @return
 	 */
 	public String getTrade() {
@@ -331,152 +294,8 @@ public class User extends UUIDBaseModel {
 	public void setTrade(String trade) {
 		this.trade = trade;
 	}
-	
 	/**
-	 * 居住省
-	 * @return
-	 */
-	public String getLiveProv() {
-		return liveProv;
-	}
-	public void setLiveProv(String liveProv) {
-		this.liveProv = liveProv;
-	}
-	
-	/**
-	 * 居住城市
-	 * @return
-	 */
-	public String getLiveCity() {
-		return liveCity;
-	}
-	public void setLiveCity(String liveCity) {
-		this.liveCity = liveCity;
-	}
-	
-	/**
-	 * 国家
-	 * @return
-	 */
-	public String getHomeCountry() {
-		return homeCountry;
-	}
-	public void setHomeCountry(String homeCountry) {
-		this.homeCountry = homeCountry;
-	}
-	
-	/**
-	 * 证件类型
-	 * @return
-	 */
-	public CardType getCardType() {
-		return cardType;
-	}
-	public void setCardType(CardType cardType) {
-		this.cardType = cardType;
-	}
-	
-	/**
-	 * 证件号码
-	 * @return
-	 */
-	public String getCardNum() {
-		return cardNum;
-	}
-	public void setCardNum(String cardNum) {
-		this.cardNum = cardNum;
-	}
-	
-	/**
-	 * 个人说明
-	 * @return
-	 */
-	public String getIntro() {
-		return intro;
-	}
-	public void setIntro(String intro) {
-		this.intro = intro;
-	}
-	
-	/**
-	 * 邮箱
-	 * @return
-	 */
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	/**
-	 * QQ号码
-	 * @return
-	 */
-	public String getQqnum() {
-		return qqnum;
-	}
-	public void setQqnum(String qqnum) {
-		this.qqnum = qqnum;
-	}
-	
-	/**
-	 * 手机号码
-	 * @return
-	 */
-	public String getMobile() {
-		return mobile;
-	}
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
-	
-	/**
-	 * 固定电话
-	 * @return
-	 */
-	public String getTelephone() {
-		return telephone;
-	}
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
-	}
-	
-	/**
-	 * 通信地址-省
-	 * @return
-	 */
-	public String getAddressProv() {
-		return addressProv;
-	}
-	public void setAddressProv(String addressProv) {
-		this.addressProv = addressProv;
-	}
-	
-	/**
-	 * 通信地址-城市
-	 * @return
-	 */
-	public String getAddressCity() {
-		return addressCity;
-	}
-	public void setAddressCity(String addressCity) {
-		this.addressCity = addressCity;
-	}
-	
-	/**
-	 * 通信地址-国家
-	 * @return
-	 */
-	public String getAddressCountry() {
-		return addressCountry;
-	}
-	public void setAddressCountry(String addressCountry) {
-		this.addressCountry = addressCountry;
-	}
-	
-	/**
-	 * 通信地址
+	 * 地址
 	 * @return
 	 */
 	public String getAddress() {
@@ -485,18 +304,6 @@ public class User extends UUIDBaseModel {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
-	/**
-	 * 邮编
-	 * @return
-	 */
-	public String getZipcode() {
-		return zipcode;
-	}
-	public void setZipcode(String zipcode) {
-		this.zipcode = zipcode;
-	}
-	
 	/**
 	 * 经验值
 	 * @return
@@ -507,7 +314,6 @@ public class User extends UUIDBaseModel {
 	public void setExpVal(Long expVal) {
 		this.expVal = expVal;
 	}
-	
 	/**
 	 * 积分
 	 * @return
@@ -518,7 +324,6 @@ public class User extends UUIDBaseModel {
 	public void setIntegra(Long integra) {
 		this.integra = integra;
 	}
-	
 	/**
 	 * 注册时间
 	 * @return
@@ -529,9 +334,8 @@ public class User extends UUIDBaseModel {
 	public void setRegTime(Date regTime) {
 		this.regTime = regTime;
 	}
-	
 	/**
-	 * 注册地址
+	 * 注册ip
 	 * @return
 	 */
 	public String getRegIp() {
@@ -540,9 +344,9 @@ public class User extends UUIDBaseModel {
 	public void setRegIp(String regIp) {
 		this.regIp = regIp;
 	}
-	
 	/**
 	 * 登录时间
+	 * @return
 	 */
 	public Date getLoginTime() {
 		return loginTime;
@@ -550,7 +354,6 @@ public class User extends UUIDBaseModel {
 	public void setLoginTime(Date loginTime) {
 		this.loginTime = loginTime;
 	}
-	
 	/**
 	 * 登录ip
 	 * @return
@@ -561,20 +364,8 @@ public class User extends UUIDBaseModel {
 	public void setLoginip(String loginip) {
 		this.loginip = loginip;
 	}
-	
 	/**
-	 * 绑定QQ
-	 * @return
-	 */
-	public String getQqid() {
-		return qqid;
-	}
-	public void setQqid(String qqid) {
-		this.qqid = qqid;
-	}
-	
-	/**
-	 * 绑定微博
+	 * 微博id
 	 * @return
 	 */
 	public String getWeiboid() {
@@ -582,16 +373,5 @@ public class User extends UUIDBaseModel {
 	}
 	public void setWeiboid(String weiboid) {
 		this.weiboid = weiboid;
-	}
-	
-	/**
-	 * 绑定微信
-	 * @return
-	 */
-	public String getWeixinid() {
-		return weixinid;
-	}
-	public void setWeixinid(String weixinid) {
-		this.weixinid = weixinid;
 	}
 }

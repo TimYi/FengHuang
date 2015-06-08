@@ -10,13 +10,13 @@ import com.fenghuangzhujia.eshop.collect.Collect;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
-import com.fenghuangzhujia.foundation.core.dto.AbstractDtoAdapter;
+import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.media.MediaContent;
 import com.fenghuangzhujia.foundation.media.MediaService;
 
 @Component
-public class CollectDtoAdapter extends AbstractDtoAdapter<Collect, CollectDto> {
+public class CollectDtoAdapter extends AbstractDtoAdapter<Collect, CollectDto, CollectDto> {
 
 	@Autowired
 	private UserRepository userRepository;

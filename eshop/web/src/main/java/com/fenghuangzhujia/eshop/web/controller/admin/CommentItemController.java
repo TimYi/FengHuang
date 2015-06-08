@@ -10,7 +10,7 @@ import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 
 @RestController
 @RequestMapping("admin/commentItem")
-public class CommentItemController extends SpecificationController<CommentItemDto> {
+public class CommentItemController extends SpecificationController<CommentItemDto,CommentItemDto> {
 
 	@Autowired
 	private CommentItemService service;

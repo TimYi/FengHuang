@@ -12,7 +12,7 @@ import com.fenghuangzhujia.foundation.core.model.PagedList;
 
 @Service
 @Transactional
-public class AppointService extends DtoSpecificationService<Appoint, AppointDto, String> {
+public class AppointService extends DtoSpecificationService<Appoint, AppointDto, AppointDto, String> {
 	public PagedList<AppointDto> findByTypeId(String typeid, int page, int size) {
 		PageRequest pageable=new PageRequest(page, size);
 		Page<Appoint> list=getRepository().findByTypeId(typeid, pageable);

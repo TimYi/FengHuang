@@ -24,7 +24,7 @@ import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 
 @Service
 @Transactional
-public class CollectService extends DtoPagingService<Collect, CollectDto, String> {
+public class CollectService extends DtoPagingService<Collect, CollectDto, CollectDto, String> {
 	
 	@Autowired
 	private UserRepository userRepository;

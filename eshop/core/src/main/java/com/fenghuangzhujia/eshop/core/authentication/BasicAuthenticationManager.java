@@ -48,7 +48,7 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 		}
 		User user=tk.getUser();
 		//保证用户通过认证
-		if(!user.isEnabled())throw new ErrorCodeException(TOKEN_ERROR,"该用户尚未通过认证");
+		if(!user.isVerified())throw new ErrorCodeException(TOKEN_ERROR,"该用户尚未通过认证");
 		return new SimpleUserDetails(user);
 	}
 
@@ -59,7 +59,7 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 			throw new ErrorCodeException(LOGIN_ERROR,"用户名不存在");
 		}
 		//确保用户经过认证
-		if(!user.isEnabled())throw new ErrorCodeException(LOGIN_ERROR, "用户尚未通过认证，请先注册");
+		if(!user.isVerified())throw new ErrorCodeException(LOGIN_ERROR, "用户尚未通过认证，请先注册");
 		String pwd=user.getPassword();
 		if(!ENCODER.matches(password, pwd)) {
 			throw new ErrorCodeException(LOGIN_ERROR, "密码错误，请重新输入");
@@ -89,7 +89,7 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 			user=new User();
 			user.setUsername(username);		
 		} else {
-			if(!user.isEnabled()) {
+			if(!user.isVerified()) {
 				throw new ErrorCodeException(REGIST_ERROR, "该用户已经注册过，请直接登录！");
 			}
 		}

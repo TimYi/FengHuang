@@ -17,7 +17,7 @@ import com.fenghuangzhujia.foundation.media.MediaService;
 
 @Service
 @Transactional
-public class DecorateCaseService extends DtoSpecificationService<DecorateCase, DecorateCaseDto, String> {
+public class DecorateCaseService extends DtoSpecificationService<DecorateCase, DecorateCaseDto, DecorateCaseDto, String> {
 	@Autowired
 	private MediaService mediaService;
 	

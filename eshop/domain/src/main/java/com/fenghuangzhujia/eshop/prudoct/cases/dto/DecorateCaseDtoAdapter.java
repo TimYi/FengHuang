@@ -16,7 +16,7 @@ import com.fenghuangzhujia.eshop.core.commerce.eshop.ShopRepository;
 import com.fenghuangzhujia.eshop.core.menu.Menu;
 import com.fenghuangzhujia.eshop.core.menu.MenuRepository;
 import com.fenghuangzhujia.eshop.prudoct.cases.DecorateCase;
-import com.fenghuangzhujia.foundation.core.dto.AbstractDtoAdapter;
+import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.dics.CategoryItem;
 import com.fenghuangzhujia.foundation.dics.CategoryItemRepository;
@@ -24,7 +24,7 @@ import com.fenghuangzhujia.foundation.media.MediaContent;
 import com.fenghuangzhujia.foundation.media.MediaService;
 
 @Component
-public class DecorateCaseDtoAdapter extends AbstractDtoAdapter<DecorateCase, DecorateCaseDto> {
+public class DecorateCaseDtoAdapter extends AbstractDtoAdapter<DecorateCase, DecorateCaseDto, DecorateCaseDto> {
 
 	
 	@Autowired

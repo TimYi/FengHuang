@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 
-public interface PagingService<T, ID extends Serializable> extends CrudService<T, ID> {
+public interface PagingService<T, I, ID extends Serializable> extends CrudService<T, I, ID> {
 	
 	/**
 	 * Returns a {@link PagedList} of entities meeting the paging restriction.

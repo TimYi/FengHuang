@@ -10,7 +10,7 @@ import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 
 @RestController
 @RequestMapping("admin/package")
-public class PackageController extends SpecificationController<DecoratePackageDto> {
+public class PackageController extends SpecificationController<DecoratePackageDto,DecoratePackageDto> {
 
 	@Autowired
 	private DecoratePackageService service;

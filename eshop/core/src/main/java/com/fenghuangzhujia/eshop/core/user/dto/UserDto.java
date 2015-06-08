@@ -3,43 +3,39 @@ package com.fenghuangzhujia.eshop.core.user.dto;
 import java.util.Date;
 
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
-import com.fenghuangzhujia.foundation.core.enums.BloodType;
-import com.fenghuangzhujia.foundation.core.enums.CardType;
-import com.fenghuangzhujia.foundation.core.enums.Constellation;
-import com.fenghuangzhujia.foundation.core.enums.Sex;
+import com.fenghuangzhujia.foundation.dics.dto.CategoryItemDto;
 import com.fenghuangzhujia.foundation.media.MediaContentDto;
 
 public class UserDto extends DtoBaseModel {
-	private String username;	
-	private Boolean verified;
+	private String username;
+	private boolean verified;
+	
 	private String cnname;
+	private String realName;
 	private String ename;
-	private MediaContentDto avatar;
-	private Sex sex;
-	private Date birthDay;
-	private Constellation astro;
-	private BloodType bloodType;
-	private String trade;
-	private String liveProv;
-	private String liveCity;
-	private String homeCountry;
-	private CardType cardType;
-	private String cardNum;
+	private CategoryItemDto sex;
+	private String mobile;
 	private String intro;
 	private String email;
 	private String qqnum;
-	private String mobile;
-	private String telephone;
-	private String addressProv;
-	private String addressCity;
-	private String addressCountry;
+	private String qqid;
+	private String weixinnum;
+	private String weixinid;
+	
+	private Date birthDay;
+	private CategoryItemDto bloodType;
+	private CategoryItemDto constellation;
+	private MediaContentDto avatar;
+	private String trade;
 	private String address;
-	private String zipcode;
+	
 	private Long expVal;
 	private Long integra;
-	private String qqid;
+	private Date regTime;
+	private String regIp;
+	private Date loginTime;
+	private String loginip;	
 	private String weiboid;
-	private String weixinid;
 	
 	public String getUsername() {
 		return username;
@@ -47,10 +43,10 @@ public class UserDto extends DtoBaseModel {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public Boolean getVerified() {
+	public boolean isVerified() {
 		return verified;
 	}
-	public void setVerified(Boolean verified) {
+	public void setVerified(boolean verified) {
 		this.verified = verified;
 	}
 	public String getCnname() {
@@ -59,77 +55,29 @@ public class UserDto extends DtoBaseModel {
 	public void setCnname(String cnname) {
 		this.cnname = cnname;
 	}
+	public String getRealName() {
+		return realName;
+	}
+	public void setRealName(String realName) {
+		this.realName = realName;
+	}
 	public String getEname() {
 		return ename;
 	}
 	public void setEname(String ename) {
 		this.ename = ename;
 	}
-	public MediaContentDto getAvatar() {
-		return avatar;
-	}
-	public void setAvatar(MediaContentDto avatar) {
-		this.avatar = avatar;
-	}
-	public Sex getSex() {
+	public CategoryItemDto getSex() {
 		return sex;
 	}
-	public void setSex(Sex sex) {
+	public void setSex(CategoryItemDto sex) {
 		this.sex = sex;
 	}
-	public Date getBirthDay() {
-		return birthDay;
+	public String getMobile() {
+		return mobile;
 	}
-	public void setBirthDay(Date birthDay) {
-		this.birthDay = birthDay;
-	}
-	public Constellation getAstro() {
-		return astro;
-	}
-	public void setAstro(Constellation astro) {
-		this.astro = astro;
-	}
-	public BloodType getBloodType() {
-		return bloodType;
-	}
-	public void setBloodType(BloodType bloodType) {
-		this.bloodType = bloodType;
-	}
-	public String getTrade() {
-		return trade;
-	}
-	public void setTrade(String trade) {
-		this.trade = trade;
-	}
-	public String getLiveProv() {
-		return liveProv;
-	}
-	public void setLiveProv(String liveProv) {
-		this.liveProv = liveProv;
-	}
-	public String getLiveCity() {
-		return liveCity;
-	}
-	public void setLiveCity(String liveCity) {
-		this.liveCity = liveCity;
-	}
-	public String getHomeCountry() {
-		return homeCountry;
-	}
-	public void setHomeCountry(String homeCountry) {
-		this.homeCountry = homeCountry;
-	}
-	public CardType getCardType() {
-		return cardType;
-	}
-	public void setCardType(CardType cardType) {
-		this.cardType = cardType;
-	}
-	public String getCardNum() {
-		return cardNum;
-	}
-	public void setCardNum(String cardNum) {
-		this.cardNum = cardNum;
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 	public String getIntro() {
 		return intro;
@@ -149,47 +97,59 @@ public class UserDto extends DtoBaseModel {
 	public void setQqnum(String qqnum) {
 		this.qqnum = qqnum;
 	}
-	public String getMobile() {
-		return mobile;
+	public String getQqid() {
+		return qqid;
 	}
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
+	public void setQqid(String qqid) {
+		this.qqid = qqid;
 	}
-	public String getTelephone() {
-		return telephone;
+	public String getWeixinnum() {
+		return weixinnum;
 	}
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
+	public void setWeixinnum(String weixinnum) {
+		this.weixinnum = weixinnum;
 	}
-	public String getAddressProv() {
-		return addressProv;
+	public String getWeixinid() {
+		return weixinid;
 	}
-	public void setAddressProv(String addressProv) {
-		this.addressProv = addressProv;
+	public void setWeixinid(String weixinid) {
+		this.weixinid = weixinid;
 	}
-	public String getAddressCity() {
-		return addressCity;
+	public Date getBirthDay() {
+		return birthDay;
 	}
-	public void setAddressCity(String addressCity) {
-		this.addressCity = addressCity;
+	public void setBirthDay(Date birthDay) {
+		this.birthDay = birthDay;
 	}
-	public String getAddressCountry() {
-		return addressCountry;
+	public CategoryItemDto getBloodType() {
+		return bloodType;
 	}
-	public void setAddressCountry(String addressCountry) {
-		this.addressCountry = addressCountry;
+	public void setBloodType(CategoryItemDto bloodType) {
+		this.bloodType = bloodType;
+	}
+	public CategoryItemDto getConstellation() {
+		return constellation;
+	}
+	public void setConstellation(CategoryItemDto constellation) {
+		this.constellation = constellation;
+	}
+	public MediaContentDto getAvatar() {
+		return avatar;
+	}
+	public void setAvatar(MediaContentDto avatar) {
+		this.avatar = avatar;
+	}
+	public String getTrade() {
+		return trade;
+	}
+	public void setTrade(String trade) {
+		this.trade = trade;
 	}
 	public String getAddress() {
 		return address;
 	}
 	public void setAddress(String address) {
 		this.address = address;
-	}
-	public String getZipcode() {
-		return zipcode;
-	}
-	public void setZipcode(String zipcode) {
-		this.zipcode = zipcode;
 	}
 	public Long getExpVal() {
 		return expVal;
@@ -203,22 +163,34 @@ public class UserDto extends DtoBaseModel {
 	public void setIntegra(Long integra) {
 		this.integra = integra;
 	}
-	public String getQqid() {
-		return qqid;
+	public Date getRegTime() {
+		return regTime;
 	}
-	public void setQqid(String qqid) {
-		this.qqid = qqid;
+	public void setRegTime(Date regTime) {
+		this.regTime = regTime;
+	}
+	public String getRegIp() {
+		return regIp;
+	}
+	public void setRegIp(String regIp) {
+		this.regIp = regIp;
+	}
+	public Date getLoginTime() {
+		return loginTime;
+	}
+	public void setLoginTime(Date loginTime) {
+		this.loginTime = loginTime;
+	}
+	public String getLoginip() {
+		return loginip;
+	}
+	public void setLoginip(String loginip) {
+		this.loginip = loginip;
 	}
 	public String getWeiboid() {
 		return weiboid;
 	}
 	public void setWeiboid(String weiboid) {
 		this.weiboid = weiboid;
-	}
-	public String getWeixinid() {
-		return weixinid;
-	}
-	public void setWeixinid(String weixinid) {
-		this.weixinid = weixinid;
 	}
 }

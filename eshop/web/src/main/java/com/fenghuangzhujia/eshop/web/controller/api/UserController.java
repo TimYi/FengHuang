@@ -16,8 +16,6 @@ import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
 import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
 import com.fenghuangzhujia.eshop.coupons.CouponsService;
 import com.fenghuangzhujia.eshop.coupons.dto.CouponsDto;
-import com.fenghuangzhujia.eshop.user.message.MessageService;
-import com.fenghuangzhujia.eshop.user.message.dto.MessageDto;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
@@ -28,8 +26,6 @@ public class UserController {
 	private CollectService collectService;
 	@Autowired
 	private CommentItemService commentService;
-	@Autowired
-	private MessageService messageService;
 	@Autowired
 	private CouponsService couponsService;
 	
@@ -46,14 +42,6 @@ public class UserController {
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userid=details.getId();
 		PagedList<CommentItemDto> comments=commentService.findByUser(page, size, userid);
-		return RequestResult.success(comments).toJson();
-	}
-	
-	@RequestMapping(value="user/messages",method=RequestMethod.GET)
-	public String messages(@RequestParam(defaultValue="1") Integer page,@RequestParam(defaultValue="8") Integer size) {
-		SimpleUserDetails details=AuthenticationService.getUserDetail();
-		String userid=details.getId();
-		PagedList<MessageDto> comments=messageService.findPage(page, size, userid);
 		return RequestResult.success(comments).toJson();
 	}
 	

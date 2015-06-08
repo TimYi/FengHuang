@@ -1,11 +1,11 @@
-package com.fenghuangzhujia.foundation.core.dto;
+package com.fenghuangzhujia.foundation.core.dto.adapter;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
 import com.fenghuangzhujia.foundation.mapper.BeanMapper;
 
-public abstract class AbstractDtoAdapter<D, T> extends SimpleDtoAdapter<D, T> {
+public abstract class AbstractDtoAdapter<D, T, I> extends SimpleDtoAdapter<D, T, I> {
 	
 	@Override
 	public T convert(D source) {
@@ -28,10 +28,10 @@ public abstract class AbstractDtoAdapter<D, T> extends SimpleDtoAdapter<D, T> {
 	}
 	
 	@Override
-	public D convertToDo(T t) {
-		if(t==null)return null;
-		D d=BeanMapper.map(t, getDClass());
-		return postConvertToDo(t, d);
+	public D convertToDo(I i) {
+		if(i==null)return null;
+		D d=BeanMapper.map(i, getDClass());
+		return postConvertToDo(i, d);
 	}
 	
 	/**
@@ -40,13 +40,13 @@ public abstract class AbstractDtoAdapter<D, T> extends SimpleDtoAdapter<D, T> {
 	 * @param d
 	 * @return
 	 */
-	public abstract D postConvertToDo(T t, D d);
+	public abstract D postConvertToDo(I i, D d);
 	
 	@Override
-	public D update(T t, D d) {
-		if(t==null || d==null)return null;
-		BeanMapper.copy(t, d);
-		return postUpdate(t, d);
+	public D update(I i, D d) {
+		if(i==null || d==null)return null;
+		BeanMapper.copy(i, d);
+		return postUpdate(i, d);
 	}
 	
 	/**
@@ -55,12 +55,13 @@ public abstract class AbstractDtoAdapter<D, T> extends SimpleDtoAdapter<D, T> {
 	 * @param d
 	 * @return
 	 */
-	public abstract D postUpdate(T t, D d);
+	public abstract D postUpdate(I i, D d);
 	
 	/**
 	 * 获取do运行时类型
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	protected Class<D> getDClass() {
 		Type t = getClass().getGenericSuperclass();
 		Type[] p=((ParameterizedType)t).getActualTypeArguments();
@@ -72,10 +73,23 @@ public abstract class AbstractDtoAdapter<D, T> extends SimpleDtoAdapter<D, T> {
 	 * 获取dto运行时类型
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	protected Class<T> getTClass() {
 		Type t = getClass().getGenericSuperclass();
 		Type[] p=((ParameterizedType)t).getActualTypeArguments();
 		Class<T> tClass=(Class<T>)p[1];
+        return tClass;
+	}
+	
+	/**
+	 * 获取input args运行时类型
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	protected Class<T> getIClass() {
+		Type t = getClass().getGenericSuperclass();
+		Type[] p=((ParameterizedType)t).getActualTypeArguments();
+		Class<T> tClass=(Class<T>)p[2];
         return tClass;
 	}
 }

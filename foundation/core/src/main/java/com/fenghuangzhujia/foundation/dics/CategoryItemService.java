@@ -12,7 +12,7 @@ import com.fenghuangzhujia.foundation.dics.dto.CategoryItemDto;
 
 @Service
 @Transactional
-public class CategoryItemService extends DtoPagingService<CategoryItem, CategoryItemDto, String> {
+public class CategoryItemService extends DtoPagingService<CategoryItem, CategoryItemDto, CategoryItemDto, String> {
 
 	@Autowired
 	public void setCategoryItemRepository(CategoryItemRepository repository) {

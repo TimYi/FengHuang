@@ -10,7 +10,7 @@ import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 
 @RestController
 @RequestMapping("admin/case")
-public class CaseController extends SpecificationController<DecorateCaseDto> {
+public class CaseController extends SpecificationController<DecorateCaseDto,DecorateCaseDto> {
 
 	@Autowired
 	private DecorateCaseService service;

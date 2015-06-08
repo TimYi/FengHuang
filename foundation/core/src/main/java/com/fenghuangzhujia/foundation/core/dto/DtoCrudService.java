@@ -6,12 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fenghuangzhujia.foundation.core.dto.adapter.DtoAdapter;
 import com.fenghuangzhujia.foundation.core.entity.Identified;
 import com.fenghuangzhujia.foundation.core.service.CrudService;
 
 @Transactional
-public abstract class DtoCrudService<D extends Identified<ID>, T extends Identified<ID>, ID extends Serializable>
-	implements CrudService<T, ID> {
+public abstract class DtoCrudService<D extends Identified<ID>, T extends Identified<ID>, I extends Identified<ID>, ID extends Serializable>
+	implements CrudService<T, I, ID> {
 	
 	private CrudRepository<D, ID> repository;
 	
@@ -25,35 +26,27 @@ public abstract class DtoCrudService<D extends Identified<ID>, T extends Identif
 	}
 
 	@Autowired
-	protected DtoAdapter<D, T> adapter;
+	protected DtoAdapter<D, T, I> adapter;
 
 	@Override
-	public T add(T entity) {
+	public T add(I entity) {
 		if(entity==null) return null;
 		D d=adapter.convertToDo(entity);
 		d=getRepository().save(d);
-		entity=adapter.convertToDto(d);
-		return entity;
+		T result=adapter.convertToDto(d);
+		return result;
 	}
 
 	@Override
-	public T update(T entity) {
+	public T update(I entity) {
 		if(entity==null) return null;
 		ID id=entity.getId();
 		D d=getRepository().findOne(id);
 		if(d==null) return null;
 		d=adapter.update(entity, d);
 		d=getRepository().save(d);
-		entity=adapter.convertToDto(d);
-		return entity;
-	}
-
-	@Override
-	public Iterable<T> addAll(Iterable<T> entities) {
-		if(entities==null) return null;
-		Iterable<D> ds=adapter.convertDtoList(entities);
-		ds=getRepository().save(ds);
-		return adapter.convertDoList(ds);
+		T result=adapter.convertToDto(d);
+		return result;
 	}
 
 	@Override

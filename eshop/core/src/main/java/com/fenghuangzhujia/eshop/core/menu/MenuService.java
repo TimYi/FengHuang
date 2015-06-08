@@ -11,7 +11,7 @@ import com.fenghuangzhujia.foundation.core.dto.DtoPagingService;
 
 @Service
 @Transactional
-public class MenuService extends DtoPagingService<Menu, MenuDto, String> {
+public class MenuService extends DtoPagingService<Menu, MenuDto, MenuDto, String> {
 	public List<MenuDto> findByTypeName(String type) {
 		List<Menu> columns=getRepository().findByTypeName(type);
 		if(columns==null)return null;

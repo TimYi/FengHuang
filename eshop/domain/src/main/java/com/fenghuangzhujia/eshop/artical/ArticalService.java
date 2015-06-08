@@ -8,6 +8,6 @@ import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
 
 @Service
 @Transactional
-public class ArticalService extends DtoSpecificationService<Artical, ArticalDto, String> {
+public class ArticalService extends DtoSpecificationService<Artical, ArticalDto, ArticalDto, String> {
 
 }

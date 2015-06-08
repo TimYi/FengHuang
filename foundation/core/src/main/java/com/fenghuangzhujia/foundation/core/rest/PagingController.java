@@ -12,9 +12,9 @@ import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.service.PagingService;
 
 @RestController
-public abstract class PagingController<T> {
+public abstract class PagingController<T,I> {
 
-	protected abstract PagingService<T, String> getService();
+	protected abstract PagingService<T,I, String> getService();
 	
 	@RequestMapping(value="",method=RequestMethod.GET)
 	public String page(@RequestParam(defaultValue="1") Integer page,@RequestParam(defaultValue="8") Integer size,HttpServletRequest request) {
@@ -29,13 +29,13 @@ public abstract class PagingController<T> {
 	}
 	
 	@RequestMapping(value="",method=RequestMethod.POST)
-	public String add(T t) {
+	public String add(I t) {
 		getService().add(t);
 		return RequestResult.success("保存成功").toJson();
 	}
 	
 	@RequestMapping(value="{id}",method=RequestMethod.POST)
-	public String edit(T t) {
+	public String edit(I t) {
 		getService().update(t);
 		return RequestResult.success("修改成功").toJson();
 	}

@@ -6,12 +6,12 @@ import org.springframework.stereotype.Component;
 
 import com.fenghuangzhujia.eshop.core.menu.Menu;
 import com.fenghuangzhujia.eshop.core.menu.MenuRepository;
-import com.fenghuangzhujia.foundation.core.dto.AbstractDtoAdapter;
+import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
 import com.fenghuangzhujia.foundation.dics.CategoryItem;
 import com.fenghuangzhujia.foundation.dics.CategoryItemRepository;
 
 @Component
-public class MenuDtoAdapter extends AbstractDtoAdapter<Menu, MenuDto> {
+public class MenuDtoAdapter extends AbstractDtoAdapter<Menu, MenuDto, MenuDto> {
 	
 	@Autowired
 	private MenuRepository columnRepository;

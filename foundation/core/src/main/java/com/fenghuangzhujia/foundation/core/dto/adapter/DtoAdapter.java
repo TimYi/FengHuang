@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.foundation.core.dto;
+package com.fenghuangzhujia.foundation.core.dto.adapter;
 
 import java.util.List;
 
@@ -9,17 +9,18 @@ import org.springframework.core.convert.converter.Converter;
  * 继承 @Converter 接口，方便使用 @Page 的map方法 
  * @author ytm
  *
- * @param <D>
- * @param <T>
+ * @param <D> domain object
+ * @param <T> dto object
+ * @param <I> input args
  */
-public interface DtoAdapter<D, T> extends Converter<D, T> {
+public interface DtoAdapter<D, T, I> extends Converter<D, T> {
 	
 	/**
 	 * 将Dto转为Do
 	 * @param t never null，应返回空值
 	 * @return
 	 */
-	D convertToDo(T t);
+	D convertToDo(I t);
 	
 	/**
 	 * 将Do转换为Dto
@@ -36,9 +37,7 @@ public interface DtoAdapter<D, T> extends Converter<D, T> {
 	 * @param d never null
 	 * @return
 	 */
-	D update(T t, D d);
+	D update(I t, D d);
 	
 	List<T> convertDoList(Iterable<? extends D> ds);
-	
-	List<D> convertDtoList(Iterable<? extends T> ts);
 }

@@ -10,7 +10,7 @@ import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 
 @RestController(value="adminAppointController")
 @RequestMapping("admin/appoint")
-public class AppointController extends SpecificationController<AppointDto> {
+public class AppointController extends SpecificationController<AppointDto,AppointDto> {
 
 	@Autowired
 	private AppointService service;

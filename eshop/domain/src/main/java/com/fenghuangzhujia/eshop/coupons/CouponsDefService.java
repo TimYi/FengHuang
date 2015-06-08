@@ -9,6 +9,6 @@ import com.fenghuangzhujia.foundation.core.dto.DtoPagingService;
 
 @Service
 @Transactional
-public class CouponsDefService extends DtoPagingService<CouponsDefEntity, CouponsDefDto, String> {
+public class CouponsDefService extends DtoPagingService<CouponsDefEntity, CouponsDefDto, CouponsDefDto, String> {
 
 }

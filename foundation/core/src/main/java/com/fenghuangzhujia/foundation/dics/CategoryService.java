@@ -5,11 +5,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.foundation.core.dto.DtoPagingService;
-import com.fenghuangzhujia.foundation.dics.dto.CategoryDTO;
+import com.fenghuangzhujia.foundation.dics.dto.CategoryDto;
 
 @Service
 @Transactional
-public class CategoryService extends DtoPagingService<Category, CategoryDTO, String> {
+public class CategoryService extends DtoPagingService<Category, CategoryDto, CategoryDto, String> {
 
 	@Autowired
 	public void setCategoryRepository(CategoryRepository repository) {
@@ -26,9 +26,9 @@ public class CategoryService extends DtoPagingService<Category, CategoryDTO, Str
 	 * @param type
 	 * @return
 	 */
-	public CategoryDTO getByType(String type) {
+	public CategoryDto getByType(String type) {
 		Category d=getRepository().getByType(type);
-		CategoryDTO t=adapter.convert(d);
+		CategoryDto t=adapter.convert(d);
 		return t;
 	}
 	

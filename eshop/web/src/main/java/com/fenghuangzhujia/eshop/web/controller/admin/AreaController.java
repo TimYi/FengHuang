@@ -10,7 +10,7 @@ import com.fenghuangzhujia.foundation.core.rest.PagingController;
 
 @RestController(value="adminAreaController")
 @RequestMapping("admin/area")
-public class AreaController extends PagingController<AreaDto> {
+public class AreaController extends PagingController<AreaDto,AreaDto> {
 
 	@Autowired
 	private AreaService service;

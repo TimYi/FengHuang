@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 import com.fenghuangzhujia.eshop.coupons.entity.CouponsConstrainEntity;
 import com.fenghuangzhujia.eshop.coupons.entity.CouponsDefEntity;
 import com.fenghuangzhujia.eshop.coupons.entity.CouponsStragyEntity;
-import com.fenghuangzhujia.foundation.core.dto.AbstractDtoAdapter;
+import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
 
 @Component
-public class CouponsDefDtoAdapter extends AbstractDtoAdapter<CouponsDefEntity, CouponsDefDto> {
+public class CouponsDefDtoAdapter extends AbstractDtoAdapter<CouponsDefEntity, CouponsDefDto, CouponsDefDto> {
 
 	@Autowired
 	private CouponsConstrainDtoAdapter constrainAdapter;

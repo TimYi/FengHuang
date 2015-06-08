@@ -4,30 +4,30 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.fenghuangzhujia.foundation.core.dto.AbstractDtoAdapter;
+import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
 import com.fenghuangzhujia.foundation.dics.Category;
 import com.fenghuangzhujia.foundation.dics.CategoryRepository;
 
 @Component
-public class CategoryDTOAdapter extends AbstractDtoAdapter<Category, CategoryDTO> {
+public class CategoryDtoAdapter extends AbstractDtoAdapter<Category, CategoryDto, CategoryDto> {
 
 	@Autowired
 	private CategoryRepository categoryRepository;
 	@Autowired
-	private CategoryItemDTOAdapter categoryItemDTOAdapter;
+	private CategoryItemDtoAdapter categoryItemDTOAdapter;
 
 	@Override
-	public CategoryDTO postConvert(Category d, CategoryDTO t) {
+	public CategoryDto postConvert(Category d, CategoryDto t) {
 		return t;
 	}
 
 	@Override
-	public Category postConvertToDo(CategoryDTO t, Category d) {
+	public Category postConvertToDo(CategoryDto t, Category d) {
 		return postUpdate(t, d);
 	}
 
 	@Override
-	public Category postUpdate(CategoryDTO t, Category d) {
+	public Category postUpdate(CategoryDto t, Category d) {
 		String parentid=t.getParentid();
 		Category parent=null;
 		if(StringUtils.isNotEmpty(parentid)) {

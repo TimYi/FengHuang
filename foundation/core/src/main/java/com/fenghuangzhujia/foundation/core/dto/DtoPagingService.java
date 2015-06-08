@@ -12,9 +12,10 @@ import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.service.PagingService;
 
 @Transactional
-public abstract class DtoPagingService<D extends Identified<ID>, T extends Identified<ID>, ID extends Serializable> 
-	extends DtoCrudService<D, T, ID>
-	implements PagingService<T, ID>{
+public abstract class DtoPagingService<D extends Identified<ID>, T extends Identified<ID>,
+	I extends Identified<ID>, ID extends Serializable> 
+	extends DtoCrudService<D, T, I, ID>
+	implements PagingService<T, I, ID>{
 	
 	public void setPagingAndSortingRepository(PagingAndSortingRepository<D, ID> repository) {
 		super.setRepository(repository);

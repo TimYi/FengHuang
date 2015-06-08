@@ -8,6 +8,6 @@ import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
 
 @Service
 @Transactional
-public class CommentService extends DtoSpecificationService<Comment, CommentDto, String> {
+public class CommentService extends DtoSpecificationService<Comment, CommentDto, CommentDto, String> {
 
 }

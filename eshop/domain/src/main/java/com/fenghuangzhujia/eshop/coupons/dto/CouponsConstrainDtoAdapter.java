@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fenghuangzhujia.eshop.coupons.entity.CouponsConstrainEntity;
-import com.fenghuangzhujia.foundation.core.dto.SimpleDtoAdapter;
+import com.fenghuangzhujia.foundation.core.dto.adapter.SimpleDtoAdapter;
 import com.fenghuangzhujia.foundation.core.dto.polymorphic.PolymorphicDtoAdapter;
 
 @Component
 public class CouponsConstrainDtoAdapter extends 
-	SimpleDtoAdapter<CouponsConstrainEntity, CouponsConstrainDto> {
+	SimpleDtoAdapter<CouponsConstrainEntity, CouponsConstrainDto, CouponsConstrainDto> {
 
 	@Autowired
 	private List<PolymorphicDtoAdapter<CouponsConstrainEntity, CouponsConstrainDto>> adapters;

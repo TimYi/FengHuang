@@ -10,7 +10,7 @@ import com.fenghuangzhujia.foundation.core.rest.PagingController;
 
 @RestController
 @RequestMapping("admin/couponsDef")
-public class CouponsDefController extends PagingController<CouponsDefDto> {
+public class CouponsDefController extends PagingController<CouponsDefDto,CouponsDefDto> {
 
 	@Autowired
 	private CouponsDefService service;

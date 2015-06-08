@@ -1,8 +1,8 @@
 package com.fenghuangzhujia.eshop.core.user;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
+import com.fenghuangzhujia.foundation.core.persistance.SpecificationRepository;
 
-public interface UserRepository extends PagingAndSortingRepository<User, String> {
+public interface UserRepository extends SpecificationRepository<User, String> {
 	
 	User getByUsername(String username);
 }

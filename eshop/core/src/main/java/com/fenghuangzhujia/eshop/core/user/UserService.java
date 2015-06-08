@@ -1,23 +1,19 @@
 package com.fenghuangzhujia.eshop.core.user;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationManager;
-import com.fenghuangzhujia.eshop.core.authentication.authority.AbstractAuthority;
 import com.fenghuangzhujia.eshop.core.authentication.authority.AuthorityRepository;
-import com.fenghuangzhujia.eshop.core.authentication.role.Role;
 import com.fenghuangzhujia.eshop.core.authentication.role.RoleRepository;
-import com.fenghuangzhujia.foundation.core.service.AbstractPagingService;
+import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
+import com.fenghuangzhujia.eshop.core.user.dto.UserInputArgs;
+import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
 
 @Service
 @Transactional
-public class UserService extends AbstractPagingService<User, String> {
+public class UserService extends DtoSpecificationService<User, UserDto, UserInputArgs, String> {
 	
 	@Autowired
 	private RoleRepository roleRepository;
@@ -35,71 +31,37 @@ public class UserService extends AbstractPagingService<User, String> {
 	}
 	
 	@Override
-	public User findOne(String id) {
-		User user=super.findOne(id);
-		Hibernate.initialize(user.getRoles());
-		return user;
-	}
-	
-	@Override
-	public User add(User t) {
+	public UserDto add(UserInputArgs t) {
 		String username=t.getUsername();
 		User user=getRepository().getByUsername(username);
 		if(user!=null) {
 			throw new RuntimeException("用户名重复！");
 		}
-		t=loadRoles(t, t.getRoleids());
-		t=loadAuthorities(t, t.getAuthorityids());
-		encryptPassword(t);
-		getRepository().save(t);
-		return t;
+		user=adapter.convertToDo(t);
+		encryptPassword(user);
+		getRepository().save(user);
+		return adapter.convert(user);
 	}
 	
 	@Override
-	public User update(User t) {		
+	public UserDto update(UserInputArgs t) {		
 		User user=getRepository().findOne(t.getId());
-		if(t.getPassword()!=null) {
-			user.setPassword(t.getPassword());
+		//要处理密码更新问题
+		String password=user.getPassword();
+		String newPassword=t.getPassword();
+		user=adapter.update(t, user);
+		if(password.equals(newPassword)) {
+			user.setPassword(password);
+		} else {
 			encryptPassword(user);
 		}
-		user.setVerified(t.isVerified());
-		user=loadRoles(user, t.getRoleids());
-		user=loadAuthorities(user, t.getAuthorityids());
-		return user;
+		getRepository().save(user);
+		return adapter.convert(user);
 	}
 	
 	private void encryptPassword(User user) {
 		String password=AuthenticationManager.ENCODER.encode(user.getPassword());
 		user.setPassword(password);
-	}
-	
-	private User loadRoles(User user, String[] roleids) {
-		if(roleids==null) {
-			return user;
-		}
-		Set<Role> roles=new HashSet<>();
-		for (String roleid : roleids) {
-			Role role=roleRepository.findOne(roleid);
-			if(role!=null)
-			roles.add(role);
-		}
-		user.setRoles(roles);
-		return user;
-	}
-	
-	private User loadAuthorities(User user, String[] authorityids) {
-		if(authorityids==null) {
-			return user;
-		}
-		Set<AbstractAuthority> authorities=new HashSet<>();
-		for (String authorityid : authorityids) {
-			AbstractAuthority authority=authorityRepository.findOne(authorityid);
-			if(authority!=null) {
-				authorities.add(authority);
-			}			
-		}
-		user.setAuthorities(authorities);
-		return user;
 	}
 	
 	@Autowired

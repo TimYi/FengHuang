@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 
 import com.fenghuangzhujia.foundation.area.Area;
 import com.fenghuangzhujia.foundation.area.AreaRepository;
-import com.fenghuangzhujia.foundation.core.dto.AbstractDtoAdapter;
+import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
 
 @Component
-public class AreaAdapter extends AbstractDtoAdapter<Area, AreaDto> {
+public class AreaAdapter extends AbstractDtoAdapter<Area, AreaDto, AreaDto> {
 	
 	@Autowired
 	private AreaRepository repository;
