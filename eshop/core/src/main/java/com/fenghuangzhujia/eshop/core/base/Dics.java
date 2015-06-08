@@ -40,4 +40,19 @@ public class Dics {
 	 * 户型（如三居室）
 	 */
 	public final static String APARTMENT_TYPE="apartment";
+	
+	/**
+	 * 性别
+	 */
+	public final static String SEX="sex";
+	
+	/**
+	 * 血型
+	 */
+	public final static String BLOOD="blood";
+	
+	/**
+	 * 血型
+	 */
+	public final static String CONSTELLATION="constellation";
 }

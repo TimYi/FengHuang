@@ -14,6 +14,10 @@ import com.fenghuangzhujia.eshop.comment.CommentItemService;
 import com.fenghuangzhujia.eshop.comment.dto.CommentItemDto;
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
 import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
+import com.fenghuangzhujia.eshop.core.user.UserService;
+import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
+import com.fenghuangzhujia.eshop.core.user.dto.UserInputArgs;
+import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
 import com.fenghuangzhujia.eshop.coupons.CouponsService;
 import com.fenghuangzhujia.eshop.coupons.dto.CouponsDto;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
@@ -28,6 +32,10 @@ public class UserController {
 	private CommentItemService commentService;
 	@Autowired
 	private CouponsService couponsService;
+	@Autowired
+	private UserService userService;
+	@Autowired
+	private MessageManager messageManager;
 	
 	@RequestMapping(value="user/collects",method=RequestMethod.GET)
 	public String collects(@RequestParam(defaultValue="1") Integer page,@RequestParam(defaultValue="8") Integer size) {
@@ -56,5 +64,46 @@ public class UserController {
 			result=couponsService.findUserCoupons(userid);
 		}
 		return RequestResult.success(result).toJson();
+	}
+	
+	/**
+	 * 获取用户个人信息
+	 * @return
+	 */
+	@RequestMapping(value="user/profile",method=RequestMethod.GET)
+	public String profile() {
+		SimpleUserDetails details=AuthenticationService.getUserDetail();
+		String userid=details.getId();
+		UserDto userDto=userService.findOne(userid);
+		return RequestResult.success(userDto).toJson();
+	}
+	
+	/**
+	 * 编辑用户个人信息
+	 * @param args
+	 * @return
+	 */
+	@RequestMapping(value="user/profile",method=RequestMethod.POST)
+	public String editProfile(UserInputArgs args) {
+		SimpleUserDetails details=AuthenticationService.getUserDetail();
+		String userid=details.getId();
+		args.setId(userid);
+		UserDto result=userService.update(args);
+		return RequestResult.success(result).toJson();
+	}
+	
+	/**
+	 * 绑定用户手机号码
+	 * @param mobile
+	 * @param validater
+	 * @return
+	 */
+	@RequestMapping(value="user/bindMobile",method=RequestMethod.POST)
+	public String bindMobile(@RequestParam String mobile,@RequestParam String validater) {
+		SimpleUserDetails details=AuthenticationService.getUserDetail();
+		String userid=details.getId();
+		messageManager.validate(mobile, validater);
+		userService.bindMobile(userid, mobile);
+		return RequestResult.success("绑定成功").toJson();
 	}
 }

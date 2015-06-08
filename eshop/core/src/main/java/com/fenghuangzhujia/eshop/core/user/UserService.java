@@ -7,9 +7,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationManager;
 import com.fenghuangzhujia.eshop.core.authentication.authority.AuthorityRepository;
 import com.fenghuangzhujia.eshop.core.authentication.role.RoleRepository;
+import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
 import com.fenghuangzhujia.eshop.core.user.dto.UserInputArgs;
 import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
+import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
+import com.fenghuangzhujia.foundation.utils.validater.PhoneNumberValidater;
 
 @Service
 @Transactional
@@ -38,6 +41,7 @@ public class UserService extends DtoSpecificationService<User, UserDto, UserInpu
 			throw new RuntimeException("用户名重复！");
 		}
 		user=adapter.convertToDo(t);
+		user.setVerified(true); //默认新建用户自动通过审核
 		encryptPassword(user);
 		getRepository().save(user);
 		return adapter.convert(user);
@@ -48,15 +52,22 @@ public class UserService extends DtoSpecificationService<User, UserDto, UserInpu
 		User user=getRepository().findOne(t.getId());
 		//要处理密码更新问题
 		String password=user.getPassword();
-		String newPassword=t.getPassword();
 		user=adapter.update(t, user);
-		if(password.equals(newPassword)) {
-			user.setPassword(password);
-		} else {
-			encryptPassword(user);
-		}
+		user.setPassword(password);//禁止直接更新密码
 		getRepository().save(user);
 		return adapter.convert(user);
+	}
+	
+	/**
+	 * 绑定手机号
+	 * @param id 用户id
+	 * @param mobile 手机号码
+	 */
+	public void bindMobile(String id,String mobile) {
+		if(!PhoneNumberValidater.isMobile(mobile))throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "请输入正确的11位手机号码");
+		User user=getRepository().findOne(id);
+		user.setMobile(mobile);
+		getRepository().save(user);
 	}
 	
 	private void encryptPassword(User user) {

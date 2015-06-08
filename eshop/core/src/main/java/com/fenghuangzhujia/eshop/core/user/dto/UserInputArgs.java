@@ -9,13 +9,12 @@ import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 public class UserInputArgs extends DtoBaseModel {
 
 	private String username;
-	private String password;
-	private boolean verified;
+	private String password; //禁止更新密码
+	//private boolean verified; //禁止更新审核字段
 	
 	private String cnname;
 	private String realName;
 	private String ename;	
-	private String mobile;
 	private String intro;
 	private String email;	
 	private Date birthDay;	
@@ -40,12 +39,6 @@ public class UserInputArgs extends DtoBaseModel {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public boolean isVerified() {
-		return verified;
-	}
-	public void setVerified(boolean verified) {
-		this.verified = verified;
-	}
 	public String getCnname() {
 		return cnname;
 	}
@@ -63,12 +56,6 @@ public class UserInputArgs extends DtoBaseModel {
 	}
 	public void setEname(String ename) {
 		this.ename = ename;
-	}
-	public String getMobile() {
-		return mobile;
-	}
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
 	}
 	public String getIntro() {
 		return intro;

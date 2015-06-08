@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.core.dics;
+package com.fenghuangzhujia.eshop.dics;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -44,7 +44,7 @@ public class DicsInitializer {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void initColumnType() {
 		String name="栏目类型";
 		String remark="栏目类型";
@@ -66,7 +66,7 @@ public class DicsInitializer {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void initHouseType() {
 		String name="房屋类型";
 		String remark="房屋类型";
@@ -88,7 +88,7 @@ public class DicsInitializer {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void initDecorateType() {
 		String name="装修类型";
 		String remark="装修类型";
@@ -110,7 +110,7 @@ public class DicsInitializer {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void initResponseType() {
 		String name="包装类型";
 		String remark="包装类型";
@@ -132,7 +132,7 @@ public class DicsInitializer {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void initCategory() {
 		String name="类型";
 		String remark="类型";
@@ -154,7 +154,7 @@ public class DicsInitializer {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void initStyle() {
 		String name="风格";
 		String remark="风格";
@@ -176,7 +176,7 @@ public class DicsInitializer {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void initApartment() {
 		String name="户型";
 		String remark="户型";
@@ -187,6 +187,72 @@ public class DicsInitializer {
 		t.setType(type);
 		t=categoryService.add(t);
 		String[] names = { "三居室", "两居室" };
+		for (int i = 0; i < names.length; i++) {
+			name=names[i];
+			Integer priority=i+1;
+			CategoryItemDto item=new CategoryItemDto();
+			item.setType(type);
+			item.setName(name);
+			item.setPriority(priority);
+			categoryItemService.add(item);
+		}
+	}
+	
+	@Test
+	public void initSex() {
+		String name="性别";
+		String remark="性别";
+		String type=Dics.SEX;
+		CategoryDto t=new CategoryDto();
+		t.setName(name);
+		t.setRemark(remark);
+		t.setType(type);
+		t=categoryService.add(t);
+		String[] names = { "男", "女" };
+		for (int i = 0; i < names.length; i++) {
+			name=names[i];
+			Integer priority=i+1;
+			CategoryItemDto item=new CategoryItemDto();
+			item.setType(type);
+			item.setName(name);
+			item.setPriority(priority);
+			categoryItemService.add(item);
+		}
+	}
+	
+	@Test
+	public void initBloodType() {
+		String name="血型";
+		String remark="血型";
+		String type=Dics.BLOOD;
+		CategoryDto t=new CategoryDto();
+		t.setName(name);
+		t.setRemark(remark);
+		t.setType(type);
+		t=categoryService.add(t);
+		String[] names = { "A", "B","O","AB" };
+		for (int i = 0; i < names.length; i++) {
+			name=names[i];
+			Integer priority=i+1;
+			CategoryItemDto item=new CategoryItemDto();
+			item.setType(type);
+			item.setName(name);
+			item.setPriority(priority);
+			categoryItemService.add(item);
+		}
+	}
+	
+	@Test
+	public void initConstellation() {
+		String name="星座";
+		String remark="星座";
+		String type=Dics.CONSTELLATION;
+		CategoryDto t=new CategoryDto();
+		t.setName(name);
+		t.setRemark(remark);
+		t.setType(type);
+		t=categoryService.add(t);
+		String[] names = { "水瓶座", "双鱼座","白羊座","金牛座","双子座", "巨蟹座","狮子座","处女座","天枰座", "天蝎座","射手座","摩羯座" };
 		for (int i = 0; i < names.length; i++) {
 			name=names[i];
 			Integer priority=i+1;

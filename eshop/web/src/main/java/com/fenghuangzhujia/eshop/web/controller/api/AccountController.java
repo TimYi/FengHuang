@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationManager;
 import com.fenghuangzhujia.eshop.core.authentication.token.UserToken;
+import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.validate.captcha.CaptchaManager;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
+import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
 @RestController
@@ -29,6 +31,24 @@ public class AccountController {
 		UserToken token=manager.login(username, password);
 		String tokenString=token.getToken();
 		return RequestResult.success(tokenString).toJson();
+	}
+	
+	/**
+	 * 
+	 * @param username
+	 * @param oldPassword 旧密码
+	 * @param newPassword 新密码
+	 * @param comfirmPassword 确认密码
+	 * @param captcha 图形验证码
+	 * @return
+	 */
+	@RequestMapping(value="changePassword",method=RequestMethod.POST)
+	public String changePassword(@RequestParam String username,@RequestParam String oldPassword,
+			@RequestParam String newPassword, @RequestParam String comfirmPassword,@RequestParam String captcha) {
+		captchaManager.validate(username, captcha);
+		if(!newPassword.equals(comfirmPassword))throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "两次输入的密码不一致，请重新输入");
+		UserToken token=manager.changePassword(username, newPassword, oldPassword);
+		return RequestResult.success(token.getToken()).toJson();
 	}
 	
 	/**
