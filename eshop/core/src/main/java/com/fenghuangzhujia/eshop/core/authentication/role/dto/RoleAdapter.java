@@ -30,14 +30,16 @@ public class RoleAdapter extends AbstractDtoAdapter<Role, RoleDto, RoleInputArgs
 	@Override
 	public Role postUpdate(RoleInputArgs i, Role d) {
 		String[] userids=i.getUserids();
-		Set<User> users=new HashSet<>();
-		for (String id : userids) {
-			User user=userRepository.findOne(id);
-			if(user!=null) {
-				users.add(user);
+		if(userids!=null) {
+			Set<User> users=new HashSet<>();
+			for (String id : userids) {
+				User user=userRepository.findOne(id);
+				if(user!=null) {
+					users.add(user);
+				}
 			}
-		}
-		d.setUsers(users);
+			d.setUsers(users);
+		}		
 		return d;
 	}
 
