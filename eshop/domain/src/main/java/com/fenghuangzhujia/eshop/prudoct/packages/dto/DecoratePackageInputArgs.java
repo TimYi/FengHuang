@@ -2,17 +2,15 @@ package com.fenghuangzhujia.eshop.prudoct.packages.dto;
 
 import java.util.Set;
 
-import com.fenghuangzhujia.eshop.core.brand.dto.BrandDto;
-import com.fenghuangzhujia.eshop.core.menu.dto.MenuDto;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.fenghuangzhujia.eshop.prudoct.detail.DecorateDetail;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
-import com.fenghuangzhujia.foundation.dics.dto.CategoryItemDto;
-import com.fenghuangzhujia.foundation.media.MediaContentDto;
 
-public class DecoratePackageDto extends DtoBaseModel {
+public class DecoratePackageInputArgs extends DtoBaseModel {
 
-	private MenuDto menu;
-	private BrandDto brand;
+	private String menuid;
+	private String brandid;
 	private String title;
 	private Double marketPrice;
 	private Double salePrice;
@@ -21,27 +19,27 @@ public class DecoratePackageDto extends DtoBaseModel {
 	private Integer warnnum;	
 	private String description;
 	private String content;
-	private MediaContentDto mainPic;
-	private MediaContentDto thumbnails;
-	private Set<MediaContentDto> pics;	
-	private CategoryItemDto houseType;
-	private CategoryItemDto decorateType;
-	private CategoryItemDto responseType;
+	private MultipartFile mainPicFile;
+	private MultipartFile thumbnailsFile;
+	private MultipartFile[] picFiles;
+	private String houseTypeId;
+	private String decorateTypeId;
+	private String responseTypeId;
 	private Double workingDays;	
 	private String keywrods;
 	private Set<DecorateDetail> details;
 	
-	public MenuDto getMenu() {
-		return menu;
+	public String getMenuid() {
+		return menuid;
 	}
-	public void setMenu(MenuDto menu) {
-		this.menu = menu;
+	public void setMenuid(String menuid) {
+		this.menuid = menuid;
 	}
-	public BrandDto getBrand() {
-		return brand;
+	public String getBrandid() {
+		return brandid;
 	}
-	public void setBrand(BrandDto brand) {
-		this.brand = brand;
+	public void setBrandid(String brandid) {
+		this.brandid = brandid;
 	}
 	public String getTitle() {
 		return title;
@@ -91,41 +89,41 @@ public class DecoratePackageDto extends DtoBaseModel {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public MediaContentDto getMainPic() {
-		return mainPic;
+	public MultipartFile getMainPicFile() {
+		return mainPicFile;
 	}
-	public void setMainPic(MediaContentDto mainPic) {
-		this.mainPic = mainPic;
+	public void setMainPicFile(MultipartFile mainPicFile) {
+		this.mainPicFile = mainPicFile;
 	}
-	public MediaContentDto getThumbnails() {
-		return thumbnails;
+	public MultipartFile getThumbnailsFile() {
+		return thumbnailsFile;
 	}
-	public void setThumbnails(MediaContentDto thumbnails) {
-		this.thumbnails = thumbnails;
+	public void setThumbnailsFile(MultipartFile thumbnailsFile) {
+		this.thumbnailsFile = thumbnailsFile;
 	}
-	public Set<MediaContentDto> getPics() {
-		return pics;
+	public MultipartFile[] getPicFiles() {
+		return picFiles;
 	}
-	public void setPics(Set<MediaContentDto> pics) {
-		this.pics = pics;
+	public void setPicFiles(MultipartFile[] picFiles) {
+		this.picFiles = picFiles;
 	}
-	public CategoryItemDto getHouseType() {
-		return houseType;
+	public String getHouseTypeId() {
+		return houseTypeId;
 	}
-	public void setHouseType(CategoryItemDto houseType) {
-		this.houseType = houseType;
+	public void setHouseTypeId(String houseTypeId) {
+		this.houseTypeId = houseTypeId;
 	}
-	public CategoryItemDto getDecorateType() {
-		return decorateType;
+	public String getDecorateTypeId() {
+		return decorateTypeId;
 	}
-	public void setDecorateType(CategoryItemDto decorateType) {
-		this.decorateType = decorateType;
+	public void setDecorateTypeId(String decorateTypeId) {
+		this.decorateTypeId = decorateTypeId;
 	}
-	public CategoryItemDto getResponseType() {
-		return responseType;
+	public String getResponseTypeId() {
+		return responseTypeId;
 	}
-	public void setResponseType(CategoryItemDto responseType) {
-		this.responseType = responseType;
+	public void setResponseTypeId(String responseTypeId) {
+		this.responseTypeId = responseTypeId;
 	}
 	public Double getWorkingDays() {
 		return workingDays;

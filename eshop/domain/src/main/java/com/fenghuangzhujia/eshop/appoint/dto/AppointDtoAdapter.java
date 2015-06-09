@@ -15,7 +15,7 @@ import com.fenghuangzhujia.foundation.dics.CategoryItem;
 import com.fenghuangzhujia.foundation.dics.CategoryItemRepository;
 
 @Component
-public class AppointDtoAdapter extends AbstractDtoAdapter<Appoint, AppointDto, AppointDto> {
+public class AppointDtoAdapter extends AbstractDtoAdapter<Appoint, AppointDto, AppointInputArgs> {
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -26,18 +26,17 @@ public class AppointDtoAdapter extends AbstractDtoAdapter<Appoint, AppointDto, A
 
 	@Override
 	public AppointDto postConvert(Appoint d, AppointDto t) {
-		t.setUserid(d.getUser().getId());
 		t.setArea(new AreaVo(d.getArea()));
 		return t;
 	}
 
 	@Override
-	public Appoint postConvertToDo(AppointDto t, Appoint d) {
+	public Appoint postConvertToDo(AppointInputArgs t, Appoint d) {
 		return postUpdate(t, d);
 	}
 
 	@Override
-	public Appoint postUpdate(AppointDto t, Appoint d) {
+	public Appoint postUpdate(AppointInputArgs t, Appoint d) {
 		String userid=t.getUserid();
 		if(StringUtils.isNotBlank(userid)) {
 			User user=userRepository.findOne(userid);

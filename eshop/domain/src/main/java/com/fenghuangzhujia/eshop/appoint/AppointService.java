@@ -7,12 +7,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.eshop.appoint.dto.AppointDto;
+import com.fenghuangzhujia.eshop.appoint.dto.AppointInputArgs;
 import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 
 @Service
 @Transactional
-public class AppointService extends DtoSpecificationService<Appoint, AppointDto, AppointDto, String> {
+public class AppointService extends DtoSpecificationService<Appoint, AppointDto, AppointInputArgs, String> {
 	public PagedList<AppointDto> findByTypeId(String typeid, int page, int size) {
 		PageRequest pageable=new PageRequest(page, size);
 		Page<Appoint> list=getRepository().findByTypeId(typeid, pageable);

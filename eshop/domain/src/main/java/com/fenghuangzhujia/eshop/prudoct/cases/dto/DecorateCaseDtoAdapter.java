@@ -24,7 +24,7 @@ import com.fenghuangzhujia.foundation.media.MediaContent;
 import com.fenghuangzhujia.foundation.media.MediaService;
 
 @Component
-public class DecorateCaseDtoAdapter extends AbstractDtoAdapter<DecorateCase, DecorateCaseDto, DecorateCaseDto> {
+public class DecorateCaseDtoAdapter extends AbstractDtoAdapter<DecorateCase, DecorateCaseDto, DecorateCaseInputArgs> {
 
 	
 	@Autowired
@@ -41,19 +41,11 @@ public class DecorateCaseDtoAdapter extends AbstractDtoAdapter<DecorateCase, Dec
 	
 	@Override
 	public DecorateCaseDto postConvert(DecorateCase d, DecorateCaseDto t) {
-		if(d.getMenu()!=null) {
-			t.setMenuid(d.getMenu().getId());
-			t.setMenu(d.getMenu().getName());
-		}
-		if(d.getBrand()!=null) {
-			t.setBrandid(d.getBrand().getId());
-			t.setBrand(d.getBrand().getName());
-		}
 		return t;
 	}
 
 	@Override
-	public DecorateCase postConvertToDo(DecorateCaseDto t, DecorateCase d) {
+	public DecorateCase postConvertToDo(DecorateCaseInputArgs t, DecorateCase d) {
 		d=postUpdate(t, d);
 		try {
 			MultipartFile[] picFiles=t.getPicFiles();
@@ -72,7 +64,7 @@ public class DecorateCaseDtoAdapter extends AbstractDtoAdapter<DecorateCase, Dec
 	}
 
 	@Override
-	public DecorateCase postUpdate(DecorateCaseDto t, DecorateCase d) {
+	public DecorateCase postUpdate(DecorateCaseInputArgs t, DecorateCase d) {
 		try {
 			String menuid=t.getMenuid();
 			if(StringUtils.isNotBlank(menuid)) {

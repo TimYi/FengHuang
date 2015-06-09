@@ -24,7 +24,7 @@ import com.fenghuangzhujia.foundation.media.MediaContent;
 import com.fenghuangzhujia.foundation.media.MediaService;
 
 @Component
-public class DecoratePackageDtoAdapter extends AbstractDtoAdapter<DecoratePackage, DecoratePackageDto, DecoratePackageDto> {
+public class DecoratePackageDtoAdapter extends AbstractDtoAdapter<DecoratePackage, DecoratePackageDto, DecoratePackageInputArgs> {
 
 	@Autowired
 	private MenuRepository columnRepository;
@@ -40,19 +40,11 @@ public class DecoratePackageDtoAdapter extends AbstractDtoAdapter<DecoratePackag
 	@Override
 	public DecoratePackageDto postConvert(DecoratePackage d,
 			DecoratePackageDto t) {
-		if(d.getMenu()!=null) {
-			t.setMenuid(d.getMenu().getId());
-			t.setMenu(d.getMenu().getName());
-		}
-		if(d.getBrand()!=null) {
-			t.setBrandid(d.getBrand().getId());
-			t.setBrand(d.getBrand().getName());
-		}
 		return t;
 	}
 
 	@Override
-	public DecoratePackage postConvertToDo(DecoratePackageDto t,
+	public DecoratePackage postConvertToDo(DecoratePackageInputArgs t,
 			DecoratePackage d) {
 		d=postUpdate(t, d);
 		try {
@@ -72,7 +64,7 @@ public class DecoratePackageDtoAdapter extends AbstractDtoAdapter<DecoratePackag
 	}
 
 	@Override
-	public DecoratePackage postUpdate(DecoratePackageDto t, DecoratePackage d) {
+	public DecoratePackage postUpdate(DecoratePackageInputArgs t, DecoratePackage d) {
 		try {
 			String menuid=t.getMenuid();
 			if(StringUtils.isNotBlank(menuid)) {

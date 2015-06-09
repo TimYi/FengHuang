@@ -9,7 +9,7 @@ import com.fenghuangzhujia.eshop.core.brand.BrandTypeRepository;
 import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
 
 @Component
-public class BrandTypeDtoAdapter extends AbstractDtoAdapter<BrandType, BrandTypeDto, BrandTypeDto> {
+public class BrandTypeDtoAdapter extends AbstractDtoAdapter<BrandType, BrandTypeDto, BrandTypeInputArgs> {
 
 	@Autowired
 	private BrandTypeRepository brandTypeRepository;
@@ -20,12 +20,12 @@ public class BrandTypeDtoAdapter extends AbstractDtoAdapter<BrandType, BrandType
 	}
 
 	@Override
-	public BrandType postConvertToDo(BrandTypeDto t, BrandType d) {
+	public BrandType postConvertToDo(BrandTypeInputArgs t, BrandType d) {
 		return postUpdate(t, d);
 	}
 
 	@Override
-	public BrandType postUpdate(BrandTypeDto t, BrandType d) {
+	public BrandType postUpdate(BrandTypeInputArgs t, BrandType d) {
 		String superTypeId=t.getSuperTypeId();
 		if(StringUtils.isNotBlank(superTypeId)) {
 			BrandType superType=brandTypeRepository.findOne(superTypeId);

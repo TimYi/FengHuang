@@ -1,13 +1,12 @@
 package com.fenghuangzhujia.eshop.comment.dto;
 
-import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
-public class CommentItemDto extends DtoBaseModel {
+public class CommentItemInputArgs extends DtoBaseModel {
 
 	private String content;
-	private CommentItemDto reply;
-	private UserDto user;
+	private String replyid;
+	private String userid;
 	private String ip;
 	private String sourceid;
 	private String url;
@@ -18,17 +17,17 @@ public class CommentItemDto extends DtoBaseModel {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public CommentItemDto getReply() {
-		return reply;
+	public String getReplyid() {
+		return replyid;
 	}
-	public void setReply(CommentItemDto reply) {
-		this.reply = reply;
+	public void setReplyid(String replyid) {
+		this.replyid = replyid;
 	}
-	public UserDto getUser() {
-		return user;
+	public String getUserid() {
+		return userid;
 	}
-	public void setUser(UserDto user) {
-		this.user = user;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 	public String getIp() {
 		return ip;

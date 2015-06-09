@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fenghuangzhujia.eshop.prudoct.cases.DecorateCaseService;
-import com.fenghuangzhujia.eshop.prudoct.cases.dto.DecorateCaseDto;
+import com.fenghuangzhujia.eshop.prudoct.cases.dto.DecorateCaseInputArgs;
 import com.fenghuangzhujia.eshop.prudoct.detail.DecorateDetail;
 import com.fenghuangzhujia.foundation.core.test.JpegMultipartFile;
 
@@ -25,7 +25,7 @@ public class DecorateCaseTest {
 	
 	//@Test
 	public void add() {
-		DecorateCaseDto dto=new DecorateCaseDto();
+		DecorateCaseInputArgs dto=new DecorateCaseInputArgs();
 		dto.setBrandid("404040e64d8f7710014d8f771afb0000");
 		dto.setMenuid("404040e64d8f7405014d8f740fb40000");
 		dto.setTitle("test");
@@ -54,7 +54,7 @@ public class DecorateCaseTest {
 	
 	@Test
 	public void update() {
-		DecorateCaseDto dto=new DecorateCaseDto();
+		DecorateCaseInputArgs dto=new DecorateCaseInputArgs();
 		dto.setId("404040e64d8fcb55014d8fcb65760001");
 		dto.setBrandid("404040e64d8f7710014d8f771afb0000");
 		dto.setMenuid("404040e64d8f7405014d8f740fb40000");

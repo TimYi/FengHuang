@@ -1,37 +1,25 @@
 package com.fenghuangzhujia.eshop.collect.dto;
 
-import com.fenghuangzhujia.eshop.ResourceType;
-import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
-import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
-import com.fenghuangzhujia.foundation.media.MediaContentDto;
+import org.springframework.web.multipart.MultipartFile;
 
-public class CollectDto extends DtoBaseModel {
-	
+import com.fenghuangzhujia.eshop.ResourceType;
+import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
+
+public class CollectInputArgs extends DtoBaseModel {
+
 	private String name;
-	private MediaContentDto mainPic;
 	private String url;
 	private ResourceType type;
 	private String sourceid;
 	
-	private UserDto user;
+	private String userid;
+	private MultipartFile mainPicFile;
 	
-	public UserDto getUser() {
-		return user;
-	}
-	public void setUser(UserDto user) {
-		this.user = user;
-	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public MediaContentDto getMainPic() {
-		return mainPic;
-	}
-	public void setMainPic(MediaContentDto mainPic) {
-		this.mainPic = mainPic;
 	}
 	public String getUrl() {
 		return url;
@@ -50,5 +38,17 @@ public class CollectDto extends DtoBaseModel {
 	}
 	public void setSourceid(String sourceid) {
 		this.sourceid = sourceid;
+	}
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+	public MultipartFile getMainPicFile() {
+		return mainPicFile;
+	}
+	public void setMainPicFile(MultipartFile mainPicFile) {
+		this.mainPicFile = mainPicFile;
 	}
 }

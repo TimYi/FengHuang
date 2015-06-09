@@ -6,11 +6,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fenghuangzhujia.eshop.comment.CommentItemService;
 import com.fenghuangzhujia.eshop.comment.dto.CommentItemDto;
+import com.fenghuangzhujia.eshop.comment.dto.CommentItemInputArgs;
 import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 
 @RestController
 @RequestMapping("admin/commentItem")
-public class CommentItemController extends SpecificationController<CommentItemDto,CommentItemDto> {
+public class CommentItemController extends SpecificationController<CommentItemDto,CommentItemInputArgs> {
 
 	@Autowired
 	private CommentItemService service;

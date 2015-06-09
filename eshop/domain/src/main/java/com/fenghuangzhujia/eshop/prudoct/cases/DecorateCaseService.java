@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.prudoct.cases.dto.DecorateCaseDto;
+import com.fenghuangzhujia.eshop.prudoct.cases.dto.DecorateCaseInputArgs;
 import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.media.MediaContent;
@@ -17,7 +18,7 @@ import com.fenghuangzhujia.foundation.media.MediaService;
 
 @Service
 @Transactional
-public class DecorateCaseService extends DtoSpecificationService<DecorateCase, DecorateCaseDto, DecorateCaseDto, String> {
+public class DecorateCaseService extends DtoSpecificationService<DecorateCase, DecorateCaseDto, DecorateCaseInputArgs, String> {
 	@Autowired
 	private MediaService mediaService;
 	

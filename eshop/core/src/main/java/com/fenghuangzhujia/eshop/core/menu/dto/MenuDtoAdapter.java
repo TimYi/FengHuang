@@ -11,7 +11,7 @@ import com.fenghuangzhujia.foundation.dics.CategoryItem;
 import com.fenghuangzhujia.foundation.dics.CategoryItemRepository;
 
 @Component
-public class MenuDtoAdapter extends AbstractDtoAdapter<Menu, MenuDto, MenuDto> {
+public class MenuDtoAdapter extends AbstractDtoAdapter<Menu, MenuDto, MenuInputArgs> {
 	
 	@Autowired
 	private MenuRepository columnRepository;
@@ -24,12 +24,12 @@ public class MenuDtoAdapter extends AbstractDtoAdapter<Menu, MenuDto, MenuDto> {
 	}
 
 	@Override
-	public Menu postConvertToDo(MenuDto t, Menu d) {
+	public Menu postConvertToDo(MenuInputArgs t, Menu d) {
 		return postUpdate(t, d);
 	}
 
 	@Override
-	public Menu postUpdate(MenuDto t, Menu d) {
+	public Menu postUpdate(MenuInputArgs t, Menu d) {
 		String fatherid=t.getFatherid();
 		if(StringUtils.isNotBlank(fatherid)) {
 			Menu father=columnRepository.findOne(fatherid);

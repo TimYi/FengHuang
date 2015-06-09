@@ -1,17 +1,12 @@
 package com.fenghuangzhujia.eshop.artical.dto;
 
-import java.util.Set;
-
 import org.springframework.web.multipart.MultipartFile;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fenghuangzhujia.eshop.core.menu.dto.MenuVo;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
-import com.fenghuangzhujia.foundation.media.MediaContentDto;
 
-public class ArticalDto extends DtoBaseModel {
+public class ArticalInputArgs extends DtoBaseModel {
 
-	private MenuVo menu;
+	private String menuid;
 	private String title;
 	private String source;
 	private String sourceLink;
@@ -19,16 +14,15 @@ public class ArticalDto extends DtoBaseModel {
 	private String keywords;
 	private String description;
 	private String content;
-	private MediaContentDto mainPic;
-	private MediaContentDto thumbnails;
-	private int hits;
-	private Set<MediaContentDto> pics;
+	private MultipartFile mainPicFile;
+	private MultipartFile thumbnailsFile;
+	private MultipartFile[] picFiles;
 	
-	public MenuVo getMenu() {
-		return menu;
+	public String getMenuid() {
+		return menuid;
 	}
-	public void setMenu(MenuVo menu) {
-		this.menu = menu;
+	public void setMenuid(String menuid) {
+		this.menuid = menuid;
 	}
 	public String getTitle() {
 		return title;
@@ -72,28 +66,22 @@ public class ArticalDto extends DtoBaseModel {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public MediaContentDto getMainPic() {
-		return mainPic;
+	public MultipartFile getMainPicFile() {
+		return mainPicFile;
 	}
-	public void setMainPic(MediaContentDto mainPic) {
-		this.mainPic = mainPic;
+	public void setMainPicFile(MultipartFile mainPicFile) {
+		this.mainPicFile = mainPicFile;
 	}
-	public MediaContentDto getThumbnails() {
-		return thumbnails;
+	public MultipartFile getThumbnailsFile() {
+		return thumbnailsFile;
 	}
-	public void setThumbnails(MediaContentDto thumbnails) {
-		this.thumbnails = thumbnails;
+	public void setThumbnailsFile(MultipartFile thumbnailsFile) {
+		this.thumbnailsFile = thumbnailsFile;
 	}
-	public int getHits() {
-		return hits;
+	public MultipartFile[] getPicFiles() {
+		return picFiles;
 	}
-	public void setHits(int hits) {
-		this.hits = hits;
-	}
-	public Set<MediaContentDto> getPics() {
-		return pics;
-	}
-	public void setPics(Set<MediaContentDto> pics) {
-		this.pics = pics;
+	public void setPicFiles(MultipartFile[] picFiles) {
+		this.picFiles = picFiles;
 	}
 }

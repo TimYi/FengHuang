@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.fenghuangzhujia.eshop.appoint.dto.AppointDto;
+import com.fenghuangzhujia.eshop.appoint.dto.AppointInputArgs;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
@@ -16,7 +16,7 @@ public class AppointTest {
 	
 	@Test
 	public void add() {
-		AppointDto appointDto=new AppointDto();
+		AppointInputArgs appointDto=new AppointInputArgs();
 		appointDto.setAddress("test");
 		appointDto.setUserid("404040e64d6b19f3014d6b1a52ad0000");
 		appointDto.setMobile("18612444099");

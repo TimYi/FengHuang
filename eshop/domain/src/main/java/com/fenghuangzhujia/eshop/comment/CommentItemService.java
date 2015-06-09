@@ -7,12 +7,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.eshop.comment.dto.CommentItemDto;
+import com.fenghuangzhujia.eshop.comment.dto.CommentItemInputArgs;
 import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 
 @Service
 @Transactional
-public class CommentItemService extends DtoSpecificationService<CommentItem, CommentItemDto, CommentItemDto, String> {
+public class CommentItemService extends DtoSpecificationService<CommentItem, CommentItemDto, CommentItemInputArgs, String> {
 
 	public PagedList<CommentItemDto> findByUser(int page, int size, String userid) {
 		PageRequest request=new PageRequest(page-1, size);

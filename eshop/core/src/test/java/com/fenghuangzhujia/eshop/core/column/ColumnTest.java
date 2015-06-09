@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.fenghuangzhujia.eshop.core.menu.MenuService;
 import com.fenghuangzhujia.eshop.core.menu.dto.MenuDto;
+import com.fenghuangzhujia.eshop.core.menu.dto.MenuInputArgs;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
@@ -19,7 +20,7 @@ public class ColumnTest {
 	
 	@Test
 	public void add() {
-		MenuDto c=new MenuDto();
+		MenuInputArgs c=new MenuInputArgs();
 		c.setName("test");
 		c.setTypeid("404040e64d8f6dc0014d8f6dcf520007");
 		columnService.add(c);

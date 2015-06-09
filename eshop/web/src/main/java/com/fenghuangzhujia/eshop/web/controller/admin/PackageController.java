@@ -6,11 +6,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackageService;
 import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageDto;
+import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageInputArgs;
 import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 
 @RestController
 @RequestMapping("admin/package")
-public class PackageController extends SpecificationController<DecoratePackageDto,DecoratePackageDto> {
+public class PackageController extends SpecificationController<DecoratePackageDto,DecoratePackageInputArgs> {
 
 	@Autowired
 	private DecoratePackageService service;

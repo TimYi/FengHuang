@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fenghuangzhujia.eshop.appoint.AppointService;
 import com.fenghuangzhujia.eshop.appoint.dto.AppointDto;
+import com.fenghuangzhujia.eshop.appoint.dto.AppointInputArgs;
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
 import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
@@ -21,12 +22,12 @@ public class AppointController {
 	private AppointService appointService;	
 	
 	@RequestMapping(value="user/appoint",method=RequestMethod.POST)
-	public String appoint(AppointDto appoint) {
+	public String appoint(AppointInputArgs appoint) {
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userid=details.getId();
 		appoint.setUserid(userid);
-		AppointDto appointDto=appointService.add(appoint);
-		return RequestResult.success(appointDto).toJson();
+		AppointDto result=appointService.add(appoint);
+		return RequestResult.success(result).toJson();
 	}
 	
 	@RequestMapping(value="user/appoints",method=RequestMethod.GET)

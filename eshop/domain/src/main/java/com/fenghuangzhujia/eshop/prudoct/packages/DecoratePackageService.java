@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageDto;
+import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageInputArgs;
 import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.media.MediaContent;
@@ -17,7 +18,7 @@ import com.fenghuangzhujia.foundation.media.MediaService;
 
 @Service
 @Transactional
-public class DecoratePackageService extends DtoSpecificationService<DecoratePackage, DecoratePackageDto, DecoratePackageDto, String> {
+public class DecoratePackageService extends DtoSpecificationService<DecoratePackage, DecoratePackageDto, DecoratePackageInputArgs, String> {
 	
 	@Autowired
 	private MediaService mediaService;

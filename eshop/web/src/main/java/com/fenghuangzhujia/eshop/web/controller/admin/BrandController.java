@@ -6,11 +6,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fenghuangzhujia.eshop.core.brand.BrandService;
 import com.fenghuangzhujia.eshop.core.brand.dto.BrandDto;
+import com.fenghuangzhujia.eshop.core.brand.dto.BrandInputArgs;
 import com.fenghuangzhujia.foundation.core.rest.PagingController;
 
 @RestController
 @RequestMapping("admin/brand")
-public class BrandController extends PagingController<BrandDto,BrandDto> {
+public class BrandController extends PagingController<BrandDto,BrandInputArgs> {
 
 	@Autowired
 	private BrandService service;

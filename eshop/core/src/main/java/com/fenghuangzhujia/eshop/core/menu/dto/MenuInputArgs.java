@@ -1,17 +1,20 @@
 package com.fenghuangzhujia.eshop.core.menu.dto;
 
-import java.util.Set;
-
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
-import com.fenghuangzhujia.foundation.dics.dto.CategoryItemDto;
 
-public class MenuDto extends DtoBaseModel {
+public class MenuInputArgs extends DtoBaseModel {
 
+	private String fatherid;
 	private String name;
 	private String description;
-	private Set<MenuVo> sons;
-	private CategoryItemDto type;
+	private String typeid;
 	
+	public String getFatherid() {
+		return fatherid;
+	}
+	public void setFatherid(String fatherid) {
+		this.fatherid = fatherid;
+	}
 	public String getName() {
 		return name;
 	}
@@ -24,16 +27,10 @@ public class MenuDto extends DtoBaseModel {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Set<MenuVo> getSons() {
-		return sons;
+	public String getTypeid() {
+		return typeid;
 	}
-	public void setSons(Set<MenuVo> sons) {
-		this.sons = sons;
-	}
-	public CategoryItemDto getType() {
-		return type;
-	}
-	public void setType(CategoryItemDto type) {
-		this.type = type;
+	public void setTypeid(String typeid) {
+		this.typeid = typeid;
 	}
 }

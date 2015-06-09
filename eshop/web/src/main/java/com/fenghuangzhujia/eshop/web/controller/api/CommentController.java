@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fenghuangzhujia.eshop.comment.CommentItemService;
 import com.fenghuangzhujia.eshop.comment.dto.CommentItemDto;
+import com.fenghuangzhujia.eshop.comment.dto.CommentItemInputArgs;
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
 import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
@@ -20,12 +21,12 @@ public class CommentController {
 	private CommentItemService commentService;
 	
 	@RequestMapping(value="comment",method=RequestMethod.POST)
-	public String commentOn(CommentItemDto comment) {
+	public String commentOn(CommentItemInputArgs comment) {
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userid=details.getId();
 		comment.setUserid(userid);
-		comment=commentService.add(comment);
-		return RequestResult.success(comment).toJson();
+		CommentItemDto result=commentService.add(comment);
+		return RequestResult.success(result).toJson();
 	}
 	
 	@RequestMapping(value="comments",method=RequestMethod.GET)

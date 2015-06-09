@@ -7,12 +7,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.eshop.core.brand.dto.BrandTypeDto;
+import com.fenghuangzhujia.eshop.core.brand.dto.BrandTypeInputArgs;
 import com.fenghuangzhujia.foundation.core.dto.DtoPagingService;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 
 @Service
 @Transactional
-public class BrandTypeService extends DtoPagingService<BrandType, BrandTypeDto, BrandTypeDto, String> {
+public class BrandTypeService extends DtoPagingService<BrandType, BrandTypeDto, BrandTypeInputArgs, String> {
 	
 	public PagedList<BrandTypeDto> findTopBrands(int page, int size) {
 		PageRequest pageable=new PageRequest(page-1, size);

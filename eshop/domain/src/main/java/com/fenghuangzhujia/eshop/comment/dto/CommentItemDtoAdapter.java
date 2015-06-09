@@ -15,7 +15,7 @@ import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 
 @Component
-public class CommentItemDtoAdapter extends AbstractDtoAdapter<CommentItem, CommentItemDto, CommentItemDto> {
+public class CommentItemDtoAdapter extends AbstractDtoAdapter<CommentItem, CommentItemDto, CommentItemInputArgs> {
 
 	@Autowired
 	private CommentRepository commentRepository;
@@ -30,12 +30,12 @@ public class CommentItemDtoAdapter extends AbstractDtoAdapter<CommentItem, Comme
 	}
 
 	@Override
-	public CommentItem postConvertToDo(CommentItemDto t, CommentItem d) {
+	public CommentItem postConvertToDo(CommentItemInputArgs t, CommentItem d) {
 		return postUpdate(t, d);
 	}
 
 	@Override
-	public CommentItem postUpdate(CommentItemDto t, CommentItem d) {
+	public CommentItem postUpdate(CommentItemInputArgs t, CommentItem d) {
 		String sourceid=t.getSourceid();
 		String userid=t.getUserid();
 		if(StringUtils.isBlank(sourceid))throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT,"评论id不能为空");

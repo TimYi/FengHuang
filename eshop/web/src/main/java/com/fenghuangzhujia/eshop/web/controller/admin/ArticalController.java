@@ -6,11 +6,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fenghuangzhujia.eshop.artical.ArticalService;
 import com.fenghuangzhujia.eshop.artical.dto.ArticalDto;
+import com.fenghuangzhujia.eshop.artical.dto.ArticalInputArgs;
 import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 
 @RestController(value="adminArticalController")
 @RequestMapping("admin/artical")
-public class ArticalController extends SpecificationController<ArticalDto,ArticalDto> {
+public class ArticalController extends SpecificationController<ArticalDto,ArticalInputArgs> {
 
 	@Autowired
 	private ArticalService service;

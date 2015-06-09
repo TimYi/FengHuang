@@ -6,11 +6,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fenghuangzhujia.eshop.appoint.AppointService;
 import com.fenghuangzhujia.eshop.appoint.dto.AppointDto;
+import com.fenghuangzhujia.eshop.appoint.dto.AppointInputArgs;
 import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 
 @RestController(value="adminAppointController")
 @RequestMapping("admin/appoint")
-public class AppointController extends SpecificationController<AppointDto,AppointDto> {
+public class AppointController extends SpecificationController<AppointDto,AppointInputArgs> {
 
 	@Autowired
 	private AppointService service;

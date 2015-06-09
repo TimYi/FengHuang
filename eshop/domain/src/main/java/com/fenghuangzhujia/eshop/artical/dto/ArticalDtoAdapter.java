@@ -19,7 +19,7 @@ import com.fenghuangzhujia.foundation.media.MediaContent;
 import com.fenghuangzhujia.foundation.media.MediaService;
 
 @Component
-public class ArticalDtoAdapter extends AbstractDtoAdapter<Artical, ArticalDto, ArticalDto> {
+public class ArticalDtoAdapter extends AbstractDtoAdapter<Artical, ArticalDto, ArticalInputArgs> {
 
 	@Autowired
 	private MenuRepository menuRepository;
@@ -32,7 +32,7 @@ public class ArticalDtoAdapter extends AbstractDtoAdapter<Artical, ArticalDto, A
 	}
 
 	@Override
-	public Artical postConvertToDo(ArticalDto t, Artical d) {
+	public Artical postConvertToDo(ArticalInputArgs t, Artical d) {
 		d=postUpdate(t, d);
 		MultipartFile[] picFiles=t.getPicFiles();
 		try {
@@ -51,7 +51,7 @@ public class ArticalDtoAdapter extends AbstractDtoAdapter<Artical, ArticalDto, A
 	}
 
 	@Override
-	public Artical postUpdate(ArticalDto t, Artical d) {
+	public Artical postUpdate(ArticalInputArgs t, Artical d) {
 		String menuid=t.getMenuid();
 		if(StringUtils.isNotBlank(menuid)) {
 			Menu menu=menuRepository.findOne(menuid);

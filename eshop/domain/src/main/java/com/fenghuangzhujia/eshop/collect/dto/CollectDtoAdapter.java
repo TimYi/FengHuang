@@ -16,7 +16,7 @@ import com.fenghuangzhujia.foundation.media.MediaContent;
 import com.fenghuangzhujia.foundation.media.MediaService;
 
 @Component
-public class CollectDtoAdapter extends AbstractDtoAdapter<Collect, CollectDto, CollectDto> {
+public class CollectDtoAdapter extends AbstractDtoAdapter<Collect, CollectDto, CollectInputArgs> {
 
 	@Autowired
 	private UserRepository userRepository;
@@ -29,7 +29,7 @@ public class CollectDtoAdapter extends AbstractDtoAdapter<Collect, CollectDto, C
 	}
 
 	@Override
-	public Collect postConvertToDo(CollectDto t, Collect d) {
+	public Collect postConvertToDo(CollectInputArgs t, Collect d) {
 		String userid=t.getUserid();
 		User user=userRepository.findOne(userid);
 		d.setUser(user);
@@ -38,7 +38,7 @@ public class CollectDtoAdapter extends AbstractDtoAdapter<Collect, CollectDto, C
 	}
 
 	@Override
-	public Collect postUpdate(CollectDto t, Collect d) {
+	public Collect postUpdate(CollectInputArgs t, Collect d) {
 		MultipartFile file=t.getMainPicFile();
 		if(file!=null) {
 			try {

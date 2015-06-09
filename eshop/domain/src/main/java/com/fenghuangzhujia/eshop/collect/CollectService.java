@@ -11,6 +11,7 @@ import com.fenghuangzhujia.eshop.ResourceType;
 import com.fenghuangzhujia.eshop.artical.Artical;
 import com.fenghuangzhujia.eshop.artical.ArticalRepository;
 import com.fenghuangzhujia.eshop.collect.dto.CollectDto;
+import com.fenghuangzhujia.eshop.collect.dto.CollectInputArgs;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
@@ -24,7 +25,7 @@ import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 
 @Service
 @Transactional
-public class CollectService extends DtoPagingService<Collect, CollectDto, CollectDto, String> {
+public class CollectService extends DtoPagingService<Collect, CollectDto, CollectInputArgs, String> {
 	
 	@Autowired
 	private UserRepository userRepository;

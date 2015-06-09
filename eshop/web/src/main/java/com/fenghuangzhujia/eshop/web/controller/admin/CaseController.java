@@ -6,11 +6,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fenghuangzhujia.eshop.prudoct.cases.DecorateCaseService;
 import com.fenghuangzhujia.eshop.prudoct.cases.dto.DecorateCaseDto;
+import com.fenghuangzhujia.eshop.prudoct.cases.dto.DecorateCaseInputArgs;
 import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 
 @RestController
 @RequestMapping("admin/case")
-public class CaseController extends SpecificationController<DecorateCaseDto,DecorateCaseDto> {
+public class CaseController extends SpecificationController<DecorateCaseDto, DecorateCaseInputArgs> {
 
 	@Autowired
 	private DecorateCaseService service;

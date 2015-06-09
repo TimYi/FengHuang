@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.fenghuangzhujia.eshop.artical.dto.ArticalDto;
+import com.fenghuangzhujia.eshop.artical.dto.ArticalInputArgs;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
@@ -17,7 +17,7 @@ public class ArticalTest {
 	
 	@Test
 	public void add() {
-		ArticalDto artical=new ArticalDto();
+		ArticalInputArgs artical=new ArticalInputArgs();
 		artical.setAuthor("Tim");
 		artical.setTitle("first artical");
 		artical.setContent("test content");
