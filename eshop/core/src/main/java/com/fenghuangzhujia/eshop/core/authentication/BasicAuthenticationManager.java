@@ -120,12 +120,8 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	 * 设定安全的密码，生成随机的salt并经过1024次 sha-1 hash
 	 */
 	private void entryptPassword(User user) {
-		String password=entryptPassword(user.getPassword());
+		String password=AuthenticationManager.encryptPassword(user.getPassword());
 		user.setPassword(password);
-	}
-	
-	private String entryptPassword(String password) {
-		return ENCODER.encode(password);
 	}
 
 	@Override

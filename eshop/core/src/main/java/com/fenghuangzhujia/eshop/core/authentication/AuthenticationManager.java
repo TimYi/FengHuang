@@ -59,4 +59,8 @@ public interface AuthenticationManager extends UserDetailsService {
 	 * @throws ChangePasswordException
 	 */
 	UserToken changePassword(String username, String newPassword, String oldPassword) throws ErrorCodeException;
+	
+	public static String encryptPassword(String password) {
+		return ENCODER.encode(password);
+	}
 }

@@ -73,7 +73,7 @@ public class UserService extends DtoSpecificationService<User, UserDto, UserInpu
 	}
 	
 	private void encryptPassword(User user) {
-		String password=AuthenticationManager.ENCODER.encode(user.getPassword());
+		String password=AuthenticationManager.encryptPassword(user.getPassword());
 		user.setPassword(password);
 	}
 	
