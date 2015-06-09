@@ -5,7 +5,8 @@ import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 public class UserGroupInputArgs extends DtoBaseModel {
 
 	private String name;
-	private long expVal;
+	private long minExp;
+	private long maxExp;
 	private int stars;
 	private String colorid;
 	
@@ -14,12 +15,18 @@ public class UserGroupInputArgs extends DtoBaseModel {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}	
+	public long getMinExp() {
+		return minExp;
 	}
-	public long getExpVal() {
-		return expVal;
+	public void setMinExp(long minExp) {
+		this.minExp = minExp;
 	}
-	public void setExpVal(long expVal) {
-		this.expVal = expVal;
+	public long getMaxExp() {
+		return maxExp;
+	}
+	public void setMaxExp(long maxExp) {
+		this.maxExp = maxExp;
 	}
 	public int getStars() {
 		return stars;

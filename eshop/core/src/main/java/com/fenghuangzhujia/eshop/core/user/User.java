@@ -45,7 +45,7 @@ public class User extends UUIDBaseModel {
 	/**
 	 * @return the username
 	 */
-	@Column(name="account",unique=true,updatable=false)
+	@Column(unique=true,updatable=false)
 	public String getUsername() {
 		return username;
 	}
@@ -122,8 +122,8 @@ public class User extends UUIDBaseModel {
 	private String trade;
 	private String address;
 	
-	private Long expVal;
-	private Long integra;
+	private long expVal;
+	private long integra;
 	private Date regTime;
 	private String regIp;
 	private Date loginTime;
@@ -311,20 +311,20 @@ public class User extends UUIDBaseModel {
 	 * 经验值
 	 * @return
 	 */
-	public Long getExpVal() {
+	public long getExpVal() {
 		return expVal;
 	}
-	public void setExpVal(Long expVal) {
+	public void setExpVal(long expVal) {
 		this.expVal = expVal;
 	}
 	/**
 	 * 积分
 	 * @return
 	 */
-	public Long getIntegra() {
+	public long getIntegra() {
 		return integra;
 	}
-	public void setIntegra(Long integra) {
+	public void setIntegra(long integra) {
 		this.integra = integra;
 	}
 	/**

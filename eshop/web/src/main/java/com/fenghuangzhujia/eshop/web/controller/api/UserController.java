@@ -22,6 +22,8 @@ import com.fenghuangzhujia.eshop.coupons.CouponsService;
 import com.fenghuangzhujia.eshop.coupons.dto.CouponsDto;
 import com.fenghuangzhujia.eshop.message.MessageService;
 import com.fenghuangzhujia.eshop.message.dto.MessageDto;
+import com.fenghuangzhujia.eshop.userGroup.UserGroupService;
+import com.fenghuangzhujia.eshop.userGroup.dto.UserGroupDto;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
@@ -38,6 +40,8 @@ public class UserController {
 	private MessageService messageService;
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private UserGroupService userGroupService;
 	@Autowired
 	private MessageManager messageManager;
 	
@@ -87,7 +91,11 @@ public class UserController {
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userid=details.getId();
 		UserDto userDto=userService.findOne(userid);
-		return RequestResult.success(userDto).toJson();
+		UserVo result=new UserVo();
+		result.setUser(userDto);
+		UserGroupDto group=userGroupService.inGroup(userDto.getExpVal());
+		result.setGroup(group);
+		return RequestResult.success(result).toJson();
 	}
 	
 	/**
@@ -117,5 +125,27 @@ public class UserController {
 		messageManager.validate(mobile, validater);
 		userService.bindMobile(userid, mobile);
 		return RequestResult.success("绑定成功").toJson();
+	}
+	
+	public static class UserVo {
+		
+		private UserGroupDto group;
+		private UserDto user;
+
+		public UserGroupDto getGroup() {
+			return group;
+		}
+
+		public void setGroup(UserGroupDto group) {
+			this.group = group;
+		}
+
+		public UserDto getUser() {
+			return user;
+		}
+
+		public void setUser(UserDto user) {
+			this.user = user;
+		}
 	}
 }
