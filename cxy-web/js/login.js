@@ -96,10 +96,12 @@ $(function(){
 					}
 					//location.href = "center.html";
 					var token = data.result || "";
-					location.href = "c_my.html?token=" + token;
+					Utils.offLineStore.set("token",token,false);
+					location.href = "c_my.html";
 				}
 				else{
-					alert("登录失败");
+					var msg = data.error || "";
+					alert("登录失败:" + msg);
 				}
 			},
 			error:function(data){

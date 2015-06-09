@@ -10,7 +10,7 @@ $(function(){
 	g.imgCodeId = "";
 	g.sendCode = false;
 	g.sendTime = 60;
-	g.token = Utils.getQueryString("token");
+	g.token = Utils.offLineStore.get("token",false);
 	//验证登录状态
 	var loginStatus = Utils.getUserInfo();
 	if(!loginStatus){
@@ -22,6 +22,13 @@ $(function(){
 	}
 
 	$("#updatebtn").bind("click",updateUserInfo);
+	$("#loginoutbtn").bind("click",loginOut);
+
+	//安全退出
+	function loginOut(){
+		Utils.offLineStore.remove("userinfo",false);
+		location.href = "login.html";
+	}
 
 	//获取个人资料
 	function getUserInfo(){
@@ -39,12 +46,6 @@ $(function(){
 		condi.realName = $("#validname").val();
 		//英文名
 		condi.ename = $("#ename").val();
-		//性别1男2女
-		//condi.sex = 1;
-		var sexRadio = $("#inlineRadio2")[0].checked;
-		if(sexRadio){
-			//condi.sex = 2;
-		}
 		//个人简介
 		condi.intro = $("#message").val();
 		//电子邮箱
@@ -56,21 +57,31 @@ $(function(){
 		//微信
 		//condi.weixin = $("#weixintext").val();
 		//生日
-		condi.birthDay = $("#birthday").val();
+		//condi.birthDay = $("#birthday").val();
 		//行业
 		condi.trade = $("#profession").val();
 		//现居住地
 		condi.address = $("#address").val();
-		//星座
-		//condi.constellation = $("#constellation").val();
-		//血型
-		//condi.bloodgroup = $("#bloodgroup").val();
 
+
+
+		//性别1男2女
+		condi.sex = "404040e64dd26ab5014dd26ac61f0013";
+		var sexRadio = $("#inlineRadio2")[0].checked;
+		if(sexRadio){
+			//condi.sex = 2;
+			condi.sex = "404040e64dd26ab5014dd26ac64e0014";
+		}
+		//血型
+		condi.bloodgroup = $("#bloodgroup").val();
+		//星座
+		condi.constellation = $("#constellation").val();
+		console.log(condi);
 		sendUpdateUserInfoHttp(condi);
 	}
 	//修改个人资料
 	function setUserInfoHtml(data){
-		var obj = data || {};
+		var obj = data.user || {};
 		var nikeName = obj.cnname || "";
 		var validName = obj.realName || "";
 		var eName = obj.ename || "";
@@ -118,6 +129,25 @@ $(function(){
 		$("#constellation").val(constellation);
 		//血型
 		$("#bloodgroup").val(bloodgroup);
+
+
+		var li = [];
+		//li.push('<li>ID：' + obj.username + '</li>');
+		li.push('<li>' + obj.username + '</li>');
+		li.push('<li>5星级用户</li>');
+		$("#user_ul").html(li.join(''));
+
+		var li = [];
+		var loginIp = obj.loginip;
+		var loginTime = obj.loginTime;
+		var regIp = obj.regIp;
+		var regTime = obj.regTime;
+		var integra = obj.integra;
+		li.push('<li>登录 IP<span class="pull-right">' + loginIp + '</span></li>');
+		li.push('<li>注册时间<span class="pull-right">' + loginTime + '</span></li>');
+		li.push('<li>登录时间<span class="pull-right">' + regTime + '</span></li>');
+		li.push('<li>用户积分<span class="pull-right">' + integra + '分</span></li>');
+		$("#logintime").html(li.join(''));
 	}
 
 
@@ -190,9 +220,10 @@ $(function(){
 				console.log(data);
 				var status = data.status || "";
 				if(status == "OK"){
+					alert("修改个人资料成功");
 				}
 				else{
-					alert("验证码获取失败");
+					alert("修改个人资料失败");
 				}
 			},
 			error:function(data){
