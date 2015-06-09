@@ -2,9 +2,6 @@ package com.fenghuangzhujia.eshop.artical.dto;
 
 import java.util.Set;
 
-import org.springframework.web.multipart.MultipartFile;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fenghuangzhujia.eshop.core.menu.dto.MenuVo;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 import com.fenghuangzhujia.foundation.media.MediaContentDto;

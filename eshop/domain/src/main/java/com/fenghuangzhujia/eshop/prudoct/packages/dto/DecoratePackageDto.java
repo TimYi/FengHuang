@@ -2,8 +2,8 @@ package com.fenghuangzhujia.eshop.prudoct.packages.dto;
 
 import java.util.Set;
 
-import com.fenghuangzhujia.eshop.core.brand.dto.BrandDto;
-import com.fenghuangzhujia.eshop.core.menu.dto.MenuDto;
+import com.fenghuangzhujia.eshop.core.brand.dto.BrandVo;
+import com.fenghuangzhujia.eshop.core.menu.dto.MenuVo;
 import com.fenghuangzhujia.eshop.prudoct.detail.DecorateDetail;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 import com.fenghuangzhujia.foundation.dics.dto.CategoryItemDto;
@@ -11,8 +11,8 @@ import com.fenghuangzhujia.foundation.media.MediaContentDto;
 
 public class DecoratePackageDto extends DtoBaseModel {
 
-	private MenuDto menu;
-	private BrandDto brand;
+	private MenuVo menu;
+	private BrandVo brand;
 	private String title;
 	private Double marketPrice;
 	private Double salePrice;
@@ -31,16 +31,16 @@ public class DecoratePackageDto extends DtoBaseModel {
 	private String keywrods;
 	private Set<DecorateDetail> details;
 	
-	public MenuDto getMenu() {
+	public MenuVo getMenu() {
 		return menu;
 	}
-	public void setMenu(MenuDto menu) {
+	public void setMenu(MenuVo menu) {
 		this.menu = menu;
 	}
-	public BrandDto getBrand() {
+	public BrandVo getBrand() {
 		return brand;
 	}
-	public void setBrand(BrandDto brand) {
+	public void setBrand(BrandVo brand) {
 		this.brand = brand;
 	}
 	public String getTitle() {

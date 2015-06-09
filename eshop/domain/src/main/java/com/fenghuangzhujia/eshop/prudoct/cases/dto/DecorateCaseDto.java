@@ -2,7 +2,7 @@ package com.fenghuangzhujia.eshop.prudoct.cases.dto;
 
 import java.util.Set;
 
-import com.fenghuangzhujia.eshop.core.brand.dto.BrandDto;
+import com.fenghuangzhujia.eshop.core.brand.dto.BrandVo;
 import com.fenghuangzhujia.eshop.core.menu.dto.MenuVo;
 import com.fenghuangzhujia.eshop.prudoct.detail.DecorateDetail;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
@@ -12,7 +12,7 @@ import com.fenghuangzhujia.foundation.media.MediaContentDto;
 public class DecorateCaseDto extends DtoBaseModel {
 	private String title;
 	private MenuVo menu;
-	private BrandDto brand;
+	private BrandVo brand;
 	private MediaContentDto mainPic;
 	private MediaContentDto thumbnails;
 	private Set<MediaContentDto> pics;
@@ -32,10 +32,10 @@ public class DecorateCaseDto extends DtoBaseModel {
 	public void setMenu(MenuVo menu) {
 		this.menu = menu;
 	}
-	public BrandDto getBrand() {
+	public BrandVo getBrand() {
 		return brand;
 	}
-	public void setBrand(BrandDto brand) {
+	public void setBrand(BrandVo brand) {
 		this.brand = brand;
 	}
 	public String getTitle() {
