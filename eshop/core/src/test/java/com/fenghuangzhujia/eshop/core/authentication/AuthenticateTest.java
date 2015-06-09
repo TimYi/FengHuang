@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.fenghuangzhujia.eshop.core.authentication.role.Role;
 import com.fenghuangzhujia.eshop.core.authentication.role.RoleService;
 import com.fenghuangzhujia.eshop.core.user.UserService;
 
@@ -33,7 +32,7 @@ public class AuthenticateTest {
 	
 	@Test
 	public void addUser() {
-		authenticationManager.regist("18612444099", "123456");
+		authenticationManager.regist("18612444099", "123456", null);
 	}
 	
 	//@Test

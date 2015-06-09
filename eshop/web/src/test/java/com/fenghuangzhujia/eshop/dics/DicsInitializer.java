@@ -198,7 +198,7 @@ public class DicsInitializer {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void initSex() {
 		String name="性别";
 		String remark="性别";
@@ -220,7 +220,7 @@ public class DicsInitializer {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void initBloodType() {
 		String name="血型";
 		String remark="血型";
@@ -242,7 +242,7 @@ public class DicsInitializer {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void initConstellation() {
 		String name="星座";
 		String remark="星座";
@@ -259,6 +259,31 @@ public class DicsInitializer {
 			CategoryItemDto item=new CategoryItemDto();
 			item.setType(type);
 			item.setName(name);
+			item.setPriority(priority);
+			categoryItemService.add(item);
+		}
+	}
+	
+	@Test
+	public void initColors() {
+		String name="颜色";
+		String remark="通用颜色";
+		String type=Dics.COLOR;
+		CategoryDto t=new CategoryDto();
+		t.setName(name);
+		t.setRemark(remark);
+		t.setType(type);
+		t=categoryService.add(t);
+		String[] names = { "黑色", "白色" };
+		String[] colors = { "#000000", "#FFFFFF"};
+		for (int i = 0; i < names.length; i++) {
+			name=names[i];
+			String attr=colors[i];
+			Integer priority=i+1;
+			CategoryItemDto item=new CategoryItemDto();
+			item.setType(type);
+			item.setName(name);
+			item.setAttr(attr);
 			item.setPriority(priority);
 			categoryItemService.add(item);
 		}

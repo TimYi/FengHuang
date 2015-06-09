@@ -1,6 +1,7 @@
 package com.fenghuangzhujia.eshop.web.controller.api;
 
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,8 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.validate.captcha.CaptchaManager;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
-import com.fenghuangzhujia.eshop.utils.web.ImageResponseUtil;
+import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
+import com.fenghuangzhujia.foundation.utils.Servlets;
 import com.fenghuangzhujia.foundation.utils.validater.PhoneNumberValidater;
 
 @RestController
@@ -38,6 +40,10 @@ public class ValidateController {
 	@RequestMapping(value="captcha",method=RequestMethod.GET)
 	public void captcha(@RequestParam String id,HttpServletResponse response) {
 		BufferedImage image=captchaManager.create(id);
-		ImageResponseUtil.writeBufferedImage(response, image, "png");
+		try {
+			Servlets.writeBufferedImage(response, image, "png");
+		} catch (IOException e) {
+			throw new ErrorCodeException(SystemErrorCodes.OTHER, e);
+		}		
 	}
 }

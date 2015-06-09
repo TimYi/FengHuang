@@ -1,5 +1,7 @@
 package com.fenghuangzhujia.eshop.web.controller.api;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +15,7 @@ import com.fenghuangzhujia.eshop.core.validate.captcha.CaptchaManager;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
+import com.fenghuangzhujia.foundation.utils.Servlets;
 
 @RestController
 public class AccountController {
@@ -26,9 +29,11 @@ public class AccountController {
 	private CaptchaManager captchaManager;
 	
 	@RequestMapping(value="login",method=RequestMethod.POST)
-	public String login(@RequestParam String username,@RequestParam String password,@RequestParam String captcha) {
+	public String login(@RequestParam String username,@RequestParam String password,@RequestParam String captcha,
+			HttpServletRequest request) {
 		captchaManager.validate(username, captcha);
-		UserToken token=manager.login(username, password);
+		String ip=Servlets.getClientIp(request);
+		UserToken token=manager.login(username, password, ip);
 		String tokenString=token.getToken();
 		return RequestResult.success(tokenString).toJson();
 	}
@@ -61,9 +66,10 @@ public class AccountController {
 	 */
 	@RequestMapping(value="regist",method=RequestMethod.POST)
 	public String regist(@RequestParam String username,@RequestParam String password,
-			@RequestParam String mobile,@RequestParam String validater) {
+			@RequestParam String mobile,@RequestParam String validater, HttpServletRequest request) {
 		messageManager.validate(mobile, validater);
-		UserToken token=manager.regist(username, password);
+		String ip=Servlets.getClientIp(request);
+		UserToken token=manager.regist(username, password, ip);
 		String tokenString=token.getToken();
 		return RequestResult.success(tokenString).toJson();
 	}

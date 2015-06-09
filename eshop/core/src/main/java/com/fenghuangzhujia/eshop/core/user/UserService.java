@@ -52,7 +52,9 @@ public class UserService extends DtoSpecificationService<User, UserDto, UserInpu
 		User user=getRepository().findOne(t.getId());
 		//要处理密码更新问题
 		String password=user.getPassword();
+		String username=user.getUsername();
 		user=adapter.update(t, user);
+		user.setUsername(username);//禁止更新用户名
 		user.setPassword(password);//禁止直接更新密码
 		getRepository().save(user);
 		return adapter.convert(user);

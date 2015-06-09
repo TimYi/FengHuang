@@ -26,10 +26,11 @@ public interface AuthenticationManager extends UserDetailsService {
 	 * 用户登录并获取返回token
 	 * @param username
 	 * @param password
+	 * @param ip 登录ip地址
 	 * @return
 	 * @throws LoginException
 	 */
-	UserToken login(String username, String password) throws ErrorCodeException;
+	UserToken login(String username, String password, String ip) throws ErrorCodeException;
 	
 	/**
 	 * 通过token验证用户身份，返回User之前，一定要将所有 @BasicAuthority 提前计算赋值。可以有缓存算法。
@@ -43,10 +44,11 @@ public interface AuthenticationManager extends UserDetailsService {
 	 * 注册新用户，并返回token
 	 * @param username
 	 * @param password
+	 * @param ip 注册ip地址
 	 * @return
 	 * @throws RegistException
 	 */
-	UserToken regist(String username, String password) throws ErrorCodeException;
+	UserToken regist(String username, String password, String ip) throws ErrorCodeException;
 	
 	/**
 	 * 用户自行变更密码

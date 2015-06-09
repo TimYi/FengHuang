@@ -2,6 +2,7 @@ package com.fenghuangzhujia.eshop.core.user.dto;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
@@ -17,6 +18,7 @@ public class UserInputArgs extends DtoBaseModel {
 	private String ename;	
 	private String intro;
 	private String email;	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date birthDay;	
 	private String trade;
 	private String address;

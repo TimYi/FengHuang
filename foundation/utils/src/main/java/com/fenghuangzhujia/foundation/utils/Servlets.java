@@ -5,6 +5,8 @@
  *******************************************************************************/
 package com.fenghuangzhujia.foundation.utils;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.Map;
@@ -12,14 +14,15 @@ import java.util.Map.Entry;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 
+import javax.imageio.ImageIO;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.Validate;
+
 import com.fenghuangzhujia.foundation.utils.Collections3;
 import com.fenghuangzhujia.foundation.utils.Encodes;
-
 import com.google.common.base.Charsets;
 import com.google.common.net.HttpHeaders;
 
@@ -201,5 +204,38 @@ public class Servlets {
 	public static String encodeHttpBasic(String userName, String password) {
 		String encode = userName + ":" + password;
 		return "Basic " + Encodes.encodeBase64(encode.getBytes());
+	}
+	
+	/**
+	 * 获取客户端ip地址，为了在使用反向代理的时候能够正确的获取ip，提供此方法
+	 * @param request
+	 * @return
+	 */
+	public static String getClientIp(HttpServletRequest request) {
+		String ip=request.getHeader("x-forwarded-for");
+		if(ip==null || ip.length()==0 || "unknown".equalsIgnoreCase(ip)){
+			 ip=request.getHeader("Proxy-Client-IP");
+		}
+		if(ip==null || ip.length()==0 || "unknown".equalsIgnoreCase(ip)){
+			 ip=request.getHeader("WL-Proxy-Client-IP");
+		}
+		if(ip==null || ip.length()==0 || "unknown".equalsIgnoreCase(ip)){
+			ip=request.getRemoteAddr();
+		}
+		return ip;
+	}
+	
+	/**
+	 * 输出图片
+	 * @param response
+	 * @param image 图片
+	 * @param sufix 图片后缀
+	 */
+	public static void writeBufferedImage
+		(HttpServletResponse response,BufferedImage image, String sufix) throws IOException {
+		response.setHeader("Cache-Control", "private,no-cache,no-store");
+        response.setContentType("image/"+sufix);
+        ImageIO.write(image, sufix, response.getOutputStream());
+        response.getOutputStream().close();
 	}
 }

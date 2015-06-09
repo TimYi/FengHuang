@@ -55,4 +55,9 @@ public class Dics {
 	 * 血型
 	 */
 	public final static String CONSTELLATION="constellation";
+	
+	/**
+	 * 通用颜色
+	 */
+	public final static String COLOR="color";
 }

@@ -11,6 +11,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.apache.commons.lang3.StringUtils;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fenghuangzhujia.eshop.core.authentication.authority.AbstractAuthority;
@@ -373,5 +376,17 @@ public class User extends UUIDBaseModel {
 	}
 	public void setWeiboid(String weiboid) {
 		this.weiboid = weiboid;
+	}
+	
+	/**
+	 * 判断用户信息是否完整
+	 * @return
+	 */
+	@Transient
+	public boolean getInfoComplete() {
+		if(StringUtils.isBlank(cnname))return false;
+		if(StringUtils.isBlank(realName))return false;
+		if(StringUtils.isBlank(mobile))return false;
+		return true;
 	}
 }

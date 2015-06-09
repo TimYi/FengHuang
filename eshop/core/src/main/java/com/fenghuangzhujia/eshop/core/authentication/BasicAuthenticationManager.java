@@ -2,6 +2,9 @@ package com.fenghuangzhujia.eshop.core.authentication;
 
 import static com.fenghuangzhujia.eshop.core.base.SystemErrorCodes.*;
 
+import java.util.Date;
+
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -53,7 +56,7 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	}
 
 	@Override
-	public UserToken login(String username, String password) throws ErrorCodeException {
+	public UserToken login(String username, String password, String ip) throws ErrorCodeException {
 		User user=userRepository.getByUsername(username);
 		if(user==null) {
 			throw new ErrorCodeException(LOGIN_ERROR,"用户名不存在");
@@ -64,6 +67,11 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 		if(!ENCODER.matches(password, pwd)) {
 			throw new ErrorCodeException(LOGIN_ERROR, "密码错误，请重新输入");
 		}
+		user.setLoginTime(new Date());//保存用户登录时间
+		if(StringUtils.isNotBlank(ip)) {
+			user.setLoginip(ip);//保存用户登录ip
+		}		
+	    userRepository.save(user);
 		UserToken token=tokenRepository.getByUser(user);
 		if(token==null) {
 			token=new UserToken();		
@@ -76,7 +84,7 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	}
 
 	@Override
-	public UserToken regist(String username, String password)
+	public UserToken regist(String username, String password, String ip)
 			throws ErrorCodeException {
 		try {
 			checkAccount(username);
@@ -95,6 +103,8 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 		}
 		user.setPassword(password);
 		user.setVerified(true);
+		user.setRegIp(ip);//保存用户注册id
+		user.setRegTime(new Date());//保存用户注册时间
 		entryptPassword(user);
 		user=userRepository.save(user);
 		UserToken token=tokenRepository.getByUser(user);
@@ -122,7 +132,7 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	public UserToken changePassword(String username, String newPassword,
 			String oldPassword) throws ErrorCodeException {
 		try {
-			UserToken t=login(username, oldPassword);
+			UserToken t=login(username, oldPassword, null);
 			User user=t.getUser();
 			checkPassword(newPassword);
 			user.setPassword(newPassword);

@@ -20,6 +20,8 @@ import com.fenghuangzhujia.eshop.core.user.dto.UserInputArgs;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
 import com.fenghuangzhujia.eshop.coupons.CouponsService;
 import com.fenghuangzhujia.eshop.coupons.dto.CouponsDto;
+import com.fenghuangzhujia.eshop.message.MessageService;
+import com.fenghuangzhujia.eshop.message.dto.MessageDto;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
@@ -32,6 +34,8 @@ public class UserController {
 	private CommentItemService commentService;
 	@Autowired
 	private CouponsService couponsService;
+	@Autowired
+	private MessageService messageService;
 	@Autowired
 	private UserService userService;
 	@Autowired
@@ -63,6 +67,14 @@ public class UserController {
 		} else {
 			result=couponsService.findUserCoupons(userid);
 		}
+		return RequestResult.success(result).toJson();
+	}
+	
+	@RequestMapping(value="user/messages",method=RequestMethod.GET)
+	public String messages(@RequestParam(defaultValue="1") Integer page,@RequestParam(defaultValue="8") Integer size) {
+		SimpleUserDetails details=AuthenticationService.getUserDetail();
+		String userid=details.getId();
+		PagedList<MessageDto> result=messageService.findByUser(userid, page, size);
 		return RequestResult.success(result).toJson();
 	}
 	

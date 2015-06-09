@@ -36,6 +36,7 @@ public class UserDto extends DtoBaseModel {
 	private Date loginTime;
 	private String loginip;	
 	private String weiboid;
+	private boolean infoComplete;
 	
 	public String getUsername() {
 		return username;
@@ -192,5 +193,11 @@ public class UserDto extends DtoBaseModel {
 	}
 	public void setWeiboid(String weiboid) {
 		this.weiboid = weiboid;
+	}
+	public boolean getInfoComplete() {
+		return infoComplete;
+	}
+	public void setInfoComplete(boolean infoComplete) {
+		this.infoComplete = infoComplete;
 	}
 }
