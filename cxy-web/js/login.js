@@ -11,6 +11,7 @@ $(function(){
 	g.tout = null;
 
 	$("#inputEmail3").bind("blur",getImgCode);
+	$("#updatecodebtn").bind("click",getImgCode);
 	$("#loginbtn").bind("click",loginBtnUp);
 	$("#regbtn").bind("click",openRegPage);
 	$("#inputCode3").bind("keydown",codeKeyDown);
@@ -96,10 +97,12 @@ $(function(){
 					}
 					//location.href = "center.html";
 					var token = data.result || "";
-					location.href = "c_my.html?token=" + token;
+					Utils.offLineStore.set("token",token,false);
+					location.href = "center.html?token=" + token + "&p=0";
 				}
 				else{
-					alert("登录失败");
+					var msg = data.error || "";
+					alert("登录失败:" + msg);
 				}
 			},
 			error:function(data){

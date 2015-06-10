@@ -7,6 +7,7 @@
 $(function(){
 	var g = {};
 	g.phone = "";
+	g.token = Utils.getQueryString("token");
 
 	//验证登录状态
 	Utils.getUserInfo();
