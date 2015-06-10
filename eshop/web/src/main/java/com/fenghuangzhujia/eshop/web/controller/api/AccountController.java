@@ -49,9 +49,9 @@ public class AccountController {
 	 */
 	@RequestMapping(value="changePassword",method=RequestMethod.POST)
 	public String changePassword(@RequestParam String username,@RequestParam String oldPassword,
-			@RequestParam String newPassword, @RequestParam String comfirmPassword,@RequestParam String captcha) {
+			@RequestParam String newPassword, @RequestParam String confirmPassword,@RequestParam String captcha) {
 		captchaManager.validate(username, captcha);
-		if(!newPassword.equals(comfirmPassword))throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "两次输入的密码不一致，请重新输入");
+		if(!newPassword.equals(confirmPassword))throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "两次输入的密码不一致，请重新输入");
 		UserToken token=manager.changePassword(username, newPassword, oldPassword);
 		return RequestResult.success(token.getToken()).toJson();
 	}
