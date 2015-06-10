@@ -1,5 +1,5 @@
 /**
- * file:个人资料
+ * file:安全设置
  * author:chenxy
  * date:2015-06-05
 */

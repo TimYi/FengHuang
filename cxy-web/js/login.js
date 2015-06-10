@@ -11,6 +11,7 @@ $(function(){
 	g.tout = null;
 
 	$("#inputEmail3").bind("blur",getImgCode);
+	$("#updatecodebtn").bind("click",getImgCode);
 	$("#loginbtn").bind("click",loginBtnUp);
 	$("#regbtn").bind("click",openRegPage);
 	$("#inputCode3").bind("keydown",codeKeyDown);
@@ -97,7 +98,7 @@ $(function(){
 					//location.href = "center.html";
 					var token = data.result || "";
 					Utils.offLineStore.set("token",token,false);
-					location.href = "c_my.html";
+					location.href = "center.html?token=" + token + "&p=0";
 				}
 				else{
 					var msg = data.error || "";

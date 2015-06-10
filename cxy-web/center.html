@@ -124,14 +124,13 @@
 																		<div style="padding-right:20px">
 																				<img src="images/blog/avatar3.png" alt=""  style="-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius:50%;border:3px #f9f9f9 solid"/>
 																		</div>
-																		<div style="padding:5px 50px 0 50px">
-																			<ul style="list-style:none;">
-																				<li>ID：102031</li>
-																				<li>SCOSUN</li>
-																				<li>5星级用户</li>
+																		<div style="padding:18px 50px 0 50px">
+																			<ul id="user_ul" style="list-style:none;">
+																				<li><!--SCOSUN--></li>
+																				<li><!--5星级用户--></li>
 																			</ul>
-																			<ul style="list-style:none;float:right;margin:-70px 5px 0 0">
-																				<button type="submit" class="btn btn-primary btn-lg" required="required" style="font-size:15px;width:80px;background:orange">安全退出</button>
+																			<ul style="list-style:none;float:right;margin:-60px 5px 0 0">
+																				<button id="loginoutbtn" type="button" class="btn btn-primary btn-lg" required="required" style="font-size:15px;width:94px;background:orange">安全退出</button>
 																			</ul>
 																		</div>
 
@@ -149,12 +148,12 @@
 
                         <div class="row">
                             <div class="col-sm-12">
-                                <ul class="blog_archieve" style="width:300px">
-                                    <li>登录 IP<span class="pull-right">123.57.218.171 [ 北京海淀 ]</span></li>
-                                    <li>注册时间<span class="pull-right">2015-06-02 18:00:12</span></li>
-                                    <li>登录时间<span class="pull-right">2015-06-02 18:00:12</span></li>
-                                    <li>用户积分<span class="pull-right">12314 分</span></li>
-                                </ul>
+                                <ul id="logintime" class="blog_archieve" style="width:300px">
+					<li>登录 IP<span class="pull-right"><!--123.57.218.171 [ 北京海淀 ]--></span></li>
+					<li>注册时间<span class="pull-right"><!--2015-06-02 18:00:12</span>--></li>
+					<li>登录时间<span class="pull-right"><!--2015-06-02 18:00:12</span>--></li>
+					<li>用户积分<span class="pull-right"><!--12314 分</span>--></li>
+				</ul>
                             </div>
                         </div>
                     </div> <!--/.archieve-->
@@ -162,18 +161,18 @@
                     <div class="widget categories">
                         <div class="row">
                             <div class="col-sm-6">
-                                <ul class="blog_category">
-                                		<li><a href="c_my.html"  style="background:#b9090e;color:#fff">个人信息 </a></li>
-                                		<li><a href="c_safe.html">安全设置 </a></li>
-                                		<li><a href="c_home.html">房屋信息 </a></li>
-                                		<li><a href="c_ing.html">家装进度 </a></li>
-                                    <li><a href="c_message.html">我的留言 <span class="badge">2</span></a></li>
-                                    <li><a href="c_sub.html">我的预约 <span class="badge">1</span></a></li>
-                                    <li><a href="c_order.html">我的订单 <span class="badge">1</span></a></li>
-                                    <li><a href="c_comment.html">我的评论 <span class="badge">12</span></a></li>
-                                    <li><a href="c_fav.html">我的收藏 <span class="badge">1</span></a></li>
-                                    <li><a href="c_coupon.html">我的优惠券 <span class="badge">2</span></a></li>
-                                </ul>
+                                <ul id="userfunul" class="blog_category">
+					<li><a href="c_my.html" >个人信息 </a></li>
+					<li><a href="c_safe.html">安全设置 </a></li>
+					<li><a href="c_home.html">房屋信息 </a></li>
+					<li><a href="c_ing.html">家装进度 </a></li>
+					<li><a href="c_message.html">我的留言 <span class="badge">2</span></a></li>
+					<li><a href="c_sub.html">我的预约 <span class="badge">1</span></a></li>
+					<li><a href="c_order.html">我的订单 <span class="badge">1</span></a></li>
+					<li><a href="c_comment.html">我的评论 <span class="badge">12</span></a></li>
+					<li><a href="c_fav.html">我的收藏 <span class="badge">1</span></a></li>
+					<li><a href="c_coupon.html">我的优惠券 <span class="badge">2</span></a></li>
+				</ul>
                             </div>
                         </div>
                     </div><!--/.categories-->
@@ -421,6 +420,7 @@
 	<script src="libs/json.js"></script>
 	<script src="libs/base.js"></script>
 	<script src="libs/utils.js"></script>
+	<script src="js/c_my.js"></script>
 	<script src="js/center.js"></script>
 </body>
 </html>
