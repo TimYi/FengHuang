@@ -201,7 +201,7 @@
 					                    <div class="message_heading right_margin_top_1">
 					                        <h4>预约列表</h4>
 					                    </div>
-															<div class="table table-striped">
+															<div id="subtable" class="table table-striped">
 															  <table class="table u_ct">
 															    <tr class="u_th">
 															    	<th width=25%>预约编号</th>
@@ -209,6 +209,7 @@
 															    	<th>预约时间</th>
 															    	<th width=150>操作</th>
 															    </tr>
+															    <!--
 															    <tr>
 															    	<td >YY01023012</td>
 															    	<td >免费量房</td>
@@ -263,9 +264,23 @@
 															    	<td >2015-06-02 10:00</td>
 															    	<td><a href="#">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">修改</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">取消</a></td>
 															    </tr>
-
+																-->
 															  </table>
 															</div>
+					<div id="subpage" style="clear:both;display:none;" class="center" >
+					          <ul class="pagination pagination-lg ">
+					              <li><a href="#"><i class="fa fa-step-backward"></i></a></li>
+					              <li><a href="#"><i class="fa fa-caret-left" style="font-size:1.5em"></i></a></li>
+					              <li class="active"><a href="#">1</a></li>
+					              <li><a href="#">2</a></li>
+					              <li><a href="#">3</a></li>
+					              <li><a href="#">...</a></li>
+					              <li><a href="#">49</a></li>
+					              <li><a href="#">50</a></li>
+					              <li><a href="#"><i class="fa fa-caret-right" style="font-size:1.5em"></i></a></li>
+					              <li><a href="#"><i class="fa fa-step-forward"></i></a></li>
+					          </ul><!--/.pagination-->
+				        </div>
                             </form>
                         </div><!--/#contact-page-->
 
@@ -389,5 +404,6 @@
 	<script src="libs/base.js"></script>
 	<script src="libs/utils.js"></script>
 	<script src="js/c_my.js"></script>
+	<script src="js/c_sub.js"></script>
 </body>
 </html>

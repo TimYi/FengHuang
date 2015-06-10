@@ -103,6 +103,7 @@ $(function(){
 				else{
 					var msg = data.error || "";
 					alert("登录失败:" + msg);
+					getImgCode();
 				}
 			},
 			error:function(data){

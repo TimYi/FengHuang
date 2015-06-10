@@ -68,16 +68,16 @@ $(function(){
 
 
 		//性别1男2女
-		condi.sex = "404040e64dd26ab5014dd26ac61f0013";
+		condi.sexId = "404040e64dd26ab5014dd26ac61f0013";
 		var sexRadio = $("#inlineRadio2")[0].checked;
 		if(sexRadio){
 			//condi.sex = 2;
-			condi.sex = "404040e64dd26ab5014dd26ac64e0014";
+			condi.sexId = "404040e64dd26ab5014dd26ac64e0014";
 		}
 		//血型
-		condi.bloodgroup = $("#bloodgroup").val();
+		condi.bloodTypeId = $("#bloodgroup").val();
 		//星座
-		condi.constellation = $("#constellation").val();
+		condi.constellationId = $("#constellation").val();
 		console.log(condi);
 		sendUpdateUserInfoHttp(condi);
 	}
@@ -87,7 +87,7 @@ $(function(){
 		var nikeName = obj.cnname || "";
 		var validName = obj.realName || "";
 		var eName = obj.ename || "";
-		var sex = obj.sex || 1;
+		var sex = obj.sex || "404040e64dd26ab5014dd26ac61f0013";
 		var message = obj.intro || "";
 		var email = obj.email || "";
 		var phone = obj.mobile || "";
@@ -96,10 +96,11 @@ $(function(){
 		var birthday = obj.birthDay || "";
 		var profession = obj.trade || "";
 		var address = obj.address || "";
-		var constellation = obj.constellation || "";
-		var bloodgroup = obj.bloodType || "";
+		var constellation = obj.constellation || {};
+		var bloodgroup = obj.bloodType || {};
 
 		g.username = obj.username;
+		Base.userName = obj.username;
 
 		//昵称
 		$("#nikename").val(nikeName);
@@ -108,8 +109,10 @@ $(function(){
 		//英文名
 		$("#ename").val(eName);
 		//性别1男2女
-		if(sex !== 1){
-			$("#inlineRadio2")[0].checked = true;
+		if(sex !== "404040e64dd26ab5014dd26ac61f0013"){
+			if($("#inlineRadio2").length > 0){
+				$("#inlineRadio2")[0].checked = true;
+			}
 		}
 		//个人简介
 		$("#message").val(message);
@@ -128,9 +131,9 @@ $(function(){
 		//现居住地
 		$("#address").val(address);
 		//星座
-		$("#constellation").val(constellation);
+		$("#constellation").val(constellation.id);
 		//血型
-		$("#bloodgroup").val(bloodgroup);
+		$("#bloodgroup").val(bloodgroup.id);
 
 
 		var li = [];
@@ -221,7 +224,9 @@ $(function(){
 					setUserInfoHtml(data.result);
 				}
 				else{
-					alert("获取个人信息错误");
+					var msg = data.error || "";
+					alert("获取个人信息错误:" + msg);
+					location.href = "login.html";
 				}
 			},
 			error:function(data){
