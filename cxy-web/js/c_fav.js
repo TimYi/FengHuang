@@ -1,5 +1,5 @@
 /**
- * file:我的留言
+ * file:我的收藏
  * author:chenxy
  * date:2015-06-05
 */
@@ -18,10 +18,10 @@ $(function(){
 	g.paseSize = 20;
 
 
-	getMyMessage();
+	getMyOrder();
 
-	//获取我的留言
-	function getMyMessage(){
+	//获取我的收藏
+	function getMyFav(){
 		//token:用户凭据
 		//page:当前页码
 		//size:每页数据量
@@ -29,28 +29,28 @@ $(function(){
 		condi.token = g.token;
 		condi.page = g.currentPage;
 		condi.size = g.paseSize;
+		condi.status = "";
 
-		sendGetMyMessageHttp(condi);
+		sendGetMyFavHttp(condi);
 	}
 
-	//修改我的留言列表
-	function changeMessageListHtml(data){
+	//修改我的收藏列表
+	function changeFavListHtml(data){
 		var obj = data.result || [];
 		if(obj.length > 0){
 			var html = [];
-
 			html.push('<table class="table u_ct">');
 			html.push('<tr class="u_th">');
-			html.push('<th>标题</th>');
-			html.push('<th>发送人</th>');
-			html.push('<th width=150>时间</th>');
-			html.push('<th width=100>操作</th>');
+			html.push('<th width=50%>收藏内容</th>');
+			html.push('<th width=90>收藏栏目</th>');
+			html.push('<th width=120>收藏时间</th>');
+			html.push('<th width=80>操作</th>');
 			html.push('</tr>');
 
 			for(var i = 0,len = obj.length; i < len; i++){
 				var msg = obj[i].content || "";
-				var name = obj[i].sender || "系统管理员";
-				var time = obj[i].createTime || "2015-06-02 10:00";
+				var name = "系统管理员";
+				var time =  "2015-06-02 10:00";
 				html.push('<tr>');
 				html.push('<td >' + msg + '</td>');
 				html.push('<td >' + name + '</td>');
@@ -60,7 +60,7 @@ $(function(){
 			}
 			html.push('</table>');
 
-			$("#messagetable").html(html.join(''));
+			$("#favtable").html(html.join(''));
 
 			var totalpages = data.totalPages - 0;
 			g.totalPage = totalpages;
@@ -114,9 +114,10 @@ $(function(){
 			html.push('<li class="l_page"><a href="#"><i class="fa fa-step-forward"></i></a></li>');
 			html.push('</ul>');
 		}
-		$("#messagepage").show();
-		$("#messagepage").html(html.join(''));
-		$("#messagepage > ul > li").bind("click",pageClick);
+
+		$("#favpage").show();
+		$("#favpage").html(html.join(''));
+		$("#favpage > ul > li").bind("click",pageClick);
 	}
 
 	function pageClick(evt){
@@ -166,13 +167,13 @@ $(function(){
 		condi.token = g.token;
 		condi.page = g.currentPage;
 		condi.size = g.paseSize;
-		sendGetMyMessageHttp(condi);
+		sendGetMyFavHttp(condi);
 	}
 
 
-	//获取我的留言
-	function sendGetMyMessageHttp(condi){
-		var url = Base.messagesUrl;
+	//获取我的收藏
+	function sendGetMyFavHttp(condi){
+		var url = Base.collectsUrl;
 		$.ajax({
 			url:url,
 			data:condi,
@@ -184,11 +185,11 @@ $(function(){
 				console.log(data);
 				var status = data.status || "";
 				if(status == "OK"){
-					changeMessageListHtml(data.result);
+					changeFavListHtml(data.result);
 				}
 				else{
 					var msg = data.error || "";
-					alert("获取我的留言错误:" + msg);
+					alert("获取我的收藏错误:" + msg);
 				}
 			},
 			error:function(data){

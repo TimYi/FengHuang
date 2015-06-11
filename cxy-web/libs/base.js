@@ -30,6 +30,8 @@
 	var orderUrl = serverUrl + "/api/user/orders";
 	var commentUrl = serverUrl + "/api/comments";
 	var couponsUrl = serverUrl + "/api/user/coupons";
+	var collectsUrl = serverUrl + "/api/user/collects";
+	var bindMobile = serverUrl + "/api/user/bindMobile";
 
 	Base.userName = userName;
 	Base.urlPort = urlPort;
@@ -45,6 +47,8 @@
 	Base.orderUrl = orderUrl;
 	Base.commentUrl = commentUrl;
 	Base.couponsUrl = couponsUrl;
+	Base.collectsUrl = collectsUrl;
+	Base.bindMobile = bindMobile;
 }(window));
 
 

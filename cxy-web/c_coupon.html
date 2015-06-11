@@ -196,7 +196,7 @@
 								          <div class="message_heading">
 								              <h4 style="margin:-40px 0 -20px 0">我的优惠券</h4>
 								          </div>
-													<div class="table table-striped">
+													<div id="coupontable" class="table table-striped">
 													  <table class="table u_ct">
 													    <tr class="u_th">
 													    	<th width=100>优惠券编号</th>
@@ -204,6 +204,7 @@
 													    	<th width=120>时间</th>
 													    	<th width=80>状态</th>
 													    </tr>
+													    <!--
 													    <tr>
 													    	<td >YHQ0123123</td>
 													    	<td >购买499元/㎡新居家装套餐，享受折上折优惠</td>
@@ -228,8 +229,23 @@
 													    	<td >2015-06-02 10:00</td>
 													    	<td>未使用</td>
 													    </tr>
+													    -->
 													  </table>
 													</div>
+					<div id="couponpage" style="clear:both;display:none;" class="center" >
+					          <ul class="pagination pagination-lg ">
+					              <li><a href="#"><i class="fa fa-step-backward"></i></a></li>
+					              <li><a href="#"><i class="fa fa-caret-left" style="font-size:1.5em"></i></a></li>
+					              <li class="active"><a href="#">1</a></li>
+					              <li><a href="#">2</a></li>
+					              <li><a href="#">3</a></li>
+					              <li><a href="#">...</a></li>
+					              <li><a href="#">49</a></li>
+					              <li><a href="#">50</a></li>
+					              <li><a href="#"><i class="fa fa-caret-right" style="font-size:1.5em"></i></a></li>
+					              <li><a href="#"><i class="fa fa-step-forward"></i></a></li>
+					          </ul><!--/.pagination-->
+				        </div>
 								        </form>
 								    </div><!--/#contact-page-->
 
@@ -354,5 +370,6 @@
 	<script src="libs/base.js"></script>
 	<script src="libs/utils.js"></script>
 	<script src="js/c_my.js"></script>
+	<script src="js/c_coupon.js"></script>
 </body>
 </html>
