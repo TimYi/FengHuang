@@ -29,7 +29,6 @@ $(function(){
 		condi.token = g.token;
 		condi.page = g.currentPage;
 		condi.size = g.paseSize;
-		condi.status = "";
 
 		sendGetMyCommentHttp(condi);
 	}
@@ -41,23 +40,23 @@ $(function(){
 			var html = [];
 			html.push('<table class="table u_ct">');
 			html.push('<tr class="u_th">');
-			html.push('<th width=50%>评论内容</th>');
-			html.push('<th width=90>栏目</th>');
-			html.push('<th width=90>回复 / 转发</th>');
+			html.push('<th width=40%>评论内容</th>');
+			html.push('<th width=100>栏目</th>');
+			html.push('<th width=100>回复 / 转发</th>');
 			html.push('<th>评论时间</th>');
-			html.push('<th width=50>操作</th>');
+			html.push('<th width=80>操作</th>');
 			html.push('</tr>');
 
 			for(var i = 0,len = obj.length; i < len; i++){
 				var msg = obj[i].content || "";
-				var name = "系统管理员";
-				var time =  "2015-06-02 10:00";
+				var name = "";
+				var time =  "";
 				html.push('<tr>');
 				html.push('<td >' + msg + '</td>');
 				html.push('<td >' + name + '</td>');
 				html.push('<td >' + time + '</td>');
 				html.push('<td >' + time + '</td>');
-				html.push('<td><a href="#">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">删除</a></td>');
+				html.push('<td><a href="#">查看</a></td>');
 				html.push('</tr>');
 			}
 			html.push('</table>');
@@ -187,7 +186,7 @@ $(function(){
 				console.log(data);
 				var status = data.status || "";
 				if(status == "OK"){
-					changeOrderListHtml(data.result);
+					changeCommentListHtml(data.result);
 				}
 				else{
 					var msg = data.error || "";

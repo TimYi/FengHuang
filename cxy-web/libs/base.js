@@ -28,7 +28,7 @@
 	var messagesUrl = serverUrl + "/api/user/messages";
 	var appointsUrl = serverUrl + "/api/user/appoints";
 	var orderUrl = serverUrl + "/api/user/orders";
-	var commentUrl = serverUrl + "/api/comments";
+	var commentUrl = serverUrl + "/api/user/comments";
 	var couponsUrl = serverUrl + "/api/user/coupons";
 	var collectsUrl = serverUrl + "/api/user/collects";
 	var bindMobile = serverUrl + "/api/user/bindMobile";

@@ -18,7 +18,7 @@ $(function(){
 	g.paseSize = 20;
 
 
-	getMyOrder();
+	getMyFav();
 
 	//获取我的收藏
 	function getMyFav(){
@@ -29,7 +29,6 @@ $(function(){
 		condi.token = g.token;
 		condi.page = g.currentPage;
 		condi.size = g.paseSize;
-		condi.status = "";
 
 		sendGetMyFavHttp(condi);
 	}
@@ -48,12 +47,12 @@ $(function(){
 			html.push('</tr>');
 
 			for(var i = 0,len = obj.length; i < len; i++){
-				var msg = obj[i].content || "";
-				var name = "系统管理员";
-				var time =  "2015-06-02 10:00";
+				var name = obj[i].name || "";
+				var type = obj[i].type || "";
+				var time =  "";
 				html.push('<tr>');
-				html.push('<td >' + msg + '</td>');
 				html.push('<td >' + name + '</td>');
+				html.push('<td >' + type + '</td>');
 				html.push('<td >' + time + '</td>');
 				html.push('<td><a href="#">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">删除</a></td>');
 				html.push('</tr>');
