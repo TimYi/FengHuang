@@ -1,5 +1,7 @@
 package com.fenghuangzhujia.eshop.message.dto;
 
+import java.util.Date;
+
 import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
@@ -8,6 +10,7 @@ public class MessageDto extends DtoBaseModel {
 	private String content;
 	private UserDto user;
 	private boolean readed;
+	private Date createTime;
 	
 	public String getContent() {
 		return content;
@@ -26,5 +29,14 @@ public class MessageDto extends DtoBaseModel {
 	}
 	public void setReaded(boolean readed) {
 		this.readed = readed;
+	}
+	public Date getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+	public String getSender() {
+		return "系统管理员";
 	}
 }
