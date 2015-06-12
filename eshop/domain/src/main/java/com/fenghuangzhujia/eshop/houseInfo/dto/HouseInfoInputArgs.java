@@ -2,6 +2,8 @@ package com.fenghuangzhujia.eshop.houseInfo.dto;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
 public class HouseInfoInputArgs extends DtoBaseModel {
@@ -37,10 +39,12 @@ public class HouseInfoInputArgs extends DtoBaseModel {
 	/**
 	 * 交房日期
 	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date launchDate;
 	/**
 	 * 装修日期
 	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date decorateDate;
 	
 
