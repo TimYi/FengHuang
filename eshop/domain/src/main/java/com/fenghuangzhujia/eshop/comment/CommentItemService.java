@@ -8,12 +8,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.eshop.comment.dto.CommentItemDto;
 import com.fenghuangzhujia.eshop.comment.dto.CommentItemInputArgs;
-import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
+import com.fenghuangzhujia.eshop.common.remind.impl.DtoUnreadRemindSpecificationService;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 
 @Service
 @Transactional
-public class CommentItemService extends DtoSpecificationService<CommentItem, CommentItemDto, CommentItemInputArgs, String> {
+public class CommentItemService extends DtoUnreadRemindSpecificationService<CommentItem, CommentItemDto, CommentItemInputArgs, String> {
 
 	public PagedList<CommentItemDto> findByUser(int page, int size, String userid) {
 		PageRequest request=new PageRequest(page-1, size);
@@ -27,6 +27,21 @@ public class CommentItemService extends DtoSpecificationService<CommentItem, Com
 		Page<CommentItem> list=getRepository().findByCommentSourceid(sourceid, request);
 		Page<CommentItemDto> result=list.map(adapter);
 		return new PagedList<>(result);
+	}
+	
+	public Long getCountByIsReaded(String userid, boolean readed) {
+		return getRepository().countByUserIdAndReaded(userid, readed);
+	}
+	
+	/**
+	 * 标记为已读
+	 * @param id
+	 * @param readed
+	 */
+	public void setIsReaded(String id, boolean readed) {
+		CommentItem comment=getRepository().findOne(id);
+		comment.setReaded(readed);
+		getRepository().save(comment);
 	}
 	
 	@Override

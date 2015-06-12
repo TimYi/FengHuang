@@ -4,16 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fenghuangzhujia.eshop.common.remind.impl.UnreadRemindEntity;
 import com.fenghuangzhujia.eshop.core.user.User;
-import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 
 @Entity
 @Table(name="fhzj_message")
-public class Message extends UUIDBaseModel {
+public class Message extends UnreadRemindEntity {
 
 	private String content;
 	private User user;
-	private boolean readed;
 	
 	/**
 	 * 留言内容
@@ -36,12 +35,5 @@ public class Message extends UUIDBaseModel {
 	}
 	public void setUser(User user) {
 		this.user = user;
-	}
-	
-	public boolean isReaded() {
-		return readed;
-	}
-	public void setReaded(boolean readed) {
-		this.readed = readed;
 	}
 }

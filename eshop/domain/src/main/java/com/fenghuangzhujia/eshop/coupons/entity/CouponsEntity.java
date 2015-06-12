@@ -8,13 +8,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fenghuangzhujia.eshop.common.remind.impl.UnreadRemindEntity;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.coupons.core.Coupons;
-import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 
 @Entity
 @Table(name="fhzj_coupons")
-public class CouponsEntity extends UUIDBaseModel implements Coupons {
+public class CouponsEntity extends UnreadRemindEntity implements Coupons {
 
 	private User user;
 	private String name;

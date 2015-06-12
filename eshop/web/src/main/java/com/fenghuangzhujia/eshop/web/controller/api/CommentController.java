@@ -35,4 +35,12 @@ public class CommentController {
 		PagedList<CommentItemDto> result=commentService.findBySource(page, size, sourceid);
 		return RequestResult.success(result).toJson();
 	}
+	
+	@RequestMapping(value="user/comments",method=RequestMethod.GET)
+	public String comments(@RequestParam(defaultValue="1") Integer page,@RequestParam(defaultValue="8") Integer size) {
+		SimpleUserDetails details=AuthenticationService.getUserDetail();
+		String userid=details.getId();
+		PagedList<CommentItemDto> comments=commentService.findByUser(page, size, userid);
+		return RequestResult.success(comments).toJson();
+	}
 }

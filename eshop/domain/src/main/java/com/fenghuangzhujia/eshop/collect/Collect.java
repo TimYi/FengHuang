@@ -10,14 +10,14 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fenghuangzhujia.eshop.ResourceType;
+import com.fenghuangzhujia.eshop.common.remind.impl.UnreadRemindEntity;
 import com.fenghuangzhujia.eshop.core.user.User;
-import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 import com.fenghuangzhujia.foundation.media.MediaContent;
 
 @Entity
 @Table(name="fhzj_collect")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class Collect extends UUIDBaseModel {
+public class Collect extends UnreadRemindEntity {
 
 	private User user;
 	private String name;

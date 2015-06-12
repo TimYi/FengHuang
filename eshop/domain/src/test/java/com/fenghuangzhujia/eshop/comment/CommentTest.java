@@ -20,7 +20,7 @@ public class CommentTest {
 	@Autowired
 	private CommentService commentService;
 	
-	@Test
+	//@Test
 	public void addComment() {
 		CommentDto comment=new CommentDto();
 		comment.setSourceid("123456");
@@ -28,11 +28,17 @@ public class CommentTest {
 		System.out.println(comment.getId());
 	}
 	
-	@Test
+	//@Test
 	public void addItem() {
 		CommentItemInputArgs comment=new CommentItemInputArgs();
 		comment.setUserid("404040e64d89ca84014d89cb492d0000");
 		comment.setSourceid("123456");
 		commentItemService.add(comment);
+	}
+	
+	@Test
+	public void getUnReaded() {
+		Long count=commentItemService.countByIsReaded("8aac48364dd68c74014dd6c031f10000", false);
+		System.out.println(count);
 	}
 }

@@ -13,6 +13,7 @@ public class CommentDto extends DtoBaseModel {
 	private String ownerid;
 	private String metadata;
 	private ResourceType type;
+	private boolean readed;
 	
 	public String getTitle() {
 		return title;
@@ -61,5 +62,11 @@ public class CommentDto extends DtoBaseModel {
 	}
 	public void setType(ResourceType type) {
 		this.type = type;
+	}
+	public boolean isReaded() {
+		return readed;
+	}
+	public void setReaded(boolean readed) {
+		this.readed = readed;
 	}
 }

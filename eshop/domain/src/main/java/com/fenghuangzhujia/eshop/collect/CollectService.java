@@ -12,6 +12,7 @@ import com.fenghuangzhujia.eshop.artical.Artical;
 import com.fenghuangzhujia.eshop.artical.ArticalRepository;
 import com.fenghuangzhujia.eshop.collect.dto.CollectDto;
 import com.fenghuangzhujia.eshop.collect.dto.CollectInputArgs;
+import com.fenghuangzhujia.eshop.common.remind.impl.DtoUnreadRemindPagingService;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
@@ -19,13 +20,12 @@ import com.fenghuangzhujia.eshop.prudoct.cases.DecorateCase;
 import com.fenghuangzhujia.eshop.prudoct.cases.DecorateCaseRepository;
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage;
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackageRepository;
-import com.fenghuangzhujia.foundation.core.dto.DtoPagingService;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 
 @Service
 @Transactional
-public class CollectService extends DtoPagingService<Collect, CollectDto, CollectInputArgs, String> {
+public class CollectService extends DtoUnreadRemindPagingService<Collect, CollectDto, CollectInputArgs, String> {
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -41,6 +41,18 @@ public class CollectService extends DtoPagingService<Collect, CollectDto, Collec
 		Page<Collect> list=getRepository().findByUserId(userid, request);
 		Page<CollectDto> result=list.map(adapter);
 		return new PagedList<>(result);
+	}
+	
+	public CollectDto findOneByUser(String userid, String id) {
+		Collect message=getRepository().findOne(id);
+		if(!message.getUser().getId().equals(userid))throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "您只能获取自己的留言");
+		return adapter.convertToDetailedDto(message);
+	}
+	
+	public void deleteByUser(String userid, String id) {
+		Collect message=getRepository().findOne(id);
+		if(!message.getUser().getId().equals(userid))throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "您只能删除自己的留言");
+		getRepository().delete(message);
 	}
 	
 	@Autowired

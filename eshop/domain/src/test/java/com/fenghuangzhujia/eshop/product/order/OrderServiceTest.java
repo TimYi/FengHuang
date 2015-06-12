@@ -20,7 +20,7 @@ public class OrderServiceTest {
 	
 	@Test
 	public void getList() {
-		PagedList<GoodOrderDto> result=service.findPage(1, 2, null);
+		PagedList<GoodOrderDto> result=service.findByStatus(1, 2, null);
 		try {
 			String pString=JsonSerializer.Serialize(result);
 			System.out.println(pString);

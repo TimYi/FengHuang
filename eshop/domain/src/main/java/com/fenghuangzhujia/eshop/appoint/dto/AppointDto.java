@@ -15,6 +15,7 @@ public class AppointDto extends DtoBaseModel {
 	private String mobile;
 	private Date appointTime;
 	private AreaDto area;
+	private boolean readed;
 	
 	public UserDto getUser() {
 		return user;
@@ -51,5 +52,11 @@ public class AppointDto extends DtoBaseModel {
 	}
 	public void setArea(AreaDto area) {
 		this.area = area;
+	}
+	public boolean isReaded() {
+		return readed;
+	}
+	public void setReaded(boolean readed) {
+		this.readed = readed;
 	}
 }

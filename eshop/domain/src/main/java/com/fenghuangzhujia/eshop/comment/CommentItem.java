@@ -6,12 +6,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fenghuangzhujia.eshop.common.remind.impl.UnreadRemindEntity;
 import com.fenghuangzhujia.eshop.core.user.User;
-import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 
 @Entity
 @Table(name="fhzj_comment_item")
-public class CommentItem extends UUIDBaseModel {
+public class CommentItem extends UnreadRemindEntity {
 
 	private String content;
 	private CommentItem reply;

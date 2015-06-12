@@ -36,7 +36,7 @@ public class GoodOrderService {
 		return new PagedList<>(result);
 	}
 	
-	public PagedList<GoodOrderDto> findPage(int page, int size, OrderStatus status) {
+	public PagedList<GoodOrderDto> findByStatus(int page, int size, OrderStatus status) {
 		PageRequest pageable=new PageRequest(page-1, size);
 		Page<GoodOrder> goods;
 		if(status==null) {

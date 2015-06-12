@@ -1,6 +1,7 @@
 package com.fenghuangzhujia.eshop.web.controller.api;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,10 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fenghuangzhujia.eshop.appoint.AppointService;
 import com.fenghuangzhujia.eshop.collect.CollectService;
-import com.fenghuangzhujia.eshop.collect.dto.CollectDto;
 import com.fenghuangzhujia.eshop.comment.CommentItemService;
-import com.fenghuangzhujia.eshop.comment.dto.CommentItemDto;
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
 import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
 import com.fenghuangzhujia.eshop.core.user.UserService;
@@ -19,12 +19,9 @@ import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
 import com.fenghuangzhujia.eshop.core.user.dto.UserInputArgs;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
 import com.fenghuangzhujia.eshop.coupons.CouponsService;
-import com.fenghuangzhujia.eshop.coupons.dto.CouponsDto;
 import com.fenghuangzhujia.eshop.message.MessageService;
-import com.fenghuangzhujia.eshop.message.dto.MessageDto;
 import com.fenghuangzhujia.eshop.userGroup.UserGroupService;
 import com.fenghuangzhujia.eshop.userGroup.dto.UserGroupDto;
-import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
 @RestController
@@ -44,43 +41,8 @@ public class UserController {
 	private UserGroupService userGroupService;
 	@Autowired
 	private MessageManager messageManager;
-	
-	@RequestMapping(value="user/collects",method=RequestMethod.GET)
-	public String collects(@RequestParam(defaultValue="1") Integer page,@RequestParam(defaultValue="8") Integer size) {
-		SimpleUserDetails details=AuthenticationService.getUserDetail();
-		String userid=details.getId();
-		PagedList<CollectDto> collects=collectService.findPage(page, size, userid);
-		return RequestResult.success(collects).toJson();
-	}
-	
-	@RequestMapping(value="user/comments",method=RequestMethod.GET)
-	public String comments(@RequestParam(defaultValue="1") Integer page,@RequestParam(defaultValue="8") Integer size) {
-		SimpleUserDetails details=AuthenticationService.getUserDetail();
-		String userid=details.getId();
-		PagedList<CommentItemDto> comments=commentService.findByUser(page, size, userid);
-		return RequestResult.success(comments).toJson();
-	}
-	
-	@RequestMapping(value="user/coupons",method=RequestMethod.GET)
-	public String coupons(@RequestParam(defaultValue="true") boolean notUsed) {
-		SimpleUserDetails details=AuthenticationService.getUserDetail();
-		String userid=details.getId();
-		List<CouponsDto> result;
-		if(notUsed) {
-			result=couponsService.findUnUsedCoupons(userid);
-		} else {
-			result=couponsService.findUserCoupons(userid);
-		}
-		return RequestResult.success(result).toJson();
-	}
-	
-	@RequestMapping(value="user/messages",method=RequestMethod.GET)
-	public String messages(@RequestParam(defaultValue="1") Integer page,@RequestParam(defaultValue="8") Integer size) {
-		SimpleUserDetails details=AuthenticationService.getUserDetail();
-		String userid=details.getId();
-		PagedList<MessageDto> result=messageService.findByUser(userid, page, size);
-		return RequestResult.success(result).toJson();
-	}
+	@Autowired
+	private AppointService appointService;
 	
 	/**
 	 * 获取用户个人信息
@@ -125,6 +87,28 @@ public class UserController {
 		messageManager.validate(mobile, validater);
 		userService.bindMobile(userid, mobile);
 		return RequestResult.success("绑定成功").toJson();
+	}
+	
+	/**
+	 * 获取评论、留言等信息数量
+	 * @return
+	 */
+	@RequestMapping(value="user/unreads",method=RequestMethod.GET)
+	public String infoCounts() {
+		SimpleUserDetails details=AuthenticationService.getUserDetail();
+		String userid=details.getId();
+		Map<String, Long> counts=new HashMap<>();
+		Long messageCount=messageService.countByIsReaded(userid, false);
+		counts.put("messages", messageCount);
+		Long appointCount=appointService.countByIsReaded(userid, false);
+		counts.put("appoints", appointCount);
+		Long commentCount=commentService.countByIsReaded(userid, false);
+		counts.put("comments", commentCount);
+		Long collectCount=collectService.countByIsReaded(userid, false);
+		counts.put("collects", collectCount);
+		Long couponsCount=couponsService.countByIsReaded(userid, false);
+		counts.put("coupons", couponsCount);
+		return RequestResult.success(counts).toJson();
 	}
 	
 	public static class UserVo {
