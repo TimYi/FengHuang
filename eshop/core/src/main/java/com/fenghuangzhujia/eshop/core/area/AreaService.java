@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.foundation.area;
+package com.fenghuangzhujia.eshop.core.area;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,13 +6,14 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fenghuangzhujia.foundation.area.Area.AreaLevel;
-import com.fenghuangzhujia.foundation.area.dto.AreaDto;
+import com.fenghuangzhujia.eshop.core.area.Area.AreaLevel;
+import com.fenghuangzhujia.eshop.core.area.dto.AreaDto;
+import com.fenghuangzhujia.eshop.core.area.dto.AreaInputArgs;
 import com.fenghuangzhujia.foundation.core.dto.DtoPagingService;
 
 @Service
 @Transactional
-public class AreaService extends DtoPagingService<Area, AreaDto, AreaDto, String> {
+public class AreaService extends DtoPagingService<Area, AreaDto, AreaInputArgs, String> {
 	
 	/**
 	 * 按照区域等级获取全部区域

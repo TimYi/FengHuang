@@ -12,6 +12,11 @@ import com.fenghuangzhujia.eshop.core.authentication.authority.AbstractAuthority
 import com.fenghuangzhujia.eshop.core.authentication.role.Role;
 import com.fenghuangzhujia.eshop.core.user.User;
 
+/**
+ * Spring Security框架中用到的用户信息
+ * @author pc
+ *
+ */
 public class SimpleUserDetails implements UserDetails {
 	
 	public static String PREFIX="ROLE_";

@@ -1,20 +1,20 @@
-package com.fenghuangzhujia.foundation.area.dto;
+package com.fenghuangzhujia.eshop.core.area.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fenghuangzhujia.foundation.area.Area.AreaLevel;
+import com.fenghuangzhujia.eshop.core.area.Area.AreaLevel;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
 public class AreaDto extends DtoBaseModel {
 	@JsonIgnore
-	private String upperAreaId;
+	private AreaDto upperArea;
 	private String name;
 	private AreaLevel level;
 	
-	public String getUpperAreaId() {
-		return upperAreaId;
+	public AreaDto getUpperArea() {
+		return upperArea;
 	}
-	public void setUpperAreaId(String upperAreaId) {
-		this.upperAreaId = upperAreaId;
+	public void setUpperArea(AreaDto upperArea) {
+		this.upperArea = upperArea;
 	}
 	public String getName() {
 		return name;

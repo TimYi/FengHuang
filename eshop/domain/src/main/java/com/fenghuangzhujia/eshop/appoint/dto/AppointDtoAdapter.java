@@ -5,11 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fenghuangzhujia.eshop.appoint.Appoint;
+import com.fenghuangzhujia.eshop.core.area.Area;
+import com.fenghuangzhujia.eshop.core.area.AreaRepository;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
-import com.fenghuangzhujia.foundation.area.Area;
-import com.fenghuangzhujia.foundation.area.AreaRepository;
-import com.fenghuangzhujia.foundation.area.dto.AreaVo;
 import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
 import com.fenghuangzhujia.foundation.dics.CategoryItem;
 import com.fenghuangzhujia.foundation.dics.CategoryItemRepository;
@@ -26,7 +25,6 @@ public class AppointDtoAdapter extends AbstractDtoAdapter<Appoint, AppointDto, A
 
 	@Override
 	public AppointDto postConvert(Appoint d, AppointDto t) {
-		t.setArea(new AreaVo(d.getArea()));
 		return t;
 	}
 

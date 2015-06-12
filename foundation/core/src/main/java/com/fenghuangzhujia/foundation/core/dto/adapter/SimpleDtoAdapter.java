@@ -15,7 +15,7 @@ public abstract class SimpleDtoAdapter<D,T, I> implements DtoAdapter<D, T, I> {
 		if(ds==null)return null;
 		List<T> ts=new ArrayList<T>();
 		for (D d : ds) {
-			T t=convertToDto(d);
+			T t=convertToDetailedDto(d);
 			ts.add(t);
 		}
 		return ts;
@@ -26,7 +26,7 @@ public abstract class SimpleDtoAdapter<D,T, I> implements DtoAdapter<D, T, I> {
 	 * 此方法用于列表数据的单个转换
 	 */
 	@Override
-	public T convertToDto(D d) {
+	public T convertToDetailedDto(D d) {
 		return convert(d);
 	}
 }

@@ -8,8 +8,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fenghuangzhujia.eshop.core.area.Area;
 import com.fenghuangzhujia.eshop.core.user.User;
-import com.fenghuangzhujia.foundation.area.Area;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 import com.fenghuangzhujia.foundation.dics.CategoryItem;
 

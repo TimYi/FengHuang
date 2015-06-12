@@ -1,10 +1,10 @@
-package com.fenghuangzhujia.foundation.area;
+package com.fenghuangzhujia.eshop.core.area;
 
 import java.util.List;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-import com.fenghuangzhujia.foundation.area.Area.AreaLevel;
+import com.fenghuangzhujia.eshop.core.area.Area.AreaLevel;
 
 public interface AreaRepository extends PagingAndSortingRepository<Area, String> {
 	

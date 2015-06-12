@@ -8,10 +8,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fenghuangzhujia.eshop.core.area.Area;
 import com.fenghuangzhujia.eshop.core.commerce.goods.Good;
 import com.fenghuangzhujia.eshop.prudoct.cases.DecorateCase;
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage;
-import com.fenghuangzhujia.foundation.area.Area;
 
 @Entity
 @Table(name="fhzj_decorat_good")

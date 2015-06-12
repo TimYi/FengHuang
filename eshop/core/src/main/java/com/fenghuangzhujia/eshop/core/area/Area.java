@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.foundation.area;
+package com.fenghuangzhujia.eshop.core.area;
 
 import java.util.Set;
 

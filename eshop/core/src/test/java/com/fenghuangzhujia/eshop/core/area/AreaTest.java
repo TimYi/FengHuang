@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.foundation.area;
+package com.fenghuangzhujia.eshop.core.area;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.fenghuangzhujia.foundation.area.Area.AreaLevel;
-import com.fenghuangzhujia.foundation.area.dto.AreaDto;
+import com.fenghuangzhujia.eshop.core.area.AreaService;
+import com.fenghuangzhujia.eshop.core.area.Area.AreaLevel;
+import com.fenghuangzhujia.eshop.core.area.dto.AreaInputArgs;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:applicationContext.xml")
@@ -17,7 +18,7 @@ public class AreaTest {
 	
 	@Test
 	public void add() {
-		AreaDto areaDto=new AreaDto();
+		AreaInputArgs areaDto=new AreaInputArgs();
 		areaDto.setLevel(AreaLevel.CITY);
 		areaDto.setName("北京");
 		areaService.add(areaDto);

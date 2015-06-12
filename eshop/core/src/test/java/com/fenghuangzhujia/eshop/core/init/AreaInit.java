@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.fenghuangzhujia.foundation.area.Area.AreaLevel;
-import com.fenghuangzhujia.foundation.area.AreaService;
-import com.fenghuangzhujia.foundation.area.dto.AreaDto;
+import com.fenghuangzhujia.eshop.core.area.AreaService;
+import com.fenghuangzhujia.eshop.core.area.Area.AreaLevel;
+import com.fenghuangzhujia.eshop.core.area.dto.AreaInputArgs;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
@@ -19,7 +19,7 @@ public class AreaInit {
 	
 	@Test
 	public void init() {
-		AreaDto areaDto=new AreaDto();
+		AreaInputArgs areaDto=new AreaInputArgs();
 		areaDto.setName("朝阳");
 		areaDto.setLevel(AreaLevel.AREA);
 		areaService.add(areaDto);

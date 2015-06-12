@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fenghuangzhujia.eshop.core.area.Area;
+import com.fenghuangzhujia.eshop.core.area.AreaRepository;
+import com.fenghuangzhujia.eshop.core.area.Area.AreaLevel;
 import com.fenghuangzhujia.eshop.core.commerce.eshop.Shop;
 import com.fenghuangzhujia.eshop.core.commerce.eshop.ShopRepository;
 import com.fenghuangzhujia.eshop.core.commerce.goods.Good;
@@ -21,9 +24,6 @@ import com.fenghuangzhujia.eshop.prudoct.goods.dto.PackageGoodDto;
 import com.fenghuangzhujia.eshop.prudoct.goods.dto.PackageGoodDtoConverter;
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage;
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackageRepository;
-import com.fenghuangzhujia.foundation.area.Area;
-import com.fenghuangzhujia.foundation.area.AreaRepository;
-import com.fenghuangzhujia.foundation.area.Area.AreaLevel;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.utils.validater.PhoneNumberValidater;
 
