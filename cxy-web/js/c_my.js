@@ -10,6 +10,7 @@ $(function(){
 	g.imgCodeId = "";
 	g.sendCode = false;
 	g.sendTime = 60;
+	g.isBind = true;
 	g.token = Utils.getQueryString("token");
 	g.page = Utils.getQueryString("p") - 0;
 
@@ -25,11 +26,146 @@ $(function(){
 
 	$("#updatebtn").bind("click",updateUserInfo);
 	$("#loginoutbtn").bind("click",loginOut);
+	$("#phonetext").bind("blur",getImgCode);
+	$("#updatepwdcodeimg").bind("click",getImgCode);
+	$("#sendbtn").bind("click",getPhoneCode);
+	$("#bindbtn").bind("click",bindPhone);
 
 	//安全退出
 	function loginOut(){
 		Utils.offLineStore.remove("userinfo",false);
 		location.href = "login.html";
+	}
+
+	//获取图形验证码
+	function getImgCode(){
+		var img = $("#updatepwdcodeimg");
+		var tel = $("#phonetext").val();
+		var reg = /^1[3,5,7,8]\d{9}$/g;
+		if(img.length > 0 && reg.test(tel)){
+			g.codeId = tel;
+			console.log(tel);
+			$("#updatepwdcodeimg").attr("src",Base.imgCodeUrl + "?id=" + g.codeId);
+			clearTimeout(g.tout);
+			g.tout = setTimeout(function(){
+				getImgCode();
+			},60000);
+		}
+	}
+
+	function getPhoneCode(){
+		var p = $("#phonetext").val() || "";
+		var imgCode = $("#phoneimgcode").val() || "";
+		if(p !== ""){
+			var reg = /^1[3,5,7,8]\d{9}$/g;
+			if(reg.test(p)){
+				if(imgCode !== ""){
+					g.phone = p;
+					if(!g.sendCode){
+						sendGetCodeHttp(imgCode);
+					}
+				}
+				else{
+					console.log("输入图形验证码");
+					$("#phoneimgcode").focus();
+				}
+			}
+			else{
+				alert("手机输入不合法");
+				$("#phonetext").focus();
+			}
+		}
+		else{
+			console.log("没填手机号");
+			$("#phonetext").focus();
+		}
+	}
+
+	//请求验证码
+	function sendGetCodeHttp(imgCode){
+		var url = Base.getCodeUrl;
+		var condi = {};
+		condi.mobile = g.phone;
+		condi.captcha = imgCode;
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"POST",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log(data);
+				var status = data.status || "";
+				if(status == "OK"){
+					g.sendCode = true;
+					$("#sendbtn").html("60秒后重新发送");
+					setTimeout(function(){
+						resetGetValidCode();
+					},1000);
+				}
+				else{
+					alert("验证码获取失败");
+				}
+			},
+			error:function(data){
+			}
+		});
+	}
+
+	//重新获取验证码
+	function resetGetValidCode(){
+		g.sendTime = g.sendTime - 1;
+		if(g.sendTime > 0){
+			$("#sendbtn").html(g.sendTime + "秒后重新发送");
+			setTimeout(function(){
+				resetGetValidCode();
+			},1000);
+		}
+		else{
+			$("#sendbtn").html("重新发送");
+			g.sendTime = 60;
+			g.sendCode = false;
+
+			//重新获取图形验证码,1分钟有效
+			getImgCode();
+			$("#phoneimgcode").val("");
+			$("#phoneimgcode").focus();
+		}
+	}
+
+	//绑定手机号
+	function bindPhone(){
+		//token:用户凭据
+		//mobile：手机号码
+		//validater:短信验证码
+		var p = $("#phonetext").val() || "";
+		var bindcode = $("#bindcode").val() || "";
+		if(g.isBind){
+			if(p !== ""){
+				var reg = /^1[3,5,7,8]\d{9}$/g;
+				if(reg.test(p)){
+					if(bindcode !== ""){
+						sendBindPhoneHttp(p,bindcode);
+					}
+					else{
+						console.log("输入验证码");
+						$("#bindcode").focus();
+					}
+				}
+				else{
+					alert("手机输入不合法");
+					$("#phonetext").focus();
+				}
+			}
+			else{
+				console.log("没填手机号");
+				$("#phonetext").focus();
+			}
+		}
+		else{
+			alert("解绑没有接口");
+		}
 	}
 
 	//获取个人资料
@@ -68,16 +204,16 @@ $(function(){
 
 
 		//性别1男2女
-		condi.sex = "404040e64dd26ab5014dd26ac61f0013";
+		condi.sexId = "404040e64dd26ab5014dd26ac61f0013";
 		var sexRadio = $("#inlineRadio2")[0].checked;
 		if(sexRadio){
 			//condi.sex = 2;
-			condi.sex = "404040e64dd26ab5014dd26ac64e0014";
+			condi.sexId = "404040e64dd26ab5014dd26ac64e0014";
 		}
 		//血型
-		condi.bloodgroup = $("#bloodgroup").val();
+		condi.bloodTypeId = $("#bloodgroup").val();
 		//星座
-		condi.constellation = $("#constellation").val();
+		condi.constellationId = $("#constellation").val();
 		console.log(condi);
 		sendUpdateUserInfoHttp(condi);
 	}
@@ -87,7 +223,7 @@ $(function(){
 		var nikeName = obj.cnname || "";
 		var validName = obj.realName || "";
 		var eName = obj.ename || "";
-		var sex = obj.sex || 1;
+		var sex = obj.sex || "404040e64dd26ab5014dd26ac61f0013";
 		var message = obj.intro || "";
 		var email = obj.email || "";
 		var phone = obj.mobile || "";
@@ -96,10 +232,14 @@ $(function(){
 		var birthday = obj.birthDay || "";
 		var profession = obj.trade || "";
 		var address = obj.address || "";
-		var constellation = obj.constellation || "";
-		var bloodgroup = obj.bloodType || "";
+		var constellation = obj.constellation || {};
+		var bloodgroup = obj.bloodType || {};
 
 		g.username = obj.username;
+		Base.userName = obj.username;
+
+		//获取验证码
+		//getImgCode();
 
 		//昵称
 		$("#nikename").val(nikeName);
@@ -108,15 +248,21 @@ $(function(){
 		//英文名
 		$("#ename").val(eName);
 		//性别1男2女
-		if(sex !== 1){
-			$("#inlineRadio2")[0].checked = true;
+		if(sex !== "404040e64dd26ab5014dd26ac61f0013"){
+			if($("#inlineRadio2").length > 0){
+				$("#inlineRadio2")[0].checked = true;
+			}
 		}
 		//个人简介
 		$("#message").val(message);
 		//电子邮箱
 		$("#emailtext").val(email);
-		//手机号
-		$("#phonetext").val(phone);
+		if(phone != ""){
+			//手机号
+			$("#phonetext").val(phone);
+			$("#bindbtn").html("解绑");
+			g.isBind = false;
+		}
 		//QQ号
 		$("#qqtext").val(qq);
 		//微信
@@ -128,9 +274,9 @@ $(function(){
 		//现居住地
 		$("#address").val(address);
 		//星座
-		$("#constellation").val(constellation);
+		$("#constellation").val(constellation.id);
 		//血型
-		$("#bloodgroup").val(bloodgroup);
+		$("#bloodgroup").val(bloodgroup.id);
 
 
 		var li = [];
@@ -152,6 +298,8 @@ $(function(){
 		$("#logintime").html(li.join(''));
 
 		setUserFunHtml();
+
+
 	}
 
 	function setUserFunHtml(){
@@ -221,7 +369,9 @@ $(function(){
 					setUserInfoHtml(data.result);
 				}
 				else{
-					alert("获取个人信息错误");
+					var msg = data.error || "";
+					alert("获取个人信息错误:" + msg);
+					location.href = "login.html";
 				}
 			},
 			error:function(data){
@@ -247,6 +397,39 @@ $(function(){
 				}
 				else{
 					alert("修改个人资料失败");
+				}
+			},
+			error:function(data){
+			}
+		});
+	}
+
+	//绑定手机号
+	function sendBindPhoneHttp(phone,code){
+		var url = Base.bindMobile;
+		//token:用户凭据
+		//mobile：手机号码
+		//validater:短信验证码
+		var condi = {};
+		condi.token = g.token;
+		condi.mobile = phone;
+		condi.validater = code;
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"POST",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log(data);
+				var status = data.status || "";
+				if(status == "OK"){
+					alert("绑定手机成功");
+				}
+				else{
+					var msg = data.error;
+					alert("手机绑定错误:" + msg);
 				}
 			},
 			error:function(data){
