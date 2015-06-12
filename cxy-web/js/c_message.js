@@ -16,7 +16,7 @@ $(function(){
 	g.totalPage = 1;
 	g.currentPage = 1;
 	g.paseSize = 20;
-
+	g.httpTip = new Utils.httpTip({});
 
 	getMyMessage();
 
@@ -51,6 +51,7 @@ $(function(){
 				var msg = obj[i].content || "";
 				var name = obj[i].sender || "系统管理员";
 				var time = obj[i].createTime || "2015-06-02 10:00";
+				var id = obj[i].id || "";
 				html.push('<tr>');
 				html.push('<td >' + msg + '</td>');
 				html.push('<td >' + name + '</td>');
@@ -172,6 +173,7 @@ $(function(){
 
 	//获取我的留言
 	function sendGetMyMessageHttp(condi){
+		g.httpTip.show();
 		var url = Base.messagesUrl;
 		$.ajax({
 			url:url,
@@ -182,6 +184,7 @@ $(function(){
 			global:false,
 			success: function(data){
 				console.log(data);
+				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
 					changeMessageListHtml(data.result);
@@ -192,6 +195,7 @@ $(function(){
 				}
 			},
 			error:function(data){
+				g.httpTip.hide();
 			}
 		});
 	}

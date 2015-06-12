@@ -309,31 +309,34 @@ Array.prototype.remove = function(n){
 		closeid:"_closehttptip",
 		moved:false,
 		init:function(obj){
-			var html = [];
-			var bgcss = this.bg == true ? "" : "transparentbg";
-			html.push('<div id="_httptip" class="prompt_mask ' + bgcss + '" style="display:none;">');
-			html.push('<div class="p_load" >');
-			html.push('<div class="loadimg"><span></span></div>');
-			/*
-			html.push('<div id="_httptext" class="loadtext">' + this.text + '</div>');
-			if(this.hasClose){
-				html.push('<div id="_closehttptip" class="loadqx"></div>');
+			var tip = $("#_httptip");
+			if(tip.length === 0){
+				var html = [];
+				var bgcss = this.bg == true ? "" : "transparentbg";
+				html.push('<div id="_httptip" class="prompt_mask ' + bgcss + '" style="display:none;">');
+				html.push('<div class="p_load" >');
+				html.push('<div class="loadimg"><span></span></div>');
+				/*
+				html.push('<div id="_httptext" class="loadtext">' + this.text + '</div>');
+				if(this.hasClose){
+					html.push('<div id="_closehttptip" class="loadqx"></div>');
+				}
+				*/
+				html.push('</div></div>');
+				var $tip = $("#" + this.id);
+				if($tip.length == 1){
+					$tip.html(html.join(''));
+				}
+				else{
+					$(document.body).append(html.join(''));
+				}
+				this.bindEvent();
 			}
-			*/
-			html.push('</div></div>');
-			var $tip = $("#" + this.id);
-			if($tip.length == 1){
-				$tip.html(html.join(''));
-			}
-			else{
-				$(document.body).append(html.join(''));
-			}
-			this.bindEvent();
 		},
 		bindEvent:function(){
 			//$("#" + this.id).onbind("touchmove",this.tipMove,this);
-			$("#" + this.closeid).onbind("touchstart",this.btnDown,this);
-			$("#" + this.closeid).onbind("touchend",this.closeBtnUp,this);
+			//$("#" + this.closeid).onbind("touchstart",this.btnDown,this);
+			//$("#" + this.closeid).onbind("touchend",this.closeBtnUp,this);
 		},
 		tipMove:function(evt){
 			//evt.preventDefault();

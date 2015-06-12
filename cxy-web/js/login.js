@@ -9,6 +9,7 @@ $(function(){
 	var g = {};
 	g.codeId = "";
 	g.tout = null;
+	g.httpTip = new Utils.httpTip({});
 
 	$("#inputEmail3").bind("blur",getImgCode);
 	$("#updatecodebtn").bind("click",getImgCode);
@@ -77,6 +78,9 @@ $(function(){
 		condi.username = phone;
 		condi.password = pwd;
 		condi.captcha = code;
+
+		g.httpTip.show();
+
 		$.ajax({
 			url:url,
 			data:condi,
@@ -105,8 +109,11 @@ $(function(){
 					alert("登录失败:" + msg);
 					getImgCode();
 				}
+
+				g.httpTip.hide();
 			},
 			error:function(data){
+				g.httpTip.hide();
 			}
 		});
 	}

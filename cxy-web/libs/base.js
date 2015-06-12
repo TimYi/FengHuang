@@ -32,6 +32,8 @@
 	var couponsUrl = serverUrl + "/api/user/coupons";
 	var collectsUrl = serverUrl + "/api/user/collects";
 	var bindMobile = serverUrl + "/api/user/bindMobile";
+	var unreads = serverUrl + "/api/user/unreads";
+	var houses = serverUrl + "/api/user/houses";
 
 	Base.userName = userName;
 	Base.urlPort = urlPort;
@@ -49,6 +51,8 @@
 	Base.couponsUrl = couponsUrl;
 	Base.collectsUrl = collectsUrl;
 	Base.bindMobile = bindMobile;
+	Base.unreads = unreads;
+	Base.houses = houses;
 }(window));
 
 

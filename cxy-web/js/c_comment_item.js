@@ -1,5 +1,5 @@
 /**
- * file:我的评论
+ * file:我的评论详情
  * author:chenxy
  * date:2015-06-05
 */
@@ -13,24 +13,20 @@ $(function(){
 	g.username = Base.userName;
 	g.token = Utils.getQueryString("token");
 	g.page = Utils.getQueryString("p") - 0;
+	g.id = Utils.getQueryString("id") - 0;
 	g.totalPage = 1;
 	g.currentPage = 1;
 	g.paseSize = 20;
 	g.httpTip = new Utils.httpTip({});
 
-	getMyComment();
+	getListInfo();
 
-	//获取我评论
-	function getMyComment(){
-		//token:用户凭据
-		//page:当前页码
-		//size:每页数据量
+	function getListInfo(){
 		var condi = {};
 		condi.token = g.token;
-		condi.page = g.currentPage;
-		condi.size = g.paseSize;
+		condi.id = g.id;
 
-		sendGetMyCommentHttp(condi);
+		sendGetListInfoHttp(condi);
 	}
 
 	//修改我的评论列表
@@ -173,8 +169,7 @@ $(function(){
 	}
 
 
-	//获取我的留言
-	function sendGetMyCommentHttp(condi){
+	function sendGetListInfoHttp(condi){
 		var url = Base.commentUrl;
 		g.httpTip.show();
 		$.ajax({

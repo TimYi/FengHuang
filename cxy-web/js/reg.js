@@ -10,6 +10,7 @@ $(function(){
 	g.imgCodeId = "";
 	g.sendCode = false;
 	g.sendTime = 60;
+	g.httpTip = new Utils.httpTip({});
 
 	$("#inputPhone3").bind("blur",getImgCode);
 	$("#getcodebtn").bind("click",getValidCode);
@@ -120,6 +121,7 @@ $(function(){
 		var condi = {};
 		condi.mobile = g.phone;
 		condi.captcha = imgCode;
+		g.httpTip.show();
 		$.ajax({
 			url:url,
 			data:condi,
@@ -140,8 +142,10 @@ $(function(){
 				else{
 					alert("验证码获取失败");
 				}
+				g.httpTip.hide();
 			},
 			error:function(data){
+				g.httpTip.hide();
 			}
 		});
 	}
@@ -154,7 +158,7 @@ $(function(){
 		condi.password = usePwd;
 		condi.mobile = g.phone;
 		condi.validater = validCode;
-
+		g.httpTip.show();
 		$.ajax({
 			url:url,
 			type:"POST",
@@ -163,6 +167,7 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
+				g.httpTip.hide();
 				console.log(data);
 				var status = data.status || "";
 				if(status == "OK"){
@@ -179,6 +184,7 @@ $(function(){
 				}
 			},
 			error:function(data){
+				g.httpTip.hide();
 			}
 		});
 	}
