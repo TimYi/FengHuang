@@ -13,6 +13,7 @@ $(function(){
 	g.isBind = true;
 	g.token = Utils.getQueryString("token");
 	g.page = Utils.getQueryString("p") - 0;
+	g.httpTip = new Utils.httpTip({});
 
 	//验证登录状态
 	var loginStatus = Utils.getUserInfo();
@@ -22,6 +23,7 @@ $(function(){
 	}
 	else{
 		getUserInfo();
+		sendMyInfoCountsHttp();
 	}
 
 	$("#updatebtn").bind("click",updateUserInfo);
@@ -83,6 +85,7 @@ $(function(){
 
 	//请求验证码
 	function sendGetCodeHttp(imgCode){
+		g.httpTip.show();
 		var url = Base.getCodeUrl;
 		var condi = {};
 		condi.mobile = g.phone;
@@ -96,6 +99,7 @@ $(function(){
 			global:false,
 			success: function(data){
 				console.log(data);
+				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
 					g.sendCode = true;
@@ -109,6 +113,7 @@ $(function(){
 				}
 			},
 			error:function(data){
+				g.httpTip.hide();
 			}
 		});
 	}
@@ -297,26 +302,32 @@ $(function(){
 		li.push('<li>用户积分<span class="pull-right">' + integra + '分</span></li>');
 		$("#logintime").html(li.join(''));
 
-		setUserFunHtml();
+		//setUserFunHtml();
 
 
 	}
 
-	function setUserFunHtml(){
+	function setUserFunHtml(obj){
 		//style="background:#b9090e;color:#fff;"
 		var h = 'style="background:#b9090e;color:#fff;"';
+		var comments = obj.comments || 0;
+		var coupons = obj.coupons || 0;
+		var messages = obj.messages || 0;
+		var appoints = obj.appoints || 0;
+		var collects = obj.collects || 0;
+
 		var html = [];
 		html.push('<ul class="blog_category">');
 		html.push('<li><a href="c_my.html?token=' + g.token + '&p=1" ' + (g.page == 1 ? h : "") + ' >个人信息 </a></li>');
 		html.push('<li><a href="c_safe.html?token=' + g.token + '&p=2" ' + (g.page == 2 ? h : "") + ' >安全设置 </a></li>');
 		html.push('<li><a href="c_home.html?token=' + g.token + '&p=3" ' + (g.page == 3 ? h : "") + '  >房屋信息 </a></li>');
 		html.push('<li><a href="c_ing.html?token=' + g.token + '&p=4" ' + (g.page == 4 ? h : "") + '  >家装进度 </a></li>');
-		html.push('<li><a href="c_message.html?token=' + g.token + '&p=5" ' + (g.page == 5 ? h : "") + '  >我的留言 <span class="badge">2</span></a></li>');
-		html.push('<li><a href="c_sub.html?token=' + g.token + '&p=6" ' + (g.page == 6 ? h : "") + '  >我的预约 <span class="badge">1</span></a></li>');
-		html.push('<li><a href="c_order.html?token=' + g.token + '&p=7" ' + (g.page == 7 ? h : "") + '  >我的订单 <span class="badge">1</span></a></li>');
-		html.push('<li><a href="c_comment.html?token=' + g.token + '&p=8" ' + (g.page == 8 ? h : "") + '  >我的评论 <span class="badge">12</span></a></li>');
-		html.push('<li><a href="c_fav.html?token=' + g.token + '&p=9" ' + (g.page == 9 ? h : "") + '  >我的收藏 <span class="badge">1</span></a></li>');
-		html.push('<li><a href="c_coupon.html?token=' + g.token + '&p=10" ' + (g.page == 10 ? h : "") + '  >我的优惠券 <span class="badge">2</span></a></li>');
+		html.push('<li><a href="c_message.html?token=' + g.token + '&p=5" ' + (g.page == 5 ? h : "") + '  >我的留言 <span class="badge">' + messages + '</span></a></li>');
+		html.push('<li><a href="c_sub.html?token=' + g.token + '&p=6" ' + (g.page == 6 ? h : "") + '  >我的预约 <span class="badge">' + appoints + '</span></a></li>');
+		html.push('<li><a href="c_order.html?token=' + g.token + '&p=7" ' + (g.page == 7 ? h : "") + '  >我的订单 <span class="badge"></span></a></li>');
+		html.push('<li><a href="c_comment.html?token=' + g.token + '&p=8" ' + (g.page == 8 ? h : "") + '  >我的评论 <span class="badge">' + comments + '</span></a></li>');
+		html.push('<li><a href="c_fav.html?token=' + g.token + '&p=9" ' + (g.page == 9 ? h : "") + '  >我的收藏 <span class="badge">' + collects + '</span></a></li>');
+		html.push('<li><a href="c_coupon.html?token=' + g.token + '&p=10" ' + (g.page == 10 ? h : "") + '  >我的优惠券 <span class="badge">' + coupons + '</span></a></li>');
 		html.push('</ul>');
 
 		$("#userfunul").html(html.join(''));
@@ -352,6 +363,7 @@ $(function(){
 
 	//获取个人资料请求
 	function sendGetUserInfoHttp(token){
+		g.httpTip.show();
 		var url = Base.profileUrl;
 		var condi = {};
 		condi.token = token;
@@ -364,6 +376,7 @@ $(function(){
 			global:false,
 			success: function(data){
 				console.log(data);
+				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
 					setUserInfoHtml(data.result);
@@ -375,12 +388,14 @@ $(function(){
 				}
 			},
 			error:function(data){
+				g.httpTip.hide();
 			}
 		});
 	}
 
 	//更新个人资料请求
 	function sendUpdateUserInfoHttp(obj){
+		g.httpTip.show();
 		var url = Base.profileUrl;
 		$.ajax({
 			url:url,
@@ -391,6 +406,7 @@ $(function(){
 			global:false,
 			success: function(data){
 				console.log(data);
+				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
 					alert("修改个人资料成功");
@@ -400,12 +416,14 @@ $(function(){
 				}
 			},
 			error:function(data){
+				g.httpTip.hide();
 			}
 		});
 	}
 
 	//绑定手机号
 	function sendBindPhoneHttp(phone,code){
+		g.httpTip.show();
 		var url = Base.bindMobile;
 		//token:用户凭据
 		//mobile：手机号码
@@ -423,6 +441,7 @@ $(function(){
 			global:false,
 			success: function(data){
 				console.log(data);
+				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
 					alert("绑定手机成功");
@@ -433,8 +452,40 @@ $(function(){
 				}
 			},
 			error:function(data){
+				g.httpTip.hide();
 			}
 		});
 	}
 
+
+	function sendMyInfoCountsHttp(){
+		g.httpTip.show();
+		var url = Base.unreads;
+		//token:用户凭据
+		var condi = {};
+		condi.token = g.token;
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"GET",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log(data);
+				g.httpTip.hide();
+				var status = data.status || "";
+				if(status == "OK"){
+					setUserFunHtml(data.result);
+				}
+				else{
+					var msg = data.error;
+					Utils.alert("获取未读消息错误:" + msg);
+				}
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
 });

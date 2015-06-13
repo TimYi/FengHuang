@@ -1,5 +1,5 @@
 /**
- * file:我的评论
+ * file:我的评论详情
  * author:chenxy
  * date:2015-06-05
 */
@@ -13,24 +13,48 @@ $(function(){
 	g.username = Base.userName;
 	g.token = Utils.getQueryString("token");
 	g.page = Utils.getQueryString("p") - 0;
+	g.id = Utils.getQueryString("id") ;
 	g.totalPage = 1;
 	g.currentPage = 1;
 	g.paseSize = 20;
 	g.httpTip = new Utils.httpTip({});
 
-	getMyComment();
+	getListInfo();
 
-	//获取我评论
-	function getMyComment(){
-		//token:用户凭据
-		//page:当前页码
-		//size:每页数据量
+	function getListInfo(){
 		var condi = {};
 		condi.token = g.token;
-		condi.page = g.currentPage;
-		condi.size = g.paseSize;
+		condi.id = g.id;
 
-		sendGetMyCommentHttp(condi);
+		sendGetListInfoHttp(condi);
+	}
+
+	function sendGetListInfoHttp(condi){
+		var url = Base.commentUrl;
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"GET",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log(data);
+				g.httpTip.hide();
+				var status = data.status || "";
+				if(status == "OK"){
+					changeCommentListHtml(data.result);
+				}
+				else{
+					var msg = data.error || "";
+					alert("获取我的订单错误:" + msg);
+				}
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
 	}
 
 	//修改我的评论列表
@@ -173,32 +197,5 @@ $(function(){
 	}
 
 
-	//获取我的留言
-	function sendGetMyCommentHttp(condi){
-		var url = Base.commentUrl;
-		g.httpTip.show();
-		$.ajax({
-			url:url,
-			data:condi,
-			type:"GET",
-			dataType:"json",
-			context:this,
-			global:false,
-			success: function(data){
-				console.log(data);
-				g.httpTip.hide();
-				var status = data.status || "";
-				if(status == "OK"){
-					changeCommentListHtml(data.result);
-				}
-				else{
-					var msg = data.error || "";
-					alert("获取我的订单错误:" + msg);
-				}
-			},
-			error:function(data){
-				g.httpTip.hide();
-			}
-		});
-	}
+
 });

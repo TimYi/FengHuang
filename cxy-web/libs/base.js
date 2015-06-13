@@ -26,12 +26,16 @@
 	var profileUrl = serverUrl + "/api/user/profile";
 	var changePasswordUrl = serverUrl + "/api/changePassword";
 	var messagesUrl = serverUrl + "/api/user/messages";
+	var messageUrl = serverUrl + "/api/user/message";
 	var appointsUrl = serverUrl + "/api/user/appoints";
+	var appointUrl = serverUrl + "/api/user/appoint";
 	var orderUrl = serverUrl + "/api/user/orders";
-	var commentUrl = serverUrl + "/api/comments";
+	var commentUrl = serverUrl + "/api/user/comments";
 	var couponsUrl = serverUrl + "/api/user/coupons";
 	var collectsUrl = serverUrl + "/api/user/collects";
 	var bindMobile = serverUrl + "/api/user/bindMobile";
+	var unreads = serverUrl + "/api/user/unreads";
+	var houses = serverUrl + "/api/user/houses";
 
 	Base.userName = userName;
 	Base.urlPort = urlPort;
@@ -43,12 +47,16 @@
 	Base.profileUrl = profileUrl;
 	Base.changePasswordUrl = changePasswordUrl;
 	Base.messagesUrl = messagesUrl;
+	Base.messageUrl = messageUrl;
 	Base.appointsUrl = appointsUrl;
+	Base.appointUrl = appointUrl;
 	Base.orderUrl = orderUrl;
 	Base.commentUrl = commentUrl;
 	Base.couponsUrl = couponsUrl;
 	Base.collectsUrl = collectsUrl;
 	Base.bindMobile = bindMobile;
+	Base.unreads = unreads;
+	Base.houses = houses;
 }(window));
 
 

@@ -54,7 +54,7 @@ $(function(){
 				html.push('<td >' + msg + '</td>');
 				html.push('<td >' + name + '</td>');
 				html.push('<td >' + time + '</td>');
-				html.push('<td><a href="#">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">删除</a></td>');
+				html.push('<td><a href="c_sub_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '" >查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">修改</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">取消</a></td>');
 				html.push('</tr>');
 			}
 			html.push('</table>');
@@ -181,14 +181,14 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log(data);
+				console.log("sendGetMySubHttp",data);
 				var status = data.status || "";
 				if(status == "OK"){
 					changeSubListHtml(data.result);
 				}
 				else{
 					var msg = data.error || "";
-					alert("获取我的预约错误:" + msg);
+					alert("获取我的预约列表错误:" + msg);
 				}
 			},
 			error:function(data){
