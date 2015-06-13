@@ -11,10 +11,17 @@ public class CollectInputArgs extends DtoBaseModel {
 	private String url;
 	private ResourceType type;
 	private String sourceid;
-	
+	private String column;
 	private String userid;
 	private MultipartFile mainPicFile;
 	
+	
+	public String getColumn() {
+		return column;
+	}
+	public void setColumn(String column) {
+		this.column = column;
+	}
 	public String getName() {
 		return name;
 	}

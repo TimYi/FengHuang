@@ -11,9 +11,21 @@ import com.fenghuangzhujia.eshop.core.user.User;
 @Table(name="fhzj_message")
 public class Message extends UnreadRemindEntity {
 
+	private String title;
 	private String content;
 	private User user;
 	
+	
+	/**
+	 * 留言标题
+	 * @return
+	 */
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 	/**
 	 * 留言内容
 	 * @return

@@ -1,5 +1,7 @@
 package com.fenghuangzhujia.eshop.collect.dto;
 
+import java.util.Date;
+
 import com.fenghuangzhujia.eshop.ResourceType;
 import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
@@ -11,11 +13,20 @@ public class CollectDto extends DtoBaseModel {
 	private MediaContentDto mainPic;
 	private String url;
 	private ResourceType type;
+	private String column;
 	private String sourceid;
 	private boolean readed;
-	
+	private Date createTime;	
 	private UserDto user;
 	
+	
+	
+	public String getColumn() {
+		return column;
+	}
+	public void setColumn(String column) {
+		this.column = column;
+	}
 	public UserDto getUser() {
 		return user;
 	}
@@ -57,5 +68,11 @@ public class CollectDto extends DtoBaseModel {
 	}
 	public void setReaded(boolean readed) {
 		this.readed = readed;
+	}
+	public Date getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 }

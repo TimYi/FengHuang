@@ -30,6 +30,13 @@ public class MessageService extends DtoUnreadRemindSpecificationService<Message,
 		return adapter.convertToDetailedDto(message);
 	}
 	
+	public void deleteByUser(String userid, String id) {
+		Message message=getRepository().findOne(id);
+		if(message==null)return;
+		if(!message.getUser().getId().equals(userid))throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "您只能删除自己的留言");
+	    getRepository().delete(message);
+	}
+	
 	@Autowired
 	public void setMessageRepository(MessageRepository repository) {
 		super.setRepository(repository);
