@@ -17,6 +17,7 @@ $(function(){
 	g.currentPage = 1;
 	g.paseSize = 20;
 	g.httpTip = new Utils.httpTip({});
+	g.listdata = [];
 
 	getMyMessage();
 
@@ -33,10 +34,23 @@ $(function(){
 		sendGetMyMessageHttp(condi);
 	}
 
+	function deleteMessageItem(){
+		var id = this.id;
+		var index = id.split("_")[1];
+		var obj = g.listdata[index];
+		var mid = obj.id;
+		var condi = {};
+		condi.token = g.token;
+		condi.id = mid;
+		sendDeleteListInfoHttp(condi);
+	}
+
 	//修改我的留言列表
 	function changeMessageListHtml(data){
 		var obj = data.result || [];
 		if(obj.length > 0){
+			g.listdata = obj;
+
 			var html = [];
 
 			html.push('<table class="table u_ct">');
@@ -56,12 +70,13 @@ $(function(){
 				html.push('<td >' + msg + '</td>');
 				html.push('<td >' + name + '</td>');
 				html.push('<td >' + time + '</td>');
-				html.push('<td><a href="#">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">删除</a></td>');
+				html.push('<td><a href="c_message_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '" >查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="delete_' + i + '" href="javascript:void(0);" class="delete" >删除</a></td>');
 				html.push('</tr>');
 			}
 			html.push('</table>');
 
 			$("#messagetable").html(html.join(''));
+			$("#messagetable .delete").bind("click",deleteMessageItem);
 
 			var totalpages = data.totalPages - 0;
 			g.totalPage = totalpages;
@@ -192,6 +207,34 @@ $(function(){
 				else{
 					var msg = data.error || "";
 					alert("获取我的留言错误:" + msg);
+				}
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+
+	function sendDeleteListInfoHttp(condi){
+		var url = Base.messageUrl + "/" + condi.id;
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"DELETE",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("sendGetListInfoHttp",data);
+				g.httpTip.hide();
+				var status = data.status || "";
+				if(status == "OK"){
+					getMyMessage();
+				}
+				else{
+					var msg = data.error || "";
+					Utils.alert("删除我的留言错误:" + msg);
 				}
 			},
 			error:function(data){

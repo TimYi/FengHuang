@@ -37,6 +37,7 @@ $(function(){
 		condi.launchDate = $("#launchDate").val();
 		condi.decorateDate = $("#decorateDate").val();
 
+		console.log(condi);
 		sendAddHomeHttp(condi);
 	}
 

@@ -13,7 +13,7 @@ $(function(){
 	g.username = Base.userName;
 	g.token = Utils.getQueryString("token");
 	g.page = Utils.getQueryString("p") - 0;
-	g.id = Utils.getQueryString("id") - 0;
+	g.id = Utils.getQueryString("id") ;
 	g.totalPage = 1;
 	g.currentPage = 1;
 	g.paseSize = 20;
@@ -27,6 +27,34 @@ $(function(){
 		condi.id = g.id;
 
 		sendGetListInfoHttp(condi);
+	}
+
+	function sendGetListInfoHttp(condi){
+		var url = Base.commentUrl;
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"GET",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log(data);
+				g.httpTip.hide();
+				var status = data.status || "";
+				if(status == "OK"){
+					changeCommentListHtml(data.result);
+				}
+				else{
+					var msg = data.error || "";
+					alert("获取我的订单错误:" + msg);
+				}
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
 	}
 
 	//修改我的评论列表
@@ -169,31 +197,5 @@ $(function(){
 	}
 
 
-	function sendGetListInfoHttp(condi){
-		var url = Base.commentUrl;
-		g.httpTip.show();
-		$.ajax({
-			url:url,
-			data:condi,
-			type:"GET",
-			dataType:"json",
-			context:this,
-			global:false,
-			success: function(data){
-				console.log(data);
-				g.httpTip.hide();
-				var status = data.status || "";
-				if(status == "OK"){
-					changeCommentListHtml(data.result);
-				}
-				else{
-					var msg = data.error || "";
-					alert("获取我的订单错误:" + msg);
-				}
-			},
-			error:function(data){
-				g.httpTip.hide();
-			}
-		});
-	}
+
 });

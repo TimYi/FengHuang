@@ -26,7 +26,9 @@
 	var profileUrl = serverUrl + "/api/user/profile";
 	var changePasswordUrl = serverUrl + "/api/changePassword";
 	var messagesUrl = serverUrl + "/api/user/messages";
+	var messageUrl = serverUrl + "/api/user/message";
 	var appointsUrl = serverUrl + "/api/user/appoints";
+	var appointUrl = serverUrl + "/api/user/appoint";
 	var orderUrl = serverUrl + "/api/user/orders";
 	var commentUrl = serverUrl + "/api/user/comments";
 	var couponsUrl = serverUrl + "/api/user/coupons";
@@ -45,7 +47,9 @@
 	Base.profileUrl = profileUrl;
 	Base.changePasswordUrl = changePasswordUrl;
 	Base.messagesUrl = messagesUrl;
+	Base.messageUrl = messageUrl;
 	Base.appointsUrl = appointsUrl;
+	Base.appointUrl = appointUrl;
 	Base.orderUrl = orderUrl;
 	Base.commentUrl = commentUrl;
 	Base.couponsUrl = couponsUrl;
