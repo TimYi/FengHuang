@@ -29,7 +29,7 @@ public interface DtoAdapter<D, T, I> extends Converter<D, T> {
 	 * @param d
 	 * @return
 	 */
-	T convertToDto(D d);
+	T convertToDetailedDto(D d);
 	
 	/**
 	 * 更新Do

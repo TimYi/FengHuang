@@ -3,6 +3,7 @@ package com.fenghuangzhujia.eshop.web.controller.admin;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,9 +26,9 @@ public class UserGroupController extends PagingController<UserGroupDto, UserGrou
 		return service;
 	}
 	
-	@RequestMapping(value="addAll",method=RequestMethod.POST)
-	public String addAll(UserGroupList list) {
-		List<UserGroupDto> result=getService().addAll(list.getList());
+	@RequestMapping(value="/addAll",method=RequestMethod.POST)
+	public String addAll(@RequestBody List<UserGroupInputArgs> list) {
+		List<UserGroupDto> result=getService().addAll(list);
 		return RequestResult.success(result).toJson();
 	}
 	

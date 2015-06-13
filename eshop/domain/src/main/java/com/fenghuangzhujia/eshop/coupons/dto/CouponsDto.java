@@ -19,6 +19,7 @@ public class CouponsDto extends DtoBaseModel {
 	private Date expireTime;
 	private boolean expired;
 	private boolean used;
+	private boolean readed;
 	
 	public String getUserid() {
 		return userid;
@@ -97,5 +98,11 @@ public class CouponsDto extends DtoBaseModel {
 	}
 	public void setUsed(boolean used) {
 		this.used = used;
+	}
+	public boolean isReaded() {
+		return readed;
+	}
+	public void setReaded(boolean readed) {
+		this.readed = readed;
 	}
 }

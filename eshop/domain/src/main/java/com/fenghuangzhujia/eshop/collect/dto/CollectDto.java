@@ -12,6 +12,7 @@ public class CollectDto extends DtoBaseModel {
 	private String url;
 	private ResourceType type;
 	private String sourceid;
+	private boolean readed;
 	
 	private UserDto user;
 	
@@ -50,5 +51,11 @@ public class CollectDto extends DtoBaseModel {
 	}
 	public void setSourceid(String sourceid) {
 		this.sourceid = sourceid;
+	}
+	public boolean isReaded() {
+		return readed;
+	}
+	public void setReaded(boolean readed) {
+		this.readed = readed;
 	}
 }

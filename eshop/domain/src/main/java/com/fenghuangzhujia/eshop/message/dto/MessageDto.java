@@ -36,6 +36,11 @@ public class MessageDto extends DtoBaseModel {
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
+	
+	/**
+	 * 为满足前端需求，临时写死的数据
+	 * @return
+	 */
 	public String getSender() {
 		return "系统管理员";
 	}

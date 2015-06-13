@@ -9,7 +9,7 @@ import com.fenghuangzhujia.eshop.message.dto.MessageDto;
 import com.fenghuangzhujia.eshop.message.dto.MessageInputArgs;
 import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 
-@RestController
+@RestController(value="adminMessageController")
 @RequestMapping("admin/message")
 public class MessageController extends SpecificationController<MessageDto, MessageInputArgs> {
 

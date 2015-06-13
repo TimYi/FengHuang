@@ -3,6 +3,7 @@ package com.fenghuangzhujia.eshop.userGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,16 +27,20 @@ public class UserGroupService extends DtoPagingService<UserGroup, UserGroupDto, 
 	 * @return
 	 */
 	public List<UserGroupDto> addAll(Iterable<UserGroupInputArgs> list) {
-		//删除已有全部分组信息
-		getRepository().deleteAll();
 		//保存新分组
-		List<UserGroup> groups=new ArrayList<UserGroup>();
+		List<UserGroupDto> result=new ArrayList<UserGroupDto>();
 		for (UserGroupInputArgs inputArgs : list) {
-			UserGroup group=adapter.convertToDo(inputArgs);
-			groups.add(group);
+			String id=inputArgs.getId();
+			if(StringUtils.isBlank(id)) {
+				UserGroupDto group=add(inputArgs);
+				result.add(group);
+			} else {
+				UserGroupDto group=update(inputArgs);
+				if(group!=null) {
+					result.add(group);
+				}
+			}			
 		}
-		Iterable<UserGroup> resultGroups=getRepository().save(groups);
-		List<UserGroupDto> result=adapter.convertDoList(resultGroups);
 		return result;
 	}
 	

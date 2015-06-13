@@ -8,13 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fenghuangzhujia.eshop.common.remind.impl.DtoUnreadRemindPagingService;
 import com.fenghuangzhujia.eshop.coupons.dto.CouponsDto;
 import com.fenghuangzhujia.eshop.coupons.entity.CouponsEntity;
-import com.fenghuangzhujia.foundation.core.dto.DtoPagingService;
 
 @Service
 @Transactional
-public class CouponsService extends DtoPagingService<CouponsEntity, CouponsDto, CouponsDto, String> {
+public class CouponsService extends DtoUnreadRemindPagingService<CouponsEntity, CouponsDto, CouponsDto, String> {
 
 	public List<CouponsDto> findUserCoupons(String userid) {
 		List<CouponsEntity> list=getRepository().findByUserId(userid);

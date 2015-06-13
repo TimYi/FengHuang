@@ -23,7 +23,7 @@ public abstract class AbstractDtoAdapter<D, T, I> extends SimpleDtoAdapter<D, T,
 	public abstract T postConvert(D d, T t);
 	
 	@Override
-	public T convertToDto(D d) {
+	public T convertToDetailedDto(D d) {
 		return convert(d);
 	}
 	

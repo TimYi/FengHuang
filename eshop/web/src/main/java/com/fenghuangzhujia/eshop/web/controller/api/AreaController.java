@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fenghuangzhujia.foundation.area.Area.AreaLevel;
-import com.fenghuangzhujia.foundation.area.dto.AreaDto;
-import com.fenghuangzhujia.foundation.area.AreaService;
+import com.fenghuangzhujia.eshop.core.area.AreaService;
+import com.fenghuangzhujia.eshop.core.area.Area.AreaLevel;
+import com.fenghuangzhujia.eshop.core.area.dto.AreaDto;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
 @RestController

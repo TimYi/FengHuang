@@ -8,9 +8,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fenghuangzhujia.eshop.common.remind.impl.UnreadRemindEntity;
+import com.fenghuangzhujia.eshop.core.area.Area;
 import com.fenghuangzhujia.eshop.core.user.User;
-import com.fenghuangzhujia.foundation.area.Area;
-import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 import com.fenghuangzhujia.foundation.dics.CategoryItem;
 
 /**
@@ -20,7 +20,7 @@ import com.fenghuangzhujia.foundation.dics.CategoryItem;
  */
 @Entity
 @Table(name="fhzj_appoint")
-public class Appoint extends UUIDBaseModel {
+public class Appoint extends UnreadRemindEntity {
 	private User user;
 	private CategoryItem type;
 	private Date appointTime;

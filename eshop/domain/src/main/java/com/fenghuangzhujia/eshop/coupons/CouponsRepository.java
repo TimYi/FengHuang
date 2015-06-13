@@ -3,11 +3,11 @@ package com.fenghuangzhujia.eshop.coupons;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.PagingAndSortingRepository;
 
+import com.fenghuangzhujia.eshop.common.remind.impl.UnreadRemindPagingRepository;
 import com.fenghuangzhujia.eshop.coupons.entity.CouponsEntity;
 
-public interface CouponsRepository extends PagingAndSortingRepository<CouponsEntity, String> {
+public interface CouponsRepository extends UnreadRemindPagingRepository<CouponsEntity, String> {
 
 	/**
 	 * 获取用户的所有优惠券

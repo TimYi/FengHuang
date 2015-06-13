@@ -18,6 +18,7 @@
 		<module>foundation</module>
 		<module>eshop</module>
 		<module>weixin</module>
+		<module>weixin-common</module>
   	</modules>
 	
 	<properties>

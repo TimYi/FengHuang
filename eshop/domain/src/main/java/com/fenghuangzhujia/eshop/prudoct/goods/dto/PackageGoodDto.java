@@ -2,10 +2,10 @@ package com.fenghuangzhujia.eshop.prudoct.goods.dto;
 
 import java.util.Date;
 
+import com.fenghuangzhujia.eshop.core.area.dto.AreaDto;
 import com.fenghuangzhujia.eshop.core.commerce.goods.dto.GoodDto;
 import com.fenghuangzhujia.eshop.prudoct.cases.dto.DecorateCaseDto;
 import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageDto;
-import com.fenghuangzhujia.foundation.area.dto.AreaDto;
 
 public class PackageGoodDto extends GoodDto {
 	private DecoratePackageDto decoratingPackage;

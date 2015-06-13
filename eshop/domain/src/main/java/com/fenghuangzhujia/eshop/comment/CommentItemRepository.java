@@ -3,9 +3,9 @@ package com.fenghuangzhujia.eshop.comment;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.fenghuangzhujia.foundation.core.persistance.SpecificationRepository;
+import com.fenghuangzhujia.eshop.common.remind.impl.UnreadRemindSpecificationRepository;
 
-public interface CommentItemRepository extends SpecificationRepository<CommentItem, String> {
+public interface CommentItemRepository extends UnreadRemindSpecificationRepository<CommentItem, String> {
 
 	public Page<CommentItem> findByUserId(String id, Pageable pageable);
 	
