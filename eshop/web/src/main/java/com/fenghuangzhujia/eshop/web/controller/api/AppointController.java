@@ -22,11 +22,11 @@ public class AppointController {
 	private AppointService appointService;	
 	
 	@RequestMapping(value="user/appoint",method=RequestMethod.POST)
-	public String appoint(AppointInputArgs appoint) {
+	public String appoint(AppointInputArgs args) {
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userid=details.getId();
-		appoint.setUserid(userid);
-		AppointDto result=appointService.add(appoint);
+		args.setUserid(userid);
+		AppointDto result=appointService.appointByUser(args);
 		return RequestResult.success(result).toJson();
 	}
 	

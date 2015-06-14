@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fenghuangzhujia.eshop.appoint.Appoint;
-import com.fenghuangzhujia.eshop.core.area.Area;
 import com.fenghuangzhujia.eshop.core.area.AreaRepository;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
@@ -44,11 +43,6 @@ public class AppointDtoAdapter extends AbstractDtoAdapter<Appoint, AppointDto, A
 		if(StringUtils.isNotBlank(typeid)) {
 			CategoryItem categoryItem=categoryItemRepository.findOne(typeid);
 			d.setType(categoryItem);
-		}
-		String areaid=t.getAreaid();
-		if(StringUtils.isNotBlank(areaid)) {
-			Area area=areaRepository.findOne(areaid);
-			d.setArea(area);
 		}
 		return d;
 	}

@@ -17,7 +17,6 @@ public class AppointTest {
 	@Test
 	public void add() {
 		AppointInputArgs appointDto=new AppointInputArgs();
-		appointDto.setAddress("test");
 		appointDto.setUserid("404040e64d6b19f3014d6b1a52ad0000");
 		appointDto.setMobile("18612444099");
 		appointDto.setTypeid("404040e64d7962ad014d7962b3240003");
