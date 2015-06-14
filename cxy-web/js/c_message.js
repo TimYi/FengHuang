@@ -42,6 +42,7 @@ $(function(){
 		var condi = {};
 		condi.token = g.token;
 		condi.id = mid;
+		console.log(condi);
 		sendDeleteListInfoHttp(condi);
 	}
 
@@ -226,7 +227,7 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log("sendGetListInfoHttp",data);
+				console.log("sendDeleteListInfoHttp",data);
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){

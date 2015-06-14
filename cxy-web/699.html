@@ -6,18 +6,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>699套餐 | 家装套餐 | 凤凰筑家 PHOENIXZJ.COM</title>
-	
+
 	<!-- core CSS -->
     <link href="css/bootstrap.min1.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
-    <![endif]-->       
+    <![endif]-->
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
@@ -44,8 +45,8 @@
                     </div>
                     <div class="col-sm-6 col-xs-8">
                        <div class="social">
-                            <ul class="social-share">
-                                <li style="padding-right:10px;"><i class="fa fa-sign-in hui"></i> <b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal"><a href="login.html" style="width:30px">登录</a></b></li>
+                            <ul id="loginstatus" class="social-share">
+                                <li style="padding-right:10px"><i class="fa fa-sign-in hui"></i> <b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal"><a href="login.html" style="width:30px">登录</a></b></li>
                                 <li><i class="fa fa-user hui"></i> <a href="center.html" style="width:60px">会员中心</a></li>
                             </ul>
                             <div class="search">
@@ -71,7 +72,7 @@
                     </button>
                     <a class="navbar-brand" href="index.html"><img src="images/fhzj.jpg" alt="logo"></a>
                 </div>
-				
+
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li><a href="index.html">首页</a></li>
@@ -93,7 +94,7 @@
                                 <li><a href="gyzs.html">工艺展示</a></li>
                                 <li><a href="zczs.html">主材展示</a></li>
                             </ul>
-                        </li>                        
+                        </li>
                         <li><a href="about-us.html">体验馆</a></li>
                         <li class="dropdown" style="border:0px">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">案例 / Live直播 <i class="fa fa-angle-down"></i></a>
@@ -107,7 +108,7 @@
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
-		
+
     </header><!--/header-->
 
     <section id="main-slider" class="no-margin">
@@ -117,7 +118,7 @@
                 <li data-target="#main-slider" data-slide-to="1"></li>
             </ol>
             <ol>
-            </ol>            
+            </ol>
             <div class="carousel-inner">
 
                 <div class="item active" style="background-image: url(images/499_1.jpg)">
@@ -134,37 +135,43 @@
                                     <!--a class="btn-slide animation animated-item-3" href="#">了解详情</a-->
                                 </div>
                             </div>
-						                <div class="col-xs-12 col-sm-5 wow fadeInDown" style="margin:80px 0 0 90px">
-																<div class="form-horizontal piao">
-															 	 		<div class="form-group">
-															 					<label for="inputEmail3" class="col-sm-2 control-label">姓　名</label>
-															    			<div class="col-sm-10" style="width:83%">
-															      				<input type="" class="form-control" id="inputEmail3" placeholder="">
-															    			</div>
-															  		</div>
-																	  <div class="form-group">
-																		    <label for="inputEmail3" class="col-sm-2 control-label">手机号</label>
-																		    <div class="col-sm-10" style="width:83%">
-																		      	<input type="" class="form-control" id="inputEmail3" placeholder="中国大陆手机号">
-																		    </div>
-																	  </div>  
-																	  <div class="form-group">
-																	    	<label for="inputEmail3" class="col-sm-2 control-label">验证码</label>
-																	    	<div class="col-sm-10" style="width:83%">
-																	      		<input type="" class="form-control" id="inputEmail3" placeholder="" style="width:120px">
-																	      		<button type="submit" class="btn btn-default" style="float:right;margin-top:-34px;width:150px">发送短信</button>      
-																	    	</div>
-																	  </div> 																	  
-																	  <div class="form-group" style="margin-top:-20px">
-																	    	<div class="col-sm-offset-2 col-sm-10">
-																	      		<a class="btn-slide" href="#" style="background:orange;font-size:20px;color:#000;padding:15px 30px;font-weight:800;-moz-border-radius: 7px;-webkit-border-radius: 7px;border-radius:7px;">
-																	      			立即抢购 699 套餐
-																	      		</a>
-																	    	</div>
-																	  </div>
-																</div>																	
-						                </div>                            
+						                 <div class="col-xs-12 col-sm-5 wow fadeInDown" style="margin:80px 0 0 90px;display:none1;">
+									<div class="form-horizontal piao" style="height:330px;">
+											<div class="form-group">
+												<label for="name" class="col-sm-2 control-label">姓　名</label>
+												<div class="col-sm-10" style="width:83%">
+													<input id="name"  type="text" class="form-control" id="name" placeholder="请输入姓名">
+												</div>
+											</div>
+										  <div class="form-group">
+											    <label for="phone" class="col-sm-2 control-label">手机号</label>
+											    <div class="col-sm-10" style="width:83%">
+												<input type="text" maxLength=11 class="form-control" id="phone" placeholder="中国大陆手机号">
+											    </div>
+										  </div>
 
+										  <div class="form-group">
+										    <label for="inputImgCode3" class="col-sm-2 control-label">验证码</label>
+										    <div class="col-sm-10" style="width:83%">
+											<input id="inputImgCode3" type="text" class="form-control" placeholder="图形验证码" style="width:120px;float: left;margin-top: 4px;">
+											<img id="imgcodebtn" src="" alt="" class="imgcodebtn" style="height: 40px;width: 150px;float:right" />
+										    </div>
+										</div>
+
+										  <div class="form-group">
+											<label for="msgcode" class="col-sm-2 control-label">验证码</label>
+											<div class="col-sm-10" style="width:83%">
+												<input type="text" class="form-control" id="msgcode" placeholder="" style="width:120px">
+												<button id="getcodebtn" type="button" class="btn btn-default" style="float:right;margin-top:-34px;width:150px">发送短信</button>
+											</div>
+										  </div>
+										  <div class="form-group" style="margin-top:-20px">
+											<div class="col-sm-offset-2 col-sm-10">
+												<a id="buybtn" class="btn-slide" href="javascript:void(0);" style="background:orange;font-size:20px;color:#000;padding:15px 30px;font-weight:800;-moz-border-radius: 7px;-webkit-border-radius: 7px;border-radius:7px;">立即抢购 699 套餐</a>
+											</div>
+										  </div>
+									</div>
+						                </div>
                         </div>
                     </div>
                 </div>
@@ -183,36 +190,43 @@
                                     <!--a class="btn-slide animation animated-item-3" href="#">了解详情</a-->
                                 </div>
                             </div>
-						                <div class="col-xs-12 col-sm-5 wow fadeInDown" style="margin:80px 0 0 90px">
-																<div class="form-horizontal piao">
-															 	 		<div class="form-group">
-															 					<label for="inputEmail3" class="col-sm-2 control-label">姓　名</label>
-															    			<div class="col-sm-10" style="width:83%">
-															      				<input type="" class="form-control" id="inputEmail3" placeholder="">
-															    			</div>
-															  		</div>
-																	  <div class="form-group">
-																		    <label for="inputEmail3" class="col-sm-2 control-label">手机号</label>
-																		    <div class="col-sm-10" style="width:83%">
-																		      	<input type="" class="form-control" id="inputEmail3" placeholder="中国大陆手机号">
-																		    </div>
-																	  </div>  
-																	  <div class="form-group">
-																	    	<label for="inputEmail3" class="col-sm-2 control-label">验证码</label>
-																	    	<div class="col-sm-10" style="width:83%">
-																	      		<input type="" class="form-control" id="inputEmail3" placeholder="" style="width:120px">
-																	      		<button type="submit" class="btn btn-default" style="float:right;margin-top:-34px;width:150px">发送短信</button>      
-																	    	</div>
-																	  </div> 																	  
-																	  <div class="form-group" style="margin-top:-20px">
-																	    	<div class="col-sm-offset-2 col-sm-10">
-																	      		<a class="btn-slide" href="#" style="background:orange;font-size:20px;color:#000;padding:15px 30px;font-weight:800;-moz-border-radius: 7px;-webkit-border-radius: 7px;border-radius:7px;">
-																	      			立即抢购 699 套餐
-																	      		</a>
-																	    	</div>
-																	  </div>
-																</div>																	
-						                </div>                            
+						                <div class="col-xs-12 col-sm-5 wow fadeInDown" style="margin:80px 0 0 90px;display:none1;">
+									<div class="form-horizontal piao" style="height:330px;">
+											<div class="form-group">
+												<label for="name2" class="col-sm-2 control-label">姓　名</label>
+												<div class="col-sm-10" style="width:83%">
+													<input id="name2"  type="text" class="form-control" id="name" placeholder="请输入姓名">
+												</div>
+											</div>
+										  <div class="form-group">
+											    <label for="phone2" class="col-sm-2 control-label">手机号</label>
+											    <div class="col-sm-10" style="width:83%">
+												<input type="text" maxLength=11 class="form-control" id="phone2" placeholder="中国大陆手机号">
+											    </div>
+										  </div>
+
+										  <div class="form-group">
+										    <label for="inputImgCode32" class="col-sm-2 control-label">验证码</label>
+										    <div class="col-sm-10" style="width:83%">
+											<input id="inputImgCode32" type="text" class="form-control" placeholder="图形验证码" style="width:120px;float: left;margin-top: 4px;">
+											<img id="imgcodebtn2" src="" alt="" class="imgcodebtn" style="height: 40px;width: 150px;float:right" />
+										    </div>
+										</div>
+
+										  <div class="form-group">
+											<label for="msgcode2" class="col-sm-2 control-label">验证码</label>
+											<div class="col-sm-10" style="width:83%">
+												<input type="text" class="form-control" id="msgcode2" placeholder="" style="width:120px">
+												<button id="getcodebtn2" type="button" class="btn btn-default" style="float:right;margin-top:-34px;width:150px">发送短信</button>
+											</div>
+										  </div>
+										  <div class="form-group" style="margin-top:-20px">
+											<div class="col-sm-offset-2 col-sm-10">
+												<a id="buybtn2" class="btn-slide" href="javascript:void(0);" style="background:orange;font-size:20px;color:#000;padding:15px 30px;font-weight:800;-moz-border-radius: 7px;-webkit-border-radius: 7px;border-radius:7px;">立即抢购 699 套餐</a>
+											</div>
+										  </div>
+									</div>
+						                </div>
 
                         </div>
                     </div>
@@ -245,11 +259,11 @@
                                 <h3><a href="#">01客厅</a> </h3>
                                 <p> 客厅的家具应考虑家庭活动的适用性和成员的适用性。这里面最主要的考虑来自老人和小孩的使用问题，有时候我们不得不为他们的方便的而作出一些让步。</p>
                                 <a class="preview" href=""images/space/space10.jpg"" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a>
-                            </div> 
+                            </div>
                         </div>
                     </div>
-                </div>   
-					
+                </div>
+
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
                         <img class="img-responsive" src="images/space/space3.jpg" alt="">
@@ -258,10 +272,10 @@
                                 <h3><a href="#">02卧室</a></h3>
                                 <p>专业设备和团队，对您的房屋进行全面的检测，发现问题并提供修缮意见，为业主提供强有力的参考依据。</p>
                                 <a class="preview" href="images/space/space3.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a>
-                            </div> 
+                            </div>
                         </div>
                     </div>
-                </div> 
+                </div>
 
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
@@ -271,10 +285,10 @@
                                 <h3><a href="#">03餐厅</a></h3>
                                 <p>在线客服24小时竭诚为您服务</p>
                                 <a class="preview" href="images/space/space11.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a>
-                            </div> 
+                            </div>
                         </div>
                     </div>
-                </div>   
+                </div>
 
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
@@ -284,11 +298,11 @@
                                 <h3><a href="#">04厨房</a></h3>
                                 <p>家装赋予艺术的灵感，便是一座精品。</p>
                                 <a class="preview" href="images/space/space4.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a>
-                            </div> 
+                            </div>
                         </div>
                     </div>
-                </div>   
-                
+                </div>
+
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
                         <img class="img-responsive" src="images/space/space1.jpg" alt="">
@@ -297,10 +311,10 @@
                                 <h3><a href="#">05卫生间</a></h3>
                                 <p>精准、精确</p>
                                 <a class="preview" href="images/space/space1.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a>
-                            </div> 
+                            </div>
                         </div>
                     </div>
-                </div>   
+                </div>
 
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
@@ -310,10 +324,10 @@
                                 <h3><a href="#">06阳台</a></h3>
                                 <p>所有客户都享受一对一的专属导购服务</p>
                                 <a class="preview" href="images/space/space6.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a>
-                            </div> 
+                            </div>
                         </div>
                     </div>
-                </div> 
+                </div>
 
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
@@ -323,10 +337,10 @@
                                 <h3><a href="#">07背景墙</a></h3>
                                 <p>终身保修是凤凰的承诺，我们不仅筑巢，更是爱巢的卫士。</p>
                                 <a class="preview" href="images/space/space9.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a>
-                            </div> 
+                            </div>
                         </div>
                     </div>
-                </div>   
+                </div>
 
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
@@ -336,10 +350,10 @@
                                 <h3><a href="#">08吊顶</a></h3>
                                 <p>自有专业施工人员，标准化作业。</p>
                                 <a class="preview" href="images/space/space8.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a>
-                            </div> 
+                            </div>
                         </div>
                     </div>
-                </div>   
+                </div>
             </div><!--/.row-->
 
 						<div id="carousel-slider" class="carousel slide" data-ride="carousel">
@@ -349,7 +363,7 @@
 							    <li data-target="#carousel-slider" data-slide-to="1"></li>
 							    <li data-target="#carousel-slider" data-slide-to="2"></li>
 						  	</ol>
-		
+
 							<div class="carousel-inner">
 								<div class="item active">
 				            <div>
@@ -359,77 +373,77 @@
 										    	<th width=90>栏目</th>
 										    	<th width=100>回复 / 转发</th>
 										    	<th>评论时间</th>
-										    	<th width=50>操作</th>    	    	    																    		    	    	
+										    	<th width=50>操作</th>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >案例集锦</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >案例集锦</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >案例集锦</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >案例集锦</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >499套餐</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >499套餐</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >699套餐</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >699套餐</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >818套餐</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >凤凰管家</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 											</table>
 										</div>
@@ -442,81 +456,81 @@
 										    	<th width=90>栏目</th>
 										    	<th width=100>回复 / 转发</th>
 										    	<th>评论时间</th>
-										    	<th width=50>操作</th>    	    	    																    		    	    	
+										    	<th width=50>操作</th>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >案例集锦</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >案例集锦</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >案例集锦</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >案例集锦</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >499套餐</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >499套餐</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >699套餐</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >699套餐</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >818套餐</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >凤凰管家</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 											</table>
-										</div>									
-							   </div> 
+										</div>
+							   </div>
 							   <div class="item">
 				            <div>
 											<table class="table u_ct">
@@ -525,89 +539,89 @@
 										    	<th width=90>栏目</th>
 										    	<th width=100>回复 / 转发</th>
 										    	<th>评论时间</th>
-										    	<th width=50>操作</th>    	    	    																    		    	    	
+										    	<th width=50>操作</th>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >案例集锦</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >案例集锦</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >案例集锦</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >案例集锦</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >499套餐</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >499套餐</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >699套餐</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >699套餐</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >818套餐</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 										    <tr>
 										    	<td >这个案例风格我喜欢</td>
 										    	<td >凤凰管家</td>
 										    	<td >1 / 2</td>
 										    	<td >2015-06-02 10:00</td>
-										    	<td><a href="#">查看</a></td>									    	  	    	    	
+										    	<td><a href="#">查看</a></td>
 										    </tr>
 											</table>
-										</div>									
-							   </div> 
+										</div>
+							   </div>
 							</div>
-							
+
 							<a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
-								<i class="fa fa-angle-left"></i> 
+								<i class="fa fa-angle-left"></i>
 							</a>
-							
+
 							<a class=" right carousel-control hidden-xs"href="#carousel-slider" data-slide="next">
-								<i class="fa fa-angle-right"></i> 
+								<i class="fa fa-angle-right"></i>
 							</a>
 						</div> <!--/#carousel-slider-->
 
@@ -636,7 +650,7 @@
             </div>
             <div class="center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
             	<img src="images/space/gxsj.png">
-            </div>            
+            </div>
         </div><!--/.container-->
     </section><!--/#feature-->
 
@@ -646,7 +660,7 @@
                 <h2>免费服务<span style="font-size:24px"> FREE SERVICE</span></h2>
                 <p class="lead">让您既省心又省钱，不再为各种名目的额外收费烦恼</p>
             </div>
-            
+
 						<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
 						    <div class="feature-wrap pd_bd">
 						        <i class="fa fa-cubes"></i>
@@ -654,7 +668,7 @@
 						        <h3 class="f_16">使用专用泡沫材料封包，确保材料无损伤</h3>
 						    </div>
 						</div><!--/.col-md-4-->
-						
+
 						<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
 						    <div class="feature-wrap pd_bd">
 						        <i class="fa fa-dropbox"></i>
@@ -662,7 +676,7 @@
 						        <h3 class="f_16">每天负责打扫和清运装修垃圾，确保装修现场整洁有序</h3>
 						    </div>
 						</div><!--/.col-md-4-->
-			
+
 						<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
 						    <div class="feature-wrap pd_bd">
 						        <i class="fa fa-truck"></i>
@@ -671,7 +685,7 @@
 						    </div>
 						</div><!--/.col-md-4-->
 
-						
+
 						<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" >
 						    <div class="feature-wrap pd_bd">
 						        <i class="fa fa-paint-brush"></i>
@@ -679,7 +693,7 @@
 						        <h3 class="f_16">免费设计、免费测量，直到客户满意为止</h3>
 						    </div>
 						</div><!--/.col-md-4-->
-						
+
 						<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" >
 						    <div class="feature-wrap pd_bd">
 						        <i class="fa fa-trash"></i>
@@ -687,26 +701,26 @@
 						        <h3 class="f_16">环境清理服务，不在另收取费用</h3>
 						    </div>
 						</div><!--/.col-md-4-->
-						
+
 						<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
 						    <div class="feature-wrap pd_bd">
 						        <i class="fa fa-cog"></i>
 						        <h2 class="wt_0">免杂物和管理费</h2>
 						        <h3 class="f_16">全程托管，一站式管理</h3>
 						    </div>
-						</div><!--/.col-md-4--> 
+						</div><!--/.col-md-4-->
 						<div style="clear:both"></div>
 						<div style="margin:0 0 50px 0;font-size:16px;line-height:32px;" class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
 							<ul>
-							<li>120㎡以下的户型标配一个卫生间，120㎡以上的户型标配俩个卫生间，标准外每增加一个卫生间需加收5000元成本;</li>	
-							<li>装修套餐不包含建筑门窗、燃气、暖气、空调系统、新风系统、承重结构等项目;</li>	
-							<li>阳台门和入户门不属于内门，如需更改则属于个性化项目;</li>	
-							<li>套餐内包含40平米以下墙面的石膏找平，如超出规定面积则按照个性化定制付费；</li>	
-							<li>套餐内的涂料颜色默认为白色，如果您需要单独调色，可以根据爱空间提供的“色卡”，挑选自己喜欢的颜色，但需要按照每种颜色额外支付100元费用；</li>	
-							<li>699元每平米的价格不包含税金，税率执行国家标准，由顾客自行承担；</li>	
-							<li>垃圾清理负责运输到小区指定地点（不包括外运） 							</li>	
+							<li>120㎡以下的户型标配一个卫生间，120㎡以上的户型标配俩个卫生间，标准外每增加一个卫生间需加收5000元成本;</li>
+							<li>装修套餐不包含建筑门窗、燃气、暖气、空调系统、新风系统、承重结构等项目;</li>
+							<li>阳台门和入户门不属于内门，如需更改则属于个性化项目;</li>
+							<li>套餐内包含40平米以下墙面的石膏找平，如超出规定面积则按照个性化定制付费；</li>
+							<li>套餐内的涂料颜色默认为白色，如果您需要单独调色，可以根据爱空间提供的“色卡”，挑选自己喜欢的颜色，但需要按照每种颜色额外支付100元费用；</li>
+							<li>699元每平米的价格不包含税金，税率执行国家标准，由顾客自行承担；</li>
+							<li>垃圾清理负责运输到小区指定地点（不包括外运） 							</li>
 							</ul>
-						</div>   	            
+						</div>
         </div><!--/.container-->
     </section><!--/#feature-->
 
@@ -745,8 +759,8 @@
                                 <img src="images/zfc/9.gif" />
                             </li>
                         </ul>
-                    </div>   
-										<div style="clear:both;height:20px"></div>                
+                    </div>
+										<div style="clear:both;height:20px"></div>
                     <div class="col-sm-6 col-md-3 wow fadeInDown">
                         <ul>
                             <li>
@@ -774,8 +788,8 @@
                                 <img src="images/zfc/5.gif" />
                             </li>
                         </ul>
-                    </div>  
-										<div style="clear:both;height:20px"></div>                
+                    </div>
+										<div style="clear:both;height:20px"></div>
                     <div class="col-sm-6 col-md-3 wow fadeInDown">
                         <ul>
                             <li>
@@ -803,7 +817,7 @@
                                 <img src="images/zfc/1.gif" />
                             </li>
                         </ul>
-                    </div>                                          
+                    </div>
                 </div>
             </div><!--/pricing-area-->
         </div><!--/.container-->
@@ -851,7 +865,7 @@
                             <p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
                         </div>
                     </div>
-                </div>  
+                </div>
 
                 <div class="col-sm-6 col-md-4">
                     <div class="media services-wrap wow fadeInDown">
@@ -887,7 +901,7 @@
                             <p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
                         </div>
                     </div>
-                </div>                                                
+                </div>
             </div><!--/.row--
         </div><!--/.container--
     </section><!--/#feature-->
@@ -900,7 +914,7 @@
             </div>
             <div class="center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
             		<img src="images/space/step55.gif">
-            </div>               
+            </div>
         </div><!--/.container-->
     </section><!--/#feature-->
 
@@ -928,7 +942,7 @@
             </div>
             <div class="center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
             		<img src="images/space/gjfw.png">
-            </div>            
+            </div>
         </div>
     </section>
 
@@ -945,7 +959,7 @@
             </div>
         </div>
     </section-->
-    
+
     <section id="conatcat-info">
         <div class="container">
             <div class="row">
@@ -967,9 +981,9 @@
                   			<div style="text-align:center;line-height:45px;font-size:20px;color:#fff;">400-699-2888</div>
                   		</a>
                   	</div>
-                </div> 
+                </div>
             </div>
-        </div><!--/.container-->    
+        </div><!--/.container-->
     </section><!--/#conatcat-info-->
 
     <section id="bottom" style="padding:40px 0">
@@ -983,7 +997,7 @@
                             <li><a href="zffs.html">支付方式</a></li>
                             <li><a href="cjwt.html">常见问题</a></li>
                         </ul>
-                    </div>    
+                    </div>
                 </div><!--/.col-md-3-->
 
                 <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
@@ -994,7 +1008,7 @@
                             <li><a href="zzfw.html">自助服务</a></li>
                             <li><a href="xgxz.html">相关下载</a></li>
                         </ul>
-                    </div>    
+                    </div>
                 </div><!--/.col-md-3-->
 
                 <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
@@ -1005,7 +1019,7 @@
                             <li><a href="hyhd.html">会员活动</a></li>
                             <li><a href="vip.html">VIP服务</a></li>
                         </ul>
-                    </div>    
+                    </div>
                 </div><!--/.col-md-3-->
 
                 <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
@@ -1016,9 +1030,9 @@
                             <li><a href="aboutus">了解我们</a></li>
                             <li><a href="enjoyus">加入我们</a></li>
                         </ul>
-                    </div>  
+                    </div>
                 </div><!--/.col-md-3-->
-                
+
                 <div class="col-md-3 col-sm-6" style="width:190px;margin-right:45px">
                     <div class="widget">
                         <h3>官方媒体</h3>
@@ -1027,8 +1041,8 @@
                             <li><a href="#">微信公众号</a></li>
                             <li><a href="#">天猫网店</a></li>
                         </ul>
-                    </div>    
-                </div><!--/.col-md-3-->                
+                    </div>
+                </div><!--/.col-md-3-->
             </div>
         </div>
     </section><!--/#bottom-->
@@ -1050,10 +1064,14 @@
     </footer><!--/#footer-->
 
     <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/jquery.isotope.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/wow.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.prettyPhoto.js"></script>
+	<script src="js/jquery.isotope.min.js"></script>
+
+	<script src="js/wow.min.js"></script>
+	<script src="libs/json.js"></script>
+	<script src="libs/base.js"></script>
+	<script src="libs/utils.js"></script>
+	<script src="js/699.js"></script>
 </body>
 </html>

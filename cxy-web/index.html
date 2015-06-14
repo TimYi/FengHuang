@@ -12,6 +12,7 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
@@ -44,8 +45,8 @@
                     </div>
                     <div class="col-sm-6 col-xs-8">
                        <div class="social">
-                            <ul class="social-share">
-                                <li style="padding-right:10px;"><i class="fa fa-sign-in hui"></i> <b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal"><a href="login.html" style="width:30px">登录</a></b></li>
+                            <ul id="loginstatus" class="social-share">
+                                <li style="padding-right:10px"><i class="fa fa-sign-in hui"></i> <b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal"><a href="login.html" style="width:30px">登录</a></b></li>
                                 <li><i class="fa fa-user hui"></i> <a href="center.html" style="width:60px">会员中心</a></li>
                             </ul>
                             <div class="search">
@@ -138,47 +139,56 @@
                             </div>
 
 
-						                <div class="col-xs-12 col-sm-5 wow fadeInDown" style="margin:50px 0 0 90px">
-																<div class="form-horizontal piao_mid">
-																	  <div class="form-group">
-																		    <label for="inputEmail3" class="col-sm-2 control-label">预约类型</label>
-																		    <div class="col-sm-10" style="width:83%">
-																					<select name="zhuangxiu" class="u_sel" style="width:278px">
-																						<option value="volvo" selected="selected">预约免费量房</option>
-																						<option value="saab">预约免费设计</option>
-																						<option value="fiat">预约家装套餐</option>
-																						<option value="fiat">预约体验馆</option>
-																					</select>
-																		    </div>
-																	  </div>
-															 	 		<div class="form-group">
-															 					<label for="inputEmail3" class="col-sm-2 control-label">姓　名</label>
-															    			<div class="col-sm-10" style="width:83%">
-															      				<input type="" class="form-control" id="inputEmail3" placeholder="">
-															    			</div>
-															  		</div>
-																	  <div class="form-group">
-																		    <label for="inputEmail3" class="col-sm-2 control-label">手机号</label>
-																		    <div class="col-sm-10" style="width:83%">
-																		      	<input type="" class="form-control" id="inputEmail3" placeholder="中国大陆手机号">
-																		    </div>
-																	  </div>
-																	  <div class="form-group">
-																	    	<label for="inputEmail3" class="col-sm-2 control-label">验证码</label>
-																	    	<div class="col-sm-10" style="width:83%">
-																	      		<input type="" class="form-control" id="inputEmail3" placeholder="" style="width:120px">
-																	      		<button type="submit" class="btn btn-default" style="float:right;margin-top:-34px;width:150px">发送短信</button>
-																	    	</div>
-																	  </div>
-																	  <div class="form-group" style="margin-top:-20px">
-																	    	<div class="col-sm-offset-2 col-sm-10">
-																	      		<a class="btn-slide" href="#" style="background:orange;font-size:20px;color:#000;padding:15px 65px;font-weight:800;-moz-border-radius: 7px;-webkit-border-radius: 7px;border-radius:7px;">
-																	      			立即预约
-																	      		</a>
-																	    	</div>
-																	  </div>
-																</div>
-						                </div>
+					<div class="col-xs-12 col-sm-5 wow fadeInDown" style="margin:50px 0 0 90px">
+						<div class="form-horizontal piao_mid" style="height:380px;">
+							  <div class="form-group">
+									<label for="typeid" class="col-sm-2 control-label">预约类型</label>
+									<div class="col-sm-10" style="width:83%">
+										<select id="typeid" name="zhuangxiu" class="u_sel" style="width:278px">
+											<option value="volvo" selected="selected">预约免费量房</option>
+											<option value="saab">预约免费设计</option>
+											<option value="fiat">预约家装套餐</option>
+											<option value="fiat">预约体验馆</option>
+										</select>
+									</div>
+							  </div>
+							<div class="form-group">
+								<label for="name" class="col-sm-2 control-label">姓　名</label>
+								<div class="col-sm-10" style="width:83%">
+									<input id="name" type="text" class="name form-control" placeholder="请输入姓名">
+								</div>
+							</div>
+							  <div class="form-group">
+								<label for="phone" class="col-sm-2 control-label">手机号</label>
+								<div class="col-sm-10" style="width:83%">
+									<input id="phone" type="text" class="phone form-control" placeholder="中国大陆手机号">
+								</div>
+							  </div>
+
+							<div class="form-group">
+							    <label for="inputImgCode3" class="col-sm-2 control-label">验证码</label>
+							    <div class="col-sm-10" style="width:83%">
+								<input id="inputImgCode3" type="text" class="inputImgCode3 form-control" placeholder="图形验证码" style="width:120px;float: left;margin-top: 4px;">
+								<img id="imgcodebtn" src="" alt="" class="imgcodebtn" style="height: 40px;width: 150px;float:right" />
+							    </div>
+							  </div>
+
+							  <div class="form-group">
+								<label for="msgcode" class="col-sm-2 control-label">验证码</label>
+								<div class="col-sm-10" style="width:83%">
+									<input id="msgcode" type="text" class="msgcode form-control" placeholder="短信" style="width:120px">
+									<button id="getcodebtn" type="button" class="getcodebtn btn btn-default" style="float:right;margin-top:-34px;width:150px">发送短信</button>
+								</div>
+							  </div>
+							  <div class="form-group" style="margin-top:-20px">
+								<div class="col-sm-offset-2 col-sm-10">
+									<a id="reservebtn" class="reservebtn btn-slide" href="javascript:void(0);" style="background:orange;font-size:20px;color:#000;padding:15px 65px;font-weight:800;-moz-border-radius: 7px;-webkit-border-radius: 7px;border-radius:7px;">
+										立即预约
+									</a>
+								</div>
+							  </div>
+						</div>
+					</div>
 
                         </div>
                     </div>
@@ -197,47 +207,56 @@
                                     <a class="btn-slide animation animated-item-3" href="#">了解详情</a>
                                 </div>
                             </div>
-						                <div class="col-xs-12 col-sm-5 wow fadeInDown" style="margin:50px 0 0 90px">
-																<div class="form-horizontal piao_mid">
-																	  <div class="form-group">
-																		    <label for="inputEmail3" class="col-sm-2 control-label">预约类型</label>
-																		    <div class="col-sm-10" style="width:83%">
-																					<select name="zhuangxiu" class="u_sel" style="width:278px">
-																						<option value="volvo" selected="selected">预约免费量房</option>
-																						<option value="saab">预约免费设计</option>
-																						<option value="fiat">预约家装套餐</option>
-																						<option value="fiat">预约体验馆</option>
-																					</select>
-																		    </div>
-																	  </div>
-															 	 		<div class="form-group">
-															 					<label for="inputEmail3" class="col-sm-2 control-label">姓　名</label>
-															    			<div class="col-sm-10" style="width:83%">
-															      				<input type="" class="form-control" id="inputEmail3" placeholder="">
-															    			</div>
-															  		</div>
-																	  <div class="form-group">
-																		    <label for="inputEmail3" class="col-sm-2 control-label">手机号</label>
-																		    <div class="col-sm-10" style="width:83%">
-																		      	<input type="" class="form-control" id="inputEmail3" placeholder="中国大陆手机号">
-																		    </div>
-																	  </div>
-																	  <div class="form-group">
-																	    	<label for="inputEmail3" class="col-sm-2 control-label">验证码</label>
-																	    	<div class="col-sm-10" style="width:83%">
-																	      		<input type="" class="form-control" id="inputEmail3" placeholder="" style="width:120px">
-																	      		<button type="submit" class="btn btn-default" style="float:right;margin-top:-34px;width:150px">发送短信</button>
-																	    	</div>
-																	  </div>
-																	  <div class="form-group" style="margin-top:-20px">
-																	    	<div class="col-sm-offset-2 col-sm-10">
-																	      		<a class="btn-slide" href="#" style="background:orange;font-size:20px;color:#000;padding:15px 65px;font-weight:800;-moz-border-radius: 7px;-webkit-border-radius: 7px;border-radius:7px;">
-																	      			立即预约
-																	      		</a>
-																	    	</div>
-																	  </div>
-																</div>
-						                </div>
+				     <div class="col-xs-12 col-sm-5 wow fadeInDown" style="margin:50px 0 0 90px">
+						<div class="form-horizontal piao_mid" style="height:380px;">
+							  <div class="form-group">
+									<label for="typeid2" class="col-sm-2 control-label">预约类型</label>
+									<div class="col-sm-10" style="width:83%">
+										<select id="typeid2" name="zhuangxiu" class="u_sel" style="width:278px">
+											<option value="volvo" selected="selected">预约免费量房</option>
+											<option value="saab">预约免费设计</option>
+											<option value="fiat">预约家装套餐</option>
+											<option value="fiat">预约体验馆</option>
+										</select>
+									</div>
+							  </div>
+							<div class="form-group">
+								<label for="name2" class="col-sm-2 control-label">姓　名</label>
+								<div class="col-sm-10" style="width:83%">
+									<input id="name2" type="text" class="name form-control" placeholder="请输入姓名">
+								</div>
+							</div>
+							  <div class="form-group">
+								<label for="phone2" class="col-sm-2 control-label">手机号</label>
+								<div class="col-sm-10" style="width:83%">
+									<input id="phone2" type="text" class="phone form-control" placeholder="中国大陆手机号">
+								</div>
+							  </div>
+
+							<div class="form-group">
+							    <label for="inputImgCode32" class="col-sm-2 control-label">验证码</label>
+							    <div class="col-sm-10" style="width:83%">
+								<input id="inputImgCode32" type="text" class="inputImgCode3 form-control" placeholder="图形验证码" style="width:120px;float: left;margin-top: 4px;">
+								<img id="imgcodebtn2" src="" alt="" class="imgcodebtn" style="height: 40px;width: 150px;float:right" />
+							    </div>
+							  </div>
+
+							  <div class="form-group">
+								<label for="msgcode2" class="col-sm-2 control-label">验证码</label>
+								<div class="col-sm-10" style="width:83%">
+									<input id="msgcode2" type="text" class="msgcode form-control" placeholder="短信" style="width:120px">
+									<button id="getcodebtn2" type="button" class="getcodebtn btn btn-default" style="float:right;margin-top:-34px;width:150px">发送短信</button>
+								</div>
+							  </div>
+							  <div class="form-group" style="margin-top:-20px">
+								<div class="col-sm-offset-2 col-sm-10">
+									<a id="reservebtn2" class="reservebtn btn-slide" href="javascript:void(0);" style="background:orange;font-size:20px;color:#000;padding:15px 65px;font-weight:800;-moz-border-radius: 7px;-webkit-border-radius: 7px;border-radius:7px;">
+										立即预约
+									</a>
+								</div>
+							  </div>
+						</div>
+					</div>
                             <!--div class="col-sm-6 hidden-xs animation animated-item-4">
                                 <div class="slider-img">
                                     <img src="images/slider/img5.png" class="img-responsive">
@@ -305,33 +324,36 @@
 
             <div class="row">
                 <div class="features">
-                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap" style="height:240px">
-                            <!--i class="fa fa-bullhorn"></i-->
-                            <h3>
-                            	<span style="font-weight:600;color:#666">RMB</span>&nbsp;&nbsp;
-                            	<span style="color:#000;font-size:24px;font-weight:600">499</span>
-                            	<span style="color:#000;font-weight:800;">元/平米</span>
-                            	<span style="font-weight:800;color:#000">【新居】</span>
-                            </h3>
-                            <h3 style="margin:-5px 0 0 0;">
-                            	<span style="color:#999;font-size:14px;line-height:12px;">简装套餐，包工包料，一线品牌主辅材，35天，赠送2000元家居代金券</span>
-                            </h3>
-                            <div style="margin:20px 0 10px 70px;">
-                            	<div style="height:45px;width:160px;background:none;border:1px solid #ccc;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-                            		<a href="miaosha.html">
-                            			<div style="text-align:center;line-height:45px;font-size:16px;color:#000;">已抢完</div>
-                            		</a>
-                            	</div>
-                            </div>
-                            <div style="text-align:center;line-height:14x;font-size:14px;color:#000;">
-                            	<span style="color:#999">下次开放时间：</span>2015年6月20日上午10时
-                            </div>
-                        </div>
-                        <div style="height:240px;width:360px;">
-                        	<img src="images/u_1.jpg" width=360 height=240>
-                        </div>
-                    </div><!--/.col-md-4-->
+
+			<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+				<div class="feature-wrap" style="height:240px;">
+					<!--i class="fa fa-bullhorn"></i-->
+					<h3>
+						<span style="font-weight:600;color:#666">RMB</span>&nbsp;&nbsp;
+						<span style="color:#000;font-size:24px;font-weight:600">499</span>
+						<span style="color:#000;font-weight:800;">元/平米</span>
+						<span style="font-weight:800;color:#000">【新居】</span>
+					</h3>
+					<h3 style="margin:-5px 0 0 0;">
+						<span style="color:#999;font-size:14px;line-height:12px;">简装套餐，包工包料，一线品牌主辅材，35天，赠送2000元家居代金券</span>
+					</h3>
+					<div style="margin:20px 0 10px 70px;">
+						<div style="height:45px;width:160px;background:none;border:1px solid #ccc;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+							<a href="miaosha.html">
+								<div style="text-align:center;line-height:45px;font-size:16px;color:#000;">已抢完</div>
+							</a>
+						</div>
+					</div>
+					<div style="text-align:center;line-height:14x;font-size:14px;color:#000;">
+						<span style="color:#999">下次开放时间：</span>2015年6月20日上午10时
+					</div>
+				</div>
+				<div style="height:240px;width:360px;">
+					<img src="images/u_1.jpg" width=360 height=240>
+				</div>
+			</div>
+			<!--/.col-md-4-->
+
 
                     <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="feature-wrap" style="height:240px">
@@ -360,7 +382,8 @@
                         	<img src="images/u_2.jpg" width=360 height=240>
                         </div>
                         </div>
-                    </div><!--/.col-md-4-->
+                    </div>
+                    <!--/.col-md-4-->
 
                     <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="feature-wrap" style="height:240px">
@@ -389,7 +412,10 @@
                         	<img src="images/u_3.jpg" width=360 height=240>
                         </div>
                         </div>
-                    </div><!--/.col-md-4-->
+                    </div>
+                    <!--/.col-md-4-->
+
+
                 </div><!--/.services-->
             </div><!--/.row-->
         </div><!--/.container-->
