@@ -1,0 +1,96 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>凤凰筑家</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<!-- Header -->
+	<header class="am-header am-header-default" style="background:#fff;box-shadow: inset -1px -1px 1px -1px #666;">
+	  <h1 class="am-header-title">
+	    <span class="btnLogin">用户登录</span>
+	  </h1>
+	  <div class="am-header-left am-header-nav">
+	    <a href="/" class="">
+	      <i class="am-header-icon am-icon-chevron-left" style="font-size:16px;color:#999;margin-left:-15px"></i>
+	    </a>
+	  </div> 
+	  <div class="am-header-right am-header-nav">
+	    <a href="?c=reg" class="">
+	      <i class="am-header-icon am-icon-user-plus" style="font-size:20px;color:#999;margin-left:-15px"></i>
+	    </a>
+	  </div> 
+	</header>
+
+
+	<div style="height:10px;"></div>
+	<div class="am-g">
+	  <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered" style="width:90%">
+			<form id="form" method="post" action="?a=login" onsubmit="return CheckLog();" class="am-form">
+
+
+		  	<div style="height:10px;"></div>	
+	    	<input class="yuanjiao" type="text" name="username" id="username" placeholder="手机号 / 用户名 / 邮箱"/><div style="height:10px;"></div>
+	      <input class="yuanjiao" type="password" name="password" id="password" placeholder="密码"/><div style="height:10px;"></div>
+	    	
+	    	
+	    	<div class="am-cf">
+	      	<input class="am-fl"type="text" name="validate" id="validate" placeholder="验证码" style="width:45%" /><div style="height:10px;"></div>
+	      	<div class="am-fr">
+	      		<img style="height:30px;width:70px;border:1px solid #ccc"></img>
+	      		<a href="javascript:;" onClick="var v=document.getElementById('ckstr');v.src=v.src+'?';return false;">看不清?</a>
+	      	</div>
+				</div>
+				<div style="height:10px;"></div>
+				
+	      <label for="remember-me" style="height:20px;font-weight:normal">
+	        <input type="checkbox" name="autologin" id="autologin" value="1" />
+	        两周内自动登录
+	      </label>				
+				<div style="height:20px;"></div>
+	      <div class="am-cf">
+	        <input type="submit" class="am-btn am-btn-sm am-fl rd5 orange" value="　登录　">
+	        <a href="?c=findpwd">
+	        	<div id="button_wangji" class="am-btn am-btn-sm am-fr rd5 h">忘记密码</div> 
+	        </a>
+	      </div>
+      </form>			
+			<div style="height:30px;margin-bottom:20px;border-top:0 none;box-shadow: inset 0 -1px 1px -1px #999;"></div>
+			授权登录
+
+			<div style="height:10px;"></div>
+				<a href="data/api/oauth/connect.php?method=qq_token" class="oqq">		
+					<button class="btnSJ">
+						<span class="am-icon-qq w18"></span>
+					</button>&nbsp;
+				</a>
+				<a href="#" class="weixin">						
+					<button class="btnSJ">
+						<span class="am-icon-weixin w18"></span>
+					</button>&nbsp;
+				</a>
+				<a href="data/api/oauth/connect.php?method=weibo_token" class="osina">	
+					<button class="btnSJ">
+						<span class="am-icon-weibo w18"></span>
+					</button>&nbsp;								
+				</a>
+				<a href="data/api/oauth/connect.php?method=weibo_token" class="osina">	
+					<button class="btnSJ">
+						<span class="am-icon-paw w18"></span>
+					</button>&nbsp;								
+				</a>				
+		
+		</div>
+	</div>
+</body>
+</html>
+

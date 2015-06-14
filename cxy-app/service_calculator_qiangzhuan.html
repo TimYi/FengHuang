@@ -1,0 +1,187 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>凤凰筑家</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<!-- Header -->
+<div data-am-sticky>
+<header data-am-widget="header" class="am-header am-header-default" style="background:#fff;box-shadow: inset -1px -1px 1px -1px #666;">
+  <h1 class="am-header-title">
+    <!--img src="images/park_green.png" width=30 height=22 -->
+    <span style="color:#333;font-size:18px;font-weight:bold">墙砖计算器</span>
+  </h1>
+  <div class="am-header-left am-header-nav">
+    <a href="service.html" class="">
+      <i class="am-header-icon am-icon-chevron-left" style="font-size:16px;color:#999;margin-left:-15px"></i>
+    </a>
+  </div> 
+  <div class="am-header-right am-header-nav">
+    <a href="service_calculator_qiangzhuan_result.html" class="">
+      <i class="am-header-icon am-icon-check" style="font-size:22px;color:#f25618;margin-left:-15px"></i>
+    </a>
+  </div> 
+</header>
+</div>
+
+<script>
+var socket = new WebSocket("ws://www.qgfan.com/parkwin/");
+    socket.onopen = function () {
+        alert("Socket has been opened!");
+    }
+    socket.onmessage = function (msg) {
+        alert(msg); //Awesome!
+    }
+</script>
+<!-- List -->
+<div data-am-widget="list_news" style="width:96%;margin:0 auto;padding:0 5px">
+  <!--列表标题-->
+  <div class="am-list-news-bd">
+    <ul class="am-list">
+
+      <div class="am-cf bottomline" style="font-weight:bold;height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+	      房间
+      </div>
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-expand f_g w18" style="padding-left:0px;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:normal;color:#000;">长度</span>
+			  </div> 
+			  <div class="am-fr">
+					<input type="tel" id="price" name="price" class="valueinput_mj" value="0" onfocus="if(value=='0' || value!=='') {value=''}" onblur="if (value=='') {value='0'}"> 米&nbsp;		
+			  </div> 
+			</div>
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-arrows-h f_g w18" style="padding-left:0;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:normal;color:#000;">宽度</span>
+			  </div> 
+	  		<div class="am-fr">
+					<input type="tel" id="price" name="price" class="valueinput_mj" value="0" onfocus="if(value=='0' || value!=='') {value=''}" onblur="if (value=='') {value='0'}"> 米&nbsp;
+			  </div> 
+			</div>   
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-arrows-v f_g w18" style="padding-left:4px;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:normal;color:#000;">高度</span>
+			  </div> 
+	  		<div class="am-fr">
+					<input type="tel" id="price" name="price" class="valueinput_mj" value="0" onfocus="if(value=='0' || value!=='') {value=''}" onblur="if (value=='') {value='0'}"> 米&nbsp;
+			  </div> 
+			</div> 
+						 
+
+      <div class="am-cf bottomline" style="font-weight:bold;height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+	      房门
+      </div>
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-expand f_g w18" style="padding-left:0px;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:normal;color:#000;">长度</span>
+			  </div> 
+			  <div class="am-fr">
+					<input type="tel" id="price" name="price" class="valueinput_mj" value="0" onfocus="if(value=='0' || value!=='') {value=''}" onblur="if (value=='') {value='0'}"> 米&nbsp;		
+			  </div> 
+			</div>
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-arrows-h f_g w18" style="padding-left:0;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:normal;color:#000;">宽度</span>
+			  </div> 
+	  		<div class="am-fr">
+					<input type="tel" id="price" name="price" class="valueinput_mj" value="0" onfocus="if(value=='0' || value!=='') {value=''}" onblur="if (value=='') {value='0'}"> 米&nbsp;
+			  </div> 
+			</div>   
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-arrows-v f_g w18" style="padding-left:4px;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:normal;color:#000;">高度</span>
+			  </div> 
+	  		<div class="am-fr">
+					<input type="tel" id="price" name="price" class="valueinput_mj" value="0" onfocus="if(value=='0' || value!=='') {value=''}" onblur="if (value=='') {value='0'}"> 米&nbsp;
+			  </div> 
+			</div>      
+
+
+      <div class="am-cf bottomline" style="font-weight:bold;height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+	      窗户
+      </div>
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-expand f_g w18" style="padding-left:0px;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:normal;color:#000;">长度</span>
+			  </div> 
+			  <div class="am-fr">
+					<input type="tel" id="price" name="price" class="valueinput_mj" value="0" onfocus="if(value=='0' || value!=='') {value=''}" onblur="if (value=='') {value='0'}"> 米&nbsp;		
+			  </div> 
+			</div>
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-arrows-h f_g w18" style="padding-left:0;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:normal;color:#000;">宽度</span>
+			  </div> 
+	  		<div class="am-fr">
+					<input type="tel" id="price" name="price" class="valueinput_mj" value="0" onfocus="if(value=='0' || value!=='') {value=''}" onblur="if (value=='') {value='0'}"> 米&nbsp;
+			  </div> 
+			</div>   
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-arrows-v f_g w18" style="padding-left:4px;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:normal;color:#000;">高度</span>
+			  </div> 
+	  		<div class="am-fr">
+					<input type="tel" id="price" name="price" class="valueinput_mj" value="0" onfocus="if(value=='0' || value!=='') {value=''}" onblur="if (value=='') {value='0'}"> 米&nbsp;
+			  </div> 
+			</div>
+
+
+      <div class="am-cf bottomline" style="font-weight:bold;height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+	      地砖
+      </div>
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-expand f_g w18" style="padding-left:0px;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:normal;color:#000;">长度</span>
+			  </div> 
+			  <div class="am-fr">
+					<input type="tel" id="price" name="price" class="valueinput_mj" value="0" onfocus="if(value=='0' || value!=='') {value=''}" onblur="if (value=='') {value='0'}"> 毫米&nbsp;		
+			  </div> 
+			</div>
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-arrows-h f_g w18" style="padding-left:0;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:normal;color:#000;">宽度</span>
+			  </div> 
+	  		<div class="am-fr">
+					<input type="tel" id="price" name="price" class="valueinput_mj" value="0" onfocus="if(value=='0' || value!=='') {value=''}" onblur="if (value=='') {value='0'}"> 毫米&nbsp;
+			  </div> 
+			</div>   
+			<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
+			  <div class="am-fl">
+					<span class="am-icon-rmb f_g w18" style="padding-left:4px;color:#999"></span>
+			    &nbsp;&nbsp;<span style="font-weight:normal;color:#000;">单价</span>
+			  </div> 
+			  <div class="am-fr">
+					<input type="tel" id="price" name="price" class="valueinput_mj" value="0" onfocus="if(value=='0' || value!=='') {value=''}" onblur="if (value=='') {value='0'}"> 元/块&nbsp;
+			  </div> 
+			</div>			
+                                        
+    </ul>
+  </div>
+</div>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+</body>
+</html>
+
