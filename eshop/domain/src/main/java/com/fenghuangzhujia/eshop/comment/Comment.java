@@ -18,6 +18,7 @@ import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 public class Comment extends UUIDBaseModel {
 
 	private String title;
+	private String column;
 	private String url;
 	private String sourceid;
 	private String parentid;
@@ -36,6 +37,17 @@ public class Comment extends UUIDBaseModel {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	/**
+	 * 评论针对栏目
+	 * @return
+	 */
+	@Column(name="column_name")
+	public String getColumn() {
+		return column;
+	}
+	public void setColumn(String column) {
+		this.column = column;
 	}
 	/**
 	 * 连接

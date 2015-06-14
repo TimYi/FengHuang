@@ -1,5 +1,7 @@
 package com.fenghuangzhujia.eshop.comment.dto;
 
+import java.util.Date;
+
 import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
@@ -11,6 +13,9 @@ public class CommentItemDto extends DtoBaseModel {
 	private String ip;
 	private String sourceid;
 	private String url;
+	private Date createTime;
+	private String column;
+	private Integer replyNumber; //回复数量，需要特殊处理
 	
 	public String getContent() {
 		return content;
@@ -47,5 +52,23 @@ public class CommentItemDto extends DtoBaseModel {
 	}
 	public void setUrl(String url) {
 		this.url = url;
+	}
+	public Date getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+	public String getColumn() {
+		return column;
+	}
+	public void setColumn(String column) {
+		this.column = column;
+	}
+	public Integer getReplyNumber() {
+		return replyNumber;
+	}
+	public void setReplyNumber(Integer replyNumber) {
+		this.replyNumber = replyNumber;
 	}
 }

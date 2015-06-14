@@ -10,6 +10,7 @@ public class CommentItemInputArgs extends DtoBaseModel {
 	private String ip;
 	private String sourceid;
 	private String url;
+	private String column;
 	
 	public String getContent() {
 		return content;
@@ -46,5 +47,11 @@ public class CommentItemInputArgs extends DtoBaseModel {
 	}
 	public void setUrl(String url) {
 		this.url = url;
+	}
+	public String getColumn() {
+		return column;
+	}
+	public void setColumn(String column) {
+		this.column = column;
 	}
 }

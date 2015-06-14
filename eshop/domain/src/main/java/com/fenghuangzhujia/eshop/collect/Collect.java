@@ -21,6 +21,7 @@ public class Collect extends UnreadRemindEntity {
 
 	private User user;
 	private String name;
+	private String column;	//要显示栏目名称，暂时不了解栏目名称是啥
 	private String url;
 	private String sourceid;
 	private ResourceType type;
@@ -44,6 +45,17 @@ public class Collect extends UnreadRemindEntity {
 		this.name = name;
 	}
 	
+	/**
+	 * 栏目名称
+	 * @return
+	 */
+	@Column(name="column_name")
+	public String getColumn() {
+		return column;
+	}
+	public void setColumn(String column) {
+		this.column = column;
+	}
 	/**
 	 * 收藏主图片
 	 * @return

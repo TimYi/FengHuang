@@ -26,6 +26,8 @@ public class SimpleUserDetails implements UserDetails {
 	private String id;
 	private String cname;
 	private String ename;
+	private String mobile;
+	private boolean infoComplete; //用户个人信息是否完整
 	private String username;
 	private String password;
 	private boolean isVerified;
@@ -35,6 +37,8 @@ public class SimpleUserDetails implements UserDetails {
 		this.id=user.getId();
 		this.ename=user.getCnname();
 		this.ename=user.getEname();
+		this.mobile=user.getMobile();
+		this.infoComplete=user.getInfoComplete();
 		this.username=user.getUsername();
 		this.password=user.getPassword();
 		this.isVerified=user.isVerified();
@@ -75,6 +79,14 @@ public class SimpleUserDetails implements UserDetails {
 	
 	public String getEname() {
 		return ename;
+	}
+	
+	public String getMobile() {
+		return mobile;
+	}
+	
+	public boolean getInfoComplete() {
+		return infoComplete;
 	}
 
 	@Override

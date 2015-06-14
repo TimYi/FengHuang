@@ -35,4 +35,12 @@ public class MessageController {
 		MessageDto result=messageService.findOneByUser(userid, id);
 		return RequestResult.success(result).toJson();
 	}
+	
+	@RequestMapping(value="user/message/{id}",method=RequestMethod.DELETE)
+	public String deleteMessage(@PathVariable String id) {
+		SimpleUserDetails details=AuthenticationService.getUserDetail();
+		String userid=details.getId();
+		messageService.deleteByUser(userid, id);
+		return RequestResult.success("删除成功").toJson();
+	}
 }

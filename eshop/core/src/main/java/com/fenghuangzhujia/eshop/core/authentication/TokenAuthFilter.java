@@ -8,6 +8,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -23,6 +24,8 @@ public class TokenAuthFilter extends GenericFilterBean {
 	private AuthenticationManager authenticationManager;
 	
 	private static final String TOKEN_NAME="token";
+	
+	private static final String TOKEN_HEADER_NAME="fhzj_auth_token";
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
@@ -57,7 +60,7 @@ public class TokenAuthFilter extends GenericFilterBean {
 		}
 		chain.doFilter(request, response);
 		if(shouldClean) {
-			SecurityContextHolder.clearContext();
+			SecurityContextHolder.clearContext(); //单单clearContext无法清除缓存，所以需要手动清除
 			context.setAuthentication(null);
 			SecurityContextHolder.setContext(context);			
 		}
@@ -69,7 +72,12 @@ public class TokenAuthFilter extends GenericFilterBean {
 	 * @return
 	 */
 	protected String getToken(HttpServletRequest request) {
-		String token=(String)request.getParameter(TOKEN_NAME);
+		String token;
+		token=request.getHeader(TOKEN_HEADER_NAME);
+		//今后统一从header中获取token，为了在一期兼容已有代码，也支持parameter中的参数
+		if(StringUtils.isBlank(token)) {
+			token=(String)request.getParameter(TOKEN_NAME);
+		}
 		return token;
 	}
 }

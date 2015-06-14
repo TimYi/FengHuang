@@ -1,8 +1,10 @@
 package com.fenghuangzhujia.eshop.comment;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -18,6 +20,10 @@ public class CommentItem extends UnreadRemindEntity {
 	private User user;
 	private String ip;
 	private Comment comment;
+	/**
+	 * 回复次评论的评论
+	 */
+	private Set<CommentItem> replys;
 	
 	/**
 	 * 评论内容
@@ -34,7 +40,7 @@ public class CommentItem extends UnreadRemindEntity {
 	 * 回复的评论
 	 * @return
 	 */
-	@OneToOne
+	@ManyToOne
 	public CommentItem getReply() {
 		return reply;
 	}
@@ -42,6 +48,13 @@ public class CommentItem extends UnreadRemindEntity {
 		this.reply = reply;
 	}
 	
+	@OneToMany(mappedBy="reply")
+	public Set<CommentItem> getReplys() {
+		return replys;
+	}
+	public void setReplys(Set<CommentItem> replys) {
+		this.replys = replys;
+	}
 	/**
 	 * 发表评论的用户
 	 * @return
@@ -84,5 +97,10 @@ public class CommentItem extends UnreadRemindEntity {
 	@Transient
 	public String getUrl() {
 		return comment.getUrl();
+	}
+	
+	@Transient
+	public String getColumn() {
+		return comment.getColumn();
 	}
 }

@@ -1,5 +1,7 @@
 package com.fenghuangzhujia.eshop.comment.dto;
 
+import java.util.Set;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -26,6 +28,10 @@ public class CommentItemDtoAdapter extends AbstractDtoAdapter<CommentItem, Comme
 	
 	@Override
 	public CommentItemDto postConvert(CommentItem d, CommentItemDto t) {
+		Set<CommentItem> replys=d.getReplys();
+		if(replys!=null) {
+			t.setReplyNumber(replys.size());
+		}
 		return t;
 	}
 
@@ -46,6 +52,7 @@ public class CommentItemDtoAdapter extends AbstractDtoAdapter<CommentItem, Comme
 			comment=new Comment();
 			comment.setSourceid(sourceid);
 			comment.setUrl(t.getUrl());
+			comment.setColumn(t.getColumn());
 			comment=commentRepository.save(comment);
 		}
 		d.setComment(comment);

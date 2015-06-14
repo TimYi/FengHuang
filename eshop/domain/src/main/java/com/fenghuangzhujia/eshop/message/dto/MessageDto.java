@@ -7,11 +7,18 @@ import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
 public class MessageDto extends DtoBaseModel {
 
+	private String title;
 	private String content;
 	private UserDto user;
 	private boolean readed;
 	private Date createTime;
 	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 	public String getContent() {
 		return content;
 	}
