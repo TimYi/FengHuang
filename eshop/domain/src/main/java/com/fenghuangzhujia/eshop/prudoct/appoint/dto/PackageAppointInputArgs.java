@@ -1,34 +1,33 @@
-package com.fenghuangzhujia.eshop.appoint.dto;
+package com.fenghuangzhujia.eshop.prudoct.appoint.dto;
 
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
-public class AppointInputArgs extends DtoBaseModel {
+public class PackageAppointInputArgs extends DtoBaseModel {
 
 	private String userId;
-	private String typeId;
 	private String cityId;
+	private String decoratePackageId;
 	private String realName;
 	private String mobile;
-	//用于短信预约验证
 	private String validater;
 	
 	public String getUserId() {
 		return userId;
 	}
-	public void setUserId(String userid) {
-		this.userId = userid;
-	}
-	public String getTypeId() {
-		return typeId;
-	}
-	public void setTypeId(String typeid) {
-		this.typeId = typeid;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 	public String getCityId() {
 		return cityId;
 	}
 	public void setCityId(String cityId) {
 		this.cityId = cityId;
+	}
+	public String getDecoratePackageId() {
+		return decoratePackageId;
+	}
+	public void setDecoratePackageId(String decoratePackageId) {
+		this.decoratePackageId = decoratePackageId;
 	}
 	public String getRealName() {
 		return realName;

@@ -1,34 +1,29 @@
-package com.fenghuangzhujia.eshop.appoint;
+package com.fenghuangzhujia.eshop.prudoct.appoint;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fenghuangzhujia.eshop.common.remind.impl.UnreadRemindEntity;
 import com.fenghuangzhujia.eshop.core.area.Area;
 import com.fenghuangzhujia.eshop.core.user.User;
-import com.fenghuangzhujia.foundation.dics.CategoryItem;
+import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage;
+import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 
 /**
- * 预约（验房、量房或者设计）
+ * 套餐预约
  * @author pc
  *
  */
 @Entity
-@Table(name="fhzj_appoint")
-public class Appoint extends UnreadRemindEntity {
-	
+@Table(name="fhzj_package_appoint")
+public class PackageAppoint extends UUIDBaseModel {
+
 	private User user;
-	/**
-	 * 城市，AreaLevel=city
-	 */
 	private Area city;
-	/**
-	 * 预约类型，type=appoint
-	 */
-	private CategoryItem type;
+	private DecoratePackage decoratePackage;
 	private String realName;
 	private String mobile;
+	private boolean used;
 	
 	@ManyToOne(optional=false)
 	public User getUser() {
@@ -38,19 +33,20 @@ public class Appoint extends UnreadRemindEntity {
 		this.user = user;
 	}
 	
-	@ManyToOne(optional=false)
-	public CategoryItem getType() {
-		return type;
-	}
-	public void setType(CategoryItem type) {
-		this.type = type;
-	}
-	@ManyToOne(optional=false)
+	@ManyToOne
 	public Area getCity() {
 		return city;
 	}
 	public void setCity(Area city) {
 		this.city = city;
+	}
+	
+	@ManyToOne
+	public DecoratePackage getDecoratePackage() {
+		return decoratePackage;
+	}	
+	public void setDecoratePackage(DecoratePackage decoratePackage) {
+		this.decoratePackage = decoratePackage;
 	}
 	public String getRealName() {
 		return realName;
@@ -63,5 +59,11 @@ public class Appoint extends UnreadRemindEntity {
 	}
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
+	}
+	public boolean isUsed() {
+		return used;
+	}
+	public void setUsed(boolean used) {
+		this.used = used;
 	}
 }
