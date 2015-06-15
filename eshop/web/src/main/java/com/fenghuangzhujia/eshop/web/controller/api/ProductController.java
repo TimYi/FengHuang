@@ -79,10 +79,10 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="product/package/scramble",method=RequestMethod.POST)
-	public String scramble(String packageId, String caseId) {
+	public String scramble(String id, String caseId) {
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userId=details.getId();
-		GoodOrderDto result=orderPackageService.scramble(userId, packageId, caseId);
+		GoodOrderDto result=orderPackageService.scramble(userId, id, caseId);
 		return RequestResult.success(result).toJson();
 	}
 	
