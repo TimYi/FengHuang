@@ -33,6 +33,7 @@
 	var commentUrl = serverUrl + "/api/user/comments";
 	var couponsUrl = serverUrl + "/api/user/coupons";
 	var collectsUrl = serverUrl + "/api/user/collects";
+	var collectUrl = serverUrl + "/api/user/collect";
 	var bindMobile = serverUrl + "/api/user/bindMobile";
 	var unreads = serverUrl + "/api/user/unreads";
 	var houses = serverUrl + "/api/user/houses";
@@ -54,6 +55,7 @@
 	Base.commentUrl = commentUrl;
 	Base.couponsUrl = couponsUrl;
 	Base.collectsUrl = collectsUrl;
+	Base.collectUrl = collectUrl;
 	Base.bindMobile = bindMobile;
 	Base.unreads = unreads;
 	Base.houses = houses;

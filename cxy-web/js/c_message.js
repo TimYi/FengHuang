@@ -221,7 +221,7 @@ $(function(){
 		g.httpTip.show();
 		$.ajax({
 			url:url,
-			data:condi,
+			headers:{"fhzj_auth_token":condi.token},
 			type:"DELETE",
 			dataType:"json",
 			context:this,
@@ -231,6 +231,7 @@ $(function(){
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
+					Utils.alert("删除留言成功");
 					getMyMessage();
 				}
 				else{
