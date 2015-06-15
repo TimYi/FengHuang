@@ -32,7 +32,7 @@ public class DicsInitializer {
 		t.setRemark(remark);
 		t.setType(type);
 		t=categoryService.add(t);
-		String[] names = { "validate", "measure", "design"};
+		String[] names = { "验房", "量房", "设计"};
 		for (int i = 0; i < names.length; i++) {
 			name=names[i];
 			Integer priority=i+1;
@@ -76,7 +76,7 @@ public class DicsInitializer {
 		t.setRemark(remark);
 		t.setType(type);
 		t=categoryService.add(t);
-		String[] names = { "新房", "旧房" };
+		String[] names = { "公寓", "复式", "别墅" };
 		for (int i = 0; i < names.length; i++) {
 			name=names[i];
 			Integer priority=i+1;
@@ -98,7 +98,7 @@ public class DicsInitializer {
 		t.setRemark(remark);
 		t.setType(type);
 		t=categoryService.add(t);
-		String[] names = { "旧房到精装", "新房到精装" };
+		String[] names = { "精装", "简装", "旧房改造" };
 		for (int i = 0; i < names.length; i++) {
 			name=names[i];
 			Integer priority=i+1;
@@ -110,7 +110,7 @@ public class DicsInitializer {
 		}
 	}
 	
-	//@Test
+	@Deprecated
 	public void initResponseType() {
 		String name="包装类型";
 		String remark="包装类型";
@@ -132,7 +132,7 @@ public class DicsInitializer {
 		}
 	}
 	
-	//@Test
+	@Deprecated
 	public void initCategory() {
 		String name="类型";
 		String remark="类型";
@@ -154,7 +154,7 @@ public class DicsInitializer {
 		}
 	}
 	
-	//@Test
+	@Deprecated
 	public void initStyle() {
 		String name="风格";
 		String remark="风格";
@@ -176,7 +176,7 @@ public class DicsInitializer {
 		}
 	}
 	
-	//@Test
+	@Deprecated
 	public void initApartment() {
 		String name="户型";
 		String remark="户型";

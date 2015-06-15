@@ -83,6 +83,9 @@ public class SystemErrorCodes {
 	
 	public static final ErrorCode VALIDATE_ERROR;
 	
+	//预约相关异常131~140
+	public static final ErrorCode APPOINT_CONSTRAINED;
+	
 	
 	//其它错误，999
 	/**
@@ -114,6 +117,8 @@ public class SystemErrorCodes {
 		ACTIVITY_OCCUPIED=new ErrorCode(111, "您选择的活动时间已经被占用");
 		
 		VALIDATE_ERROR=new ErrorCode(121, "验证码相关异常");
+		
+		APPOINT_CONSTRAINED=new ErrorCode(131, "不满足预约限制条件");
 		
 		OTHER=new ErrorCode(999, "其它");
 	}

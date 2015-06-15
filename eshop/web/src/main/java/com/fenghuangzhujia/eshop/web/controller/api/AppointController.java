@@ -25,7 +25,7 @@ public class AppointController {
 	public String appoint(AppointInputArgs args) {
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userid=details.getId();
-		args.setUserid(userid);
+		args.setUserId(userid);
 		AppointDto result=appointService.appointByUser(args);
 		return RequestResult.success(result).toJson();
 	}
