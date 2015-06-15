@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.appoint;
+package com.fenghuangzhujia.eshop.prudoct.appoint;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,50 +13,60 @@ import javax.persistence.criteria.Root;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.stereotype.Component;
 
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.user.User;
+import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
-import com.fenghuangzhujia.foundation.dics.CategoryItem;
 import com.fenghuangzhujia.foundation.utils.Java8TimeUtils;
 
-/**
- * 用于验证用户是否能够预约某种服务
- * 当前业务限制：注册用户，没人每月每种服务限约一套
- * @author pc
- *
- */
-@Component
-public class AppointValidater {
-	
+public class PackageAppointValidater {
+
 	@Autowired
-	private AppointRepository appointRepository;
+	private PackageAppointRepository appointRepository;
 
 	/**如果不能预约，抛出异常*/
-	public void couldAppoint(User user, CategoryItem appointType) throws ErrorCodeException {
-		if(user==null || appointType==null)
+	public void couldAppoint(User user, DecoratePackage decoratePackage) throws ErrorCodeException {
+		if(user==null || decoratePackage==null)
 			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "出现空参数");
 		//验证逻辑：从数据库中查询用户一个月之内，某种类型的预约，如果不为空，则抛出异常
-		Specification<Appoint> spec=getValidateSpecification(user,appointType);
-		Appoint appoint=appointRepository.findOne(spec);
+		Specification<PackageAppoint> spec=getValidateSpecification(user,decoratePackage);
+		PackageAppoint appoint=appointRepository.findOne(spec);
 		if(appoint!=null)
 			throw new ErrorCodeException(SystemErrorCodes.APPOINT_CONSTRAINED, "一个月内已经预约此种类型套餐");		
 	}
 	
+	/**
+	 * 获取可用的预约
+	 * “可用”这个概念，和业务规则相关，因此也封装到validater中
+	 * 目前，“可用”的意思是一个月内的预约。
+	 * 至于预约是否已经被使用，不在这里做判断。
+	 * @param user
+	 * @param decoratePackage
+	 * @return
+	 */
+	public PackageAppoint getAliveAppoint(User user, DecoratePackage decoratePackage) {
+		if(user==null || decoratePackage==null)
+			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "出现空参数");
+		//验证逻辑：从数据库中查询用户一个月之内，某种类型的预约，如果不为空，则抛出异常
+		Specification<PackageAppoint> spec=getValidateSpecification(user,decoratePackage);
+		PackageAppoint appoint=appointRepository.findOne(spec);
+		return appoint;
+	}
+	
 	/**获取一个月之内，某个用户，某个预约类型的查询条件*/
-	private Specification<Appoint> getValidateSpecification(User user, CategoryItem appointType) {
-		return new Specification<Appoint>() {			
+	private Specification<PackageAppoint> getValidateSpecification(User user, DecoratePackage decoratePackage) {
+		return new Specification<PackageAppoint>() {			
 			@Override
-			public Predicate toPredicate(Root<Appoint> root, CriteriaQuery<?> query,
+			public Predicate toPredicate(Root<PackageAppoint> root, CriteriaQuery<?> query,
 					CriteriaBuilder cb) {
 				List<Predicate> predicates = new ArrayList<Predicate>();
 				
 				Path<User> sameUser=root.get("user");
 				predicates.add(cb.equal(sameUser, user));
 				
-				Path<CategoryItem> sameType=root.get("type");
-				predicates.add(cb.equal(sameType, appointType));
+				Path<DecoratePackage> sameType=root.get("type");
+				predicates.add(cb.equal(sameType, decoratePackage));
 				
 				Path<Date> createAt=root.get("createTime");
 				LocalDate oneMonthBefore=LocalDate.now().minusMonths(1L);

@@ -51,14 +51,15 @@ public class AppointService extends DtoUnreadRemindSpecificationService<Appoint,
 		//用户信息完整才能预约
 		if(!user.getInfoComplete())
 			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "用户信息不完整，不能预约");
+		appoint.setUser(user);
 		
-		CategoryItem type=categoryItemRepository.findOne(args.getTypeId());
+		//获取预约类型
+		CategoryItem type=categoryItemRepository.findOne(args.getTypeId()); 
 		if(type==null || !type.getType().equals(Dics.APPOINT_TYPE))
 			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "预约类型错误");
+		appoint.setType(type);
 		//检测用户是否满足预约条件
 		appointValidater.couldAppoint(user, type);
-		appoint.setUser(user);
-		appoint.setType(type);
 		
 		//暂时只允许用户用绑定手机号码预约，不能更换手机号。如果以后业务逻辑调整，这里要做相应调整。
 		String mobile=user.getMobile();
@@ -69,6 +70,7 @@ public class AppointService extends DtoUnreadRemindSpecificationService<Appoint,
 		String realName=user.getRealName();
 		appoint.setRealName(realName);
 		
+		//获取用户选择的城市
 		Area city=areaRepository.findOne(args.getCityId());
 		if(city==null || !city.getLevel().equals(AreaLevel.CITY))
 			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "城市id错误");
