@@ -13,6 +13,8 @@ import javax.persistence.criteria.Root;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.user.User;
@@ -20,6 +22,7 @@ import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.utils.Java8TimeUtils;
 
+@Component
 public class PackageAppointValidater {
 
 	@Autowired
@@ -45,6 +48,7 @@ public class PackageAppointValidater {
 	 * @param decoratePackage
 	 * @return
 	 */
+	@Transactional(readOnly=true)
 	public PackageAppoint getAliveAppoint(User user, DecoratePackage decoratePackage) {
 		if(user==null || decoratePackage==null)
 			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "出现空参数");
@@ -65,7 +69,7 @@ public class PackageAppointValidater {
 				Path<User> sameUser=root.get("user");
 				predicates.add(cb.equal(sameUser, user));
 				
-				Path<DecoratePackage> sameType=root.get("type");
+				Path<DecoratePackage> sameType=root.get("decoratePackage");
 				predicates.add(cb.equal(sameType, decoratePackage));
 				
 				Path<Date> createAt=root.get("createTime");

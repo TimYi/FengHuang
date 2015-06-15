@@ -1,13 +1,11 @@
 package com.fenghuangzhujia.eshop.core.commerce.goods.dto;
 
-import com.fenghuangzhujia.eshop.core.commerce.eshop.dto.ShopDto;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
 public abstract class GoodDto extends DtoBaseModel {
 	private String name;
 	private double price;
 	private double realPrice;
-	private ShopDto shop;
 	private String type;
 	private String mainPic;
 	private String mobile;
@@ -29,12 +27,6 @@ public abstract class GoodDto extends DtoBaseModel {
 	}
 	public void setRealPrice(double realPrice) {
 		this.realPrice = realPrice;
-	}
-	public ShopDto getShop() {
-		return shop;
-	}
-	public void setShop(ShopDto shop) {
-		this.shop = shop;
 	}
 	public String getType() {
 		return type;

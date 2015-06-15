@@ -6,10 +6,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import com.fenghuangzhujia.eshop.core.commerce.eshop.Shop;
 import com.fenghuangzhujia.eshop.core.commerce.goods.Good;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
+import com.fenghuangzhujia.foundation.media.MediaContent;
 
 /**
  * 商品订单
@@ -21,16 +21,21 @@ import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 public class GoodOrder extends UUIDBaseModel {
 	
 	private User user;
-	
+	/**购买时实际价格*/
 	private double price;
-	
+	/**
+	 * 订单状态
+	 * TODO 完善订单生命周期
+	 */
 	private OrderStatus status;
-	
+	/**购买的商品*/
 	private Good good;
-	
+	/**购买数量*/
 	private Integer count;
-	
+	/**用户手机号码*/
 	private String mobile;
+	/**用户真实姓名*/
+	private String realName;
 	
 	/**
 	 * 商品名称
@@ -55,23 +60,11 @@ public class GoodOrder extends UUIDBaseModel {
 	 * @return
 	 */
 	@Transient
-	public String getMainPic() {
+	public MediaContent getMainPic() {
+		if(good==null)return null;
 		return good.getMainPic();
 	}
 	
-	/**
-	 * 商品卖家
-	 * @return
-	 */
-	@Transient
-	public Shop getShop() {
-		return good.getShop();
-	}
-	
-	/**
-	 * 商品买家
-	 * @return
-	 */
 	@ManyToOne(optional=false)
 	public User getUser() {
 		return user;
@@ -92,10 +85,6 @@ public class GoodOrder extends UUIDBaseModel {
 		this.status = status;
 	}
 
-	/**
-	 * 商品购买时单价
-	 * @return
-	 */
 	public double getPrice() {
 		return price;
 	}
@@ -133,16 +122,18 @@ public class GoodOrder extends UUIDBaseModel {
 	 * @return
 	 */
 	public String getMobile() {
-		if(this.mobile==null) {
-			return user.getMobile();
-		} else {
-			return this.mobile;
-		}
+		return this.mobile;
 	}
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
 
+	public String getRealName() {
+		return realName;
+	}
+	public void setRealName(String realName) {
+		this.realName = realName;
+	}
 
 
 	public static enum OrderStatus {

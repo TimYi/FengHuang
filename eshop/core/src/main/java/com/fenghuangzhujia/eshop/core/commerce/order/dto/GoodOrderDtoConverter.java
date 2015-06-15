@@ -20,10 +20,6 @@ public class GoodOrderDtoConverter implements Converter<GoodOrder, GoodOrderDto>
 	@Override
 	public GoodOrderDto convert(GoodOrder source) {
 		GoodOrderDto dto=BeanMapper.map(source, GoodOrderDto.class);
-		if(source.getShop()!=null) {
-			dto.setShopid(source.getShop().getId());
-			dto.setShop(source.getShop().getName());
-		}
 		for (GoodConverter converter : converters) {
 			if(converter.support(source.getGood())) {
 				Object good=converter.convert(source.getGood());

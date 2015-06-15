@@ -9,13 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
 import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
+import com.fenghuangzhujia.eshop.core.commerce.order.dto.GoodOrderDto;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
+import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppointService;
+import com.fenghuangzhujia.eshop.prudoct.appoint.dto.PackageAppointDto;
+import com.fenghuangzhujia.eshop.prudoct.appoint.dto.PackageAppointInputArgs;
 import com.fenghuangzhujia.eshop.prudoct.cases.DecorateCaseService;
 import com.fenghuangzhujia.eshop.prudoct.cases.dto.DecorateCaseDto;
-import com.fenghuangzhujia.eshop.prudoct.goods.OrderDecoratePackageService;
-import com.fenghuangzhujia.eshop.prudoct.goods.dto.PackageGoodDto;
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackageService;
 import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageDto;
+import com.fenghuangzhujia.eshop.prudoct.scramble.ScrambleService;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
@@ -27,14 +30,23 @@ public class ProductController {
 	@Autowired
 	private DecorateCaseService decorateCaseService;
 	@Autowired
-	private OrderDecoratePackageService orderPackageService;
+	private ScrambleService orderPackageService;
 	@Autowired
 	private MessageManager messageManager;
+	@Autowired
+	private PackageAppointService packageAppointService;
 
 	@RequestMapping(value="product/packages",method=RequestMethod.GET)
 	public String productList(@RequestParam(defaultValue="1") Integer page,
 			@RequestParam(defaultValue="8") Integer size) {
-		PagedList<DecoratePackageDto> result=decoratePackageService.findPage(page, size);
+		String userId;
+		try {
+			SimpleUserDetails details=AuthenticationService.getUserDetail();
+			userId=details.getId();
+		} catch (Exception e) {
+			userId=null;
+		}
+		PagedList<DecoratePackageDto> result=decoratePackageService.findPage(page, size, userId);
 		return RequestResult.success(result).toJson();
 	}
 	
@@ -57,37 +69,21 @@ public class ProductController {
 		return RequestResult.success(result).toJson();
 	}
 	
-	@RequestMapping(value="product/package/scramble",method=RequestMethod.POST)
-	public String scramble(String id, String caseid) {
+	@RequestMapping(value="product/package/{decoratePackageId}/appoint",method=RequestMethod.POST)
+	public String scramble(PackageAppointInputArgs args) {
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
-		String userid=details.getId();
-		String orderid=orderPackageService.scramble(userid, id, caseid);
-		return RequestResult.success(orderid).toJson();
-	}
-	
-	@RequestMapping(value="user/package/{id}",method=RequestMethod.GET)
-	public String getDetail(@PathVariable String id) {
-		SimpleUserDetails details=AuthenticationService.getUserDetail();
-		String userid=details.getId();
-		PackageGoodDto result=orderPackageService.getGoodByOrder(userid,id);
+		String userId=details.getId();
+		args.setUserId(userId);
+		PackageAppointDto result=packageAppointService.appointByUser(args);
 		return RequestResult.success(result).toJson();
 	}
 	
-	@RequestMapping(value="user/package/{id}",method=RequestMethod.POST)
-	public String addDetail(@PathVariable String id, String caseid, String areaid, 
-			String address, Double houseArea, String remark) {
+	@RequestMapping(value="product/package/scramble",method=RequestMethod.POST)
+	public String scramble(String packageId, String caseId) {
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
-		String userid=details.getId();
-		orderPackageService.addDetail(userid, id, caseid, areaid, address, houseArea, remark);
-		return RequestResult.success("修改成功").toJson();
+		String userId=details.getId();
+		GoodOrderDto result=orderPackageService.scramble(userId, packageId, caseId);
+		return RequestResult.success(result).toJson();
 	}
 	
-	@RequestMapping(value="user/package/comfirm/{id}",method=RequestMethod.POST)
-	public String comfirm(@PathVariable String id, String mobile, String validater) {
-		messageManager.validate(mobile, validater);
-		SimpleUserDetails details=AuthenticationService.getUserDetail();
-		String userid=details.getId();
-		orderPackageService.comfirm(userid, id, mobile);
-		return RequestResult.success("确认成功").toJson();
-	}
 }

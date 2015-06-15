@@ -1,26 +1,12 @@
 package com.fenghuangzhujia.eshop.prudoct.packages;
 
-import java.util.Set;
+import java.util.Date;
 
-import javax.persistence.CascadeType;
-import javax.persistence.CollectionTable;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Type;
-
-import com.fenghuangzhujia.eshop.core.brand.Brand;
-import com.fenghuangzhujia.eshop.core.menu.Menu;
-import com.fenghuangzhujia.eshop.prudoct.detail.DecorateDetail;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
-import com.fenghuangzhujia.foundation.dics.CategoryItem;
 import com.fenghuangzhujia.foundation.media.MediaContent;
 
 /**
@@ -31,155 +17,72 @@ import com.fenghuangzhujia.foundation.media.MediaContent;
 @Entity
 @Table(name="fhzj_decorate_package")
 public class DecoratePackage extends UUIDBaseModel {
-	private Menu menu;
-	private Brand brand;
-	private String title;
-	private Double marketPrice;
-	private Double salePrice;
-	private Integer housenum;
-	private boolean housewarn;
-	private Integer warnnum;
-	private Integer orderid;	
+	/**套餐价格(元/m2)*/
+	private Double price;
+	/**套餐名称*/
+	private String name;
+	/**订金（元）*/
+	private Double deposit;
 	private String description;
-	private String content;
+	/**库存*/
+	private Long inStock;
+	/**已售出数量*/
+	private Long saleNumber;
+	/**装修状况，如新居，旧房改造*/
+	private String decorate;
 	private MediaContent mainPic;
-	private MediaContent thumbnails;
-	private Set<MediaContent> pics;	
-	private CategoryItem houseType;
-	private CategoryItem decorateType;
-	private CategoryItem responseType;
-	private Double workingDays;	
-	private String keywrods;
-	private Set<DecorateDetail> details;
-	
-	/**
-	 * 栏目
-	 * @return
-	 */
-	@ManyToOne
-	public Menu getMenu() {
-		return menu;
+	private Date scrambleStartTime;
+	private Date scrambleEndTime;
+	private ScrambleStatus status;
+
+	public Double getPrice() {
+		return price;
 	}
-	public void setMenu(Menu menu) {
-		this.menu = menu;
+	public void setPrice(Double price) {
+		this.price = price;
 	}
-	
-	/**
-	 * 品牌
-	 * @return
-	 */
-	@ManyToOne
-	public Brand getBrand() {
-		return brand;
+
+	public String getName() {
+		return name;
 	}
-	public void setBrand(Brand brand) {
-		this.brand = brand;
+	public void setName(String name) {
+		this.name = name;
 	}
-	
-	/**
-	 * 套餐名称
-	 * @return
-	 */
-	public String getTitle() {
-		return title;
+	public Double getDeposit() {
+		return deposit;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setDeposit(Double deposit) {
+		this.deposit = deposit;
 	}
-	
-	/**
-	 * 市场价格，元/m2
-	 * @return
-	 */
-	public Double getMarketPrice() {
-		return marketPrice;
-	}
-	public void setMarketPrice(Double marketPrice) {
-		this.marketPrice = marketPrice;
-	}
-	
-	/**
-	 * 销售价格，元/m2
-	 * @return
-	 */
-	public Double getSalePrice() {
-		return salePrice;
-	}
-	public void setSalePrice(Double salePrice) {
-		this.salePrice = salePrice;
-	}
-	
-	/**
-	 * 库存数量
-	 * @return
-	 */
-	public Integer getHousenum() {
-		return housenum;
-	}
-	public void setHousenum(Integer housenum) {
-		this.housenum = housenum;
-	}
-	
-	/**
-	 * 是否开启库存警告
-	 * @return
-	 */
-	public boolean isHousewarn() {
-		return housewarn;
-	}
-	public void setHousewarn(boolean housewarn) {
-		this.housewarn = housewarn;
-	}
-	
-	/**
-	 * 警告数量
-	 * @return
-	 */
-	public Integer getWarnnum() {
-		return warnnum;
-	}
-	public void setWarnnum(Integer warnnum) {
-		this.warnnum = warnnum;
-	}
-	
-	/**
-	 * 排序字段
-	 * @return
-	 */
-	public Integer getOrderid() {
-		return orderid;
-	}
-	public void setOrderid(Integer orderid) {
-		this.orderid = orderid;
-	}
-	
-	/**
-	 * 摘要
-	 * @return
-	 */
+
 	public String getDescription() {
 		return description;
 	}
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	/**
-	 * 描述内容
-	 * @return
-	 */
-	@Type(type="text")
-	public String getContent() {
-		return content;
+
+	public Long getInStock() {
+		return inStock;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setInStock(Long inStock) {
+		this.inStock = inStock;
 	}
-	
-	/**
-	 * 商品主图
-	 * @return
-	 */
+
+	public Long getSaleNumber() {
+		return saleNumber;
+	}
+	public void setSaleNumber(Long saleNumber) {
+		this.saleNumber = saleNumber;
+	}
+
+	public String getDecorate() {
+		return decorate;
+	}
+	public void setDecorate(String decorate) {
+		this.decorate = decorate;
+	}
+
 	@OneToOne
 	public MediaContent getMainPic() {
 		return mainPic;
@@ -187,101 +90,30 @@ public class DecoratePackage extends UUIDBaseModel {
 	public void setMainPic(MediaContent mainPic) {
 		this.mainPic = mainPic;
 	}
-	
-	/**
-	 * 缩略图
-	 * @return
-	 */
-	@OneToOne
-	public MediaContent getThumbnails() {
-		return thumbnails;
+
+	public Date getScrambleStartTime() {
+		return scrambleStartTime;
 	}
-	public void setThumbnails(MediaContent thumbnails) {
-		this.thumbnails = thumbnails;
+	public void setScrambleStartTime(Date scrambleStartTime) {
+		this.scrambleStartTime = scrambleStartTime;
 	}
-	
-	/**
-	 * 组图
-	 * @return
-	 */
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable
-	public Set<MediaContent> getPics() {
-		return pics;
+
+	public Date getScrambleEndTime() {
+		return scrambleEndTime;
 	}
-	public void setPics(Set<MediaContent> pics) {
-		this.pics = pics;
+	public void setScrambleEndTime(Date scrambleEndTime) {
+		this.scrambleEndTime = scrambleEndTime;
 	}
-	
-	/**
-	 * 房屋类型
-	 * @return
-	 */
-	@ManyToOne
-	public CategoryItem getHouseType() {
-		return houseType;
+
+	public ScrambleStatus getStatus() {
+		return status;
 	}
-	public void setHouseType(CategoryItem houseType) {
-		this.houseType = houseType;
+	public void setStatus(ScrambleStatus status) {
+		this.status = status;
 	}
-	
-	/**
-	 * 装修类型
-	 * @return
-	 */
-	@ManyToOne
-	public CategoryItem getDecorateType() {
-		return decorateType;
-	}
-	public void setDecorateType(CategoryItem decorateType) {
-		this.decorateType = decorateType;
-	}
-	
-	/**
-	 * 全包、半包类型
-	 * @return
-	 */
-	@ManyToOne
-	public CategoryItem getResponseType() {
-		return responseType;
-	}
-	public void setResponseType(CategoryItem responseType) {
-		this.responseType = responseType;
-	}
-	
-	/**
-	 * 工期
-	 * @return
-	 */
-	public Double getWorkingDays() {
-		return workingDays;
-	}
-	public void setWorkingDays(Double workingDays) {
-		this.workingDays = workingDays;
-	}
-	
-	/**
-	 * 关键字
-	 * @return
-	 */
-	public String getKeywrods() {
-		return keywrods;
-	}
-	public void setKeywrods(String keywrods) {
-		this.keywrods = keywrods;
-	}
-	
-	/**
-	 * 装修细节
-	 * @return
-	 */
-	@ElementCollection(fetch=FetchType.EAGER)
-	@CollectionTable(name="fhzj_decorate_package_details")
-	@OrderColumn
-	public Set<DecorateDetail> getDetails() {
-		return details;
-	}
-	public void setDetails(Set<DecorateDetail> details) {
-		this.details = details;
+
+	/**套餐抢购状态*/
+	public static enum ScrambleStatus {
+		PREPARE,SCRAMBLE,FINISH;
 	}
 }

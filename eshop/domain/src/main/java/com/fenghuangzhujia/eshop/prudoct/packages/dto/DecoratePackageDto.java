@@ -1,83 +1,43 @@
 package com.fenghuangzhujia.eshop.prudoct.packages.dto;
 
-import java.util.Set;
+import java.util.Date;
 
-import com.fenghuangzhujia.eshop.core.brand.dto.BrandVo;
-import com.fenghuangzhujia.eshop.core.menu.dto.MenuVo;
-import com.fenghuangzhujia.eshop.prudoct.detail.DecorateDetail;
+import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage.ScrambleStatus;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
-import com.fenghuangzhujia.foundation.dics.dto.CategoryItemDto;
 import com.fenghuangzhujia.foundation.media.MediaContentDto;
 
 public class DecoratePackageDto extends DtoBaseModel {
 
-	private MenuVo menu;
-	private BrandVo brand;
-	private String title;
-	private Double marketPrice;
-	private Double salePrice;
-	private Integer housenum;
-	private boolean housewarn;
-	private Integer warnnum;	
+	/**套餐价格(元/m2)*/
+	private Double price;
+	/**订金（元）*/
+	private Double deposit;
 	private String description;
-	private String content;
+	/**库存*/
+	private Long inStock;
+	/**已售出数量*/
+	private Long saleNumber;
+	/**装修状况，如新居，旧房改造*/
+	private String decorate;
 	private MediaContentDto mainPic;
-	private MediaContentDto thumbnails;
-	private Set<MediaContentDto> pics;	
-	private CategoryItemDto houseType;
-	private CategoryItemDto decorateType;
-	private CategoryItemDto responseType;
-	private Double workingDays;	
-	private String keywrods;
-	private Set<DecorateDetail> details;
+	private Date scrambleStartTime;
+	private Date scrambleEndTime;
+	private ScrambleStatus status;
+	private boolean hasAppointed;
+	private boolean couldAppoint;
+	private String reasonForCantAppoint;
 	
-	public MenuVo getMenu() {
-		return menu;
+	public Double getPrice() {
+		return price;
 	}
-	public void setMenu(MenuVo menu) {
-		this.menu = menu;
+	public void setPrice(Double price) {
+		this.price = price;
 	}
-	public BrandVo getBrand() {
-		return brand;
+	public Double getDeposit() {
+		return deposit;
 	}
-	public void setBrand(BrandVo brand) {
-		this.brand = brand;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public Double getMarketPrice() {
-		return marketPrice;
-	}
-	public void setMarketPrice(Double marketPrice) {
-		this.marketPrice = marketPrice;
-	}
-	public Double getSalePrice() {
-		return salePrice;
-	}
-	public void setSalePrice(Double salePrice) {
-		this.salePrice = salePrice;
-	}
-	public Integer getHousenum() {
-		return housenum;
-	}
-	public void setHousenum(Integer housenum) {
-		this.housenum = housenum;
-	}
-	public boolean isHousewarn() {
-		return housewarn;
-	}
-	public void setHousewarn(boolean housewarn) {
-		this.housewarn = housewarn;
-	}
-	public Integer getWarnnum() {
-		return warnnum;
-	}
-	public void setWarnnum(Integer warnnum) {
-		this.warnnum = warnnum;
+	public void setDeposit(Double deposit) {
+		this.deposit = deposit;
 	}
 	public String getDescription() {
 		return description;
@@ -85,11 +45,23 @@ public class DecoratePackageDto extends DtoBaseModel {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getContent() {
-		return content;
+	public Long getInStock() {
+		return inStock;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setInStock(Long inStock) {
+		this.inStock = inStock;
+	}
+	public Long getSaleNumber() {
+		return saleNumber;
+	}
+	public void setSaleNumber(Long saleNumber) {
+		this.saleNumber = saleNumber;
+	}
+	public String getDecorate() {
+		return decorate;
+	}
+	public void setDecorate(String decorate) {
+		this.decorate = decorate;
 	}
 	public MediaContentDto getMainPic() {
 		return mainPic;
@@ -97,52 +69,40 @@ public class DecoratePackageDto extends DtoBaseModel {
 	public void setMainPic(MediaContentDto mainPic) {
 		this.mainPic = mainPic;
 	}
-	public MediaContentDto getThumbnails() {
-		return thumbnails;
+	public Date getScrambleStartTime() {
+		return scrambleStartTime;
 	}
-	public void setThumbnails(MediaContentDto thumbnails) {
-		this.thumbnails = thumbnails;
+	public void setScrambleStartTime(Date scrambleStartTime) {
+		this.scrambleStartTime = scrambleStartTime;
 	}
-	public Set<MediaContentDto> getPics() {
-		return pics;
+	public Date getScrambleEndTime() {
+		return scrambleEndTime;
 	}
-	public void setPics(Set<MediaContentDto> pics) {
-		this.pics = pics;
+	public void setScrambleEndTime(Date scrambleEndTime) {
+		this.scrambleEndTime = scrambleEndTime;
 	}
-	public CategoryItemDto getHouseType() {
-		return houseType;
+	public ScrambleStatus getStatus() {
+		return status;
 	}
-	public void setHouseType(CategoryItemDto houseType) {
-		this.houseType = houseType;
+	public void setStatus(ScrambleStatus status) {
+		this.status = status;
 	}
-	public CategoryItemDto getDecorateType() {
-		return decorateType;
+	public boolean isHasAppointed() {
+		return hasAppointed;
 	}
-	public void setDecorateType(CategoryItemDto decorateType) {
-		this.decorateType = decorateType;
+	public void setHasAppointed(boolean hasAppointed) {
+		this.hasAppointed = hasAppointed;
 	}
-	public CategoryItemDto getResponseType() {
-		return responseType;
+	public boolean isCouldAppoint() {
+		return couldAppoint;
 	}
-	public void setResponseType(CategoryItemDto responseType) {
-		this.responseType = responseType;
+	public void setCouldAppoint(boolean couldAppoint) {
+		this.couldAppoint = couldAppoint;
 	}
-	public Double getWorkingDays() {
-		return workingDays;
+	public String getReasonForCantAppoint() {
+		return reasonForCantAppoint;
 	}
-	public void setWorkingDays(Double workingDays) {
-		this.workingDays = workingDays;
-	}
-	public String getKeywrods() {
-		return keywrods;
-	}
-	public void setKeywrods(String keywrods) {
-		this.keywrods = keywrods;
-	}
-	public Set<DecorateDetail> getDetails() {
-		return details;
-	}
-	public void setDetails(Set<DecorateDetail> details) {
-		this.details = details;
+	public void setReasonForCantAppoint(String reasonForCantAppoint) {
+		this.reasonForCantAppoint = reasonForCantAppoint;
 	}
 }

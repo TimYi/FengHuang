@@ -12,7 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.brand.Brand;
 import com.fenghuangzhujia.eshop.core.brand.BrandRepository;
-import com.fenghuangzhujia.eshop.core.commerce.eshop.ShopRepository;
 import com.fenghuangzhujia.eshop.core.menu.Menu;
 import com.fenghuangzhujia.eshop.core.menu.MenuRepository;
 import com.fenghuangzhujia.eshop.prudoct.cases.DecorateCase;
@@ -31,8 +30,6 @@ public class DecorateCaseDtoAdapter extends AbstractDtoAdapter<DecorateCase, Dec
 	private MenuRepository columnRepository;
 	@Autowired
 	private BrandRepository brandRepository;
-	@Autowired
-	private ShopRepository shopRepository;
 	@Autowired
 	private MediaService mediaService;
 	@Autowired

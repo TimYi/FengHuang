@@ -1,81 +1,44 @@
 package com.fenghuangzhujia.eshop.prudoct.packages.dto;
 
-import java.util.Set;
+import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.fenghuangzhujia.eshop.prudoct.detail.DecorateDetail;
+import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage.ScrambleStatus;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
 public class DecoratePackageInputArgs extends DtoBaseModel {
 
-	private String menuid;
-	private String brandid;
-	private String title;
-	private Double marketPrice;
-	private Double salePrice;
-	private Integer housenum;
-	private boolean housewarn;
-	private Integer warnnum;	
+	/**套餐价格(元/m2)*/
+	private Double price;
+	/**订金（元）*/
+	private Double deposit;
 	private String description;
-	private String content;
+	/**库存*/
+	private Long inStock;
+	/**已售出数量*/
+	private Long saleNumber;
+	/**装修状况，如新居，旧房改造*/
+	private String decorate;
 	private MultipartFile mainPicFile;
-	private MultipartFile thumbnailsFile;
-	private MultipartFile[] picFiles;
-	private String houseTypeId;
-	private String decorateTypeId;
-	private String responseTypeId;
-	private Double workingDays;	
-	private String keywrods;
-	private Set<DecorateDetail> details;
+	@DateTimeFormat(pattern="yyyy-MM-dd hh:mm:ss")
+	private Date scrambleStartTime;
+	@DateTimeFormat(pattern="yyyy-MM-dd hh:mm:ss")
+	private Date scrambleEndTime;
+	private ScrambleStatus status;
 	
-	public String getMenuid() {
-		return menuid;
+	public Double getPrice() {
+		return price;
 	}
-	public void setMenuid(String menuid) {
-		this.menuid = menuid;
+	public void setPrice(Double price) {
+		this.price = price;
 	}
-	public String getBrandid() {
-		return brandid;
+	public Double getDeposit() {
+		return deposit;
 	}
-	public void setBrandid(String brandid) {
-		this.brandid = brandid;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public Double getMarketPrice() {
-		return marketPrice;
-	}
-	public void setMarketPrice(Double marketPrice) {
-		this.marketPrice = marketPrice;
-	}
-	public Double getSalePrice() {
-		return salePrice;
-	}
-	public void setSalePrice(Double salePrice) {
-		this.salePrice = salePrice;
-	}
-	public Integer getHousenum() {
-		return housenum;
-	}
-	public void setHousenum(Integer housenum) {
-		this.housenum = housenum;
-	}
-	public boolean isHousewarn() {
-		return housewarn;
-	}
-	public void setHousewarn(boolean housewarn) {
-		this.housewarn = housewarn;
-	}
-	public Integer getWarnnum() {
-		return warnnum;
-	}
-	public void setWarnnum(Integer warnnum) {
-		this.warnnum = warnnum;
+	public void setDeposit(Double deposit) {
+		this.deposit = deposit;
 	}
 	public String getDescription() {
 		return description;
@@ -83,11 +46,23 @@ public class DecoratePackageInputArgs extends DtoBaseModel {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getContent() {
-		return content;
+	public Long getInStock() {
+		return inStock;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setInStock(Long inStock) {
+		this.inStock = inStock;
+	}
+	public Long getSaleNumber() {
+		return saleNumber;
+	}
+	public void setSaleNumber(Long saleNumber) {
+		this.saleNumber = saleNumber;
+	}
+	public String getDecorate() {
+		return decorate;
+	}
+	public void setDecorate(String decorate) {
+		this.decorate = decorate;
 	}
 	public MultipartFile getMainPicFile() {
 		return mainPicFile;
@@ -95,52 +70,22 @@ public class DecoratePackageInputArgs extends DtoBaseModel {
 	public void setMainPicFile(MultipartFile mainPicFile) {
 		this.mainPicFile = mainPicFile;
 	}
-	public MultipartFile getThumbnailsFile() {
-		return thumbnailsFile;
+	public Date getScrambleStartTime() {
+		return scrambleStartTime;
 	}
-	public void setThumbnailsFile(MultipartFile thumbnailsFile) {
-		this.thumbnailsFile = thumbnailsFile;
+	public void setScrambleStartTime(Date scrambleStartTime) {
+		this.scrambleStartTime = scrambleStartTime;
 	}
-	public MultipartFile[] getPicFiles() {
-		return picFiles;
+	public Date getScrambleEndTime() {
+		return scrambleEndTime;
 	}
-	public void setPicFiles(MultipartFile[] picFiles) {
-		this.picFiles = picFiles;
+	public void setScrambleEndTime(Date scrambleEndTime) {
+		this.scrambleEndTime = scrambleEndTime;
 	}
-	public String getHouseTypeId() {
-		return houseTypeId;
+	public ScrambleStatus getStatus() {
+		return status;
 	}
-	public void setHouseTypeId(String houseTypeId) {
-		this.houseTypeId = houseTypeId;
-	}
-	public String getDecorateTypeId() {
-		return decorateTypeId;
-	}
-	public void setDecorateTypeId(String decorateTypeId) {
-		this.decorateTypeId = decorateTypeId;
-	}
-	public String getResponseTypeId() {
-		return responseTypeId;
-	}
-	public void setResponseTypeId(String responseTypeId) {
-		this.responseTypeId = responseTypeId;
-	}
-	public Double getWorkingDays() {
-		return workingDays;
-	}
-	public void setWorkingDays(Double workingDays) {
-		this.workingDays = workingDays;
-	}
-	public String getKeywrods() {
-		return keywrods;
-	}
-	public void setKeywrods(String keywrods) {
-		this.keywrods = keywrods;
-	}
-	public Set<DecorateDetail> getDetails() {
-		return details;
-	}
-	public void setDetails(Set<DecorateDetail> details) {
-		this.details = details;
+	public void setStatus(ScrambleStatus status) {
+		this.status = status;
 	}
 }
