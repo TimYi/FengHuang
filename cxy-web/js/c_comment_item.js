@@ -40,7 +40,7 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log(data);
+				console.log("sendGetListInfoHttp",data);
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
@@ -48,7 +48,7 @@ $(function(){
 				}
 				else{
 					var msg = data.error || "";
-					alert("获取我的订单错误:" + msg);
+					alert("获取我的评论错误:" + msg);
 				}
 			},
 			error:function(data){

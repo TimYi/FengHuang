@@ -16,6 +16,7 @@ $(function(){
 	g.totalPage = 1;
 	g.currentPage = 1;
 	g.paseSize = 20;
+	g.listdata = [];
 	g.httpTip = new Utils.httpTip({});
 
 	getMyComment();
@@ -49,14 +50,15 @@ $(function(){
 
 			for(var i = 0,len = obj.length; i < len; i++){
 				var msg = obj[i].content || "";
-				var name = "";
-				var time =  "";
+				var column = obj[i].column || "";
+				var replyNumber =  obj[i].replyNumber || 0;
+				var createTime =  obj[i].createTime || "";
 				var id = obj[i].id || "";
 				html.push('<tr>');
 				html.push('<td >' + msg + '</td>');
-				html.push('<td >' + name + '</td>');
-				html.push('<td >' + time + '</td>');
-				html.push('<td >' + time + '</td>');
+				html.push('<td >' + column + '</td>');
+				html.push('<td >' + replyNumber + '</td>');
+				html.push('<td >' + createTime + '</td>');
 				html.push('<td><a href="c_commet_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '" >查看</a></td>');
 				html.push('</tr>');
 			}
@@ -173,7 +175,7 @@ $(function(){
 	}
 
 
-	//获取我的留言
+	//获取我的评论
 	function sendGetMyCommentHttp(condi){
 		var url = Base.commentUrl;
 		g.httpTip.show();
@@ -185,7 +187,7 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log(data);
+				console.log("sendGetMyCommentHttp",data);
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
@@ -193,7 +195,7 @@ $(function(){
 				}
 				else{
 					var msg = data.error || "";
-					alert("获取我的订单错误:" + msg);
+					alert("获取我的评论错误:" + msg);
 				}
 			},
 			error:function(data){

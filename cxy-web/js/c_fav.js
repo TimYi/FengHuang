@@ -16,7 +16,8 @@ $(function(){
 	g.totalPage = 1;
 	g.currentPage = 1;
 	g.paseSize = 20;
-
+	g.httpTip = new Utils.httpTip({});
+	g.listdata = [];
 
 	getMyFav();
 
@@ -33,10 +34,25 @@ $(function(){
 		sendGetMyFavHttp(condi);
 	}
 
+	function deleteFavItem(){
+		var id = this.id;
+		var index = id.split("_")[1];
+		var obj = g.listdata[index];
+		var mid = obj.id;
+		var condi = {};
+		condi.token = g.token;
+		condi.id = mid;
+		console.log(condi);
+
+		sendDeleteListInfoHttp(condi);
+	}
+
 	//修改我的收藏列表
 	function changeFavListHtml(data){
 		var obj = data.result || [];
 		if(obj.length > 0){
+			g.listdata = obj;
+
 			var html = [];
 			html.push('<table class="table u_ct">');
 			html.push('<tr class="u_th">');
@@ -47,19 +63,22 @@ $(function(){
 			html.push('</tr>');
 
 			for(var i = 0,len = obj.length; i < len; i++){
+				var id = obj[i].id || "";
 				var name = obj[i].name || "";
-				var type = obj[i].type || "";
-				var time =  "";
+				var column = obj[i].column || "";
+				var time = obj[i].createTime || "";
 				html.push('<tr>');
 				html.push('<td >' + name + '</td>');
-				html.push('<td >' + type + '</td>');
+				html.push('<td >' + column + '</td>');
 				html.push('<td >' + time + '</td>');
-				html.push('<td><a href="#">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">删除</a></td>');
+				html.push('<td><a href="c_fav_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '" >查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="delete_' + i + '" href="javascript:void(0);" class="delete" >删除</a></td>');
+				//html.push('<td><a href="#">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">删除</a></td>');
 				html.push('</tr>');
 			}
 			html.push('</table>');
 
 			$("#favtable").html(html.join(''));
+			$("#favtable .delete").bind("click",deleteFavItem);
 
 			var totalpages = data.totalPages - 0;
 			g.totalPage = totalpages;
@@ -181,17 +200,46 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log(data);
+				console.log("sendGetMyFavHttp",data);
 				var status = data.status || "";
 				if(status == "OK"){
 					changeFavListHtml(data.result);
 				}
 				else{
 					var msg = data.error || "";
-					alert("获取我的收藏错误:" + msg);
+					alert("获取我的收藏列表错误:" + msg);
 				}
 			},
 			error:function(data){
+			}
+		});
+	}
+
+	function sendDeleteListInfoHttp(condi){
+		var url = Base.collectUrl + "/" + condi.id;
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			headers:{"fhzj_auth_token":condi.token},
+			type:"DELETE",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("sendDeleteListInfoHttp",data);
+				g.httpTip.hide();
+				var status = data.status || "";
+				if(status == "OK"){
+					Utils.alert("删除收藏成功");
+					getMyFav();
+				}
+				else{
+					var msg = data.error || "";
+					Utils.alert("删除我的收藏错误:" + msg);
+				}
+			},
+			error:function(data){
+				g.httpTip.hide();
 			}
 		});
 	}
