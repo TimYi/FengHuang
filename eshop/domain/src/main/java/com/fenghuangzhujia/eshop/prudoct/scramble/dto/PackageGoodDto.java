@@ -5,14 +5,14 @@ import com.fenghuangzhujia.eshop.prudoct.cases.dto.DecorateCaseDto;
 import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageDto;
 
 public class PackageGoodDto extends GoodDto {
-	private DecoratePackageDto decoratingPackage;
+	private DecoratePackageDto decoratePackage;
 	private DecorateCaseDto decorateCase;
 	
-	public DecoratePackageDto getDecoratingPackage() {
-		return decoratingPackage;
+	public DecoratePackageDto getDecoratePackage() {
+		return decoratePackage;
 	}
-	public void setDecoratingPackage(DecoratePackageDto decoratingPackage) {
-		this.decoratingPackage = decoratingPackage;
+	public void setDecoratePackage(DecoratePackageDto decoratePackage) {
+		this.decoratePackage = decoratePackage;
 	}
 	public DecorateCaseDto getDecorateCase() {
 		return decorateCase;
