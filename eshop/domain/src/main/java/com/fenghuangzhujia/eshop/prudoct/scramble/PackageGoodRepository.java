@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.prudoct.goods;
+package com.fenghuangzhujia.eshop.prudoct.scramble;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 

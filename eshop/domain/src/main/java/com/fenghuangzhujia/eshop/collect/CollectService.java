@@ -92,7 +92,7 @@ public class CollectService extends DtoUnreadRemindPagingService<Collect, Collec
 			break;
 		case PACKAGE:
 			DecoratePackage package1=packageRepository.findOne(sourceid);
-			collect.setName(package1.getTitle());
+			collect.setName(package1.getName());
 			collect.setType(ResourceType.PACKAGE);
 			collect.setColumn("装修套餐");
 			collect.setMainPic(package1.getMainPic());

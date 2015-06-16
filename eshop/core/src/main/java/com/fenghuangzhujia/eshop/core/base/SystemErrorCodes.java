@@ -85,6 +85,7 @@ public class SystemErrorCodes {
 	
 	//预约相关异常131~140
 	public static final ErrorCode APPOINT_CONSTRAINED;
+	public static final ErrorCode NOT_APPOINTED;
 	
 	
 	//其它错误，999
@@ -119,6 +120,7 @@ public class SystemErrorCodes {
 		VALIDATE_ERROR=new ErrorCode(121, "验证码相关异常");
 		
 		APPOINT_CONSTRAINED=new ErrorCode(131, "不满足预约限制条件");
+		NOT_APPOINTED=new ErrorCode(132, "您没有预约成功");
 		
 		OTHER=new ErrorCode(999, "其它");
 	}

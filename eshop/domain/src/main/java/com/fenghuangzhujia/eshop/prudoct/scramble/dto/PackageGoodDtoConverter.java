@@ -1,10 +1,10 @@
-package com.fenghuangzhujia.eshop.prudoct.goods.dto;
+package com.fenghuangzhujia.eshop.prudoct.scramble.dto;
 
 import org.springframework.stereotype.Component;
 
 import com.fenghuangzhujia.eshop.core.commerce.goods.Good;
 import com.fenghuangzhujia.eshop.core.commerce.order.dto.GoodConverter;
-import com.fenghuangzhujia.eshop.prudoct.goods.PackageGood;
+import com.fenghuangzhujia.eshop.prudoct.scramble.PackageGood;
 import com.fenghuangzhujia.foundation.mapper.BeanMapper;
 
 @Component

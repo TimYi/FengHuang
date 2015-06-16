@@ -5,12 +5,11 @@ import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import com.fenghuangzhujia.eshop.core.commerce.eshop.Shop;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
+import com.fenghuangzhujia.foundation.media.MediaContent;
 
 /**
  * 商品
@@ -25,7 +24,6 @@ public abstract class Good extends UUIDBaseModel {
 	private String name;
 	private double price;
 	private double realPrice;
-	private Shop shop;
 	private String type;
 	
 	/**
@@ -60,18 +58,6 @@ public abstract class Good extends UUIDBaseModel {
 	public void setRealPrice(double realPrice) {
 		this.realPrice = realPrice;
 	}
-	
-	/**
-	 * 商品必然从属于某个店铺所有
-	 * @return
-	 */
-	@ManyToOne(optional=false)
-	public Shop getShop() {
-		return shop;
-	}
-	public void setShop(Shop shop) {
-		this.shop = shop;
-	}
 
 	/**
 	 * 商品类型导览属性
@@ -89,5 +75,5 @@ public abstract class Good extends UUIDBaseModel {
 	 * @return
 	 */
 	@Transient
-	public abstract String getMainPic();
+	public abstract MediaContent getMainPic();
 }

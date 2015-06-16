@@ -2,6 +2,7 @@ package com.fenghuangzhujia.eshop.core.commerce.order.dto;
 
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder.OrderStatus;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
+import com.fenghuangzhujia.foundation.media.MediaContentDto;
 
 public class GoodOrderDto extends DtoBaseModel {	
 	private double price;	
@@ -9,7 +10,7 @@ public class GoodOrderDto extends DtoBaseModel {
 	private Integer count;
 	private String name;
 	private String type;
-	private String mainPic;
+	private MediaContentDto mainPic;
 	private String shopid;
 	private String shop;	
 	private Object good;
@@ -54,11 +55,10 @@ public class GoodOrderDto extends DtoBaseModel {
 		this.type = type;
 	}
 
-	public String getMainPic() {
+	public MediaContentDto getMainPic() {
 		return mainPic;
 	}
-
-	public void setMainPic(String mainPic) {
+	public void setMainPic(MediaContentDto mainPic) {
 		this.mainPic = mainPic;
 	}
 

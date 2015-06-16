@@ -1,6 +1,8 @@
 package com.fenghuangzhujia.eshop.prudoct.appoint;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.eshop.core.area.Area;
 import com.fenghuangzhujia.eshop.core.area.AreaRepository;
@@ -16,6 +18,8 @@ import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackageRepository;
 import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 
+@Service
+@Transactional
 public class PackageAppointService extends DtoSpecificationService<PackageAppoint, PackageAppointDto, PackageAppointInputArgs, String> {
 	
 	@Autowired
@@ -63,6 +67,20 @@ public class PackageAppointService extends DtoSpecificationService<PackageAppoin
 		
 		appoint=getRepository().save(appoint);
 		return adapter.convertToDetailedDto(appoint);
+	}
+	
+	/**
+	 * 获取限制规则下的未过期预约
+	 * 预约可能已经被使用
+	 * 当前预约限制为没人，每种套餐，每月一次。
+	 * @param userId
+	 * @param packageId
+	 * @return
+	 */
+	public PackageAppoint getAliveAppoint(String userId, String packageId) {
+		User user=userRepository.findOne(userId);
+		DecoratePackage decoratePackage=decoratePackageRepository.findOne(packageId);
+		return appointValidater.getAliveAppoint(user, decoratePackage);
 	}
 
 }

@@ -12,6 +12,9 @@ import com.fenghuangzhujia.eshop.appoint.dto.AppointDto;
 import com.fenghuangzhujia.eshop.appoint.dto.AppointInputArgs;
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
 import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
+import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppointService;
+import com.fenghuangzhujia.eshop.prudoct.appoint.dto.PackageAppointDto;
+import com.fenghuangzhujia.eshop.prudoct.appoint.dto.PackageAppointInputArgs;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
@@ -20,6 +23,8 @@ public class AppointController {
 
 	@Autowired
 	private AppointService appointService;	
+	@Autowired
+	private PackageAppointService packageAppointService;
 	
 	@RequestMapping(value="user/appoint",method=RequestMethod.POST)
 	public String appoint(AppointInputArgs args) {
@@ -27,6 +32,15 @@ public class AppointController {
 		String userid=details.getId();
 		args.setUserId(userid);
 		AppointDto result=appointService.appointByUser(args);
+		return RequestResult.success(result).toJson();
+	}
+	
+	@RequestMapping(value="user/packageAppoint",method=RequestMethod.POST)
+	public String appointPackage(PackageAppointInputArgs args) {
+		SimpleUserDetails details=AuthenticationService.getUserDetail();
+		String userid=details.getId();
+		args.setUserId(userid);
+		PackageAppointDto result=packageAppointService.appointByUser(args);
 		return RequestResult.success(result).toJson();
 	}
 	
