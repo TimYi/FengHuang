@@ -27,5 +27,4 @@ public abstract class UUIDBaseModel extends BaseModel implements Identified<Stri
 	public void setId(String id) {
 		this.id = id;
 	}
-	
 }

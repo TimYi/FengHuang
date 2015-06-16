@@ -10,14 +10,14 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fenghuangzhujia.eshop.ResourceType;
 import com.fenghuangzhujia.eshop.artical.Artical;
 import com.fenghuangzhujia.eshop.artical.ArticalRepository;
+import com.fenghuangzhujia.eshop.cases.DecorateCase;
+import com.fenghuangzhujia.eshop.cases.DecorateCaseRepository;
 import com.fenghuangzhujia.eshop.collect.dto.CollectDto;
 import com.fenghuangzhujia.eshop.collect.dto.CollectInputArgs;
 import com.fenghuangzhujia.eshop.common.remind.impl.DtoUnreadRemindPagingService;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
-import com.fenghuangzhujia.eshop.prudoct.cases.DecorateCase;
-import com.fenghuangzhujia.eshop.prudoct.cases.DecorateCaseRepository;
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage;
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackageRepository;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
@@ -99,7 +99,7 @@ public class CollectService extends DtoUnreadRemindPagingService<Collect, Collec
 			break;
 		case CASE:
 			DecorateCase case1=caseRepository.findOne(sourceid);
-			collect.setName(case1.getTitle());
+			collect.setName(case1.getName());
 			collect.setType(ResourceType.CASE);
 			collect.setColumn("装修案例");
 			collect.setMainPic(case1.getMainPic());
