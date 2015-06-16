@@ -264,7 +264,7 @@ public class DicsInitializer {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void initColors() {
 		String name="颜色";
 		String remark="通用颜色";
@@ -284,6 +284,28 @@ public class DicsInitializer {
 			item.setType(type);
 			item.setName(name);
 			item.setAttr(attr);
+			item.setPriority(priority);
+			categoryItemService.add(item);
+		}
+	}
+	
+	@Test
+	public void initWorkerTypes() {
+		String name="工种";
+		String remark="工人工种";
+		String type=Dics.WORKER;
+		CategoryDto t=new CategoryDto();
+		t.setName(name);
+		t.setRemark(remark);
+		t.setType(type);
+		t=categoryService.add(t);
+		String[] names = { "综合工", "水工","电工" };
+		for (int i = 0; i < names.length; i++) {
+			name=names[i];
+			Integer priority=i+1;
+			CategoryItemDto item=new CategoryItemDto();
+			item.setType(type);
+			item.setName(name);
 			item.setPriority(priority);
 			categoryItemService.add(item);
 		}

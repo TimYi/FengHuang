@@ -60,4 +60,6 @@ public class Dics {
 	 * 通用颜色
 	 */
 	public final static String COLOR="color";
+	/**工人类型：综合工，木工，水电工*/
+	public final static String WORKER="worker";
 }
