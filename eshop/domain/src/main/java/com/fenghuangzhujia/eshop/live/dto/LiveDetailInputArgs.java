@@ -3,15 +3,18 @@ package com.fenghuangzhujia.eshop.live.dto;
 import java.util.Date;
 import java.util.Set;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
 public class LiveDetailInputArgs extends DtoBaseModel {
 
+	private String liveId;
 	/**直播地几天*/
 	private int day;
 	/**日期*/
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date date;
 	/**施工项目*/
 	private String title;
@@ -22,6 +25,12 @@ public class LiveDetailInputArgs extends DtoBaseModel {
 	/**施工图片*/
 	private Set<MultipartFile> picFiles;
 	
+	public String getLiveId() {
+		return liveId;
+	}
+	public void setLiveId(String liveId) {
+		this.liveId = liveId;
+	}
 	public int getDay() {
 		return day;
 	}

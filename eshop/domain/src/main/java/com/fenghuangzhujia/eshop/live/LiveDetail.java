@@ -32,7 +32,7 @@ public class LiveDetail extends UUIDBaseModel {
 	/**施工图片*/
 	private Set<MediaContent> pics;
 	
-	@ManyToOne
+	@ManyToOne(optional=false)
 	public Live getLive() {
 		return live;
 	}

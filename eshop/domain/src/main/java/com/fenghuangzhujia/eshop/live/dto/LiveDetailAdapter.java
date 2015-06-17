@@ -9,7 +9,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
+import com.fenghuangzhujia.eshop.live.Live;
 import com.fenghuangzhujia.eshop.live.LiveDetail;
+import com.fenghuangzhujia.eshop.live.LiveRepository;
 import com.fenghuangzhujia.eshop.worker.Worker;
 import com.fenghuangzhujia.eshop.worker.WorkerRepository;
 import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
@@ -24,6 +26,8 @@ public class LiveDetailAdapter extends AbstractDtoAdapter<LiveDetail, LiveDetail
 	private WorkerRepository workerRepository;
 	@Autowired
 	private MediaService mediaService;
+	@Autowired
+	private LiveRepository liveRepository;
 	
 	@Override
 	public LiveDetailDto postConvert(LiveDetail d, LiveDetailDto t) {
@@ -33,6 +37,9 @@ public class LiveDetailAdapter extends AbstractDtoAdapter<LiveDetail, LiveDetail
 	@Override
 	public LiveDetail postConvertToDo(LiveDetailInputArgs i, LiveDetail d) {
 		d=postUpdate(i, d);
+		String liveId=i.getLiveId();
+		Live live=liveRepository.findOne(liveId);
+		d.setLive(live);
 		try {
 			Set<MultipartFile> picFiles=i.getPicFiles();
 			if(picFiles!=null) {
