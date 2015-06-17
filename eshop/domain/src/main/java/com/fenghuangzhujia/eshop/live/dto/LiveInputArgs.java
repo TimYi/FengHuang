@@ -1,6 +1,8 @@
 package com.fenghuangzhujia.eshop.live.dto;
 
 import java.util.Date;
+
+import com.fenghuangzhujia.eshop.live.Live.ProjectProgress;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
 public class LiveInputArgs extends DtoBaseModel {
@@ -18,7 +20,8 @@ public class LiveInputArgs extends DtoBaseModel {
 	/**开工日期*/
 	private Date startDate;
 	/**是否展示*/
-	private boolean show;
+	private boolean shouldShow;
+	private ProjectProgress status;
 	
 	public String getUserId() {
 		return userId;
@@ -56,10 +59,16 @@ public class LiveInputArgs extends DtoBaseModel {
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
-	public boolean isShow() {
-		return show;
+	public boolean isShouldShow() {
+		return shouldShow;
 	}
-	public void setShow(boolean show) {
-		this.show = show;
+	public void setShouldShow(boolean shouldShow) {
+		this.shouldShow = shouldShow;
+	}
+	public ProjectProgress getStatus() {
+		return status;
+	}
+	public void setStatus(ProjectProgress status) {
+		this.status = status;
 	}
 }

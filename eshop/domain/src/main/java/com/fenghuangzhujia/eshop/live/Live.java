@@ -33,7 +33,8 @@ public class Live extends UUIDBaseModel {
 	/**开工日期*/
 	private Date startDate;
 	/**是否展示*/
-	private boolean show;
+	private boolean shouldShow;
+	private ProjectProgress status;
 	private Set<LiveDetail> lives;
 	
 	@ManyToOne
@@ -72,12 +73,18 @@ public class Live extends UUIDBaseModel {
 	}
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
+	}	
+	public boolean getShouldShow() {
+		return shouldShow;
 	}
-	public boolean isShow() {
-		return show;
+	public void setShouldShow(boolean shouldShow) {
+		this.shouldShow = shouldShow;
 	}
-	public void setShow(boolean show) {
-		this.show = show;
+	public ProjectProgress getStatus() {
+		return status;
+	}
+	public void setStatus(ProjectProgress status) {
+		this.status = status;
 	}
 	@OneToMany(mappedBy="live")
 	public Set<LiveDetail> getLives() {
@@ -86,4 +93,10 @@ public class Live extends UUIDBaseModel {
 	public void setLives(Set<LiveDetail> lives) {
 		this.lives = lives;
 	}	
+	
+	public static enum ProjectProgress {
+		进行中,
+		已交房,
+		验收中;
+	}
 }

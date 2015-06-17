@@ -8,6 +8,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fenghuangzhujia.eshop.ResourceType;
 import com.fenghuangzhujia.eshop.common.remind.impl.UnreadRemindEntity;
 import com.fenghuangzhujia.eshop.core.user.User;
 
@@ -102,5 +103,10 @@ public class CommentItem extends UnreadRemindEntity {
 	@Transient
 	public String getColumn() {
 		return comment.getColumn();
+	}
+	
+	@Transient
+	public ResourceType getType() {
+		return comment.getType();
 	}
 }

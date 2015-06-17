@@ -2,6 +2,7 @@ package com.fenghuangzhujia.eshop.comment.dto;
 
 import java.util.Date;
 
+import com.fenghuangzhujia.eshop.ResourceType;
 import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
@@ -15,6 +16,7 @@ public class CommentItemDto extends DtoBaseModel {
 	private String url;
 	private Date createTime;
 	private String column;
+	private ResourceType type;
 	private Integer replyNumber; //回复数量，需要特殊处理
 	
 	public String getContent() {
@@ -70,5 +72,11 @@ public class CommentItemDto extends DtoBaseModel {
 	}
 	public void setReplyNumber(Integer replyNumber) {
 		this.replyNumber = replyNumber;
+	}
+	public ResourceType getType() {
+		return type;
+	}
+	public void setType(ResourceType type) {
+		this.type = type;
 	}
 }

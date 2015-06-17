@@ -53,6 +53,7 @@ public class CommentItemDtoAdapter extends AbstractDtoAdapter<CommentItem, Comme
 			comment.setSourceid(sourceid);
 			comment.setUrl(t.getUrl());
 			comment.setColumn(t.getColumn());
+			comment.setType(t.getType());
 			comment=commentRepository.save(comment);
 		}
 		d.setComment(comment);

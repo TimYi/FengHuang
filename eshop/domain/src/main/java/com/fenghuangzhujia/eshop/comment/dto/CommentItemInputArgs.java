@@ -1,5 +1,6 @@
 package com.fenghuangzhujia.eshop.comment.dto;
 
+import com.fenghuangzhujia.eshop.ResourceType;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
 public class CommentItemInputArgs extends DtoBaseModel {
@@ -11,6 +12,7 @@ public class CommentItemInputArgs extends DtoBaseModel {
 	private String sourceid;
 	private String url;
 	private String column;
+	private ResourceType type;
 	
 	public String getContent() {
 		return content;
@@ -53,5 +55,11 @@ public class CommentItemInputArgs extends DtoBaseModel {
 	}
 	public void setColumn(String column) {
 		this.column = column;
+	}
+	public ResourceType getType() {
+		return type;
+	}
+	public void setType(ResourceType type) {
+		this.type = type;
 	}
 }

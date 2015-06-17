@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.Set;
 
 import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
+import com.fenghuangzhujia.eshop.live.Live.ProjectProgress;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
 public class LiveDto extends DtoBaseModel {
@@ -21,8 +22,9 @@ public class LiveDto extends DtoBaseModel {
 	/**开工日期*/
 	private Date startDate;
 	/**是否展示*/
-	private boolean show;
+	private boolean shouldShow;
 	private Set<LiveDetailDto> lives;
+	private ProjectProgress status;
 	
 	public UserDto getUser() {
 		return user;
@@ -60,16 +62,22 @@ public class LiveDto extends DtoBaseModel {
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
-	public boolean isShow() {
-		return show;
+	public boolean getShouldShow() {
+		return shouldShow;
 	}
-	public void setShow(boolean show) {
-		this.show = show;
+	public void setShouldShow(boolean shouldShow) {
+		this.shouldShow = shouldShow;
 	}
 	public Set<LiveDetailDto> getLives() {
 		return lives;
 	}
 	public void setLives(Set<LiveDetailDto> lives) {
 		this.lives = lives;
+	}
+	public ProjectProgress getStatus() {
+		return status;
+	}
+	public void setStatus(ProjectProgress status) {
+		this.status = status;
 	}
 }
