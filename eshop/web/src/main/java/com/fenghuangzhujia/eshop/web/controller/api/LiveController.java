@@ -30,14 +30,7 @@ public class LiveController {
 	@RequestMapping(value="lives",method=RequestMethod.GET)
 	public String searchLives(@DateTimeFormat(pattern="yyyy-MM-dd") Date date, 
 			ProjectProgress status, @RequestParam(defaultValue="1") int page, @RequestParam(defaultValue="8") int size) {
-		PagedList<LiveDto> result;
-		if(date!=null) {
-			result=liveService.findDateLater(date, page, size);
-		} else if(status!=null) {
-			result=liveService.findByStatus(status, page, size);
-		} else {
-			result=liveService.findPage(page, size);
-		}
+		PagedList<LiveDto> result=liveService.findLivesToShow(date, status, page, size);
 		return RequestResult.success(result).toJson();
 	}
 	

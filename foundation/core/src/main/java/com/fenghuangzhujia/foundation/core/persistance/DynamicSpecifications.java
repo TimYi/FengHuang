@@ -40,7 +40,12 @@ public class DynamicSpecifications {
 						// logic operator
 						switch (filter.operator) {
 						case EQ:
-							predicates.add(builder.equal(expression, filter.value));
+							//布尔值的判断会出现问题，要单独判断
+							Object value=filter.value;
+							if(isBoolean(value)) {
+								value=Boolean.parseBoolean(value.toString());
+							}
+							predicates.add(builder.equal(expression, value));
 							break;
 						case LIKE:
 							predicates.add(builder.like(expression, "%" + filter.value + "%"));
@@ -67,6 +72,12 @@ public class DynamicSpecifications {
 				}
 
 				return builder.conjunction();
+			}
+			private boolean isBoolean(Object value) {
+				String valueString=value.toString().toLowerCase();
+				if(valueString.equals("true") || valueString.equals("false"))
+					return true;
+				return false;
 			}
 		};
 	}
