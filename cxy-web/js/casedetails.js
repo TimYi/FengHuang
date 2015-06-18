@@ -11,30 +11,24 @@ $(function(){
 	g.sendCode = false;
 	g.sendTime = 60;
 	g.username = Base.userName;
-	g.token = Utils.getQueryString("token");
-	g.page = Utils.getQueryString("p") - 0;
+	g.caseId = Utils.getQueryString("id");
 	g.totalPage = 1;
 	g.currentPage = 1;
 	g.paseSize = 10;
 	g.httpTip = new Utils.httpTip({});
 	g.listdata = [];
 
-	getCaseList();
+	getCaseDetails();
 
-	function getCaseList(){
-		//token:用户凭据
-		//page:当前页码
-		//size:每页数据量
+	function getCaseDetails(){
 		var condi = {};
-		condi.page = g.currentPage;
-		condi.size = g.paseSize;
-		condi.tags = "";
-		g.tags = "";
-		sendGetCaseListHttp(condi);
+		condi.id = g.caseId;
+
+		sendGetCaseDetailsHttp(condi);
 	}
 
-	function sendGetCaseListHttp(condi){
-		var url = Base.cases;
+	function sendGetCaseDetailsHttp(condi){
+		var url = Base.casedetails + "/" + condi.id;
 		g.httpTip.show();
 		$.ajax({
 			url:url,
@@ -44,10 +38,10 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log("sendGetCaseListHttp",data);
+				console.log("sendGetCaseDetailsHttp",data);
 				var status = data.status || "";
 				if(status == "OK"){
-					changeCaseListHtml(data.result);
+					//changeCaseListHtml(data.result);
 				}
 				else{
 					var msg = data.error || "";
