@@ -11,22 +11,23 @@ $(function(){
 	g.tout = null;
 	g.httpTip = new Utils.httpTip({});
 
-	$("#inputEmail3").bind("blur",getImgCode);
-	$("#updatecodebtn").bind("click",getImgCode);
+	$("#username").bind("blur",getImgCode);
+	$("#logincodebtn").bind("click",getImgCode);
+	//$("#regbtn").bind("click",openRegPage);
+	$("#validate").bind("keydown",codeKeyDown);
+
 	$("#loginbtn").bind("click",loginBtnUp);
-	$("#regbtn").bind("click",openRegPage);
-	$("#inputCode3").bind("keydown",codeKeyDown);
 
 	setTimeout(function(){
 		getImgCode();
 	},2000);
 	//换一组图片
 	function getImgCode(evt){
-		var userName = $("#inputEmail3").val() || "";
+		var userName = $("#username").val() || "";
 		if(userName !== ""){
 			g.codeId = userName;
 			console.log(g.codeId);
-			$("#updatecodebtn").attr("src",Base.imgCodeUrl + "?id=" + g.codeId);
+			$("#logincodebtn").attr("src",Base.imgCodeUrl + "?id=" + g.codeId);
 
 			clearTimeout(g.tout);
 			g.tout = setTimeout(function(){
@@ -49,9 +50,9 @@ $(function(){
 	}
 
 	function loginBtnUp(evt){
-		var userName = $("#inputEmail3").val() || "";
+		var userName = $("#username").val() || "";
 		var pwd = $("#password").val() || "";
-		var code = $("#inputCode3").val() || "";
+		var code = $("#validate").val() || "";
 		if(userName !== ""){
 			if(pwd !== ""){
 				if(code !== ""){
@@ -60,7 +61,7 @@ $(function(){
 					sendLoginHttp(userName,pwd,code,autoLogin);
 				}
 				else{
-					$("#inputCode3").focus();
+					$("#validate").focus();
 				}
 			}
 			else{
@@ -68,7 +69,7 @@ $(function(){
 			}
 		}
 		else{
-			$("#inputEmail3").focus();
+			$("#username").focus();
 		}
 	}
 
@@ -102,7 +103,7 @@ $(function(){
 					//location.href = "center.html";
 					var token = data.result || "";
 					Utils.offLineStore.set("token",token,false);
-					location.href = "center.html?token=" + token + "&p=0";
+					location.href = "service.html?token=" + token + "&p=0";
 				}
 				else{
 					var msg = data.error || "";

@@ -11,51 +11,44 @@
   <meta http-equiv="Cache-Control" content="no-siteapp" />
   <link rel="icon" type="image/png" href="assets/i/favicon.png">
   <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="assets/css/app.css">
-
 </head>
 <body>
-	<header data-am-widget="header" class="am-header am-header-default" style="background:#fff;box-shadow: inset -1px -1px 1px -1px #666;">
-	  <h1 class="am-header-title">
-			<span style="color:#333;font-size:18px;font-weight:bold">用户注册 (1/2)</span>
-	  </h1>
-	  <div class="am-header-left am-header-nav">
-	    <a href="?c=login" class="">
-	      <i class="am-header-icon am-icon-chevron-left" style="font-size:16px;color:#999;margin-left:-15px"></i>
-	    </a>
-	  </div> 
-	  <div class="am-header-right am-header-nav">
-	    <a href="?c=login" class="">
-	      <i class="am-header-icon am-icon-sign-in" style="font-size:20px;color:#999;margin-left:-15px"></i>
-	    </a>
-	  </div> 	  
-	</header>
-	<form id="form" method="post" action="?a=reg" onsubmit="return CheckReg();" class="am-form">
-		<div style="height:20px;"></div>
-		<div class="am-g">
-		  <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered" style="width:90%">
-	      <input type="text" name="username" id="username" placeholder="手机号">
-	      <div style="height:10px;"></div>
-
+	<div style="height:10px;"></div>
+	<div class="am-g">
+	  <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered" style="width:95%">
+			<form id="form" method="post" action="" onsubmit="" class="am-form">
+		  	<div style="height:10px;"></div>
+	    	<input type="text" name="username" id="username" placeholder="用户名"/><div style="height:10px;"></div>
+	      <input type="password" name="password" id="password" placeholder="密码"/><div style="height:10px;"></div>
+	      <input type="text" name="username" id="username" placeholder="中国大陆手机号码"/><div style="height:10px;"></div>
 	    	<div class="am-cf">
-	      	<input class="am-fl"type="text" name="validate" id="validate" placeholder="短信验证码" style="width:45%" /><div style="height:10px;"></div>
-	      	<div class="am-fr">
-	      		<input type="submit" name="" value="下一步" class="am-btn am-btn-sm am-fl rd5 " style="margin-top:-9px;width:100px">
-	      		
+	      	<input class="am-fl"type="text" name="validate" id="validate" placeholder="图形验证码" style="width:55%" /><div style="height:10px;"></div>
+	      	<div style="float:right;margin-top:-10px;width:40%">
+	      		<img id="regcodebtn" src="" alt="" style="height:42px;width:100%;" />
+	      	</div>
+				</div><div style="height:10px;"></div>
+	    	<div class="am-cf">
+	      	<input class="am-fl"type="text" name="validate" id="validate" placeholder="短信验证码" style="width:55%" /><div style="height:10px;"></div>
+	      	<div id="sendcodebtn" style="float:right;margin-top:-10px;width:40%">
+	      		<div style="height:42px;text-align:center;line-height:40px;color:#999;background:#eee">发送短信</div>
 	      	</div>
 				</div>
-				<div style="height:10px;"></div>
-	      <!--label for="remember-me" style="height:20px;font-weight:normal">
-	        <input id="remember-me" type="checkbox">
-	        我已阅读并同意相关
-	      </label><a class=fbd>《服务条款》</a-->
-	      <div style="height:20px;"></div>
-	      <div class="am-cf">
-	      	<input type="submit" name="" value="下一步" class="am-btn am-btn-sm am-fl rd5 orange">
+
+				<div style="clear:both;height:20px;"></div>
+	      <div id="regbtn" class="am-cf">
+    			<a href="javascript:void(0);"><div class="am-btn am-btn-secondary" style="background:#f25618;border-color:#f25618;width:100%" type="submit">注册</div></a>
 	      </div>
-		  </div>
-		</div>
-	</form>
+      </form>
+
+	</div>
+
+	<script src="js/jquery.js"></script>
+	<script src="libs/json.js"></script>
+	<script src="libs/base.js"></script>
+	<script src="libs/utils.js"></script>
+	<script src="js/reg.js"></script>
 </body>
 </html>
 
