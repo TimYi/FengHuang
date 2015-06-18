@@ -1,5 +1,6 @@
 package com.fenghuangzhujia.eshop.live.dto;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -27,8 +28,10 @@ public class LiveAdapter extends AbstractDtoAdapter<Live, LiveDto, LiveInputArgs
 	@Override
 	public Live postUpdate(LiveInputArgs i, Live d) {
 		String userId=i.getUserId();
-		User user=userRepository.findOne(userId);
-		d.setUser(user);
+		if(StringUtils.isNotBlank(userId)) {
+			User user=userRepository.findOne(userId);
+			d.setUser(user);
+		}		
 		return d;
 	}
 

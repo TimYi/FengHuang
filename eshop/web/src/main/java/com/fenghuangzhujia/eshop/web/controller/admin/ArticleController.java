@@ -9,9 +9,9 @@ import com.fenghuangzhujia.eshop.artical.dto.ArticalDto;
 import com.fenghuangzhujia.eshop.artical.dto.ArticalInputArgs;
 import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 
-@RestController(value="adminArticalController")
+@RestController(value="adminArticleController")
 @RequestMapping("admin/artical")
-public class ArticalController extends SpecificationController<ArticalDto,ArticalInputArgs> {
+public class ArticleController extends SpecificationController<ArticalDto,ArticalInputArgs> {
 
 	@Autowired
 	private ArticalService service;
@@ -20,5 +20,4 @@ public class ArticalController extends SpecificationController<ArticalDto,Artica
 	protected ArticalService getService() {
 		return service;
 	}
-
 }
