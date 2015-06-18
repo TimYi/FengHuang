@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fenghuangzhujia.eshop.prudoct.cases.DecorateCaseService;
-import com.fenghuangzhujia.eshop.prudoct.cases.dto.DecorateCaseDto;
-import com.fenghuangzhujia.eshop.prudoct.cases.dto.DecorateCaseInputArgs;
+import com.fenghuangzhujia.eshop.cases.DecorateCaseService;
+import com.fenghuangzhujia.eshop.cases.dto.DecorateCaseDto;
+import com.fenghuangzhujia.eshop.cases.dto.DecorateCaseInputArgs;
 import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 
 @RestController

@@ -7,6 +7,7 @@ import javax.persistence.Table;
 
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
+import com.fenghuangzhujia.foundation.dics.CategoryItem;
 
 @Entity
 @Table(name="fhzj_worker")
@@ -14,6 +15,10 @@ public class Worker extends UUIDBaseModel {
 
 	private long expVal;
 	private User user;
+	/**工人姓名*/
+	private String name;
+	/**工种，字典类型worker*/
+	private CategoryItem type;
 	
 	/**
 	 * 工人经验值
@@ -37,5 +42,18 @@ public class Worker extends UUIDBaseModel {
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	@OneToOne
+	public CategoryItem getType() {
+		return type;
+	}
+	public void setType(CategoryItem type) {
+		this.type = type;
 	}
 }

@@ -1,5 +1,9 @@
 package com.fenghuangzhujia.eshop.web.controller.api;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fenghuangzhujia.eshop.cases.CaseTag;
+import com.fenghuangzhujia.eshop.cases.DecorateCaseService;
+import com.fenghuangzhujia.eshop.cases.dto.DecorateCaseDto;
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
 import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
 import com.fenghuangzhujia.eshop.core.commerce.order.dto.GoodOrderDto;
@@ -14,8 +21,6 @@ import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
 import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppointService;
 import com.fenghuangzhujia.eshop.prudoct.appoint.dto.PackageAppointDto;
 import com.fenghuangzhujia.eshop.prudoct.appoint.dto.PackageAppointInputArgs;
-import com.fenghuangzhujia.eshop.prudoct.cases.DecorateCaseService;
-import com.fenghuangzhujia.eshop.prudoct.cases.dto.DecorateCaseDto;
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackageService;
 import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageDto;
 import com.fenghuangzhujia.eshop.prudoct.scramble.ScrambleService;
@@ -56,10 +61,22 @@ public class ProductController {
 		return RequestResult.success(result).toJson();
 	}
 	
+	@RequestMapping(value="product/cases/tags",method=RequestMethod.GET)
+	public String caseTags() {
+		List<CaseTag> result=decorateCaseService.findAllTags();
+		return RequestResult.success(result).toJson();
+	}
+	
 	@RequestMapping(value="product/cases",method=RequestMethod.GET)
 	public String caseList(@RequestParam(defaultValue="1") Integer page,
-	@RequestParam(defaultValue="8")  Integer size) {
-		PagedList<DecorateCaseDto> result=decorateCaseService.findPage(page, size);
+	@RequestParam(defaultValue="8")  Integer size, String[] tags) {
+		Set<String> tagSet=new HashSet<String>();
+		if(tags!=null) {
+			for (String tag : tags) {
+				tagSet.add(tag);
+			}
+		}	
+		PagedList<DecorateCaseDto> result=decorateCaseService.findByTags(tagSet, page, size);
 		return RequestResult.success(result).toJson();
 	}
 	

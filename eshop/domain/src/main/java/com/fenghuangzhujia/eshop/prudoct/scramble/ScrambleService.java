@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fenghuangzhujia.eshop.cases.DecorateCase;
+import com.fenghuangzhujia.eshop.cases.DecorateCaseRepository;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrderService;
 import com.fenghuangzhujia.eshop.core.commerce.order.dto.GoodOrderDto;
@@ -16,8 +18,6 @@ import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppoint;
 import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppointRepository;
 import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppointService;
-import com.fenghuangzhujia.eshop.prudoct.cases.DecorateCase;
-import com.fenghuangzhujia.eshop.prudoct.cases.DecorateCaseRepository;
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage;
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackageRepository;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;

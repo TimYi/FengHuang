@@ -1,27 +1,16 @@
-package com.fenghuangzhujia.eshop.live;
+package com.fenghuangzhujia.eshop.live.dto;
 
 import java.util.Date;
 import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
+import com.fenghuangzhujia.eshop.live.Live.ProjectProgress;
+import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
-import com.fenghuangzhujia.eshop.core.user.User;
-import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
-
-/**
- * 可以随意修改命名~
- * @author pc
- *
- */
-@Entity
-@Table(name="fhzj_live")
-public class Live extends UUIDBaseModel {
+public class LiveDto extends DtoBaseModel {
 
 	/**直播所属用户*/
-	private User user;
+	private UserDto user;
 	/**案例名称*/
 	private String name;
 	/**小区名称*/
@@ -34,14 +23,13 @@ public class Live extends UUIDBaseModel {
 	private Date startDate;
 	/**是否展示*/
 	private boolean shouldShow;
+	private Set<LiveDetailDto> lives;
 	private ProjectProgress status;
-	private Set<LiveDetail> lives;
 	
-	@ManyToOne
-	public User getUser() {
+	public UserDto getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(UserDto user) {
 		this.user = user;
 	}
 	public String getName() {
@@ -73,30 +61,23 @@ public class Live extends UUIDBaseModel {
 	}
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
-	}	
+	}
 	public boolean getShouldShow() {
 		return shouldShow;
 	}
 	public void setShouldShow(boolean shouldShow) {
 		this.shouldShow = shouldShow;
 	}
+	public Set<LiveDetailDto> getLives() {
+		return lives;
+	}
+	public void setLives(Set<LiveDetailDto> lives) {
+		this.lives = lives;
+	}
 	public ProjectProgress getStatus() {
 		return status;
 	}
 	public void setStatus(ProjectProgress status) {
 		this.status = status;
-	}
-	@OneToMany(mappedBy="live")
-	public Set<LiveDetail> getLives() {
-		return lives;
-	}
-	public void setLives(Set<LiveDetail> lives) {
-		this.lives = lives;
-	}	
-	
-	public static enum ProjectProgress {
-		进行中,
-		已交房,
-		验收中;
 	}
 }
