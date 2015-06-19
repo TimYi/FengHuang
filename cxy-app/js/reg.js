@@ -12,19 +12,22 @@ $(function(){
 	g.sendTime = 60;
 	g.httpTip = new Utils.httpTip({});
 
-	$("#inputPhone3").bind("blur",getImgCode);
+	$("#username").bind("blur",getImgCode);
+	$("#regcodebtn").bind("click",getImgCode);
 	$("#getcodebtn").bind("click",getValidCode);
-	$("#resetbtn").bind("click",resetRegInfo);
+	$("#sendcodebtn").bind("click",resetRegInfo);
 	$("#sendbtn").bind("click",regBtnUp);
 
 
 
 	//获取图形验证码
 	function getImgCode(evt){
-		var phone = $("#inputPhone3").val();
-		console.log(phone);
-		g.imgCodeId = phone;
-		$("#imgcodebtn").attr("src",Base.imgCodeUrl + "?id=" + g.imgCodeId);
+		var phone = $("#username").val() || "";
+		if(phone !== ""){
+			console.log(phone);
+			g.imgCodeId = phone;
+			$("#regcodebtn").attr("src",Base.imgCodeUrl + "?id=" + g.imgCodeId);
+		}
 	}
 
 	//获取验证码
