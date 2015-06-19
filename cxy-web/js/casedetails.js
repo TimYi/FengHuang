@@ -18,6 +18,9 @@ $(function(){
 	g.httpTip = new Utils.httpTip({});
 	g.listdata = [];
 
+	//验证登录状态
+	g.loginStatus = Utils.getUserInfo();
+
 	$("#issuebtn").bind("click",issueComment);
 
 	getCaseDetails();
