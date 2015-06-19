@@ -18,8 +18,57 @@ $(function(){
 	g.paseSize = 10;
 	g.httpTip = new Utils.httpTip({});
 	g.listdata = [];
+	g.packageName = "";
+	g.packageStype = "";
+	g.tags = "";
+	//验证登录状态
+	g.loginStatus = Utils.getUserInfo();
+
+	$("#packagename >li > a").bind("click",changePackageName);
+	$("#packagestype1 >li > a").bind("click",changePackageStype);
+	$("#packagestype2 >li > a").bind("click",changePackageStype);
 
 	getCaseList();
+
+	function changePackageName(){
+		$("#packagename >li > a").removeClass("active");
+		$(this).addClass("active");
+		var text = $(this).text();
+		if(text == "全部"){
+			g.packageName = "";
+			$("#packagestype1 >li > a").removeClass("active");
+			$("#packagestype2 >li > a").removeClass("active");
+
+			g.tags = "";
+			getCaseList();
+		}
+		else{
+			g.packageName = text;
+
+			if(g.packageStype == ""){
+				g.tags = g.packageName;
+			}
+			else{
+				g.tags = g.packageName + "&" + g.packageStype;
+			}
+			getCaseList();
+		}
+	}
+
+	function changePackageStype(){
+		$("#packagestype1 >li > a").removeClass("active");
+		$("#packagestype2 >li > a").removeClass("active");
+		$(this).addClass("active");
+		var text = $(this).text();
+		g.packageStype = text;
+		if(g.packageName == ""){
+			g.tags = g.packageStype;
+		}
+		else{
+			g.tags = g.packageName + "&" + g.packageStype;
+		}
+		getCaseList();
+	}
 
 	function getCaseList(){
 		//token:用户凭据
@@ -28,8 +77,8 @@ $(function(){
 		var condi = {};
 		condi.page = g.currentPage;
 		condi.size = g.paseSize;
-		condi.tags = "";
-		g.tags = "";
+		condi.tags = g.tags;
+		console.log(condi);
 		sendGetCaseListHttp(condi);
 	}
 

@@ -177,7 +177,7 @@ $(function(){
 
 	//获取我的评论
 	function sendGetMyCommentHttp(condi){
-		var url = Base.commentUrl;
+		var url = Base.commentsUrl;
 		g.httpTip.show();
 		$.ajax({
 			url:url,

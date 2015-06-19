@@ -45,8 +45,8 @@
                     </div>
                     <div class="col-sm-6 col-xs-8">
                        <div class="social">
-                            <ul class="social-share">
-                                <li style="padding-right:10px;"><i class="fa fa-sign-in hui"></i> <b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal"><a href="login.html" style="width:30px">登录</a></b></li>
+                            <ul id="loginstatus" class="social-share">
+                                <li style="padding-right:10px"><i class="fa fa-sign-in hui"></i> <b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal"><a href="login.html" style="width:30px">登录</a></b></li>
                                 <li><i class="fa fa-user hui"></i> <a href="center.html" style="width:60px">会员中心</a></li>
                             </ul>
                             <div class="search">
@@ -114,44 +114,46 @@
 			<div class="container">
 				<div style="margin-top:-40px">
 					<ol class="breadcrumb hui">
-					  <li><i class="fa fa-home" style="font-size:1.1em;"></i>&nbsp;&nbsp; <a href="#" style="color:#aaa">首页</a></li>
-					  <li><a href="#" style="color:#aaa">案例Live直播</a></li>
-					  <li><a href="#" style="color:#aaa">案例集锦</a></li>
-					  <li class="active" style="color:#b9090e">三居80㎡简装499套餐简欧案例</li>
+						<li><i class="fa fa-home" style="font-size:1.1em;"></i>&nbsp;&nbsp; <a href="index.html" style="color:#aaa">首页</a></li>
+						<li><a href="#" style="color:#aaa">案例Live直播</a></li>
+						<li><a href="case.html" style="color:#aaa">案例集锦</a></li>
+						<li id="casetitle" class="active" style="color:#b9090e"><!--三居80㎡简装499套餐简欧案例--></li>
 					</ol>
 				</div>
 
-				<div id="pic" class="col-md-8">
-					<img src="http://www.talmd.cn/upload/upfiles/part/201401/113890851569826.jpg_870.jpg">
-				</div><!--/.left img-->
-				<div class="case-right col-md-4" style="height:540px">
-					<ul>
-						<li style="font-size:24px;">三居80㎡简装499套餐简欧案例</li>
-						<li style="color:#999;padding-top:20px">案例编号：AL10230405</li>
-						<li>简欧风格</li>
-						<li style="color:#999">定制价</li>
-						<li style="color:#b9090e;font-size:24px;font-weight:800;">￥45969<span style="font-size:16px;">.<span style="text-decoration:underline">00</span> 元</span></li>
-						<hr>
-						<li><span style="color:#999">TAG：</span>公寓，卧室，简欧，499套餐</li>
-						<li>分享到：</li>
-						<hr>
-						<li>
-	          	<div style="float:left;height:45px;width:130px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-	          		<a href="miaosha.html">
-	          			<div style="text-align:center;line-height:45px;font-size:16px;color:#000;">定制套餐</div>
-	          		</a>
-	          	</div>
-	          	<div style="margin:0 0 20px 20px;float:left;height:45px;width:130px;background:#b9090e;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-	          		<a href="miaosha.html">
-	          			<div style="text-align:center;line-height:45px;font-size:16px;color:white;">收藏</div>
-	          		</a>
-	          	</div>
-							<div style="clear:both"></div>
-						</li>
-						<li style="color:#999">定制说明</li>
-						<li>了解更多</li>
-					</ul>
-				</div><!--/.right detail-->
+				<div id="casedetails">
+					<div id="pic" class="col-md-8">
+						<img src="http://www.talmd.cn/upload/upfiles/part/201401/113890851569826.jpg_870.jpg">
+					</div>
+					<div class="case-right col-md-4" style="height:540px">
+						<ul>
+							<li style="font-size:24px;"><!--三居80㎡简装499套餐简欧案例--></li>
+							<li style="color:#999;padding-top:20px"><!--案例编号：AL10230405--></li>
+							<li><!--简欧风格--></li>
+							<li style="color:#999">定制价</li>
+							<li style="color:#b9090e;font-size:24px;font-weight:800;">￥0<span style="font-size:16px;">.<span style="text-decoration:underline">00</span> 元</span></li>
+							<hr>
+							<li><span style="color:#999">TAG：</span><!--公寓，卧室，简欧，499套餐--></li>
+							<li>分享到：</li>
+							<hr>
+							<li>
+								<div style="float:left;height:45px;width:130px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+									<a href="miaosha.html">
+										<div style="text-align:center;line-height:45px;font-size:16px;color:#000;">定制套餐</div>
+									</a>
+								</div>
+								<div style="margin:0 0 20px 20px;float:left;height:45px;width:130px;background:#b9090e;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+									<a href="miaosha.html">
+										<div style="text-align:center;line-height:45px;font-size:16px;color:white;">收藏</div>
+									</a>
+								</div>
+								<div style="clear:both"></div>
+							</li>
+							<li style="color:#999">定制说明</li>
+							<li>了解更多</li>
+						</ul>
+					</div>
+				</div>
 			</div><!--/.container-->
 		</section>
 
@@ -471,20 +473,20 @@
                                 <p>（*）是必填项，禁止发布违反法律的不良言论。</p>
                             </div>
 
-                            <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php" role="form">
+                            <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="" role="form">
                                 <div class="row">
                                     <div class="col-sm-5">
                                         <div class="form-group">
                                             <label>姓名 *</label>
-                                            <input type="text" class="form-control" required="required">
+                                            <input id="name" type="text" class="form-control" required="required">
                                         </div>
                                         <div class="form-group">
                                             <label>邮箱 *</label>
-                                            <input type="email" class="form-control" required="required">
+                                            <input id="email" type="text" class="form-control" required="required">
                                         </div>
                                         <div class="form-group">
                                             <label>手机号</label>
-                                            <input type="url" class="form-control">
+                                            <input id="phone" type="text" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-sm-7">
@@ -493,7 +495,7 @@
                                             <textarea name="message" id="message" required="required" class="form-control" rows="8"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary btn-lg" required="required">发布评论</button>
+                                            <button id="issuebtn" type="button" class="btn btn-primary btn-lg" required="required">发布评论</button>
                                         </div>
                                     </div>
                                 </div>

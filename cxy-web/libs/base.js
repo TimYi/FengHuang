@@ -30,7 +30,8 @@
 	var appointsUrl = serverUrl + "/api/user/appoints";
 	var appointUrl = serverUrl + "/api/user/appoint";
 	var orderUrl = serverUrl + "/api/user/orders";
-	var commentUrl = serverUrl + "/api/user/comments";
+	var commentsUrl = serverUrl + "/api/user/comments";
+	var commentUrl = serverUrl + "/api/user/comment";
 	var couponsUrl = serverUrl + "/api/user/coupons";
 	var collectsUrl = serverUrl + "/api/user/collects";
 	var collectUrl = serverUrl + "/api/user/collect";
@@ -54,6 +55,7 @@
 	Base.appointsUrl = appointsUrl;
 	Base.appointUrl = appointUrl;
 	Base.orderUrl = orderUrl;
+	Base.commentsUrl = commentsUrl;
 	Base.commentUrl = commentUrl;
 	Base.couponsUrl = couponsUrl;
 	Base.collectsUrl = collectsUrl;

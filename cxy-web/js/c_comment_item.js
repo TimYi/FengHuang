@@ -30,7 +30,7 @@ $(function(){
 	}
 
 	function sendGetListInfoHttp(condi){
-		var url = Base.commentUrl;
+		var url = Base.commentsUrl;
 		g.httpTip.show();
 		$.ajax({
 			url:url,
