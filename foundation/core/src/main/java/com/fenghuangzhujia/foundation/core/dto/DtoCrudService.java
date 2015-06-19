@@ -51,6 +51,7 @@ public abstract class DtoCrudService<D extends Identified<ID>, T extends Identif
 
 	@Override
 	public T findOne(ID id) {
+		if(id==null)return null;
 		D d=getRepository().findOne(id);
 		if(d==null) return null;
 		return adapter.convertToDetailedDto(d);
