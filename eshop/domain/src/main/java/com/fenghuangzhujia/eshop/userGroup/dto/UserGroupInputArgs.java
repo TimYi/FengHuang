@@ -8,7 +8,7 @@ public class UserGroupInputArgs extends DtoBaseModel {
 	private long minExp;
 	private long maxExp;
 	private int stars;
-	private String colorid;
+	private String colorId;
 	
 	public String getName() {
 		return name;
@@ -34,10 +34,10 @@ public class UserGroupInputArgs extends DtoBaseModel {
 	public void setStars(int stars) {
 		this.stars = stars;
 	}
-	public String getColorid() {
-		return colorid;
+	public String getColorId() {
+		return colorId;
 	}
-	public void setColorid(String colorid) {
-		this.colorid = colorid;
+	public void setColorId(String colorId) {
+		this.colorId = colorId;
 	}
 }

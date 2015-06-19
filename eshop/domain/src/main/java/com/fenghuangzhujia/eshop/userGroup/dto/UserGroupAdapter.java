@@ -27,9 +27,9 @@ public class UserGroupAdapter extends AbstractDtoAdapter<UserGroup, UserGroupDto
 
 	@Override
 	public UserGroup postUpdate(UserGroupInputArgs i, UserGroup d) {
-		String colorid=i.getColorid();
-		if(StringUtils.isNotBlank(colorid)) {
-			CategoryItem color=categoryItemRepository.findOne(colorid);
+		String colorId=i.getColorId();
+		if(StringUtils.isNotBlank(colorId)) {
+			CategoryItem color=categoryItemRepository.findOne(colorId);
 			d.setColor(color);
 		}
 		return d;
