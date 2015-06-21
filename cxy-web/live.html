@@ -6,18 +6,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>家装进行时 | 案例/Live直播 | 凤凰筑家 PHOENIXZJ.COM</title>
-	
+
 	<!-- core CSS -->
     <link href="css/bootstrap.min1.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
-    <![endif]-->       
+    <![endif]-->
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
@@ -44,8 +45,8 @@
                     </div>
                     <div class="col-sm-6 col-xs-8">
                        <div class="social">
-                            <ul class="social-share">
-                                <li style="padding-right:10px;"><i class="fa fa-sign-in hui"></i> <b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal"><a href="login.html" style="width:30px">登录</a></b></li>
+                            <ul id="loginstatus" class="social-share">
+                                <li style="padding-right:10px"><i class="fa fa-sign-in hui"></i> <b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal"><a href="login.html" style="width:30px">登录</a></b></li>
                                 <li><i class="fa fa-user hui"></i> <a href="center.html" style="width:60px">会员中心</a></li>
                             </ul>
                             <div class="search">
@@ -71,7 +72,7 @@
                     </button>
                     <a class="navbar-brand" href="index.html"><img src="images/fhzj.jpg" alt="logo"></a>
                 </div>
-				
+
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li><a href="index.html">首页</a></li>
@@ -93,7 +94,7 @@
                                 <li><a href="gyzs.html">工艺展示</a></li>
                                 <li><a href="zczs.html">主材展示</a></li>
                             </ul>
-                        </li>                        
+                        </li>
                         <li><a href="tyg.html">体验馆</a></li>
                         <li class="dropdown  active" style="border:0px">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">案例 / Live直播 <i class="fa fa-angle-down"></i></a>
@@ -107,7 +108,7 @@
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
-		
+
     </header><!--/header-->
 
 		<section id="portfolio" style="border-top:1px solid #f9f9f9;margin-top:10px">
@@ -120,12 +121,14 @@
                 <li><a class="btn btn-default active" href="#" data-filter="*">最新</a></li>
                 <li><a class="btn btn-default" href="#" data-filter=".nihao">施工中</a></li>
                 <li><a class="btn btn-default" href="#" data-filter=".html">已交房</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".html">验收中</a></li>                              
-                
+                <li><a class="btn btn-default" href="#" data-filter=".html">验收中</a></li>
+
             </ul><!--/#portfolio-filter-->
 						<div style="clear:both"></div>
             <div class="row wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                 <div class="portfolio-items">
+
+			<!--
                     <div class="portfolio-item apps col-xs-12 col-sm-4 col-md-3">
                         <div class="recent-work-wrap">
                             <img class="img-responsive" src="images/case/case_1.jpg" alt="">
@@ -134,10 +137,10 @@
                                     <h3><a href="#">朱先生家</a></h3>
                                     <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
                                     <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div>  
+                                </div>
                             </div>
                         </div>
-                    </div><!--/.portfolio-item-->
+                    </div>
 
                     <div class="portfolio-item joomla nihao col-xs-12 col-sm-4 col-md-3">
                         <div class="recent-work-wrap">
@@ -147,10 +150,10 @@
                                     <h3><a href="#">朱先生家</a></h3>
                                     <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
                                     <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
+                                </div>
                             </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
+                        </div>
+                    </div>
 
                     <div class="portfolio-item nihao bootstrap wordpress col-xs-12 col-sm-4 col-md-3">
                         <div class="recent-work-wrap">
@@ -160,10 +163,10 @@
                                     <h3><a href="#">朱先生家</a></h3>
                                     <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
                                     <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
+                                </div>
                             </div>
-                        </div>        
-                    </div><!--/.portfolio-item-->
+                        </div>
+                    </div>
 
                     <div class="portfolio-item joomla wordpress apps col-xs-12 col-sm-4 col-md-3">
                         <div class="recent-work-wrap">
@@ -173,11 +176,11 @@
                                     <h3><a href="#">朱先生家</a></h3>
                                     <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
                                     <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
+                                </div>
                             </div>
-                        </div>           
-                    </div><!--/.portfolio-item-->
-          
+                        </div>
+                    </div>
+
                     <div class="portfolio-item joomla html bootstrap col-xs-12 col-sm-4 col-md-3">
                         <div class="recent-work-wrap">
                             <img class="img-responsive" src="images/case/case_5.jpg" alt="">
@@ -186,10 +189,10 @@
                                     <h3><a href="#">朱先生家</a></h3>
                                     <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
                                     <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
+                                </div>
                             </div>
-                        </div>      
-                    </div><!--/.portfolio-item-->
+                        </div>
+                    </div>
 
                     <div class="portfolio-item wordpress html apps col-xs-12 col-sm-4 col-md-3">
                         <div class="recent-work-wrap">
@@ -199,10 +202,10 @@
                                     <h3><a href="#">朱先生家</a></h3>
                                     <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
                                     <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
+                                </div>
                             </div>
-                        </div>         
-                    </div><!--/.portfolio-item-->
+                        </div>
+                    </div>
 
                     <div class="portfolio-item wordpress html col-xs-12 col-sm-4 col-md-3">
                         <div class="recent-work-wrap">
@@ -212,272 +215,33 @@
                                     <h3><a href="#">朱先生家</a></h3>
                                     <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
                                     <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
+                                </div>
                             </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
+                        </div>
+                    </div>
+			-->
 
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/case/case_8.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">朱先生家</a></h3>
-                                    <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
-                                    <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/case/case_9.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">朱先生家</a></h3>
-                                    <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
-                                    <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/case/case_10.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">朱先生家</a></h3>
-                                    <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
-                                    <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/case/case_11.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">朱先生家</a></h3>
-                                    <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
-                                    <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/case/case_12.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">朱先生家</a></h3>
-                                    <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
-                                    <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/case/case_13.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">朱先生家</a></h3>
-                                    <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
-                                    <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/case/case_14.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">朱先生家</a></h3>
-                                    <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
-                                    <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/case/case_15.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">朱先生家</a></h3>
-                                    <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
-                                    <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/case/case_16.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">朱先生家</a></h3>
-                                    <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
-                                    <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/case/case_17.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">朱先生家</a></h3>
-                                    <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
-                                    <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/case/case_18.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">朱先生家</a></h3>
-                                    <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
-                                    <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/case/case_19.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">朱先生家</a></h3>
-                                    <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
-                                    <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/case/case_20.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">朱先生家</a></h3>
-                                    <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
-                                    <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/case/case_21.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">朱先生家</a></h3>
-                                    <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
-                                    <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/case/case_22.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">朱先生家</a></h3>
-                                    <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
-                                    <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/case/case_23.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">朱先生家</a></h3>
-                                    <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
-                                    <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/case/case_24.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">朱先生家</a></h3>
-                                    <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
-                                    <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/case/case_25.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">朱先生家</a></h3>
-                                    <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
-                                    <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/case/case_26.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">朱先生家</a></h3>
-                                    <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
-                                    <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/case/case_27.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">朱先生家</a></h3>
-                                    <p>上河湾／88.46㎡／二居室<br/>开工时间：2015-05-28</p>
-                                    <a href="live_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                
+
                 </div>
-				        <div style="clear:both" class="center">
+				       <div id="livepage" style="clear:both;display:none;" class="center" >
 					          <ul class="pagination pagination-lg ">
-					              <li><a href="#"><i class="fa fa-step-backward"></i></a></li> 
-					              <li><a href="#"><i class="fa fa-caret-left" style="font-size:1.5em"></i></a></li> 
+					              <li><a href="#"><i class="fa fa-step-backward"></i></a></li>
+					              <li><a href="#"><i class="fa fa-caret-left" style="font-size:1.5em"></i></a></li>
 					              <li class="active"><a href="#">1</a></li>
 					              <li><a href="#">2</a></li>
 					              <li><a href="#">3</a></li>
 					              <li><a href="#">...</a></li>
 					              <li><a href="#">49</a></li>
 					              <li><a href="#">50</a></li>
-					              <li><a href="#"><i class="fa fa-caret-right" style="font-size:1.5em"></i></a></li> 
+					              <li><a href="#"><i class="fa fa-caret-right" style="font-size:1.5em"></i></a></li>
 					              <li><a href="#"><i class="fa fa-step-forward"></i></a></li>
 					          </ul><!--/.pagination-->
-				        </div>                    
+				        </div>
             </div>
         </div>
-        
+
     </section><!--/#portfolio-item-->
- 
+
     <section id="conatcat-info">
         <div class="container">
             <div class="row">
@@ -499,9 +263,9 @@
                   			<div style="text-align:center;line-height:45px;font-size:20px;color:#fff;">400-699-2888</div>
                   		</a>
                   	</div>
-                </div> 
+                </div>
             </div>
-        </div><!--/.container-->    
+        </div><!--/.container-->
     </section><!--/#conatcat-info-->
 
     <section id="bottom" style="padding:40px 0">
@@ -515,7 +279,7 @@
                             <li><a href="zffs.html">支付方式</a></li>
                             <li><a href="cjwt.html">常见问题</a></li>
                         </ul>
-                    </div>    
+                    </div>
                 </div><!--/.col-md-3-->
 
                 <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
@@ -526,7 +290,7 @@
                             <li><a href="zzfw.html">自助服务</a></li>
                             <li><a href="xgxz.html">相关下载</a></li>
                         </ul>
-                    </div>    
+                    </div>
                 </div><!--/.col-md-3-->
 
                 <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
@@ -537,7 +301,7 @@
                             <li><a href="hyhd.html">会员活动</a></li>
                             <li><a href="vip.html">VIP服务</a></li>
                         </ul>
-                    </div>    
+                    </div>
                 </div><!--/.col-md-3-->
 
                 <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
@@ -548,9 +312,9 @@
                             <li><a href="aboutus.html">了解我们</a></li>
                             <li><a href="enjoyus.html">加入我们</a></li>
                         </ul>
-                    </div>  
+                    </div>
                 </div><!--/.col-md-3-->
-                
+
                 <div class="col-md-3 col-sm-6" style="width:190px;margin-right:45px">
                     <div class="widget">
                         <h3>官方媒体</h3>
@@ -559,8 +323,8 @@
                             <li><a href="#">微信公众号</a></li>
                             <li><a href="#">天猫网店</a></li>
                         </ul>
-                    </div>    
-                </div><!--/.col-md-3-->                
+                    </div>
+                </div><!--/.col-md-3-->
             </div>
         </div>
     </section><!--/#bottom-->
@@ -581,11 +345,15 @@
         </div>
     </footer><!--/#footer-->
 
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/jquery.isotope.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/wow.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.prettyPhoto.js"></script>
+	<script src="js/jquery.isotope.min.js"></script>
+
+	<script src="js/wow.min.js"></script>
+	<script src="libs/json.js"></script>
+	<script src="libs/base.js"></script>
+	<script src="libs/utils.js"></script>
+	<script src="js/live.js"></script>
 </body>
 </html>

@@ -40,6 +40,8 @@
 	var houses = serverUrl + "/api/user/houses";
 	var cases = serverUrl + "/api/product/cases";
 	var casedetails = serverUrl + "/api/product/case";
+	var lives = serverUrl + "/api/lives";
+	var live = serverUrl + "/api/live";
 
 	Base.userName = userName;
 	Base.urlPort = urlPort;
@@ -65,6 +67,8 @@
 	Base.houses = houses;
 	Base.cases = cases;
 	Base.casedetails = casedetails;
+	Base.lives = lives;
+	Base.live = live;
 }(window));
 
 
