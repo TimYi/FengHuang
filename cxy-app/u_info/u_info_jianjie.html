@@ -11,6 +11,7 @@
   <meta http-equiv="Cache-Control" content="no-siteapp" />
   <link rel="icon" type="image/png" href="assets/i/favicon.png">
   <link rel="stylesheet" href="../assets/css/amazeui.min.css">
+      <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../assets/css/app.css">
 </head>
 <body>
@@ -23,37 +24,37 @@
     <!--img src="images/park_green.png" width=30 height=22 -->
     <span style="color:#333;font-size:18px;font-weight:bold">个人简介</span>
   </h1>
-  <div class="am-header-left am-header-nav">
-    <a href="../u_info.html" class="">
+ <div class="am-header-left am-header-nav">
+    <a href="javascript:history.go(-1);" class="">
       <i class="am-header-icon am-icon-chevron-left" style="font-size:16px;color:#999;margin-left:-15px"></i>
     </a>
-  </div> 
+  </div>
   <div class="am-header-right am-header-nav">
-    <a href="../u_info.html" class="">
+    <a id="savebtn" href="javascript:void(0);" class="">
       <i class="am-header-icon am-icon-check" style="font-size:22px;color:#f25618;"></i>
     </a>
-  </div> 
+  </div>
 </header>
 </div>
 
 
 <!--cubes-->
-<div class="am-form"> 
+<div class="am-form">
 	<ul class="am-avg-sm-2" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
 	  <li style="padding:0;text-align:left;width:90%">
 			<div class="am-dropdown" data-am-dropdown style="height:70px;float:left;width:95%">
 					<div style="padding-left:20px">
-						<textarea class="" rows="5" id="doc-ta-1" style="height:68px;border:0;padding-left:0px">个人简介</textarea>
+						<textarea id="intro" class="" rows="5" id="doc-ta-1" style="height:68px;border:0;padding-left:0px"></textarea>
 					</div>
 			</div>
-	  </li>  
+	  </li>
 	  <li style="padding:0;text-align:right;width:10%">
 			<div class="am-dropdown" data-am-dropdown style="height:70px;float:right;">
 				<a href="s_baojia.html">
 					<div style="line-height:70px;padding:0 10px 0 20px">
 						<i class="am-icon-times-circle" style="color:#ccc;padding-right:10px;font-size:20px"></i>
 					</div>
-					
+
 				</a>
 			</div>
 	  </li>
@@ -95,9 +96,12 @@
   </ul>
 </div>
 
-<script src="../assets/js/jquery.min.js"></script>
-<script src="../assets/js/amazeui.min.js"></script>
+<script src="../js/jquery.js"></script>
+	<script src="../libs/json.js"></script>
+	<script src="../libs/base.js"></script>
+	<script src="../libs/utils.js"></script>
+	<script src="js/u_info_update.js"></script>
 </body>
 </html>
 
- 
+

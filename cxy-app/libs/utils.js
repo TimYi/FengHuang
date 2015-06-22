@@ -409,6 +409,7 @@ Array.prototype.remove = function(n){
 		if(info !== ""){
 			var obj = JSON.parse(info) || {};
 			var userName = obj.username;
+			/*
 			//已登录
 			var html = [];
 
@@ -417,6 +418,7 @@ Array.prototype.remove = function(n){
 			html.push('<b style="padding:0 10px;font-weight:normal"><a href="javascript:Utils.loginOut();" style="width:70px">安全退出</a></b>');
 
 			$("#loginstatus > li")[0].innerHTML = html.join('');
+			*/
 			return true;
 		}
 		else{

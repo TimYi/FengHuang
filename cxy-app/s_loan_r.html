@@ -11,8 +11,9 @@
   <meta http-equiv="Cache-Control" content="no-siteapp" />
   <link rel="icon" type="image/png" href="assets/i/favicon.png">
   <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="assets/css/app.css">
-  
+
 </head>
 
 <body>
@@ -24,42 +25,42 @@
 		<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
 		  <div class="am-fl">
 		    &nbsp;&nbsp;<span style="font-weight:400;color:#000;">贷款金额</span>
-		  </div> 
+		  </div>
 		  <div class="am-fr">
-				<span style="color:#f25618">150,000.00</span> 元&nbsp;
-		  </div> 
+				<span id="money" style="color:#f25618"><!--150,000.00--></span> 元&nbsp;
+		  </div>
 		</div>
 
 		<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
 		  <div class="am-fl">
 		    &nbsp;&nbsp;<span style="font-weight:400;color:#000;">贷款周期</span>
-		  </div> 
+		  </div>
 		  <div class="am-fr">
-				<span style="color:#f25618">36</span> 月&nbsp;
-		  </div> 
-		</div>    		
+				<span id="time" style="color:#f25618"><!--36--></span> 月&nbsp;
+		  </div>
+		</div>
 
 		<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
 		  <div class="am-fl">
 		    &nbsp;&nbsp;<span style="font-weight:400;color:#000;">本息合计</span>
-		  </div> 
+		  </div>
 		  <div class="am-fr">
-				<span style="color:#f25618">180,000.00</span> 元&nbsp;
-		  </div> 
-		</div>    		
+				<span id="allmoney" style="color:#f25618"><!--180,000.00--></span> 元&nbsp;
+		  </div>
+		</div>
 
 		<div class="am-cf bottomline" style="height:45px;padding:10px 5px 0 5px; vertical-align:middle;">
 		  <div class="am-fl">
 		    &nbsp;&nbsp;<span style="font-weight:400;color:#000;">每月还款</span>
-		  </div> 
+		  </div>
 		  <div class="am-fr">
-				<span style="color:#f25618">229.00</span> 元&nbsp;
-		  </div> 
-		</div>    		
-		
-   											
+				<span id="monthmoney" style="color:#f25618"><!--229.00--></span> 元&nbsp;
+		  </div>
+		</div>
+
+
 		<div style="height:10px"></div>
-    <a href="s_loan_calc.html"><div class="am-btn am-btn-secondary" style="background:#f25618;border-color:#f25618;width:100%" type="submit">返回</div></a>
+    <a href="javascript:history.go(-1);"><div class="am-btn am-btn-secondary" style="background:#f25618;border-color:#f25618;width:100%" type="button">返回</div></a>
 		<div style="height:10px"></div>
 		<div style="padding:5px;font-size:13px;">
 			<b>温馨提示：</b>免抵押、免担保，最高可贷20万，最快1天完成审批，提前还款0手续费，在家即可贷款。了解更多详细情况可致电凤凰筑家客服 <a href="tel:4006992888" style="color:#f25618">400-699-2888</a>
@@ -73,7 +74,7 @@
   <div class="am-list-news-bd">
     <ul class="am-list">
 
-                      
+
     </ul>
   </div>
 </div>
@@ -113,8 +114,11 @@
   </ul>
 </div>
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/amazeui.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="libs/json.js"></script>
+	<script src="libs/base.js"></script>
+	<script src="libs/utils.js"></script>
+	<script src="js/s_loan_r.js"></script>
 
 
 </body>

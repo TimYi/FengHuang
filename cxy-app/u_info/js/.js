@@ -11,7 +11,7 @@ $(function(){
 	g.sendCode = false;
 	g.sendTime = 60;
 	g.isBind = true;
-	g.token = Utils.getQueryString("token");
+	g.token = Utils.offLineStore.get("token",false);
 	g.page = Utils.getQueryString("p") - 0;
 	g.httpTip = new Utils.httpTip({});
 
@@ -23,7 +23,7 @@ $(function(){
 	}
 	else{
 		getUserInfo();
-		sendMyInfoCountsHttp();
+		//sendMyInfoCountsHttp();
 	}
 
 	$("#updatebtn").bind("click",updateUserInfo);
@@ -36,7 +36,7 @@ $(function(){
 	//安全退出
 	function loginOut(){
 		Utils.offLineStore.remove("userinfo",false);
-		location.href = "login.html";
+		location.replace("login.html");
 	}
 
 	//获取图形验证码
@@ -227,7 +227,7 @@ $(function(){
 		var obj = data.user || {};
 		var nikeName = obj.cnname || "";
 		var validName = obj.realName || "";
-		var eName = obj.ename || "";
+		var eName = obj.ename || "无";
 		var sex = obj.sex || "404040e64dd26ab5014dd26ac61f0013";
 		var message = obj.intro || "";
 		var email = obj.email || "";
@@ -247,21 +247,32 @@ $(function(){
 		//getImgCode();
 
 		//昵称
-		$("#nikename").val(nikeName);
+		$("#nikename").html(nikeName);
 		//真实姓名
-		$("#validname").val(validName);
+		$("#validname").html(validName);
 		//英文名
-		$("#ename").val(eName);
+		$("#ename").html(eName);
+		$("#phone").html(phone);
+		//电子邮箱
+		$("#emailtext").html(email);
+
+		//星座
+		$("#constellation").val(constellation.id);
+		//行业
+		//$("#profession").val(profession);
+		//血型
+		$("#bloodgroup").val(bloodgroup.id);
+
+		//个人简介
+		$("#message").html(message);
+
+		/*
 		//性别1男2女
 		if(sex !== "404040e64dd26ab5014dd26ac61f0013"){
 			if($("#inlineRadio2").length > 0){
 				$("#inlineRadio2")[0].checked = true;
 			}
 		}
-		//个人简介
-		$("#message").val(message);
-		//电子邮箱
-		$("#emailtext").val(email);
 		if(phone != ""){
 			//手机号
 			$("#phonetext").val(phone);
@@ -274,37 +285,10 @@ $(function(){
 		$("#weixintext").val(weixin);
 		//生日
 		$("#birthday").val(birthday);
-		//行业
-		$("#profession").val(profession);
+
 		//现居住地
 		$("#address").val(address);
-		//星座
-		$("#constellation").val(constellation.id);
-		//血型
-		$("#bloodgroup").val(bloodgroup.id);
-
-
-		var li = [];
-		//li.push('<li>ID：' + obj.username + '</li>');
-		li.push('<li>' + obj.username + '</li>');
-		li.push('<li>5星级用户</li>');
-		$("#user_ul").html(li.join(''));
-
-		var li = [];
-		var loginIp = obj.loginip;
-		var loginTime = obj.loginTime;
-		var regIp = obj.regIp;
-		var regTime = obj.regTime;
-		var integra = obj.integra;
-		li.push('<li>登录 IP<span class="pull-right">' + loginIp + '</span></li>');
-		li.push('<li>注册时间<span class="pull-right">' + loginTime + '</span></li>');
-		li.push('<li>登录时间<span class="pull-right">' + regTime + '</span></li>');
-		li.push('<li>用户积分<span class="pull-right">' + integra + '分</span></li>');
-		$("#logintime").html(li.join(''));
-
-		//setUserFunHtml();
-
-
+		*/
 	}
 
 	function setUserFunHtml(obj){
@@ -375,7 +359,7 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log(data);
+				console.log("sendGetUserInfoHttp",data);
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
@@ -384,7 +368,7 @@ $(function(){
 				else{
 					var msg = data.error || "";
 					alert("获取个人信息错误:" + msg);
-					location.href = "login.html";
+					location.replace = "login.html";
 				}
 			},
 			error:function(data){

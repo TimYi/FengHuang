@@ -11,8 +11,9 @@
   <meta http-equiv="Cache-Control" content="no-siteapp" />
   <link rel="icon" type="image/png" href="assets/i/favicon.png">
   <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="assets/css/app.css">
-  
+
 </head>
 
 <body>
@@ -25,11 +26,11 @@
 			  	<a href="s_loan.html"><span style="color:#999;font-weight:400">立即预约</span></a>
 			  </li>
 			  <li style="padding:0;text-align:center;background:#fff;">
-			  	<a href="s_loan_calc.html"><span style="color:#f25618">贷款计算器</span></a> 
+			  	<a href="s_loan_calc.html"><span style="color:#f25618">贷款计算器</span></a>
 			  </li>
-			</ul>	
+			</ul>
 		</div>
-  </div> 
+  </div>
 </header>
 
 
@@ -38,24 +39,26 @@
 		<div style="height:10px"></div>
 
     <div class="am-form-group">
-      <input type="tel" id="doc-vld-name-2" minlength="3" placeholder="贷款金额（最高20万元）" required style="border-color:#e0e0e0;"/>
+      <input type="tel" id="doc-vld-name-2" minlength="3" maxlength="6" placeholder="贷款金额（最高20万元）" required style="border-color:#e0e0e0;"/>
       <span class="input-group-addon"><span style="font-size:16px;margin-left:2px;font-weight:400">元</span></span>
     </div>
 
     <div class="am-form-group">
       <select id="doc-select-1" required style="border-color:#e0e0e0;">
-        <option value="">贷款周期</option>
-        <option value="option1">一季3个月</option>
-        <option value="option2">半年6个月</option>
-        <option value="option3">1年12个月</option>
-        <option value="option4">2年24个月</option>                
-        <option value="option5">3年36个月</option>                        
-        
+        <option value="0">贷款周期</option>
+        <option value="3">一季3个月</option>
+        <option value="6">半年6个月</option>
+        <option value="12">1年12个月</option>
+        <option value="18">1年半18个月</option>
+        <option value="24">2年24个月</option>
+        <option value="36">3年36个月</option>
+	<option value="48">4年48个月</option>
+	<option value="50">5年50个月</option>
       </select>
       <span class="am-form-caret"></span>
     </div>
 
-    <a href="s_loan_r.html"><div class="am-btn am-btn-secondary" style="background:#f25618;border-color:#f25618;width:100%" type="submit">计算还款金额</div></a>
+    <a href="javascript:void(0);"><div id="countbtn" class="am-btn am-btn-secondary" style="background:#f25618;border-color:#f25618;width:100%" type="button">计算还款金额</div></a>
 
 		<div style="height:10px"></div>
 		<div style="padding:5px;font-size:13px;">
@@ -70,7 +73,7 @@
   <div class="am-list-news-bd">
     <ul class="am-list">
 
-                      
+
     </ul>
   </div>
 </div>
@@ -110,8 +113,11 @@
   </ul>
 </div>
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/amazeui.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="libs/json.js"></script>
+	<script src="libs/base.js"></script>
+	<script src="libs/utils.js"></script>
+	<script src="js/s_loan_calc.js"></script>
 
 
 </body>

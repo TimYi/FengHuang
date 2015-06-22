@@ -11,6 +11,7 @@
   <meta http-equiv="Cache-Control" content="no-siteapp" />
   <link rel="icon" type="image/png" href="assets/i/favicon.png">
   <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="assets/css/app.css">
 </head>
 <body>
@@ -24,26 +25,26 @@
 						基本资料
 					</div>
 			</div>
-	  </li>  
+	  </li>
 	</ul><!--hang-->
 	<ul class="am-avg-sm-2" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
 	  <li style="padding:0;text-align:left;width:30%">
 			<div class="am-dropdown" data-am-dropdown style="height:35px;float:left">
-				<a href="u_info/u_info_nicheng.html">
+				<a href="javascript:void(0);">
 					<div style="line-height:35px;padding-left:20px">
 						昵称
 					</div>
 				</a>
 			</div>
-	  </li>  
-	  <li style="padding:0;text-align:right;width:70%">
+	  </li>
+	  <li id="nikenamebtn" style="padding:0;text-align:right;width:70%">
 			<div class="am-dropdown" data-am-dropdown style="height:35px">
-				<a href="u_info/u_info_nicheng.html">
+				<a href="javascript:void(0);">
 					<div style="line-height:35px;padding:0 10px 0 20px">
-						scosun
+						<span id="nikename"></span>
 						<i class="am-icon-angle-right" style="color:#ccc;padding-left:10px;font-size:20px"></i>
 					</div>
-					
+
 				</a>
 			</div>
 	  </li>
@@ -51,81 +52,81 @@
 	<ul class="am-avg-sm-2" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
 	  <li style="padding:0;text-align:left;">
 			<div class="am-dropdown" data-am-dropdown style="height:35px;float:left">
-				<a href="u_info/u_info_name.html">
+				<a href="javascript:void(0);">
 					<div style="line-height:35px;padding-left:20px">
 						真实姓名
 					</div>
 				</a>
 			</div>
-	  </li>  
-	  <li style="padding:0;text-align:right;">
+	  </li>
+	  <li id="validnamebtn" style="padding:0;text-align:right;">
 			<div class="am-dropdown" data-am-dropdown style="height:35px">
-				<a href="u_info/u_info_name.html">
+				<a href="javascript:void(0);">
 					<div style="line-height:35px;padding:0 10px 0 20px">
-						辛海涛
+						<span id= "validname" ></span>
 						<i class="am-icon-angle-right" style="color:#ccc;padding-left:10px;font-size:20px"></i>
 					</div>
 				</a>
 			</div>
 	  </li>
-	</ul><!--hang-->	
+	</ul><!--hang-->
 	<ul class="am-avg-sm-2" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
 	  <li style="padding:0;text-align:left;">
 			<div class="am-dropdown" data-am-dropdown style="height:35px;float:left">
-				<a href="u_info/u_info_ename.html">
+				<a href="javascript:void(0);">
 					<div style="line-height:35px;padding-left:20px">
 						英文名
 					</div>
 				</a>
 			</div>
-	  </li>  
-	  <li style="padding:0;text-align:right;">
+	  </li>
+	  <li id="enamebtn" style="padding:0;text-align:right;">
 			<div class="am-dropdown" data-am-dropdown style="height:35px">
-				<a href="u_info/u_info_ename.html">
+				<a href="javascript:void(0);">
 					<div style="line-height:35px;padding:0 10px 0 20px">
-						无
+						<span id="ename" ></span>
 						<i class="am-icon-angle-right" style="color:#ccc;padding-left:10px;font-size:20px"></i>
 					</div>
 				</a>
 			</div>
 	  </li>
-	</ul><!--hang-->	
+	</ul><!--hang-->
 	<ul class="am-avg-sm-2" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
 	  <li style="padding:0;text-align:left;">
 			<div class="am-dropdown" data-am-dropdown style="height:35px;float:left">
-				<a href="u_info/u_info_phone.html">
+				<a href="javascript:void(0);">
 					<div style="line-height:35px;padding-left:20px">
 						手机号
 					</div>
 				</a>
 			</div>
-	  </li>  
-	  <li style="padding:0;text-align:right;">
+	  </li>
+	  <li id="phonebtn" style="padding:0;text-align:right;">
 			<div class="am-dropdown" data-am-dropdown style="height:35px">
-				<a href="u_info/u_info_phone.html">
+				<a href="javascript:void(0);">
 					<div style="line-height:35px;padding:0 10px 0 20px">
-						13698626066
+						<span id="phone"></span>
 						<i class="am-icon-angle-right" style="color:#ccc;padding-left:10px;font-size:20px"></i>
 					</div>
 				</a>
 			</div>
 	  </li>
-	</ul><!--hang-->		
+	</ul><!--hang-->
 	<ul class="am-avg-sm-2" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
 	  <li style="padding:0;text-align:left;width:30%">
 			<div class="am-dropdown" data-am-dropdown style="height:35px;float:left">
-				<a href="u_info/u_info_email.html">
+				<a href="javascript:void(0);">
 					<div style="line-height:35px;padding-left:20px">
 						电子邮箱
 					</div>
 				</a>
 			</div>
-	  </li>  
-	  <li style="padding:0;text-align:right;width:70%">
+	  </li>
+	  <li id="emailbtn" style="padding:0;text-align:right;width:70%">
 			<div class="am-dropdown" data-am-dropdown style="height:35px">
-				<a href="u_info/u_info_email.html">
+				<a href="javascript:void(0);">
 					<div style="line-height:35px;padding:0 10px 0 20px">
-						scosun@qq.com
+						<span id="emailtext"></span>
 						<i class="am-icon-angle-right" style="color:#ccc;padding-left:10px;font-size:20px"></i>
 					</div>
 				</a>
@@ -139,8 +140,8 @@
 						扩展资料
 					</div>
 			</div>
-	  </li>  
-	</ul><!--hang-->			
+	  </li>
+	</ul><!--hang-->
 	<ul class="am-avg-sm-2" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
 	  <li style="padding:0;text-align:left;width:20%">
 			<div class="am-dropdown" data-am-dropdown style="height:35px;float:left">
@@ -150,7 +151,7 @@
 					</div>
 				</a>
 			</div>
-	  </li>  
+	  </li>
 	  <li style="padding:0;text-align:right;width:80%">
 			<div class="am-dropdown" data-am-dropdown style="height:35px">
 				<a href="u_info/u_info_birthday.html">
@@ -160,40 +161,40 @@
 				</a>
 			</div>
 	  </li>
-	</ul><!--hang-->		
+	</ul><!--hang-->
 	<ul class="am-avg-sm-2" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
 	  <li style="padding:0;text-align:left;">
 			<div class="am-dropdown" data-am-dropdown style="height:35px;float:left">
-				<a href="u_info/u_info_xingzuo.html">
+				<a href="javascript:void(0);">
 					<div style="line-height:35px;padding-left:20px">
 						星座
 					</div>
 				</a>
 			</div>
 	  </li>
-    
+
 	  <li style="padding:0;text-align:right;">
 			<div class="am-dropdown" data-am-dropdown style="height:35px">
 				<div style="line-height:35px;padding:0 10px 0 20px">
-		      <select style="border-color:#e0e0e0;width:64px;border:0px;">
+		      <select id="constellation" style="border-color:#e0e0e0;width:90px;border:0px;">
 		        <option value="">选择</option>
-		        <option value="option1">白羊</option>
-		        <option value="option2">金牛</option>
-		        <option value="option3">双子</option>
-		        <option value="option4">巨蟹</option>
-		        <option value="option5">狮子</option>
-		        <option value="option6">处女</option>
-		        <option value="option7">天秤</option>
-		        <option value="option7">天蝎</option>
-		        <option value="option7">射手</option>
-		        <option value="option7">摩羯</option>
-		        <option value="option7">水瓶</option>
-		        <option value="option7">双鱼</option>
+		        <option value="404040e64dd26ab5014dd26ac3ee0006">水瓶座</option>
+						<option value="404040e64dd26ab5014dd26ac41c0007">双鱼座</option>
+						<option value="404040e64dd26ab5014dd26ac41c0008">白羊座</option>
+						<option value="404040e64dd26ab5014dd26ac46a0009">金牛座</option>
+						<option value="404040e64dd26ab5014dd26ac499000a">双子座</option>
+						<option value="404040e64dd26ab5014dd26ac4b8000b">巨蟹座</option>
+						<option value="404040e64dd26ab5014dd26ac4e7000c">狮子座</option>
+						<option value="404040e64dd26ab5014dd26ac516000d">处女座</option>
+						<option value="404040e64dd26ab5014dd26ac554000e">天枰座</option>
+						<option value="404040e64dd26ab5014dd26ac583000f">天蝎座</option>
+						<option value="404040e64dd26ab5014dd26ac5b20010">射手座</option>
+						<option value="404040e64dd26ab5014dd26ac5e10011">摩羯座</option>
 		      </select>
 				</div>
 			</div>
 	  </li>
-	</ul><!--hang-->		
+	</ul><!--hang-->
 	<ul class="am-avg-sm-2" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
 	  <li style="padding:0;text-align:left;">
 			<div class="am-dropdown" data-am-dropdown style="height:35px;float:left">
@@ -203,11 +204,11 @@
 					</div>
 				</a>
 			</div>
-	  </li>  
+	  </li>
 	  <li style="padding:0;text-align:right;">
 			<div class="am-dropdown" data-am-dropdown style="height:35px">
 				<div style="line-height:35px;padding:0 10px 0 20px">
-		      <select style="border-color:#e0e0e0;width:64px;border:0px">
+		      <select style="border-color:#e0e0e0;width:90px;border:0px">
 		        <option value="">选择</option>
 						<option value="option1">金融</option>
 						<option value="option2">能源</option>
@@ -262,55 +263,55 @@
 				</div>
 			</div>
 	  </li>
-	</ul><!--hang-->		
+	</ul><!--hang-->
 	<ul class="am-avg-sm-2" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
 	  <li style="padding:0;text-align:left;">
 			<div class="am-dropdown" data-am-dropdown style="height:35px;float:left">
-				<a href="u_info/u_info_xuexing.html">
+				<a href="javascript:void(0);">
 					<div style="line-height:35px;padding-left:20px">
 						血型
 					</div>
 				</a>
 			</div>
-	  </li>  
+	  </li>
 	  <li style="padding:0;text-align:right;">
 			<div class="am-dropdown" data-am-dropdown style="height:35px">
 				<div style="line-height:35px;padding:0 10px 0 20px">
-		      <select style="border-color:#e0e0e0;border:0px;width:64px;text-align:right">
+		      <select id="bloodgroup" style="border-color:#e0e0e0;border:0px;width:64px;text-align:right">
 		        <option value="">选择</option>
-		        <option value="option1">A</option>
-		        <option value="option2">B型</option>
-		        <option value="option3">AB型</option>
-		        <option value="option4">O型</option>		        
+<option value="404040e64dd26ab5014dd26ac3320001">A</option>
+						<option value="404040e64dd26ab5014dd26ac3610002">B</option>
+						<option value="404040e64dd26ab5014dd26ac3800003">O</option>
+						<option value="404040e64dd26ab5014dd26ac3bf0004">AB</option>
 		      </select>
 				</div>
 			</div>
 	  </li>
-	</ul><!--hang-->		
+	</ul><!--hang-->
 	<ul class="am-avg-sm-2" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
 	  <li style="padding:0;text-align:left;">
 			<div class="am-dropdown" data-am-dropdown style="height:35px;float:left">
-				<a href="u_info/u_info_jianjie.html">
+				<a href="javascript:void(0);">
 					<div style="line-height:35px;padding-left:20px">
 						个人简介
 					</div>
 				</a>
 			</div>
-	  </li>  
-	  <li style="padding:0;text-align:right;">
+	  </li>
+	  <li id="messagebtn" style="padding:0;text-align:right;">
 			<div class="am-dropdown" data-am-dropdown style="height:35px">
-				<a href="u_info/u_info_jianjie.html">
+				<a href="javascript:void(0);">
 					<div style="line-height:35px;padding:0 10px 0 20px">
-						不忘初心...
+						<span id="message"></span>
 						<i class="am-icon-angle-right" style="color:#ccc;padding-left:10px;font-size:20px"></i>
 					</div>
 				</a>
 			</div>
 	  </li>
-	</ul><!--hang-->			
+	</ul><!--hang-->
 </div><!--cubes end-->
 <div style="height:10px"></div>
-<a href="s_calc.html">
+<a id="loginoutbtn" href="javascript:void(0);">
 	<div class="am-btn am-btn-secondary" style="background:#f25618;border-color:#f25618;text-align:center;width:100%" type="submit">
 		退出登录
 	</div>
@@ -352,9 +353,12 @@
   </ul>
 </div>
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/amazeui.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="libs/json.js"></script>
+	<script src="libs/base.js"></script>
+	<script src="libs/utils.js"></script>
+	<script src="js/u_info.js"></script>
 </body>
 </html>
 
- 
+

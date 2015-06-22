@@ -1,5 +1,5 @@
 /**
- * file:我的收藏
+ * file:个人资料
  * author:chenxy
  * date:2015-06-05
 */

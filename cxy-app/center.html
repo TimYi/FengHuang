@@ -11,6 +11,7 @@
   <meta http-equiv="Cache-Control" content="no-siteapp" />
   <link rel="icon" type="image/png" href="assets/i/favicon.png">
   <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="assets/css/app.css">
 </head>
 <body>
@@ -22,17 +23,17 @@
     <!--span style="color:#333;font-size:18px;font-weight:bold"></span-->
   </h1>
   <div class="am-header-left am-header-nav">
-    <a href="#" style="color:#666">
+    <a id="userinfo" href="javascript:void(0);" style="color:#666">
 				<img src="../web/index_files/538.jpg" style="width:30px;height:30px;-moz-border-radius: 50px;-webkit-border-radius: 50px;border-radius:50px;border:2px solid #eee">
 				<span style="margin-left:10px;color:#000;font-size:14px">陈宣宇 <span style="color:#666;font-size:13px">( Chenxuanyu )</span></span>
       	<!--i class="am-header-icon am-icon-sign-out" style="font-size:18px;color:#999;margin:2px 0 0 5px"></i>&nbsp;退出-->
     </a>
-  </div> 
+  </div>
   <div class="am-header-right am-header-nav">
-    <a href="?a=logout" class="">
+    <a id="loginoutbtn" href="javascript:void(0);" class="">
       <i class="am-header-icon am-icon-sign-out" style="font-size:22px;color:#999;margin-left:-15px"></i>
     </a>
-  </div> 
+  </div>
 </header>
 </div>
 
@@ -55,7 +56,7 @@
 					</div>
 				</a>
 			</div>
-	  </li>  
+	  </li>
 	  <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
 			<div class="am-dropdown" data-am-dropdown style="height:100px">
 				<a href="u_house.html">
@@ -75,8 +76,8 @@
 					</div>
 				</a>
 			</div>
-	  </li>  
-	</ul>	
+	  </li>
+	</ul>
 
 	<ul class="am-avg-sm-3" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
 	  <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
@@ -98,7 +99,7 @@
 					</div>
 				</a>
 			</div>
-	  </li>	  
+	  </li>
 
 	  <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
 			<div class="am-dropdown" data-am-dropdown style="height:100px">
@@ -109,8 +110,8 @@
 					</div>
 				</a>
 			</div>
-	  </li>	    
-	</ul>	
+	  </li>
+	</ul>
 
 	<ul class="am-avg-sm-3" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
 	  <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
@@ -122,7 +123,7 @@
 					</div>
 				</a>
 			</div>
-	  </li>  
+	  </li>
 	  <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
 			<div class="am-dropdown" data-am-dropdown style="height:100px">
 				<a href="u_comment.html">
@@ -142,8 +143,8 @@
 					</div>
 				</a>
 			</div>
-	  </li>  
-	</ul>			
+	  </li>
+	</ul>
 </div><!--cubes end-->
 
 
@@ -183,8 +184,11 @@
   </ul>
 </div>
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/amazeui.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="libs/json.js"></script>
+	<script src="libs/base.js"></script>
+	<script src="libs/utils.js"></script>
+	<script src="js/center.js"></script>
 </body>
 </html>
 

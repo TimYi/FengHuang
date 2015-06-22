@@ -30,12 +30,18 @@
 	var appointsUrl = serverUrl + "/api/user/appoints";
 	var appointUrl = serverUrl + "/api/user/appoint";
 	var orderUrl = serverUrl + "/api/user/orders";
-	var commentUrl = serverUrl + "/api/user/comments";
+	var commentsUrl = serverUrl + "/api/user/comments";
+	var commentUrl = serverUrl + "/api/user/comment";
 	var couponsUrl = serverUrl + "/api/user/coupons";
 	var collectsUrl = serverUrl + "/api/user/collects";
+	var collectUrl = serverUrl + "/api/user/collect";
 	var bindMobile = serverUrl + "/api/user/bindMobile";
 	var unreads = serverUrl + "/api/user/unreads";
 	var houses = serverUrl + "/api/user/houses";
+	var cases = serverUrl + "/api/product/cases";
+	var casedetails = serverUrl + "/api/product/case";
+	var lives = serverUrl + "/api/lives";
+	var live = serverUrl + "/api/live";
 
 	Base.userName = userName;
 	Base.urlPort = urlPort;
@@ -51,12 +57,18 @@
 	Base.appointsUrl = appointsUrl;
 	Base.appointUrl = appointUrl;
 	Base.orderUrl = orderUrl;
+	Base.commentsUrl = commentsUrl;
 	Base.commentUrl = commentUrl;
 	Base.couponsUrl = couponsUrl;
 	Base.collectsUrl = collectsUrl;
+	Base.collectUrl = collectUrl;
 	Base.bindMobile = bindMobile;
 	Base.unreads = unreads;
 	Base.houses = houses;
+	Base.cases = cases;
+	Base.casedetails = casedetails;
+	Base.lives = lives;
+	Base.live = live;
 }(window));
 
 

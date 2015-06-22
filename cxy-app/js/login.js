@@ -90,7 +90,7 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log(data);
+				console.log("sendLoginHttp",data);
 				//保存数据
 				//Utils.offLineStore.set("userinfo_login",data);
 				var status = data.status || "";
