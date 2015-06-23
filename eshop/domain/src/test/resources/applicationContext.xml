@@ -29,7 +29,7 @@
 			<props>
 				<!-- 命名规则 My_NAME->MyName -->
 				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
-				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.show_sql">false</prop>
 			</props>
 		</property>
 	</bean>
@@ -74,12 +74,23 @@
 			<property name="defaultAutoCommit" value="false" />
 	</bean>
 	
-	<!-- 上传文件自定义组件初始化 -->
-    <bean class="com.fenghuangzhujia.foundation.media.LocalMediaService">
-  		<property name="serverName" value="${imageServer.name}"/>
-  		<property name="serverAddress" value="${imageServer.address}"/>
-  		<property name="basePath" value="${imageServer.basePath}"/>
-  		<property name="relativePath" value="${imageServer.relativePath}"/>
-  	</bean> 
+	
+	<!-- 初始化文件访问服务器 -->
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+	    <property name="staticMethod" value="com.fenghuangzhujia.foundation.media.MediaServiceConfig.setServerName"/>
+	    <property name="arguments" value="${imageServer.name}"/>
+	</bean>
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+	    <property name="staticMethod" value="com.fenghuangzhujia.foundation.media.MediaServiceConfig.setServerAddress"/>
+	    <property name="arguments" value="${imageServer.address}"/>
+	</bean>
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+	    <property name="staticMethod" value="com.fenghuangzhujia.foundation.media.MediaServiceConfig.setBasePath"/>
+	    <property name="arguments" value="${imageServer.basePath}"/>
+	</bean>
+  	
+  	<!-- 采用localMediaService作为图片访问服务实现 -->
+  	<bean class="com.fenghuangzhujia.foundation.media.LocalMediaService">
+  	</bean>  
   	
 </beans>

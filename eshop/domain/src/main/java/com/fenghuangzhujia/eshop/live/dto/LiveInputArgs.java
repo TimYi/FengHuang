@@ -2,6 +2,8 @@ package com.fenghuangzhujia.eshop.live.dto;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.fenghuangzhujia.eshop.live.Live.ProjectProgress;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
@@ -18,7 +20,8 @@ public class LiveInputArgs extends DtoBaseModel {
 	/**户型，如二居室*/
 	private String house;
 	/**开工日期*/
-	private Date startDate;
+	private Date startDate;	
+	private MultipartFile mainPicFile;
 	/**是否展示*/
 	private boolean shouldShow;
 	private ProjectProgress status;
@@ -70,5 +73,11 @@ public class LiveInputArgs extends DtoBaseModel {
 	}
 	public void setStatus(ProjectProgress status) {
 		this.status = status;
+	}
+	public MultipartFile getMainPicFile() {
+		return mainPicFile;
+	}
+	public void setMainPicFile(MultipartFile mainPicFile) {
+		this.mainPicFile = mainPicFile;
 	}
 }

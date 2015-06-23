@@ -59,11 +59,11 @@ public class LocalMediaService implements MediaService {
 		media.setFileName(fileName);
 		
 		//相对根路径的path
-		String path=getPath(fileName);		
+		String path=concatRelativeFilePath(fileName);		
 		media.setPath(path);
 		
 		//将文件保存到本地目录
-		String realFilePath=getRealFilePath(path);
+		String realFilePath=concatRealFilePathString(path);
 		File realFile=new File(realFilePath);
 		FileUtils.writeByteArrayToFile(realFile, file.getBytes());
 		media=repository.save(media);
@@ -102,18 +102,18 @@ public class LocalMediaService implements MediaService {
 	 * @param fileName 文件全名，包括扩展名
 	 * @return
 	 */
-	protected String getPath(String fileName) {
+	protected String concatRelativeFilePath(String fileName) {
 		String relativePath=StringUtils.removeEnd(getRelativePath(), "/");
 		String path=relativePath+"/"+fileName;
 		return path;
 	}
 	
 	/**
-	 * 根据文件名，生成相对存储路径
+	 * 根据文件相对路径，生成绝对存储路径
 	 * @param path 文件相对存储路径，包括文件名称
-	 * @return 文件实际存储路径
+	 * @return 文件绝对存储路径
 	 */
-	protected String getRealFilePath(String path) {
+	protected String concatRealFilePathString(String path) {
 		String basePath=StringUtils.removeEnd(getBasePath(), "/");
 		path=StringUtils.removeStart(path, "/");
 		String realFilePath=basePath+"/"+path;
