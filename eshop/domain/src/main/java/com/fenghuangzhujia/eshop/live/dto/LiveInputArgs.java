@@ -2,6 +2,7 @@ package com.fenghuangzhujia.eshop.live.dto;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fenghuangzhujia.eshop.live.Live.ProjectProgress;
@@ -20,6 +21,7 @@ public class LiveInputArgs extends DtoBaseModel {
 	/**户型，如二居室*/
 	private String house;
 	/**开工日期*/
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date startDate;	
 	private MultipartFile mainPicFile;
 	/**是否展示*/
