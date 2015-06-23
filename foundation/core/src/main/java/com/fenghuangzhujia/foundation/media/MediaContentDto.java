@@ -5,6 +5,7 @@ import com.fenghuangzhujia.foundation.core.entity.Identified;
 public class MediaContentDto implements Identified<String> {
 	private String id;
 	private String url;
+	private Long fileSize;
 	public String getId() {
 		return id;
 	}
@@ -16,5 +17,11 @@ public class MediaContentDto implements Identified<String> {
 	}
 	public void setUrl(String url) {
 		this.url = url;
+	}
+	public Long getFileSize() {
+		return fileSize;
+	}
+	public void setFileSize(Long fileSize) {
+		this.fileSize = fileSize;
 	}
 }

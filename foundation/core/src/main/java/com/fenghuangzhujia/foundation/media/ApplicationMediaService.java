@@ -27,4 +27,9 @@ public class ApplicationMediaService extends LocalMediaService {
 	public String getServerAddress() {
 		return context.getContextPath();
 	}
+	
+	@Override
+	public String getServerName() {
+		return "localhost";
+	}
 }
