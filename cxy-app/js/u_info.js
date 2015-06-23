@@ -15,7 +15,7 @@ $(function(){
 	g.page = Utils.getQueryString("p") - 0;
 	g.httpTip = new Utils.httpTip({});
 	g.data = {};
-
+	g.updateCondi = {};
 	//验证登录状态
 	var loginStatus = Utils.getUserInfo();
 	if(!loginStatus){
@@ -47,7 +47,7 @@ $(function(){
 
 	function changePage(){
 		var id = this.id;
-		var condi = {};
+		var condi = g.updateCondi;
 		var url = "";
 		switch(id){
 			case "nikenamebtn":
@@ -185,6 +185,7 @@ $(function(){
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
+					g.updateCondi = data.result.user;
 					setUserInfoHtml(data.result);
 				}
 				else{
