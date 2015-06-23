@@ -6,6 +6,7 @@ import java.util.Set;
 import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
 import com.fenghuangzhujia.eshop.live.Live.ProjectProgress;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
+import com.fenghuangzhujia.foundation.media.MediaContentDto;
 
 public class LiveDto extends DtoBaseModel {
 
@@ -23,6 +24,7 @@ public class LiveDto extends DtoBaseModel {
 	private Date startDate;
 	/**是否展示*/
 	private boolean shouldShow;
+	private MediaContentDto mainPic;
 	private Set<LiveDetailDto> lives;
 	private ProjectProgress status;
 	
@@ -79,5 +81,11 @@ public class LiveDto extends DtoBaseModel {
 	}
 	public void setStatus(ProjectProgress status) {
 		this.status = status;
+	}
+	public MediaContentDto getMainPic() {
+		return mainPic;
+	}
+	public void setMainPic(MediaContentDto mainPic) {
+		this.mainPic = mainPic;
 	}
 }

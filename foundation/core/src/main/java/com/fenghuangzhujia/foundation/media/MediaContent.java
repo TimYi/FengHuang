@@ -1,72 +1,34 @@
 package com.fenghuangzhujia.foundation.media;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import com.fenghuangzhujia.foundation.core.entity.BaseModel;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 
 @Entity
 @Table(name="fhzj_medias")
-public class MediaContent extends BaseModel {
-	@JsonIgnore
-	private String id;
-	private String url;
+public class MediaContent extends UUIDBaseModel {
+
 	private String remark;
-	@JsonIgnore
+	/**文件服务器名称*/
 	private String serverName;
-	@JsonIgnore
+	/**文件服务器地址*/
 	private String serverAddress;
-	@JsonIgnore
+	/**原始文件名称*/
 	private String originFileName;
-	@JsonIgnore
+	/**媒体类型*/
 	private String contentType;
-	@JsonIgnore
+	/**文件大小*/
 	private Long fileSize;
-	@JsonIgnore
+	/**文件存储地址相对服务器访问地址的路径，包括文件名称*/
 	private String path;
-	@JsonIgnore
+	/**文件名称*/
 	private String fileName;
 	
-	/**
-	 * @return the id
-	 */
-	@Id
-	@GenericGenerator(name="idGenerator", strategy="uuid")
-	@GeneratedValue(generator = "idGenerator")
-	public String getId() {
-		return id;
-	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(String id) {
-		this.id = id;
-	}
-	/**
-	 * @return the url
-	 * 数据库中只保存相对地址，不保存url
-	 * url在setServerAddress和setSavePath过程中自动被赋值。
-	 */
-	@Transient
-	public String getUrl() {
-		return this.url;
-	}
-	
-	/**
-	 * @return the remark
-	 */
 	public String getRemark() {
 		return remark;
 	}
-	/**
-	 * @param remark the remark to set
-	 */
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
@@ -78,9 +40,6 @@ public class MediaContent extends BaseModel {
 	public String getServerName() {
 		return serverName;
 	}
-	/**
-	 * @param serverName the serverName to set
-	 */
 	public void setServerName(String serverName) {
 		this.serverName = serverName;
 	}
@@ -92,47 +51,24 @@ public class MediaContent extends BaseModel {
 	public String getServerAddress() {
 		return serverAddress;
 	}
-	/**
-	 * @param serverAddress the serverAddress to set
-	 */
 	public void setServerAddress(String serverAddress) {
 		this.serverAddress = serverAddress;
-		this.url=serverAddress+path;
-	}
-	
-	/**
-	 * @return the fileName
-	 */
+	}	
 	public String getOriginFileName() {
 		return this.originFileName;
 	}
-	/**
-	 * @param fileName the fileName to set
-	 */
 	public void setOriginFileName(String originFileName) {
 		this.originFileName = originFileName;
 	}
-	/**
-	 * @return the contentType
-	 */
 	public String getContentType() {
 		return contentType;
 	}
-	/**
-	 * @param contentType the contentType to set
-	 */
 	public void setContentType(String contentType) {
 		this.contentType = contentType;
 	}
-	/**
-	 * @return the fileSize
-	 */
 	public Long getFileSize() {
 		return fileSize;
 	}
-	/**
-	 * @param fileSize the fileSize to set
-	 */
 	public void setFileSize(Long fileSize) {
 		this.fileSize = fileSize;
 	}
@@ -143,25 +79,18 @@ public class MediaContent extends BaseModel {
 	public String getPath() {
 		return path;
 	}
-	/**
-	 * @param savePath the savePath to set
-	 */
 	public void setPath(String path) {
 		this.path = path;
-		this.url=serverAddress+path;
 	}
-	/**
-	 * @return the saveFileName
-	 */
 	public String getFileName() {
 		return fileName;
 	}
-	/**
-	 * @param saveFileName the saveFileName to set
-	 */
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
 	
-	
+	@Transient
+	public String getUrl() {
+		return MediaServiceConfig.getMediaUrl(path);
+	}
 }

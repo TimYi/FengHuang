@@ -88,7 +88,7 @@ public class AppointService extends DtoUnreadRemindSpecificationService<Appoint,
 	}
 	
 	public PagedList<AppointDto> findByUserId(String userid, int page, int size) {
-		PageRequest pageable=new PageRequest(page, size);
+		PageRequest pageable=new PageRequest(page-1, size);
 		Page<Appoint> list=getRepository().findByUserId(userid, pageable);
 		Page<AppointDto> result=list.map(adapter);
 		return new PagedList<>(result);

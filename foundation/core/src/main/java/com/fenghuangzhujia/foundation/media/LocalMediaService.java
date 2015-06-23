@@ -2,13 +2,15 @@ package com.fenghuangzhujia.foundation.media;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.UUID;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.fenghuangzhujia.foundation.utils.Identities;
 
 /**
  * 文件保存在服务器本地磁盘时，可以使用此媒体仓库。
@@ -20,11 +22,8 @@ public class LocalMediaService implements MediaService {
 	
 	@Autowired
 	private MediaContentRepository repository;
-	
-	private String serverName;
-	private String serverAddress;
-	private String basePath;
-	private String relativePath;
+	/**文件相对存储目录*/
+	private String relativePath="media";
 	
 	@Override
 	public MediaContent getMedia(String id) {
@@ -39,29 +38,32 @@ public class LocalMediaService implements MediaService {
 
 	@Override
 	public MediaContent update(MediaContent media, MultipartFile file) throws IOException {
-		if(file==null) throw new IllegalArgumentException("文件不能为空");
+		if(file==null) throw new IOException("文件不能为空");
 		if(media==null) {
 			media=new MediaContent();
 		} else {
 			//清理旧文件
 			deleteFile(media);
 		}
-		media.setServerAddress(serverAddress);
+		media.setServerAddress(getServerAddress());
 		media.setFileSize(file.getSize());
-		media.setServerName(serverName);
+		media.setServerName(getServerName());
 		media.setContentType(file.getContentType());
 		String originFileName=file.getOriginalFilename();
 		media.setOriginFileName(originFileName);
+		
+		//生成文件名称
 		String extension=FilenameUtils.getExtension(originFileName);
-		String fileName=UUID.randomUUID().toString();
+		String fileName=Identities.uuid2();
 		fileName=fileName+"."+extension;
-		//相对根路径的path
-		String relativePath=getRelativePath(extension);
-		String path=FilenameUtils.normalize(relativePath+fileName, true);
 		media.setFileName(fileName);
+		
+		//相对根路径的path
+		String path=concatRelativeFilePath(fileName);		
 		media.setPath(path);
+		
 		//将文件保存到本地目录
-		String realFilePath=FilenameUtils.normalize(getBasePath()+path, true);
+		String realFilePath=concatRealFilePathString(path);
 		File realFile=new File(realFilePath);
 		FileUtils.writeByteArrayToFile(realFile, file.getBytes());
 		media=repository.save(media);
@@ -72,7 +74,7 @@ public class LocalMediaService implements MediaService {
 	public MediaContent update(String id, MultipartFile file)
 			throws IOException {
 		MediaContent media=repository.findOne(id);
-		if(media==null) throw new IllegalArgumentException("数据库实体不存在");
+		if(media==null) return null;
 		return update(media, file);
 	}
 	
@@ -96,68 +98,53 @@ public class LocalMediaService implements MediaService {
 	}
 	
 	/**
-	 * 根据文件扩展名返回相对路径，比如.jpg结尾返回/images文件夹
-	 * @param extension
+	 * 根据文件名，生成相对存储路径
+	 * @param fileName 文件全名，包括扩展名
 	 * @return
-	 * @throws IOException
 	 */
-	protected String getRelativePath(String extension) throws IOException {
-		return this.relativePath;
+	protected String concatRelativeFilePath(String fileName) {
+		String relativePath=StringUtils.removeEnd(getRelativePath(), "/");
+		String path=relativePath+"/"+fileName;
+		return path;
+	}
+	
+	/**
+	 * 根据文件相对路径，生成绝对存储路径
+	 * @param path 文件相对存储路径，包括文件名称
+	 * @return 文件绝对存储路径
+	 */
+	protected String concatRealFilePathString(String path) {
+		String basePath=StringUtils.removeEnd(getBasePath(), "/");
+		path=StringUtils.removeStart(path, "/");
+		String realFilePath=basePath+"/"+path;
+		realFilePath=FilenameUtils.normalize(realFilePath, true);
+		return realFilePath;
 	}
 
-	/**
-	 * @return the serverAddress
-	 * 服务器地址
-	 */
-	public String getServerAddress() {
-		return serverAddress;
-	}
-
-	/**
-	 * @param serverAddress the serverAddress to set
-	 */
-	public void setServerAddress(String serverAddress) {
-		this.serverAddress = serverAddress;
-	}
 
 	/**
 	 * @return the serverName
 	 * 服务器名称，用于数据检索和数据迁移
 	 */
 	public String getServerName() {
-		return serverName;
-	}
-
+		return MediaServiceConfig.SERVER_NAME;
+	}	
+	public String getServerAddress() {
+		return MediaServiceConfig.SERVER_ADDRESS;
+	}	
 	/**
-	 * @param serverName the serverName to set
-	 */
-	public void setServerName(String serverName) {
-		this.serverName = serverName;
-	}
-	
-	
-	/**
-	 * @return the basePath
+	 * @return 服务器文件存储基地址
 	 */
 	public String getBasePath() {
-		return basePath;
+		return MediaServiceConfig.BASE_PATH;
 	}
-
-	/**
-	 * @param basePath the basePath to set
-	 */
-	public void setBasePath(String basePath) {
-		this.basePath = basePath;
-	}
-
 	/**
 	 * @return the relativePath
-	 * 相对于文件服务器应用跟路径的相对路径，开头带/，结尾带/
+	 * 相对于文件服务器应用跟路径的相对路径
 	 */
 	public String getRelativePath() {
 		return relativePath;
 	}
-
 	/**
 	 * @param relativePath the relativePath to set
 	 */

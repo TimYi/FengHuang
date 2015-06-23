@@ -6,10 +6,12 @@ import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
+import com.fenghuangzhujia.foundation.media.MediaContent;
 
 /**
  * 可以随意修改命名~
@@ -32,6 +34,8 @@ public class Live extends UUIDBaseModel {
 	private String house;
 	/**开工日期*/
 	private Date startDate;
+	/**装修主图*/
+	private MediaContent mainPic;
 	/**是否展示*/
 	private boolean shouldShow;
 	private ProjectProgress status;
@@ -93,7 +97,14 @@ public class Live extends UUIDBaseModel {
 	public void setLives(Set<LiveDetail> lives) {
 		this.lives = lives;
 	}	
-	
+	@OneToOne
+	public MediaContent getMainPic() {
+		return mainPic;
+	}
+	public void setMainPic(MediaContent mainPic) {
+		this.mainPic = mainPic;
+	}
+
 	public static enum ProjectProgress {
 		进行中,
 		已交房,

@@ -18,20 +18,21 @@ import com.fenghuangzhujia.foundation.core.test.JpegMultipartFile;
 public class MediasTest {
 	
 	@Autowired
-	private LocalMediaService service;
+	private MediaService service;
 	
-	//@Test
+	@Test
 	public void addMedia() {
 		File imgFile=new File("C:/Users/pc/Desktop/test.jpg");
 		MultipartFile file=new JpegMultipartFile(imgFile);
 		try {
-			service.save(file);
+			MediaContent media=service.save(file);
+			System.out.println(media.getUrl());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}		
 	}
 	
-	@Test
+	//@Test
 	public void getMedia() {
 		MediaContent media=service.getMedia("404040e64d4206d9014d4206dd1b0000");
 		System.out.println(media.getUrl());
