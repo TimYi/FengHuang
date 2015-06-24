@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>修改预约</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/json2.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript">
+var viewModel;
+//var decorateDic;
+var menuDic;
+var brandDic;
+var houseDic;//房屋类型
+var styleDic;//装修风格
+var apartmentDic;//户型
+var id;
+function onload(){
+	//第一步：先获取id	
+	id = getUrlParam(window.location.search,"id");
+	getData(MENU_MENU,null,afterGetMenus);
+}
+function afterGetMenus(data){
+	if(!isErrorData(data)){
+		menuDic = data.result.result;
+		getData(BRAND_BRAND,null,afterGetBrands);
+	}
+}
+function afterGetBrands(data){
+	if(!isErrorData(data)){
+		//alert('brand:'+data.status);
+		brandDic = data.result.result;
+		$.getJSON(CATEGORY_QUERY+'house',null,afterGetHouseCats);
+	}
+}
+function afterGetHouseCats(data){
+	
+	if(!isErrorData(data)){
+		//alert('house:'+data.status);
+		houseDic = data.result;
+		$.getJSON(CATEGORY_QUERY+'style',null,afterGetStyleCats);
+	}
+}
+function afterGetStyleCats(data){
+	
+	if(!isErrorData(data)){
+		//alert('style:'+data.status);
+		styleDic = data.result;
+		$.getJSON(CATEGORY_QUERY+'apartment',null,afterGetApartmentCats);
+	}
+}
+function afterGetApartmentCats(data){
+	
+	if(!isErrorData(data)){
+		//alert('apartment:'+data.status);
+		apartmentDic = data.result;
+		getDataById(CASE_CASE,id,afterGetDataById);;
+	}
+}
+function afterGetDataById(data){
+	//先判断并处理错误数据
+	if(!isErrorData(data)){
+		//数据正确时进行绑定
+	 	viewModel = ko.mapping.fromJS(data.result);	 	
+	 	//var selectedTypeId = viewModel.type.id();
+		if(typeof viewModel.menu !== 'function'){
+	 		//注意：type 为 null时，是function ,不为null时是object
+	 		
+		 	for(var i in menuDic){
+		 		if(menuDic[i].id === viewModel.menu.id()){		 			
+		 			viewModel.menu = ko.observable(menuDic[i]);
+		 			break;
+		 		}
+		 	}
+	 	}
+	 	if(typeof viewModel.brand !== 'function'){
+	 		for(var i in brandDic){
+		 		if(brandDic[i].id === viewModel.brand.id()){		 			
+		 			viewModel.brand = ko.observable(brandDic[i]);
+		 			break;
+		 		}
+		 	}
+		 }
+		 if(typeof viewModel.category !== 'function'){
+	 		for(var i in houseDic){
+		 		if(houseDic[i].id === viewModel.category.id()){		 			
+		 			viewModel.category = ko.observable(houseDic[i]);
+		 			break;
+		 		}
+		 	}
+		 }
+		 if(typeof viewModel.style !== 'function'){
+	 		for(var i in styleDic){
+		 		if(styleDic[i].id === viewModel.style.id()){		 			
+		 			viewModel.style = ko.observable(styleDic[i]);
+		 			break;
+		 		}
+		 	}
+		 }
+		 if(typeof viewModel.apartmentType !== 'function'){
+	 		for(var i in apartmentDic){
+		 		if(apartmentDic[i].id === viewModel.apartmentType.id()){		 			
+		 			viewModel.apartmentType = ko.observable(apartmentDic[i]);
+		 			break;
+		 		}
+		 	}
+		 }	 	 
+	 	viewModel.submit = function(){
+	 	
+	 		var modelObj = ko.mapping.toJS(viewModel);
+	 		modelObj.menuid = viewModel.menu().id;
+		 	modelObj.brandid = viewModel.brand().id;
+		 	modelObj.categoryid = viewModel.category().id;
+		 	modelObj.styleid = viewModel.style().id;
+		 	modelObj.apartmentTypeid = viewModel.apartmentType().id;
+	 		//var typeId = viewModel.type().id;
+	 		var  url = genUrl(CASE_CASE)+'/'+modelObj.id;
+	 		//modelObj.typeid = typeId;
+	 		postReq(url,modelObj,function(data){
+	 			
+	 			friendlyTip(data);
+	 		});	 		
+	 	}
+		ko.applyBindings(viewModel);
+	}
+}
+
+function AppointType(id,name){
+
+	this.id = id;
+	this.name = name;
+}
+</script>
+</head>
+<body onload="onload()">
+<div class="formHeader">
+ <span class="title">修改预约</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
+</div>
+<form name="form" id="form" method="post" action="admin_save.php" onsubmit="return cfm_upadmin();">
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td align="right" width="25%" height="40">ID:</td>
+				<td width="75%" ><span data-bind='text:id'></span></td>
+			</tr>
+			<tr>
+				<td align="right" width="25%" height="40">标题:</td>
+				<td width="75%" ><span data-bind='text:title'></td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >栏目：</td>
+				<td><select data-bind="value:menu,options:menuDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+				</select>
+				<input type='text' size=50 data-bind='value:menu().id'/>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >品牌：</td>
+				<td><select data-bind="value:brand,options:brandDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+				</select>
+				<input type='text' size=50 data-bind='value:brand().id'/>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40">面积：					
+				</td>
+				<td>
+					<input type="text"  data-bind="value:houseArea"/>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40">总价：					
+				</td>
+				<td>
+					<input type="text" data-bind="value:totalPrice"/>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >房屋类型：</td>
+				<td><select data-bind="value:category,options:houseDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+				</select>
+				<input type='text' size=50 data-bind="value:(typeof category)=='function'?'':category().id"/>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >风格：</td>
+				<td><select data-bind="value:style,options:styleDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+				</select>
+				<input type='text' size=50 data-bind="value:(typeof style)=='function'?'':style().id"/>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >户型：</td>
+				<td><select data-bind="value:apartmentType,options:apartmentDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+				</select>
+				<input type='text' size=50 data-bind="value:(typeof apartmentType)=='function'?'':apartmentType().id"/>
+				</td>
+			</tr>		
+			<tr>
+				<td align="right" height="40">承诺：					
+				</td>
+				<td>
+					<input type="text" size=100  data-bind="value:promise"/>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40">描述：</td>
+				<td size=100>
+					<input type="text" size=100  data-bind="value:description"/>				
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40">关键字：</td>
+				<td size=100 >
+					<input type="text" size=100  data-bind="value:keywords"/>
+				</td>
+			</tr>		
+		</tbody>
+	</table>
+	<div class="formSubBtn">
+		<input class="submit" value="提交" type="button" data-bind='click:submit'/>
+		<input class="back" value="返回" onclick="history.go(-1)" type="button">
+	</div>
+</form>
+
+</body></html>

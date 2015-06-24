@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>列表信息管理</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/listajax.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+
+</head>
+<body>
+<div class="topToolbar"> <span class="title">列表信息管理</span>
+<span class="alltype">
+	<a href="javascript:;" onclick="GetType('','查看全部',$(this))" class="btn">查看全部</a>
+	<span class="drop">
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+				<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+
+	</span>
+</span>
+<a href="javascript:location.reload();" class="reload">刷新</a></div>
+<form name="form" id="form" method="post">
+	<div id="list">
+<div class="toolbarTab">
+	<ul>
+		<li class="on"><a href="javascript:;" onclick="GetFlag('all')">全部</a></li><li class="line">-</li><li class=""><a href="javascript:;" onclick="GetFlag('notcheck')">未审</a></li><li class="line">-</li><li class=""><a href="javascript:;" onclick="GetFlag('ischeck')">已审</a></li><li class="line">-</li><li class=""><a href="javascript:;" onclick="GetFlag('h')">头条</a></li><li class="line">-</li><li class=""><a href="javascript:;" onclick="GetFlag('c')">推荐</a></li><li class="line">-</li><li class=""><a href="javascript:;" onclick="GetFlag('f')">幻灯</a></li><li class="line">-</li><li class=""><a href="javascript:;" onclick="GetFlag('a')">特荐</a></li><li class="line">-</li><li class=""><a href="javascript:;" onclick="GetFlag('s')">滚动</a></li><li class="line">-</li><li class=""><a href="javascript:;" onclick="GetFlag('j')">跳转</a></li><li class="line">-</li><li class=""><a href="javascript:;" onclick="GetFlag('author')">我发布的文档</a></li><li class="line">-</li><li><a href="javascript:;" onclick="ShowRecycle();">内容回收站</a></li>	</ul>
+	<div id="search" class="search"> <span class="s">
+		<input name="keyword" id="keyword" title="输入标题名进行搜索" type="text">
+		</span> <span class="b"><a href="javascript:;" onclick="GetSearch();"></a></span></div>
+	<div class="cl"></div>
+</div>
+<table id="ajaxlist" class="dataTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tbody><tr class="head" align="left">
+		<td class="firstCol" width="5%" height="36"><input name="checkid" id="checkid" onclick="CheckAll(this.checked);" type="checkbox"></td>
+		<td width="5%">ID</td>
+		<td width="30%">标题</td>
+		<td width="15%">栏目</td>
+		<td width="15%">更新时间</td>
+		<td width="10%">发布人</td>
+		<td width="5%">点击</td>
+		<td class="endCol" width="15%">操作</td>
+	</tr>
+		<tr class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'" align="left">
+		<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="21" type="checkbox"></td>
+		<td>21</td>
+		<td><span class="title" style="color:;font-weight:">12312312312312<span class="titflag"></span></span></td>
+		<td>新闻动态 [4]</td>
+		<td class="number">2015-05-18 15:04:49</td>
+		<td>admin</td>
+		<td>140</td>
+		<td class="action endCol"><span id="check21"><a href="javascript:;" title="点击进行审核与未审操作" onclick="CheckInfo(21,'已审')">已审</a></span> | <span><a href="http://123.57.218.171/admin/infolist_update.php?cid=&amp;id=21">修改</a></span> | <span class="nb"><a href="javascript:;" onclick="ClearInfo(21)">删除</a></span></td>
+	</tr>
+		<tr class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'" align="left">
+		<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="20" type="checkbox"></td>
+		<td>20</td>
+		<td><span class="title" style="color:;font-weight:">123123213<span class="titflag"></span></span></td>
+		<td>新闻动态 [4]</td>
+		<td class="number">2015-05-18 15:04:37</td>
+		<td>admin</td>
+		<td>87</td>
+		<td class="action endCol"><span id="check20"><a href="javascript:;" title="点击进行审核与未审操作" onclick="CheckInfo(20,'已审')">已审</a></span> | <span><a href="http://123.57.218.171/admin/infolist_update.php?cid=&amp;id=20">修改</a></span> | <span class="nb"><a href="javascript:;" onclick="ClearInfo(20)">删除</a></span></td>
+	</tr>
+		<tr class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'" align="left">
+		<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="19" type="checkbox"></td>
+		<td>19</td>
+		<td><span class="title" style="color:;font-weight:">爱佑华夏联合百度在京举办“爱由心生”慈善晚宴<span class="titflag">头条&nbsp;</span>&nbsp;<span class="titpic"><i title="包含缩略图"></i></span></span></td>
+		<td>新闻动态 [4]</td>
+		<td class="number">2012-01-17 11:12:05</td>
+		<td>admin</td>
+		<td>165</td>
+		<td class="action endCol"><span id="check19"><a href="javascript:;" title="点击进行审核与未审操作" onclick="CheckInfo(19,'已审')">已审</a></span> | <span><a href="http://123.57.218.171/admin/infolist_update.php?cid=&amp;id=19">修改</a></span> | <span class="nb"><a href="javascript:;" onclick="ClearInfo(19)">删除</a></span></td>
+	</tr>
+		<tr class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'" align="left">
+		<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="18" type="checkbox"></td>
+		<td>18</td>
+		<td><span class="title" style="color:;font-weight:">百度“发微” 一键群发催生“框微控”<span class="titflag"></span></span></td>
+		<td>新闻动态 [4]</td>
+		<td class="number">2012-01-17 11:11:50</td>
+		<td>admin</td>
+		<td>60</td>
+		<td class="action endCol"><span id="check18"><a href="javascript:;" title="点击进行审核与未审操作" onclick="CheckInfo(18,'已审')">已审</a></span> | <span><a href="http://123.57.218.171/admin/infolist_update.php?cid=&amp;id=18">修改</a></span> | <span class="nb"><a href="javascript:;" onclick="ClearInfo(18)">删除</a></span></td>
+	</tr>
+		<tr class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'" align="left">
+		<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="17" type="checkbox"></td>
+		<td>17</td>
+		<td><span class="title" style="color:;font-weight:">百度与Facebook成为全球成长最快品牌<span class="titflag"></span></span></td>
+		<td>新闻动态 [4]</td>
+		<td class="number">2012-01-17 11:11:35</td>
+		<td>admin</td>
+		<td>156</td>
+		<td class="action endCol"><span id="check17"><a href="javascript:;" title="点击进行审核与未审操作" onclick="CheckInfo(17,'已审')">已审</a></span> | <span><a href="http://123.57.218.171/admin/infolist_update.php?cid=&amp;id=17">修改</a></span> | <span class="nb"><a href="javascript:;" onclick="ClearInfo(17)">删除</a></span></td>
+	</tr>
+		<tr class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'" align="left">
+		<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="16" type="checkbox"></td>
+		<td>16</td>
+		<td><span class="title" style="color:;font-weight:">百度：构筑信息时代的全民公益<span class="titflag">推荐&nbsp;幻灯&nbsp;</span></span></td>
+		<td>新闻动态 [4]</td>
+		<td class="number">2012-01-17 11:11:21</td>
+		<td>admin</td>
+		<td>161</td>
+		<td class="action endCol"><span id="check16"><a href="javascript:;" title="点击进行审核与未审操作" onclick="CheckInfo(16,'未审')">未审</a></span> | <span><a href="http://123.57.218.171/admin/infolist_update.php?cid=&amp;id=16">修改</a></span> | <span class="nb"><a href="javascript:;" onclick="ClearInfo(16)">删除</a></span></td>
+	</tr>
+		<tr class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'" align="left">
+		<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="15" type="checkbox"></td>
+		<td>15</td>
+		<td><span class="title" style="color:;font-weight:">2011中国慈善排行榜出炉 百度入选年度十大慈善企业<span class="titflag"></span></span></td>
+		<td>新闻动态 [4]</td>
+		<td class="number">2012-01-17 11:11:07</td>
+		<td>admin</td>
+		<td>101</td>
+		<td class="action endCol"><span id="check15"><a href="javascript:;" title="点击进行审核与未审操作" onclick="CheckInfo(15,'已审')">已审</a></span> | <span><a href="http://123.57.218.171/admin/infolist_update.php?cid=&amp;id=15">修改</a></span> | <span class="nb"><a href="javascript:;" onclick="ClearInfo(15)">删除</a></span></td>
+	</tr>
+		<tr class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'" align="left">
+		<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="14" type="checkbox"></td>
+		<td>14</td>
+		<td><span class="title" style="color:;font-weight:">CBSI全面牵手百度联盟蜜月吸金<span class="titflag"></span></span></td>
+		<td>新闻动态 [4]</td>
+		<td class="number">2012-01-17 11:10:46</td>
+		<td>admin</td>
+		<td>162</td>
+		<td class="action endCol"><span id="check14"><a href="javascript:;" title="点击进行审核与未审操作" onclick="CheckInfo(14,'已审')">已审</a></span> | <span><a href="http://123.57.218.171/admin/infolist_update.php?cid=&amp;id=14">修改</a></span> | <span class="nb"><a href="javascript:;" onclick="ClearInfo(14)">删除</a></span></td>
+	</tr>
+		<tr class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'" align="left">
+		<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="13" type="checkbox"></td>
+		<td>13</td>
+		<td><span class="title" style="color:;font-weight:">百度：先驱者的探索<span class="titflag">幻灯&nbsp;滚动&nbsp;</span></span></td>
+		<td>新闻动态 [4]</td>
+		<td class="number">2012-01-17 11:10:36</td>
+		<td>admin</td>
+		<td>156</td>
+		<td class="action endCol"><span id="check13"><a href="javascript:;" title="点击进行审核与未审操作" onclick="CheckInfo(13,'已审')">已审</a></span> | <span><a href="http://123.57.218.171/admin/infolist_update.php?cid=&amp;id=13">修改</a></span> | <span class="nb"><a href="javascript:;" onclick="ClearInfo(13)">删除</a></span></td>
+	</tr>
+		<tr class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'" align="left">
+		<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="12" type="checkbox"></td>
+		<td>12</td>
+		<td><span class="title" style="color:;font-weight:">百度开放知道携手金山WPS 共建办公软件网络帮助平台<span class="titflag"></span></span></td>
+		<td>新闻动态 [4]</td>
+		<td class="number">2012-01-17 11:10:20</td>
+		<td>admin</td>
+		<td>118</td>
+		<td class="action endCol"><span id="check12"><a href="javascript:;" title="点击进行审核与未审操作" onclick="CheckInfo(12,'未审')">未审</a></span> | <span><a href="http://123.57.218.171/admin/infolist_update.php?cid=&amp;id=12">修改</a></span> | <span class="nb"><a href="javascript:;" onclick="ClearInfo(12)">删除</a></span></td>
+	</tr>
+		<tr class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'" align="left">
+		<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="11" type="checkbox"></td>
+		<td>11</td>
+		<td><span class="title" style="color:;font-weight:">云起龙骧 共赢未来——“第六届百度联盟峰会”布局开放新时代<span class="titflag">滚动&nbsp;</span></span></td>
+		<td>新闻动态 [4]</td>
+		<td class="number">2012-01-17 11:09:58</td>
+		<td>admin</td>
+		<td>153</td>
+		<td class="action endCol"><span id="check11"><a href="javascript:;" title="点击进行审核与未审操作" onclick="CheckInfo(11,'已审')">已审</a></span> | <span><a href="http://123.57.218.171/admin/infolist_update.php?cid=&amp;id=11">修改</a></span> | <span class="nb"><a href="javascript:;" onclick="ClearInfo(11)">删除</a></span></td>
+	</tr>
+		<tr class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'" align="left">
+		<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="10" type="checkbox"></td>
+		<td>10</td>
+		<td><span class="title" style="color:;font-weight:">权威核辐射监测数据登录百度开放平台 消除公众恐慌<span class="titflag"></span></span></td>
+		<td>新闻动态 [4]</td>
+		<td class="number">2012-01-17 11:09:36</td>
+		<td>admin</td>
+		<td>98</td>
+		<td class="action endCol"><span id="check10"><a href="javascript:;" title="点击进行审核与未审操作" onclick="CheckInfo(10,'已审')">已审</a></span> | <span><a href="http://123.57.218.171/admin/infolist_update.php?cid=&amp;id=10">修改</a></span> | <span class="nb"><a href="javascript:;" onclick="ClearInfo(10)">删除</a></span></td>
+	</tr>
+		<tr class="dataTrOn" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'" align="left">
+		<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="9" type="checkbox"></td>
+		<td>9</td>
+		<td><span class="title" style="color:;font-weight:">中影集团携《建党伟业》影片资源 登录百度开放平台<span class="titflag"></span></span></td>
+		<td>新闻动态 [4]</td>
+		<td class="number">2012-01-17 11:09:20</td>
+		<td>admin</td>
+		<td>116</td>
+		<td class="action endCol"><span id="check9"><a href="javascript:;" title="点击进行审核与未审操作" onclick="CheckInfo(9,'未审')">未审</a></span> | <span><a href="http://123.57.218.171/admin/infolist_update.php?cid=&amp;id=9">修改</a></span> | <span class="nb"><a href="javascript:;" onclick="ClearInfo(9)">删除</a></span></td>
+	</tr>
+		<tr class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'" align="left">
+		<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="8" type="checkbox"></td>
+		<td>8</td>
+		<td><span class="title" style="color:;font-weight:">百度与音著协达成合作 与音乐人分享著作权收益<span class="titflag">推荐&nbsp;幻灯&nbsp;</span></span></td>
+		<td>新闻动态 [4]</td>
+		<td class="number">2012-01-17 11:08:56</td>
+		<td>admin</td>
+		<td>140</td>
+		<td class="action endCol"><span id="check8"><a href="javascript:;" title="点击进行审核与未审操作" onclick="CheckInfo(8,'已审')">已审</a></span> | <span><a href="http://123.57.218.171/admin/infolist_update.php?cid=&amp;id=8">修改</a></span> | <span class="nb"><a href="javascript:;" onclick="ClearInfo(8)">删除</a></span></td>
+	</tr>
+		<tr class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'" align="left">
+		<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="7" type="checkbox"></td>
+		<td>7</td>
+		<td><span class="title" style="color:;font-weight:">百度文库版权合作平台上线 诚意探索多方共赢<span class="titflag"></span></span></td>
+		<td>新闻动态 [4]</td>
+		<td class="number">2012-01-17 11:08:31</td>
+		<td>admin</td>
+		<td>92</td>
+		<td class="action endCol"><span id="check7"><a href="javascript:;" title="点击进行审核与未审操作" onclick="CheckInfo(7,'已审')">已审</a></span> | <span><a href="http://123.57.218.171/admin/infolist_update.php?cid=&amp;id=7">修改</a></span> | <span class="nb"><a href="javascript:;" onclick="ClearInfo(7)">删除</a></span></td>
+	</tr>
+		<tr class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'" align="left">
+		<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="6" type="checkbox"></td>
+		<td>6</td>
+		<td><span class="title" style="color:;font-weight:">百度市值超腾讯成为中国互联网企业第一<span class="titflag">头条&nbsp;特荐&nbsp;</span></span></td>
+		<td>新闻动态 [4]</td>
+		<td class="number">2012-01-17 11:08:07</td>
+		<td>admin</td>
+		<td>95</td>
+		<td class="action endCol"><span id="check6"><a href="javascript:;" title="点击进行审核与未审操作" onclick="CheckInfo(6,'已审')">已审</a></span> | <span><a href="http://123.57.218.171/admin/infolist_update.php?cid=&amp;id=6">修改</a></span> | <span class="nb"><a href="javascript:;" onclick="ClearInfo(6)">删除</a></span></td>
+	</tr>
+		<tr class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'" align="left">
+		<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="5" type="checkbox"></td>
+		<td>5</td>
+		<td><span class="title" style="color:;font-weight:">百度推出“招聘会”搜索 助力学子就业<span class="titflag"></span></span></td>
+		<td>新闻动态 [4]</td>
+		<td class="number">2012-01-17 11:07:40</td>
+		<td>admin</td>
+		<td>120</td>
+		<td class="action endCol"><span id="check5"><a href="javascript:;" title="点击进行审核与未审操作" onclick="CheckInfo(5,'已审')">已审</a></span> | <span><a href="http://123.57.218.171/admin/infolist_update.php?cid=&amp;id=5">修改</a></span> | <span class="nb"><a href="javascript:;" onclick="ClearInfo(5)">删除</a></span></td>
+	</tr>
+		<tr class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'" align="left">
+		<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="4" type="checkbox"></td>
+		<td>4</td>
+		<td><span class="title" style="color:;font-weight:">百度开展网上“地球一小时” 践行绿色环保之路<span class="titflag"></span></span></td>
+		<td>新闻动态 [4]</td>
+		<td class="number">2012-01-17 11:07:26</td>
+		<td>admin</td>
+		<td>155</td>
+		<td class="action endCol"><span id="check4"><a href="javascript:;" title="点击进行审核与未审操作" onclick="CheckInfo(4,'已审')">已审</a></span> | <span><a href="http://123.57.218.171/admin/infolist_update.php?cid=&amp;id=4">修改</a></span> | <span class="nb"><a href="javascript:;" onclick="ClearInfo(4)">删除</a></span></td>
+	</tr>
+		<tr class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'" align="left">
+		<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="3" type="checkbox"></td>
+		<td>3</td>
+		<td><span class="title" style="color:;font-weight:">百度启动“应用基金奖励计划”<span class="titflag"></span></span></td>
+		<td>新闻动态 [4]</td>
+		<td class="number">2012-01-17 11:06:57</td>
+		<td>admin</td>
+		<td>167</td>
+		<td class="action endCol"><span id="check3"><a href="javascript:;" title="点击进行审核与未审操作" onclick="CheckInfo(3,'已审')">已审</a></span> | <span><a href="http://123.57.218.171/admin/infolist_update.php?cid=&amp;id=3">修改</a></span> | <span class="nb"><a href="javascript:;" onclick="ClearInfo(3)">删除</a></span></td>
+	</tr>
+		<tr class="dataTr" onmouseover="this.className='dataTrOn'" onmouseout="this.className='dataTr'" align="left">
+		<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="2" type="checkbox"></td>
+		<td>2</td>
+		<td><span class="title" style="color:;font-weight:">首届百度高校互联网产品设计大赛开幕<span class="titflag">幻灯&nbsp;</span></span></td>
+		<td>新闻动态 [4]</td>
+		<td class="number">2012-01-17 11:06:30</td>
+		<td>admin</td>
+		<td>55</td>
+		<td class="action endCol"><span id="check2"><a href="javascript:;" title="点击进行审核与未审操作" onclick="CheckInfo(2,'已审')">已审</a></span> | <span><a href="http://123.57.218.171/admin/infolist_update.php?cid=&amp;id=2">修改</a></span> | <span class="nb"><a href="javascript:;" onclick="ClearInfo(2)">删除</a></span></td>
+	</tr>
+	</tbody></table>
+<div class="bottomToolbar"> <span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:;" onclick="AjaxClearAll();">删除</a></span> <a href="http://123.57.218.171/admin/infolist_add.php" class="dataBtn">添加列表信息</a> </div>
+<div class="page"> <div class="pageList"><a href="javascript:;">&lt;&lt;</a><a href="javascript:;">&lt;</a><a href="javascript:;" class="on">1</a><a href="javascript:;" onclick="PageList('2','','all','')" class="num">2</a><a href="javascript:;" onclick="PageList('2','','all','')">&gt;</a><a href="javascript:;" onclick="PageList('2','','all','')">&gt;&gt;</a></div> </div>
+<div style="display: block;" class="quickToolbar">
+	<div class="qiuckWarp">
+		<div class="quickArea"><span class="selArea"><span>选择：</span> <a href="javascript:CheckAll(true);">全部</a> - <a href="javascript:CheckAll(false);">无</a> - <a href="javascript:;" onclick="AjaxClearAll();">删除</a></span> <a href="http://123.57.218.171/admin/infolist_add.php" class="dataBtn">添加列表信息</a> <span class="pageSmall"><div class="pageList"><a href="javascript:;">&lt;&lt;</a><a href="javascript:;">&lt;</a><a href="javascript:;" class="on">1</a><a href="javascript:;" onclick="PageList('2','','all','')">&gt;</a><a href="javascript:;" onclick="PageList('2','','all','')">&gt;&gt;</a></div></span> </div>
+		<div class="quickAreaBg"></div>
+	</div>
+</div>
+</div>
+</form>
+
+<div class="loading4"></div><div style="height: 690px; display: none;" class="masklayer"></div></body></html>
