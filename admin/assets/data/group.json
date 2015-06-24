@@ -1,0 +1,41 @@
+{
+	"status":0,
+	"result":[
+			{
+			"id":"001",
+			"name":"禁止访问",
+			"min_intetral":"-99999",
+			"max_intetral":"0",
+			"star":"0",
+			"color":"黑色"
+			},
+			{
+			"id":"002",
+			"name":"新手会员",
+			"min_intetral":"1",
+			"max_intetral":"50",
+			"star":"0",
+			"color":"红色"
+		
+			},
+			{
+			"id":"003",
+			"name":"初级会员",
+			"min_intetral":"51",
+			"max_intetral":"200",
+			"star":"4",
+			"color":"橙色"		
+			},
+			{
+			"id":"004",
+			"name":"中级会员",
+			"min_intetral":"201",
+			"max_intetral":"500",
+			"star":"8",
+			"color":"黄色"		
+			}	
+		],
+	"size":2,
+	"total":2,
+	"message":"OK"
+}
