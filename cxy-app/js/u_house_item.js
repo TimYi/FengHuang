@@ -1,5 +1,5 @@
 /**
- * file:我的留言
+ * file:房屋信息
  * author:chenxy
  * date:2015-06-05
 */
@@ -11,19 +11,129 @@ $(function(){
 	g.sendCode = false;
 	g.sendTime = 60;
 	g.username = Base.userName;
-	g.token = Utils.getQueryString("token");
+	g.token = Utils.offLineStore.get("token",false);
+	g.houseId = Utils.getQueryString("id") || "";
 	g.page = Utils.getQueryString("p") - 0;
 	g.totalPage = 1;
 	g.currentPage = 1;
 	g.paseSize = 20;
-	g.listdata = [];
+	g.data = {};
 	g.httpTip = new Utils.httpTip({});
 
 
-	$("#addbtn").bind("click",addHome);
-	$("#updatebtn").bind("click",updateHome);
+	$("#districtNamebtn").bind("click",changePage);
+	$("#areabtn").bind("click",changePage);
+	$("#decorateBudgetbtn").bind("click",changePage);
+	//$("#districtNamebtn").bind("click",changePage);
+	//$("#districtNamebtn").bind("click",changePage);
+	//$("#updatebtn").bind("click",updateHome);
 
-	getHomeList();
+	getHomeDetails();
+	function getHomeDetails(){
+		if(g.houseId !== ""){
+			var condi = {};
+			condi.token = g.token;
+			condi.id = g.houseId;
+			sendGetHomeDetailsHttp(condi);
+		}
+		else{
+			Utils.alert("参数错误");
+		}
+	}
+
+	function sendGetHomeDetailsHttp(condi){
+		g.httpTip.show();
+		var url = Base.house + "/" + condi.id;
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"GET",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("sendGetHomeDetailsHttp",data);
+				g.httpTip.hide();
+				var status = data.status || "";
+				if(status == "OK"){
+					changeHomeDetailsHtml(data.result);
+				}
+				else{
+					var msg = data.error || "";
+					alert("获取房屋信息错误:" + msg);
+				}
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+	function changeHomeDetailsHtml(data){
+		var obj = data || {};
+		g.data = obj;
+
+		var districtName = obj.districtName || "";
+		var area = obj.area || "";
+		var decorateBudget = obj.decorateBudget || 0;
+		var launchDate = obj.launchDate || "";
+		var decorateDate = obj.decorateDate || "";
+
+		$("#districtName").html(districtName);
+		$("#area").html(area);
+		$("#decorateBudget").html(decorateBudget);
+		$("#launchDate").html(launchDate.substring(0,10));
+		$("#decorateDate").html(decorateDate.substring(0,10));
+	}
+
+
+	function changePage(){
+		var id = this.id;
+		var condi = g.data;
+		var url = "";
+		switch(id){
+			case "districtNamebtn":
+				condi.k = "districtName";
+				condi.v = g.data.districtName;
+				url = "u_house/u_house_name.html";
+			break;
+			case "areabtn":
+				condi.k = "area";
+				condi.v = g.data.area;
+				url = "u_house/u_house_mianji.html";
+			break;
+			case "decorateBudgetbtn":
+				condi.k = "decorateBudget";
+				condi.v = g.data.decorateBudget;
+				url = "u_house/u_house_zhuangxiuyusuan.html";
+			break;
+			case "phonebtn":
+				condi.k = "mobile";
+				condi.v = g.data.mobile;
+				url = "u_info/u_info_phone.html";
+			break;
+			case "emailbtn":
+				condi.k = "email";
+				condi.v = g.data.email;
+				url = "u_info/u_info_email.html";
+			break;
+			case "messagebtn":
+				condi.k = "intro";
+				condi.v = g.data.intro;
+				url = "u_info/u_info_jianjie.html";
+			break;
+			case "professionbtn":
+				condi.k = "profession";
+				condi.v = g.data.profession;
+				url = "u_info/u_info_profession.html";
+			break;
+		}
+		Utils.offLineStore.set("houseinfo_update",JSON.stringify(condi),false);
+		location.href = url;
+	}
+
+
+
+
 
 	function addHome(){
 		var condi = {};
@@ -41,11 +151,7 @@ $(function(){
 		sendAddHomeHttp(condi);
 	}
 
-	function getHomeList(){
-		var condi = {};
-		condi.token = g.token;
-		sendGetHomeListHttp(condi);
-	}
+
 
 	function operateBtn(evt){
 		var cname = this.className;
@@ -129,33 +235,7 @@ $(function(){
 		});
 	}
 
-	function sendGetHomeListHttp(condi){
-		g.httpTip.show();
-		var url = Base.houses;
-		$.ajax({
-			url:url,
-			data:condi,
-			type:"GET",
-			dataType:"json",
-			context:this,
-			global:false,
-			success: function(data){
-				console.log("sendGetHomeListHttp",data);
-				g.httpTip.hide();
-				var status = data.status || "";
-				if(status == "OK"){
-					changeHomeListHtml(data);
-				}
-				else{
-					var msg = data.error || "";
-					alert("添加房屋信息错误:" + msg);
-				}
-			},
-			error:function(data){
-				g.httpTip.hide();
-			}
-		});
-	}
+
 
 	function sendDeleteHomeHttp(condi){
 		g.httpTip.show();
@@ -213,43 +293,7 @@ $(function(){
 		});
 	}
 
-	function changeHomeListHtml(data){
-		var obj = data.result || [];
-		if(obj.length > 0){
-			g.listdata = obj;
-			var html = [];
 
-			html.push('<table class="table u_ct">');
-			html.push('<tr class="u_th">');
-			html.push('<th>#</th>');
-			html.push('<th>小区名称</th>');
-			html.push('<th>面积㎡</th>');
-			html.push('<th>户型</th>');
-			html.push('<th width=100>操作</th>');
-			html.push('</tr>');
-
-			for(var i = 0,len = obj.length; i < len; i++){
-				var districtName = obj[i].districtName || "";
-				var area = obj[i].area || "";
-				var houseType = obj[i].houseType || "";
-				var id = obj[i].id || "";
-				html.push('<tr>');
-				html.push('<td >' + (i + 1) + '</td>');
-				html.push('<td >' + districtName + '</td>');
-				html.push('<td >' + area + '</td>');
-				html.push('<td >' + houseType + '</td>');
-				html.push('<td><a id="update_' + i + '" href="javascript:void(0);" class="update" >修改</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="delete_' + i + '"href="javascript:void(0);" class="delete" >删除</a></td>');
-				html.push('</tr>');
-			}
-			html.push('</table>');
-
-			$("#hometable").html(html.join(''));
-			$("#hometable  a").bind("click",operateBtn);
-			//var totalpages = data.totalPages - 0;
-			//g.totalPage = totalpages;
-			//changePageHtml(totalpages);
-		}
-	}
 
 
 });

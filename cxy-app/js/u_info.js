@@ -32,9 +32,10 @@ $(function(){
 	$("#nikenamebtn").bind("click",changePage);
 	$("#validnamebtn").bind("click",changePage);
 	$("#enamebtn").bind("click",changePage);
-	$("#phonebtn").bind("click",changePage);
+	//$("#phonebtn").bind("click",changePage);
 	$("#emailbtn").bind("click",changePage);
 	$("#messagebtn").bind("click",changePage);
+	$("#professionbtn").bind("click",changePage);
 
 	$("#constellation").bind("change",changeconstellation);
 	$("#bloodgroup").bind("change",changebloodgroup);
@@ -79,6 +80,11 @@ $(function(){
 				condi.k = "intro";
 				condi.v = g.data.intro;
 				url = "u_info/u_info_jianjie.html";
+			break;
+			case "professionbtn":
+				condi.k = "profession";
+				condi.v = g.data.profession;
+				url = "u_info/u_info_profession.html";
 			break;
 		}
 		Utils.offLineStore.set("userinfo_update",JSON.stringify(condi),false);
@@ -135,7 +141,7 @@ $(function(){
 		//星座
 		$("#constellation").val(constellation.id);
 		//行业
-		//$("#profession").val(profession);
+		$("#profession").html(profession);
 		//血型
 		$("#bloodgroup").val(bloodgroup.id);
 

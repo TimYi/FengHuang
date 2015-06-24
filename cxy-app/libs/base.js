@@ -38,6 +38,7 @@
 	var bindMobile = serverUrl + "/api/user/bindMobile";
 	var unreads = serverUrl + "/api/user/unreads";
 	var houses = serverUrl + "/api/user/houses";
+	var house = serverUrl + "/api/user/house";
 	var cases = serverUrl + "/api/product/cases";
 	var casedetails = serverUrl + "/api/product/case";
 	var lives = serverUrl + "/api/lives";
@@ -65,6 +66,7 @@
 	Base.bindMobile = bindMobile;
 	Base.unreads = unreads;
 	Base.houses = houses;
+	Base.house = house;
 	Base.cases = cases;
 	Base.casedetails = casedetails;
 	Base.lives = lives;
