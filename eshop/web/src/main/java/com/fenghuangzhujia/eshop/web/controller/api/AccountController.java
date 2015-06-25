@@ -69,7 +69,7 @@ public class AccountController {
 			@RequestParam String mobile,@RequestParam String validater, HttpServletRequest request) {
 		messageManager.validate(mobile, validater);
 		String ip=Servlets.getClientIp(request);
-		UserToken token=manager.regist(username, password, ip);
+		UserToken token=manager.regist(username, password, mobile, ip);
 		String tokenString=token.getToken();
 		return RequestResult.success(tokenString).toJson();
 	}

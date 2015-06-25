@@ -84,7 +84,7 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	}
 
 	@Override
-	public UserToken regist(String username, String password, String ip)
+	public UserToken regist(String username, String password, String mobile, String ip)
 			throws ErrorCodeException {
 		try {
 			checkAccount(username);
@@ -105,6 +105,7 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 		user.setVerified(true);
 		user.setRegIp(ip);//保存用户注册id
 		user.setRegTime(new Date());//保存用户注册时间
+		user.setMobile(mobile);
 		entryptPassword(user);
 		user=userRepository.save(user);
 		UserToken token=tokenRepository.getByUser(user);

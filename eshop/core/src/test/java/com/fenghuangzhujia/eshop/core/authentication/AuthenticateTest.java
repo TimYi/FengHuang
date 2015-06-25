@@ -32,7 +32,7 @@ public class AuthenticateTest {
 	
 	@Test
 	public void addUser() {
-		authenticationManager.regist("18612444099", "123456", null);
+		authenticationManager.regist("18612444099", "123456", "19612444099", null);
 	}
 	
 	//@Test

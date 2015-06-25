@@ -6,6 +6,28 @@
 <script type="text/javascript" src="assets/js/jquery.js"></script>
 <script type="text/javascript" src="assets/js/tinyscrollbar.js"></script>
 <script type="text/javascript" src="assets/js/leftmenu.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript">
+	function openUsrMgr(){		
+		window.parent.frames["main"].location.href=MODULE_USR_URL;
+	}
+	function openGroupMgr(){		
+		window.parent.frames["main"].location.href=MODULE_GROUP_URL;
+	}
+	function openMsgMgr(){		
+		window.parent.frames["main"].location.href=MODULE_MSG_URL;
+	}
+	function openAppointMgr(){		
+		window.parent.frames["main"].location.href=MODULE_APPOINT_URL;
+	}
+	function openCaseMgr(){		
+		window.parent.frames["main"].location.href=MODULE_CASE_URL;
+	}
+	function openLiveMgr(){		
+		window.parent.frames["main"].location.href=MODULE_LIVE_URL;
+	}
+
+</script>
 </head>
 <body>
 <div style="height:20px"></div>
@@ -41,11 +63,11 @@
 					 <a href="#" target="main">设计师管理</a>
 					 <a href="#" target="main">导购管理</a>					 					 
 					<div class="hr_1"> </div-->
-					<a href="http://localhost:8080/fhzj_web/memberlist.htm" target="main">用户管理</a> 
-					<a href="http://localhost:8080/fhzj_web/membergroup.htm" target="main">用户组</a> 
+					<a href="#" onclick ="javascript:openUsrMgr();return false;"  target="main">用户管理</a> 
+					<a href="#" onclick ="javascript:openGroupMgr();return false;"  target="main">用户组</a> 
 					<!--a href="#" target="main">用户收藏</a> 
 					<a href="#" target="main">用户评论</a-->
-					<a href="http://localhost:8080/fhzj_web/messagelist.htm" target="main">用户留言</a>
+					<a href="#" onclick ="javascript:openMsgMgr();return false;"  target="main">用户留言</a>
 				</div>
 			</div>
 			<div class="hr_5"></div>
@@ -53,7 +75,7 @@
 				<div class="title" onclick="DisplayMenu('leftmenu03');" title="点击切换显示或隐藏"> 订单模块管理 </div>
 				<div id="leftmenu03" style="display:none"> 
 					 <!--a href="#" target="main">家装套餐管理</a-->
-					 <a href="http://localhost:8080/fhzj_web/appointlist.htm" target="main">预约管理</a>
+					 <a href="#" onclick ="javascript:openAppointMgr();return false;"  target="main">预约管理</a>
 					 <!--a href="#" target="main">订单管理</a>					 					 
 					<div class="hr_1"> </div>
 					<a href="#" target="main">类型管理</a--> 
@@ -63,7 +85,7 @@
 			<div class="menubox">
 				<div class="title" onclick="DisplayMenu('leftmenu04');" title="点击切换显示或隐藏"> 案例模块管理 </div>
 				<div id="leftmenu04" style="display:none"> 
-					 <a href="http://localhost:8080/fhzj_web/caselist.htm" target="main">案例管理</a>
+					 <a href="#" onclick ="javascript:openCaseMgr();return false;"   target="main">案例管理</a>
 					 <!--a href="#" target="main">案例类型管理</a-->
 				</div>
 			</div>
@@ -71,7 +93,7 @@
 			<div class="menubox">
 				<div class="title" onclick="DisplayMenu('leftmenu05');" title="点击切换显示或隐藏"> 直播厅模块管理 </div>
 				<div id="leftmenu05" style="display:none"> 
-					 <a href="http://localhost:8080/fhzj_web/livelist.htm" target="main">直播厅管理</a>
+					 <a href="#" onclick ="javascript:openLiveMgr();return false;" target="main">直播厅管理</a>
 					 <!--a href="#" target="main">直播厅类型管理</a-->
 				</div>
 			</div>
