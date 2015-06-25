@@ -19,6 +19,7 @@
 		<module>eshop</module>
 		<module>weixin</module>
 		<module>weixin-common</module>
+		<module>pufa-pay</module>
   	</modules>
 	
 	<properties>
