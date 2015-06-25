@@ -350,11 +350,12 @@ $(function(){
 			mobile:电话号码
 			*/
 			condi.token = g.token;
-			condi.typeid = $("#typeid2").val() || "";
-			condi.name = $("#name2").val() || "";
+			condi.decoratePackageId = Utils.getQueryString("id") ||"";
+			condi.cityId = $("#cityId2").val() || "";
 			condi.mobile = $("#phone2").val() || "";
+			condi.realName = $("#name2").val() || "";
 			condi.captcha = $("#inputImgCode32").val() || "";
-			condi.msgcode = $("#msgcode2").val() || "";
+			condi.validater = $("#msgcode2").val() || "";
 
 			if(condi.name !== ""){
 				if(condi.mobile !== ""){
@@ -493,7 +494,7 @@ $(function(){
 	}
 
 	function sendAppointHttp2(condi){
-		var url = Base.getCodeUrl;
+		var url = Base.packageAppointUrl;
 		g.httpTip.show();
 		$.ajax({
 			url:url,
@@ -503,12 +504,13 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log(sendAppointHttp,data);
+				console.log("sendAppointHttp2",data);
 				var status = data.status || "";
 				if(status == "OK"){
+					Utils.alert("预约成功");
 				}
 				else{
-					alert("预约失败");
+					Utils.alert("预约失败");
 				}
 				g.httpTip.hide();
 			},

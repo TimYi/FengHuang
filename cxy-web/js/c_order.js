@@ -48,14 +48,15 @@ $(function(){
 			html.push('</tr>');
 
 			for(var i = 0,len = obj.length; i < len; i++){
-				var msg = obj[i].content || "";
-				var name = "系统管理员";
+				var id = obj[i].id|| "";
+				var name = obj[i].name || "";
+				var type = obj[i].type || "";
 				var time =  "2015-06-02 10:00";
 				html.push('<tr>');
-				html.push('<td >' + msg + '</td>');
 				html.push('<td >' + name + '</td>');
+				html.push('<td >' + type + '</td>');
 				html.push('<td >' + time + '</td>');
-				html.push('<td><a href="#">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">删除</a></td>');
+				html.push('<td><a href="c_order_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">删除</a></td>');
 				html.push('</tr>');
 			}
 			html.push('</table>');
@@ -171,7 +172,6 @@ $(function(){
 	}
 
 
-	//获取我的留言
 	function sendGetMyOrderHttp(condi){
 		var url = Base.orderUrl;
 		$.ajax({
@@ -182,7 +182,7 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log(data);
+				console.log("sendGetMyOrderHttp",data);
 				var status = data.status || "";
 				if(status == "OK"){
 					changeOrderListHtml(data.result);

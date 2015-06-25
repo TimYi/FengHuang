@@ -7,7 +7,7 @@ $(function(){
 	g.sendCode2 = false;
 	g.sendTime = 60;
 	g.username = Base.userName;
-	g.token = Utils.getQueryString("token");
+	g.token = Utils.offLineStore.get("token",false);
 	g.page = Utils.getQueryString("p") - 0;
 	g.totalPage = 1;
 	g.currentPage = 1;
@@ -293,11 +293,12 @@ g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
 			mobile:电话号码
 			*/
 			condi.token = g.token;
-			condi.typeid = $("#typeid").val() || "";
-			condi.name = $("#name").val() || "";
+			condi.decoratePackageId = Utils.getQueryString("id") ||"";
+			condi.cityId = $("#cityId").val() || "";
 			condi.mobile = $("#phone").val() || "";
+			condi.realName = $("#name").val() || "";
 			condi.captcha = $("#inputImgCode3").val() || "";
-			condi.msgcode = $("#msgcode").val() || "";
+			condi.validater = $("#msgcode").val() || "";
 
 			if(condi.name !== ""){
 				if(condi.mobile !== ""){
@@ -348,11 +349,12 @@ g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
 			mobile:电话号码
 			*/
 			condi.token = g.token;
-			condi.typeid = $("#typeid2").val() || "";
-			condi.name = $("#name2").val() || "";
+			condi.decoratePackageId = Utils.getQueryString("id") ||"";
+			condi.cityId = $("#cityId2").val() || "";
 			condi.mobile = $("#phone2").val() || "";
+			condi.realName = $("#name2").val() || "";
 			condi.captcha = $("#inputImgCode32").val() || "";
-			condi.msgcode = $("#msgcode2").val() || "";
+			condi.validater = $("#msgcode2").val() || "";
 
 			if(condi.name !== ""){
 				if(condi.mobile !== ""){
@@ -464,7 +466,7 @@ g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
 
 
 	function sendAppointHttp(condi){
-		var url = Base.getCodeUrl;
+		var url = Base.packageAppointUrl;
 		g.httpTip.show();
 		$.ajax({
 			url:url,
@@ -474,12 +476,13 @@ g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
 			context:this,
 			global:false,
 			success: function(data){
-				console.log(sendAppointHttp,data);
+				console.log("sendAppointHttp",data);
 				var status = data.status || "";
 				if(status == "OK"){
+					Utils.alert("预约成功");
 				}
 				else{
-					alert("预约失败");
+					Utils.alert("预约失败");
 				}
 				g.httpTip.hide();
 			},
@@ -490,7 +493,7 @@ g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
 	}
 
 	function sendAppointHttp2(condi){
-		var url = Base.getCodeUrl;
+		var url = Base.packageAppointUrl;
 		g.httpTip.show();
 		$.ajax({
 			url:url,
@@ -500,12 +503,13 @@ g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
 			context:this,
 			global:false,
 			success: function(data){
-				console.log(sendAppointHttp,data);
+				console.log("sendAppointHttp",data);
 				var status = data.status || "";
 				if(status == "OK"){
+					Utils.alert("预约成功");
 				}
 				else{
-					alert("预约失败");
+					Utils.alert("预约失败");
 				}
 				g.httpTip.hide();
 			},
