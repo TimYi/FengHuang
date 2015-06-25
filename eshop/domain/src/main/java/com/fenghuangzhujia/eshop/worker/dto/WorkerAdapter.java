@@ -42,7 +42,8 @@ public class WorkerAdapter extends AbstractDtoAdapter<Worker, WorkerDto, WorkerI
 	/**创建工人账户的同时，创建一个普通用户账户，和工人账户关联，并为普通用户账户添加WORKER权限*/
 	@Override
 	public Worker postConvertToDo(WorkerInputArgs i, Worker d) {
-		UserToken token=authenticationManager.regist(i.getUsername(), i.getPassword(), null);//建立新工人用户
+		//WARN 可能应该连同手机号码一同保存
+		UserToken token=authenticationManager.regist(i.getUsername(), i.getPassword(), null, null);//建立新工人用户
 		User user=token.getUser();
 		Role role=roleRepository.getByName(AuthorityValues.WORKER);
 		if(role.getUsers()==null) {

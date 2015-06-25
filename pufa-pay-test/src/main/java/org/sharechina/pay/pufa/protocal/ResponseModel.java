@@ -56,8 +56,8 @@ public class ResponseModel<T> {
 	private void success(Class<T> tClass) throws SignatureException {
 		this.success=true;
 		boolean isSignSuccess=MerchantSignVerify.merchantVerifyPayGate_ABA(Signature, Plain);
-		data=PlainData.fromPlain(tClass, Plain);
 		if(!isSignSuccess)throw new SignatureException();
+		data=PlainData.fromPlain(tClass, Plain);		
 	}
 	
 	private void fail() {

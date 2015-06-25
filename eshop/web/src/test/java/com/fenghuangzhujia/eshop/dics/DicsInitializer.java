@@ -23,6 +23,7 @@ public class DicsInitializer {
 	/**
 	 * 高级定制字典类
 	 */
+	@Test
 	public void initServiceType() {
 		String name="预约类型";
 		String remark="预约类型";
@@ -289,7 +290,7 @@ public class DicsInitializer {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void initWorkerTypes() {
 		String name="工种";
 		String remark="工人工种";

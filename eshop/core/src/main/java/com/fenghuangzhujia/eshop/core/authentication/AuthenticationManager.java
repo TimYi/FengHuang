@@ -48,7 +48,7 @@ public interface AuthenticationManager extends UserDetailsService {
 	 * @return
 	 * @throws RegistException
 	 */
-	UserToken regist(String username, String password, String ip) throws ErrorCodeException;
+	UserToken regist(String username, String password, String mobile, String ip) throws ErrorCodeException;
 	
 	/**
 	 * 用户自行变更密码
