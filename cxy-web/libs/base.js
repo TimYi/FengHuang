@@ -19,6 +19,10 @@
 
 	//请求服务地址
 	var serverUrl = "http://101.200.229.135:8080";
+
+	var categoryUrl = serverUrl + "/api/category";
+	var cityUrl = serverUrl + "/api/area/level";
+	var subareasUrl = serverUrl + "/api/area/subareas";
 	var getCodeUrl = serverUrl + "/api/message";
 	var regUrl = serverUrl + "/api/regist";
 	var loginUrl = serverUrl + "/api/login";
@@ -42,10 +46,16 @@
 	var casedetails = serverUrl + "/api/product/case";
 	var lives = serverUrl + "/api/lives";
 	var live = serverUrl + "/api/live";
+	var packagesUrl = serverUrl + "/api/product/packages";
+	var packageAppointUrl = serverUrl + "/api/user/packageAppoint";
 
 	Base.userName = userName;
 	Base.urlPort = urlPort;
 	Base.maskTimeOut = maskTimeOut;
+
+	Base.categoryUrl = categoryUrl;
+	Base.cityUrl = cityUrl;
+	Base.subareasUrl = subareasUrl;
 	Base.getCodeUrl = getCodeUrl;
 	Base.regUrl = regUrl;
 	Base.loginUrl = loginUrl;
@@ -69,6 +79,8 @@
 	Base.casedetails = casedetails;
 	Base.lives = lives;
 	Base.live = live;
+	Base.packagesUrl = packagesUrl;
+	Base.packageAppointUrl = packageAppointUrl;
 }(window));
 
 

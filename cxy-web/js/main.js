@@ -80,17 +80,29 @@ $(function(){
 	g.sendCode2 = false;
 	g.sendTime = 60;
 	g.username = Base.userName;
-	g.token = Utils.getQueryString("token");
+	g.token = Utils.offLineStore.get("token",false);
 	g.page = Utils.getQueryString("p") - 0;
 	g.totalPage = 1;
 	g.currentPage = 1;
 	g.paseSize = 20;
 	g.httpTip = new Utils.httpTip({});
 	g.listdata = [];
-
+	g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
 	//验证登录状态
 	g.loginStatus = Utils.getUserInfo();
+	if(g.loginStatus && g.userprofile !== ""){
+		var obj = JSON.parse(g.userprofile);
+		var name = obj.realName || "";
+		var mobile = obj.mobile || "";
+		$("#name").val(name);
+		$("#phone").val(mobile);
 
+		$("#name2").val(name);
+		$("#phone2").val(mobile);
+
+		getImgCode();
+		getImgCode2();
+	}
 
 	$("#phone").bind("blur",getImgCode);
 	$("#imgcodebtn").bind("click",getImgCode);
@@ -101,6 +113,125 @@ $(function(){
 	$("#imgcodebtn2").bind("click",getImgCode2);
 	$("#getcodebtn2").bind("click",getValidCode2);
 	$("#reservebtn2").bind("click",reserverBtnUp2);
+
+	$("#provId").bind("change",getProvCity);
+	$("#provId2").bind("change",getProvCity2);
+
+	getAppointCategory();
+	getProv();
+	getPackages();
+	function getProvCity(){
+		var id = $(this).val();
+		getCity(id,1);
+	}
+	function getProvCity2(){
+		var id = $(this).val();
+		getCity(id,2);
+	}
+	//获取字典
+	function getAppointCategory(){
+		var url = Base.categoryUrl + "/appoint";
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:{},
+			type:"GET",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("getAppointCategory",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					changeSelectHtml("typeid",data.result || []);
+					changeSelectHtml("typeid2",data.result || []);
+				}
+				else{
+					Utils.alert("预约类别获取失败");
+				}
+				g.httpTip.hide();
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+	function getProv(){
+		var url = Base.cityUrl + "/PROV";
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:{},
+			type:"GET",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("getProv",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					changeSelectHtml("provId",data.result || []);
+					changeSelectHtml("provId2",data.result || []);
+					var id = data.result[0].id;
+					getCity(id,0);
+				}
+				else{
+					Utils.alert("城市获取失败");
+				}
+				g.httpTip.hide();
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+	function getCity(id,b){
+		var url = Base.subareasUrl + "/" + id;
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:{},
+			type:"GET",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("getCity",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					switch(b){
+						case 0:
+							changeSelectHtml("cityId",data.result || []);
+							changeSelectHtml("cityId2",data.result || []);
+						break;
+						case 1:
+							changeSelectHtml("cityId",data.result || []);
+						break;
+						case 2:
+							changeSelectHtml("cityId2",data.result || []);
+						break;
+					}
+				}
+				else{
+					Utils.alert("城市获取失败");
+				}
+				g.httpTip.hide();
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+	function changeSelectHtml(domid,data){
+		var option = [];
+		for(var i = 0,len = data.length; i < len; i++){
+			var id = data[i].id || "";
+			var name = data[i].name || "";
+			option.push('<option value="' + id + '"' + ( i == 0 ? "selected" : "") + '>' + name + '</option>');
+		}
+		$("#" + domid).html(option.join(''));
+	}
+
 
 	//获取图形验证码
 	function getImgCode(evt){
@@ -123,7 +254,7 @@ $(function(){
 
 	//获取验证码
 	function getValidCode(evt){
-		var ele = evt.currentTarget;
+		//var ele = evt.currentTarget;
 		//$(ele).removeClass("curr");
 		//if(!this.moved){}
 		var p = $("#phone").val() || "";
@@ -230,17 +361,19 @@ $(function(){
 			var condi = {};
 			/*
 			token:用户凭据
-			typeid:预约类别（字典类型名称：appoint）
-			areaid:地区id
-			address:手动填写地址
-			mobile:电话号码
+			typeId:预约类别（字典类型名称：appoint）
+			cityId:城市id，通过area相关接口获取
+			mobile:电话号码，暂时这个字段不需要传，会默认使用用户绑定手机号码
+			realName:用户真实姓名
+			validater:根据用户绑定手机号码，发送的短信验证码
 			*/
 			condi.token = g.token;
-			condi.typeid = $("#typeid").val() || "";
-			condi.name = $("#name").val() || "";
+			condi.typeId = $("#typeid").val() || "";
+			condi.cityId = $("#cityId").val() || "";
+			condi.realName = $("#name").val() || "";
 			condi.mobile = $("#phone").val() || "";
 			condi.captcha = $("#inputImgCode3").val() || "";
-			condi.msgcode = $("#msgcode").val() || "";
+			condi.validater = $("#msgcode").val() || "";
 
 			if(condi.name !== ""){
 				if(condi.mobile !== ""){
@@ -285,17 +418,19 @@ $(function(){
 			var condi = {};
 			/*
 			token:用户凭据
-			typeid:预约类别（字典类型名称：appoint）
-			areaid:地区id
-			address:手动填写地址
-			mobile:电话号码
+			typeId:预约类别（字典类型名称：appoint）
+			cityId:城市id，通过area相关接口获取
+			mobile:电话号码，暂时这个字段不需要传，会默认使用用户绑定手机号码
+			realName:用户真实姓名
+			validater:根据用户绑定手机号码，发送的短信验证码
 			*/
 			condi.token = g.token;
-			condi.typeid = $("#typeid2").val() || "";
+			condi.typeId = $("#typeid2").val() || "";
+			condi.cityId = $("#cityId2").val() || "";
 			condi.name = $("#name2").val() || "";
 			condi.mobile = $("#phone2").val() || "";
 			condi.captcha = $("#inputImgCode32").val() || "";
-			condi.msgcode = $("#msgcode2").val() || "";
+			condi.validater = $("#msgcode2").val() || "";
 
 			if(condi.name !== ""){
 				if(condi.mobile !== ""){
@@ -407,7 +542,7 @@ $(function(){
 
 
 	function sendAppointHttp(condi){
-		var url = Base.getCodeUrl;
+		var url = Base.appointUrl;
 		g.httpTip.show();
 		$.ajax({
 			url:url,
@@ -417,12 +552,13 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log(sendAppointHttp,data);
+				console.log("sendAppointHttp",data);
 				var status = data.status || "";
 				if(status == "OK"){
+					Utils.alert("预约服务成功");
 				}
 				else{
-					alert("预约失败");
+					Utils.alert("预约服务失败");
 				}
 				g.httpTip.hide();
 			},
@@ -433,7 +569,7 @@ $(function(){
 	}
 
 	function sendAppointHttp2(condi){
-		var url = Base.getCodeUrl;
+		var url = Base.appointUrl;
 		g.httpTip.show();
 		$.ajax({
 			url:url,
@@ -443,12 +579,13 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log(sendAppointHttp,data);
+				console.log("sendAppointHttp2",data);
 				var status = data.status || "";
 				if(status == "OK"){
+					Utils.alert("预约服务成功");
 				}
 				else{
-					alert("预约失败");
+					Utils.alert("预约服务失败");
 				}
 				g.httpTip.hide();
 			},
@@ -456,6 +593,130 @@ $(function(){
 				g.httpTip.hide();
 			}
 		});
+	}
+
+
+	function getPackages(){
+		var url = Base.packagesUrl;
+		var condi = {};
+		condi.token = g.token;
+		condi.page = 1;
+		condi.size = 10;
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"GET",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("getPackages",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					changePackageList(data.result.result);
+				}
+				else{
+					Utils.alert("套餐列表获取失败");
+				}
+				g.httpTip.hide();
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+
+	function changePackageList(data){
+		var html = [];
+
+		html.push('<div class="center wow fadeInDown">');
+		html.push('<h2>家装套餐 <span style="font-size:24px">Home Renovation Packages</span></h2>');
+		html.push('<p class="lead">2015年6月10日上午10时开放，首期2000套，先到先得。简装、精装、旧居智能改造全系优惠</p>');
+		html.push('</div>');
+
+		html.push('<div class="row">');
+
+		for(var i = 0,len = data.length; i < len; i++){
+			var obj = data[i];
+			var id = obj.id || "";
+			var price = obj.price || "";
+			var decorate = obj.decorate || "";
+			var description = obj.description || "";
+			var status = obj.status || "";
+			var inStock = obj.inStock - 0 || 0;
+			var saleNumber = obj.saleNumber - 0 || 0;
+			var scrambleStartTime = obj.scrambleStartTime || "";
+			var scrambleEndTime = obj.scrambleEndTime || "";
+			//status = "SCRAMBLE";
+			html.push('<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">');
+			html.push('<div class="feature-wrap" style="height:240px;">');
+			html.push('<h3>');
+			html.push('<span style="font-weight:600;color:#666">RMB</span>&nbsp;&nbsp;');
+			html.push('<span style="color:#000;font-size:24px;font-weight:600">' + price + '</span>');
+			html.push('<span style="color:#000;font-weight:800;">元/平米</span>');
+			html.push('<span style="font-weight:800;color:#000">【' + decorate + '】</span>');
+			html.push('</h3>');
+			html.push('<h3 style="margin:-5px 0 0 0;">');
+			html.push('<span style="color:#999;font-size:14px;line-height:12px;">' + description + '</span>');
+			html.push('</h3>');
+			html.push('<div style="margin:20px 0 10px 70px;">');
+
+			if(status == "PREPARE"){
+				html.push('<div style="height:45px;width:160px;background:none;border:1px solid #ccc;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">');
+				html.push('<a href="javascript:void(0);">');
+				html.push('<div style="text-align:center;line-height:45px;font-size:16px;color:#000;">即将开始</div>');
+				html.push('</a>');
+				html.push('</div>');
+
+				html.push('</div>');
+				html.push('<div style="text-align:center;line-height:14x;font-size:14px;color:#000;">');
+				html.push('<span style="color:#999">抢购开始时间：</span>' + scrambleStartTime);
+				html.push('</div>');
+			}
+			else if(status == "SCRAMBLE"){
+				html.push('<div style="height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">');
+				html.push('<a href="miaosha.html?id=' + id + '">');
+				html.push('<div style="text-align:center;line-height:45px;font-size:16px;color:#000;">立即抢购</div>');
+				html.push('</a>');
+				html.push('</div>');
+
+				html.push('</div>');
+				html.push('<div style="text-align:center;line-height:14x;font-size:14px;color:#000;">');
+				html.push('<span style="color:#999">剩余数量：</span>' + saleNumber + '套 / 共' + inStock + '套');
+				html.push('</div>');
+			}
+			else{
+				html.push('<div style="height:45px;width:160px;background:none;border:1px solid #ccc;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">');
+				html.push('<a href="javascript:void(0);">');
+				html.push('<div style="text-align:center;line-height:45px;font-size:16px;color:#000;">已抢完</div>');
+				html.push('</a>');
+				html.push('</div>');
+
+				html.push('</div>');
+				html.push('<div style="text-align:center;line-height:14x;font-size:14px;color:#000;">');
+				html.push('<span style="color:#999">下次开放时间：</span>2015年6月20日上午10时');
+				html.push('</div>');
+			}
+
+
+			html.push('</div>');
+			html.push('<div style="height:240px;width:360px;">');
+			if(price == 499){
+				html.push('<img src="images/u_1.jpg" width=360 height=240>');
+			}
+			else if(price == 699){
+				html.push('<img src="images/u_2.jpg" width=360 height=240>');
+			}
+			else{
+				html.push('<img src="images/u_3.jpg" width=360 height=240>');
+			}
+			html.push('</div>');
+			html.push('</div>');
+		}
+
+		$("#packagelist").html(html.join(''));
+		$("#packagelist").show();
 	}
 });
 

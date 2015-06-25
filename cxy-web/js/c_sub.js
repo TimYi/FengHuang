@@ -33,7 +33,6 @@ $(function(){
 		sendGetMySubHttp(condi);
 	}
 
-	//修改我的留言列表
 	function changeSubListHtml(data){
 		var obj = data.result || [];
 		if(obj.length > 0){
@@ -47,14 +46,17 @@ $(function(){
 			html.push('</tr>');
 
 			for(var i = 0,len = obj.length; i < len; i++){
-				var msg = obj[i].content || "";
-				var name = "系统管理员";
-				var time =  "2015-06-02 10:00";
+				var d = obj[i];
+				var id = d.id || "";
+				var num = "";
+				var type = d.type.name || "";
+				var createTime = d.createTime || "";
+				createTime.substring(0,10);
 				html.push('<tr>');
-				html.push('<td >' + msg + '</td>');
-				html.push('<td >' + name + '</td>');
-				html.push('<td >' + time + '</td>');
-				html.push('<td><a href="c_sub_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '" >查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">修改</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">取消</a></td>');
+				html.push('<td >' + num + '</td>');
+				html.push('<td >' + type + '</td>');
+				html.push('<td >' + createTime + '</td>');
+				html.push('<td><a href="c_sub_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '" >查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:void(0);">删除</a></td>');
 				html.push('</tr>');
 			}
 			html.push('</table>');
@@ -170,7 +172,6 @@ $(function(){
 	}
 
 
-	//获取我的留言
 	function sendGetMySubHttp(condi){
 		var url = Base.appointsUrl;
 		$.ajax({

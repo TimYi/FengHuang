@@ -380,6 +380,7 @@ $(function(){
 				var status = data.status || "";
 				if(status == "OK"){
 					setUserInfoHtml(data.result);
+					Utils.offLineStore.set("login_userprofile",JSON.stringify(data.result.user),false);
 				}
 				else{
 					var msg = data.error || "";

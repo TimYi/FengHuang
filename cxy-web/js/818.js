@@ -15,8 +15,22 @@ $(function(){
 	g.httpTip = new Utils.httpTip({});
 	g.listdata = [];
 
+	g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
 	//验证登录状态
 	g.loginStatus = Utils.getUserInfo();
+	if(g.loginStatus && g.userprofile !== ""){
+		var obj = JSON.parse(g.userprofile);
+		var name = obj.realName || "";
+		var mobile = obj.mobile || "";
+		$("#name").val(name);
+		$("#phone").val(mobile);
+
+		$("#name2").val(name);
+		$("#phone2").val(mobile);
+
+		getImgCode();
+		getImgCode2();
+	}
 
 
 	$("#phone").bind("blur",getImgCode);
@@ -28,6 +42,123 @@ $(function(){
 	$("#imgcodebtn2").bind("click",getImgCode2);
 	$("#getcodebtn2").bind("click",getValidCode2);
 	$("#buybtn2").bind("click",buyBtnUp2);
+
+	$("#provId").bind("change",getProvCity);
+	$("#provId2").bind("change",getProvCity2);
+
+	getAppointCategory();
+	getProv();
+	function getProvCity(){
+		var id = $(this).val();
+		getCity(id,1);
+	}
+	function getProvCity2(){
+		var id = $(this).val();
+		getCity(id,2);
+	}
+	//获取字典
+	function getAppointCategory(){
+		var url = Base.categoryUrl + "/appoint";
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:{},
+			type:"GET",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("getAppointCategory",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					changeSelectHtml("typeid",data.result || []);
+					changeSelectHtml("typeid2",data.result || []);
+				}
+				else{
+					Utils.alert("预约类别获取失败");
+				}
+				g.httpTip.hide();
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+	function getProv(){
+		var url = Base.cityUrl + "/PROV";
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:{},
+			type:"GET",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("getProv",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					changeSelectHtml("provId",data.result || []);
+					changeSelectHtml("provId2",data.result || []);
+					var id = data.result[0].id;
+					getCity(id,0);
+				}
+				else{
+					Utils.alert("城市获取失败");
+				}
+				g.httpTip.hide();
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+	function getCity(id,b){
+		var url = Base.subareasUrl + "/" + id;
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:{},
+			type:"GET",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("getCity",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					switch(b){
+						case 0:
+							changeSelectHtml("cityId",data.result || []);
+							changeSelectHtml("cityId2",data.result || []);
+						break;
+						case 1:
+							changeSelectHtml("cityId",data.result || []);
+						break;
+						case 2:
+							changeSelectHtml("cityId2",data.result || []);
+						break;
+					}
+				}
+				else{
+					Utils.alert("城市获取失败");
+				}
+				g.httpTip.hide();
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+	function changeSelectHtml(domid,data){
+		var option = [];
+		for(var i = 0,len = data.length; i < len; i++){
+			var id = data[i].id || "";
+			var name = data[i].name || "";
+			option.push('<option value="' + id + '"' + ( i == 0 ? "selected" : "") + '>' + name + '</option>');
+		}
+		$("#" + domid).html(option.join(''));
+	}
 
 	//获取图形验证码
 	function getImgCode(evt){

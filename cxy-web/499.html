@@ -12,6 +12,7 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
@@ -77,7 +78,7 @@
                         <li><a href="index.html">首页</a></li>
                         <li class="dropdown active">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">家装套餐 <i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu">
+                            <ul id="packages" class="dropdown-menu">
                                 <li><a href="499.html">499套餐</a></li>
                                 <li><a href="699.html">699套餐</a></li>
                                 <li><a href="818.html">818套餐</a></li>
@@ -134,8 +135,19 @@
                                     <!--a class="btn-slide animation animated-item-3" href="#">了解详情</a-->
                                 </div>
                             </div>
-						                <div class="col-xs-12 col-sm-5 wow fadeInDown" style="margin:80px 0 0 90px;display:none1;">
-									<div class="form-horizontal piao" style="height:330px;">
+						                <div class="col-xs-12 col-sm-5 wow fadeInDown" style="margin:40px 0 0 90px;display:none1;">
+									<div class="form-horizontal piao" style="height:370px;">
+										 <div class="form-group">
+									<label for="provId" class="col-sm-2 control-label">城市</label>
+									<div class="col-sm-10" style="width:38%">
+										<select id="provId" name="zhuangxiu" class="u_sel" style="width:136px">
+										</select>
+									</div>
+									<div class="col-sm-10" style="width:37%">
+										<select id="cityId" name="zhuangxiu" class="u_sel" style="width:137px">
+										</select>
+									</div>
+							  </div>
 											<div class="form-group">
 												<label for="name" class="col-sm-2 control-label">姓　名</label>
 												<div class="col-sm-10" style="width:83%">
@@ -145,7 +157,7 @@
 										  <div class="form-group">
 											    <label for="phone" class="col-sm-2 control-label">手机号</label>
 											    <div class="col-sm-10" style="width:83%">
-												<input type="text" maxLength=11 class="form-control" id="phone" placeholder="中国大陆手机号">
+												<input type="text" maxLength=11 readOnly class="form-control" id="phone" placeholder="中国大陆手机号">
 											    </div>
 										  </div>
 
@@ -166,7 +178,7 @@
 										  </div>
 										  <div class="form-group" style="margin-top:-20px">
 											<div class="col-sm-offset-2 col-sm-10">
-												<a id="buybtn" class="btn-slide" href="javascript:void(0);" style="background:orange;font-size:20px;color:#000;padding:15px 30px;font-weight:800;-moz-border-radius: 7px;-webkit-border-radius: 7px;border-radius:7px;">立即抢购 499 套餐</a>
+												<a id="buybtn" class="btn-slide" href="javascript:void(0);" style="background:orange;font-size:20px;color:#000;padding:15px 30px;font-weight:800;-moz-border-radius: 7px;-webkit-border-radius: 7px;border-radius:7px;">立即预约 499 套餐</a>
 											</div>
 										  </div>
 									</div>
@@ -190,8 +202,19 @@
                                     <!--a class="btn-slide animation animated-item-3" href="#">了解详情</a-->
                                 </div>
                             </div>
-						                <div class="col-xs-12 col-sm-5 wow fadeInDown" style="margin:80px 0 0 90px;display:none1;">
-									<div class="form-horizontal piao" style="height:330px;">
+						                <div class="col-xs-12 col-sm-5 wow fadeInDown" style="margin:40px 0 0 90px;display:none1;">
+									<div class="form-horizontal piao" style="height:370px;">
+										<div class="form-group">
+									<label for="provId2" class="col-sm-2 control-label">城市</label>
+									<div class="col-sm-10" style="width:38%">
+										<select id="provId2" name="zhuangxiu" class="u_sel" style="width:136px">
+										</select>
+									</div>
+									<div class="col-sm-10" style="width:37%">
+										<select id="cityId2" name="zhuangxiu" class="u_sel" style="width:137px">
+										</select>
+									</div>
+							  </div>
 											<div class="form-group">
 												<label for="name2" class="col-sm-2 control-label">姓　名</label>
 												<div class="col-sm-10" style="width:83%">
@@ -201,7 +224,7 @@
 										  <div class="form-group">
 											    <label for="phone2" class="col-sm-2 control-label">手机号</label>
 											    <div class="col-sm-10" style="width:83%">
-												<input type="text" maxLength=11 class="form-control" id="phone2" placeholder="中国大陆手机号">
+												<input type="text" maxLength=11 readOnly class="form-control" id="phone2" placeholder="中国大陆手机号">
 											    </div>
 										  </div>
 
@@ -222,7 +245,7 @@
 										  </div>
 										  <div class="form-group" style="margin-top:-20px">
 											<div class="col-sm-offset-2 col-sm-10">
-												<a id="buybtn2" class="btn-slide" href="javascript:void(0);" style="background:orange;font-size:20px;color:#000;padding:15px 30px;font-weight:800;-moz-border-radius: 7px;-webkit-border-radius: 7px;border-radius:7px;">立即抢购 499 套餐</a>
+												<a id="buybtn2" class="btn-slide" href="javascript:void(0);" style="background:orange;font-size:20px;color:#000;padding:15px 30px;font-weight:800;-moz-border-radius: 7px;-webkit-border-radius: 7px;border-radius:7px;">立即预约 499 套餐</a>
 											</div>
 										  </div>
 									</div>
@@ -1073,5 +1096,6 @@
 	<script src="libs/base.js"></script>
 	<script src="libs/utils.js"></script>
 	<script src="js/499.js"></script>
+	<script src="js/nav.js"></script>
 </body>
 </html>

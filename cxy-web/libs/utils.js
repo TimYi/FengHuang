@@ -217,6 +217,34 @@ Array.prototype.remove = function(n){
 		}
 	};
 
+	function setCookie(c_name,value,expiredays){
+		var exdate = new Date();
+		exdate.setTime(exdate.getTime() + (expiredays * 24 * 60 * 60 * 1000));
+		document.cookie = c_name + "=" + escape(value) + ";expires=" + exdate.toGMTString();
+	}
+
+	//取回cookie
+	function getCookie(name){
+		var arr,reg = new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+		if(arr = document.cookie.match(reg)){
+			return unescape(arr[2]);
+		}
+		else{
+			return "";
+		}
+	}
+
+	//删除cookies
+	function delCookie(name){
+		var exp = new Date();
+		exp.setTime(exp.getTime() - 1);
+		var cval = getCookie(name);
+		if(cval != null){
+			document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+		}
+	}
+
+
 	//var undefinedType = void 0;
 	//var isEnableStore = "localStorage" in window && localStore !== null && localStore !== undefinedType;
 	//离线存储控制器
@@ -251,18 +279,24 @@ Array.prototype.remove = function(n){
 				}
 			}
 			else{
-				alert("浏览器不支持本地存储");
+				setCookie(key,value);
 			}
 		},
 		//清楚本地缓存
 		remove: function(key,forever){
-			if(forever){
-				//删除永久保存数据
-				localStorage.removeItem(key);
+			var localStorage = window.localStorage || "";
+			if (localStorage !== null && localStorage !== "") {
+				if(forever){
+					//删除永久保存数据
+					localStorage.removeItem(key);
+				}
+				else{
+					//删除临时保存数据
+					sessionStorage.removeItem(key);
+				}
 			}
 			else{
-				//删除临时保存数据
-				sessionStorage.removeItem(key);
+				delCookie(key);
 			}
 		},
 		/**
@@ -272,12 +306,18 @@ Array.prototype.remove = function(n){
 		* @private
 		*/
 		get: function(key,forever) {
-			if(forever){
-				return localStorage.getItem(key) || "";
-				//return isEnableStore && this.isExist(key) ? localStore.getItem(key) : "";
+			var localStorage = window.localStorage || "";
+			if (localStorage !== null && localStorage !== "") {
+				if(forever){
+					return localStorage.getItem(key) || "";
+					//return isEnableStore && this.isExist(key) ? localStore.getItem(key) : "";
+				}
+				else{
+					return sessionStorage.getItem(key) || "";
+				}
 			}
 			else{
-				return sessionStorage.getItem(key) || "";
+				return getCookie(key);
 			}
 		},
 		/**
@@ -411,7 +451,7 @@ Array.prototype.remove = function(n){
 			var userName = obj.username;
 			//已登录
 			var html = [];
-			var token = Utils.offLineStore.get("token",false)|| "";
+			var token = Utils.offLineStore.get("token",false) || "";
 			var str = "";
 			if(token !== ""){
 				str = "?token=" + token + "&page=0";
@@ -431,6 +471,7 @@ Array.prototype.remove = function(n){
 	//安全退出
 	function loginOut(){
 		Utils.offLineStore.remove("userinfo",false);
+		Utils.offLineStore.remove("login_userprofile",false);
 		location.href = "index.html";
 	}
 
@@ -447,3 +488,5 @@ Array.prototype.remove = function(n){
 	Utils.getUserInfo = getUserInfo;
 	Utils.loginOut = loginOut;
 }(window));
+
+

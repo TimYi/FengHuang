@@ -78,10 +78,12 @@
                         <li class="active"><a href="index.html">首页</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">家装套餐 <i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="499.html">499套餐</a></li>
+                            <ul id="packages" class="dropdown-menu">
+				    <!--
+                                <li><a href="499.html?id=404040e64df692b2014df695b5650000">499套餐</a></li>
                                 <li><a href="699.html">699套餐</a></li>
                                 <li><a href="818.html">818套餐</a></li>
+                                -->
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -139,16 +141,27 @@
                             </div>
 
 
-					<div class="col-xs-12 col-sm-5 wow fadeInDown" style="margin:50px 0 0 90px">
-						<div class="form-horizontal piao_mid" style="height:380px;">
+					<div class="col-xs-12 col-sm-5 wow fadeInDown" style="margin:20px 0 0 90px">
+						<div class="form-horizontal piao_mid" style="height:420px;">
 							  <div class="form-group">
 									<label for="typeid" class="col-sm-2 control-label">预约类型</label>
 									<div class="col-sm-10" style="width:83%">
 										<select id="typeid" name="zhuangxiu" class="u_sel" style="width:278px">
-											<option value="volvo" selected="selected">预约免费量房</option>
-											<option value="saab">预约免费设计</option>
-											<option value="fiat">预约家装套餐</option>
-											<option value="fiat">预约体验馆</option>
+											<option value="404040e64e286b93014e286ba43b0001" selected="selected">验房</option>
+											<option value="404040e64e286b93014e286ba46a0002">量房</option>
+											<option value="404040e64e286b93014e286ba4a80003">设计</option>
+										</select>
+									</div>
+							  </div>
+
+							 <div class="form-group">
+									<label for="provId" class="col-sm-2 control-label">城市</label>
+									<div class="col-sm-10" style="width:38%">
+										<select id="provId" name="zhuangxiu" class="u_sel" style="width:136px">
+										</select>
+									</div>
+									<div class="col-sm-10" style="width:37%">
+										<select id="cityId" name="zhuangxiu" class="u_sel" style="width:137px">
 										</select>
 									</div>
 							  </div>
@@ -161,7 +174,7 @@
 							  <div class="form-group">
 								<label for="phone" class="col-sm-2 control-label">手机号</label>
 								<div class="col-sm-10" style="width:83%">
-									<input id="phone" type="text" class="phone form-control" placeholder="中国大陆手机号">
+									<input id="phone" type="text" readOnly class="phone form-control" placeholder="中国大陆手机号">
 								</div>
 							  </div>
 
@@ -207,16 +220,24 @@
                                     <a class="btn-slide animation animated-item-3" href="#">了解详情</a>
                                 </div>
                             </div>
-				     <div class="col-xs-12 col-sm-5 wow fadeInDown" style="margin:50px 0 0 90px">
-						<div class="form-horizontal piao_mid" style="height:380px;">
+				     <div class="col-xs-12 col-sm-5 wow fadeInDown" style="margin:20px 0 0 90px">
+						<div class="form-horizontal piao_mid" style="height:410px;">
 							  <div class="form-group">
 									<label for="typeid2" class="col-sm-2 control-label">预约类型</label>
 									<div class="col-sm-10" style="width:83%">
 										<select id="typeid2" name="zhuangxiu" class="u_sel" style="width:278px">
-											<option value="volvo" selected="selected">预约免费量房</option>
-											<option value="saab">预约免费设计</option>
-											<option value="fiat">预约家装套餐</option>
-											<option value="fiat">预约体验馆</option>
+
+										</select>
+									</div>
+							  </div>
+							   <div class="form-group">
+									<label for="provId2" class="col-sm-2 control-label">城市</label>
+									<div class="col-sm-10" style="width:38%">
+										<select id="provId2" name="zhuangxiu" class="u_sel" style="width:136px">
+										</select>
+									</div>
+									<div class="col-sm-10" style="width:37%">
+										<select id="cityId2" name="zhuangxiu" class="u_sel" style="width:137px">
 										</select>
 									</div>
 							  </div>
@@ -229,7 +250,7 @@
 							  <div class="form-group">
 								<label for="phone2" class="col-sm-2 control-label">手机号</label>
 								<div class="col-sm-10" style="width:83%">
-									<input id="phone2" type="text" class="phone form-control" placeholder="中国大陆手机号">
+									<input id="phone2" type="text" readOnly class="phone form-control" placeholder="中国大陆手机号">
 								</div>
 							  </div>
 
@@ -316,15 +337,13 @@
 
 
     <section id="feature" >
-        <div class="container">
+        <div id="packagelist" class="container" style="display:none;">
            	<div class="center wow fadeInDown">
                 <h2>家装套餐 <span style="font-size:24px">Home Renovation Packages</span></h2>
                 <p class="lead">2015年6月10日上午10时开放，首期2000套，先到先得。简装、精装、旧居智能改造全系优惠</p>
             </div>
 
             <div class="row">
-                <div class="features">
-
 			<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
 				<div class="feature-wrap" style="height:240px;">
 					<!--i class="fa fa-bullhorn"></i-->
@@ -382,7 +401,6 @@
                         	<img src="images/u_2.jpg" width=360 height=240>
                         </div>
                         </div>
-                    </div>
                     <!--/.col-md-4-->
 
                     <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
@@ -412,11 +430,9 @@
                         	<img src="images/u_3.jpg" width=360 height=240>
                         </div>
                         </div>
-                    </div>
                     <!--/.col-md-4-->
 
 
-                </div><!--/.services-->
             </div><!--/.row-->
         </div><!--/.container-->
     </section><!--/#feature-->
@@ -750,5 +766,6 @@
 	<script src="libs/base.js"></script>
 	<script src="libs/utils.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/nav.js"></script>
 </body>
 </html>
