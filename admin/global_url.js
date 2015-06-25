@@ -20,5 +20,18 @@ var BRAND_BRAND = 'brand';
 var LIVE_LIVE = 'live';
 var LIVE_DETAIL = 'liveDetail';
 
+//主界面菜单链接
+var MODULE_HOST_URL = "http://101.200.229.135/admin/" ;
+var MODULE_USR_URL =MODULE_HOST_URL + "memberlist.htm" ;
+var MODULE_GROUP_URL = MODULE_HOST_URL + "membergroup.htm" ;
+var MODULE_MSG_URL = MODULE_HOST_URL + "messagelist.htm";
+var MODULE_APPOINT_URL = MODULE_HOST_URL + "appointlist.htm";
+var MODULE_CASE_URL = MODULE_HOST_URL + "caselist.htm";
+var MODULE_LIVE_URL = MODULE_HOST_URL + "livelist.htm";
+
+
+
+
+
 
 

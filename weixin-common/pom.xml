@@ -17,6 +17,8 @@
 	
 	<modules>
 		<module>pay</module>
+		<module>common</module>
+		<module>public</module>
   	</modules>
 	
 	<properties>
