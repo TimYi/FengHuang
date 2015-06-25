@@ -120,7 +120,7 @@ $(function(){
 			for(var i = 0,len = obj.length; i < len; i++){
 				var d = obj[i] || {};
 				var id = d.id || "";
-				var mainPic = d.mainPic || "images/case/case_1.jpg";
+				var mainPic = d.mainPic.url || "images/case/case_1.jpg";
 				var packageName = d.name || "";
 				var village = d.village || ""
 				var area = d.area || "";
@@ -140,7 +140,7 @@ $(function(){
 				html.push('</div></div></div></div>');
 			}
 
-			$("#caselist").html(html.join(''));
+			$("#livelist").html(html.join(''));
 			//$("#favtable .delete").bind("click",deleteFavItem);
 
 			var totalpages = data.totalPages - 0;

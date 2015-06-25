@@ -15,12 +15,12 @@ $(function(){
 	g.userinfo = Utils.offLineStore.get("userinfo_update",false);
 	g.page = Utils.getQueryString("p") - 0;
 	g.httpTip = new Utils.httpTip({});
-	var obj = g.userinfo || "";
+	g.condiObj = g.userinfo || "";
 
-	if(obj !== ""){
-		obj = JSON.parse(obj);
-		g.k = obj.k;
-		g.v = obj.v;
+	if(g.condiObj !== ""){
+		g.condiObj = JSON.parse(g.condiObj);
+		g.k = g.condiObj.k;
+		g.v = g.condiObj.v;
 		$("#" + g.k).val(g.v);
 	}
 
@@ -60,7 +60,7 @@ $(function(){
 	}
 
 	function updateUserInfo(){
-		var condi = {};
+		var condi = g.condiObj;
 		condi.token = g.token;
 		condi[g.k] = $("#" + g.k).val();
 		console.log(condi);

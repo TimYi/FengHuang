@@ -1,0 +1,13 @@
+{
+	"result":
+		{"totalCount":5,"totalPages":1,"page":0,"size":10,"result":
+			[
+				{"id":"404040e64d89ca84014d89cb492d0000","username":"18612444098","roles":null,"verified":true,"salt":null,"authorities":null,"question":null,"answer":null,"cnname":null,"ename":null,"avatar":null,"sex":null,"birthDay":null,"astro":null},
+				{"id":"404040e64db23347014db2339e450000","username":"admin","roles":null,"verified":true,"salt":null,"authorities":null,"question":null,"answer":null,"cnname":null,"ename":null,"avatar":null,"sex":null,"birthDay":null,"astro":null},
+				{"id":"8aac48364d892495014d894d2e3c0000","username":"18612444099","roles":null,"verified":true,"salt":null,"authorities":null,"question":null,"answer":null,"cnname":null,"ename":null,"avatar":null,"sex":null,"birthDay":null,"astro":null},
+				{"id":"8aac48364dbdef92014dbe630e380000","username":"chenxuanyu_ht@126.com","roles":null,"verified":true,"salt":null,"authorities":null,"question":null,"answer":null,"cnname":null,"ename":null,"avatar":null,"sex":null,"birthDay":null,"astro":null},
+				{"id":"8aac48364dbdef92014dbe6667e40002","username":"chxy020","roles":null,"verified":true,"salt":null,"authorities":null,"question":null,"answer":null,"cnname":null,"ename":null,"avatar":null,"sex":null,"birthDay":null,"astro":null}
+			]
+		}
+	,"status":"OK"
+}

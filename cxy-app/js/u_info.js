@@ -15,7 +15,7 @@ $(function(){
 	g.page = Utils.getQueryString("p") - 0;
 	g.httpTip = new Utils.httpTip({});
 	g.data = {};
-
+	g.updateCondi = {};
 	//验证登录状态
 	var loginStatus = Utils.getUserInfo();
 	if(!loginStatus){
@@ -32,9 +32,10 @@ $(function(){
 	$("#nikenamebtn").bind("click",changePage);
 	$("#validnamebtn").bind("click",changePage);
 	$("#enamebtn").bind("click",changePage);
-	$("#phonebtn").bind("click",changePage);
+	//$("#phonebtn").bind("click",changePage);
 	$("#emailbtn").bind("click",changePage);
 	$("#messagebtn").bind("click",changePage);
+	$("#professionbtn").bind("click",changePage);
 
 	$("#constellation").bind("change",changeconstellation);
 	$("#bloodgroup").bind("change",changebloodgroup);
@@ -47,7 +48,7 @@ $(function(){
 
 	function changePage(){
 		var id = this.id;
-		var condi = {};
+		var condi = g.updateCondi;
 		var url = "";
 		switch(id){
 			case "nikenamebtn":
@@ -79,6 +80,11 @@ $(function(){
 				condi.k = "intro";
 				condi.v = g.data.intro;
 				url = "u_info/u_info_jianjie.html";
+			break;
+			case "professionbtn":
+				condi.k = "profession";
+				condi.v = g.data.profession;
+				url = "u_info/u_info_profession.html";
 			break;
 		}
 		Utils.offLineStore.set("userinfo_update",JSON.stringify(condi),false);
@@ -135,7 +141,7 @@ $(function(){
 		//星座
 		$("#constellation").val(constellation.id);
 		//行业
-		//$("#profession").val(profession);
+		$("#profession").html(profession);
 		//血型
 		$("#bloodgroup").val(bloodgroup.id);
 
@@ -185,6 +191,7 @@ $(function(){
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
+					g.updateCondi = data.result.user;
 					setUserInfoHtml(data.result);
 				}
 				else{

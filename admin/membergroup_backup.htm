@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>用户组管理</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/json2.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="assets/js/jqPaginator.min.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript" src="membergroup.js"></script>
+</head>
+<body onload="onload()">
+<div class="topToolbar"> <span class="title">用户组管理</span>
+	<!--span class="alltype">
+	<a href="javascript:;" onclick="GetType('','查看全部',$(this))" class="btn">条件筛选</a>
+	<span class="drop">
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+				<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<span><a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态	</a></span>
+		<span><input name="checkid[]" id="checkid[]" value="14" type="checkbox"></span>
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+	</span>
+</span-->
+ <a href="javascript:location.reload();" class="reload">刷新</a>
+ </div>
+<form name="form" id="form" method="post" action="usergroup_save.php?action=save">
+	<div id="list">
+	<div class="toolbarTab">
+		<ul>			
+		
+			<li><a href="javascript:;" onclick="ShowRecycle();">	<input name="keyword" id="keyword" title="输入关键词进行搜索" type="text">&nbsp;搜索</a></li>
+	
+		</ul>
+	<div class="cl"></div>
+	<table class="dataTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<thead>
+			<tr class="head" align="left">
+				<td class="firstCol" width="5%" height="36"><input name="checkid" id="checkid" onclick="CheckAll(this.checked);" type="checkbox"></td>
+				<td width="3%">ID</td>
+				<td width="30%">用户组名称</td>
+				<td width="20%">用户组分值范围</td>
+				<td width="15%">星标数量</td>
+				<td width="10%">头衔颜色</td>
+				<td class="endCol" width="12%">操作</td>
+			</tr>
+		</thead>
+		<tbody data-bind='foreach: result'>
+			<tr class="dataTr" align="left">
+				<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="1" type="checkbox"></td>
+				<td data-bind='text: id'></td>
+				<td><input name="groupname[]" id="groupname[]" class="inputd"  type="text" data-bind='value: name'>
+					<input name="id[]" id="id[]"  type="hidden" data-bind='value: id'></td>
+				<td><input name="expvala[]" id="expvala[]" class="inputls"  type="text" data-bind='value: minExp'>
+					~
+					<input name="expvalb[]" id="expvalb[]" class="inputls"  type="text" data-bind='value: maxExp'></td>
+				<td><input name="stars[]" id="stars[]" class="inputls" data-bind='value: stars' type="text"></td>
+				<td>				
+					<select data-bind="value:color,options:colorDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					</select>
+					<!--input type='text' size=50 data-bind="value:color()?'':color().id"/-->
+				<!--input name="color[]" id="color[]" class="inputs" type="text" data-bind='value: color'--></td>
+				<td class="action endCol"><a href="#" data-bind='click: $root.remove'>删除</a></td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr align="center">
+				<td colspan="7" height="36"><strong>新增一个用户组</strong></td>
+			</tr>
+			<tr class="dataTrOn" align="left">
+				<td height="36">&nbsp;</td>
+				<td>&nbsp;</td>
+				<td><input name="groupname_add" id="groupname_add" class="input" type="text"></td>
+				<td><input name="expvala_add" id="expvala_add" class="inputls" type="text">
+					~
+					<input name="expvalb_add" id="expvalb_add" class="inputls" type="text"></td>
+				<td><input name="stars_add" id="stars_add" class="inputls" type="text"></td>
+				<td>
+				<select name="color_add" id="color_add" data-bind="options:colorDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+				</select>
+				<!--input type='text' size=50 data-bind="value:(typeof color == 'function')?'':color().id"/-->
+				<!--input name="color_add" id="color_add" class="inputs" type="text"--></td>
+				<td>&nbsp;</td>
+			</tr>
+		</tbody>
+	</table>
+</form>
+<div class="bottomToolbar">
+	<span class="selArea"><span>选择：</span> 
+		<a href="javascript:CheckAll(true);">全部</a> - 
+		<a href="javascript:CheckAll(false);">无</a> - 
+		<a href="#" data-bind='click: $root.removeSelected'>删除</a>
+	</span> 
+	<a href="#" data-bind='click: $root.updateAll'class="dataBtn">更新全部</a> </div>
+	
+<div class="page"> 
+	<div class="pageList">	
+	</div> 
+</div>
+<script type="text/javascript">
+   
+   </script>
+<div class="quickToolbar">
+	<div class="qiuckWarp">
+		<div class="quickArea">
+			<span class="selArea">
+				<span>选择：</span> 
+				<a href="javascript:CheckAll(true);">全部</a> - 
+				<a href="javascript:CheckAll(false);">无</a> - 
+				<a href="javascript:DelAllNone('member_save.php');" onclick="return ConfDelAll(0);">删除</a>
+			</span> 
+			<a href="http://123.57.218.171/admin/member_add.php" class="dataBtn">更新全部</a> <span class="pageSmall"> 
+		<!--div class="pageText">共<span data-bind='text: size'></span>页<span data-bind='text: total'></span>条记录</div><span> </span></div-->
+		<div class="quickAreaBg"></div>
+	</div>
+</div>
+
+</body></html>

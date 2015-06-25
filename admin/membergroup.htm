@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>用户组管理</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/json2.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="assets/js/jqPaginator.min.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript" src="membergroup.js"></script>
+</head>
+<body onload="onload()">
+<div class="topToolbar"> <span class="title">用户组管理</span>
+ <a href="javascript:location.reload();" class="reload">刷新</a>
+ </div>
+<form name="form" id="form" method="post" action="usergroup_save.php?action=save">
+	<div id="list">
+
+	<table class="dataTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<thead>
+			<tr class="head" align="left">
+				<td class="firstCol" width="5%" height="36"><input name="checkid" id="checkid" onclick="CheckAll(this.checked);" type="checkbox"></td>
+				<td width="15%">ID</td>
+				<td width="10%">用户组名称</td>
+				<td width="15%">最小分值</td>
+				<td width="15%">最大分值</td>
+				<td width="15%">星标数量</td>
+				<td width="10%">头衔颜色</td>
+				<td class="endCol" width="12%">操作</td>
+			</tr>
+		</thead>
+		<tbody data-bind='foreach: result'>
+			<tr class="dataTr" align="left">
+				<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="1" type="checkbox"></td>
+				<td data-bind='text: id'></td>
+				<td data-bind='text: name'></td>
+				<td data-bind='text: minExp'></td>
+				<td data-bind='text: maxExp'></td>
+				<td data-bind='text: stars'></td>
+				<td data-bind="text: typeof color === 'function'?'':color.name"></td>			
+				<td class="action endCol">	<span class="nb"><a href="#" data-bind='click: $root.remove'>删除</a></span> | 
+					<span><a href="#" data-bind='click: $root.modify'>修改</a></span> </td>
+			</tr>
+		</tbody>	
+	</table>
+</form>
+<div class="bottomToolbar">
+	<span class="selArea"><span>选择：</span> 
+		<a href="javascript:CheckAll(true);">全部</a> - 
+		<a href="javascript:CheckAll(false);">无</a> - 
+		<a href="#" data-bind='click: $root.removeSelected'>删除</a>
+	</span> 
+	<a href="#" onclick="add()" class="dataBtn">新增</a> </div>
+	
+<div class="page"> 
+	<div class="pageList">	
+	</div> 
+</div>
+<script type="text/javascript">
+   
+   </script>
+<div class="quickToolbar">
+	<div class="qiuckWarp">
+		<div class="quickArea">
+			<span class="selArea">
+				<span>选择：</span> 
+				<a href="javascript:CheckAll(true);">全部</a> - 
+				<a href="javascript:CheckAll(false);">无</a> - 
+				<a href="javascript:DelAllNone('member_save.php');" onclick="return ConfDelAll(0);">删除</a>
+			</span> 
+			<a href="http://123.57.218.171/admin/member_add.php" class="dataBtn">更新全部</a> <span class="pageSmall"> 
+		<!--div class="pageText">共<span data-bind='text: size'></span>页<span data-bind='text: total'></span>条记录</div><span> </span></div-->
+		<div class="quickAreaBg"></div>
+	</div>
+</div>
+
+</body></html>

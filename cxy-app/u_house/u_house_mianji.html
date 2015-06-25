@@ -11,6 +11,7 @@
   <meta http-equiv="Cache-Control" content="no-siteapp" />
   <link rel="icon" type="image/png" href="assets/i/favicon.png">
   <link rel="stylesheet" href="../assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../assets/css/app.css">
 </head>
 <body>
@@ -24,45 +25,48 @@
     <span style="color:#333;font-size:18px;font-weight:bold">面积</span>
   </h1>
   <div class="am-header-left am-header-nav">
-    <a href="../u_house_item.html" class="">
+    <a href="javascript:history.go(-1);" class="">
       <i class="am-header-icon am-icon-chevron-left" style="font-size:16px;color:#999;margin-left:-15px"></i>
     </a>
-  </div> 
+  </div>
   <div class="am-header-right am-header-nav">
-    <a href="../u_house_item.html" class="">
+    <a id="savebtn" href="javascript:void(0);" class="">
       <i class="am-header-icon am-icon-check" style="font-size:22px;color:#f25618;"></i>
     </a>
-  </div> 
+  </div>
 </header>
 </div>
 
 
 <!--cubes-->
-<div class="am-form"> 
+<div class="am-form">
 	<ul class="am-avg-sm-2" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
 	  <li style="padding:0;text-align:left;width:90%">
 			<div class="am-dropdown" data-am-dropdown style="height:35px;float:left;width:95%">
 					<div style="line-height:35px;padding-left:20px">
-						<input type="text" value="125㎡" style="height:33px;border:0;padding-left:0px">
+						<input id="area" type="text" value="" style="height:33px;border:0;padding-left:0px">
 					</div>
 			</div>
-	  </li>  
+	  </li>
 	  <li style="padding:0;text-align:right;width:10%">
 			<div class="am-dropdown" data-am-dropdown style="height:35px;float:right;">
-				<a href="s_baojia.html">
-					<div style="line-height:35px;padding:0 10px 0 20px">
+				<a href="javascript:void(0);">
+					<div id="clearbtn" style="line-height:35px;padding:0 10px 0 20px">
 						<i class="am-icon-times-circle" style="color:#ccc;padding-right:10px;font-size:20px"></i>
 					</div>
-					
+
 				</a>
 			</div>
 	  </li>
 	</ul><!--hang-->
 </div>
 
-<script src="../assets/js/jquery.min.js"></script>
-<script src="../assets/js/amazeui.min.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../libs/json.js"></script>
+	<script src="../libs/base.js"></script>
+	<script src="../libs/utils.js"></script>
+	<script src="js/u_house_update.js"></script>
 </body>
 </html>
 
- 
+
