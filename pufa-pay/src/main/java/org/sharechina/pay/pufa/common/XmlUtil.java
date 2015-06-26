@@ -1,4 +1,4 @@
-package org.sharechina.pay.pufa.common;
+ï»¿package org.sharechina.pay.pufa.common;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -21,7 +21,7 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 public class XmlUtil {
 
 	/**
-	 * ½«xml½âÎö³ÉMap
+	 * å°†xmlè§£ææˆMap
 	 * 
 	 * @param xmlString
 	 * @return never @null
@@ -32,11 +32,11 @@ public class XmlUtil {
 	public static Map<String, Object> getMapFromXml(String xmlString) throws ParserConfigurationException,IOException,SAXException {
 		if(StringUtils.isBlank(xmlString))return new HashMap<String, Object>();
 		
-		//ÕâÀïÓÃDomµÄ·½Ê½½âÎö»Ø°üµÄ×îÖ÷ÒªÄ¿µÄÊÇ·ÀÖ¹APIĞÂÔö»Ø°ü×Ö¶Î
+		//è¿™é‡Œç”¨Domçš„æ–¹å¼è§£æå›åŒ…çš„æœ€ä¸»è¦ç›®çš„æ˜¯é˜²æ­¢APIæ–°å¢å›åŒ…å­—æ®µ
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document = builder.parse(xmlString);
-      //»ñÈ¡µ½documentÀïÃæµÄÈ«²¿½áµã
+      //è·å–åˆ°documenté‡Œé¢çš„å…¨éƒ¨ç»“ç‚¹
         NodeList allNodes = document.getFirstChild().getChildNodes();
         Node node;
         Map<String, Object> map = new HashMap<String, Object>();
@@ -57,7 +57,7 @@ public class XmlUtil {
 			xStreamForResponseData=new XStream(new DomDriver(encode));
 		}		
         xStreamForResponseData.alias(rootNodeName, tClass);
-        xStreamForResponseData.ignoreUnknownElements();//ÔİÊ±ºöÂÔµôÒ»Ğ©ĞÂÔöµÄ×Ö¶Î
+        xStreamForResponseData.ignoreUnknownElements();//æš‚æ—¶å¿½ç•¥æ‰ä¸€äº›æ–°å¢çš„å­—æ®µ
         return tClass.cast(xStreamForResponseData.fromXML(xml));
 	}
 }

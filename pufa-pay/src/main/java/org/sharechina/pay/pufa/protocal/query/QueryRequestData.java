@@ -1,11 +1,11 @@
-package org.sharechina.pay.pufa.protocal.query;
+ï»¿package org.sharechina.pay.pufa.protocal.query;
 
 import org.sharechina.pay.pufa.protocal.PlainData;
 import org.sharechina.pay.pufa.protocal.RequestData;
 import org.sharechina.pay.pufa.protocal.TransName;
 
 /**
- * µ¥±Ê²éÑ¯
+ * å•ç¬”æŸ¥è¯¢
  * @author pc
  *
  */
@@ -25,9 +25,9 @@ public class QueryRequestData implements RequestData {
 	
 	/**
 	 * 
-	 * @param mercCode	ÉÌ»§ºÅ£¬¿ª»§Ê±»ñµÃ
-	 * @param OTranAbbr	Ô­½»Ò×ËõĞ´
-	 * @param termSsn	¶©µ¥ºÅ£¬²»ÄÜÖØ¸´
+	 * @param mercCode	å•†æˆ·å·ï¼Œå¼€æˆ·æ—¶è·å¾—
+	 * @param OTranAbbr	åŸäº¤æ˜“ç¼©å†™
+	 * @param termSsn	è®¢å•å·ï¼Œä¸èƒ½é‡å¤
 	 */
 	public QueryRequestData(String mercCode, TransName OTranAbbr, String termSsn) {
 		plainData=new KhcxPlainData(mercCode, OTranAbbr, termSsn);
@@ -37,9 +37,9 @@ public class QueryRequestData implements RequestData {
 		
 		/**
 		 * 
-		 * @param mercCode	ÉÌ»§ºÅ£¬¿ª»§Ê±»ñµÃ
-		 * @param OTranAbbr	Ô­½»Ò×ËõĞ´
-		 * @param termSsn	¶©µ¥ºÅ£¬²»ÄÜÖØ¸´
+		 * @param mercCode	å•†æˆ·å·ï¼Œå¼€æˆ·æ—¶è·å¾—
+		 * @param OTranAbbr	åŸäº¤æ˜“ç¼©å†™
+		 * @param termSsn	è®¢å•å·ï¼Œä¸èƒ½é‡å¤
 		 */
 		public KhcxPlainData(String mercCode, TransName OTranAbbr, String termSsn) {
 			this.MercCode=mercCode;
@@ -47,11 +47,11 @@ public class QueryRequestData implements RequestData {
 			this.TermSsn=termSsn;
 		}
 		
-		/**ÉÌ»§ºÅ£¬¿ª»§Ê±»ñµÃ*/
+		/**å•†æˆ·å·ï¼Œå¼€æˆ·æ—¶è·å¾—*/
 		private String MercCode;
-		/**Ô­½»Ò×ËõĞ´*/
+		/**åŸäº¤æ˜“ç¼©å†™*/
 		private TransName OTranAbbr;
-		/**¶©µ¥ºÅ£¬²»ÄÜÖØ¸´*/
+		/**è®¢å•å·ï¼Œä¸èƒ½é‡å¤*/
 		private String TermSsn;
 		public String getMercCode() {
 			return MercCode;

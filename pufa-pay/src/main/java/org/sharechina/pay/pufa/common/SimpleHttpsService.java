@@ -1,4 +1,4 @@
-package org.sharechina.pay.pufa.common;
+ï»¿package org.sharechina.pay.pufa.common;
 
 import java.io.IOException;
 import java.security.SecureRandom;
@@ -20,7 +20,7 @@ import org.apache.http.util.EntityUtils;
 import javax.net.ssl.X509TrustManager;
 
 /**
- * ·¢ËÍpostÇëÇó
+ * å‘é€postè¯·æ±‚
  * @author pc
  *
  */
@@ -30,8 +30,8 @@ public class SimpleHttpsService implements HttpsService {
 	static {
 		try {
 			SSLContext sslContext = SSLContext.getInstance("SSL");
-			//²»×öhttpsÖ¤Êé¼ìÑé
-			//TODO ÍêÉÆÖ¤ÊéÑéÖ¤¹ı³Ì
+			//ä¸åšhttpsè¯ä¹¦æ£€éªŒ
+			//TODO å®Œå–„è¯ä¹¦éªŒè¯è¿‡ç¨‹
 			sslContext.init(null, new TrustManager[] { new X509TrustManager() {
 		         public X509Certificate[] getAcceptedIssuers() {
 		                 return null;
@@ -53,7 +53,7 @@ public class SimpleHttpsService implements HttpsService {
 	}
 
 	/**
-	 * ·¢ËÍxml postÇëÇó
+	 * å‘é€xml postè¯·æ±‚
 	 * @param url
 	 * @param xml
 	 * @return
@@ -63,7 +63,7 @@ public class SimpleHttpsService implements HttpsService {
 	public String postXml(String url, String xml) {
 		try {
 			HttpPost httpPost = new HttpPost(url);
-			//µÃÖ¸Ã÷Ê¹ÓÃGBK±àÂë£¬·ñÔòµ½API·şÎñÆ÷XMLµÄÖĞÎÄ²»ÄÜ±»³É¹¦Ê¶±ğ
+			//å¾—æŒ‡æ˜ä½¿ç”¨GBKç¼–ç ï¼Œå¦åˆ™åˆ°APIæœåŠ¡å™¨XMLçš„ä¸­æ–‡ä¸èƒ½è¢«æˆåŠŸè¯†åˆ«
 		    StringEntity postEntity = new StringEntity(xml, "GBK");
 	        httpPost.addHeader("Content-Type", "text/xml");
 	        httpPost.setEntity(postEntity);

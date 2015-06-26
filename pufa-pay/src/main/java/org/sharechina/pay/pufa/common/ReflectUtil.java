@@ -1,4 +1,4 @@
-package org.sharechina.pay.pufa.common;
+﻿package org.sharechina.pay.pufa.common;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

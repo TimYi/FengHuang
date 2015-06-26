@@ -105,9 +105,38 @@ public class DecoratePackage extends UUIDBaseModel {
 		this.scrambleEndTime = scrambleEndTime;
 	}
 
+	/**
+	 * 需要根据时间节点和当前status判断返回什么样的status，分一下几种情况
+	 * 1、status=PREPARE，如果当前时间处于抢购期，更改status为SCRAMBLE，如果当前时间超过截止时间，更改status为FINISHED
+	 * 2、status=SCRAMBLE，如果当前时间超过截止时间，更改status为FINISHED，当重置抢购时间时，需要重置status
+	 * 3、status=FINISH，如果当前时间小于抢购开始时间，更改status为PREPARE
+	 * @return
+	 */
 	public ScrambleStatus getStatus() {
+		//如果抢购开始或者截止时间没有设置，不做任何自动判断。
+		if(scrambleStartTime==null || scrambleEndTime==null) {
+			return status;
+		}
+		if(status==null) status=ScrambleStatus.PREPARE;
+		Date now=new Date();
+		if(status==ScrambleStatus.PREPARE) {
+			if(now.after(scrambleStartTime) && now.before(scrambleEndTime)) {
+				status=ScrambleStatus.SCRAMBLE;
+			} else if(now.after(scrambleEndTime)) {
+				status=ScrambleStatus.FINISH;
+			}
+		} else if(status==ScrambleStatus.SCRAMBLE) {
+			if(now.after(scrambleEndTime)) {
+				status=ScrambleStatus.FINISH;
+			}
+		} else if(status==ScrambleStatus.FINISH) {
+			if(now.before(scrambleStartTime)) {
+				status=ScrambleStatus.PREPARE;
+			}
+		}
 		return status;
 	}
+	
 	public void setStatus(ScrambleStatus status) {
 		this.status = status;
 	}

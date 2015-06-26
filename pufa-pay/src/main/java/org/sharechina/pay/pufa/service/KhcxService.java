@@ -1,4 +1,4 @@
-package org.sharechina.pay.pufa.service;
+ï»¿package org.sharechina.pay.pufa.service;
 
 import java.security.SignatureException;
 
@@ -10,7 +10,7 @@ import org.sharechina.pay.pufa.protocal.TransName;
 import org.sharechina.pay.pufa.protocal.query.QueryRequestData;
 
 /**
- * µ¥±Ê²éÑ¯·şÎñ
+ * å•ç¬”æŸ¥è¯¢æœåŠ¡
  * @author pc
  *
  */
@@ -24,9 +24,9 @@ public class KhcxService {
 	
 	/**
 	 * 
-	 * @param mercCode	ÉÌ»§ºÅ£¬¿ª»§Ê±»ñµÃ
-	 * @param OTranAbbr	Ô­½»Ò×ËõĞ´
-	 * @param termSsn	¶©µ¥ºÅ£¬²»ÄÜÖØ¸´
+	 * @param mercCode	å•†æˆ·å·ï¼Œå¼€æˆ·æ—¶è·å¾—
+	 * @param OTranAbbr	åŸäº¤æ˜“ç¼©å†™
+	 * @param termSsn	è®¢å•å·ï¼Œä¸èƒ½é‡å¤
 	 */
 	public ResponseModel<QueryRequestData> sendKhcxRequest(String mercCode, TransName OTranAbbr, String termSsn)
 		throws SignatureException {

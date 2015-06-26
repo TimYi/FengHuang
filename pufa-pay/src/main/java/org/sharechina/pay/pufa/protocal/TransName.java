@@ -1,15 +1,15 @@
-package org.sharechina.pay.pufa.protocal;
+ï»¿package org.sharechina.pay.pufa.protocal;
 
 public enum TransName {
 
-	/**¿çĞĞÖ§¸¶*/
+	/**è·¨è¡Œæ”¯ä»˜*/
 	KHZF,
-	/**¿çĞĞÍË¿î*/
+	/**è·¨è¡Œé€€æ¬¾*/
 	KHTH,
-	/**µ¥±Ê²éÑ¯*/
+	/**å•ç¬”æŸ¥è¯¢*/
 	KHCX,
-	/**¶à±Ê²éÑ¯*/
+	/**å¤šç¬”æŸ¥è¯¢*/
 	KHCS,
-	/**¶ÔÕËµ¥ÏÂÔØ*/
+	/**å¯¹è´¦å•ä¸‹è½½*/
 	KHXZ,
 }

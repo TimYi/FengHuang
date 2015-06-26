@@ -1,4 +1,4 @@
-package org.sharechina.pay.pufa.protocal.pay;
+ï»¿package org.sharechina.pay.pufa.protocal.pay;
 
 import org.sharechina.pay.pufa.protocal.PlainData;
 
@@ -8,23 +8,23 @@ public class KhzfResponseData {
 		return PlainData.fromPlain(KhzfResponseData.class, plain);
 	}
 
-	/**½»Ò×ËõĞ´*/
+	/**äº¤æ˜“ç¼©å†™*/
 	private String TranAbbr;
-	/**Íø¹ØÁ÷Ë®£¬ÒªÇó¼ÇÂ¼´ËÖµ£¬³·Ïú¡¢ÍË»õµÈ½»Ò×ĞèÒª¸Ã×Ö¶Î*/
+	/**ç½‘å…³æµæ°´ï¼Œè¦æ±‚è®°å½•æ­¤å€¼ï¼Œæ’¤é”€ã€é€€è´§ç­‰äº¤æ˜“éœ€è¦è¯¥å­—æ®µ*/
 	private String AcqSsn;
-	/**ÉÌ»§ÈÕÆÚÊ±¼ä*/
+	/**å•†æˆ·æ—¥æœŸæ—¶é—´*/
 	private String MercDtTm;
-	/**¶©µ¥ºÅ*/
+	/**è®¢å•å·*/
 	private String TermSsn;
-	/**ÏìÓ¦Âë*/
+	/**å“åº”ç */
 	private String RespCode;
-	/**ÖÕ¶ËºÅ*/
+	/**ç»ˆç«¯å·*/
 	private String TermCode;
-	/**ÉÌ»§ºÅ*/
+	/**å•†æˆ·å·*/
 	private String MercCode;
-	/**½»Ò×½ğ¶î(Ôª)*/
+	/**äº¤æ˜“é‡‘é¢(å…ƒ)*/
 	private Double TranAmt;
-	/**ÇåËãÈÕÆÚ£¬ÒªÇó¼ÇÂ¼´ËÖµ£¬³·Ïú¡¢ÍË»õµÈ½»Ò×ĞèÒª¸Ã×Ö¶Î*/
+	/**æ¸…ç®—æ—¥æœŸï¼Œè¦æ±‚è®°å½•æ­¤å€¼ï¼Œæ’¤é”€ã€é€€è´§ç­‰äº¤æ˜“éœ€è¦è¯¥å­—æ®µ*/
 	private String ClearDate;
 	
 	public String getTranAbbr() {

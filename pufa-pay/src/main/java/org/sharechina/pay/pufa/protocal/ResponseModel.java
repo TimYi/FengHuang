@@ -1,4 +1,4 @@
-package org.sharechina.pay.pufa.protocal;
+ï»¿package org.sharechina.pay.pufa.protocal;
 
 import java.security.SignatureException;
 
@@ -7,7 +7,7 @@ import org.sharechina.pay.pufa.common.XmlUtil;
 import com.csii.payment.client.core.MerchantSignVerify;
 
 /**
- * ÆÖ·¢·µ»ØµÄ±ê×¼¸ñÊ½Êı¾İ£¬·â×°ÕıÈ·ºÍ´íÎóÁ½ÖÖ¸ñÊ½
+ * æµ¦å‘è¿”å›çš„æ ‡å‡†æ ¼å¼æ•°æ®ï¼Œå°è£…æ­£ç¡®å’Œé”™è¯¯ä¸¤ç§æ ¼å¼
  * @author pc
  *
  */
@@ -16,27 +16,27 @@ public class ResponseModel<T> {
 	private boolean success;
 	
 	/**
-	 * ÊÇ·ñÊÇ³É¹¦·µ»Ø
-	 * if true, ¿ÉÒÔ»ñÈ¡transName,Plain,Signature,data
-	 * if false, »ñÈ¡ErrorCode,ErrorMsg
+	 * æ˜¯å¦æ˜¯æˆåŠŸè¿”å›
+	 * if true, å¯ä»¥è·å–transName,Plain,Signature,data
+	 * if false, è·å–ErrorCode,ErrorMsg
 	 * @return
 	 */
 	public boolean isSuccess() {
 		return success;
 	}
 	
-	/**ÒÔÏÂĞÅÏ¢´íÎóÊ±·µ»Ø*/
+	/**ä»¥ä¸‹ä¿¡æ¯é”™è¯¯æ—¶è¿”å›*/
 	private String ErrorCode;
 	private String ErrorMsg;
 	
-	/**ÒÔÏÂĞÅÏ¢ÕıÈ·Ê±·µ»Ø*/
+	/**ä»¥ä¸‹ä¿¡æ¯æ­£ç¡®æ—¶è¿”å›*/
 	private TransName transName;
 	private String Plain;
 	private String Signature;
 	private T data;
 	
 	/**
-	 * ´Ó·µ»ØxmlÊı¾İÖĞ½âÎö·µ»Ø½á¹û
+	 * ä»è¿”å›xmlæ•°æ®ä¸­è§£æè¿”å›ç»“æœ
 	 * @param body
 	 * @return
 	 */

@@ -1,13 +1,18 @@
 package com.fenghuangzhujia.eshop.prudoct.appoint;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.fenghuangzhujia.eshop.core.area.Area;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
+import com.fenghuangzhujia.foundation.utils.Java8TimeUtils;
 
 /**
  * 套餐预约
@@ -65,5 +70,13 @@ public class PackageAppoint extends UUIDBaseModel {
 	}
 	public void setUsed(boolean used) {
 		this.used = used;
+	}
+	
+	@Transient
+	public Date getExpireTime() {
+		Date createTime=getCreateTime();
+		LocalDate createDate=Java8TimeUtils.asLocalDate(createTime);
+		Date expireDate=Java8TimeUtils.fromLocalDate(createDate.plusMonths(1));
+		return expireDate;
 	}
 }

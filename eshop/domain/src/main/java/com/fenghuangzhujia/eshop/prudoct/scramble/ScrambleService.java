@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.eshop.cases.DecorateCase;
 import com.fenghuangzhujia.eshop.cases.DecorateCaseRepository;
+import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrderService;
 import com.fenghuangzhujia.eshop.core.commerce.order.dto.GoodOrderDto;
@@ -20,6 +21,7 @@ import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppointRepository;
 import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppointService;
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage;
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackageRepository;
+import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage.ScrambleStatus;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 
 /**
@@ -58,6 +60,9 @@ public class ScrambleService {
 		DecoratePackage decoratePackage=appoint.getDecoratePackage();
 		if(decoratePackage.getInStock()<=decoratePackage.getSaleNumber()) {
 			throw new ErrorCodeException(NO_GOOD, "已经没有库存！");
+		}
+		if(!decoratePackage.getStatus().equals(ScrambleStatus.SCRAMBLE)) {
+			throw new ErrorCodeException(SystemErrorCodes.NOT_ON_SALE,"抢购尚未开始或已经结束");
 		}
 		
 		//生成商品
