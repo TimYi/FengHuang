@@ -14,13 +14,21 @@ $(function(){
 	g.paseSize = 20;
 	g.httpTip = new Utils.httpTip({});
 	g.listdata = [];
-g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
+	g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
 	//验证登录状态
 	g.loginStatus = Utils.getUserInfo();
+	g.reserveStatus = false;
 	if(g.loginStatus && g.userprofile !== ""){
 		var obj = JSON.parse(g.userprofile);
 		var name = obj.realName || "";
 		var mobile = obj.mobile || "";
+		if(name !== "" && mobile !== ""){
+			//允许预约
+			g.reserveStatus = true;
+		}
+		else{
+			g.reserveStatus = false;
+		}
 		$("#name").val(name);
 		$("#phone").val(mobile);
 
@@ -284,6 +292,17 @@ g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
 
 	function buyBtnUp(){
 		if(g.loginStatus){
+			var text = $("#buybtn").text();
+			if(text == "您已成功预约"){
+				return;
+			}
+			if(!g.reserveStatus){
+				//没有添加真实姓名,引导去填写
+				alert("个人资料不完善,无法预约");
+				location.href = "c_my.html?token=" + g.token + "&p=1";
+				return;
+			}
+
 			var condi = {};
 			/*
 			token:用户凭据
@@ -340,6 +359,17 @@ g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
 
 	function buyBtnUp2(){
 		if(g.loginStatus){
+			var text = $("#buybtn2").text();
+			if(text == "您已成功预约"){
+				return;
+			}
+
+			if(!g.reserveStatus){
+				//没有添加真实姓名,引导去填写
+				alert("个人资料不完善,无法预约");
+				location.href = "c_my.html?token=" + g.token + "&p=1";
+				return;
+			}
 			var condi = {};
 			/*
 			token:用户凭据
@@ -480,6 +510,8 @@ g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
 				var status = data.status || "";
 				if(status == "OK"){
 					Utils.alert("预约成功");
+					$("#buybtn").html("您已成功预约");
+					$("#buybtn2").html("您已成功预约");
 				}
 				else{
 					Utils.alert("预约失败");
@@ -507,6 +539,8 @@ g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
 				var status = data.status || "";
 				if(status == "OK"){
 					Utils.alert("预约成功");
+					$("#buybtn").html("您已成功预约");
+					$("#buybtn2").html("您已成功预约");
 				}
 				else{
 					Utils.alert("预约失败");

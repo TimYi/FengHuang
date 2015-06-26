@@ -90,10 +90,18 @@ $(function(){
 	g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
 	//验证登录状态
 	g.loginStatus = Utils.getUserInfo();
+	g.reserveStatus = false;
 	if(g.loginStatus && g.userprofile !== ""){
 		var obj = JSON.parse(g.userprofile);
 		var name = obj.realName || "";
 		var mobile = obj.mobile || "";
+		if(name !== "" && mobile !== ""){
+			//允许预约
+			g.reserveStatus = true;
+		}
+		else{
+			g.reserveStatus = false;
+		}
 		$("#name").val(name);
 		$("#phone").val(mobile);
 
@@ -358,6 +366,12 @@ $(function(){
 
 	function reserverBtnUp(){
 		if(g.loginStatus){
+			if(!g.reserveStatus){
+				//没有添加真实姓名,引导去填写
+				alert("个人资料不完善,无法预约");
+				location.href = "c_my.html?token=" + g.token + "&p=1";
+				return;
+			}
 			var condi = {};
 			/*
 			token:用户凭据
@@ -415,6 +429,12 @@ $(function(){
 
 	function reserverBtnUp2(){
 		if(g.loginStatus){
+			if(!g.reserveStatus){
+				//没有添加真实姓名,引导去填写
+				alert("个人资料不完善,无法预约");
+				location.href = "c_my.html?token=" + g.token + "&p=1";
+				return;
+			}
 			var condi = {};
 			/*
 			token:用户凭据

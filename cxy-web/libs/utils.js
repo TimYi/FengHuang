@@ -503,7 +503,7 @@ $(function(){
 	g.sendTime = 60;
 	g.username = Base.userName;
 	g.token = Utils.offLineStore.get("token",false);
-	g.page = Utils.getQueryString("p") - 0;
+	g.id = Utils.getQueryString("id");
 	g.totalPage = 1;
 	g.currentPage = 1;
 	g.paseSize = 20;
@@ -556,15 +556,28 @@ $(function(){
 		for(var i = 0,len = data.length; i < len; i++){
 			var price = data[i].price - 0;
 			var id = data[i].id;
+			var hasAppointed = data[i].hasAppointed || false;
 			switch(price){
 				case 499:
 					id1 = id;
+					if(g.id == id && hasAppointed){
+						$("#buybtn").html("您已成功预约");
+						$("#buybtn2").html("您已成功预约");
+					}
 				break;
 				case 699:
 					id2 = id;
+					if(g.id == id && hasAppointed){
+						$("#buybtn").html("您已成功预约");
+						$("#buybtn2").html("您已成功预约");
+					}
 				break;
 				case 818:
 					id3 = id;
+					if(g.id == id && hasAppointed){
+						$("#buybtn").html("您已成功预约");
+						$("#buybtn2").html("您已成功预约");
+					}
 				break;
 			}
 		}

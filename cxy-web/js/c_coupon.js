@@ -41,26 +41,35 @@ $(function(){
 			var html = [];
 			html.push('<table class="table u_ct">');
 			html.push('<tr class="u_th">');
-			html.push('<th width=100>优惠券编号</th>');
-			html.push('<th width=50%>服务内容</th>');
-			html.push('<th width=120>时间</th>');
+			html.push('<th width=30%>优惠券名称</th>');
+			html.push('<th width=30%>优惠金额</th>');
+			html.push('<th width=120>过期时间</th>');
 			html.push('<th width=80>状态</th>');
 			html.push('</tr>');
 
 			for(var i = 0,len = obj.length; i < len; i++){
-				var msg = obj[i].content || "";
-				var name = "系统管理员";
-				var time =  "2015-06-02 10:00";
+				var id = obj[i].id || "";
+				var name = obj[i].name || "";
+				var couponsMoney = obj[i].couponsMoney || 0;
+				var expireTime = obj[i].expireTime || "";
+				var expired = obj[i].expired || false;
+				var used = obj[i].used || false;
+				var str = "未使用";
+				if(expired){
+					str = "已过期";
+				}
+				if(used){
+					str = "已使用";
+				}
 				html.push('<tr>');
-				html.push('<td >' + msg + '</td>');
 				html.push('<td >' + name + '</td>');
-				html.push('<td >' + time + '</td>');
-				html.push('<td><a href="#">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">删除</a></td>');
+				html.push('<td >' + couponsMoney + '</td>');
+				html.push('<td >' + expireTime + '</td>');
+				html.push('<td>' + str + '</td>');
 				html.push('</tr>');
 			}
 			html.push('</table>');
-
-			$("#ordertable").html(html.join(''));
+			$("#coupontable").html(html.join(''));
 
 			var totalpages = data.totalPages - 0;
 			g.totalPage = totalpages;
@@ -115,9 +124,9 @@ $(function(){
 			html.push('</ul>');
 		}
 
-		$("#subpage").show();
-		$("#subpage").html(html.join(''));
-		$("#subpage > ul > li").bind("click",pageClick);
+		$("#couponpage").show();
+		$("#couponpage").html(html.join(''));
+		$("#couponpage > ul > li").bind("click",pageClick);
 	}
 
 	function pageClick(evt){
@@ -171,7 +180,6 @@ $(function(){
 	}
 
 
-	//获取我的留言
 	function sendGetMyCouponHttp(condi){
 		var url = Base.couponsUrl ;
 		$.ajax({
@@ -182,10 +190,10 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log(data);
+				console.log("sendGetMyCouponHttp",data);
 				var status = data.status || "";
 				if(status == "OK"){
-					changeCouponListHtml(data.result);
+					changeCouponListHtml(data);
 				}
 				else{
 					var msg = data.error || "";
