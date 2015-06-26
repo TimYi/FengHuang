@@ -11,7 +11,7 @@ public class AppointDto extends DtoBaseModel {
 
 	private UserDto user;
 	private CategoryItemDto type;
-	private AreaDto area;
+	private AreaDto city;
 	private String mobile;
 	private boolean readed;
 	private String realName;
@@ -29,11 +29,11 @@ public class AppointDto extends DtoBaseModel {
 	public void setType(CategoryItemDto type) {
 		this.type = type;
 	}	
-	public AreaDto getArea() {
-		return area;
+	public AreaDto getCity() {
+		return city;
 	}
-	public void setArea(AreaDto area) {
-		this.area = area;
+	public void setCity(AreaDto city) {
+		this.city = city;
 	}
 	public String getMobile() {
 		return mobile;

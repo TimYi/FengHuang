@@ -49,17 +49,10 @@ public interface PlainData {
 		for (String keyvalue : keyvalues) {
 			String[] pair=StringUtils.split(keyvalue,"=");
 			String name=pair[0];
-			name=firstCharToLower(name);
+			name=org.sharechina.pay.pufa.common.StringUtils.firstCharToLower(name);
 			params.put(name, pair[1]);
 		}
 		T t=dozer.map(params, tClass);
 		return t;
-	}
-	
-	public static String firstCharToLower(String str) {
-		char[] chars=new char[1];
-		chars[0]=str.charAt(0);  
-        String temp=new String(chars);  
-        return str.replaceFirst(temp, temp.toLowerCase());
 	}
 }

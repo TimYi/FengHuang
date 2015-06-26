@@ -2,7 +2,7 @@ package org.sharechina.pay.pufa.service;
 
 import java.security.SignatureException;
 
-import org.sharechina.pay.pufa.common.HttpsRequest;
+import org.sharechina.pay.pufa.common.SimpleHttpsService;
 import org.sharechina.pay.pufa.common.HttpsService;
 import org.sharechina.pay.pufa.protocal.RequestModel;
 import org.sharechina.pay.pufa.protocal.ResponseModel;
@@ -16,7 +16,7 @@ import org.sharechina.pay.pufa.protocal.query.QueryRequestData;
  */
 public class KhcxService {
 
-	private HttpsService httpsService=new HttpsRequest();
+	private HttpsService httpsService=new SimpleHttpsService();
 
 	public void setHttpsService(HttpsService httpsService) {
 		this.httpsService = httpsService;

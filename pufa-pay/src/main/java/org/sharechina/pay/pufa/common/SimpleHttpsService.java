@@ -24,7 +24,7 @@ import javax.net.ssl.X509TrustManager;
  * @author pc
  *
  */
-public class HttpsRequest implements HttpsService {
+public class SimpleHttpsService implements HttpsService {
 	
 	private static final CloseableHttpClient HTTPS_CLIENT;
 	static {
