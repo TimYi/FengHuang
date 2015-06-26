@@ -23,7 +23,7 @@ public class ReflectUtil {
 	public static Object getValueFromGetter(Object obj, Field field) {
 		field.setAccessible(true);
 		String name=field.getName();
-		String getterName=firstToUpper(name);
+		String getterName=StringUtils.firstCharToUpper(name);
 		getterName="get"+getterName;
 		Object value;
 		try {
@@ -37,12 +37,5 @@ public class ReflectUtil {
 			} 
 		}
 		return value;
-	}
-	
-	public static String firstToUpper(String str) {
-		char[] chars=new char[1];
-		chars[0]=str.charAt(0);  
-        String temp=new String(chars);  
-        return str.replaceFirst(temp, temp.toUpperCase());
 	}
 }

@@ -3,7 +3,7 @@ package org.sharechina.pay.pufa.protocal.refund;
 import org.sharechina.pay.pufa.protocal.pay.KhzfResponseData;
 
 /**
- * Ä¿Ç°ËùÓĞ·µ»Ø²ÎÊıºÍ¿çĞĞÖ§¸¶Ò»ÖÂ
+ * ç›®å‰æ‰€æœ‰è¿”å›å‚æ•°å’Œè·¨è¡Œæ”¯ä»˜ä¸€è‡´
  * @author pc
  *
  */

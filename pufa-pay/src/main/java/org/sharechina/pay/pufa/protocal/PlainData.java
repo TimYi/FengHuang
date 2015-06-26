@@ -8,9 +8,9 @@ import org.dozer.DozerBeanMapper;
 import org.sharechina.pay.pufa.common.ReflectUtil;
 
 /**
- * ¿ÉÒÔ×ª»»ÎªÆÖ·¢plain×Ö¶Î¸ñÊ½µÄÊı¾İ
- * Í¨³£ÓÃÓÚĞ­Òé²ÎÊı
- * plain¸ñÊ½£ºparam1=value1|param2=value2
+ * å¯ä»¥è½¬æ¢ä¸ºæµ¦å‘plainå­—æ®µæ ¼å¼çš„æ•°æ®
+ * é€šå¸¸ç”¨äºåè®®å‚æ•°
+ * plainæ ¼å¼ï¼šparam1=value1|param2=value2
  * @author pc
  *
  */
@@ -23,7 +23,7 @@ public interface PlainData {
 	}	
 	
 	/**
-	 * ×ª»»Îª'param1=value1|param2=value2'µÄ×Ö·û´®£¬²»Òª³öÏÖ¿ÕÖµ
+	 * è½¬æ¢ä¸º'param1=value1|param2=value2'çš„å­—ç¬¦ä¸²ï¼Œä¸è¦å‡ºç°ç©ºå€¼
 	 * @param pojo
 	 * @return
 	 */
@@ -49,17 +49,10 @@ public interface PlainData {
 		for (String keyvalue : keyvalues) {
 			String[] pair=StringUtils.split(keyvalue,"=");
 			String name=pair[0];
-			name=firstCharToLower(name);
+			name=org.sharechina.pay.pufa.common.StringUtils.firstCharToLower(name);
 			params.put(name, pair[1]);
 		}
 		T t=dozer.map(params, tClass);
 		return t;
-	}
-	
-	public static String firstCharToLower(String str) {
-		char[] chars=new char[1];
-		chars[0]=str.charAt(0);  
-        String temp=new String(chars);  
-        return str.replaceFirst(temp, temp.toLowerCase());
 	}
 }

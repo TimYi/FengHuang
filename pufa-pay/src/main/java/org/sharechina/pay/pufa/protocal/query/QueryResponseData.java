@@ -2,27 +2,27 @@ package org.sharechina.pay.pufa.protocal.query;
 
 public class QueryResponseData {
 
-	/**¶©µ¥ºÅ*/
+	/**è®¢å•å·*/
 	private String TermSsn;
-	/**½»Ò×½ğ¶î(Ôª)*/
+	/**äº¤æ˜“é‡‘é¢(å…ƒ)*/
 	private Double TranAmt;
 	/**
-	 * 00-½»Ò×³É¹¦
-	 * 01-½»Ò×Ê§°Ü
-	 * 02-³·Ïú³É¹¦
-	 * 03-²¿·ÖÍË»õ
-	 * 04-È«²¿ÍË»õ
-	 * 05-ÍË»õ´ıÊÜÀí
-	 * 06-ÍË»õÊÜÀí³É¹¦
-	 * 09-Ö§¸¶ÖĞ
-	 * 99-½»Ò×³¬Ê±
+	 * 00-äº¤æ˜“æˆåŠŸ
+	 * 01-äº¤æ˜“å¤±è´¥
+	 * 02-æ’¤é”€æˆåŠŸ
+	 * 03-éƒ¨åˆ†é€€è´§
+	 * 04-å…¨éƒ¨é€€è´§
+	 * 05-é€€è´§å¾…å—ç†
+	 * 06-é€€è´§å—ç†æˆåŠŸ
+	 * 09-æ”¯ä»˜ä¸­
+	 * 99-äº¤æ˜“è¶…æ—¶
 	 */
 	private String TransStatus;
-	/**ÏìÓ¦Âë*/
+	/**å“åº”ç */
 	private String RespCode;
-	/**ÇåËãÈÕÆÚ*/
+	/**æ¸…ç®—æ—¥æœŸ*/
 	private String ClearDate;
-	/**Íø¹ÜÁ÷Ë®*/
+	/**ç½‘ç®¡æµæ°´*/
 	private String AcqSsn;
 	
 	public String getTermSsn() {

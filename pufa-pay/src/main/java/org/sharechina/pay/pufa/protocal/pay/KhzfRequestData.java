@@ -25,20 +25,20 @@ public class KhzfRequestData implements RequestData {
 	
 	/**
 	 * 
-	 * @param MasterId		��ҵ�ͻ��ţ���ҵ�ͻ�֧��ʱ�����ṩ�����˿ͻ�֧��ʱ����Ҫ
-	 * @param TermSsn		�����ţ������ظ�
-	 * @param MercCode		�̻��ţ�����ʱ���
-	 * @param TermCode		�ն˺ţ�����ȫΪ0
-	 * @param TranAmt		���׽���λΪԪ
-	 * @param PayBank		֧������
-	 * @param AccountType	�˻�����
-	 * @param PayType		֧������
-	 * @param Subject		��Ʒ���ƣ���Ʒ�ı���/���ױ���/��������/�����ؼ��ֵȡ��ò����Ϊ128�����֡�
-	 * @param Notice		��Ʒ��������һ�ʽ��׵ľ���������Ϣ������Ƕ�����Ʒ���뽫��Ʒ�����ַ����ۼӴ���body��
-	 * @param Remark1		���ױ�ע1�����ױ�עһ�����ֶν��ڶ����ļ����ṩ
-	 * @param Remark2		���ױ�ע2�����ױ�ע�������ֶν��ڶ����ļ����ṩ
-	 * @param MercUrl		֧�������У����ս��׽����url;�������Ϊ�գ����׽�����͵��̻��ڹ���ǩԼ��ʱ����д�Ľ��ս����url������ͻ��͵��õ�ַ�С�
-	 * @param Ip			��������ʱ��IP��ַ���������Ϊ�գ��򲻽���IP��ַ��顣
+	 * @param MasterId		企业客户号，企业客户支付时必须提供，个人客户支付时不需要
+	 * @param TermSsn		订单号，不能重复
+	 * @param MercCode		商户号，开户时获得
+	 * @param TermCode		终端号，可以全为0
+	 * @param TranAmt		交易金额，单位为元
+	 * @param PayBank		支付银行
+	 * @param AccountType	账户类型
+	 * @param PayType		支付类型
+	 * @param Subject		商品名称，商品的标题/交易标题/订单标题/订单关键字等。该参数最长为128个汉字。
+	 * @param Notice		商品描述，对一笔交易的具体描述信息。如果是多种商品，请将商品描述字符串累加传给body。
+	 * @param Remark1		交易备注1，交易备注一，该字段将在对账文件中提供
+	 * @param Remark2		交易备注2，交易备注二，该字段将在对账文件中提供
+	 * @param MercUrl		支付交易中，接收交易结果的url;如果该项为空，则交易结果会送到商户在柜面签约的时候填写的接收结果的url；否则就会送到该地址中。
+	 * @param Ip			订单生产时的IP地址，如果该项为空，则不进行IP地址检查。
 	 */
 	public KhzfRequestData(String MasterId, String TermSsn, String MercCode, String TermCode, Double TranAmt,
 				PayBank PayBank, AccountType AccountType, PayType PayType, String Subject, String Notice,
@@ -51,20 +51,20 @@ public class KhzfRequestData implements RequestData {
 	public static class KhzfPlainData implements PlainData {		
 		/**
 		 * 
-		 * @param MasterId		��ҵ�ͻ��ţ���ҵ�ͻ�֧��ʱ�����ṩ�����˿ͻ�֧��ʱ����Ҫ
-		 * @param TermSsn		�����ţ������ظ�
-		 * @param MercCode		�̻��ţ�����ʱ���
-		 * @param TermCode		�ն˺ţ�����ȫΪ0
-		 * @param TranAmt		���׽���λΪԪ
-		 * @param PayBank		֧������
-		 * @param AccountType	�˻�����
-		 * @param PayType		֧������
-		 * @param Subject		��Ʒ���ƣ���Ʒ�ı���/���ױ���/��������/�����ؼ��ֵȡ��ò����Ϊ128�����֡�
-		 * @param Notice		��Ʒ��������һ�ʽ��׵ľ���������Ϣ������Ƕ�����Ʒ���뽫��Ʒ�����ַ����ۼӴ���body��
-		 * @param Remark1		���ױ�ע1�����ױ�עһ�����ֶν��ڶ����ļ����ṩ
-		 * @param Remark2		���ױ�ע2�����ױ�ע�������ֶν��ڶ����ļ����ṩ
-		 * @param MercUrl		֧�������У����ս��׽����url;�������Ϊ�գ����׽�����͵��̻��ڹ���ǩԼ��ʱ����д�Ľ��ս����url������ͻ��͵��õ�ַ�С�
-		 * @param Ip			��������ʱ��IP��ַ���������Ϊ�գ��򲻽���IP��ַ��顣
+		 * @param MasterId		企业客户号，企业客户支付时必须提供，个人客户支付时不需要
+		 * @param TermSsn		订单号，不能重复
+		 * @param MercCode		商户号，开户时获得
+		 * @param TermCode		终端号，可以全为0
+		 * @param TranAmt		交易金额，单位为元
+		 * @param PayBank		支付银行
+		 * @param AccountType	账户类型
+		 * @param PayType		支付类型
+		 * @param Subject		商品名称，商品的标题/交易标题/订单标题/订单关键字等。该参数最长为128个汉字。
+		 * @param Notice		商品描述，对一笔交易的具体描述信息。如果是多种商品，请将商品描述字符串累加传给body。
+		 * @param Remark1		交易备注1，交易备注一，该字段将在对账文件中提供
+		 * @param Remark2		交易备注2，交易备注二，该字段将在对账文件中提供
+		 * @param MercUrl		支付交易中，接收交易结果的url;如果该项为空，则交易结果会送到商户在柜面签约的时候填写的接收结果的url；否则就会送到该地址中。
+		 * @param Ip			订单生产时的IP地址，如果该项为空，则不进行IP地址检查。
 		 */
 		public KhzfPlainData(String MasterId, String TermSsn, String MercCode, String TermCode, Double TranAmt,
 				PayBank PayBank, AccountType AccountType, PayType PayType, String Subject, String Notice,
@@ -89,37 +89,37 @@ public class KhzfRequestData implements RequestData {
 		}
 		
 		
-		/**������д*/
+		/**交易缩写*/
 		private TransName TranAbbr=TransName.KHZF;
-		/**�̻�����ʱ�䣬yyyyMMddhhMMss*/
+		/**商户日期时间，yyyyMMddhhMMss*/
 		private LocalDateTime MercDtTm=LocalDateTime.now();
-		/**��ҵ�ͻ��ţ���ҵ�ͻ�֧��ʱ�����ṩ�����˿ͻ�֧��ʱ����Ҫ*/
+		/**企业客户号，企业客户支付时必须提供，个人客户支付时不需要*/
 		private String MasterId;		
-		/**�����ţ������ظ�*/
+		/**订单号，不能重复*/
 		private String TermSsn;
-		/**�̻��ţ�����ʱ���*/
+		/**商户号，开户时获得*/
 		private String MercCode;
-		/**�ն˺ţ�����ȫΪ0*/
+		/**终端号，可以全为0*/
 		private String TermCode="00000000";
-		/**���׽���λΪԪ*/
+		/**交易金额，单位为元*/
 		private Double TranAmt;
-		/**֧������*/
+		/**支付银行*/
 		private PayBank PayBank;
-		/**�˻�����*/
+		/**账户类型*/
 		private AccountType AccountType;
-		/**֧������*/
+		/**支付类型*/
 		private PayType PayType;
-		/**��Ʒ���ƣ���Ʒ�ı���/���ױ���/��������/�����ؼ��ֵȡ��ò����Ϊ128�����֡�*/
+		/**商品名称，商品的标题/交易标题/订单标题/订单关键字等。该参数最长为128个汉字。*/
 		private String Subject;
-		/**��Ʒ��������һ�ʽ��׵ľ���������Ϣ������Ƕ�����Ʒ���뽫��Ʒ�����ַ����ۼӴ���body��*/
+		/**商品描述，对一笔交易的具体描述信息。如果是多种商品，请将商品描述字符串累加传给body。*/
 		private String Notice;
-		/**���ױ�ע1�����ױ�עһ�����ֶν��ڶ����ļ����ṩ*/
+		/**交易备注1，交易备注一，该字段将在对账文件中提供*/
 		private String Remark1;
-		/**���ױ�ע2�����ױ�ע�������ֶν��ڶ����ļ����ṩ*/
+		/**交易备注2，交易备注二，该字段将在对账文件中提供*/
 		private String Remark2;
-		/**֧�������У����ս��׽����url;�������Ϊ�գ����׽�����͵��̻��ڹ���ǩԼ��ʱ����д�Ľ��ս����url������ͻ��͵��õ�ַ�С�*/
+		/**支付交易中，接收交易结果的url;如果该项为空，则交易结果会送到商户在柜面签约的时候填写的接收结果的url；否则就会送到该地址中。*/
 		private URL MercUrl;
-		/**��������ʱ��IP��ַ���������Ϊ�գ��򲻽���IP��ַ��顣*/
+		/**订单生产时的IP地址，如果该项为空，则不进行IP地址检查。*/
 		private String Ip;
 		
 		public TransName getTranAbbr() {

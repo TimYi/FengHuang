@@ -1,5 +1,7 @@
 package com.fenghuangzhujia.eshop.prudoct.appoint.dto;
 
+import java.util.Date;
+
 import com.fenghuangzhujia.eshop.core.area.dto.AreaDto;
 import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
 import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageDto;
@@ -12,6 +14,8 @@ public class PackageAppointDto extends DtoBaseModel {
 	private DecoratePackageDto decoratePackage;
 	private String realName;
 	private String mobile;
+	private Date createTime;
+	private Date expireTime;
 	
 	public UserDto getUser() {
 		return user;
@@ -42,5 +46,17 @@ public class PackageAppointDto extends DtoBaseModel {
 	}
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
+	}
+	public Date getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+	public Date getExpireTime() {
+		return expireTime;
+	}
+	public void setExpireTime(Date expireTime) {
+		this.expireTime = expireTime;
 	}
 }

@@ -55,6 +55,8 @@ public class SystemErrorCodes {
 	 * 商品信息不完整
 	 */
 	public static final ErrorCode GOOD_INFO_MISSING;
+	/**商品暂不销售*/
+	public static final ErrorCode NOT_ON_SALE;
 	
 	
 	//Schedual相关，101~110
@@ -110,6 +112,7 @@ public class SystemErrorCodes {
 		NO_GOOD=new ErrorCode(92, "无货");
 		GOOD_TYPE_DISMISS=new ErrorCode(93,"商品类型不统一");
 		GOOD_INFO_MISSING=new ErrorCode(94, "商品信息不完整");
+		NOT_ON_SALE=new ErrorCode(95, "商品暂不销售");
 		
 		SCHEDUAL_CONFILICT=new ErrorCode(101, "出现时间重叠，请重新选择时间！");
 		SCHEDUAL_OCCUPIED=new ErrorCode(102, "此时间段已经被预约，请您重新选择！");

@@ -63,5 +63,5 @@ public class Appoint extends UnreadRemindEntity {
 	}
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
-	}
+	}	
 }

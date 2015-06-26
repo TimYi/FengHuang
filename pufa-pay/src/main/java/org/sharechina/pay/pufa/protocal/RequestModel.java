@@ -9,7 +9,7 @@ import com.csii.payment.client.core.MerchantSignVerify;
 import com.thoughtworks.xstream.XStream;
 
 /**
- * Í¨ÓÃÇëÇóÄ£ĞÍ
+ * é€šç”¨è¯·æ±‚æ¨¡å‹
  * @author pc
  *
  */
@@ -28,11 +28,11 @@ public class RequestModel {
 		xStreamForRequestPostData.alias("packet", RequestModel.class);
 	}
 
-	/**½»Ò×Ãû*/
+	/**äº¤æ˜“å*/
 	private TransName transName;
-	/**Ã÷ÎÄĞÅÏ¢*/
+	/**æ˜æ–‡ä¿¡æ¯*/
 	private String Plain;
-	/**Ç©Ãû*/
+	/**ç­¾å*/
 	private String Signature;
 	
 	public RequestModel(RequestData data) {
@@ -41,7 +41,7 @@ public class RequestModel {
 		this.Signature=MerchantSignVerify.merchantSignData_ABA(Plain);		
 	}
 	
-	/**×ª»¯ÎªÆÖ·¢±ê×¼¸ñÊ½µÄxmlÊı¾İ*/
+	/**è½¬åŒ–ä¸ºæµ¦å‘æ ‡å‡†æ ¼å¼çš„xmlæ•°æ®*/
 	public String toXml() {
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 		Writer writer=null;

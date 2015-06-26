@@ -7,7 +7,7 @@ import org.sharechina.pay.pufa.protocal.PlainData;
 import org.sharechina.pay.pufa.protocal.RequestData;
 import org.sharechina.pay.pufa.protocal.TransName;
 
-/**¿çĞĞÍË»õÇëÇó²ÎÊı*/
+/**è·¨è¡Œé€€è´§è¯·æ±‚å‚æ•°*/
 public class RefundRequestData implements RequestData {
 	
 	private KhthPlainData plainData;
@@ -24,15 +24,15 @@ public class RefundRequestData implements RequestData {
 	
 	/**
 	 * 
-	 * @param masterId	ÆóÒµ¿Í»§ºÅ£¬ÆóÒµ¿Í»§Ö§¸¶Ê±±ØĞëÌá¹©£¬¸öÈË¿Í»§Ö§¸¶Ê±²»ĞèÒª
-	 * @param termSsn	¶©µ¥ºÅ£¬²»ÄÜÖØ¸´
-	 * @param osttDate	Ô­½»Ò×µÄÇåËãÈÕÆÚ£¬´ÓÖ§¸¶»Øµ÷½á¹ûÖĞ¼ÇÂ¼
-	 * @param oacqSsn	Ô­½»Ò×µÄÍø¹ØÁ÷Ë®£¬´ÓÖ§¸¶»Øµ÷½á¹ûÖĞ¼ÇÂ¼
-	 * @param mercCode	ÉÌ»§ºÅ£¬¿ª»§Ê±»ñµÃ
-	 * @param termCode	ÖÕ¶ËºÅ£¬¿ÉÒÔÈ«Îª0£¬ÒÑ¾­Ìá¹©ÁËÈ«Îª0µÄÄ¬ÈÏÖµ
-	 * @param tranAmt	½»Ò×½ğ¶î£¬µ¥Î»ÎªÔª
-	 * @param remark1	½»Ò×±¸×¢1£¬½»Ò×±¸×¢Ò»£¬¸Ã×Ö¶Î½«ÔÚ¶ÔÕËÎÄ¼şÖĞÌá¹©
-	 * @param remark2	½»Ò×±¸×¢2£¬½»Ò×±¸×¢¶ş£¬¸Ã×Ö¶Î½«ÔÚ¶ÔÕËÎÄ¼şÖĞÌá¹©
+	 * @param masterId	ä¼ä¸šå®¢æˆ·å·ï¼Œä¼ä¸šå®¢æˆ·æ”¯ä»˜æ—¶å¿…é¡»æä¾›ï¼Œä¸ªäººå®¢æˆ·æ”¯ä»˜æ—¶ä¸éœ€è¦
+	 * @param termSsn	è®¢å•å·ï¼Œä¸èƒ½é‡å¤
+	 * @param osttDate	åŸäº¤æ˜“çš„æ¸…ç®—æ—¥æœŸï¼Œä»æ”¯ä»˜å›è°ƒç»“æœä¸­è®°å½•
+	 * @param oacqSsn	åŸäº¤æ˜“çš„ç½‘å…³æµæ°´ï¼Œä»æ”¯ä»˜å›è°ƒç»“æœä¸­è®°å½•
+	 * @param mercCode	å•†æˆ·å·ï¼Œå¼€æˆ·æ—¶è·å¾—
+	 * @param termCode	ç»ˆç«¯å·ï¼Œå¯ä»¥å…¨ä¸º0ï¼Œå·²ç»æä¾›äº†å…¨ä¸º0çš„é»˜è®¤å€¼
+	 * @param tranAmt	äº¤æ˜“é‡‘é¢ï¼Œå•ä½ä¸ºå…ƒ
+	 * @param remark1	äº¤æ˜“å¤‡æ³¨1ï¼Œäº¤æ˜“å¤‡æ³¨ä¸€ï¼Œè¯¥å­—æ®µå°†åœ¨å¯¹è´¦æ–‡ä»¶ä¸­æä¾›
+	 * @param remark2	äº¤æ˜“å¤‡æ³¨2ï¼Œäº¤æ˜“å¤‡æ³¨äºŒï¼Œè¯¥å­—æ®µå°†åœ¨å¯¹è´¦æ–‡ä»¶ä¸­æä¾›
 	 */
 	public RefundRequestData(String masterId, String termSsn, String osttDate, String oacqSsn, String mercCode,
 				String termCode, Double tranAmt, String remark1, String remark2) {
@@ -45,15 +45,15 @@ public class RefundRequestData implements RequestData {
 		
 		/**
 		 * 
-		 * @param masterId	ÆóÒµ¿Í»§ºÅ£¬ÆóÒµ¿Í»§Ö§¸¶Ê±±ØĞëÌá¹©£¬¸öÈË¿Í»§Ö§¸¶Ê±²»ĞèÒª
-		 * @param termSsn	¶©µ¥ºÅ£¬²»ÄÜÖØ¸´
-		 * @param osttDate	Ô­½»Ò×µÄÇåËãÈÕÆÚ£¬´ÓÖ§¸¶»Øµ÷½á¹ûÖĞ¼ÇÂ¼
-		 * @param oacqSsn	Ô­½»Ò×µÄÍø¹ØÁ÷Ë®£¬´ÓÖ§¸¶»Øµ÷½á¹ûÖĞ¼ÇÂ¼
-		 * @param mercCode	ÉÌ»§ºÅ£¬¿ª»§Ê±»ñµÃ
-		 * @param termCode	ÖÕ¶ËºÅ£¬¿ÉÒÔÈ«Îª0£¬ÒÑ¾­Ìá¹©ÁËÈ«Îª0µÄÄ¬ÈÏÖµ
-		 * @param tranAmt	½»Ò×½ğ¶î£¬µ¥Î»ÎªÔª
-		 * @param remark1	½»Ò×±¸×¢1£¬½»Ò×±¸×¢Ò»£¬¸Ã×Ö¶Î½«ÔÚ¶ÔÕËÎÄ¼şÖĞÌá¹©
-		 * @param remark2	½»Ò×±¸×¢2£¬½»Ò×±¸×¢¶ş£¬¸Ã×Ö¶Î½«ÔÚ¶ÔÕËÎÄ¼şÖĞÌá¹©
+		 * @param masterId	ä¼ä¸šå®¢æˆ·å·ï¼Œä¼ä¸šå®¢æˆ·æ”¯ä»˜æ—¶å¿…é¡»æä¾›ï¼Œä¸ªäººå®¢æˆ·æ”¯ä»˜æ—¶ä¸éœ€è¦
+		 * @param termSsn	è®¢å•å·ï¼Œä¸èƒ½é‡å¤
+		 * @param osttDate	åŸäº¤æ˜“çš„æ¸…ç®—æ—¥æœŸï¼Œä»æ”¯ä»˜å›è°ƒç»“æœä¸­è®°å½•
+		 * @param oacqSsn	åŸäº¤æ˜“çš„ç½‘å…³æµæ°´ï¼Œä»æ”¯ä»˜å›è°ƒç»“æœä¸­è®°å½•
+		 * @param mercCode	å•†æˆ·å·ï¼Œå¼€æˆ·æ—¶è·å¾—
+		 * @param termCode	ç»ˆç«¯å·ï¼Œå¯ä»¥å…¨ä¸º0ï¼Œå·²ç»æä¾›äº†å…¨ä¸º0çš„é»˜è®¤å€¼
+		 * @param tranAmt	äº¤æ˜“é‡‘é¢ï¼Œå•ä½ä¸ºå…ƒ
+		 * @param remark1	äº¤æ˜“å¤‡æ³¨1ï¼Œäº¤æ˜“å¤‡æ³¨ä¸€ï¼Œè¯¥å­—æ®µå°†åœ¨å¯¹è´¦æ–‡ä»¶ä¸­æä¾›
+		 * @param remark2	äº¤æ˜“å¤‡æ³¨2ï¼Œäº¤æ˜“å¤‡æ³¨äºŒï¼Œè¯¥å­—æ®µå°†åœ¨å¯¹è´¦æ–‡ä»¶ä¸­æä¾›
 		 */
 		public KhthPlainData(String masterId, String termSsn, String osttDate, String oacqSsn, String mercCode,
 				String termCode, Double tranAmt, String remark1, String remark2) {
@@ -70,27 +70,27 @@ public class RefundRequestData implements RequestData {
 			this.Remark2=remark2;
 		}
 		
-		/**½»Ò×ËõĞ´*/
+		/**äº¤æ˜“ç¼©å†™*/
 		private final TransName TranAbbr=TransName.KHTH;
-		/**ÆóÒµ¿Í»§ºÅ£¬ÆóÒµ¿Í»§Ö§¸¶Ê±±ØĞëÌá¹©£¬¸öÈË¿Í»§Ö§¸¶Ê±²»ĞèÒª*/
+		/**ä¼ä¸šå®¢æˆ·å·ï¼Œä¼ä¸šå®¢æˆ·æ”¯ä»˜æ—¶å¿…é¡»æä¾›ï¼Œä¸ªäººå®¢æˆ·æ”¯ä»˜æ—¶ä¸éœ€è¦*/
 		private String MasterId;
-		/**ÉÌ»§ÈÕÆÚÊ±¼ä£¬yyyyMMddhhMMss*/
+		/**å•†æˆ·æ—¥æœŸæ—¶é—´ï¼ŒyyyyMMddhhMMss*/
 		private LocalDateTime MercDtTm=LocalDateTime.now();
-		/**¶©µ¥ºÅ£¬²»ÄÜÖØ¸´*/
+		/**è®¢å•å·ï¼Œä¸èƒ½é‡å¤*/
 		private String TermSsn;
-		/**Ô­½»Ò×µÄÇåËãÈÕÆÚ£¬´ÓÖ§¸¶»Øµ÷½á¹ûÖĞ¼ÇÂ¼*/
+		/**åŸäº¤æ˜“çš„æ¸…ç®—æ—¥æœŸï¼Œä»æ”¯ä»˜å›è°ƒç»“æœä¸­è®°å½•*/
 		private String OSttDate;
-		/**Ô­½»Ò×µÄÍø¹ØÁ÷Ë®£¬´ÓÖ§¸¶»Øµ÷½á¹ûÖĞ¼ÇÂ¼*/
+		/**åŸäº¤æ˜“çš„ç½‘å…³æµæ°´ï¼Œä»æ”¯ä»˜å›è°ƒç»“æœä¸­è®°å½•*/
 		private String OAcqSsn;
-		/**ÉÌ»§ºÅ£¬¿ª»§Ê±»ñµÃ*/
+		/**å•†æˆ·å·ï¼Œå¼€æˆ·æ—¶è·å¾—*/
 		private String MercCode;		
-		/**ÖÕ¶ËºÅ£¬¿ÉÒÔÈ«Îª0*/
+		/**ç»ˆç«¯å·ï¼Œå¯ä»¥å…¨ä¸º0*/
 		private String TermCode="00000000";
-		/**½»Ò×½ğ¶î£¬µ¥Î»ÎªÔª*/
+		/**äº¤æ˜“é‡‘é¢ï¼Œå•ä½ä¸ºå…ƒ*/
 		private Double TranAmt;
-		/**½»Ò×±¸×¢1£¬½»Ò×±¸×¢Ò»£¬¸Ã×Ö¶Î½«ÔÚ¶ÔÕËÎÄ¼şÖĞÌá¹©*/
+		/**äº¤æ˜“å¤‡æ³¨1ï¼Œäº¤æ˜“å¤‡æ³¨ä¸€ï¼Œè¯¥å­—æ®µå°†åœ¨å¯¹è´¦æ–‡ä»¶ä¸­æä¾›*/
 		private String Remark1;
-		/**½»Ò×±¸×¢2£¬½»Ò×±¸×¢¶ş£¬¸Ã×Ö¶Î½«ÔÚ¶ÔÕËÎÄ¼şÖĞÌá¹©*/
+		/**äº¤æ˜“å¤‡æ³¨2ï¼Œäº¤æ˜“å¤‡æ³¨äºŒï¼Œè¯¥å­—æ®µå°†åœ¨å¯¹è´¦æ–‡ä»¶ä¸­æä¾›*/
 		private String Remark2;
 		
 		public TransName getTranAbbr() {
