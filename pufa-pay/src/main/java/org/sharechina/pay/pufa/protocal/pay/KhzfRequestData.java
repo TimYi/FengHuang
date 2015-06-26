@@ -1,4 +1,4 @@
-﻿package org.sharechina.pay.pufa.protocal.pay;
+package org.sharechina.pay.pufa.protocal.pay;
 
 import java.net.URL;
 import java.time.LocalDateTime;

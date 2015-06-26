@@ -1,4 +1,4 @@
-﻿package org.sharechina.pay.pufa.protocal.query;
+package org.sharechina.pay.pufa.protocal.query;
 
 public class QueryResponseData {
 

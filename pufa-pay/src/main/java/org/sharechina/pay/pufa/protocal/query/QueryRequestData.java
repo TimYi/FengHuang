@@ -1,4 +1,4 @@
-﻿package org.sharechina.pay.pufa.protocal.query;
+package org.sharechina.pay.pufa.protocal.query;
 
 import org.sharechina.pay.pufa.protocal.PlainData;
 import org.sharechina.pay.pufa.protocal.RequestData;

@@ -1,4 +1,4 @@
-﻿package org.sharechina.pay.pufa.common;
+package org.sharechina.pay.pufa.common;
 
 public class StringUtils {
 

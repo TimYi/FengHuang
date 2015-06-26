@@ -1,4 +1,4 @@
-﻿package org.sharechina.pay.pufa.protocal.refund;
+package org.sharechina.pay.pufa.protocal.refund;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

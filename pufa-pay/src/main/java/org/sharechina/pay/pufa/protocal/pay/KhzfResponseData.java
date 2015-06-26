@@ -1,4 +1,4 @@
-﻿package org.sharechina.pay.pufa.protocal.pay;
+package org.sharechina.pay.pufa.protocal.pay;
 
 import org.sharechina.pay.pufa.protocal.PlainData;
 

@@ -1,4 +1,4 @@
-﻿package org.sharechina.pay.pufa.protocal;
+package org.sharechina.pay.pufa.protocal;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStreamWriter;

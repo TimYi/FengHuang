@@ -1,4 +1,4 @@
-﻿package org.sharechina.pay.pufa.protocal.refund;
+package org.sharechina.pay.pufa.protocal.refund;
 
 import org.sharechina.pay.pufa.protocal.pay.KhzfResponseData;
 
