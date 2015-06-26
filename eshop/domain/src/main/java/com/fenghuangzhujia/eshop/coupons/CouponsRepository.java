@@ -4,24 +4,12 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 
-import com.fenghuangzhujia.eshop.common.remind.impl.UnreadRemindPagingRepository;
-import com.fenghuangzhujia.eshop.coupons.entity.CouponsEntity;
+import com.fenghuangzhujia.eshop.common.remind.impl.UnreadRemindSpecificationRepository;
 
-public interface CouponsRepository extends UnreadRemindPagingRepository<CouponsEntity, String> {
+public interface CouponsRepository extends UnreadRemindSpecificationRepository<Coupons, String> {
 
-	/**
-	 * 获取用户的所有优惠券
-	 * @param userid
-	 * @return
-	 */
-	List<CouponsEntity> findByUserId(String userid);
+	@Query("select c from Coupons c join c.user u where u.id=?1 and c.readed=false")
+	List<Coupons> findUnusedCoupons(String userId);
 	
-	/**
-	 * 获取用户未使用且未过期优惠券
-	 * @param userid
-	 * @return
-	 */
-	@Query("select c from CouponsEntity c join c.user u"
-			+ " where u.id=?1 and c.expired=false and c.used=false")
-	List<CouponsEntity> findCouponsCouldUse(String userid);
+	List<Coupons> findByUserId(String userId);
 }
