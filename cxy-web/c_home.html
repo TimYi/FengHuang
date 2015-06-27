@@ -214,10 +214,15 @@
                                     <div class="col-sm-5">
                                         <div class="form-group">
                                             <label>所在城市 </label>
-                                            <select id="city" name="zhuangxiu" class="u_sel">
-							<option value="beijing" selected="selected">北京</option>
-							<option value="hubei">湖北</option>
-							<option value="hunan">湖南</option>
+                                            <select id="provId" name="zhuangxiu" class="u_sel">
+						</select>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label>&nbsp;</label>
+                                            <select id="cityId" name="zhuangxiu" class="u_sel">
 						</select>
 
                                         </div>
@@ -232,9 +237,6 @@
                                             <label>住宅类型 </label>
                                             <div style="clear:both;"></div>
 						<select id="houseType" name="zhuangxiu" class="u_sel">
-							<option value="404040e64d8f6dc0014d8f6dcc790004" selected="selected">公寓</option>
-							<option value="404040e64d8f6dc0014d8f6dcd400005">复式</option>
-							<option value="fiat">别墅</option>
 						</select>
                                         </div>
                                         <div class="form-group">
@@ -247,15 +249,11 @@
                                         <div class="form-group">
                                             <label>装修方式 </label>
                                             <div style="clear:both;"></div>
-						<select id="decorateType" name="zhuangxiu" class="u_sel">
-							<option value="404040e64d8f6dc0014d8f6dd8270013" selected="selected">简装</option>
-							<option value="404040e64d8f6dc0014d8f6dd8fa0014">精装</option>
-							<option value="fiat">旧房改造</option>
+						<select id="decorateType" name="zhuangxiu" class="u_sel">>
 						</select>
                                         </div>
                                     </div>
                                     <div class="col-sm-5">
-
                                         <div class="form-group">
                                             <label>装修预算 </label>
 						<div class="input-group">
@@ -277,7 +275,7 @@
                             </form>
                         </div><!--/#contact-page-->
 										<button id="addbtn" type="button" class="btn btn-primary btn-lg" required="required" style="font-size:15px;">新建</button>
-										<button id="updatebtn" type="button" class="btn btn-primary btn-lg" required="required" style="font-size:15px;display:none;">更新</button>
+										<button id="updatehousebtn" type="button" class="btn btn-primary btn-lg" required="required" style="font-size:15px;display:none;">更新</button>
 										<div style="clear:both;margin:50px"></div>
 
 										<style>
