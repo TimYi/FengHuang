@@ -45,8 +45,8 @@
 	var house = serverUrl + "/api/user/house";
 	var cases = serverUrl + "/api/product/cases";
 	var casedetails = serverUrl + "/api/product/case";
-	var lives = serverUrl + "/api/lives";
-	var live = serverUrl + "/api/live";
+	var lives = serverUrl + "/api/user/lives";
+	var live = serverUrl + "/api/user/live";
 	var packagesUrl = serverUrl + "/api/product/packages";
 	var packageAppointUrl = serverUrl + "/api/user/packageAppoint";
 

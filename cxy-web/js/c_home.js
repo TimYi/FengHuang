@@ -341,7 +341,7 @@ $(function(){
 				}
 				else{
 					var msg = data.error || "";
-					alert("添加房屋信息错误:" + msg);
+					alert("获取房屋信息错误:" + msg);
 				}
 			},
 			error:function(data){

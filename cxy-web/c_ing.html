@@ -12,6 +12,7 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
@@ -201,14 +202,11 @@
 					                    <div class="message_heading right_margin_top_1">
 					                        <h4>家装进度列表</h4>
 							                    <div style="float:right;margin-top:-35px;">
-																			<select name="zhuangxiu" class="u_sel" style="width:200px">
-																				<option value="volvo" selected="selected">#1 海淀黄庄小区</option>
-																				<option value="saab">#2 朝阳区东花市小区</option>
-																				<option value="fiat">#3 朝阳区酒仙桥小区</option>
-																			</select>
+											<select id="houseselect" name="zhuangxiu" class="u_sel" style="width:200px;">
+											</select>
 							                    </div>
 					                    </div>
-															<div class="table table-striped">
+															<div id="ingtable" class="table table-striped">
 															  <table class="table u_ct">
 															    <tr class="u_th">
 															    	<th width=100>工期</th>
@@ -216,6 +214,7 @@
 															    	<th>施工内容</th>
 															    	<th width=80>操作</th>
 															    </tr>
+															    <!--
 															    <tr>
 															    	<td>第20天</td>
 															    	<td>2015-06-02</td>
@@ -336,9 +335,10 @@
 															    	<td>闭水试验和隐蔽验收</td>
 															    	<td><a href="#">查看</a></td>
 															    </tr>
+															    -->
 															  </table>
 															</div>
-				        <div style="clear:both" class="center">
+				        <div id="ingpage" style="clear:both;display:none;" class="center" >
 					          <ul class="pagination pagination-lg ">
 					              <li><a href="#"><i class="fa fa-step-backward"></i></a></li>
 					              <li><a href="#"><i class="fa fa-caret-left" style="font-size:1.5em"></i></a></li>
@@ -475,5 +475,6 @@
 	<script src="libs/base.js"></script>
 	<script src="libs/utils.js"></script>
 	<script src="js/c_my.js"></script>
+	<script src="js/c_ing.js"></script>
 </body>
 </html>

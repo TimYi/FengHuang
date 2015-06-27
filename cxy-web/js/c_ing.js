@@ -1,5 +1,5 @@
 /**
- * file:我的优惠券
+ * file:我的留言
  * author:chenxy
  * date:2015-06-05
 */
@@ -16,60 +16,124 @@ $(function(){
 	g.totalPage = 1;
 	g.currentPage = 1;
 	g.paseSize = 20;
+	g.httpTip = new Utils.httpTip({});
+	g.listdata = [];
 
+	getHomeList();
+	getIngList();
 
-	getMyCoupon();
-
-	//获取我的优惠券
-	function getMyCoupon(){
-		//token:用户凭据
-		//page:当前页码
-		//size:每页数据量
+	function getHomeList(){
 		var condi = {};
 		condi.token = g.token;
-		condi.page = g.currentPage;
-		condi.size = g.paseSize;
-		condi.status = "";
-
-		sendGetMyCouponHttp(condi);
+		sendGetHomeListHttp(condi);
 	}
 
-	//修改我的优惠券列表
-	function changeCouponListHtml(data){
-		var obj = data.result || [];
+	function sendGetHomeListHttp(condi){
+		g.httpTip.show();
+		var url = Base.houses;
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"GET",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("sendGetHomeListHttp",data);
+				g.httpTip.hide();
+				var status = data.status || "";
+				if(status == "OK"){
+					changeSelectHtml("houseselect",data.result);
+				}
+				else{
+					var msg = data.error || "";
+					alert("房屋信息错误:" + msg);
+				}
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+
+	function changeSelectHtml(domid,data){
+		var option = [];
+		for(var i = 0,len = data.length; i < len; i++){
+			var id = data[i].id || "";
+			var name = data[i].districtName || "";
+			option.push('<option value="' + id + '"' + ( i == 0 ? "selected" : "") + '>' + name + '</option>');
+		}
+		$("#" + domid).html(option.join(''));
+	}
+
+
+	function getIngList(){
+		var condi = {};
+		condi.token = g.token;
+		sendGetIngListHttp(condi);
+	}
+
+	function sendGetIngListHttp(condi){
+		g.httpTip.show();
+		var url = Base.lives;
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"GET",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("sendGetIngListHttp",data);
+				g.httpTip.hide();
+				var status = data.status || "";
+				if(status == "OK"){
+					changeIngListHtml(data.result[0].lives);
+				}
+				else{
+					var msg = data.error || "";
+					alert("获取我的家装进度:" + msg);
+				}
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+
+	function changeIngListHtml(data){
+		var obj = data || [];
 		if(obj.length > 0){
+			g.listdata = obj;
+
 			var html = [];
 			html.push('<table class="table u_ct">');
 			html.push('<tr class="u_th">');
-			html.push('<th width=30%>优惠券名称</th>');
-			html.push('<th width=30%>优惠金额</th>');
-			html.push('<th width=120>过期时间</th>');
-			html.push('<th width=80>状态</th>');
+			html.push('<th width=100>工期</th>');
+			html.push('<th width=150>日期</th>');
+			html.push('<th>施工内容</th>');
+			html.push('<th width=80>操作</th>');
 			html.push('</tr>');
 
 			for(var i = 0,len = obj.length; i < len; i++){
 				var id = obj[i].id || "";
-				var name = obj[i].name || "";
-				var couponsMoney = obj[i].couponsMoney || 0;
-				var expireTime = obj[i].expireTime || "";
-				var expired = obj[i].expired || false;
-				var used = obj[i].used || false;
-				var str = "未使用";
-				if(expired){
-					str = "已过期";
-				}
-				if(used){
-					str = "已使用";
-				}
+				var day = obj[i].day || "";
+				var date = obj[i].date || "";
+				var title = obj[i].title || "";
+				//var time = obj[i].createTime || "2015-06-02 10:00";
+
 				html.push('<tr>');
-				html.push('<td >' + name + '</td>');
-				html.push('<td >' + couponsMoney + '</td>');
-				html.push('<td >' + expireTime + '</td>');
-				html.push('<td>' + str + '</td>');
+				html.push('<td >' + day + '</td>');
+				html.push('<td >' + date + '</td>');
+				html.push('<td >' + title + '</td>');
+				html.push('<td ><a href="#">查看</a></td>');
+				//html.push('<td><a href="c_message_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '" >查看</a></td>');
 				html.push('</tr>');
 			}
 			html.push('</table>');
-			$("#coupontable").html(html.join(''));
+
+			$("#ingtable").html(html.join(''));
+			//$("#ingtable .delete").bind("click",deleteMessageItem);
 
 			//var totalpages = data.totalPages - 0;
 			//g.totalPage = totalpages;
@@ -123,10 +187,9 @@ $(function(){
 			html.push('<li class="l_page"><a href="#"><i class="fa fa-step-forward"></i></a></li>');
 			html.push('</ul>');
 		}
-
-		$("#couponpage").show();
-		$("#couponpage").html(html.join(''));
-		$("#couponpage > ul > li").bind("click",pageClick);
+		$("#messagepage").show();
+		$("#messagepage").html(html.join(''));
+		$("#messagepage > ul > li").bind("click",pageClick);
 	}
 
 	function pageClick(evt){
@@ -176,32 +239,10 @@ $(function(){
 		condi.token = g.token;
 		condi.page = g.currentPage;
 		condi.size = g.paseSize;
-		sendGetMyCouponHttp(condi);
+		sendGetMyMessageHttp(condi);
 	}
 
 
-	function sendGetMyCouponHttp(condi){
-		var url = Base.couponsUrl ;
-		$.ajax({
-			url:url,
-			data:condi,
-			type:"GET",
-			dataType:"json",
-			context:this,
-			global:false,
-			success: function(data){
-				console.log("sendGetMyCouponHttp",data);
-				var status = data.status || "";
-				if(status == "OK"){
-					changeCouponListHtml(data);
-				}
-				else{
-					var msg = data.error || "";
-					alert("获取我的优惠券错误:" + msg);
-				}
-			},
-			error:function(data){
-			}
-		});
-	}
+
+
 });
