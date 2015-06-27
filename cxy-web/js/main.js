@@ -668,6 +668,7 @@ $(function(){
 			var saleNumber = obj.saleNumber - 0 || 0;
 			var scrambleStartTime = obj.scrambleStartTime || "";
 			var scrambleEndTime = obj.scrambleEndTime || "";
+			var hasAppointed = obj.hasAppointed || false;
 			//status = "SCRAMBLE";
 			html.push('<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">');
 			html.push('<div class="feature-wrap" style="height:240px;">');
@@ -694,9 +695,15 @@ $(function(){
 				html.push('<span style="color:#999">抢购开始时间：</span>' + scrambleStartTime);
 				html.push('</div>');
 			}
-			else if(status == "SCRAMBLE"){
+			else if(status == "SCRAMBLE" && inStock > saleNumber){
 				html.push('<div style="height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">');
-				html.push('<a href="miaosha.html?id=' + id + '">');
+				if(hasAppointed){
+					html.push('<a href="javascript:miaoSha(\'' + id + '\')">');
+				}
+				else{
+					var page = price + ".html?id=" + id;
+					html.push('<a href="javascript:alert(\'你还没有预约\');location.href=\'' + page + '\'">');
+				}
 				html.push('<div style="text-align:center;line-height:45px;font-size:16px;color:#000;">立即抢购</div>');
 				html.push('</a>');
 				html.push('</div>');
@@ -738,11 +745,41 @@ $(function(){
 		$("#packagelist").html(html.join(''));
 		$("#packagelist").show();
 	}
+
+	function miaoSha(id){
+		var url = Base.scramble;
+		var condi = {};
+		condi.token = g.token;
+		condi.id = id;
+		condi.caseId = "";
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"POST",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("miaoSha",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					Utils.alert("抢购成功");
+					location.href = "miaosha.html?id=" + id;
+				}
+				else{
+					Utils.alert("抢购失败");
+				}
+				g.httpTip.hide();
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+
+	window.miaoSha = miaoSha;
 });
-
-
-
-
 
 
 

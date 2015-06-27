@@ -49,6 +49,7 @@
 	var live = serverUrl + "/api/user/live";
 	var packagesUrl = serverUrl + "/api/product/packages";
 	var packageAppointUrl = serverUrl + "/api/user/packageAppoint";
+	var scramble = serverUrl + "/api/package/scramble";
 
 	Base.userName = userName;
 	Base.urlPort = urlPort;
@@ -83,6 +84,7 @@
 	Base.live = live;
 	Base.packagesUrl = packagesUrl;
 	Base.packageAppointUrl = packageAppointUrl;
+	Base.scramble = scramble;
 }(window));
 
 

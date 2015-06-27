@@ -20,7 +20,7 @@ $(function(){
 	g.httpTip = new Utils.httpTip({});
 
 	$("#backbtn").bind("click",back);
-	$("#deletebtn").bind("click",deleteItem);
+	$("#deletesubbtn").bind("click",deleteItem);
 
 	getListInfo();
 
@@ -107,25 +107,30 @@ $(function(){
 		var createTime = obj.createTime || "";
 		createTime = createTime.substring(0,10);
 		var mobile = obj.mobile || "";
+		var id = obj.id || "";
+		var city = obj.city || "";
+		if(city !== ""){
+			city = city.name;
+		}
 		var html = [];
 		html.push('<h4>' + type + '</h4>');
-		html.push('<span style="color:#999;font-size:13px">状态：<!--客服人员已确认--></span>');
-		html.push('<span style="color:#999;margin-left:20px;font-size:13px">时间：' + createTime + '</span>');
+		//html.push('<span style="color:#999;font-size:13px">状态：<!--客服人员已确认--></span>');
+		//html.push('<span style="color:#999;margin-left:20px;font-size:13px">时间：' + createTime + '</span>');
 		html.push('<hr/>');
 
 		html.push('<div class="col-md-6">');
 		html.push('<ul class="sub_li">');
 		html.push('<li>套餐类型：' + type + '</li>');
-		html.push('<li>订单编号：<!--TC0129300123--></li>');
-		html.push('<li>所在城市：<!--北京--></li>');
-		html.push('<li>详细地址：<!--海淀区上地七街--></li>');
+		html.push('<li>订单编号：' + id + '</li>');
+		html.push('<li>所在城市：' + city + '</li>');
+		//html.push('<li>详细地址：<!--海淀区上地七街--></li>');
 		html.push('</ul>');
 		html.push('</div>');
 
 		html.push('<div class="col-md-6">');
 		html.push('<ul class="sub_li">');
 		html.push('<li>预约时间：' + createTime + '</li>');
-		html.push('<li>有效期限：<!--2015-06-30 00:00:00--></li>');
+		//html.push('<li>有效期限：<!--2015-06-30 00:00:00--></li>');
 		html.push('<li>联系电话：'  + mobile + '</li>');
 		html.push('</ul>');
 		html.push('</div>');
