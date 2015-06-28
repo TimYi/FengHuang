@@ -11,6 +11,7 @@ $(function(){
 	g.sendCode = false;
 	g.sendTime = 60;
 	g.username = Base.userName;
+	g.token = Utils.offLineStore.get("token",false);
 	g.caseId = Utils.getQueryString("id");
 	g.totalPage = 1;
 	g.currentPage = 1;
@@ -119,8 +120,8 @@ $(function(){
 		html.push('</a>');
 		html.push('</div>');
 		html.push('<div style="margin:0 0 20px 20px;float:left;height:45px;width:130px;background:#b9090e;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">');
-		html.push('<a href="#">');
-		html.push('<div style="text-align:center;line-height:45px;font-size:16px;color:white;">收藏</div>');
+		html.push('<a href="javascript:addCollect(\'' + id + '\',\'CASE\')">');
+		html.push('<div id="collectbtn" style="text-align:center;line-height:45px;font-size:16px;color:white;">收藏</div>');
 		html.push('</a>');
 		html.push('</div>');
 		html.push('<div style="clear:both"></div>');
@@ -136,12 +137,13 @@ $(function(){
 	function getCaseComment(){
 		var condi = {};
 		condi.sourceid = g.caseId;
-
-		//sendGetCaseCommentHttp(condi);
+		condi.currentPage = 1;
+		condi.paseSize = 5;
+		sendGetCaseCommentHttp(condi);
 	}
 
 	function sendGetCaseCommentHttp(condi){
-		var url = Base.commentsUrl;
+		var url = Base.comments;
 		g.httpTip.show();
 		$.ajax({
 			url:url,
@@ -154,7 +156,7 @@ $(function(){
 				console.log("sendGetCaseCommentHttp",data);
 				var status = data.status || "";
 				if(status == "OK"){
-					//changeCaseDetailHtml(data.result);
+					changeCommentsHtml(data.result);
 				}
 				else{
 					var msg = data.error || "";
@@ -167,12 +169,138 @@ $(function(){
 			}
 		});
 	}
+	function changeCommentsHtml(data){
+		var obj = data.result || [];
 
-	function issueComment(){
+		var totalCount = data.totalCount;
+		var html = [];
+		html.push('<h1 id="comments_title">' + totalCount + ' 条评论</h1>');
+		for(var i = 0; i < obj.length; i++){
+			var column = obj[i].column || "";
+			var createTime = obj[i].createTime || "";
+			var content = obj[i].content || "";
+			html.push('<div class="media comment_section">');
+			html.push('<div class="pull-left post_comments">');
+			html.push('<a href="#"><img src="images/blog/girl.png" class="img-circle" alt="" /></a>');
+			html.push('</div>');
+			html.push('<div class="media-body post_reply_comments">');
+			html.push('<h3>' + column + '</h3>');
+			html.push('<h4>' + createTime + '</h4>');
+			html.push('<p>' + content+ '</p>');
+			html.push('<a href="#">回复</a>');
+			html.push('</div>');
+			html.push('</div>');
+		}
 
-		$("#name")
+		if(html.length > 1){
+			$("#commentslist").html(html.join(''));
+			$("#commentslist").show();
+		}
 	}
 
+	function issueComment(){
+		/*
+		column:栏目标题
+		type:资源类型，为枚举值：ARTICAL,PACKAGE,CASE;
+		token:用户凭据
+		replyid:如果是回复某条评论，传被评论的id，否则不传
+		url:当前地址url，可选
+		content:回复的内容
+		*/
+		var condi = {};
+		condi.sourceid = g.caseId;
+		condi.column = "栏目标题";
+		condi.type = "CASE";
+		condi.token = g.token;
+		condi.replyid = "";
+		condi.url = location.href;
+		condi.content = $("#message").val() || "";
+
+		if(g.loginStatus){
+			if(condi.content !==""){
+				sendAddCaseCommentHttp(condi);
+			}
+			else{
+				Utils.alert("输入评论内容");
+				$("#message").focus();
+			}
+		}
+		else{
+			alert("请先登录");
+			location.href = "login.html";
+		}
+	}
+
+	function sendAddCaseCommentHttp(condi){
+		var url = Base.commentUrl;
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"POST",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("sendAddCaseCommentHttp",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					alert("评论发表成功");
+					$("#message").val("");
+				}
+				else{
+					var msg = data.error || "";
+					alert("添加案例评论错误:" + msg);
+				}
+				g.httpTip.hide();
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+
+
+	function addCollect(sourceid,type){
+		var text = $("#collectbtn").text();
+		if(g.loginStatus && text == "收藏"){
+			var url = Base.collectUrl;
+			var condi = {};
+			condi.token = g.token;
+			condi.sourceid = sourceid;
+			condi.type = type;
+			g.httpTip.show();
+			$.ajax({
+				url:url,
+				data:condi,
+				type:"POST",
+				dataType:"json",
+				context:this,
+				global:false,
+				success: function(data){
+					console.log("addCollect",data);
+					var status = data.status || "";
+					if(status == "OK"){
+						$("#collectbtn").html("已收藏");
+					}
+					else{
+						var msg = data.error || "";
+						alert("添加收藏错误:" + msg);
+					}
+					g.httpTip.hide();
+				},
+				error:function(data){
+					g.httpTip.hide();
+				}
+			});
+		}
+		else{
+			alert("请先登录");
+			location.href = "login.html";
+		}
+	}
+
+	window.addCollect = addCollect;
 });
 
 

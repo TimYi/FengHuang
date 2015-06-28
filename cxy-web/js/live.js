@@ -11,11 +11,11 @@ $(function(){
 	g.sendCode = false;
 	g.sendTime = 60;
 	g.username = Base.userName;
-	g.token = Utils.getQueryString("token");
+	g.token = Utils.offLineStore.get("token",false);
 	g.page = Utils.getQueryString("p") - 0;
 	g.totalPage = 1;
 	g.currentPage = 1;
-	g.paseSize = 10;
+	g.paseSize = 20;
 	g.httpTip = new Utils.httpTip({});
 	g.listdata = [];
 	g.packageName = "";
@@ -25,8 +25,8 @@ $(function(){
 	g.loginStatus = Utils.getUserInfo();
 
 	$("#packagename >li > a").bind("click",changePackageName);
-	$("#packagestype1 >li > a").bind("click",changePackageStype);
-	$("#packagestype2 >li > a").bind("click",changePackageStype);
+	//$("#packagestype1 >li > a").bind("click",changePackageStype);
+	//$("#packagestype2 >li > a").bind("click",changePackageStype);
 
 	getLiveList();
 
@@ -34,24 +34,18 @@ $(function(){
 		$("#packagename >li > a").removeClass("active");
 		$(this).addClass("active");
 		var text = $(this).text();
-		if(text == "全部"){
+		if(text == "最新"){
 			g.packageName = "";
 			$("#packagestype1 >li > a").removeClass("active");
 			$("#packagestype2 >li > a").removeClass("active");
 
 			g.tags = "";
-			getCaseList();
+			getLiveList();
 		}
 		else{
-			g.packageName = text;
-
-			if(g.packageStype == ""){
-				g.tags = g.packageName;
-			}
-			else{
-				g.tags = g.packageName + "&" + g.packageStype;
-			}
-			getCaseList();
+			//g.packageName = text;
+			g.tags = text;
+			getLiveList();
 		}
 	}
 
@@ -146,6 +140,10 @@ $(function(){
 			var totalpages = data.totalPages - 0;
 			g.totalPage = totalpages;
 			changePageHtml(totalpages);
+		}
+		else{
+			$("#livelist").html("");
+			$("#livepage").hide();
 		}
 	}
 
@@ -244,12 +242,7 @@ $(function(){
 			}
 		}
 
-		var condi = {};
-		//condi.token = g.token;
-		condi.page = g.currentPage;
-		condi.size = g.paseSize;
-		condi.tags = g.tags;
-		sendGetCaseListHttp(condi);
+		getLiveList();
 	}
 });
 
