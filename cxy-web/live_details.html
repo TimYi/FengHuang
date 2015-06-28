@@ -112,14 +112,14 @@
     </header><!--/header-->
 
 		<section id="blog" class="container" style="border-top:1px solid #f9f9f9;margin-top:10px">
-        <div class="center">
-            <h2>朱先生家</h2>
-            <p class="lead">上河湾／88.46㎡／二居室&nbsp;&nbsp;&nbsp;&nbsp;开工时间：2015-05-28&nbsp;&nbsp;&nbsp;&nbsp;收藏：111&nbsp;&nbsp;&nbsp;&nbsp;评论：12</p>
-        </div>
+			<div id="centertitle" class="center" style="display:none;">
+				<h2>朱先生家</h2>
+				<p class="lead">上河湾／88.46㎡／二居室&nbsp;&nbsp;&nbsp;&nbsp;开工时间：2015-05-28&nbsp;&nbsp;&nbsp;&nbsp;收藏：111&nbsp;&nbsp;&nbsp;&nbsp;评论：12</p>
+			</div>
 
-        <div class="blog">
-            <div class="row">
-                 <div>
+			<div class="blog">
+				<div class="row">
+					<div id="livedetail" style="display:none;">
 
                     <div class="blog-item">
                         <div class="row">
@@ -255,7 +255,7 @@
 
 
                 </div><!--/.col-md-8-->
-				        <div style="clear:both" class="center">
+				        <div id="livepage" style="clear:both;display:none;" class="center" >
 					          <ul class="pagination pagination-lg ">
 					              <li><a href="#"><i class="fa fa-step-backward"></i></a></li>
 					              <li><a href="#"><i class="fa fa-caret-left" style="font-size:1.5em"></i></a></li>
@@ -270,7 +270,7 @@
 					          </ul><!--/.pagination-->
 				        </div>
 
-
+			<div id="commentslist" style="display:none">
                         <h1 id="comments_title">5 条评论</h1>
                         <div class="media comment_section">
                             <div class="pull-left post_comments">
@@ -305,7 +305,7 @@
                                 <a href="#">回复</a>
                             </div>
                         </div>
-
+			</div>
 
                         <div id="contact-page clearfix">
                             <div class="status alert alert-success" style="display: none"></div>
@@ -336,7 +336,7 @@
                                             <textarea name="message" id="message" required="required" class="form-control" rows="8"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary btn-lg" required="required">发布评论</button>
+                                            <button id="issuebtn" type="button" class="btn btn-primary btn-lg" required="required">发布评论</button>
                                         </div>
                                     </div>
                                 </div>
