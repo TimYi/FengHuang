@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.coupons.dto;
+package com.fenghuangzhujia.eshop.core.commerce.coupons.dto;
 
 import java.util.Date;
 

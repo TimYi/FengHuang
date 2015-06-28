@@ -6,8 +6,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fenghuangzhujia.eshop.common.remind.impl.DtoUnreadRemindSpecificationService;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
+import com.fenghuangzhujia.eshop.core.remind.impl.DtoUnreadRemindSpecificationService;
 import com.fenghuangzhujia.eshop.message.dto.MessageDto;
 import com.fenghuangzhujia.eshop.message.dto.MessageInputArgs;
 import com.fenghuangzhujia.foundation.core.model.PagedList;

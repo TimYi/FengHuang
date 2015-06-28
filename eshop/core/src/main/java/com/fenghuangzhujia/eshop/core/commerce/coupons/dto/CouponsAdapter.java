@@ -1,12 +1,12 @@
-package com.fenghuangzhujia.eshop.coupons.dto;
+package com.fenghuangzhujia.eshop.core.commerce.coupons.dto;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.fenghuangzhujia.eshop.core.commerce.coupons.Coupons;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
-import com.fenghuangzhujia.eshop.coupons.Coupons;
 import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
 
 @Component

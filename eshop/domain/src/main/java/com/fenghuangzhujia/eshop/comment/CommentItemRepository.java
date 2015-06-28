@@ -3,7 +3,7 @@ package com.fenghuangzhujia.eshop.comment;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.fenghuangzhujia.eshop.common.remind.impl.UnreadRemindSpecificationRepository;
+import com.fenghuangzhujia.eshop.core.remind.impl.UnreadRemindSpecificationRepository;
 
 public interface CommentItemRepository extends UnreadRemindSpecificationRepository<CommentItem, String> {
 

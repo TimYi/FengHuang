@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
 import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
-import com.fenghuangzhujia.eshop.coupons.CouponsService;
-import com.fenghuangzhujia.eshop.coupons.dto.CouponsDto;
+import com.fenghuangzhujia.eshop.core.commerce.coupons.CouponsService;
+import com.fenghuangzhujia.eshop.core.commerce.coupons.dto.CouponsDto;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
 @RestController

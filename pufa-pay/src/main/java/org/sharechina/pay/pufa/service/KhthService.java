@@ -8,12 +8,14 @@ import org.sharechina.pay.pufa.protocal.RequestModel;
 import org.sharechina.pay.pufa.protocal.ResponseModel;
 import org.sharechina.pay.pufa.protocal.refund.RefundRequestData;
 import org.sharechina.pay.pufa.protocal.refund.RefundResponseData;
+import org.springframework.stereotype.Service;
 
 /**
  * 跨行退货服务
  * @author pc
  *
  */
+@Service
 public class KhthService {
 
 	private HttpsService httpsService=new SimpleHttpsService();

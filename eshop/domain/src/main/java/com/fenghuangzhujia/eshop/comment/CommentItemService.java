@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.eshop.comment.dto.CommentItemDto;
 import com.fenghuangzhujia.eshop.comment.dto.CommentItemInputArgs;
-import com.fenghuangzhujia.eshop.common.remind.impl.DtoUnreadRemindSpecificationService;
+import com.fenghuangzhujia.eshop.core.remind.impl.DtoUnreadRemindSpecificationService;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 
 @Service

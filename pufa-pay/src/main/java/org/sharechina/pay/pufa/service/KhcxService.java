@@ -8,12 +8,14 @@ import org.sharechina.pay.pufa.protocal.RequestModel;
 import org.sharechina.pay.pufa.protocal.ResponseModel;
 import org.sharechina.pay.pufa.protocal.TransName;
 import org.sharechina.pay.pufa.protocal.query.QueryRequestData;
+import org.springframework.stereotype.Service;
 
 /**
  * 单笔查询服务
  * @author pc
  *
  */
+@Service
 public class KhcxService {
 
 	private HttpsService httpsService=new SimpleHttpsService();

@@ -1,10 +1,11 @@
-package com.fenghuangzhujia.eshop.coupons;
+package com.fenghuangzhujia.eshop.core.commerce.coupons;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 
-import com.fenghuangzhujia.eshop.common.remind.impl.UnreadRemindSpecificationRepository;
+import com.fenghuangzhujia.eshop.core.remind.impl.UnreadRemindSpecificationRepository;
+
 
 public interface CouponsRepository extends UnreadRemindSpecificationRepository<Coupons, String> {
 
