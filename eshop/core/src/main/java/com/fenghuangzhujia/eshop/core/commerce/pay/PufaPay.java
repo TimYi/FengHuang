@@ -1,7 +1,9 @@
 package com.fenghuangzhujia.eshop.core.commerce.pay;
 
-import javax.persistence.Table;
+import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Table;
 import javax.persistence.Entity;
 
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
@@ -23,12 +25,15 @@ public class PufaPay extends UUIDBaseModel {
 	private Double tranAmt;
 	/**清算日期*/
 	private String clearDate;
+	/**记录支付时间*/
+	private Date payTime;
 	/**是否是一个支付完成的订单*/
 	private boolean hasPayed;
 	
 	public String getAcqSsn() {
 		return acqSsn;
 	}
+	@Column(unique=true)
 	public String getTermSsn() {
 		return termSsn;
 	}
@@ -49,6 +54,12 @@ public class PufaPay extends UUIDBaseModel {
 	}
 	public void setClearDate(String clearDate) {
 		this.clearDate = clearDate;
+	}
+	public Date getPayTime() {
+		return payTime;
+	}
+	public void setPayTime(Date payTime) {
+		this.payTime = payTime;
 	}
 	public boolean isHasPayed() {
 		return hasPayed;

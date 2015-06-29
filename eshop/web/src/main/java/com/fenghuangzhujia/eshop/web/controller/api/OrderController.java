@@ -7,6 +7,7 @@ import org.sharechina.pay.pufa.protocal.PayBank;
 import org.sharechina.pay.pufa.protocal.RequestModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,5 +54,11 @@ public class OrderController {
 		RequestModel result=
 				pufaPayService.calculatePayArgs(userId, orderId, couponsIds, payBank, accountType);
 		return RequestResult.success(result).toJson();
+	}
+	
+	@RequestMapping(value="pufa/revoke",method=RequestMethod.POST)
+	public String pufaRevoke(@RequestBody String xml) {
+		pufaPayService.revoke(xml);
+		return RequestResult.success("支付成功").toJson();
 	}
 }

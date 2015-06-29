@@ -1,5 +1,6 @@
 package com.fenghuangzhujia.eshop.core.commerce.pay;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -34,6 +35,8 @@ public class OrderPay extends UUIDBaseModel {
 	private Double refundMoney=0.0;
 	/**是否已经支付*/
 	private boolean hasPayed;
+	/**记录支付时间*/
+	private Date payTime;
 	/**支付对应的订单*/
 	private GoodOrder order;
 	/**实际支付信息（暂时只有浦发支付）*/
@@ -56,8 +59,17 @@ public class OrderPay extends UUIDBaseModel {
 	public Double getRefundMoney() {
 		return refundMoney;
 	}
-	public boolean isHasPayed() {
+	public Date getPayTime() {
+		return payTime;
+	}
+	public void setPayTime(Date payTime) {
+		this.payTime = payTime;
+	}
+	public boolean getHasPayed() {
 		return hasPayed;
+	}
+	public void setHasPayed(boolean hasPayed) {
+		this.hasPayed = hasPayed;
 	}
 	public void setTotalMoney(Double totalMoney) {
 		this.totalMoney = totalMoney;
@@ -73,9 +85,6 @@ public class OrderPay extends UUIDBaseModel {
 	}
 	public void setRefundMoney(Double refundMoney) {
 		this.refundMoney = refundMoney;
-	}
-	public void setHasPayed(boolean hasPayed) {
-		this.hasPayed = hasPayed;
 	}
 	@OneToOne(mappedBy="payment")
 	public GoodOrder getOrder() {

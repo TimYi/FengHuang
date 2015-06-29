@@ -16,7 +16,7 @@ public class KhzfResponseData {
 	private String MercDtTm;
 	/**订单号*/
 	private String TermSsn;
-	/**响应码*/
+	/**响应码，00表示交易成功*/
 	private String RespCode;
 	/**终端号*/
 	private String TermCode;
