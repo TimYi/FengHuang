@@ -12,4 +12,5 @@ public interface GoodOrderRepository extends PagingAndSortingRepository<GoodOrde
 	public Page<GoodOrder> findByStatus(OrderStatus status, Pageable pageable);
 	
 	public Page<GoodOrder> findByUserIdAndStatus(String userid, OrderStatus status, Pageable pageable);
+	
 }

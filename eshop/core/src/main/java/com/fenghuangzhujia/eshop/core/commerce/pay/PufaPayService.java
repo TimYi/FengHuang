@@ -1,5 +1,7 @@
 package com.fenghuangzhujia.eshop.core.commerce.pay;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -94,9 +96,18 @@ public class PufaPayService {
 		pufaPay.setTermSsn(termSsn);
 		pay.setPufaPay(pufaPay);
 		
+		//临时使用此回调地址
+		//TODO 修改成可配置内容
+		URL revokeUrl;
+		try {
+			revokeUrl=new URL("http://101.200.229.135/pufa/revoke");
+		} catch (MalformedURLException e) {
+			revokeUrl=null;
+		}
 		//调用浦发支付服务，计算支付参数并返回
 		return KhzfService.getKhzfRequestData(null, termSsn, MERC_CODE, null, pay.getShouldPayMoney(), 
-				payBank, accountType, PayType.BUY, order.getName(), order.getName(), null, null, null, null);
+				payBank, accountType, PayType.BUY, order.getName(), order.getName(),
+				null, null, revokeUrl, null);
 	}
 	
 	/**

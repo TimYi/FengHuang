@@ -1,5 +1,7 @@
 package com.fenghuangzhujia.eshop.prudoct.packages;
 
+import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
@@ -14,6 +16,8 @@ import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppoint;
 import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppointValidater;
 import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageDto;
 import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageInputArgs;
+import com.fenghuangzhujia.eshop.prudoct.scramble.PackageGood;
+import com.fenghuangzhujia.eshop.prudoct.scramble.PackageGoodRepository;
 import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.media.MediaService;
@@ -28,6 +32,8 @@ public class DecoratePackageService extends DtoSpecificationService<DecoratePack
 	private UserRepository userRepository;
 	@Autowired
 	private PackageAppointValidater appointValidater;
+	@Autowired
+	private PackageGoodRepository packageGoodRepository;
 	
 	@Override
 	public DecoratePackageRepository getRepository() {
@@ -68,12 +74,19 @@ public class DecoratePackageService extends DtoSpecificationService<DecoratePack
 				} else {
 					dto.setHasAppointed(false);
 				}
+				//判断用户是否可以预约
 				if(appoint==null) {
 					dto.setCouldAppoint(true);
 				} else {
 					dto.setCouldAppoint(false);
 					dto.setReasonForCantAppoint("您在一个月内已经预约此套餐");
 				}
+				//判断用户是否已经预约过
+			    List<PackageGood> good=packageGoodRepository.processingUserPackageOrder(userId, source.getId());
+			    System.out.println(good);
+			    if(good!=null && !good.isEmpty() ) {
+			    	dto.setHasScrambled(true);
+			    }
 				return dto;
 			}
 		});
