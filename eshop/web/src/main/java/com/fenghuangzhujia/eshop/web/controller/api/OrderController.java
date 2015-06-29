@@ -1,7 +1,5 @@
 package com.fenghuangzhujia.eshop.web.controller.api;
 
-import java.util.Set;
-
 import org.sharechina.pay.pufa.protocal.AccountType;
 import org.sharechina.pay.pufa.protocal.PayBank;
 import org.sharechina.pay.pufa.protocal.RequestModel;

@@ -93,10 +93,12 @@ public class PufaPayService {
 		}				
 		
 		//生成12位订单号的浦发支付，并和OrderPay关联
-		PufaPay pufaPay=new PufaPay();
-		String termSsn=CodeGenerater.generateOrderCode();
-		pufaPay.setTermSsn(termSsn);
-		pay.setPufaPay(pufaPay);
+		if(pay.getPufaPay()==null) {//第一次请求支付
+			PufaPay pufaPay=new PufaPay();
+			String termSsn=CodeGenerater.generateOrderCode();
+			pufaPay.setTermSsn(termSsn);
+			pay.setPufaPay(pufaPay);
+		}		
 		
 		//临时使用此回调地址
 		//TODO 修改成可配置内容
@@ -107,8 +109,8 @@ public class PufaPayService {
 			revokeUrl=null;
 		}
 		//调用浦发支付服务，计算支付参数并返回
-		return KhzfService.getKhzfRequestData(null, termSsn, MERC_CODE, null, pay.getShouldPayMoney(), 
-				payBank, accountType, PayType.BUY, order.getName(), order.getName(),
+		return KhzfService.getKhzfRequestData(null, pay.getPufaPay().getTermSsn(), MERC_CODE, null, 
+				pay.getShouldPayMoney(), payBank, accountType, PayType.BUY, order.getName(), order.getName(),
 				null, null, revokeUrl, null);
 	}
 	
