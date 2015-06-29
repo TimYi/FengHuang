@@ -75,7 +75,7 @@ $(function(){
 
 	function sendGetIngListHttp(condi){
 		g.httpTip.show();
-		var url = Base.lives;
+		var url = Base.userlivesUrl;
 		$.ajax({
 			url:url,
 			data:condi,
@@ -88,7 +88,7 @@ $(function(){
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
-					changeIngListHtml(data.result[0].lives);
+					changeIngListHtml(data.result);
 				}
 				else{
 					var msg = data.error || "";

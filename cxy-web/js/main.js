@@ -701,8 +701,14 @@ $(function(){
 					html.push('<a href="javascript:miaoSha(\'' + id + '\')">');
 				}
 				else{
-					var page = price + ".html?id=" + id;
-					html.push('<a href="javascript:alert(\'你还没有预约\');location.href=\'' + page + '\'">');
+					if(g.loginStatus){
+						var page = price + ".html?id=" + id;
+						html.push('<a href="javascript:alert(\'你还没有预约\');location.href=\'' + page + '\'">');
+					}
+					else{
+						var page = "login.html";
+						html.push('<a href="javascript:alert(\'请先登录\');location.href=\'' + page + '\'">');
+					}
 				}
 				html.push('<div style="text-align:center;line-height:45px;font-size:16px;color:#000;">立即抢购</div>');
 				html.push('</a>');
@@ -765,7 +771,8 @@ $(function(){
 				var status = data.status || "";
 				if(status == "OK"){
 					Utils.alert("抢购成功");
-					location.href = "miaosha.html?id=" + id;
+					var orderId = data.result.id;
+					location.href = "orderback_paysel.html?id=" + orderId;
 				}
 				else{
 					Utils.alert("抢购失败");

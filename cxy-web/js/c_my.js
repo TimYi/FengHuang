@@ -410,6 +410,7 @@ $(function(){
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
+					Utils.offLineStore.set("login_userprofile",JSON.stringify(data.result),false);
 					alert("修改个人资料成功");
 				}
 				else{

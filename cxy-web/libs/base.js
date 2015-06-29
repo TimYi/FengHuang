@@ -34,6 +34,8 @@
 	var appointsUrl = serverUrl + "/api/user/appoints";
 	var appointUrl = serverUrl + "/api/user/appoint";
 	var orderUrl = serverUrl + "/api/user/orders";
+	var order = serverUrl + "/api/user/order";
+	var orderPlay = serverUrl + "/api/order";
 	var commentsUrl = serverUrl + "/api/user/comments";
 	var commentUrl = serverUrl + "/api/comment";
 	var comments = serverUrl + "/api/comments";
@@ -48,10 +50,11 @@
 	var cases = serverUrl + "/api/product/cases";
 	var casedetails = serverUrl + "/api/product/case";
 	var lives = serverUrl + "/api/lives";
+	var userlivesUrl = serverUrl + "/api/user/lives";
 	var live = serverUrl + "/api/live";
 	var packagesUrl = serverUrl + "/api/product/packages";
 	var packageAppointUrl = serverUrl + "/api/user/packageAppoint";
-	var scramble = serverUrl + "/api/package/scramble";
+	var scramble = serverUrl + "/api/product/package/scramble";
 
 	Base.userName = userName;
 	Base.urlPort = urlPort;
@@ -71,6 +74,8 @@
 	Base.appointsUrl = appointsUrl;
 	Base.appointUrl = appointUrl;
 	Base.orderUrl = orderUrl;
+	Base.orderPlay = orderPlay;
+	Base.order = order;
 	Base.commentsUrl = commentsUrl;
 	Base.comments = comments;
 	Base.commentUrl = commentUrl;
@@ -84,6 +89,7 @@
 	Base.cases = cases;
 	Base.casedetails = casedetails;
 	Base.lives = lives;
+	Base.userlivesUrl = userlivesUrl;
 	Base.live = live;
 	Base.packagesUrl = packagesUrl;
 	Base.packageAppointUrl = packageAppointUrl;

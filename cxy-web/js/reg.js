@@ -16,15 +16,16 @@ $(function(){
 	$("#getcodebtn").bind("click",getValidCode);
 	$("#resetbtn").bind("click",resetRegInfo);
 	$("#sendbtn").bind("click",regBtnUp);
-
+	$("#imgcodebtn").bind("click",getImgCode);
 
 
 	//获取图形验证码
 	function getImgCode(evt){
-		var phone = $("#inputPhone3").val();
-		console.log(phone);
-		g.imgCodeId = phone;
-		$("#imgcodebtn").attr("src",Base.imgCodeUrl + "?id=" + g.imgCodeId);
+		var phone = $("#inputPhone3").val() || "";
+		if(phone !== ""){
+			g.imgCodeId = phone;
+			$("#imgcodebtn").attr("src",Base.imgCodeUrl + "?id=" + g.imgCodeId);
+		}
 	}
 
 	//获取验证码
