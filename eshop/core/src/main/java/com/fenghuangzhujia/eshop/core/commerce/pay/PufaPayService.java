@@ -75,6 +75,12 @@ public class PufaPayService {
 			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "这不是您的订单");
 		
 		OrderPay pay=order.getPayment();
+		if(pay==null) {
+			pay=new OrderPay();
+			pay.setOrder(order);
+			pay.setTotalMoney(order.getPrice());
+			orderPayRepository.save(pay);
+		}
 		if(pay.getHasPayed())
 			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "订单已经支付成功，请勿重复支付");
 		

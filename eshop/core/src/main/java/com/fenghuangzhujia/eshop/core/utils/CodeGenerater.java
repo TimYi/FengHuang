@@ -16,7 +16,7 @@ public class CodeGenerater {
 	public static String generateOrderCode() {
 		SimpleDateFormat format=new SimpleDateFormat("yyyyMMdd");
 		String prefix=format.format(new Date());
-		String sufix=RandomStringUtils.random(4);		
+		String sufix=RandomStringUtils.random(4,true,true);		
 		return prefix.concat(sufix);
 	}
 }
