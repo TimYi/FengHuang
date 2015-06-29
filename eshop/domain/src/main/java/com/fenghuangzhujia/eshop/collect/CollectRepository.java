@@ -3,7 +3,7 @@ package com.fenghuangzhujia.eshop.collect;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.fenghuangzhujia.eshop.common.remind.impl.UnreadRemindPagingRepository;
+import com.fenghuangzhujia.eshop.core.remind.impl.UnreadRemindPagingRepository;
 
 public interface CollectRepository extends UnreadRemindPagingRepository<Collect, String> {
 	

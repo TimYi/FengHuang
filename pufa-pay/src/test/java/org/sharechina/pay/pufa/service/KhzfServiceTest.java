@@ -17,7 +17,7 @@ public class KhzfServiceTest {
 	@Test
 	public void getKhzfParam() {
 		
-		RequestModel kfzfModel=KhzfService.getKhzfRequestData(null, "010101010101", "983708160009601", null, 88.0, 
+		RequestModel kfzfModel=KhzfService.getKhzfRequestData(null, "010101010101", "983708160009501", null, 88.0, 
 				PayBank.abc, AccountType.JIEJJI, PayType.BUY, "test", "test", "test", "test", null, null);
 		TestUtils.printEachField(kfzfModel);
 	}

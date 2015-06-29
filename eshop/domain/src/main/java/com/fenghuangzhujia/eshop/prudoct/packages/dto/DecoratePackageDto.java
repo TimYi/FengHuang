@@ -26,6 +26,8 @@ public class DecoratePackageDto extends DtoBaseModel {
 	private boolean hasAppointed;
 	private boolean couldAppoint;
 	private String reasonForCantAppoint;
+	/**用户是否已经抢购此套餐*/
+	private boolean hasScrambled;
 	
 	public Double getPrice() {
 		return price;
@@ -104,5 +106,11 @@ public class DecoratePackageDto extends DtoBaseModel {
 	}
 	public void setReasonForCantAppoint(String reasonForCantAppoint) {
 		this.reasonForCantAppoint = reasonForCantAppoint;
+	}
+	public boolean isHasScrambled() {
+		return hasScrambled;
+	}
+	public void setHasScrambled(boolean hasScrambled) {
+		this.hasScrambled = hasScrambled;
 	}
 }

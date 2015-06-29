@@ -1,13 +1,13 @@
-package com.fenghuangzhujia.eshop.coupons;
+package com.fenghuangzhujia.eshop.core.commerce.coupons;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fenghuangzhujia.eshop.common.remind.impl.DtoUnreadRemindSpecificationService;
-import com.fenghuangzhujia.eshop.coupons.dto.CouponsDto;
-import com.fenghuangzhujia.eshop.coupons.dto.CouponsInputArgs;
+import com.fenghuangzhujia.eshop.core.commerce.coupons.dto.CouponsDto;
+import com.fenghuangzhujia.eshop.core.commerce.coupons.dto.CouponsInputArgs;
+import com.fenghuangzhujia.eshop.core.remind.impl.DtoUnreadRemindSpecificationService;
 
 @Service
 @Transactional

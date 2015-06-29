@@ -1,8 +1,8 @@
-package com.fenghuangzhujia.eshop.common.remind.impl;
+package com.fenghuangzhujia.eshop.core.remind.impl;
 
 import javax.persistence.MappedSuperclass;
 
-import com.fenghuangzhujia.eshop.common.remind.UnreadRemindModel;
+import com.fenghuangzhujia.eshop.core.remind.UnreadRemindModel;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 
 @MappedSuperclass

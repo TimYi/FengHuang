@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.common.remind;
+package com.fenghuangzhujia.eshop.core.remind;
 
 import java.io.Serializable;
 

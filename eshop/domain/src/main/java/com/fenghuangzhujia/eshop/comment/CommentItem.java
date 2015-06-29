@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fenghuangzhujia.eshop.ResourceType;
-import com.fenghuangzhujia.eshop.common.remind.impl.UnreadRemindEntity;
+import com.fenghuangzhujia.eshop.core.remind.impl.UnreadRemindEntity;
 import com.fenghuangzhujia.eshop.core.user.User;
 
 @Entity

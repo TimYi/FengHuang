@@ -10,7 +10,9 @@ import org.sharechina.pay.pufa.protocal.RequestModel;
 import org.sharechina.pay.pufa.protocal.ResponseModel;
 import org.sharechina.pay.pufa.protocal.pay.KhzfRequestData;
 import org.sharechina.pay.pufa.protocal.pay.KhzfResponseData;
+import org.springframework.stereotype.Service;
 
+@Service
 public class KhzfService {
 
 	/**

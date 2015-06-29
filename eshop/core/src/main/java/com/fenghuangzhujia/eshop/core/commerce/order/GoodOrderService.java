@@ -12,6 +12,8 @@ import com.fenghuangzhujia.eshop.core.commerce.goods.Good;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder.OrderStatus;
 import com.fenghuangzhujia.eshop.core.commerce.order.dto.GoodOrderDto;
 import com.fenghuangzhujia.eshop.core.commerce.order.dto.GoodOrderDtoConverter;
+import com.fenghuangzhujia.eshop.core.commerce.pay.OrderPay;
+import com.fenghuangzhujia.eshop.core.commerce.pay.OrderPayRepository;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
@@ -24,6 +26,8 @@ public class GoodOrderService {
 	private GoodOrderDtoConverter converter;
 	@Autowired
 	private GoodOrderRepository repository;
+	@Autowired
+	private OrderPayRepository orderPayRepository;
 	
 	/** 生成未支付订单 */
 	public GoodOrder createOrderToPay(User user, Good good, double price, int count, String mobile, String realName) {
@@ -35,6 +39,12 @@ public class GoodOrderService {
 		order.setMobile(mobile);
 		order.setRealName(realName);
 		order=repository.save(order);
+		
+		OrderPay pay=new OrderPay();
+		pay.setOrder(order);
+		pay.setTotalMoney(order.getPrice());
+		orderPayRepository.save(pay);
+		
 		return order;
 	}
 	

@@ -1,34 +1,24 @@
-package com.fenghuangzhujia.eshop.coupons;
+package com.fenghuangzhujia.eshop.core.commerce.coupons.dto;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
+import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
-import com.fenghuangzhujia.eshop.common.remind.impl.UnreadRemindEntity;
-import com.fenghuangzhujia.eshop.core.user.User;
+public class CouponsDto extends DtoBaseModel {
 
-@Entity
-@Table(name="fhzj_coupons")
-public class Coupons extends UnreadRemindEntity {
-
-	private User user;
+	private UserDto user;
 	private String name;
 	private Double couponsMoney;
 	private Date expireTime;
 	private boolean expired;
 	private boolean used;
+	private boolean readed;
 	
-	/**
-	 * 优惠券所属用户
-	 * @return
-	 */
-	@ManyToOne
-	public User getUser() {
+	public UserDto getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(UserDto user) {
 		this.user = user;
 	}
 	public String getName() {
@@ -50,10 +40,6 @@ public class Coupons extends UnreadRemindEntity {
 		this.expireTime = expireTime;
 	}
 	public boolean isExpired() {
-		if(expireTime==null)return false;
-		Date date=new Date();
-		if(date.before(expireTime))return false;
-		setExpired(true);
 		return expired;
 	}
 	public void setExpired(boolean expired) {
@@ -64,5 +50,11 @@ public class Coupons extends UnreadRemindEntity {
 	}
 	public void setUsed(boolean used) {
 		this.used = used;
+	}
+	public boolean isReaded() {
+		return readed;
+	}
+	public void setReaded(boolean readed) {
+		this.readed = readed;
 	}
 }

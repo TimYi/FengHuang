@@ -12,6 +12,14 @@
 	<name>Fenghuangzhujia :: Eshop :: Core</name>
 	<packaging>jar</packaging>
 	<dependencies>
+	
+		<!-- pufa pay begin -->
+		<dependency>
+			<groupId>org.sharechina</groupId>
+			<artifactId>pufa-pay</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	
 		<!-- fenghuangzhujia begin -->
 		<dependency>
 			<groupId>com.fenghuangzhujia</groupId>

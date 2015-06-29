@@ -1,12 +1,12 @@
-package com.fenghuangzhujia.eshop.common.remind.impl;
+package com.fenghuangzhujia.eshop.core.remind.impl;
 
 import java.io.Serializable;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fenghuangzhujia.eshop.common.remind.UnreadRemindModel;
-import com.fenghuangzhujia.eshop.common.remind.UnreadRemindService;
+import com.fenghuangzhujia.eshop.core.remind.UnreadRemindModel;
+import com.fenghuangzhujia.eshop.core.remind.UnreadRemindService;
 import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
 import com.fenghuangzhujia.foundation.core.entity.Identified;
 

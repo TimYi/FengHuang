@@ -1,12 +1,15 @@
 package com.fenghuangzhujia.eshop.core.commerce.order;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fenghuangzhujia.eshop.core.commerce.goods.Good;
+import com.fenghuangzhujia.eshop.core.commerce.pay.OrderPay;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 import com.fenghuangzhujia.foundation.media.MediaContent;
@@ -36,6 +39,8 @@ public class GoodOrder extends UUIDBaseModel {
 	private String mobile;
 	/**用户真实姓名*/
 	private String realName;
+	/**支付详情*/
+	private OrderPay payment;
 	
 	/**
 	 * 商品名称
@@ -135,23 +140,35 @@ public class GoodOrder extends UUIDBaseModel {
 		this.realName = realName;
 	}
 
+	@OneToOne(cascade=CascadeType.ALL)
+	public OrderPay getPayment() {
+		return payment;
+	}
+	public void setPayment(OrderPay payment) {
+		this.payment = payment;
+	}
+
+
+
 
 	public static enum OrderStatus {
 		/**
-		 * 未确认
+		 * 等待支付
 		 */
-		UNCONFIRM,
+		WAITING,
 		/**
-		 * 进行中
+		 * 用户支付完成
 		 */
+		PAYED,
+		/**后台和用户沟通处理开始，到整个家装过程结束*/
 		PROCESSING,
-		/**
-		 * 已取消
-		 */
-		CANCEL,
 		/**
 		 * 已完成
 		 */
-		COMPLETE;
+		COMPLETE,
+		/**
+		 * 已取消
+		 */
+		CANCEL;		
 	}
 }
