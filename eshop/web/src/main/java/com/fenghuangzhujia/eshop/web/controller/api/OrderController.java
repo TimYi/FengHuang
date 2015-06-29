@@ -47,7 +47,7 @@ public class OrderController {
 	}
 	
 	@RequestMapping(value="order/{orderId}/pay/pufa",method=RequestMethod.POST)
-	public String pufaPay(@PathVariable String orderId, Set<String> couponsIds, 
+	public String pufaPay(@PathVariable String orderId, String[] couponsIds, 
 			PayBank payBank, AccountType accountType){
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userId=details.getId();

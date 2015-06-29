@@ -66,7 +66,7 @@ public class PufaPayService {
 	 * @return
 	 */
 	public RequestModel calculatePayArgs(String userId, String orderId,
-			Set<String> couponsIds, PayBank payBank, AccountType accountType) {
+			String[] couponsIds, PayBank payBank, AccountType accountType) {
 		User user=userRepository.findOne(userId);
 		if(user==null) throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "错误的用户");
 		GoodOrder order=orderRepository.findOne(orderId);
@@ -75,6 +75,8 @@ public class PufaPayService {
 			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "这不是您的订单");
 		
 		OrderPay pay=order.getPayment();
+		if(pay.getHasPayed())
+			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "订单已经支付成功，请勿重复支付");
 		
 		//计算优惠结果		
 		if(couponsIds!=null) {	
