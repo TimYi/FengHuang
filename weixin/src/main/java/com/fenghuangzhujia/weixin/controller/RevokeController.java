@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fenghuangzhujia.weixin.service.TokenValidateService;
+
 /**
  * 处理微信请求
  * @author pc
@@ -19,6 +21,8 @@ public class RevokeController {
 	
 	@Autowired
 	private WxMpService wxService;
+	@Autowired
+	private TokenValidateService tokenValidateService;
 
 	@RequestMapping(value="/callback",method=RequestMethod.GET)
 	public String revoke(HttpServletRequest request) {
@@ -26,7 +30,7 @@ public class RevokeController {
 		String timestamp=request.getParameter("timestamp");
 		String nonce=request.getParameter("nonce");
 		String echostr=request.getParameter("echostr");
-		if(wxService.checkSignature(timestamp, nonce, signature)) {
+		if(tokenValidateService.validateToken(signature, timestamp, nonce)) {
 			return echostr;
 		}
 		return "failed";
