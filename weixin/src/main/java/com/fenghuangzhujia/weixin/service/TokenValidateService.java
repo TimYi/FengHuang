@@ -3,9 +3,9 @@ package com.fenghuangzhujia.weixin.service;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import me.chanjar.weixin.common.util.crypto.SHA1;
 import me.chanjar.weixin.mp.api.WxMpConfigStorage;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +26,7 @@ public class TokenValidateService {
 			sb.append(str);
 		}
 		try {
-			String calculatedSignature=SHA1.gen(sb.toString());
+			String calculatedSignature=DigestUtils.shaHex(sb.toString());
 			if(calculatedSignature.equals(signature)) {
 				return true;
 			}
