@@ -95,7 +95,7 @@ else if($m == 'u_fwzs')
 //会员中心 
 else if($m == 'u_hyzx') 
 {
-	require_once(PHPMYWIND_TEMP.'/default/mobile/hyzx.php');
+	require_once(PHPMYWIND_TEMP.'/default/mobile/hyzx.html');
 	exit();
 }
 
