@@ -7,6 +7,7 @@ import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 public class ArticalInputArgs extends DtoBaseModel {
 
 	private String menuid;
+	private String code;
 	private String title;
 	private String source;
 	private String sourceLink;
@@ -23,6 +24,12 @@ public class ArticalInputArgs extends DtoBaseModel {
 	}
 	public void setMenuid(String menuid) {
 		this.menuid = menuid;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
 	public String getTitle() {
 		return title;

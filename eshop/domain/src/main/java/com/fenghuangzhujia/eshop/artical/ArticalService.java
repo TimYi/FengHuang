@@ -11,4 +11,13 @@ import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
 @Transactional
 public class ArticalService extends DtoSpecificationService<Artical, ArticalDto, ArticalInputArgs, String> {
 
+	public ArticalDto findByCode(String code) {
+		Artical artical=getRepository().findByCode(code);
+		return adapter.convertToDetailedDto(artical);
+	}
+	
+	@Override
+	public ArticalRepository getRepository() {
+		return (ArticalRepository)super.getRepository();
+	}
 }
