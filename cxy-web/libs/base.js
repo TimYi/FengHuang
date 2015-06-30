@@ -51,6 +51,7 @@
 	var casedetails = serverUrl + "/api/product/case";
 	var lives = serverUrl + "/api/lives";
 	var userlivesUrl = serverUrl + "/api/user/lives";
+	var userliveUrl = serverUrl + "/api/user/live";
 	var live = serverUrl + "/api/live";
 	var packagesUrl = serverUrl + "/api/product/packages";
 	var packageAppointUrl = serverUrl + "/api/user/packageAppoint";
@@ -89,8 +90,9 @@
 	Base.cases = cases;
 	Base.casedetails = casedetails;
 	Base.lives = lives;
-	Base.userlivesUrl = userlivesUrl;
 	Base.live = live;
+	Base.userlivesUrl = userlivesUrl;
+	Base.userliveUrl = userliveUrl;
 	Base.packagesUrl = packagesUrl;
 	Base.packageAppointUrl = packageAppointUrl;
 	Base.scramble = scramble;
