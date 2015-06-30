@@ -18,6 +18,8 @@ import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.remind.impl.DtoUnreadRemindPagingService;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
+import com.fenghuangzhujia.eshop.live.Live;
+import com.fenghuangzhujia.eshop.live.LiveRepository;
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage;
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackageRepository;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
@@ -35,6 +37,8 @@ public class CollectService extends DtoUnreadRemindPagingService<Collect, Collec
 	private DecoratePackageRepository packageRepository;
 	@Autowired
 	private DecorateCaseRepository caseRepository;
+	@Autowired
+	private LiveRepository liveRepository;
 	
 	public PagedList<CollectDto> findPage(int page, int size, String userid) {
 		PageRequest request=new PageRequest(page-1, size);
@@ -103,6 +107,13 @@ public class CollectService extends DtoUnreadRemindPagingService<Collect, Collec
 			collect.setType(ResourceType.CASE);
 			collect.setColumn("装修案例");
 			collect.setMainPic(case1.getMainPic());
+			break;
+		case LIVE:
+			Live live=liveRepository.findOne(sourceid);
+			collect.setName(live.getName());
+			collect.setType(ResourceType.LIVE);
+			collect.setColumn("家装进度");
+			collect.setMainPic(live.getMainPic());
 			break;
 		default:
 			break;
