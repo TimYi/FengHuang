@@ -11,6 +11,8 @@ public class MenuDto extends DtoBaseModel {
 	private String description;
 	private Set<MenuVo> sons;
 	private CategoryItemDto type;
+	/**方便记忆的标识码*/
+	private String code;
 	
 	public String getName() {
 		return name;
@@ -35,5 +37,11 @@ public class MenuDto extends DtoBaseModel {
 	}
 	public void setType(CategoryItemDto type) {
 		this.type = type;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
 }

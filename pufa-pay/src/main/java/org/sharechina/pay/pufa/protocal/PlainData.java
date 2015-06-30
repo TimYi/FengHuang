@@ -39,7 +39,8 @@ public interface PlainData {
 			sb.append("|");
 		});
 		String result=sb.toString();
-		return StringUtils.removeEnd(result, "|");
+		result=StringUtils.removeEnd(result, "|");
+		return result;
 	}
 	
 	public static <T> T fromPlain(Class<T> tClass, String plain) {

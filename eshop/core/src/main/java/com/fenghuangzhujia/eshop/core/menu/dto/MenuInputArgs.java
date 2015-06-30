@@ -8,6 +8,8 @@ public class MenuInputArgs extends DtoBaseModel {
 	private String name;
 	private String description;
 	private String typeid;
+	/**方便记忆的标识码*/
+	private String code;
 	
 	public String getFatherid() {
 		return fatherid;
@@ -32,5 +34,11 @@ public class MenuInputArgs extends DtoBaseModel {
 	}
 	public void setTypeid(String typeid) {
 		this.typeid = typeid;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
 }
