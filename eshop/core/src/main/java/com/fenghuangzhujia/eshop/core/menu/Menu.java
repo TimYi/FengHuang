@@ -3,6 +3,7 @@ package com.fenghuangzhujia.eshop.core.menu;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -16,6 +17,8 @@ import com.fenghuangzhujia.foundation.dics.CategoryItem;
 public class Menu extends UUIDBaseModel {
 	private Menu father;
 	private String name;
+	/**方便记忆的标识码*/
+	private String code;
 	private String description;
 	private Integer priority;
 	private Set<Menu> sons;
@@ -38,6 +41,13 @@ public class Menu extends UUIDBaseModel {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	@Column(unique=true)
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
 	public String getDescription() {
 		return description;

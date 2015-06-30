@@ -1,0 +1,586 @@
+
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>啪客赢</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />  
+  <style>
+		.am-form input[type="text"],.am-form input[type="password"],.am-form input[type="datetime"],.am-form input[type="datetime-local"],.am-form input[type="date"],.am-form input[type="month"],.am-form input[type="time"],.am-form input[type="week"],.am-form input[type="number"],.am-form input[type="email"],.am-form input[type="url"],.am-form input[type="search"],.am-form input[type="tel"],.am-form input[type="color"],am-form-field{display:block;margin:-2px 0 -2px 10px;width:135px;height:32px;border:0;-webkit-border-radius:5px 0 0 5px;-moz-border-radius:5px 0 0 5px;border-radius:5px 0 0 5px;background-color:#efefef;background-image:none;vertical-align:middle padding:.625em;vertical-align:middle;font-weight:normal;font-size:15px;transition:border-color .15s ease-in-out 0s,box-shadow .15s ease-in-out 0s}.am-form input[type="text"]:focus,.am-form input[type="password"]:focus,.am-form input[type="datetime"]:focus,.am-form-field:focus{border:1px solid #3bb4f2;background:#fff;box-shadow:0 1px 1px rgba(59,180,242,0.3) inset,0 0 5px rgba(59,180,242,0.3)}  	
+  </style>
+  
+</head>
+<body>
+<!-- Header -->
+<header data-am-widget="header" class="am-header am-header-default" style="background:#fff;box-shadow: inset -1px -1px 1px -1px #666;">
+  <h1 class="am-header-title">
+    <img src="images/park_yellow.png" width=30>&nbsp;<span style="color:#333;font-size:18px;font-weight:bold">搜索车位</span>
+  </h1>
+  <div class="am-header-left am-header-nav">
+    <a href="javascript:history.back(-1)" class="">
+      <i class="am-header-icon am-icon-chevron-left" style="font-size:16px;color:#999;margin-left:-15px"></i>
+    </a>
+  </div> 
+  <div class="am-header-right am-header-nav">
+    <a href="?a=logout" class="">
+      <button class="am-btn btnRT4_y">找停车场</button>
+    </a>
+  </div>
+</header>
+<div data-am-sticky="{animation: 'slide-top'}">
+<div class="am-form">
+	<ul class="am-avg-sm-1" style="padding:8px 0 8px 0;box-shadow: inset 0 -1px 1px -1px #999;background:#fff;">
+	  <li style="font-weight:normal;color:#f4a300">
+      <div class="am-cf">
+				<div class=am-fl>
+					<input type="text" id="keyword" placeholder="关键字查询" />        	
+				</div>
+				<div class="btnRT2_h_r2 am-fl" style="text-align:center;">
+					<span class="am-icon-crosshairs" style="font-size:19px;color:#fff"></span>
+				</div>
+				<div class="btnRT2_h_r am-fl" style="text-align:center;">
+					<span class="am-icon-search" style="font-size:19px;color:#fff" id="searchBtn"></span>
+				</div>
+				<nav id="nav" data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
+				  <span class="am-menu-toggle">
+						<div id="button_wangji" class="btnRT2_hui am-fr" style="margin:45px 5px 0 0">
+							<i class="am-menu-toggle-icon am-icon-filter"></i>&nbsp;&nbsp;筛选
+						</div>
+				  </span>
+				  <div class="am-offcanvas"  style="z-index:10000;">
+				    <div class="am-offcanvas-bar" >
+					    <div id="pageMiddle" style="z-index:10000;float:left">
+				        <div class="container" id = "header">
+				          <div id="filterBox"></div>
+				          <div id="toolsBar" class="clearfix">
+				            <div class="row-fluid show-grid pull-left" id="selectedValue"></div>
+				          </div>  
+					      </div>
+					    </div>
+				    </div>
+				  </div>
+				</nav>
+      </div>
+	  </li>
+	</ul>
+	<ul class="am-avg-sm-6" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
+	  <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
+	  	<span id="nihao" >距离</span>
+			<!--select style="border:0 none;font-size:16px;padding:3px 10px;height:25px;">
+			  <option value="100">100m</option>
+			  <option value="100">200m</option>
+			  <option value="100">300m</option>
+			  <option value="100">500m</option>
+			  <option value="100">1Km</option>			  			  			  			  
+			  <option value="100">5Km</option>
+			</select-->
+	  </li>
+
+	  <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
+	  	<span id="tuijian" >推荐</span>
+	  </li>
+	  
+	  <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
+	  	<span id="shijian" >时间</span>
+	  </li>
+	  <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
+	  	<span id="koubei" >口碑</span>
+	  </li>	  
+	  <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
+	  	<span id="jiage" >价格</span>
+	  </li>
+	  <li style="padding:0;text-align:center;">
+	  	<div id="fresh" class="am-icon-refresh"></div>
+	  </li>		  	  	  
+	</ul>	
+</div>
+</div>
+<div>
+	<ul class="am-avg-sm-1" style="background:#eee;">
+		<li style="font-weight:normal;font-size:12px;box-shadow: inset 0 -1px 1px -1px #ddd;">
+			<center>在 <b class=d_y id=near>您当前位置</b> 附近共找到 <b class=d_y id=sum>0</b> 个车位</center>
+		</li>
+	</ul>
+</div>
+
+<div id="container">
+	<div id="mapPager" style="z-index:10000"></div>
+	<div>
+		<ul class="am-avg-sm-1" style="background:#fff;">
+			<li style="font-weight:normal;height:1px;margin-top:-1px;font-size:12px;box-shadow: inset 0 -1px 1px -1px #999;"></li>
+		</ul>
+	</div>
+	<div style="margin:0 auto;padding:0 10px;background:#fff">
+		<!--div id="map"></div-->
+	  <div id="mapListWrap" class="am-list-news-bd">
+	    <ul id="mapList" class="am-list" style="padding:0px;margin:0px;z-index:-1">
+	    	<li style="font-size:14px">
+	    		<center><br/><br/><br/><span class="am-icon-spinner" style="font-size:12px;color:#AAA"></span> 正努力在加载中...</center>
+	    	</li>
+	    </ul>            
+	  </div>
+	</div>
+	
+	<div>
+		<ul class="am-avg-sm-1" style="background:#fff;">
+			<li style="font-weight:normal;height:1px;margin-top:-1px;font-size:12px;box-shadow: inset 0 -1px 1px -1px #999;"></li>
+		</ul>
+	</div>	
+	<div id="mapPager1" style="z-index:10000"></div>
+	<div>
+		<ul class="am-avg-sm-1" style="background:#fff;">
+			<li style="font-weight:normal;height:1px;margin-top:-1px;font-size:12px;box-shadow: inset 0 -1px 1px -1px #999;"></li>
+		</ul>
+	</div>
+		
+	<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default" id="">
+	  <ul class="am-navbar-nav am-cf am-avg-sm-4" style="box-shadow: inset 0 1px 1px -1px #666;">
+	    <li>
+	      <a href="4g.php?m=pubpark">
+	        <span class="am-icon-map-marker" style="font-size:21px;"></span>
+	        <span class="am-navbar-label">发布车位</span>
+	      </a>
+	    </li>
+	    <li>
+	      <a id="xman" href="4g.php?m=findpark">
+	        <span class="am-icon-search" style="font-size:20px;color:#f4a300"></span>
+	        <span class="am-navbar-label" style="color:#f4a300">搜索车位</span>
+	      </a>
+	    </li>
+	    <li>
+	      <a href="/">
+	        <span class="am-icon-bookmark" style="font-size:18px;padding-top:2px"></span>
+	        <span class="am-navbar-label">车位租赁</span>
+	      </a>
+	    </li>
+	    <li>
+	      <a href="4g.php?m=default">
+	        <span class="am-icon-user" style="font-size:20px;"></span>
+	        <span class="am-navbar-label">我</span>
+	      </a>
+	    </li>
+	    <li>
+	      <a href="/">
+	        <span class="am-icon-home" style="width:24px;"></span>
+	        <span class="am-navbar-label">首页</span>
+	      </a>
+	    </li>
+	    <li>
+	      <a href="tel:13698626066">
+	        <span class="am-icon-comments-o" style="width:24px;"></span>
+	        <span class="am-navbar-label">啪友圈</span>
+	      </a>
+	    </li>
+	    <li>
+	      <a href="tel:13698626066">
+	        <span class="am-icon-info" style="width:24px;padding-left:6px"></span>
+	        <span class="am-navbar-label">关于我们</span>
+	      </a>
+	    </li>
+	  </ul>
+	</div>
+</div>
+
+</body>
+
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=9Z4yvIoj9jnpKfPA4igxxbLP"></script>
+<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/jquery.pager.js" ></script>
+<!--script type="text/javascript" src="assets/js/main.js"></script-->
+<script>
+var map = new BMap.Map("map");
+var Util = {
+  getLeaseNameByType: function(type) {
+    var lease = {
+    	'undefined' : "<span class='am-icon-tags f_h w18' style='font-size:12px'></span><b class=title2_g >未知类型</b>",
+  		'0' : "<span class='am-icon-tags f_h w18' style='font-size:12px'></span><b class=title2_g >公共车位</b>",
+      '1' : "<span class='am-icon-tags f_h w18' style='font-size:12px'></span><b class=title2_g >私人车位</b>",
+      '2' : "<span class='am-icon-tags f_h w18' style='font-size:12px'></span><b class=title2_g >单位车位</b>",
+      '3' : "<span class='am-icon-tags f_h w18' style='font-size:12px'></span><b class=title2_g >停车场库</b>"
+    }
+    return lease[type];
+  }
+}
+var jd = <?=$jd;?>;
+var wd = <?=$wd;?>;
+
+function getdis(p1,p2){
+	var p = new BMap.Point(p1, p2);//POI的坐标
+	var x = new BMap.Point(jd, wd);//中心点坐标
+	var juli = Math.ceil(map.getDistance(x,p));//距离取整	
+	return juli;
+}
+
+!function(){
+    var filterData = [
+    {
+      "name"  : "车位类型",
+      "value" : "cls_car",
+      "data"  : [
+        {
+          "name"  : "全部",
+          "value" : "0,1"
+        },            
+        {
+          "name"  : "公共临时",
+          "value" : "0,0"
+        },
+        {
+          "name"  : "私人闲置",
+          "value" : "1,1"
+        },
+        {
+          "name"  : "停车场",
+          "value" : "2,2"
+        },
+        {
+          "name"  : "其他",
+          "value" : "3,3"
+        }
+      ]
+    },
+    {
+      "name"  : "交易类型",
+      "value" : "cls_exc",
+      "data"  : [
+        {
+          "name"  : "全部",
+          "value" : "0,3"
+        },
+        {
+          "name"  : "单次交易",
+          "value" : "1,1"
+        },
+        {
+          "name"  : "短租交易",
+          "value" : "2,2"
+        },
+        {
+          "name"  : "长租交易",
+          "value" : "3,3"
+        }
+      ]
+    },        
+    {
+      "name"  : "支付类型",
+      "value" : "cls_pay",
+      "data"  : [
+        {
+          "name"  : "全部",
+          "value" : "0,2"
+        },
+        {
+          "name"  : "人民币",
+          "value" : "1,1"
+        },
+        {
+          "name"  : "虚拟币",
+          "value" : "2,2"
+        }
+      ]
+    },        
+    {
+      "name"  : "价格区间",
+      "value" : "price",
+      "data"  : [
+        {
+          "name"  : "全部",
+          "value" : "0,10000"
+        },
+        {
+          "name"  : "5元以下",
+          "value" : "0,5"
+        },
+        {
+          "name"  : "5-10元",
+          "value" : "5,10"
+        },
+        {
+          "name"  : "10-30元",
+          "value" : "10,30"
+        },
+        {
+          "name"  : "30-50元",
+          "value" : "30,50"
+        },
+        {
+          "name"  : "50-100元",
+          "value" : "50,100"
+        },
+        {
+          "name"  : "100-300元",
+          "value" : "100,300"
+        },
+        {
+          "name"  : "300元以上",
+          "value" : "300,10000"
+        }
+      ]
+    }
+    ]
+    for (var i in filterData) { //条件筛选的各个项
+        var item = filterData[i],
+            data = item.data,
+            dl = $('<dl id="' + item.value + '" class="dl-horizontal" value="' + item.value + '"><dt>' + item.name + '</dt></dl>'),
+            ul = $('<ul class="inline"></ul>');
+        for(var j in data) { //各个项对应的各详细选项
+            var subData = data[j];
+            $('<li id="rmv"><a href="###" value = "' + subData.value + '">' + subData.name +'</a></li>').appendTo(ul);
+        }
+        ul.appendTo($('<dd></dd>')).appendTo(dl);
+        dl.appendTo($('#filterBox'));
+    }
+    // 点击选择项的事件
+    $('#filterBox li a').click(function(){
+        var type = $(this).parents('dl').attr('value');
+        $('#' + type + " li a").removeClass('activate');
+        if (!$(this).hasClass('activate')) { //点击的不是当前的选项
+            $(this).addClass('activate');
+            $('#selectedValue div[type$=' + type + ']').remove(); //当前条件之前选择过的条件删除
+            var item = $('<div class="span1" value="' + $(this).attr('value') + '" type="' + type + '"><span>' + $(this).html() + '</span></div>');
+            //添加删除按钮
+            var deleteBtn = $('<i class="icon-remove"></i>').click(function(){
+                $(this).parent().remove();
+                $('#' + type + " li a").removeClass('activate');
+                keyword = $('#keyword').val();
+                searchAction(keyword);
+            });
+            deleteBtn.appendTo(item); 
+            item.appendTo('#selectedValue'); //添加当前的筛选条件
+            keyword = $('#keyword').val();
+            searchAction(keyword); 
+        }
+    });
+    //条件筛选模块相关代码 end
+    //检索模块相关代码
+    var keyword     = "",   //检索关键词
+        page        = 0,    //当前页码
+        points      = [],   //存储检索出来的结果的坐标数组
+        customLayer = null; //麻点图层
+    customLayer=new BMap.CustomLayer(4392); //新建麻点图图层对象
+    map.addTileLayer(customLayer); //将麻点图添加到地图当中
+    customLayer.addEventListener('hotspotclick', hotspotclickCallback); //给麻点图添加点击麻点回调函数
+    /**
+     * 麻点图点击麻点的回调函数
+     * @param 麻点图点击事件返回的单条数据
+     */
+    function hotspotclickCallback(e) {
+        var customPoi = e.customPoi,
+		    str = [];
+		str.push("address = " + customPoi.address);
+		str.push("phoneNumber = " + customPoi.phoneNumber);
+        var content = '<p style="width:280px;margin:0;line-height:20px;">地址：' + customPoi.address + '</p>';
+        //创建检索信息窗口对象
+        var searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
+            title: customPoi.title,  //标题
+            width: 290,              //宽度
+            height: 40,              //高度
+            enableAutoPan : true,    //自动平移
+            enableSendToPhone: true, //是否显示发送到手机按钮
+            searchTypes :[
+                BMAPLIB_TAB_SEARCH,   //周边检索
+                BMAPLIB_TAB_TO_HERE,  //到这里去
+                BMAPLIB_TAB_FROM_HERE //从这里出发
+            ]
+        });
+        var point = new BMap.Point(customPoi.point.lng, customPoi.point.lat);
+        searchInfoWindow.open(point); //打开信息窗口
+    }
+
+    //绑定检索按钮事件
+    $('#searchBtn').bind('click', function(){
+        keyword = $('#keyword').val();
+        searchAction(keyword);
+    });
+
+    //排序按钮事件--推荐
+    $('#fresh').bind('click', function(){
+    		location.reload();
+    	 	//$('body').load('member.php?c=findpark');//无刷新加载页面
+        
+        /*
+        keyword = '';
+        $('#keyword').val('');
+        urllink = 'http://api.map.baidu.com/geosearch/v3/nearby?&sortby=distance:1&callback=?';
+        //filter = ''; //过滤条件
+				//$('#filterBox li a').removeClass('activate');
+				
+        searchAction(keyword,urllink);
+				*/
+				/*
+				var divcss = {
+			    'background':'none',
+			    'cursor':'default',
+			    'margin':'-2px -4px',
+			    'padding':'2px 4px',
+			    'text-decoration':'none',
+			    'color':'#666'
+			    
+				};
+				$("#filterBox li a.activate").css(divcss);
+				*/				
+				
+
+    });	
+    //排序按钮事件--推荐
+    $('#tuijian').bind('click', function(){
+        keyword = '';
+        urllink = 'http://api.map.baidu.com/geosearch/v3/nearby?&sortby=distance:1&callback=?';
+        searchAction(keyword,urllink);
+    });		
+    
+    //排序按钮事件--距离
+    $('#nihao').bind('click', function(){
+        keyword = '';
+        urllink = 'http://api.map.baidu.com/geosearch/v3/nearby?&sortby=distance:1&callback=?';
+        searchAction(keyword,urllink);
+    });		    
+    
+    //排序按钮事件--时间
+    $('#shijian').bind('click', function(){
+        keyword = '';
+        urllink = 'http://api.map.baidu.com/geosearch/v3/nearby?&sortby=price:1&callback=?';
+        searchAction(keyword,urllink);
+    });		
+    //排序按钮事件--口碑
+    $('#koubei').bind('click', function(){
+        keyword = '';
+        urllink = 'http://api.map.baidu.com/geosearch/v3/nearby?&sortby=price:1&callback=?';
+        searchAction(keyword,urllink);
+    });		
+    //排序按钮事件--价格
+    $('#jiage').bind('click', function(){
+        keyword = '';
+        urllink = 'http://api.map.baidu.com/geosearch/v3/nearby?&sortby=price:1&callback=?';
+        searchAction(keyword,urllink);
+    });		
+		
+		
+    function searchAction(keyword,urllink,page) {
+        page = page || 0;
+				urllink = urllink || 'http://api.map.baidu.com/geosearch/v3/nearby?&sortby=distance:1&callback=?';
+        var filter = []; //过滤条件
+        $.each($('#selectedValue div'), function(i, item){ //将选中的筛选条件添加到过滤条件参数中
+            var type = $(item).attr('type'),
+                value = $(item).attr('value');
+            if (type == "location") {
+                keyword = value + " " + keyword;
+            } else {
+                filter.push(type + ':' + value);
+            }
+        });
+        /*附近搜索*/
+				var geolocation = new BMap.Geolocation();
+				geolocation.getCurrentPosition(function(r){
+					if(this.getStatus() == BMAP_STATUS_SUCCESS){
+						var point = r.point;
+						if(jd == '' || wd ==''){
+							p = r.point.lng+","+r.point.lat;
+						}else {
+							p = jd+','+wd;	
+						}
+				    var banjing = '100000';
+				    var url = urllink;
+				    $.getJSON(url, {
+				        'ak'         : '9Z4yvIoj9jnpKfPA4igxxbLP',	//'A4749739227af1618f7b0d1b588c0e85'  //用户ak
+				        'geotable_id': 96420, 											//30960
+				        'q'          : keyword, 										//检索关键字
+				        'location'	 : p,			//中心点
+				        'coord_type' : '3',  												//坐标系:百度坐标
+				        'radius'     : banjing, 											//搜索半径
+				        'filter'     : filter.join('|'),  					//过滤条件
+				        'page_index' : page												//页码
+				        
+				
+				    },function(e) {
+				        renderMap(e,urllink, page + 1);
+				    });        
+				    
+				    $('#xman').attr('href','member.php?c=findpark&jd='+r.point.lng+'&wd='+r.point.lat); 
+					}
+					else {
+						alert('failed'+this.getStatus());
+					}
+				})
+    }
+
+    function renderMap(res, urllink, page) {
+        var content = res.contents;
+        $('#mapList').html('');
+        map.clearOverlays();
+        points.length = 0;
+
+        if (content.length == 0) {
+            $('#mapList').append($('<p style="padding-top:40px;text-align:center;text-align:center;font-size:14px;" class="text-warning">抱歉，没有找到您想要的信息，请重新查询</p>'));
+            return;
+        }
+        $.each(content, function(i, item){
+            var point = new BMap.Point(item.location[0], item.location[1]),
+                marker = new BMap.Marker(point);
+            points.push(point);
+            
+            var juli;
+            if(item.distance>=1000){
+            	juli = Math.round(item.distance/1000*Math.pow(10, 1))/Math.pow(10, 1)+"<b id=mh>K";
+            }else{
+            	juli = item.distance+"<b id=mh>";
+            }
+            	
+            var pagecount = Math.ceil(res.total / 10);
+            
+            var tr = $(""+
+				      "<li class='am-g' style='width:100%;z-index:1;border-top:0 none;box-shadow: inset 0 -1px 1px -1px #999;'>"+
+				        "<a href='member.php?c=map&jd="+item.location[0]+"&wd="+item.location[1]+"&memo="+item.memo+"&posmemo="+item.title+"' class='am-list-item-hd'>"+
+				        	"<div style='line-height:20px;'>"+
+				        		"<span style='font-weight:bold;color:#000;'>"+item.memo+"</span><br>"+
+				        	"</div>"+
+					        "<div class='am-fl'>"+	
+					        	"<div style='line-height:18px;padding:5px 0 10px 0'>"+
+					        		Util.getLeaseNameByType(item.cls_car)+
+					        		"<b class='title2_g'>&nbsp;&nbsp;/&nbsp;&nbsp;11:40前交易</b>"+
+					        		"<b class='title2_g'>&nbsp;&nbsp;/&nbsp;&nbsp;"+item.price+"元</b><br/>"+
+					        		"<span class='am-icon-location-arrow f_h w18' style='font-size:12px;'></span><b class='title2_g'>"+item.title+"</b>"+
+					        	"</div>"+
+				        	"</div>"+
+			        		"<div class='am-fr' style='float:right;color:#f4a300;padding-top:12px'>"+juli+"m</b>&nbsp;&nbsp;"+
+			        			"<span class='am-icon-chevron-right' style='font-size:12px;color:#999'></span>"+
+			        		"</div>"+
+				        "</a>"+
+				      "</li>"            
+            );
+            $('#mapList').append(tr);;
+        });
+
+        var pagecount = Math.ceil(res.total / 10);
+        $('#sum').html(res.total);        
+        if (pagecount > 76) {
+            pagecount = 76; //最大页数76页
+        }
+        function PageClick (pageclickednumber) {
+            pageclickednumber = parseInt(pageclickednumber);
+            $("#pager").pager({ pagenumber: pageclickednumber, pagecount: pagecount, showcount: 1, buttonClickCallback: PageClick }); //showcount: 3 显示三个
+            searchAction(keyword, urllink, pageclickednumber -1);
+        }
+        $("#mapPager").pager({ pagenumber: page, pagecount: pagecount, showcount:1, buttonClickCallback: PageClick });
+        $("#mapPager1").pager({ pagenumber: page, pagecount: pagecount, showcount:1, buttonClickCallback: PageClick });
+
+        map.setViewport(points);
+    };
+    searchAction(keyword); 
+}();
+</script>
+</html>
+

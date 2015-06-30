@@ -9,6 +9,7 @@ import com.fenghuangzhujia.foundation.media.MediaContentDto;
 public class ArticalDto extends DtoBaseModel {
 
 	private MenuVo menu;
+	private String code;
 	private String title;
 	private String source;
 	private String sourceLink;
@@ -26,6 +27,12 @@ public class ArticalDto extends DtoBaseModel {
 	}
 	public void setMenu(MenuVo menu) {
 		this.menu = menu;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
 	public String getTitle() {
 		return title;

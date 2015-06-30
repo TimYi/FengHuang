@@ -2,6 +2,7 @@ package com.fenghuangzhujia.eshop.artical;
 
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -20,6 +21,7 @@ import com.fenghuangzhujia.foundation.media.MediaContent;
 public class Artical extends UUIDBaseModel {
 
 	private Menu menu;
+	private String code;
 	private String title;
 	private String source;
 	private String sourceLink;
@@ -38,6 +40,13 @@ public class Artical extends UUIDBaseModel {
 	}
 	public void setMenu(Menu menu) {
 		this.menu = menu;
+	}
+	@Column(unique=true)
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
 	/**
 	 * 文章标题
