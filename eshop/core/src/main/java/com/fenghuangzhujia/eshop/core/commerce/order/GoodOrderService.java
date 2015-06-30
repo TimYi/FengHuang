@@ -43,6 +43,7 @@ public class GoodOrderService {
 		OrderPay pay=new OrderPay();
 		pay.setOrder(order);
 		pay.setTotalMoney(order.getPrice());
+		pay.setShouldPayMoney(order.getPrice());
 		orderPayRepository.save(pay);
 		
 		return order;

@@ -77,9 +77,10 @@ public class PufaPayService {
 		OrderPay pay=order.getPayment();
 		if(pay==null) {
 			pay=new OrderPay();
-			pay.setOrder(order);
 			pay.setTotalMoney(order.getPrice());
+			pay.setShouldPayMoney(order.getPrice());
 			orderPayRepository.save(pay);
+			order.setPayment(pay);			
 		}
 		if(pay.getHasPayed())
 			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "订单已经支付成功，请勿重复支付");
@@ -103,7 +104,8 @@ public class PufaPayService {
 			PufaPay pufaPay=new PufaPay();
 			String termSsn=CodeGenerater.generateOrderCode();
 			pufaPay.setTermSsn(termSsn);
-			pay.setPufaPay(pufaPay);
+			pufaPayRepository.save(pufaPay);
+			pay.setPufaPay(pufaPay);	
 		}		
 		
 		//临时使用此回调地址
