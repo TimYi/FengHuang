@@ -1,368 +1,382 @@
 ﻿<!doctype html>
 <html class="no-js">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>个人信息</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <link rel="icon" type="image/png" href="assets/i/favicon.png">
-  <link rel="stylesheet" href="assets/css/amazeui.min.css">
-  <link rel="stylesheet" href="assets/css/app.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>个人信息</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <style>
+    .am-tabs-default .am-tabs-nav {
+        line-height: 40px;
+        background-color: #fff;
+        margin-top: -15px;
+    }
+    
+    .am-tabs-default .am-tabs-nav a {
+        color: #ccc;
+        line-height: 45px;
+    }
+    
+    .am-tabs-default .am-tabs-nav > .am-active a {
+        background-color: #fff;
+        color: #0e90d2;
+        box-shadow: inset -1px 0 1px -1px #999;
+    }
+    
+    .x {
+        box-shadow: inset -1px 0 1px -1px #999;
+    }
+    
+    .ttt {
+        font-size: 13px;
+        margin-top: -15px;
+        color: #666
+    }
+    </style>
 </head>
 <body>
-<!-- Menu -->
-<div data-am-sticky>
-	<header data-am-widget="header" class="am-header am-header-default" style="border-top:1px solid #000111;background:#000;">
-	  <div class="am-header-left am-header-nav">
-			<img src="build_fhzj/webapp/images/logo.png" style="width:132px;height:18px;margin-top:-5px">
-	  </div> 
-	</header>
-	<nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
-	  <a href="javascript: void(0)" class="am-menu-toggle" >
-	    <i class="am-menu-toggle-icon am-icon-bars"></i>
-	  </a>
-		<div class="am-offcanvas">
-  <div class="am-offcanvas-bar" style="background:#333 none repeat scroll 0 0">
-    <ul class="am-menu-nav sm-block-grid-1">
-      <li class="am-parent">
-        <a href="#c3">我的</a>
-        <ul class="am-menu-sub am-collapse am-avg-sm-2">
-          <li class="">
-            <a href="##">登录</a>
-          </li>
-          <li class="">
-            <a href="##">注册</a>
-          </li>
-          <li class="">
-            <a href="##">个人资料</a>
-          </li>
-          <li class="">
-            <a href="##">房屋信息</a>
-          </li>
-          <li class="">
-            <a href="##">家装进度</a>
-          </li>
-          <li class="">
-            <a href="##">我的留言</a>
-          </li>
-          <li class="">
-            <a href="##">我的预约</a>
-          </li>
-          <li class="">
-            <a href="##">我的订单</a>
-          </li>
-          <li class="">
-            <a href="##">我的评论</a>
-          </li>
-          <li class="">
-            <a href="##">我的优惠券</a>
-          </li>
-        </ul>
-      </li>
-      <li class="am-parent">
-        <a href="#c3">在线预约</a>
-        <ul class="am-menu-sub am-collapse am-avg-sm-2">
-          <li class="">
-            <a href="##">免费量房</a>
-          </li>
-          <li class="">
-            <a href="##">免费验房</a>
-          </li>
-          <li class="">
-            <a href="##">免费设计</a>
-          </li>
-          <li class="">
-            <a href="##">体验馆</a>
-          </li>
-        </ul>
-      </li>
-      <li class="am-parent">
-        <a href="#c3">家装套餐</a>
-        <ul class="am-menu-sub am-collapse am-avg-sm-2">
-          <li class="">
-            <a href="##">699套餐</a>
-          </li>
-          <li class="">
-            <a href="##">799软包装</a>
-          </li>
-          <li class="">
-            <a href="##">1899电器包</a>
-          </li>
-          <li class="">
-            <a href="##">透明展示</a>
-          </li>
-          <li class="">
-            <a href="##">工艺展示</a>
-          </li>
-          <li class="">
-            <a href="##">主材展示</a>
-          </li>
-          <li class="">
-            <a href="##">家装计算器</a>
-          </li>
-        </ul>
-      </li>
-      <li class="">
-        <a href="##">凤凰管家</a>
-      </li>
-      <li class="">
-        <a href="##">家装贷</a>
-      </li>
-      <li class="">
-        <a href="##">案例</a>
-      </li>
-      <li class="">
-        <a href="##">Live直播</a>
-      </li>
-    </ul>
-  </div>
-</div>
-
-	</nav>
-</div>
-
-<style>
-.am-tabs-default .am-tabs-nav {
-  line-height: 40px;
-  background-color: #fff;
-  margin-top:-15px;
-}
-.am-tabs-default .am-tabs-nav a {
-  color: #ccc;
-  line-height: 45px;
-}
-.am-tabs-default .am-tabs-nav > .am-active a {
-  background-color: #fff;
-  color: #0e90d2;
-  box-shadow:inset -1px 0 1px -1px #999;
-}
-.x{box-shadow:inset -1px 0 1px -1px #999;}
-.ttt{font-size:13px;margin-top:-15px;color:#666}
-
-</style>
-<div data-am-widget="tabs" class="am-tabs am-tabs-default" style="width:100%;padding:0;margin:0">
-  <ul class="am-tabs-nav am-cf">
-    <li class="am-active x" style="line-height:10px;">
-      <a href="[data-tab-panel-0]">
-      	<i class="am-icon-bookmark" style="font-size:24px;"></i><br />
-      	<div class="ttt">基本资料</div>
-      </a>
-    </li>
-    <li class="x">
-      <a href="[data-tab-panel-1]">
-      	<i class="am-icon-calculator" style="font-size:24px;"></i><br />
-      	<div class="ttt">扩展资料</div>
-      </a>
-    </li>
-    <li class="" style="box-shadow:0;">
-      <a href="[data-tab-panel-2]">
-      	<i class="am-icon-gift" style="font-size:24px;"></i><br />
-      	<div class="ttt">安全设置</div>
-      </a>
-    </li>
-  </ul>
-  <div class="am-tabs-bd" style="margin-top:10px;border:none; box-shadow:inset -1px 1px 1px -1px #999;padding:5px;">
-    <div data-tab-panel-0 class="am-tab-panel am-active" style="margin-top:-15px">
-    	<p style="font-size:14px;line-height:18px;">
-    		<form class="am-form">
-			  <div class="am-form-group">
-			    <div class="">
-			      <input type="text" id="xingming" name="xingming" placeholder="姓名" style="font-size:14px;height:40px">
-			    </div>
-			  </div>   
-			  <div class="am-form-group">
-			    <div class="">
-			      <input type="text" id="nicheng" name="nicheng" placeholder="昵称" style="font-size:14px;height:40px">
-			    </div>
-			  </div> 
-			  <div class="am-form-group am-form-select">
-			    <select style="font-size:14px;height:40px" id="sex" name="sex" >
-			      <option value="1">男</option>
-			      <option value="2">女</option>
-			    </select>
-			  </div>   
-			  <div class="am-form-group">
-			    <div class="">
-			      <input type="text" id="nicheng" name="nicheng" placeholder="电子邮箱" style="font-size:14px;height:40px;">
-			    </div>
-			  </div>
-			  <div class="am-form-group">
-			    <div class="">
-			      <input type="text" id="nicheng" name="nicheng" placeholder="手机号码" style="font-size:14px;height:40px">
-			    </div>
-			  </div>
-			  <div class="am-form-group am-form-select">
-			    <select style="font-size:14px;height:40px" id="sex" name="sex" >
-			      <option value="-1">省份</option>
-			      <option value="2">女</option>
-			    </select>
-			  </div>   
-			  <div class="am-form-group am-form-select">
-			    <select style="font-size:14px;height:40px" id="sex" name="sex" >
-			      <option value="1">地市</option>
-			      <option value="2">女</option>
-			    </select>
-			  </div>  
-			  <div class="am-form-group am-form-select">
-			    <select style="font-size:14px;height:40px" id="sex" name="sex" >
-			      <option value="1">县区</option>
-			      <option value="2">女</option>
-			    </select>
-			  </div>
-			  <div class="am-form-group">
-					<textarea class="" rows="5" style="font-size:14px;height:80px">详细地址</textarea>
-			  </div>	
-			  <div class="am-form-group">
-			    <div class="">
-			      <input type="text" id="nicheng" name="nicheng" placeholder="邮政编码" style="font-size:14px;height:40px">
-			    </div>
-			  </div>	
-			  </form>		  		  			   
-    	</p>
-    	<p style="font-size:14px;line-height:18px;">
-    		<form class="am-form">
-					<ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-thumbnails">
-					  <li>
-					  	<div class="animation animated-item-3 " style="margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-								<a href="javascript:;" id="buynow" onclick="Buy_fhgj();" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">保存</div></a>
-							</div>					  	
-					  </li>
-					  <li>
-					  	<div class="animation animated-item-3" style="margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-								<a href="javascript:;" id="buynow" onclick="Buy_fhgj();" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">取消</div></a>
-							</div>					  	
-					  </li>
-					</ul>
-				</form>
-    	</p>
+    <!-- Menu -->
+    <div data-am-sticky>
+        <header data-am-widget="header" class="am-header am-header-default" style="border-top:1px solid #000111;background:#000;">
+            <div class="am-header-left am-header-nav">
+                <img src="build_fhzj/webapp/images/logo.png" style="width:132px;height:18px;margin-top:-5px">
+            </div>
+        </header>
+        <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
+            <a href="javascript: void(0)" class="am-menu-toggle">
+                <i class="am-menu-toggle-icon am-icon-bars"></i>
+            </a>
+            <div class="am-offcanvas">
+                <div class="am-offcanvas-bar" style="background:#333 none repeat scroll 0 0">
+                    <ul class="am-menu-nav sm-block-grid-1">
+                        <li class="am-parent">
+                            <a href="#c3">我的</a>
+                            <ul class="am-menu-sub am-collapse am-avg-sm-2">
+                                <li class="">
+                                    <a href="##">登录</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">注册</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">个人资料</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">房屋信息</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">家装进度</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">我的留言</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">我的预约</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">我的订单</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">我的评论</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">我的优惠券</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="am-parent">
+                            <a href="#c3">在线预约</a>
+                            <ul class="am-menu-sub am-collapse am-avg-sm-2">
+                                <li class="">
+                                    <a href="##">免费量房</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">免费验房</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">免费设计</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">体验馆</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="am-parent">
+                            <a href="#c3">家装套餐</a>
+                            <ul class="am-menu-sub am-collapse am-avg-sm-2">
+                                <li class="">
+                                    <a href="##">699套餐</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">799软包装</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">1899电器包</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">透明展示</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">工艺展示</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">主材展示</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">家装计算器</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="##">凤凰管家</a>
+                        </li>
+                        <li class="">
+                            <a href="##">家装贷</a>
+                        </li>
+                        <li class="">
+                            <a href="##">案例</a>
+                        </li>
+                        <li class="">
+                            <a href="##">Live直播</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
-    <div data-tab-panel-1 class="am-tab-panel" style="margin-top:-15px">
-    	<p style="font-size:14px;line-height:18px;">
-    		<form class="am-form">
-			  <div class="am-form-group">
-			    <div class="">
-			      <input type="datetime" id="nicheng" name="nicheng" placeholder="QQ" style="font-size:14px;height:40px;">
-			    </div>
-			  </div>
-			  <div class="am-form-group">
-			    <div class="">
-			      <input type="datetime" id="nicheng" name="nicheng" placeholder="微信" style="font-size:14px;height:40px;">
-			    </div>
-			  </div>			      			
-			  <div class="am-form-group am-form-select">
-			    <select style="font-size:14px;height:40px" id="sex" name="sex" >
-			      <option value="-1">星座</option>
-			      <option value="2">女</option>
-			    </select>
-			  </div>   
-			  <div class="am-form-group am-form-select">
-			    <select style="font-size:14px;height:40px" id="sex" name="sex" >
-			      <option value="-1">行业</option>
-			      <option value="2">女</option>
-			    </select>
-			  </div>   
-			  <div class="am-form-group am-form-select">
-			    <select style="font-size:14px;height:40px" id="sex" name="sex" >
-			      <option value="-1">血型</option>
-			      <option value="2">女</option>
-			    </select>
-			  </div>   			  
-			  <div class="am-form-group">
-			    <div class="">
-			      <input type="datetime" id="nicheng" name="nicheng" placeholder="生日" style="font-size:14px;height:40px;">
-			    </div>
-			  </div>
-			  <div class="am-form-group">
-			    <div class="">
-			      <input type="text" id="nicheng" name="nicheng" placeholder="证件号码" style="font-size:14px;height:40px">
-			    </div>
-			  </div>
-			  <div class="am-form-group">
-					<textarea class="" rows="5" style="font-size:14px;height:80px">个人简介</textarea>
-			  </div>	
-			  </form>		  		  			   
-    	</p>
-    	<p style="font-size:14px;line-height:18px;">
-    		<form class="am-form">
-					<ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-thumbnails">
-					  <li>
-					  	<div class="animation animated-item-3 " style="margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-								<a href="javascript:;" id="buynow" onclick="Buy_fhgj();" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">保存</div></a>
-							</div>					  	
-					  </li>
-					  <li>
-					  	<div class="animation animated-item-3" style="margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-								<a href="javascript:;" id="buynow" onclick="Buy_fhgj();" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">取消</div></a>
-							</div>					  	
-					  </li>
-					</ul>
-				</form>
-    	</p>
-		</div> 
-  	<div data-tab-panel-2 class="am-tab-panel"  style="margin-top:-15px">
-    	<p style="font-size:14px;line-height:18px;">
-    		<form class="am-form">
-
-			  <div class="am-form-group">
-			    <div class="">
-			      <input type="password" id="nicheng" name="nicheng" placeholder="旧密码" style="font-size:14px;height:40px">
-			    </div>
-			  </div>
-
-			  <div class="am-form-group">
-			    <div class="">
-			      <input type="password" id="nicheng" name="nicheng" placeholder="新密码" style="font-size:14px;height:40px">
-			    </div>
-			  </div>
-
-			  <div class="am-form-group">
-			    <div class="">
-			      <input type="password" id="nicheng" name="nicheng" placeholder="重复新密码" style="font-size:14px;height:40px">
-			    </div>
-			  </div>
-			  
-			  <div class="am-form-group am-form-select">
-			    <select style="font-size:14px;height:40px" id="sex" name="sex" >
-			      <option value="-1">提问</option>
-			      <option value="2">女</option>
-			    </select>
-			  </div>   
-			  
-			  <div class="am-form-group">
-			    <div class="">
-			      <input type="text" id="nicheng" name="nicheng" placeholder="回答" style="font-size:14px;height:40px">
-			    </div>
-			  </div>	
-			  </form>		  		  			   
-    	</p>
-    	<p style="font-size:14px;line-height:18px;">
-    		<form class="am-form">
-					<ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-thumbnails">
-					  <li>
-					  	<div class="animation animated-item-3 " style="margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-								<a href="javascript:;" id="buynow" onclick="Buy_fhgj();" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">保存</div></a>
-							</div>					  	
-					  </li>
-					  <li>
-					  	<div class="animation animated-item-3" style="margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-								<a href="javascript:;" id="buynow" onclick="Buy_fhgj();" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">取消</div></a>
-							</div>					  	
-					  </li>
-					</ul>
-				</form>
-    	</p>
-		</div> 
-	</div>
-</div>
-
-
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/amazeui.min.js"></script>
+    <div data-am-widget="tabs" class="am-tabs am-tabs-default" style="width:100%;padding:0;margin:0">
+        <ul class="am-tabs-nav am-cf">
+            <li class="am-active x" style="line-height:10px;">
+                <a href="[data-tab-panel-0]">
+                    <i class="am-icon-bookmark" style="font-size:24px;"></i>
+                    <br />
+                    <div class="ttt">基本资料</div>
+                </a>
+            </li>
+            <li class="x">
+                <a href="[data-tab-panel-1]">
+                    <i class="am-icon-calculator" style="font-size:24px;"></i>
+                    <br />
+                    <div class="ttt">扩展资料</div>
+                </a>
+            </li>
+            <li class="" style="box-shadow:0;">
+                <a href="[data-tab-panel-2]">
+                    <i class="am-icon-gift" style="font-size:24px;"></i>
+                    <br />
+                    <div class="ttt">安全设置</div>
+                </a>
+            </li>
+        </ul>
+        <div class="am-tabs-bd" style="margin-top:10px;border:none; box-shadow:inset -1px 1px 1px -1px #999;padding:5px;">
+            <div data-tab-panel-0 class="am-tab-panel am-active" style="margin-top:-15px">
+                <p style="font-size:14px;line-height:18px;">
+                    <form class="am-form">
+                        <div class="am-form-group">
+                            <div class="">
+                                <input type="text" id="xingming" name="xingming" placeholder="姓名" style="font-size:14px;height:40px">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <div class="">
+                                <input type="text" id="nicheng" name="nicheng" placeholder="昵称" style="font-size:14px;height:40px">
+                            </div>
+                        </div>
+                        <div class="am-form-group am-form-select">
+                            <select style="font-size:14px;height:40px" id="sex" name="sex">
+                                <option value="1">男</option>
+                                <option value="2">女</option>
+                            </select>
+                        </div>
+                        <div class="am-form-group">
+                            <div class="">
+                                <input type="text" id="nicheng" name="nicheng" placeholder="电子邮箱" style="font-size:14px;height:40px;">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <div class="">
+                                <input type="text" id="nicheng" name="nicheng" placeholder="手机号码" style="font-size:14px;height:40px">
+                            </div>
+                        </div>
+                        <div class="am-form-group am-form-select">
+                            <select style="font-size:14px;height:40px" id="sex" name="sex">
+                                <option value="-1">省份</option>
+                                <option value="2">女</option>
+                            </select>
+                        </div>
+                        <div class="am-form-group am-form-select">
+                            <select style="font-size:14px;height:40px" id="sex" name="sex">
+                                <option value="1">地市</option>
+                                <option value="2">女</option>
+                            </select>
+                        </div>
+                        <div class="am-form-group am-form-select">
+                            <select style="font-size:14px;height:40px" id="sex" name="sex">
+                                <option value="1">县区</option>
+                                <option value="2">女</option>
+                            </select>
+                        </div>
+                        <div class="am-form-group">
+                            <textarea class="" rows="5" style="font-size:14px;height:80px">详细地址</textarea>
+                        </div>
+                        <div class="am-form-group">
+                            <div class="">
+                                <input type="text" id="nicheng" name="nicheng" placeholder="邮政编码" style="font-size:14px;height:40px">
+                            </div>
+                        </div>
+                    </form>
+                </p>
+                <p style="font-size:14px;line-height:18px;">
+                    <form class="am-form">
+                        <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-thumbnails">
+                            <li>
+                                <div class="animation animated-item-3 " style="margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                                    <a href="javascript:;" id="buynow" onclick="Buy_fhgj();">
+                                        <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">保存</div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="animation animated-item-3" style="margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                                    <a href="javascript:;" id="buynow" onclick="Buy_fhgj();">
+                                        <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">取消</div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </p>
+            </div>
+            <div data-tab-panel-1 class="am-tab-panel" style="margin-top:-15px">
+                <p style="font-size:14px;line-height:18px;">
+                    <form class="am-form">
+                        <div class="am-form-group">
+                            <div class="">
+                                <input type="datetime" id="nicheng" name="nicheng" placeholder="QQ" style="font-size:14px;height:40px;">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <div class="">
+                                <input type="datetime" id="nicheng" name="nicheng" placeholder="微信" style="font-size:14px;height:40px;">
+                            </div>
+                        </div>
+                        <div class="am-form-group am-form-select">
+                            <select style="font-size:14px;height:40px" id="sex" name="sex">
+                                <option value="-1">星座</option>
+                                <option value="2">女</option>
+                            </select>
+                        </div>
+                        <div class="am-form-group am-form-select">
+                            <select style="font-size:14px;height:40px" id="sex" name="sex">
+                                <option value="-1">行业</option>
+                                <option value="2">女</option>
+                            </select>
+                        </div>
+                        <div class="am-form-group am-form-select">
+                            <select style="font-size:14px;height:40px" id="sex" name="sex">
+                                <option value="-1">血型</option>
+                                <option value="2">女</option>
+                            </select>
+                        </div>
+                        <div class="am-form-group">
+                            <div class="">
+                                <input type="datetime" id="nicheng" name="nicheng" placeholder="生日" style="font-size:14px;height:40px;">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <div class="">
+                                <input type="text" id="nicheng" name="nicheng" placeholder="证件号码" style="font-size:14px;height:40px">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <textarea class="" rows="5" style="font-size:14px;height:80px">个人简介</textarea>
+                        </div>
+                    </form>
+                </p>
+                <p style="font-size:14px;line-height:18px;">
+                    <form class="am-form">
+                        <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-thumbnails">
+                            <li>
+                                <div class="animation animated-item-3 " style="margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                                    <a href="javascript:;" id="buynow" onclick="Buy_fhgj();">
+                                        <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">保存</div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="animation animated-item-3" style="margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                                    <a href="javascript:;" id="buynow" onclick="Buy_fhgj();">
+                                        <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">取消</div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </p>
+            </div>
+            <div data-tab-panel-2 class="am-tab-panel" style="margin-top:-15px">
+                <p style="font-size:14px;line-height:18px;">
+                    <form class="am-form">
+                        <div class="am-form-group">
+                            <div class="">
+                                <input type="password" id="nicheng" name="nicheng" placeholder="旧密码" style="font-size:14px;height:40px">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <div class="">
+                                <input type="password" id="nicheng" name="nicheng" placeholder="新密码" style="font-size:14px;height:40px">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <div class="">
+                                <input type="password" id="nicheng" name="nicheng" placeholder="重复新密码" style="font-size:14px;height:40px">
+                            </div>
+                        </div>
+                        <div class="am-form-group am-form-select">
+                            <select style="font-size:14px;height:40px" id="sex" name="sex">
+                                <option value="-1">提问</option>
+                                <option value="2">女</option>
+                            </select>
+                        </div>
+                        <div class="am-form-group">
+                            <div class="">
+                                <input type="text" id="nicheng" name="nicheng" placeholder="回答" style="font-size:14px;height:40px">
+                            </div>
+                        </div>
+                    </form>
+                </p>
+                <p style="font-size:14px;line-height:18px;">
+                    <form class="am-form">
+                        <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-thumbnails">
+                            <li>
+                                <div class="animation animated-item-3 " style="margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                                    <a href="javascript:;" id="buynow" onclick="Buy_fhgj();">
+                                        <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">保存</div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="animation animated-item-3" style="margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                                    <a href="javascript:;" id="buynow" onclick="Buy_fhgj();">
+                                        <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">取消</div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/amazeui.min.js"></script>
 </body>
-</html>
 
- 
+</html>
