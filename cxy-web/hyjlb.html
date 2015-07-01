@@ -6,18 +6,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>会员俱乐部 | 凤凰筑家 PHOENIXZJ.COM</title>
-	
+
 	<!-- core CSS -->
     <link href="css/bootstrap.min1.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
-    <![endif]-->       
+    <![endif]-->
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
@@ -44,8 +45,8 @@
                     </div>
                     <div class="col-sm-6 col-xs-8">
                        <div class="social">
-                            <ul class="social-share">
-                                <li style="padding-right:10px;"><i class="fa fa-sign-in hui"></i> <b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal"><a href="login.html" style="width:30px">登录</a></b></li>
+                            <ul id="loginstatus" class="social-share">
+                                <li style="padding-right:10px"><i class="fa fa-sign-in hui"></i> <b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal"><a href="login.html" style="width:30px">登录</a></b></li>
                                 <li><i class="fa fa-user hui"></i> <a href="center.html" style="width:60px">会员中心</a></li>
                             </ul>
                             <div class="search">
@@ -71,7 +72,7 @@
                     </button>
                     <a class="navbar-brand" href="index.html"><img src="images/fhzj.jpg" alt="logo"></a>
                 </div>
-				
+
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li><a href="index.html">首页</a></li>
@@ -93,7 +94,7 @@
                                 <li><a href="gyzs.html">工艺展示</a></li>
                                 <li><a href="zczs.html">主材展示</a></li>
                             </ul>
-                        </li>                        
+                        </li>
                         <li><a href="tyg.html">体验馆</a></li>
                         <li class="dropdown" style="border:0px">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">案例 / Live直播 <i class="fa fa-angle-down"></i></a>
@@ -107,7 +108,7 @@
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
-		
+
     </header><!--/header-->
 
 		<section>
@@ -117,7 +118,7 @@
 					  <li><i class="fa fa-home" style="font-size:1.1em;"></i>&nbsp;&nbsp; <a href="#" style="color:#aaa">首页</a></li>
 					  <li><a href="#" style="color:#aaa">凤凰之家</a></li>
 					  <li class="active" style="color:#b9090e">会员俱乐部</li>
-					</ol>				
+					</ol>
 				</div>
 				<div class="clear:both"></div>
 				<div class="col-md-4 L_Menu">
@@ -139,19 +140,19 @@
 						<li><a href="aboutus.html">了解我们</a></li>
 						<li><a href="enjoyus.html">加入我们</a></li>
 					</ul>
-				</div>	
-				<div class="col-md-8 R_details">
+				</div>
+				<div id="articaldiv" class="col-md-8 R_details">
 					<ul>
 						<li>
 							<h3>会员俱乐部</h3>
-							<p>
+							<p style="display:none;">
 								服务指南有关内容服务指南有关内容服务指南有关内容服务指南有关内容服务指南有关内容服务指南有关内容服务指南有关内容服务指南有关内容服务指南有关内容服务指南有关内容服务指南有关内容服务指南有关内容服务指南有关内容
 							</p>
 						</li>
 					</ul>
-				</div>	
+				</div>
 		</section>
-    
+
     <section id="conatcat-info">
         <div class="container">
             <div class="row">
@@ -173,9 +174,9 @@
                   			<div style="text-align:center;line-height:45px;font-size:20px;color:#fff;">400-699-2888</div>
                   		</a>
                   	</div>
-                </div> 
+                </div>
             </div>
-        </div><!--/.container-->    
+        </div><!--/.container-->
     </section><!--/#conatcat-info-->
 
     <section id="bottom" style="padding:40px 0">
@@ -189,7 +190,7 @@
                             <li><a href="zffs.html">支付方式</a></li>
                             <li><a href="cjwt.html">常见问题</a></li>
                         </ul>
-                    </div>    
+                    </div>
                 </div><!--/.col-md-3-->
 
                 <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
@@ -200,7 +201,7 @@
                             <li><a href="zzfw.html">自助服务</a></li>
                             <li><a href="xgxz.html">相关下载</a></li>
                         </ul>
-                    </div>    
+                    </div>
                 </div><!--/.col-md-3-->
 
                 <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
@@ -211,7 +212,7 @@
                             <li><a href="hyhd.html">会员活动</a></li>
                             <li><a href="vip.html">VIP服务</a></li>
                         </ul>
-                    </div>    
+                    </div>
                 </div><!--/.col-md-3-->
 
                 <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
@@ -222,9 +223,9 @@
                             <li><a href="aboutus.html">了解我们</a></li>
                             <li><a href="enjoyus.html">加入我们</a></li>
                         </ul>
-                    </div>  
+                    </div>
                 </div><!--/.col-md-3-->
-                
+
                 <div class="col-md-3 col-sm-6" style="width:190px;margin-right:45px">
                     <div class="widget">
                         <h3>官方媒体</h3>
@@ -233,8 +234,8 @@
                             <li><a href="#">微信公众号</a></li>
                             <li><a href="#">天猫网店</a></li>
                         </ul>
-                    </div>    
-                </div><!--/.col-md-3-->                
+                    </div>
+                </div><!--/.col-md-3-->
             </div>
         </div>
     </section><!--/#bottom-->
@@ -256,10 +257,14 @@
     </footer><!--/#footer-->
 
     <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/jquery.isotope.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/wow.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.prettyPhoto.js"></script>
+	<script src="js/jquery.isotope.min.js"></script>
+
+	<script src="js/wow.min.js"></script>
+	<script src="libs/json.js"></script>
+	<script src="libs/base.js"></script>
+	<script src="libs/utils.js"></script>
+	<script src="js/hyjlb.js"></script>
 </body>
 </html>

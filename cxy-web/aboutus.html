@@ -12,6 +12,7 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
@@ -44,8 +45,8 @@
                     </div>
                     <div class="col-sm-6 col-xs-8">
                        <div class="social">
-                            <ul class="social-share">
-                                <li style="padding-right:10px;"><i class="fa fa-sign-in hui"></i> <b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal"><a href="login.html" style="width:30px">登录</a></b></li>
+                            <ul id="loginstatus" class="social-share">
+                                <li style="padding-right:10px"><i class="fa fa-sign-in hui"></i> <b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal"><a href="login.html" style="width:30px">登录</a></b></li>
                                 <li><i class="fa fa-user hui"></i> <a href="center.html" style="width:60px">会员中心</a></li>
                             </ul>
                             <div class="search">
@@ -139,11 +140,11 @@
 						<li><a href="enjoyus.html">加入我们</a></li>
 					</ul>
 				</div>
-				<div class="col-md-8 R_details">
+				<div id="articaldiv" class="col-md-8 R_details">
 					<ul>
 						<li>
 							<h3>了解我们</h3>
-							<p>
+							<p style="display:none;">
 								服务指南有关内容服务指南有关内容服务指南有关内容服务指南有关内容服务指南有关内容服务指南有关内容服务指南有关内容服务指南有关内容服务指南有关内容服务指南有关内容服务指南有关内容服务指南有关内容服务指南有关内容
 							</p>
 						</li>
@@ -254,11 +255,15 @@
         </div>
     </footer><!--/#footer-->
 
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/jquery.isotope.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/wow.min.js"></script>
+ <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.prettyPhoto.js"></script>
+	<script src="js/jquery.isotope.min.js"></script>
+
+	<script src="js/wow.min.js"></script>
+	<script src="libs/json.js"></script>
+	<script src="libs/base.js"></script>
+	<script src="libs/utils.js"></script>
+	<script src="js/aboutus.js"></script>
 </body>
 </html>

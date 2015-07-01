@@ -56,6 +56,7 @@
 	var packagesUrl = serverUrl + "/api/product/packages";
 	var packageAppointUrl = serverUrl + "/api/user/packageAppoint";
 	var scramble = serverUrl + "/api/product/package/scramble";
+	var articalUrl = serverUrl + "/api/artical/code";
 
 	Base.userName = userName;
 	Base.urlPort = urlPort;
@@ -96,6 +97,7 @@
 	Base.packagesUrl = packagesUrl;
 	Base.packageAppointUrl = packageAppointUrl;
 	Base.scramble = scramble;
+	Base.articalUrl = articalUrl;
 }(window));
 
 
