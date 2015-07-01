@@ -112,7 +112,7 @@ public class PufaPayService {
 		//TODO 修改成可配置内容
 		URL revokeUrl;
 		try {
-			revokeUrl=new URL("http://101.200.229.135/pufa/revoke");
+			revokeUrl=new URL("http://101.200.229.135/api/pufa/revoke");
 		} catch (MalformedURLException e) {
 			revokeUrl=null;
 		}
