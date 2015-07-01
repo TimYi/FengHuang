@@ -24,6 +24,8 @@ public class LiveDetailInputArgs extends DtoBaseModel {
 	private Set<String> workerids;
 	/**施工图片*/
 	private Set<MultipartFile> picFiles;
+	/**施工图片*/
+	private Set<MultipartFile> interactPicFiles;
 	
 	public String getLiveId() {
 		return liveId;
@@ -66,5 +68,11 @@ public class LiveDetailInputArgs extends DtoBaseModel {
 	}
 	public void setPicFiles(Set<MultipartFile> picFiles) {
 		this.picFiles = picFiles;
+	}
+	public Set<MultipartFile> getInteractPicFiles() {
+		return interactPicFiles;
+	}
+	public void setInteractPicFiles(Set<MultipartFile> interactPicFiles) {
+		this.interactPicFiles = interactPicFiles;
 	}
 }
