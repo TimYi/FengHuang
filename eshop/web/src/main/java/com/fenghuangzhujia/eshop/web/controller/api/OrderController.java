@@ -18,6 +18,7 @@ import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder.OrderStatus;
 import com.fenghuangzhujia.eshop.core.commerce.order.dto.GoodOrderDto;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrderService;
 import com.fenghuangzhujia.eshop.core.commerce.pay.PufaPayService;
+import com.fenghuangzhujia.eshop.web.util.LogUtils;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
@@ -57,6 +58,7 @@ public class OrderController {
 	
 	@RequestMapping(value="pufa/revoke",method=RequestMethod.POST)
 	public ModelAndView pufaRevoke(@RequestBody String xml) {
+		LogUtils.errorLog(xml);//先记录下返回的数据，查看是哪里出现异常。
 		ModelAndView view=new ModelAndView("redirect:http://101.200.229.135/payback.html");
 		try {
 			pufaPayService.revoke(xml);
