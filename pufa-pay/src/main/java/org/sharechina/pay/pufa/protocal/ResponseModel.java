@@ -42,7 +42,7 @@ public class ResponseModel<T> {
 	 */
 	public static <T> ResponseModel<T> fromXml(String xml, Class<T> tClass) throws SignatureException {
 		@SuppressWarnings("unchecked")
-		ResponseModel<T> response=XmlUtil.getObjectFromXml(xml, ResponseModel.class, "packet", "GBK");
+		ResponseModel<T> response=XmlUtil.getObjectFromXml(xml, ResponseModel.class, "packet", null);
 		if(response.getErrorCode()==null) {
 			response.success(tClass);
 			return response;
