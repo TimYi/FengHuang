@@ -15,4 +15,8 @@ public class LogUtils {
 	public static void errorLog(Throwable ex) {
 		logger.error(ex.getMessage(), ex);
 	}
+	
+	public static void infoLog(String message) {
+		logger.info(message);
+	}
 }
