@@ -1,0 +1,97 @@
+@charset "utf-8";
+
+/*-------------loading Cancel btn start-------------*/
+.prompt_mask { background-color:rgba(0, 0, 0, .5); position:absolute; top:0; left:0; right:0; bottom:0; height:100%; z-index:120; }
+.p_load { height:160px; width:160px; background:rgba(0, 0, 0, 0); position:absolute; left:50%; top:50%; margin-left:-80px; margin-top:-100px; }
+.loadimg { width:160px; height:160px; float:left; }
+.loadimg span { display:block; width:160px; height:160px; margin:0; background:url(../images/loading.png) no-repeat center top; -webkit-transform: rotate(0deg) translateZ(0); -webkit-transition-duration: 0ms; -webkit-animation-name: inpload; -webkit-animation-duration: 2.4s; -webkit-animation-iteration-count: infinite; -webkit-animation-timing-function: linear; }
+.loadtext { width:99px; height:50px; line-height:50px; float:left; color:#fff; font-size:15px; }
+.loadqx { float:left; width:50px; height:50px; background-color:#ff5500; border-left:1px solid #999; background:url(../images/dpi2/ld.png) no-repeat 20px -30px; }
+@-webkit-keyframes inpload { 0% {
+-webkit-transform:rotate(0deg);
+}
+5% {
+-webkit-transform:rotate(18deg);
+}
+10% {
+-webkit-transform:rotate(36deg);
+}
+15% {
+-webkit-transform:rotate(54deg);
+}
+20% {
+-webkit-transform:rotate(72deg);
+}
+25% {
+-webkit-transform:rotate(90deg);
+}
+30% {
+-webkit-transform:rotate(108deg);
+}
+35% {
+-webkit-transform:rotate(126deg);
+}
+40% {
+-webkit-transform:rotate(144deg);
+}
+45% {
+-webkit-transform:rotate(162deg);
+}
+50% {
+-webkit-transform:rotate(180deg);
+}
+55% {
+-webkit-transform:rotate(198deg);
+}
+60% {
+-webkit-transform:rotate(216deg);
+}
+65% {
+-webkit-transform:rotate(234deg);
+}
+70% {
+-webkit-transform:rotate(252deg);
+}
+75% {
+-webkit-transform:rotate(270deg);
+}
+80% {
+-webkit-transform:rotate(288deg);
+}
+85% {
+-webkit-transform:rotate(306deg);
+}
+90% {
+-webkit-transform:rotate(324deg);
+}
+95% {
+-webkit-transform:rotate(342deg);
+}
+100% {
+-webkit-transform:rotate(360deg);
+}
+/*from{-webkit-transform:rotate(0deg) translateZ(0);}
+to{-webkit-transform:rotate(360deg) translateZ(0);}*/
+}
+.rp_tishi {
+	text-align: center;
+	z-index: 99;
+	margin: 0 auto;
+	width: 200px;
+	position: fixed;
+	left: 50%;
+	margin-left: -100px;
+	bottom: 70px;
+}
+.rp_tishi span {
+	display: block;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: #FFF;
+	padding: 6px 0px;
+	line-height: 30px;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	word-break: break-all;
+	font-size: 14px;
+}
+
