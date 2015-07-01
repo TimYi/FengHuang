@@ -24,7 +24,7 @@ $(function(){
 	function getImgCode(evt){
 		var phone = $("#username").val() || "";
 		if(phone !== ""){
-			console.log(phone);
+			//console.log(phone);
 			g.imgCodeId = phone;
 			$("#regcodebtn").attr("src",Base.imgCodeUrl + "?id=" + g.imgCodeId);
 		}
@@ -35,8 +35,8 @@ $(function(){
 		var ele = evt.currentTarget;
 		//$(ele).removeClass("curr");
 		//if(!this.moved){}
-		var p = $("#inputPhone3").val() || "";
-		var imgCode = $("#inputImgCode3").val() || "";
+		var p = $("#mobile").val() || "";
+		var imgCode = $("#img-validate").val() || "";
 		if(p !== ""){
 			var reg = /^1[3,5,7,8]\d{9}$/g;
 			if(reg.test(p)){
@@ -48,7 +48,7 @@ $(function(){
 				}
 				else{
 					console.log("输入图形验证码");
-					$("#inputImgCode3").focus();
+					$("#img-validate").focus();
 				}
 			}
 			else{
@@ -57,7 +57,7 @@ $(function(){
 		}
 		else{
 			console.log("没填手机号");
-			$("#inputPhone3").focus();
+			$("#mobile").focus();
 		}
 	}
 
@@ -75,45 +75,45 @@ $(function(){
 			g.sendTime = 60;
 			g.sendCode = false;
 
-			//重新获取图形验证码,1分钟有效
-			getImgCode();
-			$("#inputImgCode3").val("");
-			$("#inputImgCode3").focus();
+			//重新获取短信验证码,1分钟有效
+			getValidCode();
+			$("#validate").val("");
+			$("#validate").focus();
 		}
 	}
 
 	//重置信息
 	function resetRegInfo(evt){
-		$("#inputEmail3").val("");
-		$("#inputPassword3").val("");
-		$("#inputPhone3").val("");
-		$("#inputImgCode3").val("");
-		$("#inputCode3").val("");
+		//$("#inputEmail3").val("");
+		$("#password").val("");
+		$("#mobile").val("");
+		$("#img-validate").val("");
+		$("#validate").val("");
 	}
 
 	//注册
 	function regBtnUp(evt){
-		var userName = $("#inputEmail3").val() || "";
-		var usePwd = $("#inputPassword3").val() || "";
-		var phone = $("#inputPhone3").val() || "";
-		var imgCode = $("#inputImgCode3").val() || "";
-		var validCode = $("#inputCode3").val() || "";
+		var userName = $("#username").val() || "";
+		var usePwd = $("#password").val() || "";
+		var phone = $("#mobile").val() || "";
+		var imgCode = $("#img-validate").val() || "";
+		var validCode = $("#validate").val() || "";
 
-		var regEMail = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+		//var regEMail = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
 		var regPhone = /^1[3,5,7,8]\d{9}$/;
 		var regFont = /^([\u4E00-\u9FA5|\w\-])+$/;
-		if(regEMail.test(userName) || regPhone.test(userName) || regFont.test(userName)){
+		if(regPhone.test(phone) || regFont.test(userName)){
 			if(userName !== "" && usePwd !== "" && phone !== "" && imgCode !== "" && validCode !== ""){
 				sendRegHttp(userName,usePwd,validCode);
 				//http://101.200.229.135:8080/api/regist?username=ytm&password=123456&mobile=18612444099&validater=3967
 			}
 			else{
-				alert("账户信息未填");
+				alert("账户信息未填写完全");
 			}
 		}
 		else{
 			alert("用户名输入错误,请输入邮箱或者手机号");
-			$("#inputEmail3").focus();
+			//$("#username").focus();
 		}
 
 	}
