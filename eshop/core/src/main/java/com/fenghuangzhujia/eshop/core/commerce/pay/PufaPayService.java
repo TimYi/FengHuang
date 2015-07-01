@@ -100,13 +100,13 @@ public class PufaPayService {
 		}				
 		
 		//生成12位订单号的浦发支付，并和OrderPay关联
+		String termSsn=CodeGenerater.generateOrderCode();//如果不重新生成，会造成重复交易错误。
 		if(pay.getPufaPay()==null) {//第一次请求支付
-			PufaPay pufaPay=new PufaPay();
-			String termSsn=CodeGenerater.generateOrderCode();
-			pufaPay.setTermSsn(termSsn);
+			PufaPay pufaPay=new PufaPay();			
 			pufaPayRepository.save(pufaPay);
 			pay.setPufaPay(pufaPay);	
 		}		
+		pay.getPufaPay().setTermSsn(termSsn);//确保交易识别号变更
 		
 		//临时使用此回调地址
 		//TODO 修改成可配置内容
