@@ -29,12 +29,14 @@ $(function(){
 	getLiveComment();
 	function getLiveDetails(){
 		var condi = {};
+		condi.token = g.token;
 		condi.id = g.liveId;
 
 		sendGetLiveDetailsHttp(condi);
 	}
 	function getLiveDayDetails(){
 		var condi = {};
+		condi.token = g.token;
 		condi.id = g.liveId;
 		condi.page = g.currentPage;
 		condi.size = g.paseSize;
@@ -42,7 +44,7 @@ $(function(){
 	}
 
 	function sendGetLiveDetailsHttp(condi){
-		var url = Base.live + "/" + condi.id;
+		var url = Base.userliveUrl + "/" + condi.id;
 		g.httpTip.show();
 		$.ajax({
 			url:url,
@@ -70,7 +72,7 @@ $(function(){
 	}
 
 	function sendGetLiveDayDetailsHttp(condi){
-		var url = Base.live + "/" + condi.id + "/details";
+		var url = Base.userliveUrl + "/" + condi.id + "/details";
 		//http://101.200.229.135:8080/api/live/{id}/details
 		g.httpTip.show();
 		$.ajax({

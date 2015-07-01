@@ -116,6 +116,8 @@ $(function(){
 	}
 
 	function changeIngListHtml(data){
+		data = data || {};
+		var lid = data.id;
 		var obj = data.lives || [];
 
 		g.listdata = obj;
@@ -140,7 +142,7 @@ $(function(){
 			html.push('<td >' + day + '</td>');
 			html.push('<td >' + date + '</td>');
 			html.push('<td >' + title + '</td>');
-			html.push('<td ><a href="live_details.html?id=' + id + '">查看</a></td>');
+			html.push('<td ><a href="my_live_details.html?id=' + lid + '">查看</a></td>');
 			//html.push('<td><a href="c_message_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '" >查看</a></td>');
 			html.push('</tr>');
 		}
