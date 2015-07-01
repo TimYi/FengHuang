@@ -131,8 +131,12 @@ $(function(){
 		//https://124.74.239.32/payment/main
 		//https://ebank.spdb.com.cn/payment/main
 		//g.httpTip.show();
-		Utils.offLineStore.set("pay_info",JSON.stringify(obj),false);
-		window.open("pay.html");
+		$("#transName").val(obj.transName);
+		$("#Plain").val(obj.plain);
+		$("#Signature").val(obj.signature);
+		$("#bankform").submit();
+		//Utils.offLineStore.set("pay_info",JSON.stringify(obj),false);
+		//location.href = "pay.html";
 	}
 });
 
