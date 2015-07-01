@@ -24,7 +24,7 @@ $(function(){
 	function getImgCode(evt){
 		var phone = $("#username").val() || "";
 		if(phone !== ""){
-			console.log(phone);
+			//console.log(phone);
 			g.imgCodeId = phone;
 			$("#regcodebtn").attr("src",Base.imgCodeUrl + "?id=" + g.imgCodeId);
 		}
