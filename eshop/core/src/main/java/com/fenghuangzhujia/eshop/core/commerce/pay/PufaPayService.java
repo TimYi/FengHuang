@@ -147,6 +147,7 @@ public class PufaPayService {
 			pufaPay.setHasPayed(true);
 			pufaPay.setPayTime(new Date());
 			pufaPay.setTranAmt(data.getTranAmt());
+			pufaPayRepository.save(pufaPay);
 			
 			//调用OrderPayService回调
 			OrderPay pay=orderPayRepository.getByPufaPay(pufaPay);

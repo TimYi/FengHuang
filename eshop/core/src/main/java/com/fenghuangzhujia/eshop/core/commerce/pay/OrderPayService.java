@@ -3,6 +3,7 @@ package com.fenghuangzhujia.eshop.core.commerce.pay;
 import java.util.Date;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +13,9 @@ import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder.OrderStatus;
 @Service
 @Transactional
 public class OrderPayService {
+	
+	@Autowired
+	private OrderPayRepository orderPayRepository;
 
 	/**
 	 * 使用优惠券减免支付金额
@@ -49,5 +53,6 @@ public class OrderPayService {
 				pay.getOrder().setStatus(OrderStatus.PAYED);
 			}			
 		}
+		orderPayRepository.save(pay);
 	}
 }
