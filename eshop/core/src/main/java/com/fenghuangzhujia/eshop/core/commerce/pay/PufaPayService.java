@@ -112,7 +112,7 @@ public class PufaPayService {
 		//TODO 修改成可配置内容
 		URL revokeUrl;
 		try {
-			revokeUrl=new URL("http://101.200.229.135/pufa/revoke");
+			revokeUrl=new URL("http://101.200.229.135/api/pufa/revoke");
 		} catch (MalformedURLException e) {
 			revokeUrl=null;
 		}
@@ -134,13 +134,11 @@ public class PufaPayService {
 		try {
 			ResponseModel<KhzfResponseData> response=KhzfService.resolveKhzfResult(xml);
 			if(!response.isSuccess()) {
-				//TODO 今后可能会做一些额外记录
-				return;
+				throw new ErrorCodeException(SystemErrorCodes.PAY_FAILED, response.getErrorMsg());
 			}
 			KhzfResponseData data=response.getData();
 			if(!data.getRespCode().equals("00")) {
-				//TODO 一些额外记录
-				return;
+				throw new ErrorCodeException(SystemErrorCodes.PAY_FAILED, data.getRespCode());
 			}
 			//以下表示支付成功
 			PufaPay pufaPay=pufaPayRepository.getByTermSsn(data.getTermSsn());

@@ -25,7 +25,7 @@ public class LiveDto extends DtoBaseModel {
 	/**是否展示*/
 	private boolean shouldShow;
 	private MediaContentDto mainPic;
-	private Set<LiveDetailDto> lives;
+	private Set<LiveDetailDto> lives;	//TODO 和宣宇汉明沟通，将直播细节从dto中去掉
 	private ProjectProgress status;
 	
 	public UserDto getUser() {

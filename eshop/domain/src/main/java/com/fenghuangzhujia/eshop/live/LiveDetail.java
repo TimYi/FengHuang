@@ -31,6 +31,8 @@ public class LiveDetail extends UUIDBaseModel {
 	private Set<Worker> workers;
 	/**施工图片*/
 	private Set<MediaContent> pics;
+	/**微信互动截图*/
+	private Set<MediaContent> interactPics;
 	
 	@ManyToOne(optional=false)
 	public Live getLive() {
@@ -78,5 +80,13 @@ public class LiveDetail extends UUIDBaseModel {
 	}
 	public void setPics(Set<MediaContent> pics) {
 		this.pics = pics;
+	}
+	@ManyToMany
+	@JoinTable(name="fhzj_live_interactpics")
+	public Set<MediaContent> getInteractPics() {
+		return interactPics;
+	}
+	public void setInteractPics(Set<MediaContent> interactPics) {
+		this.interactPics = interactPics;
 	}
 }

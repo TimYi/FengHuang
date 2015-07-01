@@ -41,6 +41,9 @@ public class SystemErrorCodes {
 	 */
 	public static final ErrorCode ILLEGAL_ARGUMENT;
 	
+	//支付相关异常81~90
+	public static final ErrorCode PAY_FAILED;
+	
 	//订单相关异常91~100
 	public static final ErrorCode GOOD_CONVERTER_MISSING;
 	/**
@@ -107,6 +110,8 @@ public class SystemErrorCodes {
 		CREDENTIAL_ERROR=new ErrorCode(8, "用户名错误");
 		CAPTCHA_ERROR=new ErrorCode(9, "图形验证码错误");
 		FILE_ERROR=new ErrorCode(10, "文件处理异常");
+		
+		PAY_FAILED=new ErrorCode(81, "支付失败");
 		
 		GOOD_CONVERTER_MISSING=new ErrorCode(91, "商品转换器缺失！");
 		NO_GOOD=new ErrorCode(92, "无货");

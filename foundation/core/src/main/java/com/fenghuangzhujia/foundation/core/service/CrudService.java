@@ -2,6 +2,9 @@ package com.fenghuangzhujia.foundation.core.service;
 
 import java.io.Serializable;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 增删改查Service
  * @author pc
@@ -11,6 +14,9 @@ import java.io.Serializable;
  * @param <ID> 主键类型
  */
 public interface CrudService<T, I, ID extends Serializable> {
+	
+	Logger logger=LoggerFactory.getLogger(CrudService.class);
+	
 	/**
 	 * Add a given entity. Use the returned instance for further operations as the save operation might have changed the
 	 * entity instance completely.

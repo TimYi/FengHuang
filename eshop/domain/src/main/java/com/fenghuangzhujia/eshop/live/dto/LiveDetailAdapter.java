@@ -50,6 +50,17 @@ public class LiveDetailAdapter extends AbstractDtoAdapter<LiveDetail, LiveDetail
 				}
 				d.setPics(pics);
 			}
+			
+			Set<MultipartFile> interactPicFiles=i.getInteractPicFiles();
+			if(interactPicFiles!=null) {
+				Set<MediaContent> interactPics=new HashSet<>();
+				for (MultipartFile picFile : interactPicFiles) {
+					MediaContent pic=mediaService.save(picFile);
+					interactPics.add(pic);
+				}
+				d.setInteractPics(interactPics);
+			}
+			
 			return d;
 		} catch (IOException e) {
 			throw new ErrorCodeException(SystemErrorCodes.OTHER, "文件保存错误！");
