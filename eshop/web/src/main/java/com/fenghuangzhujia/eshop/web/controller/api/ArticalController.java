@@ -29,4 +29,10 @@ public class ArticalController {
 		ArticalDto result=service.findOne(id);
 		return RequestResult.success(result).toJson();
 	}
+	
+	@RequestMapping(value="artical/code/{code}",method=RequestMethod.GET)
+	public String getByCode(@PathVariable String code) {
+		ArticalDto result=service.findByCode(code);
+		return RequestResult.success(result).toJson();
+	}
 }

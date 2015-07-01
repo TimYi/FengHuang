@@ -16,11 +16,31 @@ public class ArticalTest {
 	private ArticalService service;
 	
 	@Test
-	public void add() {
+	public void addInitData() {
+		addArtical("服务指南");
+		addArtical("支付方式");
+		addArtical("常见问题");
+		addArtical("售后政策");
+		addArtical("自助服务");
+		addArtical("相关下载");
+		addArtical("会员俱乐部");
+		addArtical("会员活动");
+		addArtical("VIP服务");
+		addArtical("联系我们");
+		addArtical("了解我们");
+		addArtical("加入我们");
+	}
+	
+	private void addArtical(String code) {
+		addArtical(code, code, code+"内容");
+	}
+	
+	private void addArtical(String code, String title, String content) {
 		ArticalInputArgs artical=new ArticalInputArgs();
 		artical.setAuthor("Tim");
-		artical.setTitle("first artical");
-		artical.setContent("test content");
+		artical.setCode(code);
+		artical.setTitle(title);
+		artical.setContent(content);
 		service.add(artical);
 	}
 }
