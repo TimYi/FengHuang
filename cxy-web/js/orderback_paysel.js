@@ -119,7 +119,7 @@ $(function(){
 					var msg = data.error || "";
 					Utils.alert("获取支付参数错误" + msg);
 				}
-				//g.httpTip.hide();
+				g.httpTip.hide();
 			},
 			error:function(data){
 				g.httpTip.hide();
@@ -130,11 +130,9 @@ $(function(){
 	function orderPlay(obj){
 		//https://124.74.239.32/payment/main
 		//https://ebank.spdb.com.cn/payment/main
-		g.httpTip.show();
-		$("#transName").val(obj.transName);
-		$("#Plain").val(obj.plain);
-		$("#Signature").val(obj.signature);
-		$("#bankform").submit();
+		//g.httpTip.show();
+		Utils.offLineStore.set("pay_info",JSON.stringify(obj),false);
+		window.open("pay.html");
 	}
 });
 

@@ -11,7 +11,7 @@ $(function(){
 	g.sendCode = false;
 	g.sendTime = 60;
 	g.username = Base.userName;
-	g.token = Utils.offLineStore.get("token",false);
+	g.token = Utils.offLineStore.get("token",false) || "";
 	g.liveId = Utils.getQueryString("id");
 	g.totalPage = 1;
 	g.currentPage = 1;
@@ -246,7 +246,7 @@ $(function(){
 		var condi = {};
 		condi.sourceid = g.liveId;
 		condi.column = "栏目标题";
-		condi.type = "CASE";
+		condi.type = "LIVE";
 		condi.token = g.token;
 		condi.replyid = "";
 		condi.url = location.href;

@@ -293,6 +293,7 @@ Array.prototype.remove = function(n){
 				else{
 					//删除临时保存数据
 					sessionStorage.removeItem(key);
+					delCookie(key);
 				}
 			}
 			else{
@@ -460,7 +461,9 @@ Array.prototype.remove = function(n){
 			html.push('<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="javascript:void(0);" style="width:auto;">' + userName + ',你好!</a></b>');
 			html.push('<b style="padding:0 10px;font-weight:normal"><a href="javascript:Utils.loginOut();" style="width:70px">安全退出</a></b></li>');
 			html.push('<li><i class="fa fa-user hui"></i> <a href="center.html' + str + '" style="width:60px">会员中心</a></li>');
-			$("#loginstatus")[0].innerHTML = html.join('');
+			if($("#loginstatus").length > 0){
+				$("#loginstatus")[0].innerHTML = html.join('');
+			}
 			return true;
 		}
 		else{

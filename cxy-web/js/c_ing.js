@@ -19,18 +19,19 @@ $(function(){
 	g.httpTip = new Utils.httpTip({});
 	g.listdata = [];
 
-	getHomeList();
+	getLiveList();
 
+	$("#houseselect").bind("change",changeLive);
 
-	function getHomeList(){
+	function getLiveList(){
 		var condi = {};
 		condi.token = g.token;
-		sendGetHomeListHttp(condi);
+		sendGetLiveListHttp(condi);
 	}
 
-	function sendGetHomeListHttp(condi){
+	function sendGetLiveListHttp(condi){
 		g.httpTip.show();
-		var url = Base.houses;
+		var url = Base.userlivesUrl;
 		$.ajax({
 			url:url,
 			data:condi,
@@ -39,7 +40,7 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log("sendGetHomeListHttp",data);
+				console.log("sendGetLiveListHttp",data);
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
@@ -64,7 +65,9 @@ $(function(){
 			if(i == 0){
 				fid = id;
 			}
-			var name = data[i].districtName || "";
+			var name = data[i].house || "";
+			var village = data[i].village || "";
+			name = village + "-" + name;
 			option.push('<option value="' + id + '"' + ( i == 0 ? "selected" : "") + '>' + name + '</option>');
 		}
 		$("#" + domid).html(option.join(''));
@@ -72,6 +75,10 @@ $(function(){
 		getIngList(fid);
 	}
 
+	function changeLive(){
+		var id = $(this).val();
+		getIngList(id);
+	}
 
 	function getIngList(id){
 		var condi = {};
@@ -109,43 +116,43 @@ $(function(){
 	}
 
 	function changeIngListHtml(data){
-		var obj = data || [];
-		if(obj.length > 0){
-			g.listdata = obj;
+		var obj = data.lives || [];
 
-			var html = [];
-			html.push('<table class="table u_ct">');
-			html.push('<tr class="u_th">');
-			html.push('<th width=100>工期</th>');
-			html.push('<th width=150>日期</th>');
-			html.push('<th>施工内容</th>');
-			html.push('<th width=80>操作</th>');
+		g.listdata = obj;
+
+		var html = [];
+		html.push('<table class="table u_ct">');
+		html.push('<tr class="u_th">');
+		html.push('<th width=100>工期</th>');
+		html.push('<th width=150>日期</th>');
+		html.push('<th>施工内容</th>');
+		html.push('<th width=80>操作</th>');
+		html.push('</tr>');
+
+		for(var i = 0,len = obj.length; i < len; i++){
+			var id = obj[i].id || "";
+			var day = obj[i].day || "";
+			var date = obj[i].date || "";
+			var title = obj[i].title || "";
+			//var time = obj[i].createTime || "2015-06-02 10:00";
+
+			html.push('<tr>');
+			html.push('<td >' + day + '</td>');
+			html.push('<td >' + date + '</td>');
+			html.push('<td >' + title + '</td>');
+			html.push('<td ><a href="live_details.html?id=' + id + '">查看</a></td>');
+			//html.push('<td><a href="c_message_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '" >查看</a></td>');
 			html.push('</tr>');
-
-			for(var i = 0,len = obj.length; i < len; i++){
-				var id = obj[i].id || "";
-				var day = obj[i].day || "";
-				var date = obj[i].date || "";
-				var title = obj[i].title || "";
-				//var time = obj[i].createTime || "2015-06-02 10:00";
-
-				html.push('<tr>');
-				html.push('<td >' + day + '</td>');
-				html.push('<td >' + date + '</td>');
-				html.push('<td >' + title + '</td>');
-				html.push('<td ><a href="#">查看</a></td>');
-				//html.push('<td><a href="c_message_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '" >查看</a></td>');
-				html.push('</tr>');
-			}
-			html.push('</table>');
-
-			$("#ingtable").html(html.join(''));
-			//$("#ingtable .delete").bind("click",deleteMessageItem);
-
-			//var totalpages = data.totalPages - 0;
-			//g.totalPage = totalpages;
-			//changePageHtml(totalpages);
 		}
+		html.push('</table>');
+
+		$("#ingtable").html(html.join(''));
+		//$("#ingtable .delete").bind("click",deleteMessageItem);
+
+		//var totalpages = data.totalPages - 0;
+		//g.totalPage = totalpages;
+		//changePageHtml(totalpages);
+
 	}
 
 	function changePageHtml(totalpages){

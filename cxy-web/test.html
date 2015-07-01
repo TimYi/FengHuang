@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>了解我们 | 凤凰筑家 PHOENIXZJ.COM</title>
+</head><!--/head-->
+
+<body class="homepage">
+    <form id="bankform" action="https://124.74.239.32/payment/main" method="post">
+		<input id="transName" type="hidden" name="transName" value="KHZF">
+		<input id="Plain" type="hidden" name="Plain" value="TranAbbr=KHZF|MercDtTm=20150701041426|TermSsn=20150701QK5D|MercCode=983708160009501|TermCode=00000000|TranAmt=2000.0|PayBank=vbank|AccountType=1|PayType=1|Subject=499套餐|Notice=499套餐|MercUrl=http://101.200.229.135/api/pufa/revoke">
+		<input id="Signature" type="hidden" name="Signature" value="734686e89dee4946f0115bdf14a07e31f08d6f1ff93e8197b7c7710f59865af207b8816f9d23cf15a7bdf2aea59629a2aa8e3d4c99546af35542b063a6b790677cd0c3f6ccb7dc07b2783282e9aa6284a48e8ff91d3c699a66d7d1e8fcca0c1df245474b02b0e535249afdcde36e7c6f0cbcb5295d87dd7d74e1f1b478f315db">
+	</form>
+
+	<script src="js/jquery.js"></script>
+    <script>
+	    $(function(){
+
+	$("#bankform").submit();
+}());
+    </script>
+</body>
+</html>
