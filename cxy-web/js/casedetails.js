@@ -179,15 +179,17 @@ $(function(){
 			var column = obj[i].column || "";
 			var createTime = obj[i].createTime || "";
 			var content = obj[i].content || "";
+			var avatar = obj[i].user.avatar || "images/blog/avatar3.png";
+			var realName = obj[i].user.realName || "";
 			html.push('<div class="media comment_section">');
 			html.push('<div class="pull-left post_comments">');
-			html.push('<a href="#"><img src="images/blog/girl.png" class="img-circle" alt="" /></a>');
+			html.push('<a href="#"><img src="' + avatar + '" class="img-circle" alt="" /></a>');
 			html.push('</div>');
 			html.push('<div class="media-body post_reply_comments">');
-			html.push('<h3>' + column + '</h3>');
+			html.push('<h3>' + realName + '</h3>');
 			html.push('<h4>' + createTime + '</h4>');
 			html.push('<p>' + content+ '</p>');
-			html.push('<a href="#">回复</a>');
+			//html.push('<a href="#">回复</a>');
 			html.push('</div>');
 			html.push('</div>');
 		}
@@ -247,6 +249,7 @@ $(function(){
 				if(status == "OK"){
 					alert("评论发表成功");
 					$("#message").val("");
+					getCaseComment();
 				}
 				else{
 					var msg = data.error || "";

@@ -1,289 +1,304 @@
 ﻿<!doctype html>
 <html class="no-js">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>家装套餐</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <link rel="icon" type="image/png" href="assets/i/favicon.png">
-  <link rel="stylesheet" href="assets/css/amazeui.min.css">
-  <link rel="stylesheet" href="assets/css/app.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>家装套餐</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <style>
+    .am-tabs-default .am-tabs-nav {
+        line-height: 40px;
+        background-color: #fff;
+        margin-top: 10px;
+    }
+    
+    .am-tabs-default .am-tabs-nav a {
+        color: #ccc;
+        line-height: 45px;
+    }
+    
+    .am-tabs-default .am-tabs-nav > .am-active a {
+        background-color: #fff;
+        color: #0e90d2;
+        box-shadow: inset -1px 0 1px -1px #999;
+    }
+    
+    .x {
+        box-shadow: inset -1px 0 1px -1px #999;
+    }
+    
+    .ttt {
+        font-size: 13px;
+        margin-top: -15px;
+        color: #666
+    }
+    </style>
 </head>
+
 <body>
-<!-- Menu -->
-<div data-am-sticky>
-	<header data-am-widget="header" class="am-header am-header-default" style="border-top:1px solid #000111;background:#000;">
-	  <div class="am-header-left am-header-nav">
-			<img src="build_fhzj/webapp/images/logo.png" style="width:132px;height:18px;margin-top:-5px">
-	  </div> 
-	</header>
-	<nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
-	  <a href="javascript: void(0)" class="am-menu-toggle" >
-	    <i class="am-menu-toggle-icon am-icon-bars"></i>
-	  </a>
-		<div class="am-offcanvas">
-  <div class="am-offcanvas-bar" style="background:#333 none repeat scroll 0 0">
-    <ul class="am-menu-nav sm-block-grid-1">
-      <li class="am-parent">
-        <a href="#c3">我的</a>
-        <ul class="am-menu-sub am-collapse am-avg-sm-2">
-          <li class="">
-            <a href="##">登录</a>
-          </li>
-          <li class="">
-            <a href="##">注册</a>
-          </li>
-          <li class="">
-            <a href="##">个人资料</a>
-          </li>
-          <li class="">
-            <a href="##">房屋信息</a>
-          </li>
-          <li class="">
-            <a href="##">家装进度</a>
-          </li>
-          <li class="">
-            <a href="##">我的留言</a>
-          </li>
-          <li class="">
-            <a href="##">我的预约</a>
-          </li>
-          <li class="">
-            <a href="##">我的订单</a>
-          </li>
-          <li class="">
-            <a href="##">我的评论</a>
-          </li>
-          <li class="">
-            <a href="##">我的优惠券</a>
-          </li>
-        </ul>
-      </li>
-      <li class="am-parent">
-        <a href="#c3">在线预约</a>
-        <ul class="am-menu-sub am-collapse am-avg-sm-2">
-          <li class="">
-            <a href="##">免费量房</a>
-          </li>
-          <li class="">
-            <a href="##">免费验房</a>
-          </li>
-          <li class="">
-            <a href="##">免费设计</a>
-          </li>
-          <li class="">
-            <a href="##">体验馆</a>
-          </li>
-        </ul>
-      </li>
-      <li class="am-parent">
-        <a href="#c3">家装套餐</a>
-        <ul class="am-menu-sub am-collapse am-avg-sm-2">
-          <li class="">
-            <a href="##">699套餐</a>
-          </li>
-          <li class="">
-            <a href="##">799软包装</a>
-          </li>
-          <li class="">
-            <a href="##">1899电器包</a>
-          </li>
-          <li class="">
-            <a href="##">透明展示</a>
-          </li>
-          <li class="">
-            <a href="##">工艺展示</a>
-          </li>
-          <li class="">
-            <a href="##">主材展示</a>
-          </li>
-          <li class="">
-            <a href="##">家装计算器</a>
-          </li>
-        </ul>
-      </li>
-      <li class="">
-        <a href="##">凤凰管家</a>
-      </li>
-      <li class="">
-        <a href="##">家装贷</a>
-      </li>
-      <li class="">
-        <a href="##">案例</a>
-      </li>
-      <li class="">
-        <a href="##">Live直播</a>
-      </li>
-    </ul>
-  </div>
-</div>
-
-	</nav>
-</div>
-
-
-<!--div class="am-form" style="margin-top:-25px;">
-	<ul class="am-avg-sm-3" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;">
-	  <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
-			<div class="am-dropdown" data-am-dropdown style="height:100px">
-				<a href="4g.php?m=u_699">
-					<div style="margin-top:20px">
-						<i class="am-icon-clock-o" style="font-size:24px;color:#666"></i><br />
-						<span style="font-size:13px;">699套餐</span>
-					</div>
-				</a>
-			</div>
-	  </li>  
-	  <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;" data-am-widget="navbar" >
-			<div class="am-dropdown" data-am-dropdown style="height:100px">
-				<a href="4g.php?m=u_699">
-					<div style="margin-top:20px">
-						<i class="am-icon-th-large" style="font-size:24px;color:#666"></i><br />
-						<span style="font-size:13px;">799软装包</span>
-					</div>
-				</a>
-			</div>
-	  </li>
-	  <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
-			<div class="am-dropdown" data-am-dropdown style="height:100px">
-				<a href="4g.php?m=u_699">
-					<div style="margin-top:20px">
-						<i class="am-icon-phone" style="font-size:24px;color:#666"></i><br />
-						<span style="font-size:13px;">1299电器包</span>
-					</div>
-				</a>
-			</div>
-	  </li>  
-	</ul>	
-</div--><!--cubes end-->	
-
-<style>
-.am-tabs-default .am-tabs-nav {
-  line-height: 40px;
-  background-color: #fff;
-  margin-top:-15px;
-}
-.am-tabs-default .am-tabs-nav a {
-  color: #ccc;
-  line-height: 45px;
-}
-.am-tabs-default .am-tabs-nav > .am-active a {
-  background-color: #fff;
-  color: #0e90d2;
-  box-shadow:inset -1px 0 1px -1px #999;
-}
-.x{box-shadow:inset -1px 0 1px -1px #999;}
-.ttt{font-size:13px;margin-top:-15px;color:#666}
-
-</style>
-<div data-am-widget="tabs" class="am-tabs am-tabs-default" style="width:100%;padding:0;margin:0">
-  <ul class="am-tabs-nav am-cf">
-    <li class="am-active x" style="line-height:10px;">
-      <a href="[data-tab-panel-0]">
-      	<i class="am-icon-bookmark" style="font-size:24px;"></i><br />
-      	<div class="ttt">699套餐</div>
-      </a>
-    </li>
-    <li class="x">
-      <a href="[data-tab-panel-1]">
-      	<i class="am-icon-gift" style="font-size:24px;"></i><br />
-      	<div class="ttt">799软装包</div>
-      </a>
-    </li>
-    <li class="" style="box-shadow:0;">
-      <a href="[data-tab-panel-2]">
-      	<i class="am-icon-gift" style="font-size:24px;"></i><br />
-      	<div class="ttt">1299电器包</div>
-      </a>
-    </li>
-  </ul>
-  <div class="am-tabs-bd" style="margin-top:10px;border:none; box-shadow:inset -1px 1px 1px -1px #999;padding:5px;">
-    <div data-tab-panel-0 class="am-tab-panel am-active">
-	  	<div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-				<a href="javascript:;" id="buynow" onclick="Buy_699();" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div></a>
-			</div>    	
-    	<p style="font-size:14px;line-height:18px;">
-    		699元/㎡家装套餐，每月2000套，6日开放抢购，先到者先得。提供免费验房、量房、设计，进度实时跟踪等服务，从毛坯到精装，史上性价比最高的家装解决方案。
-    	</p>
-    	<hr/>
-    	<p style="font-size:14px;line-height:18px;color:#666">
-    		<i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">人性化设计 HUMANIZED DESIGN</span></b>
-    		<br/><br/>
-    		客厅和卧室安装双控开关，方便使用；床头两侧各设置2个5孔插座，可供手机、电脑、台灯等同时使用；厨盆下安装两个5孔插座，方便安装使用厨宝和净水机；橱柜安装2个带开关插座，5个五孔插座，满足电器使用；洗手台侧墙安装一个带开关防水5孔插座，方面使用吹风机等小电器。
-    	</p>
-    	<hr/>
-    	<p style="font-size:14px;line-height:18px;color:#666">
-    		<i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">免费服务 FREE SERVICE</span></b>
-    		<br/><br/>
-				120㎡以下的户型标配一个卫生间，120㎡以上的户型标配俩个卫生间，标准外每增加一个卫生间需加收5000元成本;<br/>
-				装修套餐不包含建筑门窗、燃气、暖气、空调系统、新风系统、承重结构等项目;<br/>
-				阳台门和入户门不属于内门，如需更改则属于个性化项目;<br/>
-				套餐内包含40平米以下墙面的石膏找平，如超出规定面积则按照个性化定制付费；<br/>
-				套餐内的涂料颜色默认为白色，如果您需要单独调色，可以根据爱空间提供的“色卡”，挑选自己喜欢的颜色，但需要按照每种颜色额外支付100元费用；<br/>
-				699元每平米的价格不包含税金，税率执行国家标准，由顾客自行承担；<br/>
-				垃圾清理负责运输到小区指定地点（不包括外运）
-    	</p>
-    	<hr/>
-    	<p style="font-size:14px;line-height:18px;color:#666">
-    		<i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">名牌主辅材 FAMOUS MATERIAL</span></b>
-    		<br/><br/>
-    		大自然、科勒、马可波罗、科宝、西门子、雷士、友邦、多乐士等8大一线主材品牌,为您提供品质保障、极致体验
-    	</p>
-    	<hr/>
-    	<p style="font-size:14px;line-height:18px;color:#666">
-    		<i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">35天工期 DAYS</span></b>
-    		<br/><br/>
-    		施工步骤紧密衔接，拒绝浪费时间，保证在20天内就为您完成装修，用最高效的方式让您享受最好最快的家装体验。
-    	</p>
-    	<hr/>
-    	<p style="font-size:14px;line-height:18px;color:#666">
-    		<i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">管家式服务 BUTLER SERVICE</span></b>
-    		<br/><br/>
-    		装修全程为您提供全天候服务，更能直接对话，畅聊您的想法和感受。<br/>
-    		开放工地，所有在施工地全面开放，线上预约，线下参观。<br/>
-    		私人订制，施工项目一对一，量身订制装修方案。<br/>
-    		免费升级，产品不断升级提质不加价。<br/>
-    		在线客服，400电话，提供7*24小时服务。<br/>
-    		售后保障，防水5年，其他2两年质保。<br/>
-    		实体展厅，北京、厦门体验中心，线上预约，到店选购，所见即所得。
-    	</p>    	
-	  	<div class="animation animated-item-3" style="margin:0 auto;margin-top:15px;margin-bottom:15px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-				<a href="javascript:;" id="buynow" onclick="Buy_699();" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div></a>
-			</div>    
+    <!-- Menu -->
+    <div data-am-sticky>
+        <header data-am-widget="header" class="am-header am-header-default" style="border-top:1px solid #000111;background:#000;">
+            <div class="am-header-left am-header-nav">
+                <img src="build_fhzj/webapp/images/logo.png" style="width:132px;height:18px;margin-top:-5px">
+            </div>
+        </header>
+        <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
+            <a href="javascript: void(0)" class="am-menu-toggle">
+                <i class="am-menu-toggle-icon am-icon-bars"></i>
+            </a>
+            <div class="am-offcanvas">
+                <div class="am-offcanvas-bar" style="background:#333 none repeat scroll 0 0">
+                    <ul class="am-menu-nav sm-block-grid-1">
+                        <li class="am-parent">
+                            <a href="#c3">我的</a>
+                            <ul class="am-menu-sub am-collapse am-avg-sm-2">
+                                <li class="">
+                                    <a href="##">登录</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">注册</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">个人资料</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">房屋信息</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">家装进度</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">我的留言</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">我的预约</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">我的订单</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">我的评论</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">我的优惠券</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="am-parent">
+                            <a href="#c3">在线预约</a>
+                            <ul class="am-menu-sub am-collapse am-avg-sm-2">
+                                <li class="">
+                                    <a href="##">免费量房</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">免费验房</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">免费设计</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">体验馆</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="am-parent">
+                            <a href="#c3">家装套餐</a>
+                            <ul class="am-menu-sub am-collapse am-avg-sm-2">
+                                <li class="">
+                                    <a href="##">699套餐</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">799软包装</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">1899电器包</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">透明展示</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">工艺展示</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">主材展示</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">家装计算器</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="##">凤凰管家</a>
+                        </li>
+                        <li class="">
+                            <a href="##">家装贷</a>
+                        </li>
+                        <li class="">
+                            <a href="##">案例</a>
+                        </li>
+                        <li class="">
+                            <a href="##">Live直播</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
-    <div data-tab-panel-1 class="am-tab-panel ">
-	  	<div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-				<a href="javascript:;" id="buynow" onclick="Buy_799();" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div></a>
-			</div>    	
-    	<p style="font-size:14px;line-height:18px;">
-    		799元/㎡软装包，每月2000套，7日开放抢购，家装增值套餐，可选则家具、灯具、饰品、地毯、窗帘自由搭配组合。 
-    	</p>
-	  	<!--div class="animation animated-item-3" style="margin:0 auto;margin-top:15px;margin-bottom:15px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-				<a href="javascript:;" id="buynow" onclick="Buy_699();" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div></a>
-			</div-->  
-		</div> 
-  	<div data-tab-panel-2 class="am-tab-panel ">
-	  	<div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-				<a href="javascript:;" id="buynow" onclick="Buy_1299();" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div></a>
-			</div>    	
-    	<p style="font-size:14px;line-height:18px;">
-    		1299元/㎡豪华电器包，每月2000套，8日开放抢购，先到者先得。海尔定制版电器，全网独家销售。
-    	</p>
-	  	<!--div class="animation animated-item-3" style="margin:0 auto;margin-top:15px;margin-bottom:15px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-				<a href="javascript:;" id="buynow" onclick="Buy_699();" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div></a>
-			</div--> 
-		</div> 
-	</div>
-</div>
-
-
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/amazeui.min.js"></script>
+    <!--div class="am-form" style="margin-top:-25px;">
+    <ul class="am-avg-sm-3" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;">
+    <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
+      <div class="am-dropdown" data-am-dropdown style="height:100px">
+        <a href="4g.php?m=u_699">
+          <div style="margin-top:20px">
+            <i class="am-icon-clock-o" style="font-size:24px;color:#666"></i><br />
+            <span style="font-size:13px;">699套餐</span>
+          </div>
+        </a>
+      </div>
+    </li>  
+    <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;" data-am-widget="navbar" >
+      <div class="am-dropdown" data-am-dropdown style="height:100px">
+        <a href="4g.php?m=u_699">
+          <div style="margin-top:20px">
+            <i class="am-icon-th-large" style="font-size:24px;color:#666"></i><br />
+            <span style="font-size:13px;">799软装包</span>
+          </div>
+        </a>
+      </div>
+    </li>
+    <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
+      <div class="am-dropdown" data-am-dropdown style="height:100px">
+        <a href="4g.php?m=u_699">
+          <div style="margin-top:20px">
+            <i class="am-icon-phone" style="font-size:24px;color:#666"></i><br />
+            <span style="font-size:13px;">1299电器包</span>
+          </div>
+        </a>
+      </div>
+    </li>  
+    </ul> 
+  </div-->
+    <!--cubes end-->
+    <div data-am-widget="tabs" class="am-tabs am-tabs-default" style="width:100%;padding:0;margin:0">
+        <ul class="am-tabs-nav am-cf">
+            <li class="am-active x" style="line-height:10px;">
+                <a href="[data-tab-panel-0]">
+                    <i class="am-icon-bookmark" style="font-size:24px;"></i>
+                    <br />
+                    <div class="ttt">699套餐</div>
+                </a>
+            </li>
+            <li class="x">
+                <a href="[data-tab-panel-1]">
+                    <i class="am-icon-gift" style="font-size:24px;"></i>
+                    <br />
+                    <div class="ttt">799软装包</div>
+                </a>
+            </li>
+            <li class="" style="box-shadow:0;">
+                <a href="[data-tab-panel-2]">
+                    <i class="am-icon-gift" style="font-size:24px;"></i>
+                    <br />
+                    <div class="ttt">1299电器包</div>
+                </a>
+            </li>
+        </ul>
+        <div class="am-tabs-bd" style="margin-top:10px;border:none; box-shadow:inset -1px 1px 1px -1px #999;padding:5px;">
+            <div data-tab-panel-0 class="am-tab-panel am-active">
+                <div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                    <a href="javascript:;" id="buynow" onclick="Buy_699();">
+                        <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>
+                    </a>
+                </div>
+                <p style="font-size:14px;line-height:18px;">
+                    699元/㎡家装套餐，每月2000套，6日开放抢购，先到者先得。提供免费验房、量房、设计，进度实时跟踪等服务，从毛坯到精装，史上性价比最高的家装解决方案。
+                </p>
+                <hr/>
+                <p style="font-size:14px;line-height:18px;color:#666">
+                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">人性化设计 HUMANIZED DESIGN</span></b>
+                    <br/>
+                    <br/> 客厅和卧室安装双控开关，方便使用；床头两侧各设置2个5孔插座，可供手机、电脑、台灯等同时使用；厨盆下安装两个5孔插座，方便安装使用厨宝和净水机；橱柜安装2个带开关插座，5个五孔插座，满足电器使用；洗手台侧墙安装一个带开关防水5孔插座，方面使用吹风机等小电器。
+                </p>
+                <hr/>
+                <p style="font-size:14px;line-height:18px;color:#666">
+                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">免费服务 FREE SERVICE</span></b>
+                    <br/>
+                    <br/> 120㎡以下的户型标配一个卫生间，120㎡以上的户型标配俩个卫生间，标准外每增加一个卫生间需加收5000元成本;
+                    <br/> 装修套餐不包含建筑门窗、燃气、暖气、空调系统、新风系统、承重结构等项目;
+                    <br/> 阳台门和入户门不属于内门，如需更改则属于个性化项目;
+                    <br/> 套餐内包含40平米以下墙面的石膏找平，如超出规定面积则按照个性化定制付费；
+                    <br/> 套餐内的涂料颜色默认为白色，如果您需要单独调色，可以根据爱空间提供的“色卡”，挑选自己喜欢的颜色，但需要按照每种颜色额外支付100元费用；
+                    <br/> 699元每平米的价格不包含税金，税率执行国家标准，由顾客自行承担；
+                    <br/> 垃圾清理负责运输到小区指定地点（不包括外运）
+                </p>
+                <hr/>
+                <p style="font-size:14px;line-height:18px;color:#666">
+                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">名牌主辅材 FAMOUS MATERIAL</span></b>
+                    <br/>
+                    <br/> 大自然、科勒、马可波罗、科宝、西门子、雷士、友邦、多乐士等8大一线主材品牌,为您提供品质保障、极致体验
+                </p>
+                <hr/>
+                <p style="font-size:14px;line-height:18px;color:#666">
+                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">35天工期 DAYS</span></b>
+                    <br/>
+                    <br/> 施工步骤紧密衔接，拒绝浪费时间，保证在20天内就为您完成装修，用最高效的方式让您享受最好最快的家装体验。
+                </p>
+                <hr/>
+                <p style="font-size:14px;line-height:18px;color:#666">
+                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">管家式服务 BUTLER SERVICE</span></b>
+                    <br/>
+                    <br/> 装修全程为您提供全天候服务，更能直接对话，畅聊您的想法和感受。
+                    <br/> 开放工地，所有在施工地全面开放，线上预约，线下参观。
+                    <br/> 私人订制，施工项目一对一，量身订制装修方案。
+                    <br/> 免费升级，产品不断升级提质不加价。
+                    <br/> 在线客服，400电话，提供7*24小时服务。
+                    <br/> 售后保障，防水5年，其他2两年质保。
+                    <br/> 实体展厅，北京、厦门体验中心，线上预约，到店选购，所见即所得。
+                </p>
+                <div class="animation animated-item-3" style="margin:0 auto;margin-top:15px;margin-bottom:15px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                    <a href="javascript:;" id="buynow" onclick="Buy_699();">
+                        <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>
+                    </a>
+                </div>
+            </div>
+            <div data-tab-panel-1 class="am-tab-panel ">
+                <div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                    <a href="javascript:;" id="buynow" onclick="Buy_799();">
+                        <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>
+                    </a>
+                </div>
+                <p style="font-size:14px;line-height:18px;">
+                    799元/㎡软装包，每月2000套，7日开放抢购，家装增值套餐，可选则家具、灯具、饰品、地毯、窗帘自由搭配组合。
+                </p>
+                <!--div class="animation animated-item-3" style="margin:0 auto;margin-top:15px;margin-bottom:15px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+        <a href="javascript:;" id="buynow" onclick="Buy_699();" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div></a>
+      </div-->
+            </div>
+            <div data-tab-panel-2 class="am-tab-panel ">
+                <div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                    <a href="javascript:;" id="buynow" onclick="Buy_1299();">
+                        <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>
+                    </a>
+                </div>
+                <p style="font-size:14px;line-height:18px;">
+                    1299元/㎡豪华电器包，每月2000套，8日开放抢购，先到者先得。海尔定制版电器，全网独家销售。
+                </p>
+                <!--div class="animation animated-item-3" style="margin:0 auto;margin-top:15px;margin-bottom:15px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+        <a href="javascript:;" id="buynow" onclick="Buy_699();" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div></a>
+      </div-->
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/amazeui.min.js"></script>
 </body>
-</html>
 
- 
+</html>

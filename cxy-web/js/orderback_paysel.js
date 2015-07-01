@@ -128,6 +128,8 @@ $(function(){
 	}
 
 	function orderPlay(obj){
+		//https://124.74.239.32/payment/main
+		//https://ebank.spdb.com.cn/payment/main
 		g.httpTip.show();
 		$("#transName").val(obj.transName);
 		$("#Plain").val(obj.plain);

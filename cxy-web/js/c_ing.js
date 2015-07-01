@@ -20,7 +20,7 @@ $(function(){
 	g.listdata = [];
 
 	getHomeList();
-	getIngList();
+
 
 	function getHomeList(){
 		var condi = {};
@@ -58,24 +58,31 @@ $(function(){
 
 	function changeSelectHtml(domid,data){
 		var option = [];
+		var fid = "";
 		for(var i = 0,len = data.length; i < len; i++){
 			var id = data[i].id || "";
+			if(i == 0){
+				fid = id;
+			}
 			var name = data[i].districtName || "";
 			option.push('<option value="' + id + '"' + ( i == 0 ? "selected" : "") + '>' + name + '</option>');
 		}
 		$("#" + domid).html(option.join(''));
+
+		getIngList(fid);
 	}
 
 
-	function getIngList(){
+	function getIngList(id){
 		var condi = {};
 		condi.token = g.token;
+		condi.id = id;
 		sendGetIngListHttp(condi);
 	}
 
 	function sendGetIngListHttp(condi){
 		g.httpTip.show();
-		var url = Base.userlivesUrl;
+		var url = Base.userliveUrl + "/" + condi.id;
 		$.ajax({
 			url:url,
 			data:condi,
