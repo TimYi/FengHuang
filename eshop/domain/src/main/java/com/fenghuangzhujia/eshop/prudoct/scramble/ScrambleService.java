@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fenghuangzhujia.eshop.cases.DecorateCase;
 import com.fenghuangzhujia.eshop.cases.DecorateCaseRepository;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
+import com.fenghuangzhujia.eshop.core.commerce.couponsDef.CouponsAllocater;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrderService;
 import com.fenghuangzhujia.eshop.core.commerce.order.dto.GoodOrderDto;
@@ -49,6 +50,8 @@ public class ScrambleService {
 	private GoodOrderService goodOrderService;
 	@Autowired
 	private GoodOrderDtoConverter converter;
+	@Autowired
+	private CouponsAllocater couponsAllocater;
 	
 	public GoodOrderDto scramble(String userId, String packageId, String caseId) {
 		//验证是否有可用预约
@@ -91,6 +94,10 @@ public class ScrambleService {
 		String mobile=appoint.getMobile();
 		String realName=appoint.getRealName();
 		GoodOrder order=goodOrderService.createOrderToPay(user, good, price, count, mobile, realName);
+		
+		//触发抢购套餐分发优惠券事件
+		couponsAllocater.allocate(CouponsAllocater.SCRAMBLE, userId);
+		
 		GoodOrderDto result=converter.convert(order);
 		return result;		
 	}

@@ -8,6 +8,7 @@ import com.fenghuangzhujia.eshop.core.area.Area;
 import com.fenghuangzhujia.eshop.core.area.AreaRepository;
 import com.fenghuangzhujia.eshop.core.area.Area.AreaLevel;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
+import com.fenghuangzhujia.eshop.core.commerce.couponsDef.CouponsAllocater;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
@@ -32,6 +33,8 @@ public class PackageAppointService extends DtoSpecificationService<PackageAppoin
 	private AreaRepository areaRepository;
 	@Autowired
 	private PackageAppointValidater appointValidater;
+	@Autowired
+	private CouponsAllocater couponsAllocater;
 	
 	public PackageAppointDto appointByUser(PackageAppointInputArgs args) {
 		PackageAppoint appoint=new PackageAppoint();
@@ -66,6 +69,10 @@ public class PackageAppointService extends DtoSpecificationService<PackageAppoin
 		appoint.setCity(city);
 		
 		appoint=getRepository().save(appoint);
+		
+		//触发成功预约套餐分发优惠券事件
+		couponsAllocater.allocate(CouponsAllocater.APPOINT_PACKAGE, user.getId());
+		
 		return adapter.convertToDetailedDto(appoint);
 	}
 	

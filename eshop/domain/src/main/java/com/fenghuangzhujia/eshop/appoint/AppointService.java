@@ -13,6 +13,7 @@ import com.fenghuangzhujia.eshop.core.area.AreaRepository;
 import com.fenghuangzhujia.eshop.core.area.Area.AreaLevel;
 import com.fenghuangzhujia.eshop.core.base.Dics;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
+import com.fenghuangzhujia.eshop.core.commerce.couponsDef.CouponsAllocater;
 import com.fenghuangzhujia.eshop.core.remind.impl.DtoUnreadRemindSpecificationService;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
@@ -36,6 +37,8 @@ public class AppointService extends DtoUnreadRemindSpecificationService<Appoint,
 	private AreaRepository areaRepository;
 	@Autowired
 	private AppointValidater appointValidater;
+	@Autowired
+	private CouponsAllocater couponsAllocater;
 	
 	/**
 	 * 为用户预约设置单独的方法，将业务逻辑封装在里面
@@ -77,6 +80,10 @@ public class AppointService extends DtoUnreadRemindSpecificationService<Appoint,
 		appoint.setCity(city);
 		
 		appoint=getRepository().save(appoint);
+		
+		//触发预约服务成功分发优惠券
+		couponsAllocater.allocate(CouponsAllocater.APPOINT_SERVICE, user.getId());
+		
 		return adapter.convertToDetailedDto(appoint);
 	}
 	

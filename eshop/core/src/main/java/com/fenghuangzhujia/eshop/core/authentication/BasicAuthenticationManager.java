@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.eshop.core.authentication.token.TokenRepository;
 import com.fenghuangzhujia.eshop.core.authentication.token.UserToken;
+import com.fenghuangzhujia.eshop.core.commerce.couponsDef.CouponsAllocater;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
@@ -26,6 +27,8 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	private UserRepository userRepository;
 	@Autowired
 	private TokenRepository tokenRepository;
+	@Autowired
+	private CouponsAllocater couponsEventBus;
 	
 	/**
 	 * 确保加载全部权限信息
@@ -114,6 +117,9 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 			token.setUser(user);
 		}
 		token=refreshToken(token);
+		//触发注册的优惠券分发事件
+		couponsEventBus.allocate(CouponsAllocater.REGIST, user.getId());
+		
 		return token;
 	}
 	

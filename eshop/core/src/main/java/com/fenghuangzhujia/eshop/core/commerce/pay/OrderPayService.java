@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.eshop.core.commerce.coupons.Coupons;
+import com.fenghuangzhujia.eshop.core.commerce.couponsDef.CouponsAllocater;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrderRepository;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder.OrderStatus;
@@ -20,6 +21,8 @@ public class OrderPayService {
 	private OrderPayRepository orderPayRepository;
 	@Autowired
 	private GoodOrderRepository orderRepository;
+	@Autowired
+	private CouponsAllocater couponsAllocater;
 
 	/**
 	 * 使用优惠券减免支付金额
@@ -60,5 +63,8 @@ public class OrderPayService {
 			}			
 		}
 		orderPayRepository.save(pay);
+		
+		//触发支付成功分发优惠券事件
+		couponsAllocater.allocate(CouponsAllocater.PAY_ORDER, pay.getOrder().getUser().getId());
 	}
 }
