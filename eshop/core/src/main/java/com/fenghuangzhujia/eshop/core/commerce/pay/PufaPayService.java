@@ -133,7 +133,7 @@ public class PufaPayService {
 	public void revoke(String plain, String signature) {
 		try {
 			KhzfResponseData response=KhzfService.resolveKhzfResult(plain, signature);
-			if(response.getRespCode().equals("00")) {
+			if(!response.getRespCode().equals("00")) {
 				throw new ErrorCodeException(SystemErrorCodes.PAY_FAILED, response.getRespCode());
 			}
 			//以下表示支付成功
