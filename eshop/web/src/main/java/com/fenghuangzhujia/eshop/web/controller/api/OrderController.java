@@ -5,7 +5,6 @@ import org.sharechina.pay.pufa.protocal.PayBank;
 import org.sharechina.pay.pufa.protocal.RequestModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -57,11 +56,11 @@ public class OrderController {
 	}
 	
 	@RequestMapping(value="pufa/revoke",method=RequestMethod.POST)
-	public ModelAndView pufaRevoke(@RequestBody String xml) {
-		LogUtils.errorLog(xml);//先记录下返回的数据，查看是哪里出现异常。
+	public ModelAndView pufaRevoke(String Plain, String Signature) {
+		LogUtils.errorLog(Plain);//先记录下返回的数据，查看是哪里出现异常。
 		ModelAndView view=new ModelAndView("redirect:http://101.200.229.135/payback.html");
 		try {
-			pufaPayService.revoke(xml);
+			pufaPayService.revoke(Plain,Signature);
 			view.addObject("result", true);
 		} catch (Exception e) {
 			view.addObject("result", false);

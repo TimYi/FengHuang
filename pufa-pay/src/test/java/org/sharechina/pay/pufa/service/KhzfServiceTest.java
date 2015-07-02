@@ -7,7 +7,6 @@ import org.sharechina.pay.pufa.protocal.AccountType;
 import org.sharechina.pay.pufa.protocal.PayBank;
 import org.sharechina.pay.pufa.protocal.PayType;
 import org.sharechina.pay.pufa.protocal.RequestModel;
-import org.sharechina.pay.pufa.protocal.ResponseModel;
 import org.sharechina.pay.pufa.protocal.pay.KhzfResponseData;
 import org.sharechina.pay.pufa.service.KhzfService;
 import org.sharechina.pay.pufa.utils.TestUtils;
@@ -24,10 +23,11 @@ public class KhzfServiceTest {
 	
 	
 	public void resolveKhzfXml() {
-		String xml="<packet>\n<transName>KHZF</transName>\n<Plain>TranAbbr=KHZF|AcqSsn=0101010101|TermSsn=12345678</Plain>\n<Signature>1a80cc82d56cc32e3a2816c351f07c775b0d242d6eb1a36995564f87db0850ff8b6ee8174d9256ac2d9e22b9131f9bcbfe2ffc6b78eabd38c4265890b3069a3ae20ef55745ff7a7428d8e96951fca915990252cd2e0cb26654ac75f96421ad38b1c827ca3e19dbd64762be7b0bf5f44d87b14192feaebb2065d61fae8ab5a415</Signature>\n</packet>";
-		ResponseModel<KhzfResponseData> data;
+		String plain="TranAbbr%3DKHTZ%7CAcqSsn%3D100000922674%7CMercDtTm%3D20150702093000%7CTermSsn%3D20150702CfLb%7CTermCode%3D%7CMercCode%3D983708160009501%7CTranAmt%3D2000.00%7CClearDate%3D20150702%7CRespCode%3D00";
+		String signature="440ebd1567fdb988b5f9541475a9b05f6561284f38889555b6682a10fa23bcab17a18719791df2b09aaa4acbac00da44a5e56e82cf44a38c1df9be1450479338e679b8bb80dd8b00c0d465ec864d3ea6facff8778ac73171a3e33e6df4c1551f8153888974665208a4d553fe98f02a358f5e21efe16a372261c82795470d2c05";
+		KhzfResponseData data;
 		try {
-			data = KhzfService.resolveKhzfResult(xml);
+			data = KhzfService.resolveKhzfResult(plain,signature);
 			TestUtils.printEachField(data);
 		} catch (SignatureException e) {
 			e.printStackTrace();

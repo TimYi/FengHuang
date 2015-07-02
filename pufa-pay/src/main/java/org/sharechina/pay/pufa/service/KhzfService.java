@@ -1,16 +1,19 @@
 package org.sharechina.pay.pufa.service;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.security.SignatureException;
 
 import org.sharechina.pay.pufa.protocal.AccountType;
 import org.sharechina.pay.pufa.protocal.PayBank;
 import org.sharechina.pay.pufa.protocal.PayType;
 import org.sharechina.pay.pufa.protocal.RequestModel;
-import org.sharechina.pay.pufa.protocal.ResponseModel;
 import org.sharechina.pay.pufa.protocal.pay.KhzfRequestData;
 import org.sharechina.pay.pufa.protocal.pay.KhzfResponseData;
 import org.springframework.stereotype.Service;
+
+import com.csii.payment.client.core.MerchantSignVerify;
 
 @Service
 public class KhzfService {
@@ -41,7 +44,16 @@ public class KhzfService {
 		return model;
 	}
 	
-	public static ResponseModel<KhzfResponseData> resolveKhzfResult(String xml) throws SignatureException {
-		return ResponseModel.fromXml(xml, KhzfResponseData.class);
+	
+	public static KhzfResponseData resolveKhzfResult(String plain, String signature) throws SignatureException {
+		boolean isSignSuccess=MerchantSignVerify.merchantVerifyPayGate_ABA(signature, plain);
+		try {
+			plain=URLDecoder.decode(plain, "GBK");
+		} catch (UnsupportedEncodingException e) {
+			throw new RuntimeException(e);
+		}
+		if(!isSignSuccess)throw new SignatureException();
+		KhzfResponseData result=KhzfResponseData.fromPlain(plain);
+		return result;
 	}
 }

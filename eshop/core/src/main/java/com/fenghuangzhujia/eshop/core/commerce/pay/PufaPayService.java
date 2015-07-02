@@ -10,7 +10,6 @@ import org.sharechina.pay.pufa.protocal.AccountType;
 import org.sharechina.pay.pufa.protocal.PayBank;
 import org.sharechina.pay.pufa.protocal.PayType;
 import org.sharechina.pay.pufa.protocal.RequestModel;
-import org.sharechina.pay.pufa.protocal.ResponseModel;
 import org.sharechina.pay.pufa.protocal.pay.KhzfResponseData;
 import org.sharechina.pay.pufa.service.KhzfService;
 import org.slf4j.Logger;
@@ -128,25 +127,22 @@ public class PufaPayService {
 	 * 如果支付成功，修改浦发支付为已支付，并记录相关参数
 	 * 之后，通知OrderPay修改支付状态
 	 * 由OrderPayService负责通知Order修改相应状态
-	 * @param xml
+	 * @param plain 参数Plain域
+	 * @param signature 签名Signature字段
 	 */
-	public void revoke(String xml) {
+	public void revoke(String plain, String signature) {
 		try {
-			ResponseModel<KhzfResponseData> response=KhzfService.resolveKhzfResult(xml);
-			if(!response.isSuccess()) {
-				throw new ErrorCodeException(SystemErrorCodes.PAY_FAILED, response.getErrorMsg());
-			}
-			KhzfResponseData data=response.getData();
-			if(!data.getRespCode().equals("00")) {
-				throw new ErrorCodeException(SystemErrorCodes.PAY_FAILED, data.getRespCode());
+			KhzfResponseData response=KhzfService.resolveKhzfResult(plain, signature);
+			if(response.getRespCode().equals("00")) {
+				throw new ErrorCodeException(SystemErrorCodes.PAY_FAILED, response.getRespCode());
 			}
 			//以下表示支付成功
-			PufaPay pufaPay=pufaPayRepository.getByTermSsn(data.getTermSsn());
-			pufaPay.setAcqSsn(data.getAcqSsn());
-			pufaPay.setClearDate(data.getClearDate());
+			PufaPay pufaPay=pufaPayRepository.getByTermSsn(response.getTermSsn());
+			pufaPay.setAcqSsn(response.getAcqSsn());
+			pufaPay.setClearDate(response.getClearDate());
 			pufaPay.setHasPayed(true);
 			pufaPay.setPayTime(new Date());
-			pufaPay.setTranAmt(data.getTranAmt());
+			pufaPay.setTranAmt(response.getTranAmt());
 			pufaPayRepository.save(pufaPay);
 			
 			//调用OrderPayService回调
