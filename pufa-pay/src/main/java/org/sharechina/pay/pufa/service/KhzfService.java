@@ -1,8 +1,6 @@
 package org.sharechina.pay.pufa.service;
 
-import java.io.UnsupportedEncodingException;
 import java.net.URL;
-import java.net.URLDecoder;
 import java.security.SignatureException;
 
 import org.sharechina.pay.pufa.protocal.AccountType;
@@ -47,18 +45,12 @@ public class KhzfService {
 	/**
 	 * 浦发回调接口参数为普通参数，而非xml参数
 	 * 因此容易通过servlet.getParameter方法回去plain和signature参数
-	 * @param plain			数据域，已经经过GBK编码，使用时需要经过GBK解码
+	 * @param plain			数据域，浦发发送的数据是经过了GBK编码的，这里的数据应该是解码之后的标准字符串
 	 * @param signature		签名域，先GBK解码plain域，才能验证签名
 	 * @return
 	 * @throws SignatureException
 	 */
 	public static KhzfResponseData resolveKhzfResult(String plain, String signature) throws SignatureException {
-		//需要先经过GBK解码，才能验证签名
-		try {
-			plain=URLDecoder.decode(plain, "GBK");
-		} catch (UnsupportedEncodingException e) {
-			throw new RuntimeException(e);
-		}
 		boolean isSignSuccess=MerchantSignVerify.merchantVerifyPayGate_ABA(signature, plain);		
 		if(!isSignSuccess)throw new SignatureException();
 		KhzfResponseData result=KhzfResponseData.fromPlain(plain);
