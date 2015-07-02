@@ -2,6 +2,8 @@ package com.fenghuangzhujia.eshop.core.commerce.couponsDef.dto;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
 public class CouponsDefInputArgs extends DtoBaseModel {
@@ -13,6 +15,7 @@ public class CouponsDefInputArgs extends DtoBaseModel {
 	/**优惠券金额*/
 	private Double money;
 	/**优惠券有效期截止时间*/
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date expireTime;
 	/**是否分发优惠券，true，则按照定义分发优惠券*/
 	private boolean inUse;
