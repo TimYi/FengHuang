@@ -42,7 +42,8 @@ public class GoodOrderService {
 		order=repository.save(order);
 		
 		OrderPay pay=new OrderPay();
-		pay.setOrder(order);
+		//pay.setOrder(order);
+		order.setPayment(pay);//注意关联的掌控端在order一侧
 		pay.setTotalMoney(order.getPrice());
 		pay.setShouldPayMoney(order.getPrice());
 		orderPayRepository.save(pay);
