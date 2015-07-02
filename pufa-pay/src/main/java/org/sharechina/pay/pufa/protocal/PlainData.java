@@ -51,7 +51,9 @@ public interface PlainData {
 			String[] pair=StringUtils.split(keyvalue,"=");
 			String name=pair[0];
 			name=org.sharechina.pay.pufa.common.StringUtils.firstCharToLower(name);
-			params.put(name, pair[1]);
+			if(pair.length==2) {
+				params.put(name, pair[1]);
+			}
 		}
 		T t=dozer.map(params, tClass);
 		return t;
