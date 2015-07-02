@@ -22,7 +22,7 @@ $(function(){
 
 	//获取图形验证码
 	function getImgCode(evt){
-		var phone = $("#username").val() || "";
+		var phone = $("#mobile").val() || "";
 		if(phone !== ""){
 			//console.log(phone);
 			g.imgCodeId = phone;
