@@ -120,7 +120,7 @@ $(function(){
 
 	//请求验证码
 	function sendGetCodeHttp(imgCode){
-		var url = Base.getCodeUrl;
+		var url = Base.getCodeUrl+"?mobile="+g.phone;
 		var condi = {};
 		condi.mobile = g.phone;
 		condi.captcha = imgCode;
