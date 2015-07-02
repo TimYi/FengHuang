@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.eshop.core.commerce.coupons.Coupons;
+import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder;
+import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrderRepository;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder.OrderStatus;
 
 @Service
@@ -16,6 +18,8 @@ public class OrderPayService {
 	
 	@Autowired
 	private OrderPayRepository orderPayRepository;
+	@Autowired
+	private GoodOrderRepository orderRepository;
 
 	/**
 	 * 使用优惠券减免支付金额
@@ -49,8 +53,10 @@ public class OrderPayService {
 		pay.setPayTime(new Date());
 		if(payedMoney>=pay.getShouldPayMoney()) {
 			pay.setHasPayed(true);
-			if(pay.getOrder().getStatus()==OrderStatus.WAITING) {
-				pay.getOrder().setStatus(OrderStatus.PAYED);
+			GoodOrder order=pay.getOrder();
+			if(order.getStatus()==OrderStatus.WAITING) {
+				order.setStatus(OrderStatus.PAYED);
+				orderRepository.save(order);
 			}			
 		}
 		orderPayRepository.save(pay);
