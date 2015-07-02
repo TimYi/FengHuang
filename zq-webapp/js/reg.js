@@ -16,7 +16,7 @@ $(function(){
 	$("#regcodebtn").bind("click",getImgCode);
 	$("#getcodebtn").bind("click",getValidCode);
 	$("#sendcodebtn").bind("click",resetRegInfo);
-	$("#sendbtn").bind("click",regBtnUp);
+	$("#regbtn").bind("click",regBtnUp);
 
 
 
