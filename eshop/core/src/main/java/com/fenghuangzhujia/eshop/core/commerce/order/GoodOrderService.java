@@ -38,6 +38,7 @@ public class GoodOrderService {
 		order.setCount(count);
 		order.setMobile(mobile);
 		order.setRealName(realName);
+		order.setStatus(OrderStatus.WAITING);
 		order=repository.save(order);
 		
 		OrderPay pay=new OrderPay();
