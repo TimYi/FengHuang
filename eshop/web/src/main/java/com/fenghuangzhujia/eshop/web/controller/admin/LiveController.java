@@ -31,9 +31,9 @@ public class LiveController extends SpecificationController<LiveDto, LiveInputAr
 	}
 	
 	@RequestMapping(value="{id}/details",method=RequestMethod.GET)
-	public String details(@PathVariable String liveId,
+	public String details(@PathVariable String id,
 			@RequestParam(defaultValue="1") int page, @RequestParam(defaultValue="8") int size) {
-		PagedList<LiveDetailDto> details=liveDetailService.liveDetailPage(liveId, page, size);
+		PagedList<LiveDetailDto> details=liveDetailService.liveDetailPage(id, page, size);
 		return RequestResult.success(details).toJson();
 	}
 }
