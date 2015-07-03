@@ -24,7 +24,7 @@ var USER_WORKER = 'worker';
 var USER_COMMENTITEM= 'commentItem';
 
 //主界面菜单链接
-var MODULE_HOST_URL = "http://101.200.229.135/admin" ;
+var MODULE_HOST_URL = "http://101.200.229.135/admin/" ;
 var MODULE_USR_URL =MODULE_HOST_URL + "memberlist.htm" ;
 var MODULE_GROUP_URL = MODULE_HOST_URL + "membergroup.htm" ;
 var MODULE_MSG_URL = MODULE_HOST_URL + "messagelist.htm";

@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>工人管理</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="assets/js/jqPaginator.min.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript" src="workerlist.js"></script>
+</head>
+<body onload="onload()">
+<div class="topToolbar"> <span class="title">工人管理</span>                           
+<span class="alltype">
+	<a href="javascript:;" onclick="GetType('','查看全部',$(this))" class="btn">条件筛选</a>
+	<span class="drop">
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+			<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态
+		<input name="checkid[]" id="checkid[]" value="14" type="checkbox">	</a>
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
+
+	</span>
+</span>
+	<a href="javascript:location.reload();" class="reload">刷新</a></div>
+<form name="form" id="form" method="post">
+	<div id="list">
+<div class="toolbarTab">
+	<ul>
+		<li class="on"><a href="javascript:;" onclick="getMembers()">全部</a></li>
+		<li class="line">-</li>
+		<li class=""><a href="javascript:;" onclick="getEnterMembers(false)">未审</a></li>
+		<li class="line">-</li>
+		<li class=""><a href="javascript:;" onclick="getEnterMembers(true)">已审</a></li>	
+		<li class="line">-</li>
+		<li><a href="javascript:;" onclick="getDeleteMembers()">内容回收站</a></li>
+		<li class="line">&nbsp;</li>
+		<li class="line">&nbsp;</li>
+		<li class="line">&nbsp;</li>
+		<li><a href="javascript:;" onclick="searchMembers();">	<input name="keyword" id="keyword" title="输入关键字进行搜索" type="text">&nbsp;搜索</a></li>
+	</ul>	
+	<div class="cl"></div>
+</div>
+	<table class="dataTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<thead>
+			<tr class="head" align="left">
+				<td class="firstCol" width="5%" height="36"><input name="checkid" id="checkid" onclick="CheckAll(this.checked);" type="checkbox"></td>
+				<td width="10%">ID</td>
+				<td width="10%">用户名</td>			
+				<td width="5%">姓名</td>
+				<td width="10%">工种</td>
+				<td width="10%">经验</td>	
+				<td class="endCol" width="10%">操作</td>
+			</tr>
+		</thead>
+        <tbody data-bind='foreach: result'>
+			<tr class="dataTr" align="left">
+				<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox" data-bind="checked: selected"></td>
+				<td data-bind='text: id'></td>
+				<td data-bind='text: user.username'></td>			
+				<td data-bind="text: name"></td>
+				<td data-bind="text:type.name"></td>
+				<td data-bind='text: expVal'></td>				
+				<td class="action endCol">				
+					<!--span class="nb"><a href="#" data-bind='click: $root.enter'>审核</a></span> | -->
+					<span class="nb"><a href="#" data-bind='click: $root.remove'>删除</a></span> | 
+					<span><a href="#" data-bind='click: $root.modify'>修改</a></span> 
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</form>
+<div class="bottomToolbar">
+	<span class="selArea"><span>选择：</span> 
+		<a href="javascript:CheckAll(true);">全部</a> - 
+		<a href="javascript:CheckAll(false);">无</a> - 
+		<a href="#" data-bind='click: $root.removeSelected'>删除</a>
+	</span> 
+	<!--a href="#" data-bind='click: add'class="dataBtn">注册新会员</a--> 
+</div>
+	
+<div class="page"> 
+	<div class="pageList">	
+	</div> 
+</div>
+</body></html>

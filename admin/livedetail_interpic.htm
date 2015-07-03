@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>直播详情图片管理</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.test ul{list-style:none;align:center} 
+.test li{float:left;} 
+</style>
+</style>
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/json2.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript">
+var viewModel;
+var id;
+function onload(){
+	//第一步：先获取id	
+	 id = getUrlParam(window.location.search,"id");
+		getDataById(LIVE_DETAIL,id,afterGetDataById);
+}
+function afterGetDataById(data){
+	
+	//先判断并处理错误数据
+	if(!isErrorData(data)){
+		//数据正确时进行绑定
+	 	viewModel = ko.mapping.fromJS(data.result);		 	
+	 	viewModel.submit = function(){
+	 	
+	 		var modelObj = ko.mapping.toJS(viewModel);
+	 		var  url = genUrl(LIVE_DETAIL)+'/'+modelObj.id+'/interactPics';
+	 		var files = $('input[name="picFile"]').prop('files');//获取到文件列表
+
+			if(files.length == 0){
+			  	alert('没有添加需要上传的图片！');
+			}else{	 
+		 		submitFormWithMultipart(url,'picForm',
+			 		function(formData, jqForm, options){
+			 			//判断是否要上传文件，若不需要上传文件时
+			 			
+			 			return true;  
+			 		} 
+			 		
+			 		,function(data){
+			 			
+			 			friendlyTip(data);
+			 			window.location.href='livedetail_pic.htm?id='+viewModel.id();
+			 		}
+			 	);
+	 		}			
+	 	}
+		ko.applyBindings(viewModel);
+	}
+}
+function addPic(){
+	
+}
+function delPic(){
+	var checkedPic = $("[name='picsRadio']").filter(":checked"); 
+	if(  checkedPic.length > 0){
+		var delId = checkedPic.val();
+		var url =var url =genUrl(LIVE_DETAIL,id)+"/interactPic/"+delId;
+		deleteReq(url,function(data){
+			 			
+			 			friendlyTip(data);
+			 			window.location.href='livedetail_interpic.htm?id='+viewModel.id();
+			 		});
+	}else{
+		alert("请选择要删除的图片！");
+	}
+	//alert($("input[name='picsRadio']:checked").val());
+}
+</script>
+</head>
+<body onload="onload()">
+<div class="formHeader">
+ <span class="title">直播详情图片管理</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
+</div>
+<form name="picForm" id="picForm" enctype="multipart/form-data"   method="post">
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>			
+			<tr>
+				<td align="right" height="40" >直播图片：</td>
+				<td width="75%" class="test"> 
+					
+					<ul data-bind='foreach:interactPics'>
+	 					<li>
+	 						<img data-bind='attr:{src:url}' style='display: inline; width: 240px; height: 180px;'/>
+	 						</br>
+	 						<input type="radio" name="picsRadio" data-bind='value:id' stye = "text-align: center"/>
+	 					</li>
+	 				</ul>  				
+				</td>
+								
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="file"  name='picFile'> <input type="button" data-bind='click:submit' value="添加" />
+					<input type="button" onclick='delPic()' value="删除" />
+				</td>
+			</tr>		
+		</tbody>
+	</table>
+	<div class="formSubBtn">
+		
+		<!--input class="submit" value="删除" type="button" data-bind='click:submit'/-->
+		<input class="back" value="返回" onclick="history.go(-1)" type="button">
+	</div>
+</form>
+
+</body></html>
