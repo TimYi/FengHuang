@@ -8,7 +8,8 @@ $(function(){
 	g.sendTime = 60;
 	g.username = Base.userName;
 	g.token = Utils.offLineStore.get("token",false);
-	g.orderId = Utils.getQueryString("id") || "";
+	g.orderId = Utils.getQueryString("orderId") || "";
+	g.orderResult = Utils.getQueryString("result") || "";
 	g.totalPage = 1;
 	g.currentPage = 1;
 	g.paseSize = 20;
@@ -21,6 +22,16 @@ $(function(){
 	if(!g.loginStatus){
 		location.replace("index.html");
 	}
+	if(!g.orderResult){
+		//支付失败
+		var html = [];
+		html.push('<div style="margin:50px 0 0 50px;padding:10px;text-align:center;vertical-align:middle;border:4px solid #ff0000;-moz-border-radius:50%;-webkit-border-radius:50%;border-radius:50%; height:100px;width:100px">');
+		html.push('<i class="fa fa-close" style="color:#ff0000;font-size:70px"></i>')
+		html.push('</div>')
+		$("#statusdiv").html(html.join(''));
+		$("#errorbtn").show();
+	}
+	$("#statusdiv").show();
 
 	$("#backbtn").bind("click",back);
 
@@ -80,11 +91,17 @@ $(function(){
 		//~ good:具体的商品信息，目前这个就是购买的套餐的信息
 		var obj = data || {};
 		var price = obj.price || "";
-		var orderId = g.orderId;
+		var orderId = obj.code;
+		var payTime = obj.payTime || "";
 		var html = [];
-		html.push('<li style="font-weight:800;font-size:20px">您已支付成功</li>');
-		html.push('<li style="font-size:16px">交易时间：2015年6月29日 13:30:25</li>');
-		html.push('<li class="u_li">金额：' + price + '元</li>');
+		if(!g.orderResult){
+			html.push('<li style="font-weight:800;font-size:20px">您已支付成功</li>');
+		}
+		else{
+			html.push('<li style="font-weight:800;font-size:20px;color:red;">支付失败</li>');
+		}
+		html.push('<li style="font-size:16px">交易时间：'  + payTime + '</li>');
+		html.push('<li class="u_li">支付金额：' + price + '元</li>');
 		html.push('<li class="u_li">流水号：<b style="color:#83bd39">' + orderId + '</b></li>');
 		html.push('<li class="u_li">');
 		html.push('<br/>本页面可作为付款凭证。');
