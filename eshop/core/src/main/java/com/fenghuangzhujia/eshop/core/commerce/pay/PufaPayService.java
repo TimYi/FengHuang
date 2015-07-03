@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.commons.lang3.StringUtils;
 import org.sharechina.pay.pufa.protocal.AccountType;
 import org.sharechina.pay.pufa.protocal.PayBank;
 import org.sharechina.pay.pufa.protocal.PayType;
@@ -65,7 +66,7 @@ public class PufaPayService {
 	 * @return
 	 */
 	public RequestModel calculatePayArgs(String userId, String orderId,
-			String[] couponsIds, PayBank payBank, AccountType accountType) {
+			String couponsId, PayBank payBank, AccountType accountType) {
 		User user=userRepository.findOne(userId);
 		if(user==null) throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "错误的用户");
 		GoodOrder order=orderRepository.findOne(orderId);
@@ -85,17 +86,13 @@ public class PufaPayService {
 			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "订单已经支付成功，请勿重复支付");
 		
 		//计算优惠结果		
-		if(couponsIds!=null) {	
-			Set<Coupons> couponsSet=new HashSet<Coupons>();
-			for (String couponsId : couponsIds) {
-				Coupons coupons=couponsRepository.findOne(couponsId);
-				if(!coupons.getUser().getId().equals(userId))
-					throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "这不是您的优惠券");
-				if(coupons.isUsed())
-					throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "优惠券已使用");
-				couponsSet.add(coupons);		
-			}
-			orderPayService.useCoupons(pay, couponsSet);//将优惠计算委托给上级服务
+		if(StringUtils.isNotBlank(couponsId)) {	
+			Coupons coupons=couponsRepository.findOne(couponsId);
+			if(coupons!=null) {
+				Set<Coupons> couponsSet=new HashSet<Coupons>();
+				couponsSet.add(coupons);
+				orderPayService.useCoupons(pay, couponsSet);//将优惠计算委托给上级服务
+			}			
 		}				
 		
 		//生成12位订单号的浦发支付，并和OrderPay关联

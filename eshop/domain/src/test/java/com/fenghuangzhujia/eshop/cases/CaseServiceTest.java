@@ -2,6 +2,7 @@ package com.fenghuangzhujia.eshop.cases;
 
 import java.io.File;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 import org.junit.Test;
@@ -13,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fenghuangzhujia.eshop.cases.dto.DecorateCaseDto;
 import com.fenghuangzhujia.eshop.cases.dto.DecorateCaseInputArgs;
+import com.fenghuangzhujia.eshop.core.utils.CodeGenerater;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 import com.fenghuangzhujia.foundation.core.test.JpegMultipartFile;
@@ -26,24 +28,36 @@ public class CaseServiceTest {
 	
 	@Test
 	public void addCases(){
-		for (int i = 0; i < 20; i++) {
-			addCase();
+		for (int i = 0; i < 25; i++) {
+			int x=new Random().nextInt()%3;
+			if(x==0) {
+				addCase("499套餐","美式","厨房","二居室","499套餐 美式 厨房");
+			} else if(x==1) {
+				addCase("699套餐","古典","客厅","三居室","699套餐 美式 厨房");
+			} else {
+				addCase("699套餐","古典","客厅","三居室","699套餐 美式 厨房");
+			}
 		}
 	}
 	
-	private DecorateCaseDto addCase() {
+	private DecorateCaseDto addCase(String packageName, String style, String space, String house, String tags) {
 		DecorateCaseInputArgs args=new DecorateCaseInputArgs();
 		args.setArea(88.85);
 		args.setName("凤凰筑家装修案例");
-		args.setPackageName("499套餐");
-		args.setStyle("美式");
-		args.setSpace("厨房");
-		args.setHouseType("二居室");
+		args.setPackageName(packageName);
+		args.setStyle(style);
+		args.setSpace(space);
+		args.setHouseType(house);
 		args.setDescription("凤凰筑家装修案例");
-		args.setCode("XFD11224512");
+		args.setCode(CodeGenerater.generateOrderCode());
 		args.setPrice(58888.0);
-		args.setTagExpression("499套餐 美式 厨房");
-		File imgFile=new File("C:/Users/pc/Desktop/test.jpg");
+		args.setTagExpression(tags);
+		int i=new Random().nextInt()%3;
+		if(i<0) {
+			i=-i;
+		}
+		i=i+1;
+		File imgFile=new File("C:/Users/pc/Desktop/case"+i+".jpg");
 		MultipartFile mainPicFile=new JpegMultipartFile(imgFile);
 		args.setMainPicFile(mainPicFile);
 		return service.add(args);

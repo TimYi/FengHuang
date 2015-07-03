@@ -78,7 +78,11 @@ function bindData(data){
 	dataModel.modify = function(item){
 		
 		window.location.href='liveedit.htm?id='+item.id();
-	}	
+	}
+	dataModel.detail = function(item){
+		
+		window.location.href='livedetaillist.htm?id='+item.id();
+	}		
 	if(!bind){
 		bind = true;
 		ko.applyBindings(dataModel);

@@ -14,16 +14,27 @@
 <script type="text/javascript" src="common.js"></script>
 <script type="text/javascript">
 var viewModel;
-var decorateDic;
+var appointTypeDic;
+var cityDic;
 function onload(){
-	//第一步：先获取id	
-	var id = getUrlParam(window.location.search,"id");
-	$.getJSON(CATEGORY_QUERY+'decorate',null,function(data){
-	 		decorateDic = data.result;
-	 		//再根据id获取对应的数据
-			getDataById(APPOINT_APPOINT,id,afterGetDataById);
+	
+	$.getJSON(CATEGORY_QUERY+'appoint',null,function(data){
+	 		appointTypeDic = data.result;
+	 		//再获取城市字典
+			getCityDic();
 	 	});
 	
+
+}
+function getCityDic(){
+	
+	$.getJSON(AREA_QUERY+'CITY',null,function(data){
+	 	cityDic = data.result;
+	 	//再根据id获取对应的数据
+	 	//第一步：先获取id	
+		var id = getUrlParam(window.location.search,"id");
+		getDataById(APPOINT_APPOINT,id,afterGetDataById);
+	 });
 
 }
 function afterGetDataById(data){
@@ -35,20 +46,30 @@ function afterGetDataById(data){
 	 	//var selectedTypeId = viewModel.type.id();
 		if(typeof viewModel.type !== 'function'){
 	 		//注意：sex 为 null时，是function ,不为null时是object
-		 	for(var i in decorateDic){
-		 		if(decorateDic[i].id === viewModel.type.id()){
-		 			viewModel.type = ko.observable(decorateDic[i]);
+		 	for(var i in appointTypeDic){
+		 		if(appointTypeDic[i].id === viewModel.type.id()){
+		 			viewModel.type = ko.observable(appointTypeDic[i]);
 		 			break;
 		 		}
 		 	}
-	 	}	 
+	 	}
+	 	if(typeof viewModel.area !== 'function'){
+	 		//注意：sex 为 null时，是function ,不为null时是object
+		 	for(var i in cityDic){
+		 		if(cityDic[i].id === viewModel.area.id()){
+		 			viewModel.area = ko.observable(cityDic[i]);
+		 			break;
+		 		}
+		 	}
+	 	}		 
 	 	viewModel.submit = function(){
 	 		var modelObj = ko.mapping.toJS(viewModel);
-	 		var typeId = viewModel.type().id;
+	 	
 	 		var  url = genUrl(APPOINT_APPOINT)+'/'+modelObj.id;
-	 		var appointTime = document.getElementById("appointTime").value;	 		
-	 		modelObj.appointTime = appointTime;
+	 		var typeId = viewModel.type().id;
+	 		var areaId = viewModel.area().id;
 	 		modelObj.typeid = typeId;
+	 		modelObj.cityid = areaId;
 	 		postReq(url,modelObj,function(data){
 	 			
 	 			friendlyTip(data);
@@ -58,18 +79,13 @@ function afterGetDataById(data){
 	}
 }
 
-function AppointType(id,name){
-
-	this.id = id;
-	this.name = name;
-}
 </script>
 </head>
 <body onload="onload()">
 <div class="formHeader">
  <span class="title">修改预约</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
 </div>
-<form name="form" id="form" method="post" action="admin_save.php" onsubmit="return cfm_upadmin();">
+<form name="form" id="form" >
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tbody>
 			<tr>
@@ -82,37 +98,20 @@ function AppointType(id,name){
 			</tr>
 			<tr>
 				<td align="right" height="40" >预约类型：</td>
-				<td><select data-bind="value:type,options:decorateDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+				<td><select data-bind="value:type,options:appointTypeDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 				</select>
-				<input type='text' size=50 data-bind='value:type().id'/>
+				<!--input type='text' size=50 data-bind="value:type.id"/-->
 				</td>
-			</tr>
+			</tr>			
 			<tr>
-				<td align="right" height="40">预约日期：</td>
-				<td><input type="text" id="appointTime" class="inputms" data-bind="value:appointTime" readonly="readonly" />
-				<script type="text/javascript" src="assets/plugin/calendar/calendar.js"></script> 
-				<script type="text/javascript">
-				Calendar.setup({
-					inputField     :    "appointTime",
-					//ifFormat       :    "%Y-%m-%d",
-					ifFormat       :    "%Y-%m-%d %H:%M:%S",
-					showsTime      :    true,
-					timeFormat     :    "24"
-				});
-				</script>
-				</td>
-			</tr>
-			<tr>
-				<td align="right" height="40">地点：					
+				<td align="right" height="40">城市：					
 				</td>
 				<td>
-					<input type="text" size=100 data-bind="value:address"/>
+					<select data-bind="value:area,options:cityDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					</select>
+				<!--input type='text' size=50 data-bind="value:type.id"/-->
 				</td>
-			</tr>
-			<tr>
-				<td align="right" height="40">地区：</td>
-				<td data-bind='text:area.fullName'></td>
-			</tr>
+			</tr>		
 			<tr>
 				<td align="right" height="40">电话：</td>
 				<td data-bind="text:mobile"></td>

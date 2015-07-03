@@ -68,15 +68,15 @@
 			<tr class="head" align="left">
 				<td class="firstCol" width="5%" height="36"><input name="checkid" id="checkid" onclick="CheckAll(this.checked);" type="checkbox"></td>
 				<td width="15%">ID</td>
-				<td width="15%">标题</td>
-				<td width="5%">栏目</td>
-				<td width="5%">品牌</td>
+				<td width="10%">名称</td>
+				<td width="10%">套餐</td>
+				<td width="5%">空间</td>			
 				<td width="5%">面积</td>			
 				<td width="5%">总价</td>
-				<td width="5%">类型</td>
 				<td width="5%">风格</td>
-				<td width="5%">户型</td>
-				<td width="10%">承诺</td>
+				<td width="10%">编号</td>
+				<td width="15%">描述</td>
+				<td width="10%">标签</td>
 				<td class="endCol" width="10%">操作</td>
 			</tr>
 		</thead>
@@ -84,15 +84,15 @@
 			<tr class="dataTr" align="left">
 				<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox" data-bind="checked: selected"></td>
 				<td data-bind='text: id'></td>
-				<td data-bind="text: title"></td>
-				<td data-bind="text: menu==null?'':menu.name"></td>
-				<td data-bind="text: brand==null?'':brand.name"></td>		
-				<td data-bind='text: houseArea'></td>
-				<td data-bind='text: totalPrice'></td>
-				<td data-bind="text: category==null?'':category.name"></td>
-				<td data-bind="text: style==null?'':style.name"></td>
-				<td data-bind="text: apartmentType == null? '':apartmentType.name"></td>
-				<td data-bind='text: promise'></td>
+				<td data-bind="text: name"></td>
+				<td data-bind="text: packageName"></td>
+				<td data-bind="text: space"></td>				
+				<td data-bind='text: area'></td>
+				<td data-bind='text: price'></td>
+				<td data-bind="text: houseType"></td>
+				<td data-bind="text: code"></td>				
+				<td data-bind='text: description'></td>
+				<td data-bind='foreach: tags'><span data-bind='text:name'></span><span>&nbsp;</span></td>
 				<td class="action endCol">				
 					<span class="nb"><a href="#" data-bind='click: $root.remove'>删除</a></span> | 
 					<span><a href="#" data-bind='click: $root.modify'>修改</a></span> 
@@ -106,36 +106,15 @@
 		<a href="javascript:CheckAll(true);">全部</a> - 
 		<a href="javascript:CheckAll(false);">无</a> - 
 		<a href="#" data-bind='click: removeSelected'>删除</a>
+		
 	</span> 
+	<a href="#" onclick="add()"class="dataBtn">增加案例</a>
 </div>
 	
 <div class="page"> 
 	<div class="pageList">
-		<!--a href="javascript:;">&lt;&lt;</a>
-		<a href="javascript:;">&lt;</a>
-		<a href="javascript:;" class="on">1</a>
-		<a href="javascript:;" onclick="PageList('2','','all','')" class="num">2</a>
-		<a href="javascript:;" onclick="PageList('2','','all','')">&gt;</a>
-		<a href="javascript:;" onclick="PageList('2','','all','')">&gt;&gt;</a>
-		共<span data-bind='text: size'></span>页<span data-bind='text: total'></span>条记录</div> </div-->
 	</div> 
 </div>
-<script type="text/javascript">
-   
-   </script>
-<div class="quickToolbar">
-	<div class="qiuckWarp">
-		<div class="quickArea">
-			<span class="selArea">
-				<span>选择：</span> 
-				<a href="javascript:CheckAll(true);">全部</a> - 
-				<a href="javascript:CheckAll(false);">无</a> - 
-				<a href="javascript:DelAllNone('member_save.php');" onclick="return ConfDelAll(0);">删除</a>
-			</span> 
-			<a href="http://123.57.218.171/admin/member_add.php" class="dataBtn">注册新会员</a> <span class="pageSmall"> 
-		<!--div class="pageText">共<span data-bind='text: size'></span>页<span data-bind='text: total'></span>条记录</div><span> </span></div-->
-		<div class="quickAreaBg"></div>
-	</div>
-</div>
+<
 
 </body></html>

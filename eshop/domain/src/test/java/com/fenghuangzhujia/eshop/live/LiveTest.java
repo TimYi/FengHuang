@@ -5,6 +5,7 @@ import java.text.MessageFormat;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 import org.junit.Test;
@@ -15,6 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fenghuangzhujia.eshop.live.Live.ProjectProgress;
+import com.fenghuangzhujia.eshop.live.dto.LiveDetailDto;
 import com.fenghuangzhujia.eshop.live.dto.LiveDetailInputArgs;
 import com.fenghuangzhujia.eshop.live.dto.LiveDto;
 import com.fenghuangzhujia.eshop.live.dto.LiveInputArgs;
@@ -32,38 +34,56 @@ public class LiveTest {
 	@Autowired
 	private LiveDetailService liveDetailService;
 	
-	//@Test
+	@Test
 	public void add(){
 		for (int i = 0; i < 20; i++) {
-			addLive();
+			LiveDto live;
+			int x=new Random().nextInt()%3;
+			if(x<0)x=-x;
+			if(x==0) {
+				live=addLive("李先生家","碧生源小区","二居室",ProjectProgress.进行中, "8aac48364dd68c74014dd6c031f10000");
+			} else if(x==1) {
+				live=addLive("易先生家","定福庄小区","一居室",ProjectProgress.已交房, "404040e64d89ca84014d89cb492d0000");
+			} else {
+				live=addLive("孙小姐","宇宙中心小区","一居室",ProjectProgress.验收中, "404040e64db23347014db2339e450000");
+			}
+			addDetail(live.getId());
 		}
 	}
 	
-	private LiveDto addLive() {
+	private LiveDto addLive(String name, String village, String house, ProjectProgress status, String userId) {
 		LiveInputArgs args=new LiveInputArgs();
-		args.setName("李先生家");
-		args.setVillage("碧生源小区");
+		args.setName(name);
+		args.setVillage(village);
 		args.setArea(88.0);
-		args.setHouse("二居室");
+		args.setHouse(house);
 		args.setStartDate(new Date());
 		args.setShouldShow(true);
-		args.setStatus(ProjectProgress.进行中);
-		File imgFile=new File("C:/Users/pc/Desktop/test.jpg");
+		args.setStatus(status);
+		int x=new Random().nextInt()%3;
+		if(x<0)x=-x;
+		File imgFile=new File("C:/Users/pc/Desktop/live"+x+".jpg");
 		MultipartFile mainPicFile=new JpegMultipartFile(imgFile);
 		args.setMainPicFile(mainPicFile);
-		args.setUserId("8aac48364dd68c74014dd6c031f10000");
+		args.setUserId(userId);
 		LiveDto result=liveService.add(args);
 		return result;
 	}
 	
-	@Test
+	//@Test
 	public void addDetail() {
 		for (int i=1;i<=20;i++) {
 			addDetail(i,MessageFormat.format("第{0}天", i),"404040e64e1f2e24014e1f2e37cc0001");
 		}
 	}
 	
-	private void addDetail(int day, String title, String id) {
+	private void addDetail(String liveId) {
+		for (int i=1;i<=20;i++) {
+			addDetail(i,MessageFormat.format("第{0}天", i),liveId);
+		}
+	}
+	
+	private LiveDetailDto addDetail(int day, String title, String id) {
 		LiveDetailInputArgs args=new LiveDetailInputArgs();
 		args.setDay(day);
 		LocalDate date=LocalDate.now();
@@ -86,7 +106,7 @@ public class LiveTest {
 		}
 		args.setInteractPicFiles(ipics);
 		args.setLiveId(id);
-		liveDetailService.add(args);
+		return liveDetailService.add(args);
 	}
 	
 	//@Test

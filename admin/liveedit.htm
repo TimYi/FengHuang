@@ -29,16 +29,32 @@ function afterGetDataById(data){
 	 	
 	 	viewModel.submit = function(){
 	 	
-	 		//var modelObj = ko.mapping.toJS(viewModel);
-	 		var  url = genUrl(LIVE_LIVE)+'/'+viewModel.id();
-	 		var startDate = document.getElementById("startDate").value;	 		
-	 		//modelObj.startDate = startDate;
-	 		var param = '?area='+viewModel.area()+'&house='+viewModel.house()+'&village='+viewModel.village()+'&startDate='+startDate;
-	 		alert(param);
-	 		postReq(url+param,null,function(data){
-	 			
-	 			friendlyTip(data);
-	 		});	 		
+	 			var url = genUrl(LIVE_LIVE)+'/'+viewModel.id();	 		
+	 		var files = $('input[name="mainPicFile"]').prop('files');//获取到文件列表
+
+			if(files.length == 0){
+			  	submitAsyFormByJson(url, 'form', 
+					function(data){
+		 			
+			 			friendlyTip(data);
+			 			window.location.href='liveedit.htm?id='+viewModel.id();
+		 		 	}
+	 			);
+			}else{	 
+		 		submitFormWithMultipart(url,'form',
+			 		function(formData, jqForm, options){
+			 			//判断是否要上传文件，若不需要上传文件时
+			 			
+			 			return true;  
+			 		} 
+			 		
+			 		,function(data){
+			 			
+			 			friendlyTip(data);
+			 			window.location.href='liveedit.htm?id='+viewModel.id();
+			 		}
+			 	);
+	 		}	 		
 	 	}
 		ko.applyBindings(viewModel);
 	}
@@ -50,7 +66,7 @@ function afterGetDataById(data){
 <div class="formHeader">
  <span class="title">编辑直播</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
 </div>
-<form name="form" id="form" method="post" action="admin_save.php" onsubmit="return cfm_upadmin();">
+<form name="form" id="form" method="post" enctype="multipart/form-data"  onsubmit="return cfm_upadmin();">
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tbody>
 			<tr>
@@ -62,20 +78,24 @@ function afterGetDataById(data){
 				<td width="75%" ><span data-bind='text:user.username'></td>
 			</tr>
 			<tr>
+				<td align="right" width="25%" height="40">名称:</td>
+				<td width="75%" ><input name='name' type="text" data-bind='value:name'></td>
+			</tr>
+			<tr>
 				<td align="right" height="40" >小区：</td>
-				<td width="75%" ><input type="text" data-bind='value:village'></td>				
+				<td width="75%" ><input type="text" name='village' data-bind='value:village'></td>				
 			</tr>
 			<tr>
 				<td align="right" height="40" >户型：</td>
-				<td width="75%" ><input type="text" data-bind='value:house'></td>				
+				<td width="75%" ><input type="text" name='house' data-bind='value:house'></td>				
 			</tr>
 			<tr>
 				<td align="right" height="40" >面积：</td>
-				<td width="75%" ><input type="text" data-bind='value:area'></td>				
+				<td width="75%" ><input type="text" name='area' data-bind='value:area'></td>				
 			</tr>
 			<tr>
 				<td align="right" height="40">开始日期：</td>
-				<td><input type="text" id="startDate" class="inputms" data-bind="value:startDate" readonly="readonly" />
+				<td><input type="text" id="startDate" name='startDate' class="inputms" data-bind="value:startDate" readonly="readonly" />
 				<script type="text/javascript" src="assets/plugin/calendar/calendar.js"></script> 
 				<script type="text/javascript">
 				Calendar.setup({
@@ -87,6 +107,13 @@ function afterGetDataById(data){
 				});
 				</script>
 				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >图片：</td>
+				<td width="75%" ><img data-bind='attr:{src:mainPic.url}'/>
+								<br>
+								<input type="file"  name='mainPicFile'>
+				</td>				
 			</tr>			
 		</tbody>
 	</table>

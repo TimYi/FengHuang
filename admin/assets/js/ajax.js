@@ -162,6 +162,26 @@ function submitAsyFormByJson(reqUrl, formId, callBack){
      	}
 	});
 }
+/*
+ * 同步提交带有文件的form表单数据
+ */
+function submitFormWithMultipart(reqUrl,formId,beforeSubmit,callBack){
+	$("#"+formId).ajaxSubmit(
+	 		{                    
+	 			type:'post',                    
+	 			url:reqUrl, 
+	 			dataType:"json", 
+	 			beforeSubmit:beforeSubmit,                  
+	 			success:function(data){                        
+	 			    reqFlag = false;
+					callBack(data);           
+	 			},                    
+	 			error:function(XmlHttpRequest,textStatus,errorThrown)
+	 			{                        
+	 				  alert("请求失败");        
+	 			}                
+	 });
+}
 
 /*
  * 通过串行化表单数据方式请求后台Action，第一个参数为请求URL，第二个为页面表单的ID

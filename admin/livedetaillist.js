@@ -1,43 +1,11 @@
 var dataModel;
 var bind = false;//数据绑定标识
-var rePage = true;
 
-
-/*
-分页功能变量定义
-*/
-var total ;//总数据条数
-var curPage = 1;//当前页码,初始为1	
-/*
-*定义参数
-*/
 var param;
 function onload(){
-	initParam();
-	getDatas();	
+	var id = getUrlParam(window.location.search,"id");	
+	getData(LIVE_LIVE+'/'+id,param,afterGetDatas);
 }
-function initParam(){
-	
-	param={
-		token : token,
-		size : pSize,
-		page : curPage
-	};
-}
-function getDatas4page(page){
-	
-	rePage = false;
-	$('.pageList').jqPaginator('option', {
-    	currentPage: page
-	});
-	curPage = page;
-	param.page = page;
-	getDatas();
-}
-function getDatas(){
-	getData(LIVE_DETAIL,param,afterGetDatas);
-}
-
 function afterGetDatas(data){
 
 	//先判断并处理错误数据
@@ -45,9 +13,8 @@ function afterGetDatas(data){
 		//数据正确时进行绑定
 	bindData(data.result);	
 }
-function bindData(data){
-	total = data.totalCount;
-	var results = data.result;
+function bindData(data){	
+	var results = data.lives;
 	for(var i in results){
 		results[i].selected = false;
 	}
@@ -78,26 +45,21 @@ function bindData(data){
 	dataModel.modify = function(item){
 		
 		window.location.href='livedetailedit.htm?id='+item.id();
+	}
+	dataModel.picMgr = function(item){
+		
+		window.location.href='livedetail_pic.htm?id='+item.id();
+	}
+	dataModel.interPicMgr = function(item){
+		
+		window.location.href='livedetail_interpic.htm?id='+item.id();
 	}	
 	if(!bind){
 		bind = true;
 		ko.applyBindings(dataModel);
 	}
-	if(rePage){
-		
-		//生成分页
-		genPaginator(total,pSize,param.page,handlePageChange)
-	}
+}
 
-}
-function handlePageChange (num, type) {
-        	
-	//alert(num+':'+type);
-    if(type == 'change'){
-    
-    	getDatas4page(num);
-    }            
-}
 function add(){
 		window.location.href="memberadd.html";
 }

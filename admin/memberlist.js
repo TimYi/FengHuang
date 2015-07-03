@@ -68,12 +68,7 @@ function bindData(data){
 	for(var i in results){
 		results[i].selected = false;
 	}
-	dataModel = ko.mapping.fromJS(data);
-	dataModel.add = function(){
-		
-		alert('add');
-	
-	}
+	dataModel = ko.mapping.fromJS(data);	
 	dataModel.remove = function(item){
 		
 		if(ConfDel(0)){
@@ -98,18 +93,17 @@ function bindData(data){
 	}
 	dataModel.enter = function(item){
 		
-		alert('enter'+item.id());
 		if(item.verified == 1){
 		
 			alert('该用户已审核，无需重复操作！');
 		}else{
 			
 			item.verified =1;
+			
 		}
 	}
 	dataModel.modify = function(item){
 		
-		//alert('modify'+item.id);
 		window.location.href='memberedit.html?id='+item.id();
 	}	
 	if(!bind){
@@ -132,5 +126,5 @@ function handlePageChange (num, type) {
     }            
 }
 function add(){
-		window.location.href="memberadd.html";
+	window.location.href="memberadd.html";
 }

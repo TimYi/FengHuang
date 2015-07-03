@@ -1,9 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>修改预约</title>
+<title>修改案例</title>
 <link href="assets/css/admin.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
 <script type="text/javascript" src="assets/js/forms.js"></script>
 <script type="text/javascript" src="assets/js/json2.js"></script>
 <script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
@@ -24,96 +25,24 @@ var id;
 function onload(){
 	//第一步：先获取id	
 	id = getUrlParam(window.location.search,"id");
-	getData(MENU_MENU,null,afterGetMenus);
-}
-function afterGetMenus(data){
-	if(!isErrorData(data)){
-		menuDic = data.result.result;
-		getData(BRAND_BRAND,null,afterGetBrands);
-	}
-}
-function afterGetBrands(data){
-	if(!isErrorData(data)){
-		//alert('brand:'+data.status);
-		brandDic = data.result.result;
-		$.getJSON(CATEGORY_QUERY+'house',null,afterGetHouseCats);
-	}
-}
-function afterGetHouseCats(data){
-	
-	if(!isErrorData(data)){
-		//alert('house:'+data.status);
-		houseDic = data.result;
-		$.getJSON(CATEGORY_QUERY+'style',null,afterGetStyleCats);
-	}
-}
-function afterGetStyleCats(data){
-	
-	if(!isErrorData(data)){
-		//alert('style:'+data.status);
-		styleDic = data.result;
-		$.getJSON(CATEGORY_QUERY+'apartment',null,afterGetApartmentCats);
-	}
-}
-function afterGetApartmentCats(data){
-	
-	if(!isErrorData(data)){
-		//alert('apartment:'+data.status);
-		apartmentDic = data.result;
-		getDataById(CASE_CASE,id,afterGetDataById);;
-	}
+	getDataById(CASE_CASE,id,afterGetDataById);
 }
 function afterGetDataById(data){
 	//先判断并处理错误数据
 	if(!isErrorData(data)){
 		//数据正确时进行绑定
-	 	viewModel = ko.mapping.fromJS(data.result);	 	
-	 	//var selectedTypeId = viewModel.type.id();
-		if(typeof viewModel.menu !== 'function'){
-	 		//注意：type 为 null时，是function ,不为null时是object
+	 	viewModel = ko.mapping.fromJS(data.result);
+	 	var tagStr='';	
+	 	var tags = viewModel.tags();
+	 	for(var i in tags){
 	 		
-		 	for(var i in menuDic){
-		 		if(menuDic[i].id === viewModel.menu.id()){		 			
-		 			viewModel.menu = ko.observable(menuDic[i]);
-		 			break;
-		 		}
-		 	}
+	 		tagStr =tagStr + tags[i].name()+' ';
+	 		//alert(tagStr);
 	 	}
-	 	if(typeof viewModel.brand !== 'function'){
-	 		for(var i in brandDic){
-		 		if(brandDic[i].id === viewModel.brand.id()){		 			
-		 			viewModel.brand = ko.observable(brandDic[i]);
-		 			break;
-		 		}
-		 	}
-		 }
-		 if(typeof viewModel.category !== 'function'){
-	 		for(var i in houseDic){
-		 		if(houseDic[i].id === viewModel.category.id()){		 			
-		 			viewModel.category = ko.observable(houseDic[i]);
-		 			break;
-		 		}
-		 	}
-		 }
-		 if(typeof viewModel.style !== 'function'){
-	 		for(var i in styleDic){
-		 		if(styleDic[i].id === viewModel.style.id()){		 			
-		 			viewModel.style = ko.observable(styleDic[i]);
-		 			break;
-		 		}
-		 	}
-		 }
-		 if(typeof viewModel.apartmentType !== 'function'){
-	 		for(var i in apartmentDic){
-		 		if(apartmentDic[i].id === viewModel.apartmentType.id()){		 			
-		 			viewModel.apartmentType = ko.observable(apartmentDic[i]);
-		 			break;
-		 		}
-		 	}
-		 }	 	 
+	 	viewModel.tagStr = 	ko.observable(tagStr);
 	 	viewModel.submit = function(){
 	 	
-	 		var modelObj = ko.mapping.toJS(viewModel);
+	 		/*var modelObj = ko.mapping.toJS(viewModel);
 	 		modelObj.menuid = viewModel.menu().id;
 		 	modelObj.brandid = viewModel.brand().id;
 		 	modelObj.categoryid = viewModel.category().id;
@@ -125,24 +54,45 @@ function afterGetDataById(data){
 	 		postReq(url,modelObj,function(data){
 	 			
 	 			friendlyTip(data);
-	 		});	 		
+	 		});	*/
+	 		//改成form表单提交
+	 		var url = genUrl(CASE_CASE)+'/'+viewModel.id();	 		
+	 		var files = $('input[name="mainPicFile"]').prop('files');//获取到文件列表
+
+			if(files.length == 0){
+			  	submitAsyFormByJson(url, 'caseForm', 
+					function(data){
+		 			
+			 			friendlyTip(data);
+			 			window.location.href='caseedit.htm?id='+viewModel.id();
+		 		 	}
+	 			);
+			}else{	 
+		 		submitFormWithMultipart(url,'caseForm',
+			 		function(formData, jqForm, options){
+			 			//判断是否要上传文件，若不需要上传文件时
+			 			
+			 			return true;  
+			 		} 
+			 		
+			 		,function(data){
+			 			
+			 			friendlyTip(data);
+			 			window.location.href='caseedit.htm?id='+viewModel.id();
+			 		}
+			 	);
+	 		}	 				
 	 	}
 		ko.applyBindings(viewModel);
 	}
-}
-
-function AppointType(id,name){
-
-	this.id = id;
-	this.name = name;
 }
 </script>
 </head>
 <body onload="onload()">
 <div class="formHeader">
- <span class="title">修改预约</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
+ <span class="title">修改案例</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
 </div>
-<form name="form" id="form" method="post" action="admin_save.php" onsubmit="return cfm_upadmin();">
+<form name="caseForm" id="caseForm" method="post" enctype="multipart/form-data"  onsubmit="return cfm_upadmin();">
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tbody>
 			<tr>
@@ -150,76 +100,59 @@ function AppointType(id,name){
 				<td width="75%" ><span data-bind='text:id'></span></td>
 			</tr>
 			<tr>
-				<td align="right" width="25%" height="40">标题:</td>
-				<td width="75%" ><span data-bind='text:title'></td>
+				<td align="right" width="25%" height="40">名称:</td>
+				<td width="75%" ><input name='name' type="text" data-bind='value:name'></td>
 			</tr>
 			<tr>
-				<td align="right" height="40" >栏目：</td>
-				<td><select data-bind="value:menu,options:menuDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
-				</select>
-				<input type='text' size=50 data-bind='value:menu().id'/>
-				</td>
-			</tr>
-			<tr>
-				<td align="right" height="40" >品牌：</td>
-				<td><select data-bind="value:brand,options:brandDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
-				</select>
-				<input type='text' size=50 data-bind='value:brand().id'/>
-				</td>
-			</tr>
+				<td align="right" width="25%" height="40">套餐:</td>
+				<td width="75%" ><input name='packageName' type="text" data-bind='value:packageName'></td>
+			</tr>		
 			<tr>
 				<td align="right" height="40">面积：					
 				</td>
 				<td>
-					<input type="text"  data-bind="value:houseArea"/>
+					<input type="text" name='area'  data-bind="value:area"/>
 				</td>
 			</tr>
 			<tr>
 				<td align="right" height="40">总价：					
 				</td>
 				<td>
-					<input type="text" data-bind="value:totalPrice"/>
+					<input type="text" name='price' data-bind="value:price"/>
+				</td>
+			</tr>
+		
+			<tr>
+				<td align="right" height="40" >风格：</td>	
+				<td>		
+					<input type='text' name='houseType' data-bind="houseType"/>
 				</td>
 			</tr>
 			<tr>
-				<td align="right" height="40" >房屋类型：</td>
-				<td><select data-bind="value:category,options:houseDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
-				</select>
-				<input type='text' size=50 data-bind="value:(typeof category)=='function'?'':category().id"/>
+				<td align="right" height="40" >编号：</td>
+				<td>		
+					<input type='text' name='code' data-bind="code"/>
 				</td>
-			</tr>
-			<tr>
-				<td align="right" height="40" >风格：</td>
-				<td><select data-bind="value:style,options:styleDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
-				</select>
-				<input type='text' size=50 data-bind="value:(typeof style)=='function'?'':style().id"/>
-				</td>
-			</tr>
-			<tr>
-				<td align="right" height="40" >户型：</td>
-				<td><select data-bind="value:apartmentType,options:apartmentDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
-				</select>
-				<input type='text' size=50 data-bind="value:(typeof apartmentType)=='function'?'':apartmentType().id"/>
-				</td>
-			</tr>		
-			<tr>
-				<td align="right" height="40">承诺：					
-				</td>
-				<td>
-					<input type="text" size=100  data-bind="value:promise"/>
-				</td>
-			</tr>
+			</tr>			
 			<tr>
 				<td align="right" height="40">描述：</td>
 				<td size=100>
-					<input type="text" size=100  data-bind="value:description"/>				
+					<input type="text" name='description' size=100  data-bind="value:description"/>				
 				</td>
 			</tr>
 			<tr>
-				<td align="right" height="40">关键字：</td>
+				<td align="right" height="40">标签：</td>
 				<td size=100 >
-					<input type="text" size=100  data-bind="value:keywords"/>
+					<input type="text" name='tagExpression' data-bind="value:tagStr"/><span>标签之间用空格隔开</span>				
 				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >图片：</td>
+				<td width="75%" >
+					<img data-bind='attr:{src:mainPic.url}'  />
+					<br>
+					<input type="file"  name='mainPicFile'>
+				</td>				
 			</tr>		
 		</tbody>
 	</table>

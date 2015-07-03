@@ -75,8 +75,7 @@ function bindData(data){
 		}
 	}
 	dataModel.modify = function(item){
-		
-		window.location.href='caseedit.htm?id='+item.id;
+		window.location.href='caseedit.htm?id='+item.id();
 	}	
 	if(!bind){
 		bind = true;
@@ -98,5 +97,5 @@ function handlePageChange (num, type) {
     }            
 }
 function add(){
-		window.location.href="memberadd.html";
+		window.location.href="caseadd.htm";
 }

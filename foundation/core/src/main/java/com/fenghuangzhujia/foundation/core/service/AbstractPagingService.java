@@ -19,7 +19,6 @@ public abstract class AbstractPagingService<T, ID extends Serializable>
 	
 	@Override
 	public PagingAndSortingRepository<T, ID> getRepository() {
-		// TODO Auto-generated method stub
 		return (PagingAndSortingRepository<T, ID>)super.getRepository();
 	}
 	

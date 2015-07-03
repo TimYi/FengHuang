@@ -17,7 +17,6 @@ import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder.OrderStatus;
 import com.fenghuangzhujia.eshop.core.commerce.order.dto.GoodOrderDto;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrderService;
 import com.fenghuangzhujia.eshop.core.commerce.pay.PufaPayService;
-import com.fenghuangzhujia.eshop.web.util.LogUtils;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
@@ -46,18 +45,18 @@ public class OrderController {
 	}
 	
 	@RequestMapping(value="order/{orderId}/pay/pufa",method=RequestMethod.POST)
-	public String pufaPay(@PathVariable String orderId, String[] couponsIds, 
+	public String pufaPay(@PathVariable String orderId, String couponsId, 
 			PayBank payBank, AccountType accountType){
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userId=details.getId();
 		RequestModel result=
-				pufaPayService.calculatePayArgs(userId, orderId, couponsIds, payBank, accountType);
+				pufaPayService.calculatePayArgs(userId, orderId, couponsId, payBank, accountType);
 		return RequestResult.success(result).toJson();
 	}
 	
 	@RequestMapping(value="pufa/revoke",method=RequestMethod.POST)
 	public ModelAndView pufaRevoke(String Plain, String Signature) {
-		LogUtils.errorLog(Plain);//先记录下返回的数据，查看是哪里出现异常。
+		//LogUtils.errorLog(Plain);//先记录下返回的数据，查看是哪里出现异常。
 		ModelAndView view=new ModelAndView("redirect:http://101.200.229.135/payback.html");
 		try {
 			pufaPayService.revoke(Plain,Signature);
