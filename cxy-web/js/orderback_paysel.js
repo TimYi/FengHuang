@@ -25,6 +25,60 @@ $(function(){
 	$("#playnextbtn").bind("click",getPayCondi);
 
 	getOrderDetail();
+	getMyCoupon();
+	//获取我的优惠券
+	function getMyCoupon(){
+		//token:用户凭据
+		//page:当前页码
+		//size:每页数据量
+		var condi = {};
+		condi.token = g.token;
+		condi.notUsed = true;
+
+		sendGetMyCouponHttp(condi);
+	}
+
+	function sendGetMyCouponHttp(condi){
+		var url = Base.couponsUrl ;
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"GET",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("sendGetMyCouponHttp",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					changeCouponListHtml(data);
+				}
+				else{
+					var msg = data.error || "";
+					alert("获取我的优惠券错误:" + msg);
+				}
+			},
+			error:function(data){
+			}
+		});
+	}
+
+	function changeCouponListHtml(data){
+		var obj = data.result || [];
+		var html = [];
+		for(var i = 0,len = obj.length; i < len; i++){
+			var id = obj[i].id || "";
+			var name = obj[i].name || "";
+			html.push('<label class="radio-inline" style="padding-right:30px">');
+			html.push('<input type="radio" name="couponRadioOptions" value="' + id + '">' + name);
+			html.push('</label>');
+		}
+
+		$("#couponlist").html(html.join(''));
+		$("#couponlist").show();
+
+	}
+
 
 	function getOrderDetail(){
 		//~ token:用户凭据
@@ -80,8 +134,8 @@ $(function(){
 		var html = [];
 		html.push('<li style="font-weight:800;font-size:20px">您的订单已抢购成功！付定金咯～</li>');
 		html.push('<li style="font-size:16px">成功付款后，将有专属导购一对一为您服务！</li>');
-		html.push('<li class="u_li">金额：' + price + '元</li>');
-		html.push('<li class="u_li">订单：<b style="color:#83bd39">' + orderId + '</b></li>');
+		html.push('<li class="u_li">定金金额：' + price + '元</li>');
+		html.push('<li class="u_li">订单号：<b style="color:#83bd39">' + orderId + '</b></li>');
 		//html.push('<li class="u_li">备注：陈宣宇 / 136****0909 / 北京市海淀区***小区 / 3居室 / 95㎡ </li>');
 		$("#orderdetail").html(html.join(''));
 		$("#orderdetail").show();
@@ -92,8 +146,13 @@ $(function(){
 		var condi = {};
 		condi.token = g.token;
 		condi.orderId = g.orderId;
-		condi.couponsIds = "";
-		var check = $("input[name='inlineRadioOptions']:checked").val();
+		var coupon = $("input[name='couponRadioOptions']:checked").val() || "";
+		condi.couponsIds = coupon;
+		var check = $("input[name='inlineRadioOptions']:checked").val() || "";
+		if(check === ""){
+			alert("请选择支付银行");
+			return;
+		}
 		condi.payBank = check;
 		condi.accountType = "JIEJJI";//借记卡：JIEJJI,信用卡：XINYONG，前端写死。
 		//~ token:用户凭据
@@ -138,6 +197,7 @@ $(function(){
 		//Utils.offLineStore.set("pay_info",JSON.stringify(obj),false);
 		//location.href = "pay.html";
 	}
+
 });
 
 
