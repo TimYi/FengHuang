@@ -291,11 +291,11 @@ $(function(){
 		$("#user_ul").html(li.join(''));
 
 		var li = [];
-		var loginIp = obj.loginip;
-		var loginTime = obj.loginTime;
-		var regIp = obj.regIp;
-		var regTime = obj.regTime;
-		var integra = obj.integra;
+		var loginIp = obj.loginip || "";
+		var loginTime = obj.loginTime || "";
+		var regIp = obj.regIp || "";
+		var regTime = obj.regTime || "";
+		var integra = obj.integra || "";
 		li.push('<li>登录 IP<span class="pull-right">' + loginIp + '</span></li>');
 		li.push('<li>注册时间<span class="pull-right">' + loginTime + '</span></li>');
 		li.push('<li>登录时间<span class="pull-right">' + regTime + '</span></li>');

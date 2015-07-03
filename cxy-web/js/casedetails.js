@@ -82,7 +82,10 @@ $(function(){
 		var area = obj.area || "";
 		var packageName = obj.packageName || "";
 		var stype = obj.stype || "";
-		var mainPic = obj.mainPic || "http://www.talmd.cn/upload/upfiles/part/201401/113890851569826.jpg_870.jpg";
+		var mainPic = obj.mainPic || "";
+		if(mainPic !== ""){
+			mainPic = mainPic.url || "http://www.talmd.cn/upload/upfiles/part/201401/113890851569826.jpg_870.jpg";
+		}
 		var code = obj.code || "";
 		var price = obj.price || "";
 		var tags = obj.tags || [];
@@ -100,7 +103,7 @@ $(function(){
 
 		var html = [];
 		html.push('<div  id="pic" class="col-md-8">');
-		html.push('<img src="' + mainPic + '">');
+		html.push('<img src="' + mainPic + '" style="width:760px;">');
 		html.push('</div>');
 		html.push('<div class="case-right col-md-4" style="height:540px">');
 		html.push('<ul>');

@@ -20,6 +20,13 @@ $(function(){
 	g.reserveStatus = false;
 	if(!g.loginStatus){
 		location.replace("index.html");
+		return;
+	}
+
+	if(g.orderId === ""){
+		alert("没有得到订单ID");
+		location.replace("index.html");
+		return;
 	}
 
 	$("#playnextbtn").bind("click",getPayCondi);

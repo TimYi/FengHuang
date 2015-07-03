@@ -279,7 +279,7 @@ Array.prototype.remove = function(n){
 				}
 			}
 			else{
-				setCookie(key,value);
+				setCookie(key,value,0);
 			}
 		},
 		//清楚本地缓存

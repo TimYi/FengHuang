@@ -15,7 +15,7 @@ $(function(){
 	g.page = Utils.getQueryString("p") - 0;
 	g.totalPage = 1;
 	g.currentPage = 1;
-	g.paseSize = 10;
+	g.paseSize = 20;
 	g.httpTip = new Utils.httpTip({});
 	g.listdata = [];
 	g.packageName = "";
@@ -120,7 +120,10 @@ $(function(){
 			for(var i = 0,len = obj.length; i < len; i++){
 				var d = obj[i] || {};
 				var id = d.id || "";
-				var mainPic = d.mainPic || "images/case/case_1.jpg";
+				var mainPic = d.mainPic || "";
+				if(mainPic !== ""){
+					mainPic = mainPic.url || "images/case/case_1.jpg";
+				}
 				var packageName = d.packageName || "";
 				var stype = d.stype || "";
 				var space = d.space || "";
