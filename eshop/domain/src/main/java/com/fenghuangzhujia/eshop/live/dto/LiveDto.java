@@ -1,7 +1,6 @@
 package com.fenghuangzhujia.eshop.live.dto;
 
 import java.util.Date;
-import java.util.Set;
 
 import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
 import com.fenghuangzhujia.eshop.live.Live.ProjectProgress;
@@ -25,7 +24,6 @@ public class LiveDto extends DtoBaseModel {
 	/**是否展示*/
 	private boolean shouldShow;
 	private MediaContentDto mainPic;
-	private Set<LiveDetailDto> lives;	//TODO 和宣宇汉明沟通，将直播细节从dto中去掉
 	private ProjectProgress status;
 	
 	public UserDto getUser() {
@@ -69,12 +67,6 @@ public class LiveDto extends DtoBaseModel {
 	}
 	public void setShouldShow(boolean shouldShow) {
 		this.shouldShow = shouldShow;
-	}
-	public Set<LiveDetailDto> getLives() {
-		return lives;
-	}
-	public void setLives(Set<LiveDetailDto> lives) {
-		this.lives = lives;
 	}
 	public ProjectProgress getStatus() {
 		return status;
