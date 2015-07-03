@@ -16,6 +16,7 @@ import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder.OrderStatus;
 import com.fenghuangzhujia.eshop.core.commerce.order.dto.GoodOrderDto;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrderService;
+import com.fenghuangzhujia.eshop.core.commerce.pay.PufaPay;
 import com.fenghuangzhujia.eshop.core.commerce.pay.PufaPayService;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
@@ -59,8 +60,10 @@ public class OrderController {
 		//LogUtils.errorLog(Plain);//先记录下返回的数据，查看是哪里出现异常。
 		ModelAndView view=new ModelAndView("redirect:http://101.200.229.135/payback.html");
 		try {
-			pufaPayService.revoke(Plain,Signature);
+			PufaPay pufaPay=pufaPayService.revoke(Plain,Signature);
+			String orderId=pufaPayService.findOrderByPufaPay(pufaPay.getId());
 			view.addObject("result", true);
+			view.addObject("orderId", orderId);
 		} catch (Exception e) {
 			view.addObject("result", false);
 		}

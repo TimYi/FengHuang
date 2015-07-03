@@ -1,6 +1,9 @@
 package com.fenghuangzhujia.eshop.core.commerce.order;
 
+import java.util.Date;
+
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
@@ -11,6 +14,7 @@ import javax.persistence.Transient;
 import com.fenghuangzhujia.eshop.core.commerce.goods.Good;
 import com.fenghuangzhujia.eshop.core.commerce.pay.OrderPay;
 import com.fenghuangzhujia.eshop.core.user.User;
+import com.fenghuangzhujia.eshop.core.utils.CodeGenerater;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 import com.fenghuangzhujia.foundation.media.MediaContent;
 
@@ -41,7 +45,22 @@ public class GoodOrder extends UUIDBaseModel {
 	private String realName;
 	/**支付详情*/
 	private OrderPay payment;
+	/**订单流水号，自动生成的12位订单号码*/
+	private String code;
 	
+	public GoodOrder() {
+		code=CodeGenerater.generateOrderCode();
+	}
+	
+	
+	@Column(unique=true)
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+
 	/**
 	 * 商品名称
 	 * @return
@@ -68,6 +87,12 @@ public class GoodOrder extends UUIDBaseModel {
 	public MediaContent getMainPic() {
 		if(good==null)return null;
 		return good.getMainPic();
+	}
+	
+	@Transient
+	public Date getPayTime() {
+		if(getPayment()==null)return null;
+		return getPayment().getPayTime();
 	}
 	
 	@ManyToOne(optional=false)

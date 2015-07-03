@@ -13,8 +13,6 @@ import org.sharechina.pay.pufa.protocal.PayType;
 import org.sharechina.pay.pufa.protocal.RequestModel;
 import org.sharechina.pay.pufa.protocal.pay.KhzfResponseData;
 import org.sharechina.pay.pufa.service.KhzfService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,7 +34,7 @@ public class PufaPayService {
 	/**客户号*/
 	private static final String MERC_CODE="983708160009501";
 	
-	private static Logger logger=LoggerFactory.getLogger(PufaPayService.class);
+	//private static Logger logger=LoggerFactory.getLogger(PufaPayService.class);
 
 	@Autowired
 	private UserRepository userRepository;
@@ -126,8 +124,9 @@ public class PufaPayService {
 	 * 由OrderPayService负责通知Order修改相应状态
 	 * @param plain 参数Plain域
 	 * @param signature 签名Signature字段
+	 * @return 支付id
 	 */
-	public void revoke(String plain, String signature) {
+	public PufaPay revoke(String plain, String signature) {
 		try {
 			KhzfResponseData response=KhzfService.resolveKhzfResult(plain, signature);
 			if(!response.getRespCode().equals("00")) {
@@ -144,9 +143,22 @@ public class PufaPayService {
 			
 			//调用OrderPayService回调
 			OrderPay pay=orderPayRepository.getByPufaPay(pufaPay);
-			orderPayService.revoke(pay, pufaPay.getTranAmt());			
+			orderPayService.revoke(pay, pufaPay.getTranAmt());	
+			
+			return pufaPay;
 		} catch (Exception e) {
-			logger.error(e.getMessage(), e);
+			throw new RuntimeException(e);
 		}		
+	}
+	
+	/**
+	 * 根据浦发支付id，获取订单id
+	 * @param id
+	 * @return
+	 */
+	public String findOrderByPufaPay(String id) {
+		PufaPay pufaPay=pufaPayRepository.findOne(id);
+		OrderPay pay=orderPayRepository.getByPufaPay(pufaPay);
+		return pay.getOrder().getId();
 	}
 }
