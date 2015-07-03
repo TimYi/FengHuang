@@ -48,7 +48,7 @@ $(function(){
 				}
 				else{
 					var msg = data.error || "";
-					alert("房屋信息错误:" + msg);
+					alert("直播数据错误:" + msg);
 				}
 			},
 			error:function(data){
