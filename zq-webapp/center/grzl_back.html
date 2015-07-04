@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html class="no-js">
 <head>
     <meta charset="utf-8">
@@ -18,26 +18,60 @@
         background-color: #fff;
         margin-top: 10px;
     }
-    
     .am-tabs-default .am-tabs-nav a {
         color: #ccc;
         line-height: 45px;
     }
-    
     .am-tabs-default .am-tabs-nav > .am-active a {
         background-color: #fff;
         color: #0e90d2;
         box-shadow: inset -1px 0 1px -1px #999;
     }
-    
     .x {
         box-shadow: inset -1px 0 1px -1px #999;
     }
-    
     .ttt {
         font-size: 13px;
         margin-top: -15px;
         color: #666
+    }
+    .am-form{
+        font-size:14px;
+        line-height:18px;
+    }
+    .am-avg-sm-2{
+        padding:5px 0 5px 0;
+        box-shadow: inset 0 -1px 1px -1px #aaa;
+        background:#fff;
+        line-height: 35px;
+        height:35px;
+    }
+    .am-left{
+        padding:0;
+        text-align:left;
+        width:30%;
+    }
+    .am-right{
+        padding:0;
+        text-align:right;
+        width:70%;
+    }
+    .am-left .am-dropdown{
+        height:35px;
+        float:left;
+    }
+    .am-left .tit{
+        line-height:35px;
+        padding-left:20px;
+    }
+    .am-right .text{
+        line-height:35px;
+        padding:0 10px 0 20px;
+    }
+    .am-right .am-icon-angle-right{
+        color:#ccc;
+        padding-left:10px;
+        font-size:20px;
     }
     </style>
 </head>
@@ -177,87 +211,24 @@
         </ul>
         <div class="am-tabs-bd" style="margin-top:10px;border:none; box-shadow:inset -1px 1px 1px -1px #999;padding:5px;">
             <div data-tab-panel-0 class="am-tab-panel am-active" style="margin-top:-15px">
-                <p style="font-size:14px;line-height:18px;">
-                    <form class="am-form">
-                        <div class="am-form-group">
-                            <div class="">
-                                <input type="text" id="cnname" name="cnname" placeholder="昵称" style="font-size:14px;height:40px">
+                <div class="am-form">
+                    <ul class="am-avg-sm-2">
+                        <li class="am-left">
+                            <div class="am-dropdown" data-am-dropdown="">
+                                <a href="u_info/u_info_nicheng.html">
+                                    <div class="tit">昵称</div>
+                                </a>
                             </div>
-                        </div>
-                        <div class="am-form-group">
-                            <div class="">
-                                <input type="text" id="realName" name="realName" placeholder="真实姓名" style="font-size:14px;height:40px">
+                        </li>
+                        <li class="am-right">
+                            <div class="am-dropdown" data-am-dropdown="">
+                                <a href="u_info/u_info_nicheng.html">
+                                    <div class="text"><i class="am-icon-angle-right"></i></div>
+                                </a>
                             </div>
-                        </div>
-                        <div class="am-form-group">
-                            <div class="">
-                                <input type="text" id="ename" name="ename" placeholder="英文名" style="font-size:14px;height:40px">
-                            </div>
-                        </div>
-                        <div class="am-form-group am-form-select">
-                            <select style="font-size:14px;height:40px" id="sex" name="sex">
-                                <option value="1">男</option>
-                                <option value="2">女</option>
-                            </select>
-                        </div>
-                        <div class="am-form-group">
-                            <div class="">
-                                <input type="text" id="mobile" name="mobile" placeholder="手机号码" style="font-size:14px;height:40px">
-                            </div>
-                        </div>
-                        <div class="am-form-group">
-                            <div class="">
-                                <input type="text" id="email" name="email" placeholder="电子邮箱" style="font-size:14px;height:40px;">
-                            </div>
-                        </div>
-                        <div class="am-form-group am-form-select">
-                            <select style="font-size:14px;height:40px" id="sex" name="sex">
-                                <option value="-1">省份</option>
-                                <option value="2">女</option>
-                            </select>
-                        </div>
-                        <div class="am-form-group am-form-select">
-                            <select style="font-size:14px;height:40px" id="sex" name="sex">
-                                <option value="1">地市</option>
-                                <option value="2">女</option>
-                            </select>
-                        </div>
-                        <div class="am-form-group am-form-select">
-                            <select style="font-size:14px;height:40px" id="sex" name="sex">
-                                <option value="1">县区</option>
-                                <option value="2">女</option>
-                            </select>
-                        </div>
-                        <div class="am-form-group">
-                            <textarea class="" rows="5" name="address" id="address" style="font-size:14px;height:80px">详细地址</textarea>
-                        </div>
-                        <div class="am-form-group">
-                            <div class="">
-                                <input type="text" id="nicheng" name="nicheng" placeholder="邮政编码" style="font-size:14px;height:40px">
-                            </div>
-                        </div>
-                    </form>
-                </p>
-                <p style="font-size:14px;line-height:18px;">
-                    <form class="am-form">
-                        <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-thumbnails">
-                            <li>
-                                <div class="animation animated-item-3 " style="margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-                                    <a href="javascript:;" id="buynow" onclick="Buy_fhgj();">
-                                        <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">保存</div>
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="animation animated-item-3" style="margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-                                    <a href="javascript:;" id="buynow" onclick="Buy_fhgj();">
-                                        <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">取消</div>
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                    </form>
-                </p>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div data-tab-panel-1 class="am-tab-panel" style="margin-top:-15px">
                 <p style="font-size:14px;line-height:18px;">

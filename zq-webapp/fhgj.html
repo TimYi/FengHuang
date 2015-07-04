@@ -19,7 +19,7 @@
     a:hover {
         text-decoration: none;
     }
-  
+    
     .am-tabs-default .am-tabs-nav {
         line-height: 40px;
         background-color: #fff;
@@ -50,7 +50,7 @@
 </head>
 
 <body>
-    <!-- Menu -->
+    <!-- Public Header Begin -->
     <div data-am-sticky>
         <header data-am-widget="header" class="am-header am-header-default" style="border-top:1px solid #000111;background:#000;">
             <div class="am-header-left am-header-nav">
@@ -68,31 +68,31 @@
                             <a href="#c3">我的</a>
                             <ul class="am-menu-sub am-collapse am-avg-sm-2">
                                 <li class="">
-                                    <a href="##">登录</a>
+                                    <a href="login.html">登录</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">注册</a>
+                                    <a href="reg.html">注册</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">个人资料</a>
+                                    <a href="center/grzl.html">个人资料</a>
                                 </li>
                                 <li class="">
                                     <a href="##">房屋信息</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">家装进度</a>
+                                    <a href="center/jzjd.html">家装进度</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">我的留言</a>
+                                    <a href="center/wdly.html">我的留言</a>
                                 </li>
                                 <li class="">
                                     <a href="##">我的预约</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">我的订单</a>
+                                    <a href="center/wddd.html">我的订单</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">我的评论</a>
+                                    <a href="center/wdpl.html">我的评论</a>
                                 </li>
                                 <li class="">
                                     <a href="##">我的优惠券</a>
@@ -159,6 +159,7 @@
             </div>
         </nav>
     </div>
+    <!-- Public Header End -->
     <div data-am-widget="tabs" class="am-tabs am-tabs-default" style="width:100%;padding:0;margin:0">
         <ul class="am-tabs-nav am-cf">
             <li class="am-active x" style="line-height:10px;">
@@ -186,24 +187,59 @@
         <div class="am-tabs-bd" style="margin-top:10px;border:none; box-shadow:inset -1px 1px 1px -1px #999;padding:5px;">
             <div data-tab-panel-0 class="am-tab-panel am-active">
                 <p style="font-size:14px;line-height:18px;">
-                    <form class="am-form">
-                        <div class="am-form-group am-form-select">
-                            <select class="" style="font-size:14px;height:40px">
-                                <option value="1">除甲醛</option>
-                                <option value="2">新居开荒</option>
-                                <option value="3">家居养护</option>
-                                <option value="4">水电维修</option>
-                                <option value="5">地面维修</option>
-                                <option value="6">墙体维修</option>
-                                <option value="7">渗漏处理</option>
-                                <option value="8">门窗维修</option>
-                            </select>
-                        </div>
-                        <div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-                            <a href="javascript:;" id="buynow" onclick="Buy_fhgj();">
-                                <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">预约凤凰管家</div>
+                    <form action="" class="am-form" data-am-validator>
+                        <fieldset>
+                            <div style="height:10px"></div>
+                            <div class="am-form-group">
+                                <select id="doc-select-1" required style="border-color:#e0e0e0;">
+                                    <option value="">请选择所在城市</option>
+                                    <option value="option1">北京</option>
+                                    <option value="option2">上海</option>
+                                    <option value="option3">广州</option>
+                                    <option value="option3">深圳</option>
+                                    <option value="option3">厦门</option>
+                                </select>
+                                <span class="am-form-caret"></span>
+                            </div>
+                            <div class="am-form-group">
+                                <select id="doc-select-1" required style="border-color:#e0e0e0;">
+                                    <option value="">请选择管家服务类型</option>
+                                    <option value="option1">除甲醛</option>
+                                    <option value="option2">新居开荒</option>
+                                    <option value="option3">家居养护</option>
+                                    <option value="option4">水电维修</option>
+                                    <option value="option5">地面维修</option>
+                                    <option value="option6">墙体维修</option>
+                                    <option value="option7">渗漏处理</option>
+                                    <option value="option7">门窗维修</option>
+                                    <option value="option7">其他</option>
+                                </select>
+                                <span class="am-form-caret"></span>
+                            </div>
+                            <div class="am-form-group am-form-icon">
+                                <i class="am-icon-calendar"></i>
+                                <input type="text" class="am-form-field" placeholder="请选择上门服务日期" style="height:42px;border-color:#e0e0e0;background:#fff" data-am-datepicker readonly>
+                            </div>
+                            <div class="am-form-group">
+                                <input type="text" id="doc-vld-name-2" minlength="3" placeholder="真实姓名" required style="border-color:#e0e0e0;" />
+                            </div>
+                            <div class="am-form-group">
+                                <input type="text" id="doc-vld-name-2" minlength="3" placeholder="手机号码" required style="border-color:#e0e0e0;" />
+                            </div>
+                            <div class="am-cf">
+                                <input class="am-fl" type="text" name="validate" id="validate" placeholder="短信验证码" style="width:55%">
+                                <div style="height:10px;"></div>
+                                <div id="getcodebtn" style="float:right;margin-top:-10px;width:40%">
+                                    <div style="height:42px;text-align:center;line-height:40px;color:#999;background:#eee">发送短信</div>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <textarea class="" rows="5" id="doc-ta-1" style="height:85px;border-color:#e0e0e0;">详细地址</textarea>
+                            </div>
+                            <a href="yx_ok_fhgj.html">
+                                <div class="am-btn am-btn-secondary" style="background:#f25618;border-color:#f25618;width:100%" type="submit">预约凤凰管家</div>
                             </a>
-                        </div>
+                        </fieldset>
                     </form>
                 </p>
                 <p style="font-size:14px;line-height:18px;">

@@ -179,7 +179,7 @@ $(function(){
 					Utils.offLineStore.set("token",token,false);
 					//保存用户数据
 					Utils.offLineStore.set("userinfo",JSON.stringify(condi),false);
-					location.href = "center.html?token=" + token;
+					location.href = "hyzx.html?token=" + token;
 				}
 				else{
 					var msg = data.error;
