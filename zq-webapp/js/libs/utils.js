@@ -217,6 +217,34 @@ Array.prototype.remove = function(n){
 		}
 	};
 
+	function setCookie(c_name,value,expiredays){
+		var exdate = new Date();
+		exdate.setTime(exdate.getTime() + (expiredays * 24 * 60 * 60 * 1000));
+		document.cookie = c_name + "=" + escape(value) + ";expires=" + exdate.toGMTString();
+	}
+
+	//取回cookie
+	function getCookie(name){
+		var arr,reg = new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+		if(arr = document.cookie.match(reg)){
+			return unescape(arr[2]);
+		}
+		else{
+			return "";
+		}
+	}
+
+	//删除cookies
+	function delCookie(name){
+		var exp = new Date();
+		exp.setTime(exp.getTime() - 1);
+		var cval = getCookie(name);
+		if(cval != null){
+			document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+		}
+	}
+
+
 	//var undefinedType = void 0;
 	//var isEnableStore = "localStorage" in window && localStore !== null && localStore !== undefinedType;
 	//离线存储控制器
@@ -251,18 +279,25 @@ Array.prototype.remove = function(n){
 				}
 			}
 			else{
-				alert("浏览器不支持本地存储");
+				setCookie(key,value,0);
 			}
 		},
 		//清楚本地缓存
 		remove: function(key,forever){
-			if(forever){
-				//删除永久保存数据
-				localStorage.removeItem(key);
+			var localStorage = window.localStorage || "";
+			if (localStorage !== null && localStorage !== "") {
+				if(forever){
+					//删除永久保存数据
+					localStorage.removeItem(key);
+				}
+				else{
+					//删除临时保存数据
+					sessionStorage.removeItem(key);
+					delCookie(key);
+				}
 			}
 			else{
-				//删除临时保存数据
-				sessionStorage.removeItem(key);
+				delCookie(key);
 			}
 		},
 		/**
@@ -272,12 +307,18 @@ Array.prototype.remove = function(n){
 		* @private
 		*/
 		get: function(key,forever) {
-			if(forever){
-				return localStorage.getItem(key) || "";
-				//return isEnableStore && this.isExist(key) ? localStore.getItem(key) : "";
+			var localStorage = window.localStorage || "";
+			if (localStorage !== null && localStorage !== "") {
+				if(forever){
+					return localStorage.getItem(key) || "";
+					//return isEnableStore && this.isExist(key) ? localStore.getItem(key) : "";
+				}
+				else{
+					return sessionStorage.getItem(key) || "";
+				}
 			}
 			else{
-				return sessionStorage.getItem(key) || "";
+				return getCookie(key);
 			}
 		},
 		/**
@@ -409,16 +450,20 @@ Array.prototype.remove = function(n){
 		if(info !== ""){
 			var obj = JSON.parse(info) || {};
 			var userName = obj.username;
-			/*
 			//已登录
 			var html = [];
-
-			html.push('<i class="fa fa-sign-out"></i>');
-			html.push('<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="javascript:void(0);" style="width:100px;">' + userName + ',你好!</a></b>');
-			html.push('<b style="padding:0 10px;font-weight:normal"><a href="javascript:Utils.loginOut();" style="width:70px">安全退出</a></b>');
-
-			$("#loginstatus > li")[0].innerHTML = html.join('');
-			*/
+			var token = Utils.offLineStore.get("token",false) || "";
+			var str = "";
+			if(token !== ""){
+				str = "?token=" + token + "&page=0";
+			}
+			html.push('<li style="padding-right:10px"><i class="fa fa-sign-out"></i>');
+			html.push('<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="javascript:void(0);" style="width:auto;">' + userName + ',你好!</a></b>');
+			html.push('<b style="padding:0 10px;font-weight:normal"><a href="javascript:Utils.loginOut();" style="width:70px">安全退出</a></b></li>');
+			html.push('<li><i class="fa fa-user hui"></i> <a href="center.html' + str + '" style="width:60px">会员中心</a></li>');
+			if($("#loginstatus").length > 0){
+				$("#loginstatus")[0].innerHTML = html.join('');
+			}
 			return true;
 		}
 		else{
@@ -429,6 +474,7 @@ Array.prototype.remove = function(n){
 	//安全退出
 	function loginOut(){
 		Utils.offLineStore.remove("userinfo",false);
+		Utils.offLineStore.remove("login_userprofile",false);
 		location.href = "index.html";
 	}
 
@@ -445,3 +491,103 @@ Array.prototype.remove = function(n){
 	Utils.getUserInfo = getUserInfo;
 	Utils.loginOut = loginOut;
 }(window));
+
+
+
+
+
+
+$(function(){
+	var g = {};
+	g.phone = "";
+	g.imgCodeId = "";
+	g.sendCode = false;
+	g.sendCode2 = false;
+	g.sendTime = 60;
+	g.username = Base.userName;
+	g.token = Utils.offLineStore.get("token",false);
+	g.id = Utils.getQueryString("id");
+	g.totalPage = 1;
+	g.currentPage = 1;
+	g.paseSize = 20;
+	g.httpTip = new Utils.httpTip({});
+	g.listdata = [];
+	//验证登录状态
+	g.loginStatus = Utils.getUserInfo();
+
+
+
+	getPackages();
+
+	//获取字典
+	function getPackages(){
+		var url = Base.packagesUrl;
+		var condi = {};
+		condi.token = g.token;
+		condi.page = 1;
+		condi.size = 10;
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"GET",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("getPackages",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					changePackageNav(data.result.result);
+				}
+				else{
+					Utils.alert("预约类别获取失败");
+				}
+				g.httpTip.hide();
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+
+	function changePackageNav(data){
+		var html = [];
+		var id1 = "";
+		var id2 = "";
+		var id3 = "";
+		for(var i = 0,len = data.length; i < len; i++){
+			var price = data[i].price - 0;
+			var id = data[i].id;
+			var hasAppointed = data[i].hasAppointed || false;
+			switch(price){
+				case 499:
+					id1 = id;
+					if(g.id == id && hasAppointed){
+						$("#buybtn").html("您已成功预约");
+						$("#buybtn2").html("您已成功预约");
+					}
+				break;
+				case 699:
+					id2 = id;
+					if(g.id == id && hasAppointed){
+						$("#buybtn").html("您已成功预约");
+						$("#buybtn2").html("您已成功预约");
+					}
+				break;
+				case 818:
+					id3 = id;
+					if(g.id == id && hasAppointed){
+						$("#buybtn").html("您已成功预约");
+						$("#buybtn2").html("您已成功预约");
+					}
+				break;
+			}
+		}
+		html.push('<li><a href="499.html?id=' + id1 + '">499套餐</a></li>');
+		html.push('<li><a href="699.html?id=' + id2 + '">699套餐</a></li>');
+		html.push('<li><a href="818.html?id=' + id3 + '">818套餐</a></li>');
+
+		$($(".dropdown-menu")[0]).html(html.join(''));
+	}
+});

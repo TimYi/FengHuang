@@ -130,14 +130,10 @@
     <form action="" class="am-form" data-am-validator>
         <fieldset>
             <div style="height:10px"></div>
-            <div class="am-form-group">
-                <select id="city" required style="border-color:#e0e0e0;">
-                    <option value="">请选择所在城市</option>
-                    <option value="option1">北京</option>
-                    <option value="option2">上海</option>
-                    <option value="option3">广州</option>
-                    <option value="option3">深圳</option>
-                    <option value="option3">厦门</option>
+            <div class="am-form-group" style="overflow-x:hidden;">
+                <select id="proId" required style="border-color:#e0e0e0;width:48%;float:left;">
+                </select>
+                <select id="cityId" required style="border-color:#e0e0e0;width:48%;float:right;">
                 </select>
                 <span class="am-form-caret"></span>
             </div>
@@ -145,27 +141,38 @@
                 <input type="text" id="name" minlength="3" placeholder="真实姓名" required style="border-color:#e0e0e0;" />
             </div>
             <div class="am-form-group">
-                <input type="text" id="mobile" minlength="3" placeholder="中国大陆手机号码" required style="border-color:#e0e0e0;" />
+                <input type="text" id="phone" minlength="3" placeholder="中国大陆手机号码" required style="border-color:#e0e0e0;" />
             </div>
             <div class="am-cf">
-                    <input class="am-fl" type="text" name="validate" id="validate" placeholder="短信验证码" style="width:55%">
-                    <div style="height:10px;"></div>
-                    <div id="getcodebtn" style="float:right;margin-top:-10px;width:40%">
-                        <div style="height:42px;text-align:center;line-height:40px;color:#999;background:#eee">发送短信</div>
-                    </div>
+                <input class="am-fl" type="text" id="inputImgCode3" placeholder="验证码" style="width:55%">
+                <div style="height:10px;"></div>
+                <div style="float:right;margin-top:-10px;width:40%">
+                    <img id="imgcodebtn" src="" alt="" style="height:42px;width:100%;">
                 </div>
-            <a href="yx_ok.html">
-                <div class="am-btn am-btn-secondary" style="background:#f25618;border-color:#f25618;width:100%" type="submit">立即预约</div>
+            </div>
+            <div style="height:10px;"></div>
+            <div class="am-cf">
+                <input class="am-fl" type="text" name="msgcode" id="msgcode" placeholder="短信验证码" style="width:55%">
+                <div style="height:10px;"></div>
+                <div id="getcodebtn" style="float:right;margin-top:-10px;width:40%">
+                    <div style="height:42px;text-align:center;line-height:40px;color:#999;background:#eee">发送短信</div>
+                </div>
+            </div>
+            <div style="height:10px;"></div>
+            <a href="yy_ok.html">
+                <div id="reservebtn" class="am-btn am-btn-secondary" style="background:#f25618;border-color:#f25618;width:100%" type="submit">立即预约</div>
             </a>
             <div style="height:10px"></div>
             <div style="padding:5px;font-size:13px;">
                 <b>温馨提示：</b>注册用户每人每月每种类型预约仅限申请1次，有效期为1个月。了解更多详细情况可致电凤凰筑家客服 <a href="tel:4006992888" style="color:#f25618">400-699-2888</a>
             </div>
+            <input type="hidden" id="typeid" value="404040e64e286b93014e286ba43b0001">
         </fieldset>
     </form>
     <!-- yxyf end -->
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/amazeui.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
