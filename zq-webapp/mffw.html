@@ -1,4 +1,4 @@
-﻿<!doctype html>
+﻿<!DOCTYPE html>
 <html class="no-js">
 
 <head>
@@ -19,9 +19,11 @@
     <!-- Public Header Begin -->
     <div data-am-sticky>
         <header data-am-widget="header" class="am-header am-header-default" style="border-top:1px solid #000111;background:#000;">
-            <div class="am-header-left am-header-nav">
-                <img src="build_fhzj/webapp/images/logo.png" style="width:132px;height:18px;margin-top:-5px">
-            </div>
+            <a href="index.html">
+               <div class="am-header-left am-header-nav">
+                <img src="images/logo.png" style="width:132px;height:18px;margin-top:-5px">
+                </div> 
+            </a>
         </header>
         <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
             <a href="javascript: void(0)" class="am-menu-toggle">
@@ -32,38 +34,42 @@
                     <ul class="am-menu-nav sm-block-grid-1">
                         <li class="am-parent">
                             <a href="#c3">我的</a>
-                            <ul id="loginstatus" class="am-menu-sub am-avg-sm-2">
-                              <li class="">
+                            <ul class="am-menu-sub am-collapse am-avg-sm-2">
+                                <li class="">
                                     <a href="login.html">登录</a>
                                 </li>
                                 <li class="">
                                     <a href="reg.html">注册</a>
                                 </li>
-                            </ul>
-                            <ul class="am-menu-sub am-collapse am-avg-sm-2">
                                 <li class="">
-                                    <a href="center/grzl.html">个人资料</a>
+                                    <a href="center/u_info.html">个人资料</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">房屋信息</a>
+                                    <a href="center/u_house.html">房屋信息</a>
                                 </li>
                                 <li class="">
-                                    <a href="center/jzjd.html">家装进度</a>
+                                    <a href="center/u_live.html">家装进度</a>
                                 </li>
                                 <li class="">
-                                    <a href="center/wdly.html">我的留言</a>
+                                    <a href="center/u_message.html">我的留言</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">我的预约</a>
+                                    <a href="center/u_order.html">我的订单</a>
                                 </li>
                                 <li class="">
-                                    <a href="center/wddd.html">我的订单</a>
+                                    <a href="center/u_sub.html">我的预约</a>
                                 </li>
                                 <li class="">
-                                    <a href="center/wdpl.html">我的评论</a>
+                                    <a href="center/u_fav.html">我的收藏</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">我的优惠券</a>
+                                    <a href="center/u_comment.html">我的评论</a>
+                                </li>
+                                <li class="">
+                                    <a href="center/u_coupon.html">我的优惠券</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:Utils.loginOut();">安全退出</a>
                                 </li>
                             </ul>
                         </li>
@@ -71,16 +77,16 @@
                             <a href="#c3">在线预约</a>
                             <ul class="am-menu-sub am-collapse am-avg-sm-2">
                                 <li class="">
-                                    <a href="##">免费量房</a>
+                                    <a href="sub_lf.html">免费量房</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">免费验房</a>
+                                    <a href="sub_yf.html">免费验房</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">免费设计</a>
+                                    <a href="sub_design.html">免费设计</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">体验馆</a>
+                                    <a href="tyg.html">体验馆</a>
                                 </li>
                             </ul>
                         </li>
@@ -97,30 +103,30 @@
                                     <a href="##">1899电器包</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">透明展示</a>
+                                    <a href="fwzs.html">透明展示</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">工艺展示</a>
+                                    <a href="fwzs.html">工艺展示</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">主材展示</a>
+                                    <a href="fwzs.html">主材展示</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">家装计算器</a>
+                                    <a href="s_calc.html">家装计算器</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="">
-                            <a href="##">凤凰管家</a>
+                            <a href="fhgj.html">凤凰管家</a>
                         </li>
                         <li class="">
-                            <a href="##">家装贷</a>
+                            <a href="jzd.html">家装贷</a>
                         </li>
                         <li class="">
-                            <a href="##">案例</a>
+                            <a href="alzb.html">案例</a>
                         </li>
                         <li class="">
-                            <a href="##">Live直播</a>
+                            <a href="alzb.html">Live直播</a>
                         </li>
                     </ul>
                 </div>
@@ -154,7 +160,7 @@
         <ul class="am-avg-sm-3" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
             <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="yyyf.html">
+                    <a href="sub_yf.html">
                         <div style="margin-top:20px">
                             <i class="am-icon-magic" style="font-size:24px;color:#666"></i>
                             <br />
@@ -165,7 +171,7 @@
             </li>
             <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;" data-am-widget="navbar">
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="yyyf.html">
+                    <a href="sub_lf.html">
                         <div style="margin-top:20px">
                             <i class="am-icon-arrows-alt" style="font-size:24px;color:#666"></i>
                             <br />
@@ -176,7 +182,7 @@
             </li>
             <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="yyyf.html">
+                    <a href="sub_design.html">
                         <div style="margin-top:20px">
                             <i class="am-icon-pencil" style="font-size:24px;color:#666"></i>
                             <br />
@@ -205,6 +211,9 @@
     </div>
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/amazeui.min.js"></script>
+    <script src="js/libs/json.js"></script>
+    <script src="js/libs/base.js"></script>
+    <script src="js/libs/utils.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

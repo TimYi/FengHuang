@@ -1,42 +1,26 @@
-﻿<!doctype html>
+<!DOCTYPE html>
 <html class="no-js">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>我的评论</title>
+    <title>预约设计</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="icon" type="image/png" href="../assets/i/favicon.png">
-    <link rel="stylesheet" href="../assets/css/amazeui.min.css">
-    <link rel="stylesheet" href="../assets/css/app.css">
-    <link rel="stylesheet" href="../build_fhzj/webapp/assets/css/style.css">
-    <style type="text/css">
-    h2.top_title {
-        border-bottom: none;
-        background: none;
-        text-align: center;
-        line-height: 32px;
-        font-size: 13px
-    }
-    
-    h2.top_title span {
-        font-size: 14px;
-        color: #666;
-        font-weight: 500
-    }
-    </style>
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
 </head>
 
 <body>
-    <!-- Menu -->
+    <!-- Public Header Begin -->
     <div data-am-sticky>
         <header data-am-widget="header" class="am-header am-header-default" style="border-top:1px solid #000111;background:#000;">
             <div class="am-header-left am-header-nav">
-                <img src="../build_fhzj/webapp/images/logo.png" style="width:132px;height:18px;margin-top:-5px">
+                <img src="build_fhzj/webapp/images/logo.png" style="width:132px;height:18px;margin-top:-5px">
             </div>
         </header>
         <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
@@ -50,31 +34,31 @@
                             <a href="#c3">我的</a>
                             <ul class="am-menu-sub am-collapse am-avg-sm-2">
                                 <li class="">
-                                    <a href="##">登录</a>
+                                    <a href="login.html">登录</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">注册</a>
+                                    <a href="reg.html">注册</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">个人资料</a>
+                                    <a href="center/grzl.html">个人资料</a>
                                 </li>
                                 <li class="">
                                     <a href="##">房屋信息</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">家装进度</a>
+                                    <a href="center/jzjd.html">家装进度</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">我的留言</a>
+                                    <a href="center/wdly.html">我的留言</a>
                                 </li>
                                 <li class="">
                                     <a href="##">我的预约</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">我的订单</a>
+                                    <a href="center/wddd.html">我的订单</a>
                                 </li>
                                 <li class="">
-                                    <a href="##">我的评论</a>
+                                    <a href="center/wdpl.html">我的评论</a>
                                 </li>
                                 <li class="">
                                     <a href="##">我的优惠券</a>
@@ -141,8 +125,66 @@
             </div>
         </nav>
     </div>
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/amazeui.min.js"></script>
+    <!-- Public Header End -->
+    <div class="am-sticky-placeholder" style="height: 49px; margin: 0px;">
+        <div data-am-sticky="" style="margin: 0px;">
+            <header data-am-widget="header" class="am-header am-header-default am-no-layout" style="background:#fff;box-shadow: inset -1px -1px 1px -1px #666;">
+                <h1 class="am-header-title"><span style="color:#333;font-size:18px;font-weight:bold">预约设计</span></h1>
+                <div class="am-header-left am-header-nav">
+                    <a href="mffw.html" class="">
+                        <i class="am-header-icon am-icon-chevron-left" style="font-size:16px;color:#999;margin-left:-15px"></i>
+                    </a>
+                </div>
+            </header>
+        </div>
+    </div>
+    <!-- yxyf begin -->
+    <form action="" class="am-form" data-am-validator>
+        <fieldset>
+            <div style="height:10px"></div>
+            <div class="am-form-group" style="overflow-x:hidden;">
+                <select id="proId" required style="border-color:#e0e0e0;width:48%;float:left;">
+                </select>
+                <select id="cityId" required style="border-color:#e0e0e0;width:48%;float:right;">
+                </select>
+                <span class="am-form-caret"></span>
+            </div>
+            <div class="am-form-group">
+                <input type="text" id="name" minlength="3" placeholder="真实姓名" required style="border-color:#e0e0e0;" />
+            </div>
+            <div class="am-form-group">
+                <input type="text" id="phone" minlength="3" placeholder="中国大陆手机号码" required style="border-color:#e0e0e0;" />
+            </div>
+            <div class="am-cf">
+                <input class="am-fl" type="text" id="inputImgCode3" placeholder="验证码" style="width:55%">
+                <div style="height:10px;"></div>
+                <div style="float:right;margin-top:-10px;width:40%">
+                    <img id="imgcodebtn" src="" alt="" style="height:42px;width:100%;">
+                </div>
+            </div>
+            <div style="height:10px;"></div>
+            <div class="am-cf">
+                <input class="am-fl" type="text" name="msgcode" id="msgcode" placeholder="短信验证码" style="width:55%">
+                <div style="height:10px;"></div>
+                <div id="getcodebtn" style="float:right;margin-top:-10px;width:40%">
+                    <div style="height:42px;text-align:center;line-height:40px;color:#999;background:#eee">发送短信</div>
+                </div>
+            </div>
+            <div style="height:10px;"></div>
+            <a href="sub_ok.html">
+                <div id="reservebtn" class="am-btn am-btn-secondary" style="background:#f25618;border-color:#f25618;width:100%" type="submit">立即预约</div>
+            </a>
+            <div style="height:10px"></div>
+            <div style="padding:5px;font-size:13px;">
+                <b>温馨提示：</b>注册用户每人每月每种类型预约仅限申请1次，有效期为1个月。了解更多详细情况可致电凤凰筑家客服 <a href="tel:4006992888" style="color:#f25618">400-699-2888</a>
+            </div>
+            <input type="hidden" id="typeid" value="404040e64e286b93014e286ba4a80003">
+        </fieldset>
+    </form>
+    <!-- yxyf end -->
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/amazeui.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

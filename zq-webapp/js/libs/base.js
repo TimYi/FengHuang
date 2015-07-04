@@ -40,6 +40,7 @@
 	var houses = serverUrl + "/api/user/houses";
 	var house = serverUrl + "/api/user/house";
 	var cases = serverUrl + "/api/product/cases";
+	var caseTags = serverUrl + "/api/product/cases/tags";
 	var casedetails = serverUrl + "/api/product/case";
 	var lives = serverUrl + "/api/lives";
 	var live = serverUrl + "/api/live";
@@ -71,6 +72,7 @@
 	Base.casedetails = casedetails;
 	Base.lives = lives;
 	Base.live = live;
+	Base.caseTags = caseTags;
 }(window));
 
 
