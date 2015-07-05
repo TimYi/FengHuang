@@ -1,4 +1,4 @@
-$(function() {
+$(function(){
     var g = {};
     g.phone = "";
     g.imgCodeId = "";
@@ -6,253 +6,255 @@ $(function() {
     g.sendCode2 = false;
     g.sendTime = 60;
     g.username = Base.userName;
-    g.token = Utils.offLineStore.get("token", false);
+    g.token = Utils.offLineStore.get("token",false);
     g.page = Utils.getQueryString("p") - 0;
     g.totalPage = 1;
     g.currentPage = 1;
     g.paseSize = 20;
     g.httpTip = new Utils.httpTip({});
     g.listdata = [];
-    g.userprofile = Utils.offLineStore.get("login_userprofile", false) || "";
+    g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
     //验证登录状态
     g.loginStatus = Utils.getUserInfo();
     g.reserveStatus = false;
-    if (g.loginStatus && g.userprofile !== "") {
+    if(g.loginStatus && g.userprofile !== ""){
         var obj = JSON.parse(g.userprofile);
         var name = obj.realName || "";
         var mobile = obj.mobile || "";
-        if (name !== "" && mobile !== "") {
+        if(name !== "" && mobile !== ""){
             //允许预约
             g.reserveStatus = true;
-        } else {
+        }
+        else{
             g.reserveStatus = false;
         }
         $("#name").val(name);
         $("#phone").val(mobile);
 
-        $("#name2").val(name);
-        $("#phone2").val(mobile);
-
         getImgCode();
-        getImgCode2();
     }
 
-    $("#phone").bind("blur", getImgCode);
-    $("#imgcodebtn").bind("click", getImgCode);
-    $("#getcodebtn").bind("click", getValidCode);
-    $("#reservebtn").bind("click", reserverBtnUp);
+    $("#phone").bind("blur",getImgCode);
+    $("#imgcodebtn").bind("click",getImgCode);
+    $("#getcodebtn").bind("click",getValidCode);
+    $("#reservebtn").bind("click",reserverBtnUp);
 
-    $("#phone2").bind("blur", getImgCode2);
-    $("#imgcodebtn2").bind("click", getImgCode2);
-    $("#getcodebtn2").bind("click", getValidCode2);
-    $("#reservebtn2").bind("click", reserverBtnUp2);
+    $("#phone2").bind("blur",getImgCode2);
+    $("#imgcodebtn2").bind("click",getImgCode2);
+    $("#getcodebtn2").bind("click",getValidCode2);
+    $("#reservebtn2").bind("click",reserverBtnUp2);
 
-    $("#provId").bind("change", getProvCity);
-    $("#provId2").bind("change", getProvCity2);
+    $("#provId").bind("change",getProvCity);
+    $("#provId2").bind("change",getProvCity2);
 
     getAppointCategory();
     getProv();
     getPackages();
-
-    function getProvCity() {
+    function getProvCity(){
         var id = $(this).val();
-        getCity(id, 1);
+        getCity(id,1);
     }
-
-    function getProvCity2() {
-            var id = $(this).val();
-            getCity(id, 2);
-       }
-        //获取字典
-    function getAppointCategory() {
+    function getProvCity2(){
+        var id = $(this).val();
+        getCity(id,2);
+    }
+    //获取字典
+    function getAppointCategory(){
         var url = Base.categoryUrl + "/appoint";
         g.httpTip.show();
         $.ajax({
-            url: url,
-            data: {},
-            type: "GET",
-            dataType: "json",
-            context: this,
-            global: false,
-            success: function(data) {
-                console.log("getAppointCategory", data);
+            url:url,
+            data:{},
+            type:"GET",
+            dataType:"json",
+            context:this,
+            global:false,
+            success: function(data){
+                console.log("getAppointCategory",data);
                 var status = data.status || "";
-                if (status == "OK") {
-                    changeSelectHtml("typeid", data.result || []);
-                    changeSelectHtml("typeid2", data.result || []);
-                } else {
+                if(status == "OK"){
+                    changeSelectHtml("typeid",data.result || []);
+                    changeSelectHtml("typeid2",data.result || []);
+                }
+                else{
                     Utils.alert("预约类别获取失败");
                 }
                 g.httpTip.hide();
             },
-            error: function(data) {
+            error:function(data){
                 g.httpTip.hide();
             }
         });
     }
-
-    function getProv() {
+    function getProv(){
         var url = Base.cityUrl + "/PROV";
         g.httpTip.show();
         $.ajax({
-            url: url,
-            data: {},
-            type: "GET",
-            dataType: "json",
-            context: this,
-            global: false,
-            success: function(data) {
-                console.log("getProv", data);
+            url:url,
+            data:{},
+            type:"GET",
+            dataType:"json",
+            context:this,
+            global:false,
+            success: function(data){
+                console.log("getProv",data);
                 var status = data.status || "";
-                if (status == "OK") {
-                    changeSelectHtml("provId", data.result || []);
-                    changeSelectHtml("provId2", data.result || []);
+                if(status == "OK"){
+                    changeSelectHtml("provId",data.result || []);
+                    changeSelectHtml("provId2",data.result || []);
                     var id = data.result[0].id;
-                    getCity(id, 0);
-                } else {
+                    getCity(id,0);
+                }
+                else{
                     Utils.alert("城市获取失败");
                 }
                 g.httpTip.hide();
             },
-            error: function(data) {
+            error:function(data){
                 g.httpTip.hide();
             }
         });
     }
-
-    function getCity(id, b) {
+    function getCity(id,b){
         var url = Base.subareasUrl + "/" + id;
         g.httpTip.show();
         $.ajax({
-            url: url,
-            data: {},
-            type: "GET",
-            dataType: "json",
-            context: this,
-            global: false,
-            success: function(data) {
-                console.log("getCity", data);
+            url:url,
+            data:{},
+            type:"GET",
+            dataType:"json",
+            context:this,
+            global:false,
+            success: function(data){
+                console.log("getCity",data);
                 var status = data.status || "";
-                if (status == "OK") {
-                    switch (b) {
+                if(status == "OK"){
+                    switch(b){
                         case 0:
-                            changeSelectHtml("cityId", data.result || []);
-                            changeSelectHtml("cityId2", data.result || []);
-                            break;
+                            changeSelectHtml("cityId",data.result || []);
+                            changeSelectHtml("cityId2",data.result || []);
+                        break;
                         case 1:
-                            changeSelectHtml("cityId", data.result || []);
-                            break;
+                            changeSelectHtml("cityId",data.result || []);
+                        break;
                         case 2:
-                            changeSelectHtml("cityId2", data.result || []);
-                            break;
+                            changeSelectHtml("cityId2",data.result || []);
+                        break;
                     }
-                } else {
+                }
+                else{
                     Utils.alert("城市获取失败");
                 }
                 g.httpTip.hide();
             },
-            error: function(data) {
+            error:function(data){
                 g.httpTip.hide();
             }
         });
     }
-
-    function changeSelectHtml(domid, data) {
+    function changeSelectHtml(domid,data){
         var option = [];
-        for (var i = 0, len = data.length; i < len; i++) {
+        for(var i = 0,len = data.length; i < len; i++){
             var id = data[i].id || "";
             var name = data[i].name || "";
-            option.push('<option value="' + id + '"' + (i == 0 ? "selected" : "") + '>' + name + '</option>');
+            option.push('<option value="' + id + '"' + ( i == 0 ? "selected" : "") + '>' + name + '</option>');
         }
         $("#" + domid).html(option.join(''));
     }
 
 
     //获取图形验证码
-    function getImgCode(evt) {
+    function getImgCode(evt){
         var phone = $("#phone").val() || "";
-        if (phone !== "") {
+        if(phone !== ""){
             console.log(phone);
             g.imgCodeId = phone;
-            $("#imgcodebtn").attr("src", Base.imgCodeUrl + "?id=" + g.imgCodeId);
+            $("#imgcodebtn").attr("src",Base.imgCodeUrl + "?id=" + g.imgCodeId);
         }
     }
 
-    function getImgCode2(evt) {
+    function getImgCode2(evt){
         var phone = $("#phone2").val() || "";
-        if (phone !== "") {
+        if(phone !== ""){
             console.log(phone);
             g.imgCodeId = phone;
-            $("#imgcodebtn2").attr("src", Base.imgCodeUrl + "?id=" + g.imgCodeId);
+            $("#imgcodebtn2").attr("src",Base.imgCodeUrl + "?id=" + g.imgCodeId);
         }
     }
 
     //获取验证码
-    function getValidCode(evt) {
+    function getValidCode(evt){
         //var ele = evt.currentTarget;
         //$(ele).removeClass("curr");
         //if(!this.moved){}
         var p = $("#phone").val() || "";
         var imgCode = $("#inputImgCode3").val() || "";
-        if (p !== "") {
+        if(p !== ""){
             var reg = /^1[3,5,7,8]\d{9}$/g;
-            if (reg.test(p)) {
-                if (imgCode !== "") {
+            if(reg.test(p)){
+                if(imgCode !== ""){
                     g.phone = p;
-                    if (!g.sendCode) {
+                    if(!g.sendCode){
                         sendGetCodeHttp(imgCode);
                     }
-                } else {
+                }
+                else{
                     Utils.alert("输入图形验证码");
                     $("#inputImgCode3").focus();
                 }
-            } else {
+            }
+            else{
                 Utils.alert("手机输入不合法");
                 $("#phone").focus();
             }
-        } else {
+        }
+        else{
             Utils.alert("请输入手机号");
             $("#phone").focus();
         }
     }
 
-    function getValidCode2(evt) {
+    function getValidCode2(evt){
         var ele = evt.currentTarget;
         //$(ele).removeClass("curr");
         //if(!this.moved){}
         var p = $("#phone2").val() || "";
         var imgCode = $("#inputImgCode32").val() || "";
-        if (p !== "") {
+        if(p !== ""){
             var reg = /^1[3,5,7,8]\d{9}$/g;
-            if (reg.test(p)) {
-                if (imgCode !== "") {
+            if(reg.test(p)){
+                if(imgCode !== ""){
                     g.phone = p;
-                    if (!g.sendCode) {
+                    if(!g.sendCode){
                         sendGetCodeHttp2(imgCode);
                     }
-                } else {
+                }
+                else{
                     Utils.alert("输入图形验证码");
                     $("#inputImgCode32").focus();
                 }
-            } else {
+            }
+            else{
                 Utils.alert("手机输入不合法");
                 $("#phone2").focus();
             }
-        } else {
+        }
+        else{
             Utils.alert("请输入手机号");
             $("#phone2").focus();
         }
     }
 
     //重新获取验证码
-    function resetGetValidCode() {
+    function resetGetValidCode(){
         g.sendTime = g.sendTime - 1;
-        if (g.sendTime > 0) {
+        if(g.sendTime > 0){
             $("#getcodebtn").html(g.sendTime + "秒后重新发送");
-            setTimeout(function() {
+            setTimeout(function(){
                 resetGetValidCode();
-            }, 1000);
-        } else {
+            },1000);
+        }
+        else{
             $("#getcodebtn").html("重新发送");
             g.sendTime = 60;
             g.sendCode = false;
@@ -264,14 +266,15 @@ $(function() {
         }
     }
 
-    function resetGetValidCode2() {
+    function resetGetValidCode2(){
         g.sendTime = g.sendTime - 1;
-        if (g.sendTime > 0) {
+        if(g.sendTime > 0){
             $("#getcodebtn2").html(g.sendTime + "秒后重新发送");
-            setTimeout(function() {
+            setTimeout(function(){
                 resetGetValidCode2();
-            }, 1000);
-        } else {
+            },1000);
+        }
+        else{
             $("#getcodebtn2").html("重新发送");
             g.sendTime = 60;
             g.sendCode2 = false;
@@ -283,9 +286,9 @@ $(function() {
         }
     }
 
-    function reserverBtnUp() {
-        if (g.loginStatus) {
-            if (!g.reserveStatus) {
+    function reserverBtnUp(){
+        if(g.loginStatus){
+            if(!g.reserveStatus){
                 //没有添加真实姓名,引导去填写
                 alert("个人资料不完善,无法预约");
                 location.href = "c_my.html?token=" + g.token + "&p=1";
@@ -293,13 +296,13 @@ $(function() {
             }
             var condi = {};
             /*
-			token:用户凭据
-			typeId:预约类别（字典类型名称：appoint）
-			cityId:城市id，通过area相关接口获取
-			mobile:电话号码，暂时这个字段不需要传，会默认使用用户绑定手机号码
-			realName:用户真实姓名
-			validater:根据用户绑定手机号码，发送的短信验证码
-			*/
+            token:用户凭据
+            typeId:预约类别（字典类型名称：appoint）
+            cityId:城市id，通过area相关接口获取
+            mobile:电话号码，暂时这个字段不需要传，会默认使用用户绑定手机号码
+            realName:用户真实姓名
+            validater:根据用户绑定手机号码，发送的短信验证码
+            */
             condi.token = g.token;
             condi.typeId = $("#typeid").val() || "";
             condi.cityId = $("#cityId").val() || "";
@@ -308,41 +311,47 @@ $(function() {
             condi.captcha = $("#inputImgCode3").val() || "";
             condi.validater = $("#msgcode").val() || "";
 
-            if (condi.name !== "") {
-                if (condi.mobile !== "") {
+            if(condi.name !== ""){
+                if(condi.mobile !== ""){
                     var reg = /^1[3,5,7,8]\d{9}$/g;
-                    if (reg.test(condi.mobile)) {
-                        if (condi.captcha !== "") {
-                            if (condi.msgcode !== "") {
+                    if(reg.test(condi.mobile)){
+                        if(condi.captcha !== ""){
+                            if(condi.msgcode !== ""){
                                 sendAppointHttp(condi);
-                            } else {
+                            }
+                            else{
                                 Utils.alert("输入短信验证码");
                                 $("#msgcode").focus();
                             }
-                        } else {
+                        }
+                        else{
                             Utils.alert("输入图形验证码");
                             $("#inputImgCode3").focus();
                         }
-                    } else {
+                    }
+                    else{
                         Utils.alert("手机输入不合法");
                         $("#phone").focus();
                     }
-                } else {
+                }
+                else{
                     Utils.alert("请输入手机号");
                     $("#phone").focus();
                 }
-            } else {
+            }
+            else{
                 Utils.alert("请输入姓名");
                 $("#name").focus();
             }
-        } else {
+        }
+        else{
             location.href = "login.html";
         }
     }
 
-    function reserverBtnUp2() {
-        if (g.loginStatus) {
-            if (!g.reserveStatus) {
+    function reserverBtnUp2(){
+        if(g.loginStatus){
+            if(!g.reserveStatus){
                 //没有添加真实姓名,引导去填写
                 alert("个人资料不完善,无法预约");
                 location.href = "c_my.html?token=" + g.token + "&p=1";
@@ -350,13 +359,13 @@ $(function() {
             }
             var condi = {};
             /*
-			token:用户凭据
-			typeId:预约类别（字典类型名称：appoint）
-			cityId:城市id，通过area相关接口获取
-			mobile:电话号码，暂时这个字段不需要传，会默认使用用户绑定手机号码
-			realName:用户真实姓名
-			validater:根据用户绑定手机号码，发送的短信验证码
-			*/
+            token:用户凭据
+            typeId:预约类别（字典类型名称：appoint）
+            cityId:城市id，通过area相关接口获取
+            mobile:电话号码，暂时这个字段不需要传，会默认使用用户绑定手机号码
+            realName:用户真实姓名
+            validater:根据用户绑定手机号码，发送的短信验证码
+            */
             condi.token = g.token;
             condi.typeId = $("#typeid2").val() || "";
             condi.cityId = $("#cityId2").val() || "";
@@ -365,161 +374,171 @@ $(function() {
             condi.captcha = $("#inputImgCode32").val() || "";
             condi.validater = $("#msgcode2").val() || "";
 
-            if (condi.name !== "") {
-                if (condi.mobile !== "") {
+            if(condi.name !== ""){
+                if(condi.mobile !== ""){
                     var reg = /^1[3,5,7,8]\d{9}$/g;
-                    if (reg.test(condi.mobile)) {
-                        if (condi.captcha !== "") {
-                            if (condi.msgcode !== "") {
+                    if(reg.test(condi.mobile)){
+                        if(condi.captcha !== ""){
+                            if(condi.msgcode !== ""){
                                 sendAppointHttp2(condi);
-                            } else {
+                            }
+                            else{
                                 Utils.alert("输入短信验证码");
                                 $("#msgcode2").focus();
                             }
-                        } else {
+                        }
+                        else{
                             Utils.alert("输入图形验证码");
                             $("#inputImgCode32").focus();
                         }
-                    } else {
+                    }
+                    else{
                         Utils.alert("手机输入不合法");
                         $("#phone2").focus();
                     }
-                } else {
+                }
+                else{
                     Utils.alert("请输入手机号");
                     $("#phone2").focus();
                 }
-            } else {
+            }
+            else{
                 Utils.alert("请输入姓名");
                 $("#name2").focus();
             }
-        } else {
+        }
+        else{
             location.href = "login.html";
         }
     }
 
 
     //请求验证码
-    function sendGetCodeHttp(imgCode) {
+    function sendGetCodeHttp(imgCode){
         var url = Base.getCodeUrl;
         var condi = {};
         condi.mobile = g.phone;
         condi.captcha = imgCode;
         g.httpTip.show();
         $.ajax({
-            url: url,
-            data: condi,
-            type: "POST",
-            dataType: "json",
-            context: this,
-            global: false,
-            success: function(data) {
+            url:url,
+            data:condi,
+            type:"POST",
+            dataType:"json",
+            context:this,
+            global:false,
+            success: function(data){
                 console.log(data);
                 var status = data.status || "";
-                if (status == "OK") {
+                if(status == "OK"){
                     g.sendCode = true;
                     $("#getcodebtn").html("60秒后重新发送");
-                    setTimeout(function() {
+                    setTimeout(function(){
                         resetGetValidCode();
-                    }, 1000);
-                } else {
+                    },1000);
+                }
+                else{
                     alert("验证码获取失败");
                 }
                 g.httpTip.hide();
             },
-            error: function(data) {
+            error:function(data){
                 g.httpTip.hide();
             }
         });
     }
 
-    function sendGetCodeHttp2(imgCode) {
+    function sendGetCodeHttp2(imgCode){
         var url = Base.getCodeUrl;
         var condi = {};
         condi.mobile = g.phone;
         condi.captcha = imgCode;
         g.httpTip.show();
         $.ajax({
-            url: url,
-            data: condi,
-            type: "POST",
-            dataType: "json",
-            context: this,
-            global: false,
-            success: function(data) {
+            url:url,
+            data:condi,
+            type:"POST",
+            dataType:"json",
+            context:this,
+            global:false,
+            success: function(data){
                 console.log(data);
                 var status = data.status || "";
-                if (status == "OK") {
+                if(status == "OK"){
                     g.sendCode2 = true;
                     $("#getcodebtn2").html("60秒后重新发送");
-                    setTimeout(function() {
+                    setTimeout(function(){
                         resetGetValidCode2();
-                    }, 1000);
-                } else {
+                    },1000);
+                }
+                else{
                     alert("验证码获取失败");
                 }
                 g.httpTip.hide();
             },
-            error: function(data) {
+            error:function(data){
                 g.httpTip.hide();
             }
         });
     }
 
 
-    function sendAppointHttp(condi) {
+    function sendAppointHttp(condi){
         var url = Base.appointUrl;
         g.httpTip.show();
         $.ajax({
-            url: url,
-            data: condi,
-            type: "POST",
-            dataType: "json",
-            context: this,
-            global: false,
-            success: function(data) {
-                console.log("sendAppointHttp", data);
+            url:url,
+            data:condi,
+            type:"POST",
+            dataType:"json",
+            context:this,
+            global:false,
+            success: function(data){
+                console.log("sendAppointHttp",data);
                 var status = data.status || "";
-                if (status == "OK") {
+                if(status == "OK"){
                     Utils.alert("预约服务成功");
-                } else {
+                }
+                else{
                     Utils.alert("预约服务失败");
                 }
                 g.httpTip.hide();
             },
-            error: function(data) {
+            error:function(data){
                 g.httpTip.hide();
             }
         });
     }
 
-    function sendAppointHttp2(condi) {
+    function sendAppointHttp2(condi){
         var url = Base.appointUrl;
         g.httpTip.show();
         $.ajax({
-            url: url,
-            data: condi,
-            type: "POST",
-            dataType: "json",
-            context: this,
-            global: false,
-            success: function(data) {
-                console.log("sendAppointHttp2", data);
+            url:url,
+            data:condi,
+            type:"POST",
+            dataType:"json",
+            context:this,
+            global:false,
+            success: function(data){
+                console.log("sendAppointHttp2",data);
                 var status = data.status || "";
-                if (status == "OK") {
+                if(status == "OK"){
                     Utils.alert("预约服务成功");
-                } else {
+                }
+                else{
                     Utils.alert("预约服务失败");
                 }
                 g.httpTip.hide();
             },
-            error: function(data) {
+            error:function(data){
                 g.httpTip.hide();
             }
         });
     }
 
 
-    function getPackages() {
+    function getPackages(){
         var url = Base.packagesUrl;
         var condi = {};
         condi.token = g.token;
@@ -527,29 +546,30 @@ $(function() {
         condi.size = 10;
         g.httpTip.show();
         $.ajax({
-            url: url,
-            data: condi,
-            type: "GET",
-            dataType: "json",
-            context: this,
-            global: false,
-            success: function(data) {
-                console.log("getPackages", data);
+            url:url,
+            data:condi,
+            type:"GET",
+            dataType:"json",
+            context:this,
+            global:false,
+            success: function(data){
+                console.log("getPackages",data);
                 var status = data.status || "";
-                if (status == "OK") {
+                if(status == "OK"){
                     changePackageList(data.result.result);
-                } else {
+                }
+                else{
                     Utils.alert("套餐列表获取失败");
                 }
                 g.httpTip.hide();
             },
-            error: function(data) {
+            error:function(data){
                 g.httpTip.hide();
             }
         });
     }
 
-    function changePackageList(data) {
+    function changePackageList(data){
         var html = [];
 
         html.push('<div class="center wow fadeInDown">');
@@ -559,7 +579,7 @@ $(function() {
 
         html.push('<div class="row">');
 
-        for (var i = 0, len = data.length; i < len; i++) {
+        for(var i = 0,len = data.length; i < len; i++){
             var obj = data[i];
             var id = obj.id || "";
             var price = obj.price || "";
@@ -585,7 +605,7 @@ $(function() {
             html.push('</h3>');
             html.push('<div style="margin:20px 0 10px 70px;">');
 
-            if (status == "PREPARE") {
+            if(status == "PREPARE"){
                 html.push('<div style="height:45px;width:160px;background:none;border:1px solid #ccc;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">');
                 html.push('<a href="javascript:void(0);">');
                 html.push('<div style="text-align:center;line-height:45px;font-size:16px;color:#000;">即将开始</div>');
@@ -596,15 +616,18 @@ $(function() {
                 html.push('<div style="text-align:center;line-height:14x;font-size:14px;color:#000;">');
                 html.push('<span style="color:#999">抢购开始时间：</span>' + scrambleStartTime);
                 html.push('</div>');
-            } else if (status == "SCRAMBLE" && inStock > saleNumber) {
+            }
+            else if(status == "SCRAMBLE" && inStock > saleNumber){
                 html.push('<div style="height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">');
-                if (hasAppointed) {
+                if(hasAppointed){
                     html.push('<a href="javascript:miaoSha(\'' + id + '\')">');
-                } else {
-                    if (g.loginStatus) {
+                }
+                else{
+                    if(g.loginStatus){
                         var page = price + ".html?id=" + id;
                         html.push('<a href="javascript:alert(\'你还没有预约\');location.href=\'' + page + '\'">');
-                    } else {
+                    }
+                    else{
                         var page = "login.html";
                         html.push('<a href="javascript:alert(\'请先登录\');location.href=\'' + page + '\'">');
                     }
@@ -617,7 +640,8 @@ $(function() {
                 html.push('<div style="text-align:center;line-height:14x;font-size:14px;color:#000;">');
                 html.push('<span style="color:#999">剩余数量：</span>' + saleNumber + '套 / 共' + inStock + '套');
                 html.push('</div>');
-            } else {
+            }
+            else{
                 html.push('<div style="height:45px;width:160px;background:none;border:1px solid #ccc;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">');
                 html.push('<a href="javascript:void(0);">');
                 html.push('<div style="text-align:center;line-height:45px;font-size:16px;color:#000;">已抢完</div>');
@@ -633,11 +657,13 @@ $(function() {
 
             html.push('</div>');
             html.push('<div style="height:240px;width:360px;">');
-            if (price == 499) {
+            if(price == 499){
                 html.push('<img src="images/u_1.jpg" width=360 height=240>');
-            } else if (price == 699) {
+            }
+            else if(price == 699){
                 html.push('<img src="images/u_2.jpg" width=360 height=240>');
-            } else {
+            }
+            else{
                 html.push('<img src="images/u_3.jpg" width=360 height=240>');
             }
             html.push('</div>');
@@ -648,7 +674,7 @@ $(function() {
         $("#packagelist").show();
     }
 
-    function miaoSha(id) {
+    function miaoSha(id){
         var url = Base.scramble;
         var condi = {};
         condi.token = g.token;
@@ -656,25 +682,26 @@ $(function() {
         condi.caseId = "";
         g.httpTip.show();
         $.ajax({
-            url: url,
-            data: condi,
-            type: "POST",
-            dataType: "json",
-            context: this,
-            global: false,
-            success: function(data) {
-                console.log("miaoSha", data);
+            url:url,
+            data:condi,
+            type:"POST",
+            dataType:"json",
+            context:this,
+            global:false,
+            success: function(data){
+                console.log("miaoSha",data);
                 var status = data.status || "";
-                if (status == "OK") {
+                if(status == "OK"){
                     Utils.alert("抢购成功");
                     var orderId = data.result.id;
                     location.href = "orderback_paysel.html?id=" + orderId;
-                } else {
+                }
+                else{
                     Utils.alert("抢购失败");
                 }
                 g.httpTip.hide();
             },
-            error: function(data) {
+            error:function(data){
                 g.httpTip.hide();
             }
         });

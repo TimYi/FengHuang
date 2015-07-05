@@ -979,6 +979,18 @@ input[placeholder],[placeholder],*[placeholder] {
 .tag-wrap {margin:5px 0 15px;}
 .tag-wrap .tag{display:inline-block;cursor:pointer;margin-bottom:10px;padding:6px 12px;border:1px solid #F2F2F2;border-radius:3px;margin-right:15px;font-size:14px;background-color: #fff;font-weight:400;text-transform:uppercase;transition:all 0.9s ease 0s;-webkit-transition:all 0.9s ease 0s; }
 .tag-wrap span.tag.active{background-color:#c52d2f;color:#fff;border:1px solid #c52d2f;}
-
-
-
+.center-wrap ul{padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;}
+.center-wrap ul li{padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;}
+.center-wrap ul li .dropdown{height:100px;}
+.center-wrap .cbox{margin-top:20px}
+.center-wrap .cbox i{font-size:24px;color:#666}
+.center-wrap .cbox span{font-size:13px;}
+.house-list{padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;}
+.house-list .h-left{padding:0;text-align:left;width:90%;}
+.house-list .h-right{padding:0;text-align:right;width:10%;}
+.house-list .am-dropdown{height:50px;}
+.house-list .h-left div div{line-height:50px;padding-left:20px;}
+.house-list .h-right div div{line-height:50px;padding-right:10px}
+.house-list .h-right i{color:#ccc;padding-left:10px;font-size:20px}
+.b-wrap{text-align:center;}
+.b-wrap a{display:inline-block;background:orange;height:45px;width:160px;border-radius:7px;font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;}

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>会员中心</title>
+    <title>我的预约</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,6 +13,26 @@
     <link rel="icon" type="image/png" href="assets/i/favicon.png">
     <link rel="stylesheet" href="assets/css/amazeui.min.css">
     <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style type="text/css">
+    .uhouse {
+        list-style: none;
+        line-height: 25px
+    }
+    
+    .uhouse > li {
+        margin-left: -32px;
+    }
+    
+    .ubig {
+        color: #444
+    }
+    
+    .usmall {
+        font-size: 13px;
+        color: #999
+    }
+    </style>
 </head>
 
 <body>
@@ -134,150 +154,37 @@
         </nav>
     </div>
     <!-- Public Header End -->
-    <div data-am-widget="slider" class="am-slider am-slider-c3" data-am-slider='{&quot;controlNav&quot;:false}'>
-        <ul class="am-slides" style="font-size:12px">
-            <li>
-                <img src="images/s_1.jpg">
-                <div class="am-slider-desc">
-                    <div class="am-slider-counter" style="background:#b9090e">
-                        <span class="am-active">1</span>/4</div>凤凰筑家 专筑您的爱家 / 互联网+家装</div>
-            </li>
-            <li>
-                <img src="images/s_2.jpg">
-                <div class="am-slider-desc">
-                    <div class="am-slider-counter" style="background:#b9090e">
-                        <span class="am-active">2</span>/4</div>一站式套餐化解决方案，让您装修无忧</div>
-            </li>
-            <li>
-                <img src="images/s_3.jpg">
-                <div class="am-slider-desc">
-                    <div class="am-slider-counter" style="background:#b9090e">
-                        <span class="am-active">3</span>/4</div>35天标准化施工流程，透明互动放心</div>
-            </li>
-            <li>
-                <img src="images/s_4.jpg">
-                <div class="am-slider-desc">
-                    <div class="am-slider-counter" style="background:#b9090e">
-                        <span class="am-active">4</span>/4</div>凤凰家装贷为您提供最方便的金融方案</div>
-            </li>
-        </ul>
-    </div>
-    <div class="am-form center-wrap" id="center">
-        <ul class="am-avg-sm-3">
-            <li>
-                <div class="am-dropdown" data-am-dropdown style="">
-                    <a href="u_info.html">
-                        <div class="cbox">
-                            <i class="am-icon-user"></i>
-                            <br />
-                            <span>个人资料</span>
+    <div class="am-form" id="myFav">
+        <ul class="am-avg-sm-2" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
+            <li style="padding:0;text-align:left;width:90%">
+                <div class="am-dropdown" data-am-dropdown="" style="height:50px;float:left">
+                    <a href="u_order_item.html">
+                        <div style="line-height:50px;padding-left:20px;">
+                            <ul class="uhouse">
+                                <li class="ubig">预约免费量房</li>
+                                <li class="usmall">YY01023012 / 2015-06-02 10:00</li>
+                            </ul>
                         </div>
                     </a>
                 </div>
             </li>
-            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;" data-am-widget="navbar">
-                <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="u_message.html">
-                        <div style="margin-top:20px">
-                            <i class="am-icon-envelope-o" style="font-size:24px;color:#666"></i>
-                            <br />
-                            <span style="font-size:13px;">我的留言</span>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
-                <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="u_live.html">
-                        <div style="margin-top:20px">
-                            <i class="am-icon-history" style="font-size:24px;color:#666"></i>
-                            <br />
-                            <span style="font-size:13px;">家装进度</span>
-                        </div>
-                    </a>
-                </div>
-            </li>
-        </ul>
-        <ul class="am-avg-sm-3" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
-            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
-                <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="u_order.html">
-                        <div style="margin-top:20px">
-                            <i class="am-icon-check-square-o" style="font-size:24px;color:#666"></i>
-                            <br />
-                            <span style="font-size:13px;">我的订单</span>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
-                <div class="am-dropdown" data-am-dropdown style="height:100px;margin-bottom:-8px">
-                    <a href="u_fav.html">
-                        <div style="margin:20px 0 0 0">
-                            <i class="am-icon-star-o" style="font-size:24px;color:#666"></i>
-                            <br />
-                            <span style="font-size:13px;">我的收藏</span>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
-                <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="u_comment.html">
-                        <div style="margin-top:20px">
-                            <i class="am-icon-comments-o" style="font-size:24px;color:#666"></i>
-                            <br />
-                            <span style="font-size:13px;">我的评论</span>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            
-        </ul>
-        <ul class="am-avg-sm-3" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
-            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
-                <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="u_house.html">
-                        <div style="margin-top:20px">
-                            <i class="am-icon-home" style="font-size:24px;color:#666"></i>
-                            <br />
-                            <span style="font-size:13px;">房屋信息</span>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
-                <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="u_live.html">
-                        <div style="margin-top:20px">
-                            <i class="am-icon-history" style="font-size:24px;color:#666"></i>
-                            <br />
-                            <span style="font-size:13px;">家装进度</span>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
-                <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="u_coupon.html">
-                        <div style="margin-top:20px">
-                            <i class="am-icon-certificate" style="font-size:24px;color:#666"></i>
-                            <br />
-                            <span style="font-size:13px;">我的优惠券</span>
+            <li style="padding:0;text-align:right;width:10%">
+                <div class="am-dropdown" data-am-dropdown="" style="height:50px">
+                    <a href="u_order_item.html">
+                        <div style="line-height:50px;padding-right:10px">
+                            <i class="am-icon-angle-right" style="color:#ccc;padding-left:10px;font-size:20px"></i>
                         </div>
                     </a>
                 </div>
             </li>
         </ul>
     </div>
-    <!--cubes end-->
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/amazeui.min.js"></script>
     <script src="js/libs/json.js"></script>
     <script src="js/libs/base.js"></script>
     <script src="js/libs/utils.js"></script>
-    <script src="js/profile.js"></script>
-    <script src="js/user.js"></script>
+    <script src="js/u_fav.js"></script>
 </body>
 
 </html>

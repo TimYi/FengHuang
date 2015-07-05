@@ -9,9 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="icon" type="image/png" href="../assets/i/favicon.png">
-    <link rel="stylesheet" href="../assets/css/amazeui.min.css">
-    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
     <style>
     .am-tabs-default .am-tabs-nav {
         line-height: 40px;
@@ -47,8 +47,8 @@
         <header data-am-widget="header" class="am-header am-header-default" style="border-top:1px solid #000111;background:#000;">
             <a href="index.html">
                <div class="am-header-left am-header-nav">
-                <img src="../images/logo.png" style="width:132px;height:18px;margin-top:-5px">
-                </div>
+                <img src="images/logo.png" style="width:132px;height:18px;margin-top:-5px">
+                </div> 
             </a>
         </header>
         <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
@@ -58,41 +58,41 @@
             <div class="am-offcanvas">
                 <div class="am-offcanvas-bar" style="background:#333 none repeat scroll 0 0">
                     <ul class="am-menu-nav sm-block-grid-1">
-                        <li class="am-parent" style="display:none" >
+                        <li class="am-parent">
                             <a href="#c3">我的</a>
                             <ul class="am-menu-sub am-collapse am-avg-sm-2">
                                 <li class="">
-                                    <a href="../login.html">登录</a>
+                                    <a href="login.html">登录</a>
                                 </li>
                                 <li class="">
                                     <a href="reg.html">注册</a>
                                 </li>
                                 <li class="">
-                                    <a href="javascript:void(0)">个人资料</a>
+                                    <a href="u_info.html">个人资料</a>
                                 </li>
                                 <li class="">
-                                    <a href="center/u_house.html">房屋信息</a>
+                                    <a href="u_house.html">房屋信息</a>
                                 </li>
                                 <li class="">
-                                    <a href="center/u_live.html">家装进度</a>
+                                    <a href="u_live.html">家装进度</a>
                                 </li>
                                 <li class="">
-                                    <a href="center/u_message.html">我的留言</a>
+                                    <a href="u_message.html">我的留言</a>
                                 </li>
                                 <li class="">
-                                    <a href="center/u_order.html">我的订单</a>
+                                    <a href="u_order.html">我的订单</a>
                                 </li>
                                 <li class="">
-                                    <a href="center/u_sub.html">我的预约</a>
+                                    <a href="u_sub.html">我的预约</a>
                                 </li>
                                 <li class="">
-                                    <a href="center/u_fav.html">我的收藏</a>
+                                    <a href="u_fav.html">我的收藏</a>
                                 </li>
                                 <li class="">
-                                    <a href="center/u_comment.html">我的评论</a>
+                                    <a href="u_comment.html">我的评论</a>
                                 </li>
                                 <li class="">
-                                    <a href="center/u_coupon.html">我的优惠券</a>
+                                    <a href="u_coupon.html">我的优惠券</a>
                                 </li>
                                 <li>
                                     <a href="javascript:Utils.loginOut();">安全退出</a>
@@ -204,9 +204,10 @@
                             </div>
                         </div>
                         <div class="am-form-group am-form-select">
-                            <select style="font-size:14px;height:40px" id="inlineRadio2" name="sex">
-                                <option value="1">男</option>
-                                <option value="2">女</option>
+                            <select style="font-size:14px;height:40px" id="sex" name="sex">
+                                <option value="">性别</option>
+                                <option value="404040e64dd26ab5014dd26ac61f0013">男</option>
+                                <option value="404040e64dd26ab5014dd26ac64e0014">女</option>
                             </select>
                         </div>
                         <div class="am-form-group">
@@ -229,14 +230,14 @@
                         <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-thumbnails">
                             <li>
                                 <div class="animation animated-item-3 " style="margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-                                    <a href="javascript:;" id="updatebtn" onclick="Buy_fhgj();">
+                                    <a href="javascript:;" id="updatebtn">
                                         <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">保存</div>
                                     </a>
                                 </div>
                             </li>
                             <li>
                                 <div class="animation animated-item-3" style="margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-                                    <a href="javascript:;" id="cancel" onclick="Buy_fhgj();">
+                                    <a href="javascript:;" id="cancel">
                                         <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">取消</div>
                                     </a>
                                 </div>
@@ -265,20 +266,31 @@
                         </div>
                         <div class="am-form-group am-form-select">
                             <select style="font-size:14px;height:40px" id="constellation" name="constellation">
-                                <option value="-1">星座</option>
-                                <option value="2">女</option>
+                                <option value="">--请选择--</option>
+                                <option value="404040e64dd26ab5014dd26ac3ee0006">水瓶座</option>
+                                <option value="404040e64dd26ab5014dd26ac41c0007">双鱼座</option>
+                                <option value="404040e64dd26ab5014dd26ac41c0008">白羊座</option>
+                                <option value="404040e64dd26ab5014dd26ac46a0009">金牛座</option>
+                                <option value="404040e64dd26ab5014dd26ac499000a">双子座</option>
+                                <option value="404040e64dd26ab5014dd26ac4b8000b">巨蟹座</option>
+                                <option value="404040e64dd26ab5014dd26ac4e7000c">狮子座</option>
+                                <option value="404040e64dd26ab5014dd26ac516000d">处女座</option>
+                                <option value="404040e64dd26ab5014dd26ac554000e">天枰座</option>
+                                <option value="404040e64dd26ab5014dd26ac583000f">天蝎座</option>
+                                <option value="404040e64dd26ab5014dd26ac5b20010">射手座</option>
+                                <option value="404040e64dd26ab5014dd26ac5e10011">摩羯座</option>
                             </select>
                         </div>
                         <div class="am-form-group am-form-select">
-                            <select style="font-size:14px;height:40px" id="profession" name="profession">
-                                <option value="-1">行业</option>
-                                <option value="2">女</option>
-                            </select>
+                            <input type="text" id="profession" name="profession" placeholder="行业" style="font-size:14px;height:40px">
                         </div>
                         <div class="am-form-group am-form-select">
                             <select style="font-size:14px;height:40px" id="bloodgroup" name="bloodgroup">
-                                <option value="-1">血型</option>
-                                <option value="2">女</option>
+                                <option value="">--请选择--</option>
+                                <option value="404040e64dd26ab5014dd26ac3320001">A</option>
+                                <option value="404040e64dd26ab5014dd26ac3610002">B</option>
+                                <option value="404040e64dd26ab5014dd26ac3800003">O</option>
+                                <option value="404040e64dd26ab5014dd26ac3bf0004">AB</option>
                             </select>
                         </div>
                         <div class="am-form-group">
@@ -296,14 +308,14 @@
                         <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-thumbnails">
                             <li>
                                 <div class="animation animated-item-3 " style="margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-                                    <a href="javascript:;" id="buynow" onclick="Buy_fhgj();">
+                                    <a href="javascript:;" id="updatebtn2">
                                         <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">保存</div>
                                     </a>
                                 </div>
                             </li>
                             <li>
                                 <div class="animation animated-item-3" style="margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-                                    <a href="javascript:;" id="buynow" onclick="Buy_fhgj();">
+                                    <a href="javascript:;" id="">
                                         <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">取消</div>
                                     </a>
                                 </div>
@@ -317,30 +329,27 @@
                     <form class="am-form">
                         <div class="am-form-group">
                             <div class="">
-                                <input type="password" id="oldPassword" name="oldPassword" placeholder="旧密码" style="font-size:14px;height:40px">
+                                <input type="password" id="oldpwd" name="oldpwd" placeholder="旧密码" style="font-size:14px;height:40px">
                             </div>
                         </div>
                         <div class="am-form-group">
                             <div class="">
-                                <input type="password" id="newPassword" name="newPassword" placeholder="新密码" style="font-size:14px;height:40px">
+                                <input type="password" id="newpwd" name="newpwd" placeholder="新密码" style="font-size:14px;height:40px">
                             </div>
                         </div>
                         <div class="am-form-group">
                             <div class="">
-                                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="重复新密码" style="font-size:14px;height:40px">
+                                <input type="password" id="newpwd2" name="newpwd2" placeholder="重复新密码" style="font-size:14px;height:40px">
                             </div>
-                        </div>
-                        <div class="am-form-group am-form-select">
-                            <select style="font-size:14px;height:40px" id="sex" name="sex">
-                                <option value="-1">提问</option>
-                                <option value="2">女</option>
-                            </select>
                         </div>
                         <div class="am-form-group">
-                            <div class="">
-                                <input type="text" id="nicheng" name="nicheng" placeholder="回答" style="font-size:14px;height:40px">
+                            <input class="am-fl" type="text" name="pwdimgcode" id="pwdimgcode" placeholder="验证码" style="width:55%">
+                            <div style="height:10px;"></div>
+                            <div style="float:right;margin-top:-10px;width:40%">
+                                <img id="updatepwdcodeimg" src="" alt="" style="height:42px;width:100%;">
                             </div>
                         </div>
+                        <div style="height:10px;"></div>
                     </form>
                 </p>
                 <p style="font-size:14px;line-height:18px;">
@@ -348,8 +357,8 @@
                         <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-thumbnails">
                             <li>
                                 <div class="animation animated-item-3 " style="margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-                                    <a href="javascript:;" id="buynow" onclick="Buy_fhgj();">
-                                        <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">保存</div>
+                                    <a href="javascript:;" id="updatepwdbtn">
+                                        <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">更新</div>
                                     </a>
                                 </div>
                             </li>
@@ -366,12 +375,12 @@
             </div>
         </div>
     </div>
-    <script src="../js/libs/jquery.min.js"></script>
-    <script src="../js/libs/amazeui.min.js"></script>
-    <script src="../js/libs/json.js"></script>
-    <script src="../js/libs/base.js"></script>
-    <script src="../js/libs/utils.js"></script>
-    <script src="../js/profile.js"></script>
-    <script src="../js/user.js"></script>
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/amazeui.min.js"></script>
+    <script src="js/libs/json.js"></script>
+    <script src="js/libs/base.js"></script>
+    <script src="js/libs/utils.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/user.js"></script>
 </body>
 </html>

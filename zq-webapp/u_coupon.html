@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!doctype html>
 <html class="no-js">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>免费服务</title>
+    <title>我的预约</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,6 +13,26 @@
     <link rel="icon" type="image/png" href="assets/i/favicon.png">
     <link rel="stylesheet" href="assets/css/amazeui.min.css">
     <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style type="text/css">
+    .uhouse {
+        list-style: none;
+        line-height: 25px
+    }
+    
+    .uhouse > li {
+        margin-left: -32px;
+    }
+    
+    .ubig {
+        color: #444
+    }
+    
+    .usmall {
+        font-size: 13px;
+        color: #999
+    }
+    </style>
 </head>
 
 <body>
@@ -134,86 +154,31 @@
         </nav>
     </div>
     <!-- Public Header End -->
-    <div data-am-widget="slider" class="am-slider am-slider-c3" data-am-slider='{&quot;controlNav&quot;:false}'>
-        <ul class="am-slides" style="font-size:12px">
-            <li>
-                <img src="images/s_1.jpg">
-                <div class="am-slider-desc">
-                    <div class="am-slider-counter" style="background:#b9090e">
-                        <span class="am-active">1</span>/3</div>专业仪器检测，房屋质量问一网打尽</div>
-            </li>
-            <li>
-                <img src="images/s_2.jpg">
-                <div class="am-slider-desc">
-                    <div class="am-slider-counter" style="background:#b9090e">
-                        <span class="am-active">2</span>/3</div>设计师现场测量，合理规划空间布局</div>
-            </li>
-            <li>
-                <img src="images/s_3.jpg">
-                <div class="am-slider-desc">
-                    <div class="am-slider-counter" style="background:#b9090e">
-                        <span class="am-active">3</span>/3</div>3套设计和预算方案，PK传统模式</div>
-            </li>
-        </ul>
-    </div>
-    <div class="am-form">
-        <ul class="am-avg-sm-3" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
-            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
-                <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="sub_yf.html">
-                        <div style="margin-top:20px">
-                            <i class="am-icon-magic" style="font-size:24px;color:#666"></i>
-                            <br />
-                            <span style="font-size:13px;">预约验房</span>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;" data-am-widget="navbar">
-                <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="sub_lf.html">
-                        <div style="margin-top:20px">
-                            <i class="am-icon-arrows-alt" style="font-size:24px;color:#666"></i>
-                            <br />
-                            <span style="font-size:13px;">预约量房</span>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
-                <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="sub_design.html">
-                        <div style="margin-top:20px">
-                            <i class="am-icon-pencil" style="font-size:24px;color:#666"></i>
-                            <br />
-                            <span style="font-size:13px;">预约设计</span>
-                        </div>
-                    </a>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <!--cubes end-->
-    <div class="am-tabs-bd" style="margin-top:10px;border:none;">
-        <div data-tab-panel-0 class="am-tab-panel am-active">
-            <p style="font-size:14px;line-height:18px;">
-                1秒钟发出预约申请，客服当日回访安排上门排期。售前免费服务PK传统模式。
-            </p>
-            <hr/>
-            <p style="font-size:14px;line-height:18px;color:#666">
-                <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">温馨提示 REMINDER</span></b>
-                <br/>
-                <br/> 上门服务人员均为凤凰筑家自有员工，服务流程严格按照标准工序执行，不满意可随时提出，直到用户满意位置。同时您可以拨打
-                <a href="tel:4006992888" style="color:#b9090e;font-weight:800">400-699-2888</a>按0转人工客服进行投诉。
-            </p>
-            <hr/>
-        </div>
-    </div>
+    <div class="am-form" id="myCoupon">
+    <ul class="am-avg-sm-2" style="padding:10px 0 0 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
+      <li style="padding:0;text-align:left;width:90%">
+            <div class="am-dropdown" data-am-dropdown="" style="float:left">
+                <a href="#">
+                    <div style="padding-left:20px;margin-bottom:-5px;">
+                        <ul class="uhouse">
+                            <li class="ubig">
+                                <span>购买499元/㎡新居家装套餐，享受折上折优惠</span><br>
+                                <span class="usmall">YHQ0123123 / 2015-06-02 10:00 / 未使用</span>
+                            </li>
+                        </ul>
+                    </div>
+                </a>
+            </div>
+      </li>  
+
+    </ul><!--hang-->
+</div>
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/amazeui.min.js"></script>
     <script src="js/libs/json.js"></script>
     <script src="js/libs/base.js"></script>
     <script src="js/libs/utils.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/u_coupon.js"></script>
 </body>
+
 </html>

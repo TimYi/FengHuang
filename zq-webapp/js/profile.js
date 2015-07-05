@@ -9,7 +9,6 @@ $(function(){
 	g.token = Utils.getQueryString("token");
 	g.page = Utils.getQueryString("p") - 0;
 	g.httpTip = new Utils.httpTip({});
-
 	//验证登录状态
 	var loginStatus = Utils.getUserInfo();
 	if(!loginStatus){
@@ -20,13 +19,36 @@ $(function(){
 		getUserInfo();
 		sendMyInfoCountsHttp();
 	}
-
 	$("#updatebtn").bind("click",updateUserInfo);
+	$("#updatebtn2").bind("click",updateUserInfo);
 	$("#loginoutbtn").bind("click",loginOut);
-	$("#phonetext").bind("blur",getImgCode);
-	$("#updatepwdcodeimg").bind("click",getImgCode);
+	//$("#newpwd2").bind("blur",getImgCode);
+	$("#updatepwdcodeimg").bind("click",getImgCode2);
 	$("#sendbtn").bind("click",getPhoneCode);
 	$("#bindbtn").bind("click",bindPhone);
+
+	$("#updatepwdbtn").bind("click",updateUserPwd);
+
+	setTimeout(function(){
+		getImgCode2();
+	},2000);
+
+	function getImgCode2(evt){
+		var userName = g.username || "";
+		if(userName !== ""){
+			$("#updatepwdcodeimg").attr("src",Base.imgCodeUrl + "?id=" + userName);
+			clearTimeout(g.tout);
+			g.tout = setTimeout(function(){
+				getImgCode();
+			},60000);
+		}
+		else{
+			setTimeout(function(){
+				getImgCode();
+			},100);
+			g.username = Base.userName;
+		}
+	}
 
 	//安全退出
 	function loginOut(){
@@ -41,7 +63,6 @@ $(function(){
 		var reg = /^1[3,5,7,8]\d{9}$/g;
 		if(img.length > 0 && reg.test(tel)){
 			g.codeId = tel;
-			console.log(tel);
 			$("#updatepwdcodeimg").attr("src",Base.imgCodeUrl + "?id=" + g.codeId);
 			clearTimeout(g.tout);
 			g.tout = setTimeout(function(){
@@ -191,30 +212,22 @@ $(function(){
 		//手机号
 		//condi.phone = $("#phonetext").val();
 		//QQ号
-		//condi.qq = $("#qqtext").val();
+		condi.qq = $("#qqtext").val();
 		//微信
-		//condi.weixin = $("#weixintext").val();
+		condi.weixin = $("#weixintext").val();
 		//生日
-		//condi.birthDay = $("#birthday").val();
+		condi.birthDay = $("#birthday").val();
 		//行业
 		condi.trade = $("#profession").val();
 		//现居住地
 		condi.address = $("#address").val();
 
-
-
 		//性别1男2女
-		condi.sexId = "404040e64dd26ab5014dd26ac61f0013";
-		var sexRadio = $("#inlineRadio2")[0].checked;
-		if(sexRadio){
-			//condi.sex = 2;
-			condi.sexId = "404040e64dd26ab5014dd26ac64e0014";
-		}
+		condi.sexId = $("#sex").val();
 		//血型
 		condi.bloodTypeId = $("#bloodgroup").val();
 		//星座
 		condi.constellationId = $("#constellation").val();
-		console.log(condi);
 		sendUpdateUserInfoHttp(condi);
 	}
 	//修改个人资料
@@ -248,11 +261,7 @@ $(function(){
 		//英文名
 		$("#ename").val(eName);
 		//性别1男2女
-		if(sex !== "404040e64dd26ab5014dd26ac61f0013"){
-			if($("#inlineRadio2").length > 0){
-				$("#inlineRadio2")[0].checked = true;
-			}
-		}
+		$("#sex").val(sex.id);
 		//个人简介
 		$("#message").val(message);
 		//电子邮箱
@@ -277,29 +286,6 @@ $(function(){
 		$("#constellation").val(constellation.id);
 		//血型
 		$("#bloodgroup").val(bloodgroup.id);
-
-
-		var li = [];
-		//li.push('<li>ID：' + obj.username + '</li>');
-		li.push('<li>' + obj.username + '</li>');
-		li.push('<li>5星级用户</li>');
-		$("#user_ul").html(li.join(''));
-
-		var li = [];
-		var loginIp = obj.loginip;
-		var loginTime = obj.loginTime;
-		var regIp = obj.regIp;
-		var regTime = obj.regTime;
-		var integra = obj.integra;
-		li.push('<li>登录 IP<span class="pull-right">' + loginIp + '</span></li>');
-		li.push('<li>注册时间<span class="pull-right">' + loginTime + '</span></li>');
-		li.push('<li>登录时间<span class="pull-right">' + regTime + '</span></li>');
-		li.push('<li>用户积分<span class="pull-right">' + integra + '分</span></li>');
-		$("#logintime").html(li.join(''));
-
-		//setUserFunHtml();
-
-
 	}
 
 	function setUserFunHtml(obj){
@@ -312,20 +298,40 @@ $(function(){
 		var collects = obj.collects || 0;
 
 		var html = [];
-		html.push('<ul class="blog_category">');
-		html.push('<li><a href="c_my.html?token=' + g.token + '&p=1" ' + (g.page == 1 ? h : "") + ' >个人信息 </a></li>');
-		html.push('<li><a href="c_safe.html?token=' + g.token + '&p=2" ' + (g.page == 2 ? h : "") + ' >安全设置 </a></li>');
-		html.push('<li><a href="c_home.html?token=' + g.token + '&p=3" ' + (g.page == 3 ? h : "") + '  >房屋信息 </a></li>');
-		html.push('<li><a href="c_ing.html?token=' + g.token + '&p=4" ' + (g.page == 4 ? h : "") + '  >家装进度 </a></li>');
-		html.push('<li><a href="c_message.html?token=' + g.token + '&p=5" ' + (g.page == 5 ? h : "") + '  >我的留言 <span class="badge">' + messages + '</span></a></li>');
-		html.push('<li><a href="c_sub.html?token=' + g.token + '&p=6" ' + (g.page == 6 ? h : "") + '  >我的预约 <span class="badge">' + appoints + '</span></a></li>');
-		html.push('<li><a href="c_order.html?token=' + g.token + '&p=7" ' + (g.page == 7 ? h : "") + '  >我的订单 <span class="badge"></span></a></li>');
-		html.push('<li><a href="c_comment.html?token=' + g.token + '&p=8" ' + (g.page == 8 ? h : "") + '  >我的评论 <span class="badge">' + comments + '</span></a></li>');
-		html.push('<li><a href="c_fav.html?token=' + g.token + '&p=9" ' + (g.page == 9 ? h : "") + '  >我的收藏 <span class="badge">' + collects + '</span></a></li>');
-		html.push('<li><a href="c_coupon.html?token=' + g.token + '&p=10" ' + (g.page == 10 ? h : "") + '  >我的优惠券 <span class="badge">' + coupons + '</span></a></li>');
+		html.push('<ul class="am-avg-sm-3">');
+		html.push('<li><div class="am-dropdown" data-am-dropdown>');
+		html.push('<a href="u_info.html?token=' +g.token +'&p=1" ' + (g.page == 2 ? h : "") + '>');
+		html.push('<div class="cbox"><i class="am-icon-user"></i><br /><span>个人资料</span></div></a></div></li>');
+		html.push('<li><div class="am-dropdown" data-am-dropdown>');
+		html.push('<a href="u_house.html?token=' +g.token +'&p=2" ' + (g.page == 2 ? h : "") + '>');
+		html.push('<div class="cbox"><i class="am-icon-home"></i><br /><span>房屋信息</span></div></a></div></li>');
+		html.push('<li><div class="am-dropdown" data-am-dropdown>');
+		html.push('<a href="u_live.html?token=' +g.token +'&p=3" ' + (g.page == 3 ? h : "") + '>');
+		html.push('<div class="cbox"><i class="am-icon-history"></i><br /><span>家装进度</span></div></a></div></li>');
 		html.push('</ul>');
-
-		$("#userfunul").html(html.join(''));
+		html.push('<ul class="am-avg-sm-3">');
+		html.push('<li><div class="am-dropdown" data-am-dropdown>');
+		html.push('<a href="u_message.html?token=' +g.token +'&p=4" ' + (g.page == 4 ? h : "") + '>');
+		html.push('<div class="cbox"><i class="am-icon-envelope-o"></i><br /><span>我的留言</span></div></a></div></li>');
+		html.push('<li><div class="am-dropdown" data-am-dropdown>');
+		html.push('<a href="u_sub.html?token=' +g.token +'&p=5" ' + (g.page == 5 ? h : "") + '>');
+		html.push('<div class="cbox"><i class="am-icon-clock-o"></i><br /><span>我的预约</span></div></a></div></li>');
+		html.push('<li><div class="am-dropdown" data-am-dropdown>');
+		html.push('<a href="u_order.html?token=' +g.token +'&p=6" ' + (g.page == 6 ? h : "") + '>');
+		html.push('<div class="cbox"><i class="am-icon-check-square-o"></i><br /><span>我的订单</span></div></a></div></li>');
+		html.push('</ul>');
+		html.push('<ul class="am-avg-sm-3">');
+		html.push('<li><div class="am-dropdown" data-am-dropdown>');
+		html.push('<a href="u_comment.html?token=' +g.token +'&p=7" ' + (g.page == 7 ? h : "") + '>');
+		html.push('<div class="cbox"><i class="am-icon-comments-o"></i><br /><span>我的评论</span></div></a></div></li>');
+		html.push('<li><div class="am-dropdown" data-am-dropdown>');
+		html.push('<a href="u_fav.html?token=' +g.token +'&p=8" ' + (g.page == 8 ? h : "") + '>');
+		html.push('<div class="cbox"><i class="am-icon-star-o"></i><br /><span>我的收藏</span></div></a></div></li>');
+		html.push('<li><div class="am-dropdown" data-am-dropdown>');
+		html.push('<a href="u_coupon.html?token=' +g.token +'&p=9" ' + (g.page == 9 ? h : "") + '>');
+		html.push('<div class="cbox"><i class="am-icon-certificate"></i><br /><span>我的优惠券</span></div></a></div></li>');
+		html.push('</ul>');
+		$("#center").html(html.join(''));
 	}
 
 
@@ -370,7 +376,6 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log(data);
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
@@ -393,6 +398,7 @@ $(function(){
 	function sendUpdateUserInfoHttp(obj){
 		g.httpTip.show();
 		var url = Base.profileUrl;
+		console.log(obj);
 		$.ajax({
 			url:url,
 			data:obj,
@@ -401,7 +407,6 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log(data);
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
@@ -469,7 +474,6 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log(data);
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
@@ -482,6 +486,46 @@ $(function(){
 			},
 			error:function(data){
 				g.httpTip.hide();
+			}
+		});
+	}
+
+	//更新个人密码
+	function updateUserPwd(){
+		var condi = {};
+		condi.token = g.token;
+		condi.username = g.username;
+		condi.oldPassword = $("#oldpwd").val();
+		condi.newPassword = $("#newpwd").val();
+		condi.confirmPassword = $("#newpwd2").val();
+		condi.captcha = $("#pwdimgcode").val();
+
+		console.log(condi);
+		sendUpdateUserPwdHttp(condi);
+	}
+
+	//获取个人资料请求
+	function sendUpdateUserPwdHttp(condi){
+		var url = Base.changePasswordUrl;
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"POST",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log(data);
+				var status = data.status || "";
+				if(status == "OK"){
+					alert("密码修改成功");
+				}
+				else{
+					var msg = data.error || "";
+					alert("修改登录密码错误:" + msg);
+				}
+			},
+			error:function(data){
 			}
 		});
 	}
