@@ -22,9 +22,9 @@ public class DecoratePackageInputArgs extends DtoBaseModel {
 	/**装修状况，如新居，旧房改造*/
 	private String decorate;
 	private MultipartFile mainPicFile;
-	@DateTimeFormat(pattern="yyyy-MM-dd hh:mm:ss")
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date scrambleStartTime;
-	@DateTimeFormat(pattern="yyyy-MM-dd hh:mm:ss")
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date scrambleEndTime;
 	private ScrambleStatus status;
 	

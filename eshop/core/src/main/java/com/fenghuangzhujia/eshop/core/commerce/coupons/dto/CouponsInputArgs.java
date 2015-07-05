@@ -2,6 +2,8 @@ package com.fenghuangzhujia.eshop.core.commerce.coupons.dto;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
 public class CouponsInputArgs extends DtoBaseModel {
@@ -9,6 +11,7 @@ public class CouponsInputArgs extends DtoBaseModel {
 	private String userId;
 	private String name;
 	private Double couponsMoney;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date expireTime;
 	
 	public String getUserId() {
