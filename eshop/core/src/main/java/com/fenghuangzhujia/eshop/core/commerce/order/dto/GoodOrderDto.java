@@ -3,6 +3,7 @@ package com.fenghuangzhujia.eshop.core.commerce.order.dto;
 import java.util.Date;
 
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder.OrderStatus;
+import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 import com.fenghuangzhujia.foundation.media.MediaContentDto;
 
@@ -16,6 +17,7 @@ public class GoodOrderDto extends DtoBaseModel {
 	private String shopid;
 	private String shop;	
 	private Object good;
+	private UserDto user;
 	/**交易时间*/
 	private Date payTime;
 	private String code;
@@ -85,5 +87,11 @@ public class GoodOrderDto extends DtoBaseModel {
 	}
 	public void setCode(String code) {
 		this.code = code;
+	}
+	public UserDto getUser() {
+		return user;
+	}
+	public void setUser(UserDto user) {
+		this.user = user;
 	}
 }
