@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
@@ -16,8 +16,8 @@
     <link href="../css/main.css" rel="stylesheet">
     <link href="../css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
-    <script src="../../js/html5shiv.js"></script>
-    <script src="../../js/respond.min.js"></script>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
     <![endif]-->
     <link rel="shortcut icon" href="../images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../images/ico/apple-touch-icon-144-precomposed.png">
@@ -26,26 +26,25 @@
     <link rel="apple-touch-icon-precomposed" href="../images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 
-<body class="homepage">
-
-    <header id="header" style="border-bottom:1px #f9f9f9 solid">
-        <div class="top-bar">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-xs-4">
-                        <div class="top-number">
-			                    	<p>
-			                    		<i class="fa fa-phone-square"></i>
-			                    		<span style="color:#666">&nbsp;&nbsp;400-699-2888</span>
-			                    		&nbsp;&nbsp;&nbsp;&nbsp;
-			                    		<i class="fa fa-map-marker"></i>
-			                    		<span style="color:#666">&nbsp;&nbsp;<span id="city">定位获取中...</span> <!--span style="font-size:12px;color:#aaa">[ <a href="">切换</a> ]</span--></span>
-			                    	</p>
-                        </div>
+<!-- header-->
+<header id="header" style="border-bottom:1px solid #f6f6f6;">
+    <div class="top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-xs-4">
+                    <div class="top-number">
+                    	<p>
+                    		<i class="fa fa-phone-square"></i>
+                    		<span style="color:#666">&nbsp;&nbsp;400-699-2888</span>
+                    		&nbsp;&nbsp;&nbsp;&nbsp;
+                    		<i class="fa fa-map-marker"></i>
+                    		<span style="color:#666">&nbsp;&nbsp;<span id="city">定位获取中...</span> <!--span style="font-size:12px;color:#aaa">[ <a href="">切换</a> ]</span--></span>
+                    	</p>
                     </div>
+                </div>
                     <div class="col-sm-6 col-xs-8">
                        <div class="social">
-                            <ul id="loginstatus" class="social-share">
+                           <ul id="loginstatus" class="social-share">
 				<li style="padding-right:10px;">
 					<i class="fa fa-sign-in hui"></i>
 					<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
@@ -54,13 +53,15 @@
 					</b>
 				</li>
                         </ul>
+
                        </div>
                     </div>
-                </div>
-            </div><!--/.container-->
-        </div><!--/.top-bar-->
+            </div>
+        </div><!--/.container-->
+    </div><!--/.top-bar-->
 
-        <nav class="navbar navbar-inverse" role="banner" style="height:85px">
+
+<nav class="navbar navbar-inverse" role="banner" style="height:85px">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -101,63 +102,128 @@
         </div><!--/.container-->
     </nav><!--/nav-->
 
-    </header><!--/header-->
+</header><!--/header-->
+<link rel="stylesheet" href="../assets/css/index.css" type="text/css" media="screen" />
+<div class="service_box">
+  <ul class="tab_nav">
+    <li class="qqicon"><a href="#"><i class="icon icon_1"></i></a></li>
+    <li class="weixinicon"><a href="#"><i class="icon icon_3"></i></a></li>
+  </ul>
+  <div class="tab_content1">
+    <div class="tab_plan">
+      <p class="fs14">售前客服<br />
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=932321904&amp;site=qq&amp;menu=yes" class="qq_link"><img border="0" src="http://wpa.qq.com/pa?p=2:2833026848:51" alt="点击这里给我发消息" title="点击这里给我发消息"></a></p>
+      <p class="fs14 mt10">售中客服<br />
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=50695843&amp;site=qq&amp;menu=yes" class="qq_link"><img border="0" src="http://wpa.qq.com/pa?p=2:123456789:51" alt="点击这里给我发消息" title="点击这里给我发消息"></a></p>
+      <p class="fs14 mt10">售后客服<br />
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=932321904&amp;site=qq&amp;menu=yes" class="qq_link"><img border="0" src="http://wpa.qq.com/pa?p=2:2833026848:51" alt="点击这里给我发消息" title="点击这里给我发消息"></a></p>
+			<p class="mt10"><b>电话客服</b><br />
+				400-699-2888<br />
+			</P>
+      <p class="mt10"><b>服务时间</b><br />
+        9:00-18:00(工作日)<br />
+      </p>
+    </div>
+    <div class="tab_plan" style="display: none;"><img src="../assets/images/weixin.jpg" alt="官方微信自助客服" width="130" height="130">
+      <p>关注凤凰筑家</p>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="../assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(".service_box .tab_nav li").hover(function(){
+	var i=$(this).index();
+	$(this).addClass("active").siblings().removeClass("active");
+	$(".service_box .tab_plan:eq("+i+")").show().siblings().hide();
+});
+$(function(){
+	var t;
+	$(".service_box").hover(function(){
+		$(".service_box").animate({right:0},300)
+		clearTimeout(t);
+	},function(){
+		t=setTimeout(function(e){
+			$(".service_box").animate({right:"-146px"},300);
+			$(".service_box").find(".tab_nav li").removeClass("active");
+		},1000);
+	});
+});
+var isTransition=true;
+$(".m_logo").hover(function(){
+	var r=0;
+	if(isTransition){
+		animateTime = setInterval(function(){
+			if (r>=153){
+				clearInterval(animateTime);
+				isTransition=true;
+			}else{
+				isTransition=false;
+				r++;
+				$(".m_logo a").attr("style","-webkit-mask:-webkit-gradient(radial, 45 25, "+r+", 45 25, "+(r+15)+", from(rgb(0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0.2)), to(rgb(0, 0, 0)));")
+			};
+		},5);
+	}
+},function(){
+	return;
+});
+
+</script>
+<!--header-->
 
 
 
-		<section style="width:400px;margin:0 auto;padding:80px 0 0 0">
-		<form action="" onsubmit="return false;" class="form-horizontal" class="media contact-info wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-		  <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
-		    <div class="col-sm-10" style="width:83%">
-		      <input type="" class="form-control" id="inputEmail3" placeholder="请输入用户名">
-		    </div>
-		  </div>
-		  <div class="form-group">
-		    <label for="password" class="col-sm-2 control-label">密码</label>
-		    <div class="col-sm-10" style="width:83%">
-		      <input type="password" class="form-control" id="password" placeholder="请输入密码">
-		    </div>
-		  </div>
-		  <div class="form-group">
-		    <label for="inputCode3" class="col-sm-2 control-label">验证码</label>
-		    <div class="col-sm-10" style="width:83%">
-		     <input type="text" class="form-control" id="inputCode3" placeholder="请输入图形验证码" style="width:160px;float:left;margin-top:4px;">
-		      <img id="updatecodebtn" src="" alt="" style="height: 40px;width: 150px;float:right" />
-		      <!--<button type="button" class="btn btn-default" style="float:right;margin-top:10px;width:150px">换一组图片</button>-->
-		    </div>
-		  </div>
-		  <div class="form-group">
-		    <div class="col-sm-offset-2 col-sm-10" style="width:83%">
-		      <div class="checkbox">
-		        <label>
-		          <!--<input id="autologin" type="checkbox" style=""> 自动登录 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
-		          <a href="../pwdfind.html" style="float:right;">忘记密码？</a>
-		        </label>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="form-group" style="padding:20px 0 100px 0">
-		    <div class="col-sm-offset-2 col-sm-10" style="width:83%">
-		      <button id="loginbtn" type="button" class="btn btn-default">　登录　</button>
-		      <button id="regbtn" type="button"  class="btn btn-default">　注册用户　</button>
-		    </div>
-		  </div>
-		  <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">授权登录</label>
-		    <div class="col-sm-10" style="width:83%">
-          <div class="breadcrumb" style="background:none">
-					  <li><a href="../#" title="微信登录"><i class="fa fa-weixin" style="font-size:1.5em;color:#44b549"></i></a></li>
-					  <li><a href="../#" title="QQ登录"><i class="fa fa-qq" style="font-size:1.5em;color:#66b2df"></i></a></li>
-					  <li class="active"><a href="../#" title="新浪微博登录"><i class="fa fa-weibo" style="font-size:1.5em;color:#e82f37"></i></a></li>
-					</div>
-		    </div>
-		  </div>
-
-
-
-		</form>
-		</section>
+<section style="width:400px;margin:0 auto;padding:100px 0 0 0">
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
+    <div class="col-sm-10" style="width:83%">
+      <input type="" class="form-control" id="inputEmail3" placeholder="请输入用户名">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+    <div class="col-sm-10" style="width:83%">
+      <input type="password" class="form-control" id="inputPassword3" placeholder="请输入密码">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPhone3" class="col-sm-2 control-label">手机号</label>
+    <div class="col-sm-10" style="width:83%">
+      <input type="text" maxLength=11 class="form-control" id="inputPhone3" placeholder="中国大陆手机号">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputImgCode3" class="col-sm-2 control-label">验证码</label>
+    <div class="col-sm-10" style="width:83%">
+	<input type="text" class="form-control" id="inputImgCode3" placeholder="请输入图形验证码" style="width:160px;float: left;margin-top: 4px;">
+	<img id="imgcodebtn" src="" alt="" style="height: 40px;width: 150px;float:right" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputCode3" class="col-sm-2 control-label">短信验证码</label>
+    <div class="col-sm-10" style="width:83%">
+      <input type="text" class="form-control" id="inputCode3" placeholder="请输入短信验证码" style="width:160px">
+      <button id="getcodebtn" type="button" class="btn btn-default" style="float:right;margin-top:-35px;width:150px">发送短信</button>
+    </div>
+  </div>
+  <!--div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10" style="width:83%">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> 自动登录
+        </label>
+      </div>
+    </div>
+  </div-->
+  <div class="form-group" style="padding-top:20px 0 100px 0">
+    <div class="col-sm-offset-2 col-sm-10" style="width:83%">
+      <button id="sendbtn" type="button" class="btn btn-default">　注册　</button>
+      <button id="resetbtn" type="button" class="btn btn-default">　重置　</button>
+    </div>
+  </div>
+</form>
+</section>
 
 
 <!--footer-->
@@ -291,6 +357,9 @@
 	<script src="../libs/json.js"></script>
 	<script src="../libs/base.js"></script>
 	<script src="../libs/utils.js"></script>
-	<script src="../js/login.js"></script>
+	<script src="../js/reg.js"></script>
+
+	<script src="../assets/js/sales.js"></script>
+	<script src="../assets/js/main.js"></script>
 </body>
 </html>

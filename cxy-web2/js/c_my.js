@@ -200,7 +200,7 @@ $(function(){
 		//微信
 		//condi.weixin = $("#weixintext").val();
 		//生日
-		//condi.birthDay = $("#birthday").val();
+		condi.birthDay = $("#birthday").val() || "";
 		//行业
 		condi.trade = $("#profession").val();
 		//现居住地
@@ -235,6 +235,9 @@ $(function(){
 		var qq = obj.qqnum || "";
 		var weixin = obj.weixinnum || "";
 		var birthday = obj.birthDay || "";
+		if(birthday !== ""){
+			birthday = birthday.substring(0,10);
+		}
 		var profession = obj.trade || "";
 		var address = obj.address || "";
 		var constellation = obj.constellation || {};
@@ -295,7 +298,7 @@ $(function(){
 		var loginTime = obj.loginTime || "";
 		var regIp = obj.regIp || "";
 		var regTime = obj.regTime || "";
-		var integra = obj.integra || "";
+		var integra = obj.integra || 0;
 		li.push('<li>登录 IP<span class="pull-right">' + loginIp + '</span></li>');
 		li.push('<li>注册时间<span class="pull-right">' + loginTime + '</span></li>');
 		li.push('<li>登录时间<span class="pull-right">' + regTime + '</span></li>');
@@ -310,11 +313,11 @@ $(function(){
 	function setUserFunHtml(obj){
 		//style="background:#b9090e;color:#fff;"
 		var h = 'style="background:#b9090e;color:#fff;"';
-		var comments = obj.comments || 0;
-		var coupons = obj.coupons || 0;
-		var messages = obj.messages || 0;
-		var appoints = obj.appoints || 0;
-		var collects = obj.collects || 0;
+		var comments = obj.comments || "";
+		var coupons = obj.coupons || "";
+		var messages = obj.messages || "";
+		var appoints = obj.appoints || "";
+		var collects = obj.collects || "";
 
 		var html = [];
 		html.push('<ul class="blog_category">');

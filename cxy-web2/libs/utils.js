@@ -476,14 +476,19 @@ Array.prototype.remove = function(n){
 	function loginOut(){
 		Utils.offLineStore.remove("userinfo",false);
 		Utils.offLineStore.remove("login_userprofile",false);
-		location.href = "index.html";
+		location.href = "../index.html";
 	}
 
 	//安全退出
 	function gotoCenter(){
 		var info = offLineStore.get("userinfo",false) || "";
 		if(info !== ""){
-			location.href = "center.html";
+			var token = Utils.offLineStore.get("token",false) || "";
+			var str = "";
+			if(token !== ""){
+				str = "?token=" + token + "&page=0";
+			}
+			location.href = "center.html" + str;
 		}
 		else{
 			location.href = "login.html";

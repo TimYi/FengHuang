@@ -102,7 +102,7 @@ $(function(){
 					//location.href = "center.html";
 					var token = data.result || "";
 					Utils.offLineStore.set("token",token,false);
-					location.href = "../center.html?token=" + token + "&p=0";
+					location.href = "center.html?token=" + token + "&p=0";
 				}
 				else{
 					var msg = data.error || "";
