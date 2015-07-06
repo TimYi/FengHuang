@@ -1,0 +1,7 @@
+@charset "utf-8";
+body{font-family: "宋体",arial, sans-serif}
+.m_nav .nav_i{padding:14px 20px;}
+.m_nav .start .nav_btn{ line-height:48px; overflow:hidden;}
+.m_nav .start a.nav_btn:hover{ color:#fff;}
+.has_sub .nav_btn .arb{margin-top:9px;}
+.banner_ctrl a{  background:url(images/banner_ctrl.jpg) no-repeat;}

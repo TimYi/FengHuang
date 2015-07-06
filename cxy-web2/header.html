@@ -1,0 +1,249 @@
+<header id="header" style="border-bottom:1px solid #f6f6f6;">
+    <div class="top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-xs-4">
+                    <div class="top-number">
+                    	<p>
+                    		<i class="fa fa-phone-square"></i>
+                    		<span style="color:#666">&nbsp;&nbsp;400-699-2888</span>
+                    		&nbsp;&nbsp;&nbsp;&nbsp;
+                    		<i class="fa fa-map-marker"></i>
+                    		<span style="color:#666">&nbsp;&nbsp;<span id="city">定位获取中...</span> <!--span style="font-size:12px;color:#aaa">[ <a href="">切换</a> ]</span--></span>
+                    	</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-8">
+                   <div class="social">
+                        <ul class="social-share">
+													<?php 
+														if($cfg_member == 'Y'){
+															if(isset($_COOKIE['username'])){
+															$c_uname = AuthCode($_COOKIE['username']);
+													?>
+																<li style="padding-right:10px;">
+																	<i class="fa fa-user hui"></i>
+																	<span style="color:#aaa"><?=$c_uname;?>，您好！</span>
+																	<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="member.php?c=default" style="width:60px">会员中心</a></b>
+																	<b style="padding:0 10px;font-weight:normal"><a href="member.php?a=logout" style="width:30px">退出</a></b>
+																</li>
+													<?php 
+															}else{ 
+													?>
+																<li style="padding-right:10px;">
+																	<i class="fa fa-sign-in hui"></i>
+																	<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
+																		<a href="member.php?c=reg" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
+																		<a href="member.php?c=login" style="width:30px">登录</a>
+																	</b>
+																</li>
+													<?php 
+															}
+														}
+														else{ 
+														} 
+													?>
+                        </ul>
+                        <!--div class="search">
+                            <form role="form">
+                            		<i class="fa fa-search"></i>
+                                <input type="text" class="search-form" autocomplete="off" placeholder="搜索">
+                            </form>
+                        </div-->
+                   </div>
+                </div>
+            </div>
+        </div><!--/.container-->
+    </div><!--/.top-bar-->
+
+    <nav class="navbar navbar-inverse" role="banner" style="height:85px">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img src="images/fhzj.jpg" alt="logo"></a>
+            </div>
+		
+            <div class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">首页</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">家装套餐 <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="tc_699.php">699 装修套餐</a></li>
+                            <li><a href="tc_799.php">软装套餐</a></li>
+                            <!--li><a href="tc_1299.php">1299 电器套餐</a></li>
+                            <li style="padding:0 5px;margin:5px 0;border-bottom:1px solid #555"></li>
+                            <li><a href="freesub.php">预约免费服务</a></li-->
+                            <li style="padding:0 5px;margin:5px 0;border-bottom:1px solid #555"></li>
+                            <li><a href="tmzs.php">流程展示</a></li>
+                            <li><a href="gyzs.php">工艺展示</a></li>
+                            <li><a href="zczs.php">主材展示</a></li>                                
+                        </ul>
+                    </li>
+                    <li><a href="jzd.php">家装贷</a></li>
+                    <li><a href="tyg.php">体验馆</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">案例 / Live直播 <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="anlis.php">案例集锦</a></li>
+                            <li><a href="case.php">家装进行时</a></li>
+                        </ul>
+                    </li>
+										<li style="border:0px"><a href="fhgj.php">凤凰管家</a></li>
+                </ul>
+            </div>
+        </div><!--/.container-->
+    </nav><!--/nav-->
+</header><!--/header-->
+<link rel="stylesheet" href="css/index.css" type="text/css" media="screen" />
+<div class="service_box">
+  <ul class="tab_nav">
+    <li class="qqicon"><a href="#"><i class="icon icon_1"></i></a></li>
+    <li class="weixinicon"><a href="#"><i class="icon icon_3"></i></a></li>
+  </ul>
+  <div class="tab_content1">
+    <div class="tab_plan">
+      <p class="fs14">售前客服<br />
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=932321904&amp;site=qq&amp;menu=yes" class="qq_link"><img border="0" src="http://wpa.qq.com/pa?p=2:2833026848:51" alt="点击这里给我发消息" title="点击这里给我发消息"></a></p>
+      <p class="fs14 mt10">售中客服<br />
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=50695843&amp;site=qq&amp;menu=yes" class="qq_link"><img border="0" src="http://wpa.qq.com/pa?p=2:123456789:51" alt="点击这里给我发消息" title="点击这里给我发消息"></a></p>
+      <p class="fs14 mt10">售后客服<br />
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=932321904&amp;site=qq&amp;menu=yes" class="qq_link"><img border="0" src="http://wpa.qq.com/pa?p=2:2833026848:51" alt="点击这里给我发消息" title="点击这里给我发消息"></a></p>
+			<p class="mt10"><b>电话客服</b><br />
+				400-699-2888<br />
+			</P>
+      <p class="mt10"><b>服务时间</b><br />
+        9:00-18:00(工作日)<br />
+      </p>
+    </div>
+    <div class="tab_plan" style="display: none;"><img src="images/weixin.jpg" alt="官方微信自助客服" width="130" height="130">
+      <p>关注凤凰筑家</p>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(".service_box .tab_nav li").hover(function(){
+	var i=$(this).index();
+	$(this).addClass("active").siblings().removeClass("active");
+	$(".service_box .tab_plan:eq("+i+")").show().siblings().hide();
+});
+$(function(){
+	var t;
+	$(".service_box").hover(function(){
+		$(".service_box").animate({right:0},300)
+		clearTimeout(t);
+	},function(){
+		t=setTimeout(function(e){
+			$(".service_box").animate({right:"-146px"},300);
+			$(".service_box").find(".tab_nav li").removeClass("active");
+		},1000);
+	});
+});
+var isTransition=true;
+$(".m_logo").hover(function(){
+	var r=0;
+	if(isTransition){
+		animateTime = setInterval(function(){
+			if (r>=153){
+				clearInterval(animateTime);
+				isTransition=true;
+			}else{
+				isTransition=false;
+				r++;
+				$(".m_logo a").attr("style","-webkit-mask:-webkit-gradient(radial, 45 25, "+r+", 45 25, "+(r+15)+", from(rgb(0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0.2)), to(rgb(0, 0, 0)));")
+			};
+		},5);
+	}
+},function(){
+	return;
+});
+
+</script> 
+<!--[if lt IE 7]>
+<script type="text/javascript">
+	window.onscroll = function(){
+		doc_scroll();
+	};
+	var doc_scroll = function(){
+		var height = document.documentElement.clientHeight - 90 ;
+		var scroll_top = $(document).scrollTop() ;
+		$(".service_box").css({
+			"top" : height + scroll_top - 74
+		});
+	};
+	doc_scroll();
+</script> 
+<![endif]-->
+
+<!--div class="header">
+	<h1 class="logo"><a href="javascript:;"></a></h1>
+	<div class="txt"><a href="javascript:;" onclick="AddFavorite();return false;">加入收藏</a><span>|</span>
+	<?php if($cfg_member == 'Y'){if(isset($_COOKIE['username'])){?><a href="member.php?c=default">会员中心</a>&nbsp;&nbsp;<a href="member.php?a=logout">退出</a><?php }else{ ?><a href="member.php?c=login">登录</a>&nbsp;&nbsp;&nbsp;<a href="member.php?c=reg">注册</a><?php }}else{ ?><a href="javascript:;" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage(location.href);">设为首页</a><?php } ?></div>
+	<div class="tel"><?php echo $cfg_hotline; ?></div>
+</div>
+<div class="navArea">
+	<div class="navBg">
+		<ul class="nav">
+			<?php echo GetNav(); ?>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+
+$(function(){
+
+	/*当前页面导航高亮*/
+	var href = window.location.href.split('/')[window.location.href.split('/').length-1].substr(0,4);
+	if(href.length > 0){
+		$(function(){
+			$("ul.nav a:first[href^='"+href+"']").attr("class","on");
+			if($("ul.nav a:first[href^='"+href+"']").size() == 0){
+				$("ul.nav a:first[href^='index']").attr("class","on");
+			}
+		});
+	}else{
+		$(function(){$("ul.nav a:first[href^='index']").attr("class","on")});
+	}
+
+	/*下拉菜单*/
+	$(".nav li").hover(function(){
+		$(this).parents(".nav > li").find("a:first").addClass("on2");
+		$(this).find("ul:first").show(); //鼠标滑过查找li下面的第一个ul显示
+	},function(){
+		var navobj = $(this).find("ul:first");
+		navobj.hide();
+
+		//鼠标离开隐藏li下面的ul
+		if(navobj.attr("class") == "nav_sub")
+		{
+			$(this).find("a:first").removeClass("on2");
+		}
+	})
+
+	//给li下面ul是s的样式的前一个同辈元素添加css
+	$(".nav li ul li ul").prev().addClass("t");
+})
+
+
+//加入收藏
+function AddFavorite(){
+	if(document.all){
+		try{
+			window.external.addFavorite(window.location.href,document.title);
+		}catch(e){
+			alert("加入收藏失败，请使用Ctrl+D进行添加！");
+		}
+	}else if(window.sidebar){
+		window.sidebar.addPanel(document.title, window.location.href, "");
+	}else{
+		alert("加入收藏失败，请使用Ctrl+D进行添加！");
+	}
+}
+</script-->
