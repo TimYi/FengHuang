@@ -18,7 +18,7 @@
 	var userName = "";
 
 	//请求服务地址
-	var serverUrl = "http://101.200.231.165:8080";
+	var serverUrl = "http://101.200.229.135:8080";
 
 	var categoryUrl = serverUrl + "/api/category";
 	var cityUrl = serverUrl + "/api/area/level";
