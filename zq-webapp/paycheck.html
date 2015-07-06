@@ -1,10 +1,9 @@
-﻿<!doctype html>
+﻿<!DOCTYPE html>
 <html class="no-js">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>案例直播</title>
+    <title>凤凰筑家</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,43 +12,10 @@
     <link rel="icon" type="image/png" href="assets/i/favicon.png">
     <link rel="stylesheet" href="assets/css/amazeui.min.css">
     <link rel="stylesheet" href="assets/css/app.css">
-    <link href="fhzj/css/bootstrap.min1.css" rel="stylesheet">
-    <style>
-    a:hover {
-        text-decoration: none;
-    }
-    
-    .am-tabs-default .am-tabs-nav {
-        line-height: 40px;
-        background-color: #fff;
-        margin-top: 10px;
-    }
-    
-    .am-tabs-default .am-tabs-nav a {
-        color: #ccc;
-        line-height: 45px;
-    }
-    
-    .am-tabs-default .am-tabs-nav > .am-active a {
-        background-color: #fff;
-        color: #0e90d2;
-        box-shadow: inset -1px 0 1px -1px #999;
-    }
-    
-    .x {
-        box-shadow: inset -1px 0 1px -1px #999;
-    }
-    
-    .ttt {
-        font-size: 13px;
-        margin-top: -15px;
-        color: #666
-    }
-    </style>
 </head>
 
 <body>
-    <!--banner+menu start-->
+		<!--banner+menu start-->
     <div data-am-sticky>
         <header data-am-widget="header" class="am-header am-header-default" style="border-top:1px solid #000111;background:#000;">
             <div class="am-header-left am-header-nav">
@@ -112,54 +78,57 @@
         </nav>
     </div>
     <!--banner+menu end-->
-    <div data-am-widget="tabs" class="am-tabs am-tabs-default" style="width:100%;padding:0;margin:0">
-        <ul class="am-tabs-nav am-cf">
-            <li class="am-active x" style="line-height:10px;">
-                <a href="[data-tab-panel-0]">
-                    <i class="am-icon-cube" style="font-size:24px;"></i>
-                    <div class="ttt">案例馆</div>
-                </a>
-            </li>
-            <li class="x">
-                <a href="[data-tab-panel-1]">
-                    <i class="am-icon-camera-retro" style="font-size:24px;"></i>
-                    <div class="ttt">Live直播</div>
-                </a>
-            </li>
-        </ul>
-        <div class="am-tabs-bd" style="margin-top:10px;border:none; box-shadow:inset -1px 1px 1px -1px #999;padding:0;margin:0">
-            <div data-tab-panel-0 class="am-tab-panel am-active">
-                <div id="caseTag" class="tag-wrap am-sticky-placeholder">
-                </div>
-                <ul id="caseList" data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-overlay" data-am-gallery="{ pureview: false }" style="margin:-10px">
-                    <li>
-                        <div class="am-gallery-item">
-                            <a href="alxq.html" class="">
-                                <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="北京亚运村千鹤家园" />
-                                <h3 class="am-gallery-title" style="font-size:12px;">北京亚运村千鹤家园</h3>
-                            </a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div data-tab-panel-1 class="am-tab-panel ">
-                <div id="liveTag" class="tag-wrap am-sticky" data-am-sticky>
-                    <span class="tag active">最新</span>
-                    <span class="tag">进行中</span>
-                    <span class="tag">已交房</span>
-                    <span class="tag">验收中</span>
-                </div>
-                <ul id="liveList" data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-overlay" data-am-gallery="{ pureview: false }" style="margin:-10px">
-                </ul>
-            </div>
-        </div>
-    </div>
+
+		
+		<div class="am-tabs-bd" style="margin-top:10px;border:none;">
+		  <div data-tab-panel-0 class="am-tab-panel am-active">
+		  	<p style="font-size:14px;line-height:18px;">
+		  		<b>您已成功预约699家装套餐！</b><br/>
+		  		订单：DD001023020123<br/>
+		  		定金：1000元<br/>
+		  		备注：张倩/北京市朝阳区**小区/120㎡/四居室
+		  	</p>
+		  	<hr/>
+		  	<p style="font-size:14px;line-height:18px;color:#666">
+		  		<i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">选择支付方式 PAY STYLE</span></b>
+		  		<br/><br/>
+						<form class="am-form" action="https://xx.xx.xx.xx/payment/main" method="post" target="_blank" >
+			 			  <div class="am-form-group am-form-select">
+						    <select style="font-size:14px;height:40px" id="sex" name="sex" >
+						      <option value="-1">请选择支付银行</option>
+						      <option value="2">招商银行</option>
+						      <option value="2">工商银行银行</option>						      
+						      <option value="1">中国建设银行</option>
+						      <option value="2">中国农业银行</option>
+						      <option value="2">中国民生银行</option>						      
+						      <option value="1">华夏银行</option>
+						      <option value="2">广东发展银行</option>
+						      <option value="2">兴业银行</option>						      
+						      <option value="1">光大银行</option>
+						      <option value="2">交通银行</option>
+						      <option value="2">中国银行</option>						      
+						      <option value="1">中信银行</option>
+						      <option value="2">上海银行</option>
+						      <option value="2">平安银行</option>						      
+						      <option value="1">邮政储蓄</option>
+						      <option value="2">虚拟银行（测试用）</option>
+						    </select>
+						  </div> 
+						</form>	
+	  	<div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+				<a href="javascript:;" id="buynow" onclick="" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">下一步</div></a>
+			</div> 							  		
+		  	</p>
+		  	<hr/>
+			</div>
+		</div>		
+						
+
+    <!--cubes end-->
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/amazeui.min.js"></script>
     <script src="js/libs/json.js"></script>
     <script src="js/libs/base.js"></script>
     <script src="js/libs/utils.js"></script>
-    <script src="js/case.js"></script>
 </body>
-
 </html>

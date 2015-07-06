@@ -18,7 +18,8 @@
 	var userName = "";
 
 	//请求服务地址
-	var serverUrl = "http://IFHZJ.com";
+	//var serverUrl = "http://IFHZJ.com";
+	var serverUrl = "http://101.200.229.135";
 
 	var categoryUrl = serverUrl + "/api/category";
 	var cityUrl = serverUrl + "/api/area/level";
@@ -59,6 +60,7 @@
 	var packageAppointUrl = serverUrl + "/api/user/packageAppoint";
 	var scramble = serverUrl + "/api/product/package/scramble";
 	var articalUrl = serverUrl + "/api/artical/code";
+	var couponScram = serverUrl + "/api/coupons/scramble";
 
 	Base.userName = userName;
 	Base.urlPort = urlPort;
@@ -102,4 +104,5 @@
 	Base.scramble = scramble;
 	Base.articalUrl = articalUrl;
 	Base.caseTags = caseTags;
+	Base.couponScram = couponScram;
 }(window));

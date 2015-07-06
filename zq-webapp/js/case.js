@@ -7,6 +7,7 @@ $(function(){
 	g.username = Base.userName;
 	g.token = Utils.getQueryString("token");
 	g.page = Utils.getQueryString("p") - 0;
+	g.ptab = Utils.getQueryString("pt") - 0;
 	g.totalPage = 1;
 	g.currentPage = 1;
 	g.paseSize = 20;
@@ -121,7 +122,6 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log(data);
 				var status = data.status || "";
 				if(status == "OK"){
 					changeCaseListHtml(data.result);
@@ -140,10 +140,10 @@ $(function(){
 
 	function changeCaseListHtml(data){
 		var obj = data.result || [];
+		var html = [];
 		if(obj.length > 0){
 			g.listdata = obj;
 
-			var html = [];
 			for(var i = 0,len = obj.length; i < len; i++){
 				var d = obj[i] || {};
 				var id = d.id || "";
@@ -163,10 +163,9 @@ $(function(){
 				html.push('<h3 class="am-gallery-title" style="font-size:12px;">'+packageName+'</h3>');
 				html.push('</div>');
 			}
-
-			$("#caseList").html(html.join(''));
-
 		}
+		$("#caseList").html(html.join(''));
+
 	}
 
 	function getLiveList(){

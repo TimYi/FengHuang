@@ -1007,3 +1007,6 @@ input[placeholder],[placeholder],*[placeholder] {
 #packageStatus p,.pack-p p{margin:8px 0;}
 .btn-op{margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;}
 .btn-op div{font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;}
+.loan-cal em{font-style:normal;font-weight: normal;}
+.loan-cal em:last-child{font-size:18px;color:#b9090e;}
+.buy-pack div{font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;}

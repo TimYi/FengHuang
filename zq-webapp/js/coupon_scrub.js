@@ -14,33 +14,12 @@ $(function() {
     g.listdata = [];
     //验证登录状态
     g.loginStatus = Utils.getUserInfo();
-    getPackages();
+    getCoupons();
+    $('.coupon-btn').bind('click',couponScram);
 
-    function changeBtn(data){
-        var $buy699 = $("#buy699");
-        var $buy799 = $("#buy799");
-        var obj = data.result;
-        if(obj[0].hasScrambled ){
-            $buy699.find("div").text("已抢购成功");
-            return false;
-        }else if(obj[0].hasAppointed){
-            $buy699.find("div").text("立刻抢购");
-            $buy699.click(function(){
-                miaoSha(obj[0].id);
-                location.href = "paycheck.html?id+"+g.packages[0]["id"]);
-            });
-        }else{
-            $buy699.find("div").text("立刻预约");
-            $buy699.attr("href","subcheck.html?id="+g.packages[0]["id"]);
-        }
-    }
-
-    function getPackages(){
-        var url = Base.packagesUrl;
+    function getCoupons(){
+        var url = Base.couponScram;
         var condi = {};
-        condi.token = g.token;
-        condi.page = 1;
-        condi.size = 10;
         g.httpTip.show();
         $.ajax({
             url:url,
@@ -52,10 +31,37 @@ $(function() {
             success: function(data){
                 var status = data.status || "";
                 if(status == "OK"){
-                    changeBtn(data.result);
+                    g.id=data.result.id;
                 }
                 else{
-                    Utils.alert("预约类别获取失败");
+                    Utils.alert("优惠券抢购获取失败");
+                }
+                g.httpTip.hide();
+            },
+            error:function(data){
+                g.httpTip.hide();
+            }
+        });
+    }
+
+    function couponScram(){
+        var url = Base.couponScram;
+        var condi = {};
+        condi.token = g.token;
+        g.httpTip.show();
+        $.ajax({
+            url:url,
+            data:condi,
+            type:"POST",
+            dataType:"json",
+            context:this,
+            global:false,
+            success: function(data){
+                if(data){
+                    alert("优惠券抢购成功！")
+                }
+                else{
+                    alert("优惠券抢购失败!");
                 }
                 g.httpTip.hide();
             },
@@ -71,6 +77,7 @@ $(function() {
         condi.token = g.token;
         condi.id = id;
         condi.caseId = "";
+        console.log(condi);
         g.httpTip.show();
         $.ajax({
             url:url,
@@ -80,7 +87,6 @@ $(function() {
             context:this,
             global:false,
             success: function(data){
-                console.log("miaoSha",data);
                 var status = data.status || "";
                 if(status == "OK"){
                     Utils.alert("抢购成功");

@@ -1,8 +1,3 @@
-/**
- * file:工具类
- * author:ToT
- * date:2015-05-13
-*/
 
 //格式化日期
 Date.prototype.format = function(format){
@@ -47,8 +42,6 @@ Array.prototype.remove = function(n){
 	slice方法： 返回一个数组的一段，两个参数，分别指定开始和结束的位置。
 	*/
 };
-
-
 
 (function(window){
 	if (typeof Utils === "undefined") {
@@ -493,10 +486,6 @@ Array.prototype.remove = function(n){
 }(window));
 
 
-
-
-
-
 $(function(){
 	var g = {};
 	g.phone = "";
@@ -591,3 +580,10 @@ $(function(){
 		$($(".dropdown-menu")[0]).html(html.join(''));
 	}
 });
+
+var changeTab = function(){
+	var g ={};
+	g.ptab = Utils.getQueryString("pt") - 0;
+	$('.am-tabs-nav').find('li').eq(g.ptab).addClass('am-active').siblings('li').removeClass('am-active');
+	$('.am-tab-panel').eq(g.ptab).addClass('am-active am-in').siblings('div').removeClass('am-active am-in')
+}();

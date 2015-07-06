@@ -62,8 +62,6 @@ $(function(){
                 html.push('<a href="u_fav_item.html?id='+id+'&token='+g.token+'&p=8">');
                 html.push('<div><i class="am-icon-angle-right"></i></div></a></div></li></ul>');
 			}
-			
-
 			$("#myFav").html(html.join(''));
 		}
 	}

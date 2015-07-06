@@ -247,7 +247,7 @@ $(function(){
 		}
 		else{
 			alert("请先登录");
-			//location.href = "login.html";
+			location.href = "login.html";
 		}
 	}
 
