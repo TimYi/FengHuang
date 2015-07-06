@@ -673,7 +673,7 @@ $(function(){
 		for(var i = 0,len = data.length; i < len; i++){
 			var obj = data[i];
 			var id = obj.id || "";
-			var price = obj.price || "";
+			var price = obj.price - 0 || "";
 			var decorate = obj.decorate || "";
 			var description = obj.description || "";
 			var status = obj.status || "";
@@ -682,7 +682,7 @@ $(function(){
 			var scrambleStartTime = obj.scrambleStartTime || "";
 			var scrambleEndTime = obj.scrambleEndTime || "";
 			var hasAppointed = obj.hasAppointed || false;
-			if(id == Utils.getQueryString("id")){
+			if(price == 699){
 				//699
 				if(status == "PREPARE"){
 					$(".buynow").html('<div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">未开始</div>');
