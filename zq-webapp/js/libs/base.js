@@ -18,8 +18,8 @@
 	var userName = "";
 
 	//请求服务地址
-	//var serverUrl = "http://IFHZJ.com";
-	var serverUrl = "http://101.200.229.135";
+	var serverUrl = "http://IFHZJ.com";
+	//var serverUrl = "http://101.200.229.135";
 
 	var categoryUrl = serverUrl + "/api/category";
 	var cityUrl = serverUrl + "/api/area/level";

@@ -27,7 +27,7 @@ $(function() {
             $buy699.find("div").text("立刻抢购");
             $buy699.click(function(){
                 miaoSha(obj[0].id);
-                location.href = "paycheck.html?id+"+g.packages[0]["id"]);
+                location.href = "paycheck.html?id+"+g.packages[0]["id"];
             });
         }else{
             $buy699.find("div").text("立刻预约");
