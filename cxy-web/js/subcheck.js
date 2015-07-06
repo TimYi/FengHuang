@@ -9,6 +9,7 @@ $(function(){
 	g.username = Base.userName;
 	g.token = Utils.offLineStore.get("token",false);
 	g.page = Utils.getQueryString("p") - 0;
+	g.id = Utils.getQueryString("id") - 0;
 	g.totalPage = 1;
 	g.currentPage = 1;
 	g.paseSize = 20;
@@ -29,33 +30,19 @@ $(function(){
 		else{
 			g.reserveStatus = false;
 		}
-		//$("#name").val(name);
-		//$("#phone").val(mobile);
+		$("#name").val(name);
+		$("#phone").val(mobile);
 
-		//$("#name2").val(name);
-		//$("#phone2").val(mobile);
-
-		//getImgCode();
-		//getImgCode2();
+		getImgCode();
 	}
 
 
-	/*
 	$("#phone").bind("blur",getImgCode);
 	$("#imgcodebtn").bind("click",getImgCode);
 	$("#getcodebtn").bind("click",getValidCode);
 	$("#buybtn").bind("click",buyBtnUp);
 
-	$("#phone2").bind("blur",getImgCode2);
-	$("#imgcodebtn2").bind("click",getImgCode2);
-	$("#getcodebtn2").bind("click",getValidCode2);
-	$("#buybtn2").bind("click",buyBtnUp2);
-
 	$("#provId").bind("change",getProvCity);
-	$("#provId2").bind("change",getProvCity2);
-	*/
-
-	getPackages();
 
 	//getAppointCategory();
 	getProv();
@@ -374,6 +361,7 @@ $(function(){
 				location.href = "c_my.html?token=" + g.token + "&p=1";
 				return;
 			}
+
 			var condi = {};
 			/*
 			token:用户凭据
@@ -513,12 +501,13 @@ $(function(){
 				console.log("sendAppointHttp",data);
 				var status = data.status || "";
 				if(status == "OK"){
-					Utils.alert("预约成功");
-					$("#buybtn").html("您已成功预约");
-					$("#buybtn2").html("您已成功预约");
+					//Utils.alert("预约成功");
+					//$("#buybtn").html("您已成功预约");
+					//$("#buybtn2").html("您已成功预约");
+					history.go(-1);
 				}
 				else{
-					Utils.alert("预约失败");
+					Utils.alert("预约失败:" +data.errorDescription );
 				}
 				g.httpTip.hide();
 			},
@@ -539,7 +528,7 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log("sendAppointHttp",data);
+				console.log("sendAppointHttp2",data);
 				var status = data.status || "";
 				if(status == "OK"){
 					Utils.alert("预约成功");
@@ -556,124 +545,6 @@ $(function(){
 			}
 		});
 	}
-
-
-
-
-	function getPackages(){
-		var url = Base.packagesUrl;
-		var condi = {};
-		condi.token = g.token;
-		condi.page = 1;
-		condi.size = 10;
-		g.httpTip.show();
-		$.ajax({
-			url:url,
-			data:condi,
-			type:"GET",
-			dataType:"json",
-			context:this,
-			global:false,
-			success: function(data){
-				console.log("getPackages",data);
-				var status = data.status || "";
-				if(status == "OK"){
-					changePackageList(data.result.result);
-				}
-				else{
-					Utils.alert("套餐列表获取失败");
-				}
-				g.httpTip.hide();
-			},
-			error:function(data){
-				g.httpTip.hide();
-			}
-		});
-	}
-
-	function changePackageList(data){
-		for(var i = 0,len = data.length; i < len; i++){
-			var obj = data[i];
-			var id = obj.id || "";
-			var price = obj.price || "";
-			var decorate = obj.decorate || "";
-			var description = obj.description || "";
-			var status = obj.status || "";
-			var inStock = obj.inStock - 0 || 0;
-			var saleNumber = obj.saleNumber - 0 || 0;
-			var scrambleStartTime = obj.scrambleStartTime || "";
-			var scrambleEndTime = obj.scrambleEndTime || "";
-			var hasAppointed = obj.hasAppointed || false;
-			if(id == "8aac48364e2a3809014e2b0e49b20003"){
-				//699
-				if(status == "PREPARE"){
-					$(".buynow").html('<div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">未开始</div>');
-				}
-				else if(status == "SCRAMBLE" && inStock > saleNumber){
-
-					if(hasAppointed){
-						$(".buynow").html('<div onclick="miaoSha(\'' + id + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
-						//html.push('<a href="javascript:miaoSha(\'' + id + '\')">');
-					}
-					else{
-						if(g.loginStatus){
-							if(g.reserveStatus){
-								var page = "subcheck.html?id=" + id;
-								$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
-							}
-							else{
-								var page = "c_my.html?token=" + g.token + "&p=1";
-								$(".buynow").html('<div onclick="alert("个人资料不完善,无法预约");location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
-							}
-							//html.push('<a href="javascript:alert(\'你还没有预约\');location.href=\'' + page + '\'">');
-						}
-						else{
-							var page = "center/login.html";
-							$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
-						}
-					}
-				}
-				else{
-					$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">已结束</div>');
-				}
-			}
-		}
-	}
-
-	function miaoSha(id){
-		var url = Base.scramble;
-		var condi = {};
-		condi.token = g.token;
-		condi.id = id;
-		condi.caseId = "";
-		g.httpTip.show();
-		$.ajax({
-			url:url,
-			data:condi,
-			type:"POST",
-			dataType:"json",
-			context:this,
-			global:false,
-			success: function(data){
-				console.log("miaoSha",data);
-				var status = data.status || "";
-				if(status == "OK"){
-					Utils.alert("抢购成功");
-					var orderId = data.result.id;
-					location.href = "orderback_paysel.html?id=" + orderId;
-				}
-				else{
-					Utils.alert("抢购失败");
-				}
-				g.httpTip.hide();
-			},
-			error:function(data){
-				g.httpTip.hide();
-			}
-		});
-	}
-
-	window.miaoSha = miaoSha;
 });
 
 

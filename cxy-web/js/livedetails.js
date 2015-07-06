@@ -435,7 +435,7 @@ $(function(){
 				console.log("sendAddLiveCommentHttp",data);
 				var status = data.status || "";
 				if(status == "OK"){
-					alert("评论发表成功");
+					Utils.alert("评论发表成功");
 					$("#message").val("");
 					getLiveComment();
 				}

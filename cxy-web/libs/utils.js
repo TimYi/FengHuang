@@ -476,7 +476,14 @@ Array.prototype.remove = function(n){
 	function loginOut(){
 		Utils.offLineStore.remove("userinfo",false);
 		Utils.offLineStore.remove("login_userprofile",false);
-		location.href = "../index.html";
+		var page = getQueryString("p") || "";
+		if(page !== ""){
+			location.href = "../index.html";
+		}
+		else{
+			location.href = "index.html";
+		}
+
 	}
 
 	//安全退出

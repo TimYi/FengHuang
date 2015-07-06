@@ -20,7 +20,7 @@ $(function(){
 	g.listdata = [];
 	g.packageName = "";
 	g.packageStype = "";
-	g.tags = "";
+	g.tags = [];
 	//验证登录状态
 	g.loginStatus = Utils.getUserInfo();
 
@@ -39,17 +39,17 @@ $(function(){
 			$("#packagestype1 >li > a").removeClass("active");
 			$("#packagestype2 >li > a").removeClass("active");
 
-			g.tags = "";
+			g.tags = [];
 			getCaseList();
 		}
 		else{
 			g.packageName = text;
 
 			if(g.packageStype == ""){
-				g.tags = g.packageName;
+				g.tags = [g.packageName];
 			}
 			else{
-				g.tags = g.packageName + "&" + g.packageStype;
+				g.tags = [g.packageName,g.packageStype];
 			}
 			getCaseList();
 		}
@@ -62,10 +62,10 @@ $(function(){
 		var text = $(this).text();
 		g.packageStype = text;
 		if(g.packageName == ""){
-			g.tags = g.packageStype;
+			g.tags = [g.packageStype];
 		}
 		else{
-			g.tags = g.packageName + "&" + g.packageStype;
+			g.tags = [g.packageName ,g.packageStype];
 		}
 		getCaseList();
 	}
@@ -77,8 +77,13 @@ $(function(){
 		var condi = {};
 		condi.page = g.currentPage;
 		condi.size = g.paseSize;
-		condi.tags = g.tags;
-		console.log(condi);
+		if(g.tags.length > 0 ){
+			condi.tags = g.tags.join(',');
+		}
+		else{
+			condi.tags = "";
+		}
+		//console.log(condi);
 		sendGetCaseListHttp(condi);
 	}
 
@@ -138,7 +143,7 @@ $(function(){
 				html.push('<div class="recent-work-inner">');
 				html.push('<h3><a href="javascript:void(0);">' + packageName + '/' + stype + '/' + space + '</a></h3>');
 				html.push('<p>' + houseType + '/' + area + '/' + description + '</p>');
-				html.push('<a href="case_details.html?id=' + id + '"  style="color:white"><i class="fa fa-eye"></i> 案例详情</a>');
+				//html.push('<a href="case_details.html?id=' + id + '"  style="color:white"><i class="fa fa-eye"></i> 案例详情</a>');
 				html.push('</div></div></div></div>');
 			}
 
@@ -148,6 +153,10 @@ $(function(){
 			var totalpages = data.totalPages - 0;
 			g.totalPage = totalpages;
 			changePageHtml(totalpages);
+		}
+		else{
+			$("#caselist").html("");
+			$("#casepage").hide();
 		}
 	}
 
@@ -250,7 +259,12 @@ $(function(){
 		//condi.token = g.token;
 		condi.page = g.currentPage;
 		condi.size = g.paseSize;
-		condi.tags = g.tags;
+		if(g.tags.length > 0 ){
+			condi.tags = g.tags.join(',');
+		}
+		else{
+			condi.tags = "";
+		}
 		sendGetCaseListHttp(condi);
 	}
 });

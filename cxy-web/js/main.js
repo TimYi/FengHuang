@@ -102,15 +102,21 @@ $(function(){
 		else{
 			g.reserveStatus = false;
 		}
-		$("#name").val(name);
-		$("#phone").val(mobile);
+		//$("#name").val(name);
+		//$("#phone").val(mobile);
 
-		$("#name2").val(name);
-		$("#phone2").val(mobile);
+		//$("#name2").val(name);
+		//$("#phone2").val(mobile);
 
-		getImgCode();
-		getImgCode2();
+		//getImgCode();
+		//getImgCode2();
 	}
+
+	$("#yhqbtn1").bind("click",getCoupon);
+	$("#yhqbtn2").bind("click",getCoupon);
+
+
+	getPackages();
 
 	$("#phone").bind("blur",getImgCode);
 	$("#imgcodebtn").bind("click",getImgCode);
@@ -127,7 +133,22 @@ $(function(){
 
 	//getAppointCategory();
 	//getProv();
-	//getPackages();
+
+
+
+	function getCoupon(){
+		console.log(this.id);
+		var id = this.id;
+		if(g.loginStatus){
+			alert("跳转到优惠券抢购");
+		}
+		else{
+			location.href = "center/login.html";
+		}
+	}
+
+
+
 
 	function getProvCity(){
 		var id = $(this).val();
@@ -649,15 +670,6 @@ $(function(){
 	}
 
 	function changePackageList(data){
-		var html = [];
-
-		html.push('<div class="center wow fadeInDown">');
-		html.push('<h2>家装套餐 <span style="font-size:24px">Home Renovation Packages</span></h2>');
-		html.push('<p class="lead">2015年6月10日上午10时开放，首期2000套，先到先得。简装、精装、旧居智能改造全系优惠</p>');
-		html.push('</div>');
-
-		html.push('<div class="row">');
-
 		for(var i = 0,len = data.length; i < len; i++){
 			var obj = data[i];
 			var id = obj.id || "";
@@ -670,87 +682,40 @@ $(function(){
 			var scrambleStartTime = obj.scrambleStartTime || "";
 			var scrambleEndTime = obj.scrambleEndTime || "";
 			var hasAppointed = obj.hasAppointed || false;
-			//status = "SCRAMBLE";
-			html.push('<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">');
-			html.push('<div class="feature-wrap" style="height:240px;">');
-			html.push('<h3>');
-			html.push('<span style="font-weight:600;color:#666">RMB</span>&nbsp;&nbsp;');
-			html.push('<span style="color:#000;font-size:24px;font-weight:600">' + price + '</span>');
-			html.push('<span style="color:#000;font-weight:800;">元/平米</span>');
-			html.push('<span style="font-weight:800;color:#000">【' + decorate + '】</span>');
-			html.push('</h3>');
-			html.push('<h3 style="margin:-5px 0 0 0;">');
-			html.push('<span style="color:#999;font-size:14px;line-height:12px;">' + description + '</span>');
-			html.push('</h3>');
-			html.push('<div style="margin:20px 0 10px 70px;">');
-
-			if(status == "PREPARE"){
-				html.push('<div style="height:45px;width:160px;background:none;border:1px solid #ccc;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">');
-				html.push('<a href="javascript:void(0);">');
-				html.push('<div style="text-align:center;line-height:45px;font-size:16px;color:#000;">即将开始</div>');
-				html.push('</a>');
-				html.push('</div>');
-
-				html.push('</div>');
-				html.push('<div style="text-align:center;line-height:14x;font-size:14px;color:#000;">');
-				html.push('<span style="color:#999">抢购开始时间：</span>' + scrambleStartTime);
-				html.push('</div>');
-			}
-			else if(status == "SCRAMBLE" && inStock > saleNumber){
-				html.push('<div style="height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">');
-				if(hasAppointed){
-					html.push('<a href="javascript:miaoSha(\'' + id + '\')">');
+			if(id == "8aac48364e2a3809014e2b0e49b20003"){
+				//699
+				if(status == "PREPARE"){
+					$(".buynow").html('<div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">未开始</div>');
 				}
-				else{
-					if(g.loginStatus){
-						var page = price + ".html?id=" + id;
-						html.push('<a href="javascript:alert(\'你还没有预约\');location.href=\'' + page + '\'">');
+				else if(status == "SCRAMBLE" && inStock > saleNumber){
+
+					if(hasAppointed){
+						$(".buynow").html('<div onclick="miaoSha(\'' + id + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+						//html.push('<a href="javascript:miaoSha(\'' + id + '\')">');
 					}
 					else{
-						var page = "login.html";
-						html.push('<a href="javascript:alert(\'请先登录\');location.href=\'' + page + '\'">');
+						if(g.loginStatus){
+							if(g.reserveStatus){
+								var page = "subcheck.html?id=" + id;
+								$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
+							}
+							else{
+								var page = "c_my.html?token=" + g.token + "&p=1";
+								$(".buynow").html('<div onclick="alert("个人资料不完善,无法预约");location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
+							}
+							//html.push('<a href="javascript:alert(\'你还没有预约\');location.href=\'' + page + '\'">');
+						}
+						else{
+							var page = "center/login.html";
+							$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
+						}
 					}
 				}
-				html.push('<div style="text-align:center;line-height:45px;font-size:16px;color:#000;">立即抢购</div>');
-				html.push('</a>');
-				html.push('</div>');
-
-				html.push('</div>');
-				html.push('<div style="text-align:center;line-height:14x;font-size:14px;color:#000;">');
-				html.push('<span style="color:#999">剩余数量：</span>' + saleNumber + '套 / 共' + inStock + '套');
-				html.push('</div>');
+				else{
+					$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">已结束</div>');
+				}
 			}
-			else{
-				html.push('<div style="height:45px;width:160px;background:none;border:1px solid #ccc;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">');
-				html.push('<a href="javascript:void(0);">');
-				html.push('<div style="text-align:center;line-height:45px;font-size:16px;color:#000;">已抢完</div>');
-				html.push('</a>');
-				html.push('</div>');
-
-				html.push('</div>');
-				html.push('<div style="text-align:center;line-height:14x;font-size:14px;color:#000;">');
-				html.push('<span style="color:#999">下次开放时间：</span>2015年6月20日上午10时');
-				html.push('</div>');
-			}
-
-
-			html.push('</div>');
-			html.push('<div style="height:240px;width:360px;">');
-			if(price == 499){
-				html.push('<img src="images/u_1.jpg" width=360 height=240>');
-			}
-			else if(price == 699){
-				html.push('<img src="images/u_2.jpg" width=360 height=240>');
-			}
-			else{
-				html.push('<img src="images/u_3.jpg" width=360 height=240>');
-			}
-			html.push('</div>');
-			html.push('</div>');
 		}
-
-		$("#packagelist").html(html.join(''));
-		$("#packagelist").show();
 	}
 
 	function miaoSha(id){
