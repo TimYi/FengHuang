@@ -554,7 +554,7 @@ $(function(){
 
 
 
-	//getPackages();
+	getPackages();
 
 	//获取字典
 	function getPackages(){
@@ -598,32 +598,46 @@ $(function(){
 			var id = data[i].id;
 			var hasAppointed = data[i].hasAppointed || false;
 			switch(price){
-				case 499:
+				case 699:
 					id1 = id;
 					if(g.id == id && hasAppointed){
-						$("#buybtn").html("您已成功预约");
-						$("#buybtn2").html("您已成功预约");
+						//$("#buybtn").html("您已成功预约");
+						//$("#buybtn2").html("您已成功预约");
 					}
 				break;
-				case 699:
+				case 799:
 					id2 = id;
 					if(g.id == id && hasAppointed){
-						$("#buybtn").html("您已成功预约");
-						$("#buybtn2").html("您已成功预约");
+						//$("#buybtn").html("您已成功预约");
+						//$("#buybtn2").html("您已成功预约");
 					}
 				break;
 				case 818:
 					id3 = id;
 					if(g.id == id && hasAppointed){
-						$("#buybtn").html("您已成功预约");
-						$("#buybtn2").html("您已成功预约");
+						//$("#buybtn").html("您已成功预约");
+						//$("#buybtn2").html("您已成功预约");
 					}
 				break;
 			}
 		}
-		html.push('<li><a href="499.html?id=' + id1 + '">499套餐</a></li>');
-		html.push('<li><a href="699.html?id=' + id2 + '">699套餐</a></li>');
-		html.push('<li><a href="818.html?id=' + id3 + '">818套餐</a></li>');
+		var page = Utils.getQueryString("p") || "";
+		if(page !== ""){
+			html.push('<li><a href="../tc_699.html?id=' + id1 + '">699 装修套餐</a></li>');
+			html.push('<li><a href="../tc_799.html?id=' + id2 + '">软装套餐</a></li>');
+			html.push('<li style="padding:0 5px;margin:5px 0;border-bottom:1px solid #555"></li>');
+			html.push('<li><a href="../tmzs.html">流程展示</a></li>');
+			html.push('<li><a href="../gyzs.html">工艺展示</a></li>');
+			html.push('<li><a href="../zczs.html">主材展示</a></li>');
+		}
+		else{
+			html.push('<li><a href="tc_699.html?id=' + id1 + '">699 装修套餐</a></li>');
+			html.push('<li><a href="tc_799.html?id=' + id2 + '">软装套餐</a></li>');
+			html.push('<li style="padding:0 5px;margin:5px 0;border-bottom:1px solid #555"></li>');
+			html.push('<li><a href="tmzs.html">流程展示</a></li>');
+			html.push('<li><a href="gyzs.html">工艺展示</a></li>');
+			html.push('<li><a href="zczs.html">主材展示</a></li>');
+		}
 
 		$($(".dropdown-menu")[0]).html(html.join(''));
 	}
