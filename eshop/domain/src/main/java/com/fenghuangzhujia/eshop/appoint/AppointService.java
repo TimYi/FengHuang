@@ -14,14 +14,19 @@ import com.fenghuangzhujia.eshop.core.area.Area.AreaLevel;
 import com.fenghuangzhujia.eshop.core.base.Dics;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.commerce.couponsDef.CouponsAllocater;
+import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder;
+import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrderRepository;
 import com.fenghuangzhujia.eshop.core.remind.impl.DtoUnreadRemindSpecificationService;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
+import com.fenghuangzhujia.eshop.prudoct.scramble.PackageGood;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
+import com.fenghuangzhujia.foundation.dics.Category;
 import com.fenghuangzhujia.foundation.dics.CategoryItem;
 import com.fenghuangzhujia.foundation.dics.CategoryItemRepository;
+import com.fenghuangzhujia.foundation.dics.CategoryRepository;
 
 @Service
 @Transactional
@@ -39,6 +44,10 @@ public class AppointService extends DtoUnreadRemindSpecificationService<Appoint,
 	private AppointValidater appointValidater;
 	@Autowired
 	private CouponsAllocater couponsAllocater;
+	@Autowired
+	private GoodOrderRepository goodOrderRepository;
+	@Autowired
+	private CategoryRepository categoryRepository;
 	
 	/**
 	 * 为用户预约设置单独的方法，将业务逻辑封装在里面
@@ -84,6 +93,29 @@ public class AppointService extends DtoUnreadRemindSpecificationService<Appoint,
 		//触发预约服务成功分发优惠券
 		couponsAllocater.allocate(CouponsAllocater.APPOINT_SERVICE, user.getId());
 		
+		return adapter.convertToDetailedDto(appoint);
+	}
+	
+	/**
+	 * 支付订单成功之后，自动预约体验馆
+	 * @param orderId
+	 * @return
+	 */
+	public AppointDto appointAfterPay(String orderId) {
+		GoodOrder order=goodOrderRepository.findOne(orderId);
+		Appoint appoint=new Appoint();
+		appoint.setUser(order.getUser());
+		appoint.setMobile(order.getUser().getMobile());
+		appoint.setRealName(order.getUser().getRealName());
+		PackageGood good=(PackageGood)order.getGood();
+		appoint.setCity(good.getCity());		
+		
+		//只添加体验馆一种数据。用这种方法进行预约（临时）
+		Category type=categoryRepository.getByType(Dics.APPOINT_TYPE);
+		CategoryItem tiyanguan=type.getItems().iterator().next();
+		appoint.setType(tiyanguan);
+		
+		appoint=getRepository().save(appoint);
 		return adapter.convertToDetailedDto(appoint);
 	}
 	

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fenghuangzhujia.eshop.appoint.AppointService;
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
 import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder.OrderStatus;
@@ -28,6 +29,8 @@ public class OrderController {
 	private GoodOrderService orderService;
 	@Autowired
 	private PufaPayService pufaPayService;
+	@Autowired
+	private AppointService appointService;
 
 	@RequestMapping(value="user/orders",method=RequestMethod.GET)
 	public String list(@RequestParam(defaultValue="1")Integer page,@RequestParam(defaultValue="8") Integer size, OrderStatus status) {
@@ -58,10 +61,12 @@ public class OrderController {
 	@RequestMapping(value="pufa/revoke",method=RequestMethod.POST)
 	public ModelAndView pufaRevoke(String Plain, String Signature) {
 		//LogUtils.errorLog(Plain);//先记录下返回的数据，查看是哪里出现异常。
-		ModelAndView view=new ModelAndView("redirect:http://101.200.229.135/payback.html");
+		ModelAndView view=new ModelAndView("redirect:http://IFHZJ.com/payback.html");
 		try {
 			PufaPay pufaPay=pufaPayService.revoke(Plain,Signature);
 			String orderId=pufaPayService.findOrderByPufaPay(pufaPay.getId());
+			//支付订单后自动预约体验馆
+			appointService.appointAfterPay(orderId);
 			view.addObject("result", true);
 			view.addObject("orderId", orderId);
 		} catch (Exception e) {
