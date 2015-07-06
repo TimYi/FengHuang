@@ -455,7 +455,7 @@ Array.prototype.remove = function(n){
 			var token = Utils.offLineStore.get("token",false) || "";
 			var str = "";
 			if(token !== ""){
-				str = "?token=" + token + "&page=0";
+				str = "?token=" + token + "&p=0";
 			}
 
 			html.push('<li style="padding-right:10px;"><i class="fa fa-user hui"></i>');
@@ -486,12 +486,24 @@ Array.prototype.remove = function(n){
 			var token = Utils.offLineStore.get("token",false) || "";
 			var str = "";
 			if(token !== ""){
-				str = "?token=" + token + "&page=0";
+				str = "?token=" + token + "&p=0";
 			}
-			location.href = "center.html" + str;
+			var page = getQueryString("p") || "";
+			if(page !== ""){
+				location.href = "center.html" + str;
+			}
+			else{
+				location.href = "center/center.html" + str;
+			}
 		}
 		else{
-			location.href = "login.html";
+			var page = getQueryString("p") || "";
+			if(page !== ""){
+				location.href = "login.html";
+			}
+			else{
+				location.href = "center/login.html";
+			}
 		}
 	}
 
