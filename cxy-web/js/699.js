@@ -58,7 +58,7 @@ $(function(){
 	getPackages();
 
 	//getAppointCategory();
-	getProv();
+	//getProv();
 	function getProvCity(){
 		var id = $(this).val();
 		getCity(id,1);
