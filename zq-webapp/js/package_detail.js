@@ -55,7 +55,14 @@ $(function() {
         var html = [];
         var obj = data;
         var id = obj.id || "";
+        var mainPic = obj.mainPic || "";
+        if(mainPic){
+            mainPic = mainPic.url;
+        }else{
+            mainPic = "http://www.talmd.cn/upload/upfiles/part/201401/113890851569826.jpg_870.jpg";
+        }
         var price = obj.price || "";
+        var deposit= obj.deposit;
         var decorate = obj.decorate || "";
         var description = obj.description || "";
         var status = obj.status || "";
@@ -66,16 +73,18 @@ $(function() {
         var hasAppointed = obj.hasAppointed || false;
         //status = "SCRAMBLE";
 
-        html.push('<p>' + price + '</p>');
-        html.push('<p>' + decorate + '</p>');
-        html.push('<p>' + description + '</p>');
-        html.push('<p>' + status + '</p>');
-        html.push('<p>' + inStock + '</p>');
+        $("#mainPic").attr("src",mainPic);
+        $("#pName").text(description);
+        $("#price").text(price);
+        $("#decoType").text(decorate);
+        $("#deposit").text(deposit);
 
         if(status == "PREPARE"){
-            html.push('<p class="b-wrap"><a href="javascript:void(0)">即将开始</a></p>');
             html.push('<p>抢购开始时间：'+ scrambleStartTime +'</p>');
+            html.push('<p class="b-wrap"><a href="javascript:void(0)">即将开始</a></p>');
         }else if(status == "SCRAMBLE" && inStock > saleNumber){
+            html.push('<p><span class="tit">已售数量：</span>' + saleNumber + '套 / 共' + inStock + '套</p>');
+            html.push('<p>抢购结束时间：'+ scrambleEndTime +'</p>');
             html.push('<p class="b-wrap">');
             if(hasAppointed){
                 html.push('<a href="javascript:miaoSha(\'' + id + '\')">');
@@ -83,19 +92,16 @@ $(function() {
                 if(g.loginStatus){
                     var page = 699 + ".html?id=" + id;
                     html.push('<a href="javascript:alert(\'你还没有预约\');location.href=\'' + page + '\'">');
-                }
-                else{
+                }else{
                     var page = "login.html";
                     html.push('<a href="javascript:alert(\'请先登录\');location.href=\'' + page + '\'">');
                 }
             }
             html.push('立即购买</a></p>');
-            html.push('<p><span style="color:#999">已卖出：</span>' + saleNumber + '套 / 共' + inStock + '套</p>');
         }else{
             html.push('<p class="b-wrap"><a href="javascript:void(0)">已抢完</a></p>');
         }
-        html.push('<p class="b-wrap">');
-        $("#packageDetail").html(html.join(''));
+        $("#packageStatus").html(html.join(''));
     }
 
 });

@@ -15,16 +15,15 @@ $(function(){
 	g.packageName = "";
 	g.packageStype = "";
 	g.tags = "";
+	g.status ="";
 	//验证登录状态
 	g.loginStatus = Utils.getUserInfo();
-
-	$("#packagename >li > a").bind("click",changePackageName);
-	$("#packagestype1 >li > a").bind("click",changePackageStype);
-	$("#packagestype2 >li > a").bind("click",changePackageStype);
 
 	getCaseList();
 	getCaseTags();
 	getLiveList();
+
+	$("#liveTag .tag").bind("click",changeLiveType);
 
 	function getCaseTags(){
 		var url = Base.caseTags;
@@ -36,7 +35,6 @@ $(function(){
 			dataType:"json",
 			global:false,
 			success:function(data){
-				console.log(data);
 				var status = data.status;
 				if(status == "OK"){
 					changeCaseTagHtml(data.result);
@@ -57,53 +55,48 @@ $(function(){
 			g.listdata = obj;
 
 			var html = [];
+			html.push('<span class="tag active">全部</span>');
 			for(var i = 0,len = obj.length; i < len; i++){
 				var d = obj[i] || {};
 				var name = d.name || "";
 				html.push('<span class="tag">'+name+'</span>');
 			}
 			$("#caseTag").html(html.join(''));
+			$("#caseTag .tag").on("click",changeCaseType);
 		}
 	}
 
-	function changePackageName(){
-		$("#packagename >li > a").removeClass("active");
-		$(this).addClass("active");
-		var text = $(this).text();
-		if(text == "全部"){
-			g.packageName = "";
-			$("#packagestype1 >li > a").removeClass("active");
-			$("#packagestype2 >li > a").removeClass("active");
-
-			g.tags = "";
-			getCaseList();
-		}
-		else{
-			g.packageName = text;
-
-			if(g.packageStype == ""){
-				g.tags = g.packageName;
-			}
-			else{
-				g.tags = g.packageName + "&" + g.packageStype;
-			}
-			getCaseList();
-		}
-	}
-
-	function changePackageStype(){
-		$("#packagestype1 >li > a").removeClass("active");
-		$("#packagestype2 >li > a").removeClass("active");
+	function changeCaseType(){
+		$("#caseTag").find('.tag').removeClass("active");
 		$(this).addClass("active");
 		var text = $(this).text();
 		g.packageStype = text;
-		if(g.packageName == ""){
-			g.tags = g.packageStype;
+		if(text == "全部"){
+			g.packageName = "";
+			//$(".tag-wrap .tag").removeClass("active");
+			g.tags = "";
+			getCaseList();
+		}else{
+			g.packageName = text;
+			g.tags = text;
+			getCaseList();
+		}
+	}
+
+	function changeLiveType(){
+		$("#liveTag .tag").removeClass("active");
+		$(this).addClass("active");
+		var text = $(this).text();
+		if(text == "最新"){
+			g.packageName = "";
+			g.status = "";
+			getLiveList();
 		}
 		else{
-			g.tags = g.packageName + "&" + g.packageStype;
+			//g.packageName = text;
+			g.status = text;
+			getLiveList();
 		}
-		getCaseList();
 	}
 
 	function getCaseList(){
@@ -128,7 +121,7 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log("sendGetCaseListHttp",data);
+				console.log(data);
 				var status = data.status || "";
 				if(status == "OK"){
 					changeCaseListHtml(data.result);
@@ -166,7 +159,7 @@ $(function(){
 				var description = d.description || "";
 
 				html.push('<li><div class="am-gallery-item">');
-				html.push('<a href="alxq.html?id='+id+'"><img src="'+mainPic+'" alt="'+description+'" data-am-pureviewed="1"></a>');
+				html.push('<a href="case_detail.html?id='+id+'"><img src="'+mainPic+'" alt="'+description+'" data-am-pureviewed="1"></a>');
 				html.push('<h3 class="am-gallery-title" style="font-size:12px;">'+packageName+'</h3>');
 				html.push('</div>');
 			}
@@ -180,7 +173,7 @@ $(function(){
 		var condi = {};
 		condi.page = g.currentPage;
 		condi.size = g.paseSize;
-		condi.date = g.tags;
+		condi.status = g.status;
 		sendGetLiveListHttp(condi);
 	}
 
@@ -195,6 +188,7 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
+				console.log(data);
 				var status = data.status || "";
 				if(status == "OK"){
 					changeLiveListHtml(data.result);
@@ -232,7 +226,7 @@ $(function(){
 				//var description = d.description || "";
 
 				html.push('<li><div class="am-gallery-item">');
-				html.push('<a href="zbxq.html?id='+id+'"><img src="'+mainPic+'" alt="'+name+'" data-am-pureviewed="1"></a>');
+				html.push('<a href="live_detail.html?id='+id+'"><img src="'+mainPic+'" alt="'+name+'" data-am-pureviewed="1"></a>');
 				html.push('<h3 class="am-gallery-title" style="font-size:12px;">'+name+'</h3>');
 				html.push('</div>');
 			}

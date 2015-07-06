@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html class="no-js">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>套餐详情</title>
+    <title>抢购成功</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -126,25 +126,46 @@
         </nav>
     </div>
     <!-- Public Header End -->
-    <div style="padding:20px 15px;">
-        <div class="pic-wrap" style="text-align:center;">
-            <img id="mainPic" src="" alt="mainPic">
-        </div>
-        <div class="pack-p" style="line-height:24px;color:#000;margin-top:25px;">
-            <p><i class="am-icon-home" style="margin-right:8px;"></i><span id="pName" style="color:#000;"></span></p>
-            <hr>
-            <p><span class="tit">套餐价格：</span><span id="price"></span>元</p>
-            <p><span class="tit">装修方式：</span><span id="decoType"></span></p>
-            <p><span class="tit">订金金额：</span><span id="deposit"></span>元</p>
-        </div>
-        <div id="packageStatus"></div>
-    </div>
+    <form action="" class="am-form" data-am-validator>
+        <fieldset>
+            <div style="height:20px"></div>
+            <div class="am-g">
+                <div class="am-u-sm-3" style="line-height:40px;text-align:right">
+                    <span class="am-icon-check-circle-o" style="font-size:40px;color:#83bd39;height:40px"></span>
+                </div>
+                <div class="am-u-sm-9" style="font-size:14px;line-height:19px">
+                    <span><b>系统提示：</b><br/>您已成功预约 <b>套餐服务</b></span>
+                </div>
+            </div>
+            <hr/>
+            <div>
+                <ul style="list-style:none;font-size:14px">
+                    <li>秒杀成功</li>
+                    <li>预约编号：<b style="color:#f25618">YY3948109223</b></li>
+                    <li>预约时间：2015年05月11日 13:30:23</li>
+                    <li>有效期限：2015年06月11日 13:30:23</li>
+                    <li>所在城市：北京</li>
+                    <li>客户姓名：辛海涛</li>
+                    <li>手机号码：13698626066</li>
+                    <li>专属客服：王晓宇 13365654558</li>
+                    <li>客服工号：GH0293</li>
+                </ul>
+            </div>
+            <a href="index.html">
+                <div class="am-btn am-btn-secondary" style="background:#f25618;border-color:#f25618;width:100%" type="submit">确认并返回</div>
+            </a>
+            <div style="height:10px"></div>
+            <div style="padding:5px;font-size:13px;">
+                <b>温馨提示：</b>该电子预约凭证具备相关法律效力，您可以通过<a href="my_order.html" style="color:#f25618;font-weight:800"> 我的订单 </a>进行查看或取消。
+            </div>
+        </fieldset>
+    </form>
+    
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/amazeui.min.js"></script>
     <script src="js/libs/json.js"></script>
     <script src="js/libs/base.js"></script>
     <script src="js/libs/utils.js"></script>
-    <script src="js/package_detail.js"></script>
 </body>
 
 </html>
