@@ -140,7 +140,7 @@ $(function(){
 		console.log(this.id);
 		var id = this.id;
 		if(g.loginStatus){
-			alert("跳转到优惠券抢购");
+			location.href = "yhqcheck.html";
 		}
 		else{
 			location.href = "center/login.html";
