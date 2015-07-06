@@ -603,7 +603,7 @@ $(function(){
 			var scrambleStartTime = obj.scrambleStartTime || "";
 			var scrambleEndTime = obj.scrambleEndTime || "";
 			var hasAppointed = obj.hasAppointed || false;
-			if(id == "8aac48364e62bfa9014e63cee70d0028"){
+			if(id == Utils.getQueryString("id")){
 				//799
 				if(status == "PREPARE"){
 					$(".buynow").html('<div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">未开始</div>');
