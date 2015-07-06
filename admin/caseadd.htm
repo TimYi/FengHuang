@@ -14,7 +14,6 @@
 <script type="text/javascript" src="common.js"></script>
 <script type="text/javascript">
 function submitCase(){
-	alert(10);
 	var url = genUrl(CASE_CASE);
 	submitAsyFormByJson(url,'caseForm',function(data){
 	 			
@@ -52,9 +51,15 @@ function submitCase(){
 					<input type="text" name='price'/>
 				</td>
 			</tr>
-		
+			
 			<tr>
 				<td align="right" height="40" >风格：</td>	
+				<td>		
+					<input type='text' name='style' />
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >户型：</td>	
 				<td>		
 					<input type='text' name='houseType'/>
 				</td>

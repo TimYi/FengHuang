@@ -1,17 +1,11 @@
 var dataModel;
 var bind = false;//数据绑定标识
 var rePage = true;
+var param;//定义参数
 
-
-/*
-分页功能变量定义
-*/
+//分页功能变量定义
 var total ;//总数据条数
-var curPage = 1;//当前页码,初始为1	
-/*
-*定义参数
-*/
-var param;
+var curPage = 1;//当前页码,初始为1
 function onload(){
 	initParam();
 	getDatas();	
@@ -51,7 +45,11 @@ function bindData(data){
 	for(var i in results){
 		results[i].selected = false;
 	}
-	dataModel = ko.mapping.fromJS(data);
+	if(!bind){
+		dataModel = ko.mapping.fromJS(data);	
+	}else{
+		ko.mapping.fromJS(data, dataModel);
+	}
 	dataModel.remove = function(item){
 		
 		if(ConfDel(0)){
@@ -92,7 +90,6 @@ function handlePageChange (num, type) {
         	
 	//alert(num+':'+type);
     if(type == 'change'){
-    
     	getDatas4page(num);
     }            
 }

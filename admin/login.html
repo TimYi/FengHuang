@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>凤凰筑家后台管理中心</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css"/>
+<!--link href="admin.css" rel="stylesheet" type="text/css"/-->
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<!--script type="text/javascript" src="assets/js/b5m.adv.js"></script-->
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script>
+var tout;
+$(function(){
+	//$("#login").attr("action", LOGIN);
+	$("#verifycode").bind("blur",getImgCode);
+	$("#verifycodeImg").bind("click",getImgCode);
+	$(".loginForm input").keydown(function(){
+		$(this).prev().hide();
+	}).blur(function(){
+		if($(this).val() == ""){
+			$(this).prev().show();
+		}
+	});
+	
+	$("#username").focus(function(){
+		$("#username").attr("class", "uname inputOn"); 
+	}).blur(function(){
+		$("#username").attr("class", "uname input"); 
+	});
+
+	$("#password").focus(function(){
+		$("#password").attr("class", "pwd inputOn"); 
+	}).blur(function(){
+		$("#password").attr("class", "pwd input"); 
+	});
+});
+function getImgCode(){
+		var userName = $("#username").val() || "";
+		if(userName !== ""){
+			var codeId = userName;
+			//console.log(g.codeId);
+			$("#verifycodeImg").attr("src",CAPTCHA+ codeId);
+			/*clearTimeout(tout);
+			tout = setTimeout(function(){
+				getImgCode();
+			},60000);*/
+		}
+	}
+function CheckForm()
+{
+	if($("#username").val() == "")
+	{
+		alert("请输入用户名！");
+		$("#username").focus();
+		return false;
+	}
+	if($("#password").val() == "")
+	{
+		alert("请输入密码！");
+		$("#password").focus();
+		return false;
+	}
+	if($("#verifycode").val() == "")
+	{
+        alert("请输入问题回答！");
+        $("#answer").focus();
+        return false;
+    }
+    return true;
+}
+function loginSubmit(){
+	if(CheckForm()){
+		submitAsyFormByJson(LOGIN, 'login', 
+			function(data){
+				if(data.status == 'OK') {
+					token = data.result;
+					window.location.href=INDEX;
+				}else{
+					friendlyTip(data);
+				}			
+				
+			}
+		);
+	}
+}
+
+</script>
+</head>
+
+<body class="loginBody">
+<div class="loginTop" style="background-color:#f9f9f9;background-image:url();background-repeat:repeat-x;background-position:center 0;">
+
+</div>
+<div class="loginWarp">
+	<div class="loginArea">
+		<div class="loginHead"> </div>
+		<div class="loginTxt">凤凰筑家后台管理中心</div>
+		<div class="loginForm">
+			<form name="login" id='login' method="post" action="">
+				<div class="txtLine">
+					<label>用户名</label>
+					<input type="text" name="username" id="username" class="uname input" maxlength="20" />
+				</div>
+				<div class="txtLine mar8">
+					<label>密码</label>
+					<input type="password" name="password" id="password" class="pwd input" maxlength="16" />
+				</div>
+
+				<div class="txtLine mar8">
+					<label>验证码</label>
+					<input type="text" name="captcha" id="verifycode" class="pwd input" maxlength="16" style="width:300px"/>
+					<img src="/rest/sys/login/verifycode" id="verifycodeImg" width="170" height="46" id="captcha" style="float:right;line-height:50px;cursor:pointer;" />
+				</div>				
+				
+				<!--div class="verycodeArea">
+					<label class="label">验证码</label>
+					<div class="verycodeframe">
+						<label>回答</label>
+						<img src="/rest/sys/login/verifycode"   width="66" height="20" class="verycode" id="captcha" style="cursor: pointer;" onclick="refreshVerifyCode();"/>					
+					</div>
+				</div-->
+				<!--div class="quesArea">
+					<select name="question" id="question" class="question">
+						<option value="0">无安全提问</option>
+						<option value="1">母亲的名字</option>
+						<option value="2">爷爷的名字</option>
+						<option value="3">父亲出生的城市</option>
+						<option value="4">你其中一位老师的名字</option>
+						<option value="5">你个人计算机的型号</option>
+						<option value="6">你最喜欢的餐馆名称</option>
+						<option value="7">驾驶执照最后四位数字</option>
+					</select>
+					<div class="asLine">
+						<label>回答</label>
+						<input type="text" name="answer" id="answer" class="answer" />
+					</div>
+				</div-->
+				<div class="hr_1"></div>
+				<input type="button" class="loginBtn" value="登 录" style="cursor:pointer;" onclick='loginSubmit();' />
+			</form>
+			<!--div class="loginThanks">感谢您使用<span>PHPMyWind</span>产品</div-->
+		</div>
+	</div>
+</div>
+<!--div class="loginCopyright">© 2014 phpMyWind.com</div-->
+</body>
+</html>

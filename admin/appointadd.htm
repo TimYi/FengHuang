@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>修改预约</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/json2.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript">
+var viewModel;
+var appointTypeDic;
+var cityDic;
+var Category = function(id,name){
+	
+	this.id = id;
+	this.name = name;
+}
+function onload(){
+
+	getData(MEMBER_MEMBER_LIST,null,afterGetUsers4Select);		
+}
+var UserObj = function(id,username){
+			this.id = id;
+			this.username = username;
+}
+function afterGetUsers4Select(data){
+
+	if(!isErrorData(data)){
+		var users = data.result.result;		
+		userDic = new Array();
+		for(var i in users){
+			var user = new UserObj(users[i].id,users[i].username);
+			userDic.push(user);
+		}
+		getAppointType();
+	}
+}
+function getAppointType(){
+	
+	$.getJSON(CATEGORY_QUERY+'appoint',null,function(data){
+		var appoints =  data.result;
+		appointTypeDic = new Array();
+		for(var i in appoints){
+			var appoint = new Category(appoints[i].id,appoints[i].name);
+	 		appointTypeDic.push(appoint);	 	
+	 	}
+		//再获取城市字典
+		getCityDic();
+	});
+}
+function getCityDic(){
+	
+	$.getJSON(AREA_QUERY+'CITY',null,function(data){
+	
+		var citys =  data.result;
+		cityDic = new Array();
+		for(var i in citys){
+			var city = new Category(citys[i].id,citys[i].name);
+	 		cityDic.push(city);	 	
+	 	}
+	 	viewModel={
+         	
+         	selectableAT : ko.observableArray(appointTypeDic),
+        	selectedAT:ko.observable(), 
+        	selectableCity : ko.observableArray(cityDic),
+        	selectedCity:ko.observable() ,
+        	selectableUser : ko.observableArray(userDic),
+        	selectedUser:ko.observable() 
+        };
+   		ko.applyBindings(viewModel);
+	 });
+}
+function submitAppoint(){
+	var url = genUrl(APPOINT_APPOINT);
+	submitAsyFormByJson(url, 'appointlForm', 
+			function(data){
+			 			
+				friendlyTip(data);
+				//window.location.href='liveedit.htm?id='+viewModel.id();
+			}
+	);
+}
+
+</script>
+</head>
+<body onload="onload()">
+<div class="formHeader">
+ <span class="title">修改预约</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
+</div>
+<form name="appointlForm" id="appointlForm" >
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>		
+			<td align="right"  height="40">用户:</td>
+				<td >
+					<select data-bind="value:selectedUser,options:selectableUser,optionsText:'username',optionsCaption: '请选择...'">
+					</select>
+					<input type="hidden" name='userId' data-bind="value:selectedUser()?selectedUser().id:''">
+				</td>
+			<tr>
+				<td align="right" height="40" >预约类型：</td>
+				<td><select data-bind="value:selectedAT,options:selectableAT,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+				</select>
+					<input type='text' name='typeId' size=50 data-bind="value:selectedAT()?selectedAT().id:''"/>
+				</td>
+			</tr>			
+			<tr>
+				<td align="right" height="40">城市：					
+				</td>
+				<td>
+					<select data-bind="value:selectedCity,options:selectableCity,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					</select>
+				<input type='text' name='cityId' size=50 data-bind="value:selectedCity()?selectedCity().id:''"/>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40">姓名：</td>
+				<td ><input type='text' name='realName' size=50 /></td>
+			</tr>		
+			<tr>
+				<td align="right" height="40">电话：</td>
+				<td ><input type='text' size=50 name='mobile'/></td>
+			</tr>		
+		</tbody>
+	</table>
+	<div class="formSubBtn">
+		<input class="submit" value="提交" type="button" onclick='submitAppoint();'/>
+		<input class="back" value="返回" onclick="history.go(-1)" type="button">
+	</div>
+</form>
+
+</body></html>

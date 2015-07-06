@@ -34,8 +34,8 @@ function afterGetDataById(data){
 	 	viewModel = ko.mapping.fromJS(data.result);		 	
 	 	viewModel.submit = function(){
 	 	
-	 		var modelObj = ko.mapping.toJS(viewModel);
-	 		var  url = genUrl(LIVE_DETAIL)+'/'+modelObj.id+'/pics';
+	 		//var modelObj = ko.mapping.toJS(viewModel);
+	 		var  url = genUrl(LIVE_DETAIL)+'/'+id+'/pics';
 	 		var files = $('input[name="picFile"]').prop('files');//获取到文件列表
 
 			if(files.length == 0){
@@ -51,7 +51,7 @@ function afterGetDataById(data){
 			 		,function(data){
 			 			
 			 			friendlyTip(data);
-			 			window.location.href='livedetail_pic.htm?id='+viewModel.id();
+			 			window.location.href='livedetail_pic.htm?id='+id;
 			 		}
 			 	);
 	 		}			

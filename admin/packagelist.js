@@ -35,7 +35,7 @@ function getDatas4page(page){
 	getDatas();
 }
 function getDatas(){
-	getData(LIVE_LIVE,param,afterGetDatas);
+	getData(ORDER_PACKAGE,param,afterGetDatas);
 }
 
 function afterGetDatas(data){
@@ -51,13 +51,16 @@ function bindData(data){
 	for(var i in results){
 		results[i].selected = false;
 	}
-	dataModel = ko.mapping.fromJS(data);
-	
+	if(!bind){
+		dataModel = ko.mapping.fromJS(data);	
+	}else{
+		ko.mapping.fromJS(data, dataModel);
+	}
 	dataModel.remove = function(item){
 		
 		if(ConfDel(0)){
 			
-			var url = genUrl(LIVE_LIVE)+'/'+item.id();
+			var url = genUrl(ORDER_PACKAGE)+'/'+item.id();
 			deleteReq(url,function(dataObj){
 				
 					friendlyTip(dataObj);
@@ -76,13 +79,8 @@ function bindData(data){
 		}
 	}
 	dataModel.modify = function(item){
-		
-		window.location.href='liveedit.htm?id='+item.id();
-	}
-	dataModel.detail = function(item){
-		
-		window.location.href='livedetaillist.htm?liveId='+item.id();
-	}		
+		window.location.href='packageedit.htm?id='+item.id();
+	}	
 	if(!bind){
 		bind = true;
 		ko.applyBindings(dataModel);
@@ -98,10 +96,9 @@ function handlePageChange (num, type) {
         	
 	//alert(num+':'+type);
     if(type == 'change'){
-    
     	getDatas4page(num);
     }            
 }
 function add(){
-		window.location.href="liveadd.htm";
+		window.location.href="packageadd.htm";
 }

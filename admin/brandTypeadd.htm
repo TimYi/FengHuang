@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>新增品牌类型</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/json2.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript">
+var parentDic;
+function onload(){
+
+	getData(BRAND_TYPE,null,afterGetBrandTypes4Select);		
+}
+function submitBT(){
+	var url = genUrl(BRAND_TYPE);
+	submitAsyFormByJson(url,'bTForm',function(data){
+	 			
+		friendlyTip(data);
+	});	 	
+}
+var BrandType = function(id,name){
+			this.id = id;
+			this.name = name;
+}
+function afterGetBrandTypes4Select(data){
+
+	if(!isErrorData(data)){
+		var brandTypes = data.result.result;
+		
+		parentDic = new Array();
+		for(var i in brandTypes){
+			var brandType = new BrandType(brandTypes[i].id,brandTypes[i].name);
+			parentDic.push(brandType);
+		}
+		viewModel={
+         	
+         	selectableBT : ko.observableArray(parentDic),
+        	selectedBT:ko.observable() 
+        };
+   		ko.applyBindings(viewModel);
+	}
+}
+</script>
+</head>
+<body onload="onload()">
+<div class="formHeader">
+ <span class="title">新增品牌类型</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
+</div>
+<form name="bTForm" id="bTForm" method="post" enctype="multipart/form-data"  onsubmit="return cfm_upadmin();">
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>		
+			<tr>
+				<td align="right" width="25%" height="40">名称:</td>
+				<td width="75%" ><input name='name' type="text"></td>
+			</tr>
+			<tr>
+				<td align="right"  height="40">上级品牌类型:</td>
+				<td  ><select data-bind="value:selectedBT,options:selectableBT,optionsText:'name',optionsCaption: '请选择...'">
+				</select><input type="hidden" name='superTypeId' data-bind="value:selectedBT()?selectedBT().id:''"></td>
+			</tr>					
+		</tbody>
+	</table>
+	<div class="formSubBtn">
+		<input class="submit" value="提交" type="button" onclick='submitBT()'/>
+		<input class="back" value="返回" onclick="history.go(-1)" type="button">
+	</div>
+</form>
+
+</body></html>

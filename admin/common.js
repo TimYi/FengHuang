@@ -77,7 +77,7 @@ function genPaginator(total,pSize,curPage,handlePageChange,visibleP){
 	if(visibleP === null) 
 		visibleP = 10;
 	
-	 $.jqPaginator('.pageList', {
+	 $('.pageList').jqPaginator({
         totalCounts: total,
         pageSize : pSize,
         visiblePages: visibleP,

@@ -50,17 +50,21 @@ function bindData(data){
 	for(var i in results){
 		results[i].selected = false;
 	}
-	dataModel = ko.mapping.fromJS(data);
-	dataModel.add = function(){
-		
-		alert('add');
+	if(!bind){
+		dataModel = ko.mapping.fromJS(data);	
+	}else{
+		ko.mapping.fromJS(data, dataModel);
 	}
 	dataModel.remove = function(item){
 		
-		alert('remove'+item.id());
-		if(ConfDel(0)){
-			remove();
-		}
+		var url = genUrl(APPOINT_APPOINT)+'/'+item.id();
+		deleteReq(url,function(dataObj){
+				
+			friendlyTip(dataObj);
+			if(dataObj.status === 'OK'){
+				dataModel.result.remove(item);
+			}
+		});
 	}
 	dataModel.removeSelected = function(){
 				
@@ -94,19 +98,6 @@ function handlePageChange (num, type) {
     	getDatas4page(num);
     }            
 }
-
-function AppointViewModel(data){
-	//添加checked属性，默认为false
-	var results = data.result;
-	for(var i in results){
-		results[i].selected = false;
-	}
-	
-	data.result = results;
-	self = this;
-	self.size = ko.observable(data.size);
-	self.totalCount = ko.observable(data.totalCount);
-	self.totalPages = ko.observable(data.totalPages);
-	self.page = ko.observable(data.page);
-	self.result = ko.observableArray(data.result);
+function add(){
+	window.location.href="appointadd.htm"
 }

@@ -53,21 +53,21 @@ function afterGetDataById(data){
 		 		}
 		 	}
 	 	}
-	 	if(typeof viewModel.area !== 'function'){
+	 	
+	 	if(typeof viewModel.city !== 'function'){
 	 		//注意：sex 为 null时，是function ,不为null时是object
 		 	for(var i in cityDic){
-		 		if(cityDic[i].id === viewModel.area.id()){
-		 			viewModel.area = ko.observable(cityDic[i]);
+		 		if(cityDic[i].id === viewModel.city.id()){
+		 			viewModel.city = ko.observable(cityDic[i]);
 		 			break;
 		 		}
 		 	}
 	 	}		 
 	 	viewModel.submit = function(){
-	 		var modelObj = ko.mapping.toJS(viewModel);
-	 	
+	 		var modelObj = ko.mapping.toJS(viewModel);	 	
 	 		var  url = genUrl(APPOINT_APPOINT)+'/'+modelObj.id;
 	 		var typeId = viewModel.type().id;
-	 		var areaId = viewModel.area().id;
+	 		var areaId = viewModel.city().id;
 	 		modelObj.typeid = typeId;
 	 		modelObj.cityid = areaId;
 	 		postReq(url,modelObj,function(data){
@@ -98,24 +98,30 @@ function afterGetDataById(data){
 			</tr>
 			<tr>
 				<td align="right" height="40" >预约类型：</td>
-				<td><select data-bind="value:type,options:appointTypeDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
-				</select>
-				<!--input type='text' size=50 data-bind="value:type.id"/-->
+				<td>
+					<select data-bind="value:type,options:appointTypeDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					</select>
+					<input type='text' name='typeId' size=50 data-bind="value:type()?type().id:''"/>
 				</td>
 			</tr>			
 			<tr>
 				<td align="right" height="40">城市：					
 				</td>
 				<td>
-					<select data-bind="value:area,options:cityDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					<select data-bind="value:city,options:cityDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 					</select>
-				<!--input type='text' size=50 data-bind="value:type.id"/-->
+					<input type='text' name='cityId' size=50 data-bind="value:city()?city().id:''"/>
 				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40">姓名：</td>
+				<td ><input type='text' name='realName' size=50 data-bind="value:realName"/></td>
 			</tr>		
 			<tr>
 				<td align="right" height="40">电话：</td>
-				<td data-bind="text:mobile"></td>
-			</tr>		
+				<td ><input type='text' name='mobile' size=50 data-bind="value:mobile"/></td>
+			</tr>
+				
 		</tbody>
 	</table>
 	<div class="formSubBtn">

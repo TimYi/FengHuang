@@ -69,8 +69,16 @@ input[type="button"]:focus,input[type="submit"]:focus{outline:none;}
 .loginBody .loginWarp .mar8{margin-top:18px;}
 .loginBody .loginWarp .quesArea{width:550px;height:45px;border:1px solid #d2dbe2;margin-top:18px;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;}
 .loginBody .loginWarp .quesAreaOn{width:550px;height:45px;border:1px solid #00aeef;margin-top:18px;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;}
+
+.loginBody .loginWarp .verycodeArea{width:550px;height:45px;border:1px solid #d2dbe2;margin-top:18px;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;}
+.loginBody .loginWarp .verycode{width:326px;height:45px;padding:0 5px 0 5px;border:0;background:url(../images/tran.gif);font-weight:bold;font-size:14px;line-height:45px\9;}
+.loginBody .loginWarp .loginForm .verycodeframe{position:relative;float:right;width:366px;height:45px;}
+.loginBody .loginWarp .loginForm .verycodeframe label{float:right;top:45px;left:6px;color:#ccc;}
+.loginBody .loginWarp .label{border:0;float:left;margin:13px 0 0 19px}
+
 .loginBody .loginWarp .answer{width:326px;height:45px;padding:0 5px 0 5px;border:0;background:url(../images/tran.gif);font-weight:bold;font-size:14px;line-height:45px\9;}
 .loginBody .loginWarp .question{border:0;float:left;margin:13px 0 0 19px}
+
 .loginBody .loginWarp .loginForm .asLine{position:relative;float:right;width:366px;height:45px;}
 .loginBody .loginWarp .loginForm .asLine label{position:absolute;top:15px;left:6px;color:#ccc;z-index:-1;}
 .loginBtn{width:130px;height:40px;margin-top:40px;float:right;background:#ffba00;border:0;font-family:"微软雅黑";font-size:20px;color:#fff;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;}
@@ -462,7 +470,7 @@ input[type="button"]:focus,input[type="submit"]:focus{outline:none;}
 .page .pageList a{display:inline-block;padding:0 8px;text-align:center;color:#333;}
 .page .pageList a:hover{color:#999;}
 .page .pageList a.on{width:32px;height:32px;text-align:center;background:url(../images/pageOnBg.png) no-repeat center center;color:#888;}
-.page .pageList span.active{width:32px;height:32px;text-align:center;background:url(../images/pageOnBg.png) no-repeat center center;color:#888;}
+.page .pageList .active a.num{width:32px;height:32px;text-align:center;background:url(../images/pageOnBg.png) no-repeat center center;color:#888;}
 
 
 .pageSmall{display:block;margin-right:15px;line-height:40px;float:right;}

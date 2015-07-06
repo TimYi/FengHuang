@@ -136,7 +136,7 @@ function afterGetDataById(data){
 				<td align="right"  height="40">性别:</td>
 				<td><select data-bind="value:sex,options:sexDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 				</select>
-				<input type='text' size=50 data-bind="value:sex()?sex().id:'unknow'">
+				<input type='hidden' size=50 data-bind="value:sex()?sex().id:'unknow'">
 				</td>
 				<!--td  >&nbsp;<span><input type="radio" name="sexGroup" value='M' data-bind="checked: sex" /> 男</span>
     				&nbsp;<span><input type="radio" name="sexGroup" value='F' data-bind="checked: sex"/> 女</span-->
@@ -167,7 +167,7 @@ function afterGetDataById(data){
 				<td >
 				<select data-bind="value:bloodType,options:bloodTypeDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 				</select>
-				<input type="text" data-bind="value:bloodType()?bloodType().id:''"></td>
+				<input type="hidden" data-bind="value:bloodType()?bloodType().id:''"></td>
 			</tr>
 			<tr>
 				<td align="right" height="40">头像：</td>
@@ -199,8 +199,9 @@ function afterGetDataById(data){
 				<!--td data-bind="text:constellation"></td-->		
 					<td align="right" height="40" >星座：</td>
 				<td>
-				<select data-bind="value:constellation,options:constellationDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
-				</select>
+					<select data-bind="value:constellation,options:constellationDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					</select>
+					<input type="hidden" size=100 data-bind="value:constellation()?constellation().id:'unknow'">
 				</td>		
 				
 			</tr>

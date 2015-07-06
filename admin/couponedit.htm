@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>编辑优惠券</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/json2.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript">
+var viewModel;
+
+function onload(){
+	var id = getUrlParam(window.location.search,"id");
+	getDataById(COUPON_COUPON,id,afterGetDataById);	
+		
+}
+function afterGetDataById(data){
+	
+	//先判断并处理错误数据
+	if(!isErrorData(data)){
+		var result = data.result;
+		if(result.used){
+			result.used = 'true';
+		}else{
+			result.used = 'false';
+		}
+		if(result.expired){
+			result.expired = 'true';
+		}else{
+			result.expired = 'false';
+		}
+		if(result.readed){
+			result.readed = 'true';
+		}else{
+			result.readed = 'false';
+		}
+		//alert(	result.inUse);
+		//数据正确时进行绑定
+	 	viewModel = ko.mapping.fromJS(data.result);
+	 
+	 	viewModel.submit = function(){
+			var url = genUrl(COUPON_COUPON)+'/'+viewModel.id();	
+	 		submitAsyFormByJson(url, 'couponForm', 
+					function(data){
+		 			
+			 			friendlyTip(data);
+			 			window.location.href='couponedit.htm?id='+viewModel.id();
+		 		 	}
+	 			);
+	 	};
+	 	//viewModel.selectableTypes.push(selectedType);
+		ko.applyBindings(viewModel);
+	}
+}
+</script>
+</head>
+<body onload="onload()">
+<div class="formHeader">
+ <span class="title">编辑优惠券</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
+</div>
+<form name="couponForm" id="couponForm" method="post">
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+		
+			<tr>
+				<td align="right"  height="40">名称:</td>
+				<td   ><input type="text" name='name' data-bind="value:name"></td>
+			</tr>			
+			<tr>
+				<td align="right"  height="40">金额:</td>
+				<td  ><input type="text" name='couponsMoney' data-bind='value:couponsMoney'></td>
+			</tr>
+			<tr>
+				<td align="right"  height="40">过期时间:</td>
+				<td  ><input type="text" id="expireTime" class="inputms"  data-bind="value:expireTime" readonly="readonly" />
+					<script type="text/javascript" src="assets/plugin/calendar/calendar.js"></script> 
+					<script type="text/javascript">
+					Calendar.setup({
+						inputField     :    "expireTime",
+						//ifFormat       :    "%Y-%m-%d",
+						ifFormat       :    "%Y-%m-%d",
+						showsTime      :    false,
+						timeFormat     :    "24"
+					});
+					</script>
+				</td>
+			</tr>	
+			<tr>
+				<td align="right" height="40">已过期：</td>
+				<td >	<!--input type="text" name='money' data-bind='value:inUse'-->			
+					<span><input type="radio" name='expired'value='true' data-bind="checked:expired"/>&nbsp;是&nbsp;</span>
+					<span><input type="radio" name='expired'value='false' data-bind="checked:expired"/>&nbsp;否&nbsp;</span>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40">已使用：</td>
+				<td >	<!--input type="text" name='money' data-bind='value:inUse'-->			
+					<span><input type="radio" name='used'value='true' data-bind="checked:used"/>&nbsp;是&nbsp;</span>
+					<span><input type="radio" name='used'value='false' data-bind="checked:used"/>&nbsp;否&nbsp;</span>
+				</td>
+			</tr>
+		
+		</tbody>
+	</table>
+	<div class="formSubBtn">
+		<input class="submit" value="提交" type="button" data-bind="click:submit"/>
+		<input class="back" value="返回" onclick="history.go(-1)" type="button">
+	</div>
+</form>
+
+</body></html>

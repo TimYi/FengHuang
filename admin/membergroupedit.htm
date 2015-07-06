@@ -90,7 +90,7 @@ function afterGetDataById(data){
 				<td >
 				<select data-bind="value:color,options:colorDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 				</select>
-				<input type="text" size=100 data-bind="value:color()?color().name:''"></td>
+				<input type="hidden" size=100 data-bind="value:color()?color().name:''"></td>
 			</tr>
 		
 		</tbody>

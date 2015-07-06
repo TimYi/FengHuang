@@ -12,9 +12,11 @@ var curPage = 1;//当前页码,初始为1
 *定义参数
 */
 var param;
+
 function onload(){
+	
 	initParam();
-	getDatas();	
+	getDatas();
 }
 function initParam(){
 	
@@ -35,29 +37,45 @@ function getDatas4page(page){
 	getDatas();
 }
 function getDatas(){
-	getData(LIVE_LIVE,param,afterGetDatas);
+	getData(COUPON_COUPON,param,afterGetDatas);
+}
+function getEnterMembers(verified){
+	initParam();
+	param.search_eq_verified=verified;
+	getDatas();
 }
 
+function getDeleteMembers(){
+	initParam();
+	param.search_eq_delstate = 'true';
+	getDatas();
+}
+function searchMembers(){
+	
+	initParam();
+	//模糊查询，要给天明讨论
+	param.search_like_all = document.getElementById('keyword').value;
+	getDatas();
+}
 function afterGetDatas(data){
-
 	//先判断并处理错误数据
 	if(!isErrorData(data))
 		//数据正确时进行绑定
 	bindData(data.result);	
 }
 function bindData(data){
+	
 	total = data.totalCount;
 	var results = data.result;
 	for(var i in results){
 		results[i].selected = false;
 	}
 	dataModel = ko.mapping.fromJS(data);
-	
 	dataModel.remove = function(item){
 		
 		if(ConfDel(0)){
 			
-			var url = genUrl(LIVE_LIVE)+'/'+item.id();
+			var url = genUrl(COUPON_COUPON)+'/'+item.id();  
 			deleteReq(url,function(dataObj){
 				
 					friendlyTip(dataObj);
@@ -75,14 +93,12 @@ function bindData(data){
 			alert(filterSelected(dataModel.result()).length);
 		}
 	}
+	
 	dataModel.modify = function(item){
 		
-		window.location.href='liveedit.htm?id='+item.id();
+		//alert('modify'+item.id);
+		window.location.href='couponedit.htm?id='+item.id();		
 	}
-	dataModel.detail = function(item){
-		
-		window.location.href='livedetaillist.htm?liveId='+item.id();
-	}		
 	if(!bind){
 		bind = true;
 		ko.applyBindings(dataModel);
@@ -90,18 +106,17 @@ function bindData(data){
 	if(rePage){
 		
 		//生成分页
-		genPaginator(total,pSize,param.page,handlePageChange)
+		genPaginator(total,pSize,param.page,handlePageChange);
 	}
 
 }
 function handlePageChange (num, type) {
         	
-	//alert(num+':'+type);
     if(type == 'change'){
     
     	getDatas4page(num);
     }            
 }
 function add(){
-		window.location.href="liveadd.htm";
+		window.location.href="couponadd.htm";
 }

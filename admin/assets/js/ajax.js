@@ -170,7 +170,8 @@ function submitFormWithMultipart(reqUrl,formId,beforeSubmit,callBack){
 	 		{                    
 	 			type:'post',                    
 	 			url:reqUrl, 
-	 			dataType:"json", 
+	 			dataType:"json",
+	 			data : $("#"+formId).serialize(), 
 	 			beforeSubmit:beforeSubmit,                  
 	 			success:function(data){                        
 	 			    reqFlag = false;

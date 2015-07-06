@@ -14,6 +14,9 @@
 	function openGroupMgr(){		
 		window.parent.frames["main"].location.href=MODULE_GROUP_URL;
 	}
+	function openRoleMgr(){		
+		window.parent.frames["main"].location.href=MODULE_ROLE_URL;
+	}
 	function openMsgMgr(){		
 		window.parent.frames["main"].location.href=MODULE_MSG_URL;
 	}
@@ -25,6 +28,15 @@
 	}
 	function openLiveMgr(){		
 		window.parent.frames["main"].location.href=MODULE_LIVE_URL;
+	}
+	function openCouponDef(){		
+		window.parent.frames["main"].location.href=MODULE_COUPON_DEF;
+	}
+	function openCouponMgr(){		
+		window.parent.frames["main"].location.href=MODULE_COUPON_URL;
+	}
+	function openPackageMgr(){		
+		window.parent.frames["main"].location.href=MODULE_PACKAGE_URL;
 	}
 
 </script>
@@ -44,18 +56,18 @@
 	<div style="height: 352px;" class="viewport">
 		<div style="top: 0px;" class="overview"> 
 			<!--scrollbar start-->
-			<div class="menubox">
+			<!--div class="menubox">
 				<div class="title on" id="t1" onclick="DisplayMenu('leftmenu01');" title="点击切换显示或隐藏"> 系统模块管理 </div>
 				<div id="leftmenu01"> 
-					<!--a href="http://123.57.218.171/admin/admin.php" target="main">管理员管理</a> 
+					<a href="http://123.57.218.171/admin/admin.php" target="main">管理员管理</a> 
 					<a href="http://123.57.218.171/admin/site.php" target="main">站点配置管理</a> 
 					<a href="http://123.57.218.171/admin/web_config.php" target="main">网站信息配置</a> 
 					<a href="http://123.57.218.171/admin/upload_filemgr_sql.php" target="main">上传文件管理</a>
 					<a href="http://123.57.218.171/admin/database_backup.php" target="main">数据库管理</a> 
-					<a href="http://123.57.218.171/admin/admingroup.php" target="main" title="管理组管理" class="admingroup"></a--> 
+					<a href="http://123.57.218.171/admin/admingroup.php" target="main" title="管理组管理" class="admingroup"></a> 
 				</div>
 			</div>
-			<div class="hr_5"></div>
+			<div class="hr_5"></div-->
 			<div class="menubox">
 				<div class="title" onclick="DisplayMenu('leftmenu02');" title="点击切换显示或隐藏"> 用户模块管理 </div>
 				<div id="leftmenu02" style="display:none"> 
@@ -65,6 +77,7 @@
 					<div class="hr_1"> </div-->
 					<a href="#" onclick ="javascript:openUsrMgr();return false;"  target="main">用户管理</a> 
 					<a href="#" onclick ="javascript:openGroupMgr();return false;"  target="main">用户组</a> 
+					<a href="#" onclick ="javascript:openRoleMgr();return false;"  target="main">角色管理</a> 
 					<!--a href="#" target="main">用户收藏</a> 
 					<a href="#" target="main">用户评论</a-->
 					<a href="#" onclick ="javascript:openMsgMgr();return false;"  target="main">用户留言</a>
@@ -75,6 +88,7 @@
 				<div class="title" onclick="DisplayMenu('leftmenu03');" title="点击切换显示或隐藏"> 订单模块管理 </div>
 				<div id="leftmenu03" style="display:none"> 
 					 <!--a href="#" target="main">家装套餐管理</a-->
+					 <a href="#" onclick ="javascript:openPackageMgr();return false;"  target="main">套餐管理</a>
 					 <a href="#" onclick ="javascript:openAppointMgr();return false;"  target="main">预约管理</a>
 					 <!--a href="#" target="main">订单管理</a>					 					 
 					<div class="hr_1"> </div>
@@ -109,8 +123,8 @@
 			<div class="menubox">
 				<div class="title" onclick="DisplayMenu('leftmenu07');" title="点击切换显示或隐藏"> 优惠券模块管理 </div>
 				<div id="leftmenu07" style="display:none"> 
-					 <!--a href="#" target="main">优惠券生成</a>
-					 <a href="#" target="main">优惠券管理</a-->
+					<a href="#" onclick ="javascript:openCouponDef();return false;"  target="main">优惠券生成</a>
+					<a href="#" onclick ="javascript:openCouponMgr();return false;"  target="main">优惠券管理</a>					
 				</div>
 			</div>		
 			<div class="hr_5"></div>

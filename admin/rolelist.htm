@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>预约管理</title>
+<title>角色管理</title>
 <link href="assets/css/admin.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/js/jquery.js"></script>
 <script type="text/javascript" src="assets/js/forms.js"></script>
@@ -12,10 +12,10 @@
 <script type="text/javascript" src="global_url.js"></script>
 <script type="text/javascript" src="global_var.js"></script>
 <script type="text/javascript" src="common.js"></script>
-<script type="text/javascript" src="appointlist.js"></script>
+<script type="text/javascript" src="rolelist.js"></script>
 </head>
 <body onload="onload()">
-<div class="topToolbar"> <span class="title">预约管理</span>                           
+<div class="topToolbar"> <span class="title">角色管理</span>                           
 <span class="alltype">
 	<a href="javascript:;" onclick="GetType('','查看全部',$(this))" class="btn">条件筛选</a>
 	<span class="drop">
@@ -48,12 +48,8 @@
 <div class="toolbarTab">
 	<ul>
 		<li class="on"><a href="javascript:;" onclick="getMembers()">全部</a></li>
-		<li class="line">-</li>
-		<li class=""><a href="javascript:;" onclick="getEnterMembers(false)">未审</a></li>
-		<li class="line">-</li>
-		<li class=""><a href="javascript:;" onclick="getEnterMembers(true)">已审</a></li>	
-		<li class="line">-</li>
-		<li><a href="javascript:;" onclick="getDeleteMembers()">内容回收站</a></li>
+		<!--li class="line">-</li>
+		<li><a href="javascript:;" onclick="getDeleteMembers()">内容回收站</a></li-->
 		<li class="line">&nbsp;</li>
 		<li class="line">&nbsp;</li>
 		<li class="line">&nbsp;</li>
@@ -71,12 +67,9 @@
 		<thead>
 			<tr class="head" align="left">
 				<td class="firstCol" width="5%" height="36"><input name="checkid" id="checkid" onclick="CheckAll(this.checked);" type="checkbox"></td>
-				<td width="10%">ID</td>
-				<td width="10%">用户</td>
-				<td width="10%">类型</td>
-				<td width="25%">城市</td>			
-				<td width="5%">姓名</td>
-				<td width="10%">电话</td>
+				<td width="15%">ID</td>
+				<td width="10%">名称</td>
+				<td width="10%">描述</td>				
 				<td class="endCol" width="10%">操作</td>
 			</tr>
 		</thead>
@@ -84,13 +77,9 @@
 			<tr class="dataTr" align="left">
 				<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox" data-bind="checked: selected"></td>
 				<td data-bind='text: id'></td>
-				<td data-bind='text: user.username'></td>
-				<td data-bind="text: type==null?'':type.name"></td>
-				<td data-bind="text: city==null?'':city.name"></td>
-				<td data-bind='text: realName'></td>
-				<td data-bind='text: mobile'></td>				
+				<td data-bind="text: name"></td>
+				<td data-bind="text: description"></td>			
 				<td class="action endCol">				
-					<!--span class="nb"><a href="#" data-bind='click: $root.enter'>审核</a></span> | -->
 					<span class="nb"><a href="#" data-bind='click: $root.remove'>删除</a></span> | 
 					<span><a href="#" data-bind='click: $root.modify'>修改</a></span> 
 				</td>
@@ -102,13 +91,16 @@
 	<span class="selArea"><span>选择：</span> 
 		<a href="javascript:CheckAll(true);">全部</a> - 
 		<a href="javascript:CheckAll(false);">无</a> - 
-		<a href="#" data-bind='click: $root.removeSelected'>删除</a>
+		<a href="#" data-bind='click: removeSelected'>删除</a>
+		
 	</span> 
-	<a href="#" onclick='add()'class="dataBtn">新增预约</a> 
+	<a href="#" onclick="add()"class="dataBtn">增加角色</a>
 </div>
 	
 <div class="page"> 
-	<div class="pageList">	
+	<div class="pageList">
 	</div> 
 </div>
+<
+
 </body></html>

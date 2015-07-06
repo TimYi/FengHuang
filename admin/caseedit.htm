@@ -15,12 +15,6 @@
 <script type="text/javascript" src="common.js"></script>
 <script type="text/javascript">
 var viewModel;
-//var decorateDic;
-var menuDic;
-var brandDic;
-var houseDic;//房屋类型
-var styleDic;//装修风格
-var apartmentDic;//户型
 var id;
 function onload(){
 	//第一步：先获取id	
@@ -121,9 +115,14 @@ function afterGetDataById(data){
 					<input type="text" name='price' data-bind="value:price"/>
 				</td>
 			</tr>
-		
 			<tr>
 				<td align="right" height="40" >风格：</td>	
+				<td>		
+					<input type='text' name='style' data-bind="style"/>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >户型：</td>	
 				<td>		
 					<input type='text' name='houseType' data-bind="houseType"/>
 				</td>

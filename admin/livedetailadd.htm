@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>修改预约</title>
+<title>新增直播详情</title>
 <link href="assets/css/admin.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 .test ul{list-style:none;align:center} 
@@ -9,6 +9,7 @@
 </style>
 </style>
 <script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
 <script type="text/javascript" src="assets/js/forms.js"></script>
 <script type="text/javascript" src="assets/js/json2.js"></script>
 <script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
@@ -19,30 +20,17 @@
 <script type="text/javascript" src="common.js"></script>
 <script type="text/javascript">
 var viewModel;
+var liveId;
 function onload(){
-	//第一步：先获取id	
-	var id = getUrlParam(window.location.search,"id");
-		getDataById(LIVE_DETAIL,id,afterGetDataById);
+	liveId = getUrlParam(window.location.search,"liveId");	
+	$('#liveId').val(liveId);
 }
-function afterGetDataById(data){
-	
-	//先判断并处理错误数据
-	if(!isErrorData(data)){
-		//数据正确时进行绑定
-	 	viewModel = ko.mapping.fromJS(data.result);		 	
-	 	viewModel.submit = function(){
-	 	
-	 		var modelObj = ko.mapping.toJS(viewModel);
-	 		var  url = genUrl(LIVE_DETAIL)+'/'+modelObj.id;
-	 		var date = document.getElementById("date").value;	 		
-	 		modelObj.date = date;
-	 		postReq(url,modelObj,function(data){
+function submitLiveDetail(){
+	var  url = genUrl(LIVE_DETAIL);
+	submitAsyFormByJson(url,'liveDetailForm',function(data){
 	 			
-	 			friendlyTip(data);
-	 		});	 		
-	 	}
-		ko.applyBindings(viewModel);
-	}
+		friendlyTip(data);
+	});
 }
 function addPic(){
 	alert('addPci');
@@ -55,30 +43,27 @@ function delPic(){
 </head>
 <body onload="onload()">
 <div class="formHeader">
- <span class="title">修改直播详情</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
+ <span class="title">新增直播详情</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
 </div>
-<form name="form" id="form" method="post">
+<form name="liveDetailForm" id="liveDetailForm" method="post">
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tbody>
-			<tr>
-				<td align="right" width="25%" height="40">ID:</td>
-				<td width="75%" ><span data-bind='text:id'></span></td>
-			</tr>
+		
 			<tr>
 				<td align="right" width="25%" height="40">第几天:</td>
-				<td width="75%" ><input type="text" data-bind='value:day'></td>
+				<td width="75%" ><input type="text" name='day'></td>
 			</tr>		
 			<tr>
 				<td align="right" height="40" >标题：</td>
-				<td width="75%" ><input type="text" data-bind='value:title'></td>				
+				<td width="75%" ><input type="text" name='title'></td>				
 			</tr>
 			<tr>
 				<td align="right" height="40" >提示：</td>
-				<td width="75%" ><input type="text" data-bind='value:tips'></td>				
+				<td width="75%" ><input type="text" name='tips'></td>				
 			</tr>
 			<tr>
 				<td align="right" height="40">日期：</td>
-				<td><input type="text" id="date" class="inputms" data-bind="value:date" readonly="readonly" />
+				<td><input type="text" id="date" class="inputms" readonly="readonly" name='date'/>
 				<script type="text/javascript" src="assets/plugin/calendar/calendar.js"></script> 
 				<script type="text/javascript">
 				Calendar.setup({
@@ -122,10 +107,12 @@ function delPic(){
 			</tr-->			
 		</tbody>
 	</table>
+	<input id='liveId' type='hidden' name='liveId' />
 	<div class="formSubBtn">
-		<input class="submit" value="提交" type="button" data-bind='click:submit'/>
+		<input class="submit" value="提交" type="button" onclick='submitLiveDetail();'/>
 		<input class="back" value="返回" onclick="history.go(-1)" type="button">
 	</div>
+	
 </form>
 
 </body></html>
