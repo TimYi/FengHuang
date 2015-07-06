@@ -3,10 +3,12 @@ package com.fenghuangzhujia.eshop.prudoct.scramble;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fenghuangzhujia.eshop.cases.DecorateCase;
+import com.fenghuangzhujia.eshop.core.area.Area;
 import com.fenghuangzhujia.eshop.core.commerce.goods.Good;
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage;
 import com.fenghuangzhujia.foundation.media.MediaContent;
@@ -26,6 +28,8 @@ public class PackageGood extends Good {
 	private DecoratePackage decoratePackage;
 	/**选择的装修案例*/
 	private DecorateCase decorateCase;
+	/**预约时选定城市*/
+	private Area city;
 	
 	@ManyToOne
 	public DecoratePackage getDecoratePackage() {
@@ -41,7 +45,14 @@ public class PackageGood extends Good {
 	public void setDecorateCase(DecorateCase decorateCase) {
 		this.decorateCase = decorateCase;
 	}
-
+	@OneToOne
+	public Area getCity() {
+		return city;
+	}
+	public void setCity(Area city) {
+		this.city = city;
+	}
+	
 	@Transient
 	public MediaContent getMainPic() {
 		if(decoratePackage==null)return null;

@@ -81,6 +81,7 @@ public class ScrambleService {
 		good.setRealPrice(decoratePackage.getDeposit());
 		good.setDecorateCase(decorateCase);		
 		good.setDecoratePackage(decoratePackage);
+		good.setCity(appoint.getCity());
 		good=packageGoodRepository.save(good);
 		//消耗预约
 		appoint.setUsed(true);		
