@@ -232,7 +232,7 @@ $(function(){
 					console.log("addCollect",data);
 					var status = data.status || "";
 					if(status == "OK"){
-						$("#addCollect").html("已收藏");
+						$("#addCollect div").html("已收藏");
 					}
 					else{
 						var msg = data.error || "";
