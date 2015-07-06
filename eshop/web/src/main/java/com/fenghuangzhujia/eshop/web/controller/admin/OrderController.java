@@ -35,6 +35,13 @@ public class OrderController {
 		return RequestResult.success(result).toJson();
 	}
 	
+	@RequestMapping(value="status/{status}",method=RequestMethod.GET)
+	public String findByStatus(@RequestParam(defaultValue="1") Integer page,
+			@RequestParam(defaultValue="8")  Integer size, @PathVariable OrderStatus status) {
+		PagedList<GoodOrderDto> result=service.findByStatus(page, size, status);
+		return RequestResult.success(result).toJson();
+	}
+	
 	@RequestMapping(value="{id}",method=RequestMethod.GET)
 	public String info(@PathVariable String id) {
 		GoodOrderDto result=service.findOne(id);
