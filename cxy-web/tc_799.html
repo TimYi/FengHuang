@@ -13,10 +13,11 @@
     <link href="assets/css/prettyPhoto.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="assets/js/html5shiv.js"></script>
     <script src="assets/js/respond.min.js"></script>
-    <![endif]-->       
+    <![endif]-->
     <link rel="shortcut icon" href="assets/images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/ico/apple-touch-icon-114-precomposed.png">
@@ -43,20 +44,14 @@
                 </div>
                 <div class="col-sm-6 col-xs-8">
                    <div class="social">
-                        <ul class="social-share">
-																<li style="padding-right:10px;">
-																	<i class="fa fa-user hui"></i>
-																	<span style="color:#aaa"><?=$c_uname;?>，您好！</span>
-																	<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="center.html" style="width:60px">会员中心</a></b>
-																	<b style="padding:0 10px;font-weight:normal"><a href="#" style="width:30px">退出</a></b>
-																</li>
-																<li style="padding-right:10px;">
-																	<i class="fa fa-sign-in hui"></i>
-																	<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
-																		<a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
-																		<a href="login.html" style="width:30px">登录</a>
-																	</b>
-																</li>
+                        <ul id="loginstatus" class="social-share">
+				<li style="padding-right:10px;">
+					<i class="fa fa-sign-in hui"></i>
+					<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
+						<a href="center/reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
+						<a href="center/login.html" style="width:30px">登录</a>
+					</b>
+				</li>
                         </ul>
                    </div>
                 </div>
@@ -73,21 +68,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><img src="assets/images/fhzj.jpg" alt="logo"></a>
+                <a class="navbar-brand" href="index.html"><img src="assets/images/fhzj.jpg" alt="logo"></a>
             </div>
-		
+
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">首页</a></li>
-                    <li class="dropdown">
+                    <li class=""><a href="index.html">首页</a></li>
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">家装套餐 <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="tc_699.html">699 装修套餐</a></li>
+                            <li><a href="tc_699.html?id=8aac48364e2a3809014e2b0e49b20003">699 装修套餐</a></li>
                             <li><a href="tc_799.html">软装套餐</a></li>
                             <li style="padding:0 5px;margin:5px 0;border-bottom:1px solid #555"></li>
                             <li><a href="tmzs.html">流程展示</a></li>
                             <li><a href="gyzs.html">工艺展示</a></li>
-                            <li><a href="zczs.html">主材展示</a></li>                                
+                            <li><a href="zczs.html">主材展示</a></li>
                         </ul>
                     </li>
                     <li><a href="jzd.html">家装贷</a></li>
@@ -95,15 +90,15 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">案例 / Live直播 <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="anlis.html">案例集锦</a></li>
-                            <li><a href="case.html">家装进行时</a></li>
+                            <li><a href="case.html">案例集锦</a></li>
+                            <li><a href="live.html">家装进行时</a></li>
                         </ul>
                     </li>
 										<li style="border:0px"><a href="fhgj.html">凤凰管家</a></li>
                 </ul>
             </div>
         </div><!--/.container-->
-    </nav><!--/nav-->
+    </nav>
 </header><!--/header-->
 <link rel="stylesheet" href="assets/css/index.css" type="text/css" media="screen" />
 <div class="service_box">
@@ -170,7 +165,7 @@ $(".m_logo").hover(function(){
 	return;
 });
 
-</script> 
+</script>
 <!--header-->
     <section id="main-slider" class="no-margin">
         <div class="carousel slide">
@@ -178,7 +173,7 @@ $(".m_logo").hover(function(){
                 <li data-target="#main-slider" data-slide-to="0" class="active"></li>
                 <li data-target="#main-slider" data-slide-to="1"></li>
             </ol>
-           
+
             <div class="carousel-inner">
                 <div class="item active" style="background-image: url(assets/images/499_3.jpg)">
                     <div class="container">
@@ -191,7 +186,7 @@ $(".m_logo").hover(function(){
                                     </h2>
 					                        	<!--div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
 																			<a href="javascript:;" id="buynow" onclick="Buy_799();" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div></a>
-																		</div-->                                    
+																		</div-->
                                 </div>
                             </div>
                         </div>
@@ -245,51 +240,51 @@ $(".m_logo").hover(function(){
 										    	<td style="vertical-align: middle;">
 										    		<img src="assets/images/icon/r6.gif" style="margin-bottom:0;width:100px">
 										    		<img src="assets/images/icon/r22.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-														<img src="assets/images/icon/r3.gif" style="margin-bottom:0;width:100px;margin-left:-10px">										    		
+														<img src="assets/images/icon/r3.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
 														<img src="assets/images/icon/r21.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
 														<img src="assets/images/icon/r17.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
 														<img src="assets/images/icon/r13.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
 														<img src="assets/images/icon/r26.gif" style="margin-bottom:0;;width:100px;margin-left:-10px">
 														<img src="assets/images/icon/r24.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
 														<img src="assets/images/icon/r19.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-										    	</td>										    	
+										    	</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">灯具</td>
 										    	<td style="vertical-align: middle;">
 										    		<img src="assets/images/icon/r7.gif" style="margin-bottom:0;width:100px">
 										    		<img src="assets/images/icon/r14.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-														<img src="assets/images/icon/r18.gif" style="margin-bottom:0;width:100px;margin-left:-10px">										    		
-										    	</td>										    	
+														<img src="assets/images/icon/r18.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+										    	</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">家居饰品</td>
 										    	<td style="vertical-align: middle;">
 										    		<img src="assets/images/icon/r4.gif" style="margin-bottom:0;width:100px">
 										    		<img src="assets/images/icon/r15.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-														<img src="assets/images/icon/r16.gif" style="margin-bottom:0;width:100px;margin-left:-10px">										    		
+														<img src="assets/images/icon/r16.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
 														<img src="assets/images/icon/r10.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
 														<img src="assets/images/icon/r9.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
 														<img src="assets/images/icon/r11.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
 
-										    	</td>										    	
+										    	</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">家居用品</td>
 										    	<td style="vertical-align: middle;">
 										    		<img src="assets/images/icon/r12.gif" style="margin-bottom:0;width:100px">
 										    		<img src="assets/images/icon/r2.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-														<img src="assets/images/icon/r23.gif" style="margin-bottom:0;width:100px;margin-left:-10px">										    		
+														<img src="assets/images/icon/r23.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
 														<img src="assets/images/icon/r1.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-										    	</td>										    	
+										    	</td>
 										    </tr>
 										    <tr style="border-bottom:0">
 										    	<td style="vertical-align: middle;">窗帘</td>
 										    	<td style="vertical-align: middle;">
 										    		<img src="assets/images/icon/r8.gif" style="margin-bottom:0;width:100px">
 										    		<img src="assets/images/icon/r25.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-														<img src="assets/images/icon/r27.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-										    	</td>										    	
+														<img src="assets/images/icon/r27.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+										    	</td>
 										    </tr>
 											</table>
 									  </div>
@@ -305,7 +300,7 @@ $(".m_logo").hover(function(){
 										    	<th>区域</th>
 										    	<th>位置</th>
 										    	<th>名称</th>
-										    	<th>照片</th>										    	
+										    	<th>照片</th>
 										    	<th>规格</th>
 										    	<th>数量</th>
 										    	<th>单位</th>
@@ -317,11 +312,11 @@ $(".m_logo").hover(function(){
 										    	<td style="vertical-align: middle;">餐厅</td>
 										    	<td style="vertical-align: middle;">餐桌</td>
 										    	<td style="vertical-align: middle;">吊灯</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">常规</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">2</td>
@@ -329,11 +324,11 @@ $(".m_logo").hover(function(){
 										    	<td style="vertical-align: middle;">客厅</td>
 										    	<td style="vertical-align: middle;">沙发</td>
 										    	<td style="vertical-align: middle;">吊灯</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">直径680*H285</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">3</td>
@@ -341,11 +336,11 @@ $(".m_logo").hover(function(){
 										    	<td style="vertical-align: middle;">主卧</td>
 										    	<td style="vertical-align: middle;">床</td>
 										    	<td style="vertical-align: middle;">吊灯</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">常规</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">4</td>
@@ -353,11 +348,11 @@ $(".m_logo").hover(function(){
 										    	<td style="vertical-align: middle;">主卧</td>
 										    	<td style="vertical-align: middle;">床头柜</td>
 										    	<td style="vertical-align: middle;">台灯</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">常规</td>
 										    	<td style="vertical-align: middle;">2</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">5</td>
@@ -365,11 +360,11 @@ $(".m_logo").hover(function(){
 										    	<td style="vertical-align: middle;">儿童房</td>
 										    	<td style="vertical-align: middle;">床</td>
 										    	<td style="vertical-align: middle;">吸顶灯</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">直径450*H100</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">6</td>
@@ -377,11 +372,11 @@ $(".m_logo").hover(function(){
 										    	<td style="vertical-align: middle;">儿童房</td>
 										    	<td style="vertical-align: middle;">床头柜</td>
 										    	<td style="vertical-align: middle;">台灯</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">常规</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">7</td>
@@ -389,13 +384,13 @@ $(".m_logo").hover(function(){
 										    	<td style="vertical-align: middle;">儿童房</td>
 										    	<td style="vertical-align: middle;">书桌</td>
 										    	<td style="vertical-align: middle;">台灯</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">常规</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
-											</table>											
+											</table>
 									  </div>
 			        	</div>
 		        </div>
@@ -408,7 +403,7 @@ $(".m_logo").hover(function(){
 										    	<th>索引</th>
 										    	<th>位置</th>
 										    	<th>名称</th>
-										    	<th>照片</th>										    	
+										    	<th>照片</th>
 										    	<th>规格</th>
 										    	<th>数量</th>
 										    	<th>单位</th>
@@ -419,133 +414,133 @@ $(".m_logo").hover(function(){
 										    	<td style="vertical-align: middle;">F01</td>
 										    	<td style="vertical-align: middle;">餐厅</td>
 										    	<td style="vertical-align: middle;">餐桌</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L1700*D850*H750</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">2</td>
 										    	<td style="vertical-align: middle;">F02</td>
 										    	<td style="vertical-align: middle;">餐厅</td>
 										    	<td style="vertical-align: middle;">餐椅</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">常规</td>
 										    	<td style="vertical-align: middle;">4</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">3</td>
 										    	<td style="vertical-align: middle;">F03</td>
 										    	<td style="vertical-align: middle;">客厅</td>
 										    	<td style="vertical-align: middle;">沙发</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L2100*D800*H800</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">4</td>
 										    	<td style="vertical-align: middle;">F04</td>
 										    	<td style="vertical-align: middle;">客厅</td>
 										    	<td style="vertical-align: middle;">茶几</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L900*D835*H330</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">5</td>
 										    	<td style="vertical-align: middle;">F05</td>
 										    	<td style="vertical-align: middle;">客厅</td>
 										    	<td style="vertical-align: middle;">电视柜</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L1800*W394*H543</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">6</td>
 										    	<td style="vertical-align: middle;">F06</td>
 										    	<td style="vertical-align: middle;">主卧</td>
 										    	<td style="vertical-align: middle;">床</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">W1500*D1900*H1100</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">7</td>
 										    	<td style="vertical-align: middle;">F07</td>
 										    	<td style="vertical-align: middle;">主卧</td>
 										    	<td style="vertical-align: middle;">床头柜</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L550*D450*H533</td>
 										    	<td style="vertical-align: middle;">2</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">8</td>
 										    	<td style="vertical-align: middle;">F08</td>
 										    	<td style="vertical-align: middle;">主卧</td>
 										    	<td style="vertical-align: middle;">电视柜</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L1200*W394*H500</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
-										    </tr>		
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">9</td>
 										    	<td style="vertical-align: middle;">F09</td>
 										    	<td style="vertical-align: middle;">儿童房</td>
 										    	<td style="vertical-align: middle;">床</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">W1200*D1900*H1100</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">10</td>
 										    	<td style="vertical-align: middle;">F10</td>
 										    	<td style="vertical-align: middle;">儿童房</td>
 										    	<td style="vertical-align: middle;">床头柜</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L400*D480*H550</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
-										    </tr>										    										    								    
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">11</td>
 										    	<td style="vertical-align: middle;">F11</td>
 										    	<td style="vertical-align: middle;">儿童房</td>
 										    	<td style="vertical-align: middle;">书桌</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L1200xD530xH750</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">12</td>
 										    	<td style="vertical-align: middle;">F12</td>
 										    	<td style="vertical-align: middle;">儿童房</td>
 										    	<td style="vertical-align: middle;">椅子</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">常规</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
-										    </tr>										    
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
 											</table>
 									  </div>
 			        	</div>
@@ -559,7 +554,7 @@ $(".m_logo").hover(function(){
 										    	<th>索引</th>
 										    	<th>位置</th>
 										    	<th>名称</th>
-										    	<th>照片</th>										    	
+										    	<th>照片</th>
 										    	<th>规格</th>
 										    	<th>数量</th>
 										    	<th>单位</th>
@@ -570,133 +565,133 @@ $(".m_logo").hover(function(){
 										    	<td style="vertical-align: middle;">F01</td>
 										    	<td style="vertical-align: middle;">餐厅</td>
 										    	<td style="vertical-align: middle;">餐桌</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L1700*D850*H750</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">2</td>
 										    	<td style="vertical-align: middle;">F02</td>
 										    	<td style="vertical-align: middle;">餐厅</td>
 										    	<td style="vertical-align: middle;">餐椅</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">常规</td>
 										    	<td style="vertical-align: middle;">4</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">3</td>
 										    	<td style="vertical-align: middle;">F03</td>
 										    	<td style="vertical-align: middle;">客厅</td>
 										    	<td style="vertical-align: middle;">沙发</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L2100*D800*H800</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">4</td>
 										    	<td style="vertical-align: middle;">F04</td>
 										    	<td style="vertical-align: middle;">客厅</td>
 										    	<td style="vertical-align: middle;">茶几</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L900*D835*H330</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">5</td>
 										    	<td style="vertical-align: middle;">F05</td>
 										    	<td style="vertical-align: middle;">客厅</td>
 										    	<td style="vertical-align: middle;">电视柜</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L1800*W394*H543</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">6</td>
 										    	<td style="vertical-align: middle;">F06</td>
 										    	<td style="vertical-align: middle;">主卧</td>
 										    	<td style="vertical-align: middle;">床</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">W1500*D1900*H1100</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">7</td>
 										    	<td style="vertical-align: middle;">F07</td>
 										    	<td style="vertical-align: middle;">主卧</td>
 										    	<td style="vertical-align: middle;">床头柜</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L550*D450*H533</td>
 										    	<td style="vertical-align: middle;">2</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">8</td>
 										    	<td style="vertical-align: middle;">F08</td>
 										    	<td style="vertical-align: middle;">主卧</td>
 										    	<td style="vertical-align: middle;">电视柜</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L1200*W394*H500</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
-										    </tr>		
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">9</td>
 										    	<td style="vertical-align: middle;">F09</td>
 										    	<td style="vertical-align: middle;">儿童房</td>
 										    	<td style="vertical-align: middle;">床</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">W1200*D1900*H1100</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">10</td>
 										    	<td style="vertical-align: middle;">F10</td>
 										    	<td style="vertical-align: middle;">儿童房</td>
 										    	<td style="vertical-align: middle;">床头柜</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L400*D480*H550</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
-										    </tr>										    										    								    
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">11</td>
 										    	<td style="vertical-align: middle;">F11</td>
 										    	<td style="vertical-align: middle;">儿童房</td>
 										    	<td style="vertical-align: middle;">书桌</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L1200xD530xH750</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">12</td>
 										    	<td style="vertical-align: middle;">F12</td>
 										    	<td style="vertical-align: middle;">儿童房</td>
 										    	<td style="vertical-align: middle;">椅子</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">常规</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
-										    </tr>										    
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
 											</table>
 									  </div>
 			        	</div>
@@ -710,7 +705,7 @@ $(".m_logo").hover(function(){
 										    	<th>索引</th>
 										    	<th>位置</th>
 										    	<th>名称</th>
-										    	<th>照片</th>										    	
+										    	<th>照片</th>
 										    	<th>规格</th>
 										    	<th>数量</th>
 										    	<th>单位</th>
@@ -721,137 +716,137 @@ $(".m_logo").hover(function(){
 										    	<td style="vertical-align: middle;">F01</td>
 										    	<td style="vertical-align: middle;">餐厅</td>
 										    	<td style="vertical-align: middle;">餐桌</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L1700*D850*H750</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">2</td>
 										    	<td style="vertical-align: middle;">F02</td>
 										    	<td style="vertical-align: middle;">餐厅</td>
 										    	<td style="vertical-align: middle;">餐椅</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">常规</td>
 										    	<td style="vertical-align: middle;">4</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">3</td>
 										    	<td style="vertical-align: middle;">F03</td>
 										    	<td style="vertical-align: middle;">客厅</td>
 										    	<td style="vertical-align: middle;">沙发</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L2100*D800*H800</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">4</td>
 										    	<td style="vertical-align: middle;">F04</td>
 										    	<td style="vertical-align: middle;">客厅</td>
 										    	<td style="vertical-align: middle;">茶几</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L900*D835*H330</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">5</td>
 										    	<td style="vertical-align: middle;">F05</td>
 										    	<td style="vertical-align: middle;">客厅</td>
 										    	<td style="vertical-align: middle;">电视柜</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L1800*W394*H543</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">6</td>
 										    	<td style="vertical-align: middle;">F06</td>
 										    	<td style="vertical-align: middle;">主卧</td>
 										    	<td style="vertical-align: middle;">床</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">W1500*D1900*H1100</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">7</td>
 										    	<td style="vertical-align: middle;">F07</td>
 										    	<td style="vertical-align: middle;">主卧</td>
 										    	<td style="vertical-align: middle;">床头柜</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L550*D450*H533</td>
 										    	<td style="vertical-align: middle;">2</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">8</td>
 										    	<td style="vertical-align: middle;">F08</td>
 										    	<td style="vertical-align: middle;">主卧</td>
 										    	<td style="vertical-align: middle;">电视柜</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L1200*W394*H500</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
-										    </tr>		
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">9</td>
 										    	<td style="vertical-align: middle;">F09</td>
 										    	<td style="vertical-align: middle;">儿童房</td>
 										    	<td style="vertical-align: middle;">床</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">W1200*D1900*H1100</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">10</td>
 										    	<td style="vertical-align: middle;">F10</td>
 										    	<td style="vertical-align: middle;">儿童房</td>
 										    	<td style="vertical-align: middle;">床头柜</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L400*D480*H550</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
-										    </tr>										    										    								    
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">11</td>
 										    	<td style="vertical-align: middle;">F11</td>
 										    	<td style="vertical-align: middle;">儿童房</td>
 										    	<td style="vertical-align: middle;">书桌</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">L1200xD530xH750</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
+										    	<td style="vertical-align: middle;">-</td>
 										    </tr>
 										    <tr>
 										    	<td style="vertical-align: middle;">12</td>
 										    	<td style="vertical-align: middle;">F12</td>
 										    	<td style="vertical-align: middle;">儿童房</td>
 										    	<td style="vertical-align: middle;">椅子</td>
-										    	<td style="vertical-align: middle;">-</td>										    	
+										    	<td style="vertical-align: middle;">-</td>
 										    	<td style="vertical-align: middle;">常规</td>
 										    	<td style="vertical-align: middle;">1</td>
 										    	<td style="vertical-align: middle;">件</td>
-										    	<td style="vertical-align: middle;">-</td>							    	  	    	    	
-										    </tr>										    
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
 											</table>
 									  </div>
 			        	</div>
-		        </div>		        
+		        </div>
 		    </div>
 		    </div>
 		</div>
@@ -879,9 +874,9 @@ $(".m_logo").hover(function(){
               			<div style="text-align:center;line-height:45px;font-size:20px;color:#fff;">400-699-2888</div>
               		</a>
               	</div>
-            </div> 
+            </div>
         </div>
-    </div><!--/.container-->    
+    </div><!--/.container-->
 </section><!--/#conatcat-info-->
 
 <section id="bottom" style="padding:40px 0">
@@ -895,7 +890,7 @@ $(".m_logo").hover(function(){
                         <li><a href="newsshow.html?cid=21&id=23">支付方式</a></li>
                         <li><a href="newsshow.html?cid=21&id=24">常见问题</a></li>
                     </ul>
-                </div>    
+                </div>
             </div><!--/.col-md-3-->
 
             <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
@@ -906,7 +901,7 @@ $(".m_logo").hover(function(){
                         <li><a href="newsshow.html?cid=22&id=26">自助服务</a></li>
                         <li><a href="newsshow.html?cid=22&id=27">相关下载</a></li>
                     </ul>
-                </div>    
+                </div>
             </div><!--/.col-md-3-->
 
             <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
@@ -917,7 +912,7 @@ $(".m_logo").hover(function(){
                         <li><a href="newsshow.html?cid=23&id=29">会员活动</a></li>
                         <li><a href="newsshow.html?cid=23&id=30">VIP服务</a></li>
                     </ul>
-                </div>    
+                </div>
             </div><!--/.col-md-3-->
 
             <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
@@ -928,9 +923,9 @@ $(".m_logo").hover(function(){
                         <li><a href="newsshow.html?cid=24&id=32">了解我们</a></li>
                         <li><a href="newsshow.html?cid=24&id=33">加入我们</a></li>
                     </ul>
-                </div>  
+                </div>
             </div><!--/.col-md-3-->
-            
+
             <div class="col-md-3 col-sm-6" style="width:190px;margin-right:45px">
                 <div class="widget">
                     <h3>官方媒体</h3>
@@ -939,8 +934,8 @@ $(".m_logo").hover(function(){
                         <li><a href="#">微信公众号</a></li>
                         <li><a href="#">天猫网店</a></li>
                     </ul>
-                </div>    
-            </div><!--/.col-md-3-->                
+                </div>
+            </div><!--/.col-md-3-->
         </div>
     </div>
 </section><!--/#bottom-->
@@ -1000,6 +995,6 @@ $(".m_logo").hover(function(){
 				return false;
 			});
 		});
-		</script>    
+		</script>
 </body>
 </html>

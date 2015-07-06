@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <?php echo GetHeader(); ?>
 	  <title>凤凰筑家 | ifhzj.com</title>
 		<!-- core CSS -->
     <link href="assets/css/bootstrap.min1.css" rel="stylesheet">
@@ -14,10 +13,11 @@
     <link href="assets/css/prettyPhoto.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="assets/js/html5shiv.js"></script>
     <script src="assets/js/respond.min.js"></script>
-    <![endif]-->       
+    <![endif]-->
     <link rel="shortcut icon" href="assets/images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/ico/apple-touch-icon-114-precomposed.png">
@@ -44,20 +44,14 @@
                 </div>
                 <div class="col-sm-6 col-xs-8">
                    <div class="social">
-                        <ul class="social-share">
-																<li style="padding-right:10px;">
-																	<i class="fa fa-user hui"></i>
-																	<span style="color:#aaa"><?=$c_uname;?>，您好！</span>
-																	<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="center.html" style="width:60px">会员中心</a></b>
-																	<b style="padding:0 10px;font-weight:normal"><a href="#" style="width:30px">退出</a></b>
-																</li>
-																<li style="padding-right:10px;">
-																	<i class="fa fa-sign-in hui"></i>
-																	<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
-																		<a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
-																		<a href="login.html" style="width:30px">登录</a>
-																	</b>
-																</li>
+                        <ul id="loginstatus" class="social-share">
+				<li style="padding-right:10px;">
+					<i class="fa fa-sign-in hui"></i>
+					<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
+						<a href="center/reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
+						<a href="center/login.html" style="width:30px">登录</a>
+					</b>
+				</li>
                         </ul>
                    </div>
                 </div>
@@ -65,7 +59,7 @@
         </div><!--/.container-->
     </div><!--/.top-bar-->
 
-    <nav class="navbar navbar-inverse" role="banner" style="height:85px">
+   <nav class="navbar navbar-inverse" role="banner" style="height:85px">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -74,21 +68,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><img src="assets/images/fhzj.jpg" alt="logo"></a>
+                <a class="navbar-brand" href="index.html"><img src="assets/images/fhzj.jpg" alt="logo"></a>
             </div>
-		
+
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">首页</a></li>
-                    <li class="dropdown">
+                    <li class=""><a href="index.html">首页</a></li>
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">家装套餐 <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="tc_699.html">699 装修套餐</a></li>
+                            <li><a href="tc_699.html?id=8aac48364e2a3809014e2b0e49b20003">699 装修套餐</a></li>
                             <li><a href="tc_799.html">软装套餐</a></li>
                             <li style="padding:0 5px;margin:5px 0;border-bottom:1px solid #555"></li>
                             <li><a href="tmzs.html">流程展示</a></li>
                             <li><a href="gyzs.html">工艺展示</a></li>
-                            <li><a href="zczs.html">主材展示</a></li>                                
+                            <li><a href="zczs.html">主材展示</a></li>
                         </ul>
                     </li>
                     <li><a href="jzd.html">家装贷</a></li>
@@ -96,15 +90,15 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">案例 / Live直播 <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="anlis.html">案例集锦</a></li>
-                            <li><a href="case.html">家装进行时</a></li>
+                            <li><a href="case.html">案例集锦</a></li>
+                            <li><a href="live.html">家装进行时</a></li>
                         </ul>
                     </li>
 										<li style="border:0px"><a href="fhgj.html">凤凰管家</a></li>
                 </ul>
             </div>
         </div><!--/.container-->
-    </nav><!--/nav-->
+    </nav>
 </header><!--/header-->
 <link rel="stylesheet" href="assets/css/index.css" type="text/css" media="screen" />
 <div class="service_box">
@@ -170,7 +164,7 @@ $(".m_logo").hover(function(){
 },function(){
 	return;
 });
-</script> 
+</script>
 <!--header-->
     <section id="main-slider" class="no-margin">
         <div class="carousel slide">
@@ -178,7 +172,7 @@ $(".m_logo").hover(function(){
                 <li data-target="#main-slider" data-slide-to="0" class="active"></li>
                 <li data-target="#main-slider" data-slide-to="1"></li>
             </ol>
-           
+
             <div class="carousel-inner">
                 <div class="item active" style="background-image: url(assets/images/slider/d_5.jpg)">
                     <div class="container">
@@ -191,7 +185,7 @@ $(".m_logo").hover(function(){
                                     </h2>
 					                        	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
 																			<a href="javascript:;" id="buynow" onclick="Buy_699();" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div></a>
-																		</div>                                    
+																		</div>
                                 </div>
                             </div>
                         </div>
@@ -235,38 +229,38 @@ $(".m_logo").hover(function(){
                         <div class="overlay">
                             <div class="recent-work-inner">
                                 <h3><a href="#">01客厅</a> </h3>
-                                <p> 
+                                <p>
 																	地砖：东鹏<br/>
 																	墙面漆：都芳<br/>
 																	石膏线：泰丽雅<br/>
-																	开关面板：西门子                                	
+																	开关面板：西门子
                                 </p>
                                 <!--a class="preview" href=""images/space/space10.jpg"" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
-                            </div> 
+                            </div>
                         </div>
                     </div>
-                </div>   
-					
+                </div>
+
                 <div class="col-xs-9 col-sm-4 col-md-4">
                     <div class="recent-work-wrap">
                         <img class="img-responsive" src="assets/images/space/space4.jpg" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
                                 <h3><a href="#">02厨房</a></h3>
-                                <p> 
-																	橱柜/烟机灶具/水盆：金牌<br/>      
-																	五金：九牧<br/>      
-																	木门：TATA<br/>      
-																	墙地砖：东鹏<br/>      
-																	开关面板：西门子<br/>      
-																	吊顶：友邦<br/>      
-																	集成灯具：雷士照明                                 	
-                                </p>                            	
+                                <p>
+																	橱柜/烟机灶具/水盆：金牌<br/>
+																	五金：九牧<br/>
+																	木门：TATA<br/>
+																	墙地砖：东鹏<br/>
+																	开关面板：西门子<br/>
+																	吊顶：友邦<br/>
+																	集成灯具：雷士照明
+                                </p>
                                 <!--a class="preview" href="images/space/space3.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
-                            </div> 
+                            </div>
                         </div>
                     </div>
-                </div> 
+                </div>
 
                 <div class="col-xs-9 col-sm-4 col-md-4">
                     <div class="recent-work-wrap">
@@ -274,19 +268,19 @@ $(".m_logo").hover(function(){
                         <div class="overlay">
                             <div class="recent-work-inner">
                                 <h3><a href="#">03卫生间</a></h3>
-                                <p> 
-																	墙地砖：东鹏<br/>      
-																	面盆/马桶/龙头：科勒<br/>      
-																	木门：TATA<br/>      
-																	五金件：九牧<br/>      
-																	开关面板：西门子<br/>      
-																	吊顶：友邦                              	
-                                </p>                            	
+                                <p>
+																	墙地砖：东鹏<br/>
+																	面盆/马桶/龙头：科勒<br/>
+																	木门：TATA<br/>
+																	五金件：九牧<br/>
+																	开关面板：西门子<br/>
+																	吊顶：友邦
+                                </p>
                                 <!--a class="preview" href="images/space/space11.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
-                            </div> 
+                            </div>
                         </div>
                     </div>
-                </div>   
+                </div>
 							</div><!--/.row-->
 							<div class="row" style="margin:0 0 30px 0">
                 <div class="col-xs-9 col-sm-4 col-md-4">
@@ -295,37 +289,37 @@ $(".m_logo").hover(function(){
                         <div class="overlay">
                             <div class="recent-work-inner">
                                 <h3><a href="#">04卧室</a></h3>
-                                <p> 
-																	地板：大自然<br/>    
-																	木门：TATA<br/>    
-																	墙面漆：都芳<br/>    
-																	石膏线：泰丽雅<br/>    
-																	开关面板：西门子<br/>    
-																	窗台面：米黄/定制                              	
-                                </p>                            	
+                                <p>
+																	地板：大自然<br/>
+																	木门：TATA<br/>
+																	墙面漆：都芳<br/>
+																	石膏线：泰丽雅<br/>
+																	开关面板：西门子<br/>
+																	窗台面：米黄/定制
+                                </p>
                                 <!--a class="preview" href="images/space/space4.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
-                            </div> 
+                            </div>
                         </div>
                     </div>
-                </div>   
-                
+                </div>
+
                 <div class="col-xs-9 col-sm-4 col-md-4">
                     <div class="recent-work-wrap">
                         <img class="img-responsive" src="assets/images/space/space11.jpg" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
                                 <h3><a href="#">05餐厅</a></h3>
-                                <p> 
+                                <p>
 																	地砖：东鹏<br/>
 																	墙面漆：都芳<br/>
 																	石膏线：泰丽雅<br/>
-																	开关面板：西门子                                	
+																	开关面板：西门子
                                 </p>
                                 <!--a class="preview" href="images/space/space1.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
-                            </div> 
+                            </div>
                         </div>
                     </div>
-                </div>   
+                </div>
 
                 <div class="col-xs-9 col-sm-4 col-md-4">
                     <div class="recent-work-wrap">
@@ -333,16 +327,16 @@ $(".m_logo").hover(function(){
                         <div class="overlay">
                             <div class="recent-work-inner">
                                 <h3><a href="#">06阳台</a></h3>
-                                <p> 
-																	地砖：东鹏<br/>  
-																	墙面漆：都芳<br/>  
-																	灯具：雷士照明                               	
+                                <p>
+																	地砖：东鹏<br/>
+																	墙面漆：都芳<br/>
+																	灯具：雷士照明
                                 </p>
                                 <!--a class="preview" href="images/space/space6.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
-                            </div> 
+                            </div>
                         </div>
                     </div>
-                </div> 
+                </div>
             </div><!--/.row-->
         </div>
     </section>
@@ -370,7 +364,7 @@ $(".m_logo").hover(function(){
             </div>
             <div class="center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
             	<img src="assets/images/gxsj.png">
-            </div>            
+            </div>
         </div><!--/.container-->
     </section><!--/#feature-->
 
@@ -409,8 +403,8 @@ $(".m_logo").hover(function(){
                                 <img src="assets/images/zfc/3.gif" />
                             </li>
                         </ul>
-                    </div>   
-										<div style="clear:both;height:20px"></div>                
+                    </div>
+										<div style="clear:both;height:20px"></div>
                     <div class="col-sm-6 col-md-3 wow fadeInDown">
                         <ul>
                             <li style="background:#fff">
@@ -438,8 +432,8 @@ $(".m_logo").hover(function(){
                                 <img src="assets/images/s3.gif" />
                             </li>
                         </ul>
-                    </div>  
-										<div style="clear:both;height:20px"></div>                
+                    </div>
+										<div style="clear:both;height:20px"></div>
                     <div class="col-sm-6 col-md-3 wow fadeInDown">
                         <ul>
                             <li style="background:#fff">
@@ -454,7 +448,7 @@ $(".m_logo").hover(function(){
                             </li>
                         </ul>
                     </div>
-                                          
+
                 </div>
             </div><!--/pricing-area-->
         </div><!--/.container-->
@@ -470,7 +464,7 @@ $(".m_logo").hover(function(){
             </div>
             <div class="center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
             		<img src="assets/images/step55.gif">
-            </div>               
+            </div>
         </div><!--/.container-->
     </section><!--/#feature-->
 
@@ -483,7 +477,7 @@ $(".m_logo").hover(function(){
             </div>
             <div class="center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
             		<img src="assets/images/gjfw.png">
-            </div>            
+            </div>
         </div>
     </section>
 
@@ -510,9 +504,9 @@ $(".m_logo").hover(function(){
               			<div style="text-align:center;line-height:45px;font-size:20px;color:#fff;">400-699-2888</div>
               		</a>
               	</div>
-            </div> 
+            </div>
         </div>
-    </div><!--/.container-->    
+    </div><!--/.container-->
 </section><!--/#conatcat-info-->
 
 <section id="bottom" style="padding:40px 0">
@@ -526,7 +520,7 @@ $(".m_logo").hover(function(){
                         <li><a href="newsshow.html?cid=21&id=23">支付方式</a></li>
                         <li><a href="newsshow.html?cid=21&id=24">常见问题</a></li>
                     </ul>
-                </div>    
+                </div>
             </div><!--/.col-md-3-->
 
             <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
@@ -537,7 +531,7 @@ $(".m_logo").hover(function(){
                         <li><a href="newsshow.html?cid=22&id=26">自助服务</a></li>
                         <li><a href="newsshow.html?cid=22&id=27">相关下载</a></li>
                     </ul>
-                </div>    
+                </div>
             </div><!--/.col-md-3-->
 
             <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
@@ -548,7 +542,7 @@ $(".m_logo").hover(function(){
                         <li><a href="newsshow.html?cid=23&id=29">会员活动</a></li>
                         <li><a href="newsshow.html?cid=23&id=30">VIP服务</a></li>
                     </ul>
-                </div>    
+                </div>
             </div><!--/.col-md-3-->
 
             <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
@@ -559,9 +553,9 @@ $(".m_logo").hover(function(){
                         <li><a href="newsshow.html?cid=24&id=32">了解我们</a></li>
                         <li><a href="newsshow.html?cid=24&id=33">加入我们</a></li>
                     </ul>
-                </div>  
+                </div>
             </div><!--/.col-md-3-->
-            
+
             <div class="col-md-3 col-sm-6" style="width:190px;margin-right:45px">
                 <div class="widget">
                     <h3>官方媒体</h3>
@@ -570,8 +564,8 @@ $(".m_logo").hover(function(){
                         <li><a href="#">微信公众号</a></li>
                         <li><a href="#">天猫网店</a></li>
                     </ul>
-                </div>    
-            </div><!--/.col-md-3-->                
+                </div>
+            </div><!--/.col-md-3-->
         </div>
     </div>
 </section><!--/#bottom-->
@@ -616,5 +610,10 @@ $(".m_logo").hover(function(){
     <script src="assets/js/jquery.isotope.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/wow.min.js"></script>
+
+<script src="libs/json.js"></script>
+<script src="libs/base.js"></script>
+<script src="libs/utils.js"></script>
+<script src="js/699.js"></script>
 </body>
 </html>
