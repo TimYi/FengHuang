@@ -14,6 +14,8 @@ import com.fenghuangzhujia.eshop.core.user.User;
 public class Coupons extends UnreadRemindEntity {
 
 	private User user;
+	/**临时字段，标记是否是抢购优惠券*/
+	private String type;
 	private String name;
 	private Double couponsMoney;
 	private Date expireTime;
@@ -30,6 +32,12 @@ public class Coupons extends UnreadRemindEntity {
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
 	}
 	public String getName() {
 		return name;

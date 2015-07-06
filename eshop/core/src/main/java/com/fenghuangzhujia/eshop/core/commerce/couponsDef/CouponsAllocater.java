@@ -68,4 +68,19 @@ public class CouponsAllocater {
 		Coupons coupons=def.generateCoupons(user);
 		couponsRepository.save(coupons);
 	}
+	
+	/**
+	 * 临时用于处理优惠券抢购
+	 * @param userId
+	 * @return 是否抢购成功
+	 */
+	public boolean scramble(String userId) {
+		CouponsDef def=defRepository.findByEvent("qg");
+		if(def==null)return false;
+		User user=userRepository.findOne(userId);
+		Coupons coupons=def.generateCoupons(user);
+		if(coupons==null)return false;
+		coupons=couponsRepository.save(coupons);
+		return true;
+	}
 }

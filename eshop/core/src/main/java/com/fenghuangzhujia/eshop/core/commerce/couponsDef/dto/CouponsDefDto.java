@@ -16,6 +16,10 @@ public class CouponsDefDto extends DtoBaseModel {
 	private Date expireTime;
 	/**是否分发优惠券，true，则按照定义分发优惠券*/
 	private boolean inUse;
+	/**剩余优惠券数量*/
+	private Integer remainCount=0;
+	/**已经分发优惠券数量*/
+	private Integer consumedCount=0;
 	
 	public String getEvent() {
 		return event;
@@ -46,5 +50,17 @@ public class CouponsDefDto extends DtoBaseModel {
 	}
 	public void setInUse(boolean inUse) {
 		this.inUse = inUse;
+	}
+	public Integer getRemainCount() {
+		return remainCount;
+	}
+	public Integer getConsumedCount() {
+		return consumedCount;
+	}
+	public void setRemainCount(Integer remainCount) {
+		this.remainCount = remainCount;
+	}
+	public void setConsumedCount(Integer consumedCount) {
+		this.consumedCount = consumedCount;
 	}
 }

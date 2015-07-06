@@ -21,6 +21,10 @@ public class CouponsDef extends UUIDBaseModel {
 	private String name;
 	/**优惠券金额*/
 	private Double money;
+	/**剩余优惠券数量*/
+	private Integer remainCount=0;
+	/**已经分发优惠券数量*/
+	private Integer consumedCount=0;
 	/**优惠券有效期截止时间*/
 	private Date expireTime;
 	/**是否分发优惠券，true，则按照定义分发优惠券*/
@@ -33,6 +37,16 @@ public class CouponsDef extends UUIDBaseModel {
 		coupons.setName(name);
 		coupons.setCouponsMoney(money);
 		coupons.setExpireTime(expireTime);
+		
+		//为了熬夜加班做抢购临时加入的逻辑
+		if(coupons.getType().equals("qg")) {
+			if(remainCount>consumedCount) {
+				consumedCount=consumedCount+1;
+				coupons.setType("qg");
+			} else {
+				return null;
+			}
+		}
 		return coupons;
 	}
 
@@ -61,12 +75,22 @@ public class CouponsDef extends UUIDBaseModel {
 	public void setExpireTime(Date expireTime) {
 		this.expireTime = expireTime;
 	}
-
 	public boolean isInUse() {
 		return inUse;
 	}
-
 	public void setInUse(boolean inUse) {
 		this.inUse = inUse;
+	}
+	public Integer getRemainCount() {
+		return remainCount;
+	}
+	public void setRemainCount(Integer remainCount) {
+		this.remainCount = remainCount;
+	}
+	public Integer getConsumedCount() {
+		return consumedCount;
+	}
+	public void setConsumedCount(Integer consumedCount) {
+		this.consumedCount = consumedCount;
 	}
 }
