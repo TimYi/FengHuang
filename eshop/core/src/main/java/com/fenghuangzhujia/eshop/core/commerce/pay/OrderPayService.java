@@ -66,5 +66,9 @@ public class OrderPayService {
 		
 		//触发支付成功分发优惠券事件
 		couponsAllocater.allocate(CouponsAllocater.PAY_ORDER, pay.getOrder().getUser().getId());
+		
+		//TODO
+		//触发自动预约体验馆功能
+		
 	}
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>预约体验馆</title>
+    <title>预约体验馆 — 厦门</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -146,8 +146,16 @@
                 <input type="text" id="name" minlength="3" placeholder="真实姓名" required style="border-color:#e0e0e0;" />
             </div>
             <div class="am-form-group">
-                <input type="text" id="mobile" minlength="3" placeholder="中国大陆手机号码" required style="border-color:#e0e0e0;" />
+                <input type="text" id="phone" minlength="3" placeholder="中国大陆手机号码" required style="border-color:#e0e0e0;" />
             </div>
+            <div class="am-cf">
+                <input class="am-fl" type="text" id="inputImgCode3" placeholder="验证码" style="width:55%">
+                <div style="height:10px;"></div>
+                <div style="float:right;margin-top:-10px;width:40%">
+                    <img id="imgcodebtn" src="" alt="" style="height:42px;width:100%;">
+                </div>
+            </div>
+            <div style="height:10px;"></div>
             <div class="am-cf">
                     <input class="am-fl" type="text" name="validate" id="validate" placeholder="短信验证码" style="width:55%">
                     <div style="height:10px;"></div>
@@ -168,6 +176,10 @@
     <!-- yxyf end -->
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/amazeui.min.js"></script>
+    <script src="js/libs/json.js"></script>
+    <script src="js/libs/base.js"></script>
+    <script src="js/libs/utils.js"></script>
+    <script src="js/sub_tyg_xm.js"></script>
 </body>
 
 </html>

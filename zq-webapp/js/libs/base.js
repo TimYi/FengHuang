@@ -18,7 +18,7 @@
 	var userName = "";
 
 	//请求服务地址
-	var serverUrl = "http://101.200.229.135:8080";
+	var serverUrl = "http://IFHZJ.com";
 
 	var categoryUrl = serverUrl + "/api/category";
 	var cityUrl = serverUrl + "/api/area/level";
@@ -48,6 +48,7 @@
 	var houses = serverUrl + "/api/user/houses";
 	var house = serverUrl + "/api/user/house";
 	var cases = serverUrl + "/api/product/cases";
+	var caseTags = serverUrl + "/api/product/cases/tags";
 	var casedetails = serverUrl + "/api/product/case";
 	var lives = serverUrl + "/api/lives";
 	var userlivesUrl = serverUrl + "/api/user/lives";
@@ -100,4 +101,5 @@
 	Base.packageAppointUrl = packageAppointUrl;
 	Base.scramble = scramble;
 	Base.articalUrl = articalUrl;
+	Base.caseTags = caseTags;
 }(window));

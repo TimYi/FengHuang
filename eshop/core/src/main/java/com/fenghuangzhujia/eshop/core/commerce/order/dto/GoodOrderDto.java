@@ -3,6 +3,7 @@ package com.fenghuangzhujia.eshop.core.commerce.order.dto;
 import java.util.Date;
 
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder.OrderStatus;
+import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 import com.fenghuangzhujia.foundation.media.MediaContentDto;
 
@@ -12,13 +13,14 @@ public class GoodOrderDto extends DtoBaseModel {
 	private Integer count;
 	private String name;
 	private String type;
-	private MediaContentDto mainPic;
-	private String shopid;
-	private String shop;	
+	private MediaContentDto mainPic;	
 	private Object good;
+	private UserDto user;
 	/**交易时间*/
 	private Date payTime;
 	private String code;
+	private String mobile;
+	private String realName;
 
 	public double getPrice() {
 		return price;
@@ -56,18 +58,6 @@ public class GoodOrderDto extends DtoBaseModel {
 	public void setMainPic(MediaContentDto mainPic) {
 		this.mainPic = mainPic;
 	}
-	public String getShopid() {
-		return shopid;
-	}
-	public void setShopid(String shopid) {
-		this.shopid = shopid;
-	}
-	public String getShop() {
-		return shop;
-	}
-	public void setShop(String shop) {
-		this.shop = shop;
-	}
 	public Object getGood() {
 		return good;
 	}
@@ -85,5 +75,23 @@ public class GoodOrderDto extends DtoBaseModel {
 	}
 	public void setCode(String code) {
 		this.code = code;
+	}
+	public UserDto getUser() {
+		return user;
+	}
+	public void setUser(UserDto user) {
+		this.user = user;
+	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public String getRealName() {
+		return realName;
+	}
+	public void setRealName(String realName) {
+		this.realName = realName;
 	}
 }

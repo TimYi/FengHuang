@@ -994,3 +994,16 @@ input[placeholder],[placeholder],*[placeholder] {
 .house-list .h-right i{color:#ccc;padding-left:10px;font-size:20px}
 .b-wrap{text-align:center;}
 .b-wrap a{display:inline-block;background:orange;height:45px;width:160px;border-radius:7px;font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;}
+#commentList{padding:0;margin:20px 0 0;}
+#commentList li{list-style: none;border-top:1px solid #eee;padding:2px 0 7px;}
+#commentList li p{font-size:14px;line-height:18px;color:#666;margin:10px 0 0;}
+#commentList li p b{color:#000;margin-left:8px;}
+#commentList .time{text-align:right;font-size:12px;margin-top:0;}
+.cd-timeline-img {background:#000;text-align:center;color:#fff;list-style:none;line-height:28px;}
+.cd-timeline-content .tit{color:#000;font-weight:800;}
+.cd-timeline-content .t-wrap{margin-top:-5px;line-height:16px;}
+.cd-timeline-content .live-pic{margin:-5px;margin-top:-10px;padding:0px;}
+.cd-timeline-content .tips{line-height: 18px;}
+#packageStatus p,.pack-p p{margin:8px 0;}
+.btn-op{margin:0 auto;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;}
+.btn-op div{font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;}
