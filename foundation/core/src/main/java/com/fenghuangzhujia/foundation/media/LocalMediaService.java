@@ -103,6 +103,9 @@ public class LocalMediaService implements MediaService {
 	 * @return
 	 */
 	protected String concatRelativeFilePath(String fileName) {
+		if(StringUtils.isBlank(getRelativePath())) {
+			return fileName;
+		}
 		String relativePath=StringUtils.removeEnd(getRelativePath(), "/");
 		String path=relativePath+"/"+fileName;
 		return path;
