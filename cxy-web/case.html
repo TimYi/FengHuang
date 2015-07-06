@@ -1,39 +1,31 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>凤凰筑家 | ifhzj.com</title>
+    <title>凤凰筑家 ifhzj.com</title>
+
 		<!-- core CSS -->
-    <link href="assets/css/bootstrap.min1.css" rel="stylesheet">
-    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
-    <link href="assets/css/animate.min.css" rel="stylesheet">
-    <link href="assets/css/prettyPhoto.css" rel="stylesheet">
-    <link href="assets/css/main.css" rel="stylesheet">
-    <link href="assets/css/responsive.css" rel="stylesheet">
+    <link href="css/bootstrap.min1.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
-    <script src="assets/js/html5shiv.js"></script>
-    <script src="assets/js/respond.min.js"></script>
-    <![endif]-->       
-    <link rel="shortcut icon" href="assets/images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/Images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/images/ico/apple-touch-icon-57-precomposed.png">
-		<link href="templates/default/style/webstyle.css" type="text/css" rel="stylesheet" />
-		<script type="text/javascript" src="assets/js/jquery.min.js"></script>
-		<script type="text/javascript" src="assets/js/loadimage.js"></script>
-		<script type="text/javascript" src="assets/js/top.js"></script>
-		<script type="text/javascript">
-		$(function(){
-		    $(".goods_list li img").LoadImage({width:220,height:220});
-		});
-		</script>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="../images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 
-<body>
 <!-- header-->
 <header id="header" style="border-bottom:1px solid #f6f6f6;">
     <div class="top-bar">
@@ -50,25 +42,14 @@
                     	</p>
                     </div>
                 </div>
-                <div class="col-sm-6 col-xs-8">
-                   <div class="social">
-                        <ul class="social-share">
-																<li style="padding-right:10px;">
-																	<i class="fa fa-user hui"></i>
-																	<span style="color:#aaa"><?=$c_uname;?>，您好！</span>
-																	<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="center.html" style="width:60px">会员中心</a></b>
-																	<b style="padding:0 10px;font-weight:normal"><a href="#" style="width:30px">退出</a></b>
-																</li>
-																<li style="padding-right:10px;">
-																	<i class="fa fa-sign-in hui"></i>
-																	<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
-																		<a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
-																		<a href="login.html" style="width:30px">登录</a>
-																	</b>
-																</li>
-                        </ul>
-                   </div>
-                </div>
+                    <div class="col-sm-6 col-xs-8">
+                       <div class="social">
+                            <ul class="social-share">
+                                <li style="padding-right:10px"><i class="fa fa-sign-in hui"></i> <b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="../reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal"><a href="../login.html" style="width:30px">登录</a></b></li>
+                                <li><i class="fa fa-user hui"></i> <a href="../center.html" style="width:60px">会员中心</a></li>
+                            </ul>
+                       </div>
+                    </div>
             </div>
         </div><!--/.container-->
     </div><!--/.top-bar-->
@@ -182,406 +163,70 @@ $(".m_logo").hover(function(){
 </script> 
 <!--header-->
 
-<!-- mainbody-->
-
-    <section id="portfolio" style="margin-top:10px">
+    <section id="portfolio" style="border-top:1px solid #f9f9f9;margin-top:10px">
         <div class="container">
-		       	<div class="center wow fadeInDown">
-		            <h2>家装进行时<span style="font-size:24px"> DECORATION...</span></h2>
-		            <p class="lead">17*24 施工全程微信监控，不用跑工地，装修施工看得懂，验收不满1票否决！上网就能看到装修中的家！ </p>
-		        </div>
-            <ul class="portfolio-filter text-center" style="float:left">
-                <li><a class="btn btn-default active" href="#" data-filter="*">全部</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".nihao">499套餐</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".html">699套餐</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".html">818套餐</a></li>                              
-                
-            </ul>
+           	<div class="center wow fadeInDown">
+                <h2>100套精品家装案例<span style="font-size:24px"> BOUTIQUE CASE</span></h2>
+                <p class="lead">您可以直接通过案例订购家装套餐，所见即所得！！</p>
+            </div>
+            <ul id="packagename" class="portfolio-filter text-center" style="float:left">
+                <li><a class="btn btn-default active" href="javascript:void(0);" data-filter="*">全部</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".nihao">499套餐</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".html">699套餐</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".html">818套餐</a></li>
+
+            </ul><!--/#portfolio-filter-->
             <div style="clear:both"></div>
-            <ul class="portfolio-filter text-center" style="margin-top:-20px;float:left">
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">现代</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">简约</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">中式</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">欧式</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">美式</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">田园</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">新古典</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">混搭</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">地中海</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">东南亚</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">日式</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">宜家</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">北欧</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">简欧</a></li>
-            </ul>         
+            <ul id="packagestype1" class="portfolio-filter text-center" style="margin-top:-20px;float:left">
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">现代</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">简约</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">中式</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">欧式</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">美式</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">田园</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">新古典</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">混搭</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">地中海</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">东南亚</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">日式</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">宜家</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">北欧</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">简欧</a></li>
+            </ul><!--/#portfolio-filter-->
             <div style="clear:both"></div>
-            <ul class="portfolio-filter text-center" style="margin-top:-20px;float:left">
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">客厅</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">餐厅</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">卧室</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">书房</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">儿童房</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">厨房</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">卫生间</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">衣帽间</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">洗浴室</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">阳台</a></li>
-            </ul>     
-						<div style="clear:both"></div>
+            <ul id="packagestype1" class="portfolio-filter text-center" style="margin-top:-20px;float:left">
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">客厅</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">餐厅</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">卧室</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">书房</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">儿童房</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">厨房</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">卫生间</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">衣帽间</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">洗浴室</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".wordpress">阳台</a></li>
+            </ul><!--/#portfolio-filter-->
+		<div style="clear:both"></div>
             <div class="row wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                <div class="portfolio-items">
-                    <div class="portfolio-item apps col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_1.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="portfolio-item joomla nihao col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_2.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-
-                    <div class="portfolio-item nihao bootstrap wordpress col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_3.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>        
-                    </div>
-
-                    <div class="portfolio-item joomla wordpress apps col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_4.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>           
-                    </div>
-          
-                    <div class="portfolio-item joomla html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_5.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>      
-                    </div>
-
-                    <div class="portfolio-item wordpress html apps col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_6.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>         
-                    </div>
-
-                    <div class="portfolio-item wordpress html col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_7.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_8.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_9.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_10.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_11.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_12.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_13.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_14.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_15.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_16.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_17.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_18.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_19.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_20.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_21.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_22.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_23.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_24.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_25.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_26.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="assets/images/case/case_27.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">套餐/风格/空间</a></h3>
-                                    <p>户型/价格/面积/描述</p>
-                                    <a href="case_details.html" style="color:white"><i class="fa fa-eye"></i> 案例详情</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div>
+                <div id="caselist" class="portfolio-items">
                 </div>
-				        <div style="clear:both" class="center">
-					          <ul class="pagination pagination-lg ">
-					              <li><a href="#"><i class="fa fa-step-backward"></i></a></li> 
-					              <li><a href="#"><i class="fa fa-caret-left" style="font-size:1.5em"></i></a></li> 
-					              <li class="active"><a href="#">1</a></li>
-					              <li><a href="#">2</a></li>
-					              <li><a href="#">3</a></li>
-					              <li><a href="#">...</a></li>
-					              <li><a href="#">49</a></li>
-					              <li><a href="#">50</a></li>
-					              <li><a href="#"><i class="fa fa-caret-right" style="font-size:1.5em"></i></a></li> 
-					              <li><a href="#"><i class="fa fa-step-forward"></i></a></li>
-					          </ul>
-				        </div>                 
+			<div id="casepage" style="clear:both;display:none;" class="center" >
+				<ul class="pagination pagination-lg ">
+					<li><a href="#"><i class="fa fa-step-backward"></i></a></li>
+					<li><a href="#"><i class="fa fa-caret-left" style="font-size:1.5em"></i></a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">...</a></li>
+					<li><a href="#">49</a></li>
+					<li><a href="#">50</a></li>
+					<li><a href="#"><i class="fa fa-caret-right" style="font-size:1.5em"></i></a></li>
+					<li><a href="#"><i class="fa fa-step-forward"></i></a></li>
+				</ul><!--/.pagination-->
+			</div>
             </div>
         </div>
-    </section>
-
-
-
+    </section><!--/#portfolio-item-->
 
 <!--footer-->
 
@@ -704,7 +349,21 @@ $(".m_logo").hover(function(){
 	myCity.get(myFun);
 </script>
 <!--footer-->
+
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.prettyPhoto.js"></script>
+	<script src="js/jquery.isotope.min.js"></script>
+
+	<script src="js/wow.min.js"></script>
+	<script src="libs/json.js"></script>
+	<script src="libs/base.js"></script>
+	<script src="libs/utils.js"></script>
+	<script src="js/case.js"></script>
+	
+	<script src="assets/js/sales.js"></script>
+	<script src="assets/js/main.js"></script>	
+	
+
 </body>
 </html>
-
-
