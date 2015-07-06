@@ -424,7 +424,7 @@ $(function(){
 			var html = [];
 			html.push('<li>贷款金额： ' + money + ' 元</li>');
 			html.push('<li>贷款周期： ' + month[time] + ' 期</li>');
-			html.push('<li>本息合计： ' + Amount.toFixed(2) + ' 元</li>');
+			html.push('<li>本息合计： ' + Amount.toFixed(2) + '</li>');
 			$("#allmoney").html(html.join(''));
 		}
 		else{

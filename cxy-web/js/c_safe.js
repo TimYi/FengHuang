@@ -46,13 +46,17 @@ $(function(){
 		var condi = {};
 		condi.token = g.token;
 		condi.username = g.username;
-		condi.oldPassword = $("#oldpwd").val();
-		condi.newPassword = $("#newpwd").val();
-		condi.confirmPassword = $("#newpwd2").val();
-		condi.captcha = $("#pwdimgcode").val();
+		condi.oldPassword = $("#oldpwd").val() || "";
+		condi.newPassword = $("#newpwd").val() || "";
+		condi.confirmPassword = $("#newpwd2").val() || "";
+		condi.captcha = $("#pwdimgcode").val() || "";
 
-		console.log(condi);
-		sendUpdateUserPwdHttp(condi);
+		if(condi.oldPassword !== "" && condi.newPassword !== "" && condi.confirmPassword !== "" && condi.captcha !== ""){
+			sendUpdateUserPwdHttp(condi);
+		}
+		else{
+			Utils.alert("信息输入错误");
+		}
 	}
 
 	//获取个人资料请求
@@ -69,7 +73,11 @@ $(function(){
 				console.log(data);
 				var status = data.status || "";
 				if(status == "OK"){
-					alert("密码修改成功");
+					Utils.alert("密码修改成功");
+					$("#oldpwd").val("");
+					$("#newpwd").val("");
+					$("#newpwd2").val("");
+					$("#pwdimgcode").val("");
 				}
 				else{
 					var msg = data.error || "";

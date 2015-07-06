@@ -160,7 +160,7 @@ $(function(){
 				if(condi.decorateBudget !== ""){
 					if(condi.launchDate !== ""){
 						if(condi.decorateDate !== ""){
-							//console.log(condi);
+							console.log(condi);
 							sendAddHomeHttp(condi);
 						}
 						else{
@@ -239,7 +239,7 @@ $(function(){
 				var condi = {};
 				condi.token = g.token;
 				condi.id = id;
-				//console.log(condi);
+				console.log(condi);
 				sendDeleteHomeHttp(condi);
 			}
 		}
@@ -262,7 +262,7 @@ $(function(){
 				if(condi.decorateBudget !== ""){
 					if(condi.launchDate !== ""){
 						if(condi.decorateDate !== ""){
-							//console.log(condi);
+							console.log(condi);
 							sendUpdateHomeHttp(condi);
 						}
 						else{
@@ -304,12 +304,12 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				//console.log("sendAddHomeHttp",data);
+				console.log("sendAddHomeHttp",data);
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
 					getHomeList();
-					Utils.alert("添加成功");
+					alert("添加成功");
 				}
 				else{
 					var msg = data.error || "";
@@ -333,7 +333,7 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				//console.log("sendGetHomeListHttp",data);
+				console.log("sendGetHomeListHttp",data);
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
@@ -362,7 +362,7 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				//console.log("sendDeleteHomeHttp",data);
+				console.log("sendDeleteHomeHttp",data);
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
@@ -391,12 +391,12 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				//console.log("sendUpdateHomeHttp",data);
+				console.log("sendUpdateHomeHttp",data);
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
 					getHomeList();
-					Utils.alert("修改成功");
+					alert("修改成功");
 				}
 				else{
 					var msg = data.error || "";

@@ -1,114 +1,285 @@
-<?php if(!defined('IN_MEMBER')) exit('Request Error!'); ?>
-<!--DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><?php echo $cfg_webname; ?> - 会员登录</title>
-<link href="<?php echo $cfg_webpath; ?>/templates/default/style/member.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="<?php echo $cfg_webpath; ?>/templates/default/js/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo $cfg_webpath; ?>/templates/default/js/member.js"></script>
-</head-->
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>会员登录 | 凤凰筑家 PHOENIXZJ.COM</title>
-		<link href="<?php echo $cfg_webpath; ?>/templates/default/style/member.css" type="text/css" rel="stylesheet" />    
-		<!-- core CSS -->
-    <link href="fhzj/css/bootstrap.min1.css" rel="stylesheet">
-    <link href="fhzj/css/font-awesome.min.css" rel="stylesheet">
-    <link href="fhzj/css/animate.min.css" rel="stylesheet">
-    <link href="fhzj/css/prettyPhoto.css" rel="stylesheet">
-    <link href="fhzj/css/main.css" rel="stylesheet">
-    <link href="fhzj/css/responsive.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="fhzj/js/html5shiv.js"></script>
-    <script src="fhzj/js/respond.min.js"></script>
-    <![endif]-->       
-    <link rel="shortcut icon" href="fhzj/images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="fhzj/images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="fhzj/images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="fhzj/Images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="fhzj/images/ico/apple-touch-icon-57-precomposed.png">
-    
+    <title>登录 | 凤凰筑家 PHOENIXZJ.COM</title>
 
-		<script type="text/javascript" src="<?php echo $cfg_webpath; ?>/templates/default/js/jquery.min.js"></script>
-		<script type="text/javascript" src="<?php echo $cfg_webpath; ?>/templates/default/js/member.js"></script>    
+	<!-- core CSS -->
+    <link href="css/bootstrap.min1.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+     <link href="css/base.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 
-<body>
-<!--div class="header">
-	<div class="area">
-		<div class="logo"><a href="<?php echo $cfg_webpath; ?>/"></a></div>
-		<div class="retxt"><a href="<?php echo $cfg_webpath; ?>/">网站首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="?c=reg">注册</a></div>
-	</div>
-</div-->
-<div class="header">
-	<?php require_once('header.php'); ?>
-</div>
-<div class="mainbody" style="position:relative;margin-top:70px;margin-bottom:30px;">
-	<div class="top">
-		<h2>登录账户</h2>
-		<div class="txt">欢迎您登录<?php echo $cfg_webname; ?>会员，如果您还没有注册，则可在此 <a href="?c=reg">注册</a></div>
-	</div>
-	<?php
-	if($d == md5('reg'))
-	{
-		echo '<div class="infor">恭喜您，注册成功，请登录！</div>';
-	}
-	else if($d == md5('newpwd'))
-	{
-		echo '<div class="infor">重设新密码成功！</div>';
-	}
-	?>
-	<form id="form" method="post" action="?a=login" onsubmit="return CheckLog();">
-		<table width="100%" border="0" cellpadding="0" cellspacing="0">
-			<tbody>
-				<tr>
-					<td width="100" height="50">用户名：</td>
-				<td colspan="2"><input type="text" name="username" id="username" class="input" style="width:300px"/></td>
-				</tr>
-				<tr>
-					<td height="50">密　码：</td>
-					<td colspan="2"><input type="password" name="password" id="password" class="input"  style="width:300px"/></td>
-				</tr>
-				<tr>
-					<td height="50">验证码：</td>
-					<td colspan="2"><input type="text" name="validate" id="validate" class="input" maxlength="4"  style="width:300px"/>
-						<span><img id="ckstr" src="data/captcha/ckstr.php" title="看不清？点击更换" align="absmiddle" style="cursor:pointer;" onClick="this.src=this.src+'?'" /> <a href="javascript:;" onClick="var v=document.getElementById('ckstr');v.src=v.src+'?';return false;">看不清?</a></span><br /></td>
-				</tr>
-				<tr>
-					<td height="70"> </td>
-					<td width="110"><input type="submit" value="立即登录" class="sub" /></td>
-					<td width="1138"><a href="?c=findpwd" class="findpwd">忘记密码？</a></td>
-				</tr>
-				<tr>
-					<td height="22">&nbsp;</td>
-					<td colspan="2"><input type="checkbox" title="两周内自动登录" name="autologin" id="autologin" value="1" />
-					<label for="autologin" title="为了您的信息安全，请不要在网吧或公用电脑上使用此功能！"> 两周内自动登录</label></td>
-				</tr>
-				<?php
-				if($cfg_oauth == 'Y')
-				{
-				?>
-				<tr>
-					<td height="40"> </td>
-					<td colspan="2" valign="bottom">合作账号：<a href="data/api/oauth/connect.php?method=qq_token" class="oqq">QQ登录</a> <a href="data/api/oauth/connect.php?method=weibo_token" class="osina">微博登录</a></td>
-				</tr>
-				<?php
-				}
-				?>
-			</tbody>
-		</table>
-	</form>
-	<div class="regbtn"><a href="?c=reg">注册一个账号</a></div>
-	<div class="cl"></div>
-</div>
-<?php require_once('footer.php'); ?>
+<body class="homepage">
+
+    <header id="header" style="border-bottom:1px #f9f9f9 solid">
+        <div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-4">
+                        <div class="top-number">
+                        	<p>
+                        		<i class="fa fa-phone-square"></i>
+                        		<span style="color:#666">&nbsp;&nbsp;400-699-2888</span>
+                        		&nbsp;&nbsp;&nbsp;&nbsp;
+                        		<i class="fa fa-map-marker"></i>
+                        		<span style="color:#666">&nbsp;&nbsp;北京 <span style="font-size:12px;color:#aaa">[ <a href="">切换</a> ]</span></span>
+                        	</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xs-8">
+                       <div class="social">
+                            <ul class="social-share">
+                                <li style="padding-right:10px"><i class="fa fa-sign-in hui"></i> <b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal"><a href="login.html" style="width:30px">登录</a></b></li>
+                                <li><i class="fa fa-user hui"></i> <a href="center.html" style="width:60px">会员中心</a></li>
+                            </ul>
+                            <div class="search">
+                                <form role="form">
+                                		<i class="fa fa-search"></i>
+                                    <input type="text" class="search-form" autocomplete="off" placeholder="搜索">
+                                </form>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+            </div><!--/.container-->
+        </div><!--/.top-bar-->
+
+        <nav class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="images/fhzj.jpg" alt="logo"></a>
+                </div>
+
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="index.html">首页</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">家装套餐 <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="499.html">499套餐</a></li>
+                                <li><a href="699.html">699套餐</a></li>
+                                <li><a href="818.html">818套餐</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">家装服务 <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="fhgj.html">凤凰管家</a></li>
+                                <li><a href="jzd.html">家装贷</a></li>
+                                <li><a href="tmzs.html">35天透明展示</a></li>
+                                <li><a href="jsq.html">家装计算器</a></li>
+                                <li><a href="gyzs.html">工艺展示</a></li>
+                                <li><a href="zczs.html">主材展示</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="tyg.html">体验馆</a></li>
+                        <li class="dropdown" style="border:0px">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">案例 / Live直播 <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="case.html">案例集锦</a></li>
+                                <li><a href="live.html">家装进行时</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+
+    </header><!--/header-->
+
+
+
+		<section style="width:400px;margin:0 auto;padding:80px 0 0 0">
+		<form action="" onsubmit="return false;" class="form-horizontal" class="media contact-info wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+		  <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
+		    <div class="col-sm-10" style="width:83%">
+		      <input type="" class="form-control" id="inputEmail3" placeholder="请输入用户名">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="password" class="col-sm-2 control-label">密码</label>
+		    <div class="col-sm-10" style="width:83%">
+		      <input type="password" class="form-control" id="password" placeholder="请输入密码">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="inputCode3" class="col-sm-2 control-label">验证码</label>
+		    <div class="col-sm-10" style="width:83%">
+		     <input type="text" class="form-control" id="inputCode3" placeholder="请输入图形验证码" style="width:160px;float:left;margin-top:4px;">
+		      <img id="updatecodebtn" src="" alt="" style="height: 40px;width: 150px;float:right" />
+		      <!--<button type="button" class="btn btn-default" style="float:right;margin-top:10px;width:150px">换一组图片</button>-->
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-10" style="width:83%">
+		      <div class="checkbox">
+		        <label>
+		          <!--<input id="autologin" type="checkbox" style=""> 自动登录 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+		          <a href="pwdfind.html" style="float:right;">忘记密码？</a>
+		        </label>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="form-group" style="padding:20px 0 100px 0">
+		    <div class="col-sm-offset-2 col-sm-10" style="width:83%">
+		      <button id="loginbtn" type="button" class="btn btn-default">　登录　</button>
+		      <button id="regbtn" type="button"  class="btn btn-default">　注册用户　</button>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="inputEmail3" class="col-sm-2 control-label">授权登录</label>
+		    <div class="col-sm-10" style="width:83%">
+          <div class="breadcrumb" style="background:none">
+					  <li><a href="#" title="微信登录"><i class="fa fa-weixin" style="font-size:1.5em;color:#44b549"></i></a></li>
+					  <li><a href="#" title="QQ登录"><i class="fa fa-qq" style="font-size:1.5em;color:#66b2df"></i></a></li>
+					  <li class="active"><a href="#" title="新浪微博登录"><i class="fa fa-weibo" style="font-size:1.5em;color:#e82f37"></i></a></li>
+					</div>
+		    </div>
+		  </div>
+
+
+
+		</form>
+		</section>
+
+
+    <section id="conatcat-info" >
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="media contact-info wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="pull-left">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="media-body">
+                            <h2 style="font-weight:400">我们为用户提供24小时的在线服务</h2>
+                            <p>您可以拨打我们的全国400客服电话400-699-2888（工作日9:00-18:00），或者通过在线客服联系我们，同时还欢迎您关注我们的微信公众服务号fenghuangzj。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin:20px 0 0 1000px;font-size:20px;" class="media contact-info wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                  	<div style="height:45px;width:160px;background:#b9090e;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                  		<a href="#">
+                  			<div style="text-align:center;line-height:45px;font-size:20px;color:#fff;">400-699-2888</div>
+                  		</a>
+                  	</div>
+                </div>
+            </div>
+        </div><!--/.container-->
+    </section><!--/#conatcat-info-->
+
+    <section id="bottom" style="padding:40px 0">
+        <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+            <div class="row">
+                <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:185px;margin-right:35px">
+                    <div class="widget">
+                        <h3>帮助中心</h3>
+                        <ul>
+                            <li><a href="fwzn.html">服务指南</a></li>
+                            <li><a href="zffs.html">支付方式</a></li>
+                            <li><a href="cjwt.html">常见问题</a></li>
+                        </ul>
+                    </div>
+                </div><!--/.col-md-3-->
+
+                <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
+                    <div class="widget">
+                        <h3>服务支持</h3>
+                        <ul>
+                            <li><a href="shzc.html">售后政策</a></li>
+                            <li><a href="zzfw.html">自助服务</a></li>
+                            <li><a href="xgxz.html">相关下载</a></li>
+                        </ul>
+                    </div>
+                </div><!--/.col-md-3-->
+
+                <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
+                    <div class="widget">
+                        <h3>凤凰之家</h3>
+                        <ul>
+                            <li><a href="hyjlb.html">会员俱乐部</a></li>
+                            <li><a href="hyhd.html">会员活动</a></li>
+                            <li><a href="vip.html">VIP服务</a></li>
+                        </ul>
+                    </div>
+                </div><!--/.col-md-3-->
+
+                <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
+                    <div class="widget">
+                        <h3>关于我们</h3>
+                        <ul>
+                            <li><a href="contactus.html">联系我们</a></li>
+                            <li><a href="aboutus.html">了解我们</a></li>
+                            <li><a href="enjoyus.html">加入我们</a></li>
+                        </ul>
+                    </div>
+                </div><!--/.col-md-3-->
+
+                <div class="col-md-3 col-sm-6" style="width:190px;margin-right:45px">
+                    <div class="widget">
+                        <h3>官方媒体</h3>
+                        <ul>
+                            <li><a href="#">新浪微博</a></li>
+                            <li><a href="#">微信公众号</a></li>
+                            <li><a href="#">天猫网店</a></li>
+                        </ul>
+                    </div>
+                </div><!--/.col-md-3-->
+            </div>
+        </div>
+    </section><!--/#bottom-->
+
+    <footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2015 凤凰筑家 (北京) 网络有限公司 保留所有权利
+                </div>
+                <div class="col-sm-6">
+                    <ul class="pull-right">
+                        <li><a href="#">京ICP证1123102931</a></li>
+                        <li><a href="#">京网文29239-12312</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.prettyPhoto.js"></script>
+	<script src="js/jquery.isotope.min.js"></script>
+
+	<script src="js/wow.min.js"></script>
+	<script src="libs/json.js"></script>
+	<script src="libs/base.js"></script>
+	<script src="libs/utils.js"></script>
+	<script src="js/login.js"></script>
 </body>
 </html>

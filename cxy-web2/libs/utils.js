@@ -457,11 +457,10 @@ Array.prototype.remove = function(n){
 			if(token !== ""){
 				str = "?token=" + token + "&page=0";
 			}
-
-			html.push('<li style="padding-right:10px;"><i class="fa fa-user hui"></i>');
-			html.push('<span style="color:#aaa">' + userName + ',您好！</span>');
-			html.push('<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="javascript:Utils.gotoCenter();" style="width:60px">会员中心</a></b>');
-			html.push('<b style="padding:0 10px;font-weight:normal"><a href="javascript:Utils.loginOut();" style="width:30px">退出</a></b></li>');
+			html.push('<li style="padding-right:10px"><i class="fa fa-sign-out"></i>');
+			html.push('<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="javascript:void(0);" style="width:auto;">' + userName + ',你好!</a></b>');
+			html.push('<b style="padding:0 10px;font-weight:normal"><a href="javascript:Utils.loginOut();" style="width:70px">安全退出</a></b></li>');
+			html.push('<li><i class="fa fa-user hui"></i> <a href="center.html' + str + '" style="width:60px">会员中心</a></li>');
 			if($("#loginstatus").length > 0){
 				$("#loginstatus")[0].innerHTML = html.join('');
 			}
@@ -476,23 +475,7 @@ Array.prototype.remove = function(n){
 	function loginOut(){
 		Utils.offLineStore.remove("userinfo",false);
 		Utils.offLineStore.remove("login_userprofile",false);
-		location.href = "../index.html";
-	}
-
-	//安全退出
-	function gotoCenter(){
-		var info = offLineStore.get("userinfo",false) || "";
-		if(info !== ""){
-			var token = Utils.offLineStore.get("token",false) || "";
-			var str = "";
-			if(token !== ""){
-				str = "?token=" + token + "&page=0";
-			}
-			location.href = "center.html" + str;
-		}
-		else{
-			location.href = "login.html";
-		}
+		location.href = "index.html";
 	}
 
 	Utils.offLineStore = offLineStore;
@@ -507,7 +490,6 @@ Array.prototype.remove = function(n){
 	Utils.isMobile = isMobile;
 	Utils.getUserInfo = getUserInfo;
 	Utils.loginOut = loginOut;
-	Utils.gotoCenter = gotoCenter;
 }(window));
 
 
@@ -535,7 +517,7 @@ $(function(){
 
 
 
-	//getPackages();
+	getPackages();
 
 	//获取字典
 	function getPackages(){

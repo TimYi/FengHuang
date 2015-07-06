@@ -125,10 +125,9 @@ $(function(){
 	$("#provId").bind("change",getProvCity);
 	$("#provId2").bind("change",getProvCity2);
 
-	//getAppointCategory();
-	//getProv();
-	//getPackages();
-
+	getAppointCategory();
+	getProv();
+	getPackages();
 	function getProvCity(){
 		var id = $(this).val();
 		getCity(id,1);

@@ -5,550 +5,246 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>凤凰筑家 | ifhzj.com</title>
-		<!-- core CSS -->
-    <link href="assets/css/bootstrap.min1.css" rel="stylesheet">
-    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
-    <link href="assets/css/animate.min.css" rel="stylesheet">
-    <link href="assets/css/prettyPhoto.css" rel="stylesheet">
-    <link href="assets/css/main.css" rel="stylesheet">
-    <link href="assets/css/responsive.css" rel="stylesheet">
+    <title>主材展示 | 家装服务 | 凤凰筑家 PHOENIXZJ.COM</title>
+	
+	<!-- core CSS -->
+    <link href="css/bootstrap.min1.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
-    <script src="assets/js/html5shiv.js"></script>
-    <script src="assets/js/respond.min.js"></script>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
     <![endif]-->       
-    <link rel="shortcut icon" href="assets/images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 
 <body class="homepage">
 
-<!-- header-->
-<header id="header" style="border-bottom:1px solid #f6f6f6;">
-    <div class="top-bar">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-xs-4">
-                    <div class="top-number">
-                    	<p>
-                    		<i class="fa fa-phone-square"></i>
-                    		<span style="color:#666">&nbsp;&nbsp;400-699-2888</span>
-                    		&nbsp;&nbsp;&nbsp;&nbsp;
-                    		<i class="fa fa-map-marker"></i>
-                    		<span style="color:#666">&nbsp;&nbsp;<span id="city">定位获取中...</span> <!--span style="font-size:12px;color:#aaa">[ <a href="">切
-
-换</a> ]</span--></span>
-                    	</p>
+    <header id="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-4">
+                        <div class="top-number">
+                        	<p>
+                        		<i class="fa fa-phone-square"></i>
+                        		<span style="color:#666">&nbsp;&nbsp;400-699-2888</span>
+                        		&nbsp;&nbsp;&nbsp;&nbsp;
+                        		<i class="fa fa-map-marker"></i>
+                        		<span style="color:#666">&nbsp;&nbsp;北京 <span style="font-size:12px;color:#aaa">[ <a href="">切换</a> ]</span></span>
+                        	</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xs-8">
+                       <div class="social">
+                            <ul class="social-share">
+                                <li style="padding-right:10px;"><i class="fa fa-sign-in hui"></i> <b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal"><a href="login.html" style="width:30px">登录</a></b></li>
+                                <li><i class="fa fa-user hui"></i> <a href="center.html" style="width:60px">会员中心</a></li>
+                            </ul>
+                            <div class="search">
+                                <form role="form">
+                                		<i class="fa fa-search"></i>
+                                    <input type="text" class="search-form" autocomplete="off" placeholder="搜索">
+                                </form>
+                           </div>
+                       </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-xs-8">
-                   <div class="social">
-                        <ul class="social-share">
-																<li style="padding-right:10px;">
-																	<i class="fa fa-user 
+            </div><!--/.container-->
+        </div><!--/.top-bar-->
 
-hui"></i>
-																	<span style="color:#aaa"><?=
-
-$c_uname;?>，您好！</span>
-																	<b style="border-right:1px 
-
-solid #ddd;padding:0 10px;font-weight:normal"><a href="center.html" style="width:60px">会员中心</a></b>
-																	<b style="padding:0 
-
-10px;font-weight:normal"><a href="#" style="width:30px">退出</a></b>
-																</li>
-																<li style="padding-right:10px;">
-																	<i class="fa fa-sign-in 
-
-hui"></i>
-																	<b style="border-right:1px 
-
-solid #ddd;padding:0 10px;font-weight:normal">
-																		<a href="reg.html" 
-
-style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
-																		<a href="login.html" 
-
-style="width:30px">登录</a>
-																	</b>
-																</li>
-                        </ul>
-                   </div>
+        <nav class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="images/fhzj.jpg" alt="logo"></a>
                 </div>
-            </div>
-        </div><!--/.container-->
-    </div><!--/.top-bar-->
+				
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">首页</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">家装套餐 <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="499.html">499套餐</a></li>
+                                <li><a href="699.html">699套餐</a></li>
+                                <li><a href="818.html">818套餐</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown active">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">家装服务 <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="fhgj.html">凤凰管家</a></li>
+                                <li><a href="jzd.html">家装贷</a></li>
+                                <li><a href="tmzs.html">35天透明展示</a></li>
+                                <li><a href="jsq.html">家装计算器</a></li>
+                                <li><a href="gyzs.html">工艺展示</a></li>
+                                <li><a href="zczs.html">主材展示</a></li>
+                            </ul>
+                        </li>                        
+                        <li><a href="tyg.html">体验馆</a></li>
+                        <li class="dropdown" style="border:0px">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">案例 / Live直播 <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="case.html">案例集锦</a></li>
+                                <li><a href="live.html">家装进行时</a></li>
+                            </ul>
+                        </li>
 
-    <nav class="navbar navbar-inverse" role="banner" style="height:85px">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/"><img src="assets/images/fhzj.jpg" alt="logo"></a>
-            </div>
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
 		
-            <div class="collapse navbar-collapse navbar-right">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">首页</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">家装套餐 <i class="fa fa-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="tc_699.html">699 装修套餐</a></li>
-                            <li><a href="tc_799.html">软装套餐</a></li>
-                            <li style="padding:0 5px;margin:5px 0;border-bottom:1px solid #555"></li>
-                            <li><a href="tmzs.html">流程展示</a></li>
-                            <li><a href="gyzs.html">工艺展示</a></li>
-                            <li><a href="zczs.html">主材展示</a></li>                                
-                        </ul>
-                    </li>
-                    <li><a href="jzd.html">家装贷</a></li>
-                    <li><a href="tyg.html">体验馆</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">案例 / Live直播 <i class="fa fa-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="anlis.html">案例集锦</a></li>
-                            <li><a href="case.html">家装进行时</a></li>
-                        </ul>
-                    </li>
-										<li style="border:0px"><a href="fhgj.html">凤凰管家</a></li>
-                </ul>
-            </div>
-        </div><!--/.container-->
-    </nav><!--/nav-->
-</header><!--/header-->
-<link rel="stylesheet" href="assets/css/index.css" type="text/css" media="screen" />
-<div class="service_box">
-  <ul class="tab_nav">
-    <li class="qqicon"><a href="#"><i class="icon icon_1"></i></a></li>
-    <li class="weixinicon"><a href="#"><i class="icon icon_3"></i></a></li>
-  </ul>
-  <div class="tab_content1">
-    <div class="tab_plan">
-      <p class="fs14">售前客服<br />
-        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=932321904&amp;site=qq&amp;menu=yes" class="qq_link"><img border="0" src="http://wpa.qq.com/pa?
+    </header><!--/header-->
 
-p=2:2833026848:51" alt="点击这里给我发消息" title="点击这里给我发消息"></a></p>
-      <p class="fs14 mt10">售中客服<br />
-        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=50695843&amp;site=qq&amp;menu=yes" class="qq_link"><img border="0" src="http://wpa.qq.com/pa?
-
-p=2:123456789:51" alt="点击这里给我发消息" title="点击这里给我发消息"></a></p>
-      <p class="fs14 mt10">售后客服<br />
-        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=932321904&amp;site=qq&amp;menu=yes" class="qq_link"><img border="0" src="http://wpa.qq.com/pa?
-
-p=2:2833026848:51" alt="点击这里给我发消息" title="点击这里给我发消息"></a></p>
-			<p class="mt10"><b>电话客服</b><br />
-				400-699-2888<br />
-			</P>
-      <p class="mt10"><b>服务时间</b><br />
-        9:00-18:00(工作日)<br />
-      </p>
-    </div>
-    <div class="tab_plan" style="display: none;"><img src="assets/images/weixin.jpg" alt="官方微信自助客服" width="130" height="130">
-      <p>关注凤凰筑家</p>
-    </div>
-  </div>
-</div>
-
-<script type="text/javascript" src="assets/js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript">
-$(".service_box .tab_nav li").hover(function(){
-	var i=$(this).index();
-	$(this).addClass("active").siblings().removeClass("active");
-	$(".service_box .tab_plan:eq("+i+")").show().siblings().hide();
-});
-$(function(){
-	var t;
-	$(".service_box").hover(function(){
-		$(".service_box").animate({right:0},300)
-		clearTimeout(t);
-	},function(){
-		t=setTimeout(function(e){
-			$(".service_box").animate({right:"-146px"},300);
-			$(".service_box").find(".tab_nav li").removeClass("active");
-		},1000);
-	});
-});
-var isTransition=true;
-$(".m_logo").hover(function(){
-	var r=0;
-	if(isTransition){
-		animateTime = setInterval(function(){
-			if (r>=153){
-				clearInterval(animateTime);
-				isTransition=true;
-			}else{
-				isTransition=false;
-				r++;
-				$(".m_logo a").attr("style","-webkit-mask:-webkit-gradient(radial, 45 25, "+r+", 45 25, "+(r+15)+", from(rgb(0, 0, 0)), color-stop
-
-(0.5, rgba(0, 0, 0, 0.2)), to(rgb(0, 0, 0)));")
-			};
-		},5);
-	}
-},function(){
-	return;
-});
-
-</script> 
-<!--header-->
-
-    <section id="feature"  style="border-top:1px solid #f6f6f6;background:#f9f9f9">
+    <section id="feature"  style="border-top:1px solid #f6f6f6;margin-top:10px;>
         <div class="container">
            	<div class="center wow fadeInDown">
-                <h2>名牌主辅材<span style="font-size:24px"> FAMOUS MATERIAL</span></h2>
-                <p class="lead">TATA、大自然、科勒、都芳、东鹏、金牌、九牧、友邦、西门子、雷士等10 	大一线主材品牌,为您提供品质保障、极致体验</p>
+                <h2>地中海蓝色马赛克<span style="font-size:24px"> 35 DAYS</span></h2>
+                <p class="lead">施工步骤紧密衔接，拒绝浪费时间，保证在35天内就为您完成装修，用最高效的方式让您享受最好最快的家装体验。<br/>55项标准节点和标准操作项目，三大改革装修不再磨洋工</p>
             </div>
-            <div class="pricing-area text-center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                <div class="row">
-                    <div class="col-sm-6 col-md-3 wow fadeInDown">
-                        <ul>
-                            <li style="background:#fff">
-                                <img src="assets/images/zfc/12.gif" />
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3 wow fadeInDown">
-                        <ul>
-                            <li style="background:#fff">
-                                <img src="assets/images/zfc/10.gif" />
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3 wow fadeInDown">
-                        <ul>
-                            <li style="background:#fff">
-                                <img src="assets/images/zfc/8.gif" />
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3 wow fadeInDown">
-                        <ul>
-                            <li style="background:#fff">
-                                <img src="assets/images/zfc/3.gif" />
-                            </li>
-                        </ul>
-                    </div>   
-										<div style="clear:both;height:20px"></div>                
-                    <div class="col-sm-6 col-md-3 wow fadeInDown">
-                        <ul>
-                            <li style="background:#fff">
-                                <img src="assets/images/zfc/1.gif" />
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3 wow fadeInDown">
-                        <ul>
-                            <li style="background:#fff">
-                                <img src="assets/images/s1.gif" />
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3 wow fadeInDown">
-                        <ul>
-                            <li style="background:#fff">
-                                <img src="assets/images/s2.gif" />
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3 wow fadeInDown">
-                        <ul>
-                            <li style="background:#fff">
-                                <img src="assets/images/s3.gif" />
-                            </li>
-                        </ul>
-                    </div>  
-										<div style="clear:both;height:20px"></div>                
-                    <div class="col-sm-6 col-md-3 wow fadeInDown">
-                        <ul>
-                            <li style="background:#fff">
-                                <img src="assets/images/s4.gif" />
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3 wow fadeInDown">
-                        <ul>
-                            <li style="background:#fff">
-                                <img src="assets/images/s5.gif" />
-                            </li>
-                        </ul>
-                    </div>
-                                          
-                </div>
-            </div><!--/pricing-area-->
+            <div class="center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+            		<img src="http://www.xiugei.com/viewps/contentimg/masaike/content1404443140467.png"><br/><br/>
+            		<img src="http://img.xiugei.com/viewinfo/infoimgsps/masaike/content1404443221130.png">
+            		
+            </div>               
         </div><!--/.container-->
     </section><!--/#feature-->
-
-
-		<div class="container">
-		<div class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-		    <div class="tab_container">
-		        <div id="tab1" class="tab_content" style="display: block; ">
-								<div class="carousel-inner">
-								<div class="item active">
-									<table class="table u_ct_15">
-								    <tr style="border-top:2px solid #fff">
-								    	<th width=100>品牌</th>
-								    	<th width=180>产品</th>
-								    	<th>主辅材料</th>										    	
-								    </tr>
-								    <tr style="border-top:2px solid #ccc">
-								    	<td style="vertical-align: middle;"rowspan=2>东鹏</td>
-								    	<td style="vertical-align: middle;">地面地砖（用于客厅）</td>
-								    	<td>
-								    		<img src="assets/images/icon2/d1.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d2.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    		<img src="assets/images/icon2/d3.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    		<img src="assets/images/icon2/d4.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    		<img src="assets/images/icon2/d5.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    	</td>
-								    </tr>
-								    <tr>
-								    	<td style="vertical-align: middle;">墙地砖（用于厨卫）</td>
-								    	<td>
-								    		<img src="assets/images/icon2/d6.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d7.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    		<img src="assets/images/icon2/d8.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    		<img src="assets/images/icon2/d9.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    	</td>
-								    </tr>								    								    
-								    <tr>
-								    	<td style="vertical-align: middle;">大自然</td>
-								    	<td style="vertical-align: middle;">地面地砖（用于客厅）</td>
-								    	<td>
-								    		<img src="assets/images/icon2/d10.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d11.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    		<img src="assets/images/icon2/d12.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    		<img src="assets/images/icon2/d13.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    		<img src="assets/images/icon2/d14.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    	</td>
-								    </tr>
-								    <tr>
-								    	<td  style="vertical-align: middle;" rowspan=4>科勒</td>
-								    	<td style="vertical-align: middle;">拉蒂娜面盆</td>
-								    	<td>
-								    		<img src="assets/images/icon2/d25.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d21.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    		<img src="assets/images/icon2/d19.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    	</td>
-								    </tr>
-								    <tr>
-								    	<td style="vertical-align: middle;">丽笙龙头</td>
-								    	<td>
-								    		<img src="assets/images/icon2/d16.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d20.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    		<img src="assets/images/icon2/d22.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    		<img src="assets/images/icon2/d23.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    		<img src="assets/images/icon2/d26.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    	</td>
-								    </tr>
-								    <tr>
-								    	<td style="vertical-align: middle;">凯尔登分体座便器</td>
-								    	<td>
-								    		<img src="assets/images/icon2/d17.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d18.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    	</td>
-								    </tr>
-								    <tr>
-								    	<td style="vertical-align: middle;">挂墙式浴缸花洒龙头</td>
-								    	<td>
-								    		<img src="assets/images/icon2/d32.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d24.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    	</td>
-								    </tr>
-								    <tr>
-								    	<td style="vertical-align: middle;" rowspan=2>金牌</td>
-								    	<td style="vertical-align: middle;">橱柜</td>
-								    	<td>
-								    		<img src="assets/images/icon2/d36.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d38.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    	</td>
-								    </tr>
-								    <tr>
-								    	<td style="vertical-align: middle;">烟机灶具</td>
-								    	<td>
-								    		<img src="assets/images/icon2/d27.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d28.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    	</td>
-								    </tr>								    
-								    <tr>
-								    	<td style="vertical-align: middle;">TATA</td>
-								    	<td style="vertical-align: middle;">实木复合门</td>
-								    	<td>
-								    		<img src="assets/images/icon2/d33.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d34.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    	</td>
-								    </tr>
-								    <tr>
-								    	<td style="vertical-align: middle;">西门子</td>
-								    	<td style="vertical-align: middle;">开关面板</td>
-								    	<td>
-								    		<img src="assets/images/icon2/d40.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d42.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    		<img src="assets/images/icon2/d43.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    		<img src="assets/images/icon2/d29.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    		<img src="assets/images/icon2/d35.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    	</td>
-								    </tr>
-								    <tr>
-								    	<td style="vertical-align: middle;">都芳</td>
-								    	<td style="vertical-align: middle;">双效内墙漆</td>
-								    	<td>
-								    		<img src="assets/images/icon2/f1.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/f2.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    		<img src="assets/images/icon2/f3.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    		<img src="assets/images/icon2/f4.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    		<img src="assets/images/icon2/f5.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    		<img src="assets/images/icon2/f6.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
-								    	</td>
-								    </tr>
-									</table>
-							  </div>
-			        	</div>
-		        </div>		        
-		    </div>
-		    </div>
-		</div>
-		</section>  
     
- 
+    <section id="feature"  style="border-top:1px solid #f6f6f6;margin-top:10px;background:#f9f9f9">
+        <div class="container">
+           	<div class="center wow fadeInDown">
+                <h2>防水实用通体住宅墙砖<span style="font-size:24px"> 35 DAYS</span></h2>
+                <p class="lead">施工步骤紧密衔接，拒绝浪费时间，保证在35天内就为您完成装修，用最高效的方式让您享受最好最快的家装体验。<br/>55项标准节点和标准操作项目，三大改革装修不再磨洋工</p>
+            </div>
+            <div class="center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+            		<img src="http://img.xiugei.com/viewinfo/infoimgsps/cizhuan/content1406353135879.png"><br/><br/>
+            		<img src="http://img.xiugei.com/viewinfo/infoimgsps/cizhuan/content1406353179612.png">
+            </div>               
+        </div><!--/.container-->
+    </section><!--/#feature-->    
     
-<!--footer-->
-
-<section id="conatcat-info">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8">
-                <div class="media contact-info wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                    <div class="pull-left">
-                        <i class="fa fa-phone"></i>
-                    </div>
-                    <div class="media-body">
-                        <h2 style="font-weight:400">我们为用户提供24小时的在线服务</h2>
-                        <p>您可以拨打我们的全国400客服电话400-699-2888（工作日9:00-18:00），或者通过在线客服联系我们，同时还欢迎您关注我们的微信公众服务号fenghuangzj
-
-。
-                        </p>
+    <section id="conatcat-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="media contact-info wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="pull-left">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="media-body">
+                            <h2 style="font-weight:400">我们为用户提供24小时的在线服务</h2>
+                            <p>您可以拨打我们的全国400客服电话400-699-2888（工作日9:00-18:00），或者通过在线客服联系我们，同时还欢迎您关注我们的微信公众服务号fenghuangzj。
+                            </p>
+                        </div>
                     </div>
                 </div>
+                <div style="margin:20px 0 0 1000px;font-size:20px;">
+                  	<div style="height:45px;width:160px;background:#b9090e;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                  		<a href="#">
+                  			<div style="text-align:center;line-height:45px;font-size:20px;color:#fff;">400-699-2888</div>
+                  		</a>
+                  	</div>
+                </div> 
             </div>
-            <div style="margin:20px 0 0 1000px;font-size:20px;">
-              	<div style="height:45px;width:160px;background:#b9090e;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-              		<a href="#">
-              			<div style="text-align:center;line-height:45px;font-size:20px;color:#fff;">400-699-2888</div>
-              		</a>
-              	</div>
-            </div> 
-        </div>
-    </div><!--/.container-->    
-</section><!--/#conatcat-info-->
+        </div><!--/.container-->    
+    </section><!--/#conatcat-info-->
 
-<section id="bottom" style="padding:40px 0">
-    <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-        <div class="row">
-            <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:185px;margin-right:35px">
-                <div class="widget">
-                    <h3>帮助中心</h3>
-                    <ul>
-                        <li><a href="newsshow.html?cid=21&id=22">服务指南</a></li>
-                        <li><a href="newsshow.html?cid=21&id=23">支付方式</a></li>
-                        <li><a href="newsshow.html?cid=21&id=24">常见问题</a></li>
-                    </ul>
-                </div>    
-            </div><!--/.col-md-3-->
+    <section id="bottom" style="padding:40px 0">
+        <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+            <div class="row">
+                <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:185px;margin-right:35px">
+                    <div class="widget">
+                        <h3>帮助中心</h3>
+                        <ul>
+                            <li><a href="fwzn.html">服务指南</a></li>
+                            <li><a href="zffs.html">支付方式</a></li>
+                            <li><a href="cjwt.html">常见问题</a></li>
+                        </ul>
+                    </div>    
+                </div><!--/.col-md-3-->
 
-            <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
-                <div class="widget">
-                    <h3>服务支持</h3>
-                    <ul>
-                        <li><a href="newsshow.html?cid=22&id=25">售后政策</a></li>
-                        <li><a href="newsshow.html?cid=22&id=26">自助服务</a></li>
-                        <li><a href="newsshow.html?cid=22&id=27">相关下载</a></li>
-                    </ul>
-                </div>    
-            </div><!--/.col-md-3-->
+                <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
+                    <div class="widget">
+                        <h3>服务支持</h3>
+                        <ul>
+                            <li><a href="shzc.html">售后政策</a></li>
+                            <li><a href="zzfw.html">自助服务</a></li>
+                            <li><a href="xgxz.html">相关下载</a></li>
+                        </ul>
+                    </div>    
+                </div><!--/.col-md-3-->
 
-            <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
-                <div class="widget">
-                    <h3>凤凰之家</h3>
-                    <ul>
-                        <li><a href="newsshow.html?cid=23&id=28">会员俱乐部</a></li>
-                        <li><a href="newsshow.html?cid=23&id=29">会员活动</a></li>
-                        <li><a href="newsshow.html?cid=23&id=30">VIP服务</a></li>
-                    </ul>
-                </div>    
-            </div><!--/.col-md-3-->
+                <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
+                    <div class="widget">
+                        <h3>凤凰之家</h3>
+                        <ul>
+                            <li><a href="hyjlb.html">会员俱乐部</a></li>
+                            <li><a href="hyhd.html">会员活动</a></li>
+                            <li><a href="vip.html">VIP服务</a></li>
+                        </ul>
+                    </div>    
+                </div><!--/.col-md-3-->
 
-            <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
-                <div class="widget">
-                    <h3>关于我们</h3>
-                    <ul>
-                        <li><a href="newsshow.html?cid=24&id=31">联系我们</a></li>
-                        <li><a href="newsshow.html?cid=24&id=32">了解我们</a></li>
-                        <li><a href="newsshow.html?cid=24&id=33">加入我们</a></li>
-                    </ul>
-                </div>  
-            </div><!--/.col-md-3-->
-            
-            <div class="col-md-3 col-sm-6" style="width:190px;margin-right:45px">
-                <div class="widget">
-                    <h3>官方媒体</h3>
-                    <ul>
-                        <li><a href="#">新浪微博</a></li>
-                        <li><a href="#">微信公众号</a></li>
-                        <li><a href="#">天猫网店</a></li>
-                    </ul>
-                </div>    
-            </div><!--/.col-md-3-->                
-        </div>
-    </div>
-</section><!--/#bottom-->
-
-<footer id="footer" class="midnight-blue">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                &copy; 2015 厦门凤凰筑家网络科技有限公司 保留所有权利
-            </div>
-            <div class="col-sm-6">
-                <ul class="pull-right">
-                    <li><a href="#">闽ICP备15010680号-1</a></li-->
-                    <!--li><a href="#">京网文29239-12312</a></li-->
-                </ul>
+                <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
+                    <div class="widget">
+                        <h3>关于我们</h3>
+                        <ul>
+                            <li><a href="contactus.html">联系我们</a></li>
+                            <li><a href="aboutus.html">了解我们</a></li>
+                            <li><a href="enjoyus.html">加入我们</a></li>
+                        </ul>
+                    </div>  
+                </div><!--/.col-md-3-->
+                
+                <div class="col-md-3 col-sm-6" style="width:190px;margin-right:45px">
+                    <div class="widget">
+                        <h3>官方媒体</h3>
+                        <ul>
+                            <li><a href="#">新浪微博</a></li>
+                            <li><a href="#">微信公众号</a></li>
+                            <li><a href="#">天猫网店</a></li>
+                        </ul>
+                    </div>    
+                </div><!--/.col-md-3-->                
             </div>
         </div>
-    </div>
-</footer><!--/#footer-->
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=9Z4yvIoj9jnpKfPA4igxxbLP"></script>
-<div id="allmap"></div>
-<script type="text/javascript">
-	// 百度地图API功能
-	var map = new BMap.Map("allmap");
-	var point = new BMap.Point(116.331398,39.897445);
-	map.centerAndZoom(point,12);
+    </section><!--/#bottom-->
 
-	function myFun(result){
-		var cityName = result.name;
-		map.setCenter(cityName);
-		$("#city").html(cityName);
-	}
-	var myCity = new BMap.LocalCity();
-	myCity.get(myFun);
-</script>
-<!--footer-->
-		<script type="text/javascript" src="assets/js/sales.js"></script>
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/jquery.prettyPhoto.js"></script>
-    <script src="assets/js/jquery.isotope.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/wow.min.js"></script>
+    <footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2015 凤凰筑家 (北京) 网络有限公司 保留所有权利
+                </div>
+                <div class="col-sm-6">
+                    <ul class="pull-right">
+                        <li><a href="#">京ICP证1123102931</a></li>
+                        <li><a href="#">京网文29239-12312</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/wow.min.js"></script>
 </body>
 </html>
