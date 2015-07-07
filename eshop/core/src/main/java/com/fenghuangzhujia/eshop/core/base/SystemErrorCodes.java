@@ -41,6 +41,8 @@ public class SystemErrorCodes {
 	 */
 	public static final ErrorCode ILLEGAL_ARGUMENT;
 	
+	public static final ErrorCode ACCESS_DENIED;
+	
 	//支付相关异常81~90
 	public static final ErrorCode PAY_FAILED;
 	
@@ -110,6 +112,7 @@ public class SystemErrorCodes {
 		CREDENTIAL_ERROR=new ErrorCode(8, "用户名错误");
 		CAPTCHA_ERROR=new ErrorCode(9, "图形验证码错误");
 		FILE_ERROR=new ErrorCode(10, "文件处理异常");
+		ACCESS_DENIED=new ErrorCode(11, "您没有相应权限");
 		
 		PAY_FAILED=new ErrorCode(81, "支付失败");
 		
