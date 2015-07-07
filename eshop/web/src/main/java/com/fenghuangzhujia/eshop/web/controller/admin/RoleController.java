@@ -36,8 +36,8 @@ public class RoleController extends PagingController<RoleDto,RoleInputArgs> {
 	 * @param userId
 	 * @return
 	 */
-	@RequestMapping(value="{id}/removeUser",method=RequestMethod.POST)
-	public String removeUser(@PathVariable String id, String userId) {
+	@RequestMapping(value="{id}/user/{userId}",method=RequestMethod.DELETE)
+	public String removeUser(@PathVariable String id, @PathVariable String userId) {
 		getService().removeUser(id, userId);
 		return RequestResult.success("删除成功").toJson();
 	}
