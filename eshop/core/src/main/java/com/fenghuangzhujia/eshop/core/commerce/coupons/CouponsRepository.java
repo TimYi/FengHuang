@@ -13,4 +13,6 @@ public interface CouponsRepository extends UnreadRemindSpecificationRepository<C
 	List<Coupons> findUnusedCoupons(String userId);
 	
 	List<Coupons> findByUserId(String userId);
+	
+	List<Coupons> findByUserIdAndType(String userId, String type);
 }

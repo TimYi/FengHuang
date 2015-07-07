@@ -1,16 +1,19 @@
 package com.fenghuangzhujia.eshop.core.commerce.couponsDef;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.commerce.coupons.Coupons;
 import com.fenghuangzhujia.eshop.core.commerce.coupons.CouponsRepository;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
+import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 
 /**
  * 优惠券分发器
@@ -77,6 +80,9 @@ public class CouponsAllocater {
 	public boolean scramble(String userId) {
 		CouponsDef def=defRepository.findByEvent("qg");
 		if(def==null)return false;
+		List<Coupons> qgCouponses=couponsRepository.findByUserIdAndType(userId, "qg");
+		if(qgCouponses==null || !qgCouponses.isEmpty())
+			throw new ErrorCodeException(SystemErrorCodes.OTHER, "您已经抢购过一张优惠券");
 		User user=userRepository.findOne(userId);
 		Coupons coupons=def.generateCoupons(user);
 		if(coupons==null)return false;

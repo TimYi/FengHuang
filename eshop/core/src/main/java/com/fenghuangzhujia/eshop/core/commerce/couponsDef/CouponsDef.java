@@ -39,13 +39,12 @@ public class CouponsDef extends UUIDBaseModel {
 		coupons.setExpireTime(expireTime);
 		
 		//为了熬夜加班做抢购临时加入的逻辑
-		if(coupons.getType().equals("qg")) {
-			if(remainCount>consumedCount) {
-				consumedCount=consumedCount+1;
-				coupons.setType("qg");
-			} else {
-				return null;
-			}
+		if(coupons.getType()==null || !coupons.getType().equals("qg"))return coupons;
+		if(remainCount>consumedCount) {
+			consumedCount=consumedCount+1;
+			coupons.setType("qg");
+		} else {
+			return null;
 		}
 		return coupons;
 	}
