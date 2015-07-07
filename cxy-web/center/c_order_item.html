@@ -44,7 +44,7 @@
                 </div>
                     <div class="col-sm-6 col-xs-8">
                        <div class="social">
-                            <ul id="loginstatus" class="social-share">
+                           <ul id="loginstatus" class="social-share">
 				<li style="padding-right:10px;">
 					<i class="fa fa-sign-in hui"></i>
 					<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
@@ -53,7 +53,6 @@
 					</b>
 				</li>
                         </ul>
-
                        </div>
                     </div>
             </div>
@@ -92,7 +91,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">案例 / Live直播 <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                          <li><a href="../case.html">案例集锦</a></li>
+                            <li><a href="../case.html">案例集锦</a></li>
 				<li><a href="../live.html">家装进行时</a></li>
                         </ul>
                     </li>
@@ -117,7 +116,7 @@
       <p class="fs14 mt10">售后客服<br />
         <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=932321904&amp;site=qq&amp;menu=yes" class="qq_link"><img border="0" src="http://wpa.qq.com/pa?p=2:2833026848:51" alt="点击这里给我发消息" title="点击这里给我发消息"></a></p>
 			<p class="mt10"><b>电话客服</b><br />
-				400-968-9088<br />
+				400-699-2888<br />
 			</P>
       <p class="mt10"><b>服务时间</b><br />
         9:00-18:00(工作日)<br />
@@ -185,14 +184,13 @@ $(".m_logo").hover(function(){
 																		<div style="padding-right:20px">
 																				<img src="../images/blog/avatar3.png" alt=""  style="-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius:50%;border:3px #f9f9f9 solid"/>
 																		</div>
-																		<div style="padding:5px 50px 0 50px">
-																			<ul style="list-style:none;">
-																				<li>ID：102031</li>
-																				<li>SCOSUN</li>
-																				<li>5星级用户</li>
+																		<div style="padding:18px 50px 0 50px">
+																			<ul id="user_ul" style="list-style:none;">
+																				<li><!--SCOSUN--></li>
+																				<li><!--5星级用户--></li>
 																			</ul>
-																			<ul style="list-style:none;float:right;margin:-70px 5px 0 0">
-																				<button type="submit" class="btn btn-primary btn-lg" required="required" style="font-size:15px;width:80px;background:orange">安全退出</button>
+																			<ul style="list-style:none;float:right;margin:-60px 5px 0 0">
+																				<button id="loginoutbtn" type="button" class="btn btn-primary btn-lg" required="required" style="font-size:15px;width:94px;background:orange">安全退出</button>
 																			</ul>
 																		</div>
 
@@ -210,12 +208,12 @@ $(".m_logo").hover(function(){
 
                         <div class="row">
                             <div class="col-sm-12">
-                                <ul class="blog_archieve" style="width:300px">
-                                    <li>登录 IP<span class="pull-right">123.57.218.171 [ 北京海淀 ]</span></li>
-                                    <li>注册时间<span class="pull-right">2015-06-02 18:00:12</span></li>
-                                    <li>登录时间<span class="pull-right">2015-06-02 18:00:12</span></li>
-                                    <li>用户积分<span class="pull-right">12314 分</span></li>
-                                </ul>
+                                 <ul id="logintime" class="blog_archieve" style="width:300px">
+					<li>登录 IP<span class="pull-right"><!--123.57.218.171 [ 北京海淀 ]--></span></li>
+					<li>注册时间<span class="pull-right"><!--2015-06-02 18:00:12</span>--></li>
+					<li>登录时间<span class="pull-right"><!--2015-06-02 18:00:12</span>--></li>
+					<li>用户积分<span class="pull-right"><!--12314 分</span>--></li>
+				</ul>
                             </div>
                         </div>
                     </div> <!--/.archieve-->
@@ -224,7 +222,7 @@ $(".m_logo").hover(function(){
 
                         <div class="row">
                             <div class="col-sm-6">
-                                <ul class="blog_category">
+                                <ul id="userfunul" class="blog_category">
                                 		<li><a href="c_my.html">个人信息 </a></li>
                                 		<li><a href="c_safe.html">安全设置 </a></li>
                                 		<li><a href="c_home.html">房屋信息 </a></li>
@@ -259,7 +257,7 @@ $(".m_logo").hover(function(){
                         <div id="contact-page clearfix">
                             <div class="status alert alert-success" style="display: none"></div>
 					                    <div class="message_heading right_margin_top_1">
-																	<div style="margin-bottom:40px">
+																	<div style="margin-bottom:40px;display:none;">
 																		<ol class="breadcrumb hui">
 																		  <li><i class="fa fa-home" style="font-size:1.1em;"></i>&nbsp;&nbsp; <a href="#" style="color:#aaa">首页</a></li>
 																		  <li><a href="#" style="color:#aaa">会员中心</a></li>
@@ -267,34 +265,36 @@ $(".m_logo").hover(function(){
 																		  <li class="active" style="color:#b9090e"><a href="#">订单详情</a></li>
 																		</ol>
 																	</div>
-
-					                        <h4>499家装套餐</h4>
-																	<span style="color:#999;font-size:13px">状态：定金已支付</span>
-				                        	<span style="color:#999;margin-left:20px;font-size:13px">时间：2015-06-02 10:00</span>
-					                        <hr/>
-
 																	<style>
-																		.sub_li >li{list-style:none;padding:5px 0;margin:0 0 0 -40px}
-																	</style>
-																	<div class="col-md-6">
-																		<ul class="sub_li">
-																			<li>套餐类型：499家装套餐</li>
-																			<li>订单编号：TC0129300123</li>
-																			<li>备注信息：-</li>
-																		</ul>
-																	</div>
+											.sub_li >li{list-style:none;padding:5px 0;margin:0 0 0 -40px}
+										</style>
+								<div id="orderinfo" style="display:none;">
+									<h4>499家装套餐</h4>
+									<span style="color:#999;font-size:13px">状态：定金已支付</span>
+									<span style="color:#999;margin-left:20px;font-size:13px">时间：2015-06-02 10:00</span>
+									<hr/>
 
-																	<div class="col-md-6">
-																		<ul class="sub_li">
-																			<li>有效期限：2015-06-30 00:00:00</li>
-																			<li>下单时间：2015-06-10 13:25:00</li>
-																		</ul>
-																	</div>
 
-																	<div style="clear:both"></div>
-					                        <hr/>
-					                        <button type="submit" class="btn btn-primary btn-lg" required="required" style="font-size:15px;width:80px;background:#b9090e;">返回</button>&nbsp;&nbsp;&nbsp;
-					                        <button type="submit" class="btn btn-primary btn-lg" required="required" style="font-size:15px;width:80px;background:#b9090e;">删除</button>&nbsp;&nbsp;&nbsp;
+										<div class="col-md-6">
+											<ul class="sub_li">
+												<li>套餐类型：499家装套餐</li>
+												<li>订单编号：TC0129300123</li>
+												<li>备注信息：-</li>
+											</ul>
+										</div>
+
+										<div class="col-md-6">
+											<ul class="sub_li">
+												<li>有效期限：2015-06-30 00:00:00</li>
+												<li>下单时间：2015-06-10 13:25:00</li>
+											</ul>
+										</div>
+									</div>
+										<div style="clear:both"></div>
+									<hr/>
+									<button id="backbtn" type="button" class="btn btn-primary btn-lg" required="required" style="font-size:15px;width:80px;background:#b9090e;">返回</button>&nbsp;&nbsp;&nbsp;
+									<button type="button" class="btn btn-primary btn-lg" required="required" style="font-size:15px;width:80px;background:#b9090e;display:none;">删除</button>&nbsp;&nbsp;&nbsp;
+
 					                    </div>
 
 
@@ -309,7 +309,6 @@ $(".m_logo").hover(function(){
 
 
 <!--footer-->
-
 <!--联系电话-->
 <script src="../js/tel.js"></script>
 
@@ -414,7 +413,11 @@ $(".m_logo").hover(function(){
   <script src="../js/jquery.isotope.min.js"></script>
   <script src="../js/main.js"></script>
   <script src="../js/wow.min.js"></script>
-
+<script src="../libs/json.js"></script>
+	<script src="../libs/base.js"></script>
+	<script src="../libs/utils.js"></script>
+	<script src="../js/c_my.js"></script>
+	<script src="../js/c_order_item.js"></script>
 
 	<script src="../assets/js/sales.js"></script>
 	<script src="../assets/js/main.js"></script>
