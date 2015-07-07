@@ -14,6 +14,7 @@ $(function() {
     g.listdata = [];
     //验证登录状态
     g.loginStatus = Utils.getUserInfo();
+
     getPackages();
 
     function changeBtn(data){
@@ -21,17 +22,16 @@ $(function() {
         var $buy799 = $("#buy799");
         var obj = data.result;
         if(obj[0].hasScrambled ){
-            $buy699.find("div").text("已抢购成功");
+            $buy699.find("div").text("已抢购");
             return false;
         }else if(obj[0].hasAppointed){
             $buy699.find("div").text("立刻抢购");
             $buy699.click(function(){
                 miaoSha(obj[0].id);
-                location.href = "paycheck.html?id+"+g.packages[0]["id"];
             });
         }else{
             $buy699.find("div").text("立刻预约");
-            $buy699.attr("href","subcheck.html?id="+g.packages[0]["id"]);
+            $buy699.attr("href","subcheck.html?id="+obj[0]["id"]);
         }
     }
 
@@ -52,6 +52,7 @@ $(function() {
             success: function(data){
                 var status = data.status || "";
                 if(status == "OK"){
+                    console.log(data);
                     changeBtn(data.result);
                 }
                 else{
@@ -83,7 +84,6 @@ $(function() {
                 console.log("miaoSha",data);
                 var status = data.status || "";
                 if(status == "OK"){
-                    Utils.alert("抢购成功");
                     var orderId = data.result.id;
                     location.href = "paycheck.html?id=" + orderId;
                 }

@@ -13,7 +13,12 @@ $(function(){
 	g.httpTip = new Utils.httpTip({});
 	g.listdata = [];
 
-	getMyMessage();
+	var loginStatus = Utils.getUserInfo();
+	if(!loginStatus){
+		location.replace("login.html");
+	}else{
+		getMyMessage();
+	}
 
 	//获取我的留言
 	function getMyMessage(){
@@ -28,45 +33,6 @@ $(function(){
 		sendGetMyMessageHttp(condi);
 	}
 
-	function deleteMessageItem(){
-		var id = this.id;
-		var index = id.split("_")[1];
-		var obj = g.listdata[index];
-		var mid = obj.id;
-		var condi = {};
-		condi.token = g.token;
-		condi.id = mid;
-		console.log(condi);
-		sendDeleteListInfoHttp(condi);
-	}
-
-	//修改我的留言列表
-	function changeMessageListHtml(data){
-		var obj = data.result || [];
-		if(obj.length > 0){
-			g.listdata = obj;
-
-			var html = [];
-			for(var i = 0,len = obj.length; i < len; i++){
-				var msg = obj[i].content || "";
-				var name = obj[i].sender || "系统管理员";
-				var time = obj[i].createTime || "2015-06-02 10:00";
-				var id = obj[i].id || "";
-				html.push('<ul class="am-avg-sm-2 house-list"><li class="h-left">');
-                html.push('<div class="am-dropdown" data-am-dropdown>');
-                html.push('<a href="u_message_item.html?id='+id+'&token='+g.token+'&p=4"><div><ul class="uhouse">');
-                html.push('<li class="ubig">'+ msg +'</li>');
-                html.push('<li class="usmall">'+ name +' / '+ time + '</li></ul></div></a></div></li>');
-                html.push('<li class="h-right"><div class="am-dropdown" data-am-dropdown>');
-                html.push('<a href="u_message_item.html?id='+id+'&token='+g.token+'&p=4">');
-                html.push('<div><i class="am-icon-angle-right"></i></div></a></div></li></ul>');
-			}
-
-			$("#myMessage").html(html.join(''));
-			//$("#messagetable .delete").bind("click",deleteMessageItem);
-		}
-	}
-
 	//获取我的留言
 	function sendGetMyMessageHttp(condi){
 		g.httpTip.show();
@@ -79,7 +45,6 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log(data);
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
@@ -88,6 +53,9 @@ $(function(){
 				else{
 					var msg = data.error || "";
 					alert("获取我的留言错误:" + msg);
+					if(msg == "您需要登录"){
+						location.href = "login.html";
+					}
 				}
 			},
 			error:function(data){
@@ -96,32 +64,31 @@ $(function(){
 		});
 	}
 
-	function sendDeleteListInfoHttp(condi){
-		var url = Base.messageUrl + "/" + condi.id;
-		g.httpTip.show();
-		$.ajax({
-			url:url,
-			headers:{"fhzj_auth_token":condi.token},
-			type:"DELETE",
-			dataType:"json",
-			context:this,
-			global:false,
-			success: function(data){
-				console.log("sendDeleteListInfoHttp",data);
-				g.httpTip.hide();
-				var status = data.status || "";
-				if(status == "OK"){
-					Utils.alert("删除留言成功");
-					getMyMessage();
-				}
-				else{
-					var msg = data.error || "";
-					Utils.alert("删除我的留言错误:" + msg);
-				}
-			},
-			error:function(data){
-				g.httpTip.hide();
+	function changeMessageListHtml(data){
+		var obj = data.result || [];
+		if(obj.length > 0){
+			g.listdata = obj;
+			var html = [];
+
+			for(var i = 0,len = obj.length; i < len; i++){
+				var id = obj[i].id || "";
+				var title = obj[i].title;
+				var content = obj[i].content || "";
+				var readed = obj[i].readed || "";
+				var createTime = obj[i].createTime || "";
+
+				html.push('<ul class="am-avg-sm-2 house-list"><li class="h-left">');
+                html.push('<div class="am-dropdown" data-am-dropdown>');
+                html.push('<a href="u_message_item.html?id='+id+'&token='+g.token+'&p=2"><div><ul class="uhouse">');
+                html.push('<li class="ubig">'+ title +'</li>');
+                html.push('<li class="usmall">'+ content +' / '+ createTime+'</li></ul></div></a></div></li>');
+                html.push('<li class="h-right"><div class="am-dropdown" data-am-dropdown>');
+                html.push('<a href="u_message_item.html?id='+id+'&token='+g.token+'&p=2">');
+                html.push('<div><i class="am-icon-angle-right"></i></div></a></div></li></ul>');
 			}
-		});
+
+			$("#myMessage").html(html.join(''));
+		}
 	}
+
 });

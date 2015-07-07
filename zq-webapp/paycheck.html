@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html class="no-js">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,14 +16,14 @@
 </head>
 
 <body>
-		<!--banner+menu start-->
+    <!--banner+menu start-->
     <div data-am-sticky>
         <header data-am-widget="header" class="am-header am-header-default" style="border-top:1px solid #000111;background:#000;">
             <div class="am-header-left am-header-nav">
                 <img src="images/logo.png" style="width:152px;height:18px;margin-top:-5px">
             </div>
             <div class="am-header-right am-header-nav">
-                <a href="hyzx.html" class="am-menu-toggle">
+                <a id="uCenter" href="javascript:void(0)" class="am-menu-toggle">
                     <i class="am-menu-toggle-icon am-icon-user" style="font-size:20px;padding-right:50px"></i>
                 </a>
             </div>
@@ -79,56 +80,62 @@
     </div>
     <!--banner+menu end-->
 
-		
-		<div class="am-tabs-bd" style="margin-top:10px;border:none;">
-		  <div data-tab-panel-0 class="am-tab-panel am-active">
-		  	<p style="font-size:14px;line-height:18px;">
-		  		<b>您已成功预约699家装套餐！</b><br/>
-		  		订单：DD001023020123<br/>
-		  		定金：1000元<br/>
-		  		备注：张倩/北京市朝阳区**小区/120㎡/四居室
-		  	</p>
-		  	<hr/>
-		  	<p style="font-size:14px;line-height:18px;color:#666">
-		  		<i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">选择支付方式 PAY STYLE</span></b>
-		  		<br/><br/>
-						<form class="am-form" action="https://xx.xx.xx.xx/payment/main" method="post" target="_blank" >
-			 			  <div class="am-form-group am-form-select">
-						    <select style="font-size:14px;height:40px" id="sex" name="sex" >
-						      <option value="-1">请选择支付银行</option>
-						      <option value="2">招商银行</option>
-						      <option value="2">工商银行银行</option>						      
-						      <option value="1">中国建设银行</option>
-						      <option value="2">中国农业银行</option>
-						      <option value="2">中国民生银行</option>						      
-						      <option value="1">华夏银行</option>
-						      <option value="2">广东发展银行</option>
-						      <option value="2">兴业银行</option>						      
-						      <option value="1">光大银行</option>
-						      <option value="2">交通银行</option>
-						      <option value="2">中国银行</option>						      
-						      <option value="1">中信银行</option>
-						      <option value="2">上海银行</option>
-						      <option value="2">平安银行</option>						      
-						      <option value="1">邮政储蓄</option>
-						      <option value="2">虚拟银行（测试用）</option>
-						    </select>
-						  </div> 
-						</form>	
-	  	<div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-				<a href="javascript:;" id="buynow" onclick="" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">下一步</div></a>
-			</div> 							  		
-		  	</p>
-		  	<hr/>
-			</div>
-		</div>		
-						
-
+    <div class="am-tabs-bd" style="margin-top:10px;border:none;">
+        <div data-tab-panel-0 class="am-tab-panel am-active">
+            <p style="font-size:14px;line-height:18px;">
+                <b>您已成功抢购699家装套餐！</b><br>
+                <br/> 订单：<span id="orderId"></span>
+                <br/> 定金：<span id="deposit"></span>元
+            </p>
+            <hr/>
+            <p style="font-size:14px;line-height:18px;color:#666">
+                <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">选择支付方式 PAY STYLE</span></b>
+                <br/>
+                <br/>
+                <form class="am-form" action="https://xx.xx.xx.xx/payment/main" method="post" target="_blank">
+                    <div class="am-form-group am-form-select">
+                        <select style="font-size:14px;height:40px" id="bank">
+                            <option value="-1">请选择支付银行</option>
+                            <option value="2">招商银行</option>
+                            <option value="2">工商银行银行</option>
+                            <option value="1">中国建设银行</option>
+                            <option value="2">中国农业银行</option>
+                            <option value="2">中国民生银行</option>
+                            <option value="1">华夏银行</option>
+                            <option value="2">广东发展银行</option>
+                            <option value="2">兴业银行</option>
+                            <option value="1">光大银行</option>
+                            <option value="2">交通银行</option>
+                            <option value="2">中国银行</option>
+                            <option value="1">中信银行</option>
+                            <option value="2">上海银行</option>
+                            <option value="2">平安银行</option>
+                            <option value="1">邮政储蓄</option>
+                            <option value="2">虚拟银行（测试用）</option>
+                        </select>
+                    </div>
+                </form>
+                <div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                    <a href="javascript:;" id="payBtn" onclick="">
+                        <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">下一步</div>
+                    </a>
+                </div>
+            </p>
+            <hr/>
+        </div>
+    </div>
+    <form id="bankform" style="display:none;" action="https://124.74.239.32/payment/main" method="post">
+            <input id="transName" type="hidden" name="transName" value="">
+            <input id="Plain" type="hidden" name="Plain" value="">
+            <input id="Signature" type="hidden" name="Signature" value="">
+        </form>
     <!--cubes end-->
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/amazeui.min.js"></script>
     <script src="js/libs/json.js"></script>
     <script src="js/libs/base.js"></script>
     <script src="js/libs/utils.js"></script>
+    <script src="js/pay_check.js"></script>
 </body>
+
 </html>

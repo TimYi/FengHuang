@@ -13,7 +13,12 @@ $(function(){
 	g.listdata = [];
 	g.httpTip = new Utils.httpTip({});
 
-	getMyComment();
+	var loginStatus = Utils.getUserInfo();
+	if(!loginStatus){
+		location.replace("login.html");
+	}else{
+		getMyComment();
+	}
 
 	//获取我评论
 	function getMyComment(){
@@ -37,16 +42,17 @@ $(function(){
 			for(var i = 0,len = obj.length; i < len; i++){
 				var msg = obj[i].content || "";
 				var column = obj[i].column || "";
-				var replyNumber =  obj[i].replyNumber || 0;
+				var content = obj[i].content || "";
 				var createTime =  obj[i].createTime || "";
+				var sourceUrl = obj[i].url;
 				var id = obj[i].id || "";
 				html.push('<ul class="am-avg-sm-2 house-list"><li class="h-left">');
                 html.push('<div class="am-dropdown" data-am-dropdown>');
-                html.push('<a href="u_comment_item.html?id='+id+'&token='+g.token+'&p=8"><div><ul class="uhouse">');
-                html.push('<li class="ubig">'+ column  +'</li>');
-                html.push('<li class="usmall">'+ replyNumber+ ' / ' + createTime + '</li></ul></div></a></div></li>');
+                html.push('<a href="'+ sourceUrl +'"><div><ul class="uhouse">');
+                html.push('<li class="ubig">'+ content  +'</li>');
+                html.push('<li class="usmall">'+ column+ ' / ' + createTime + '</li></ul></div></a></div></li>');
                 html.push('<li class="h-right"><div class="am-dropdown" data-am-dropdown>');
-                html.push('<a href="u_comment_item.html?id='+id+'&token='+g.token+'&p=8">');
+                html.push('<a href="'+ sourceUrl +'">');
                 html.push('<div><i class="am-icon-angle-right"></i></div></a></div></li></ul>');
 			}
 
@@ -75,6 +81,9 @@ $(function(){
 				else{
 					var msg = data.error || "";
 					alert("获取我的评论错误:" + msg);
+					if(msg == "您需要登录"){
+						location.href = "login.html";
+					}
 				}
 			},
 			error:function(data){

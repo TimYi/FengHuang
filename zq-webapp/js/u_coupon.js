@@ -11,8 +11,12 @@ $(function(){
 	g.currentPage = 1;
 	g.paseSize = 20;
 
-
-	getMyCoupon();
+	var loginStatus = Utils.getUserInfo();
+	if(!loginStatus){
+		location.replace("login.html");
+	}else{
+		getMyCoupon();
+	}
 
 	//获取我的优惠券
 	function getMyCoupon(){
@@ -85,6 +89,9 @@ $(function(){
 				else{
 					var msg = data.error || "";
 					alert("获取我的优惠券错误:" + msg);
+					if(msg == "您需要登录"){
+						location.href = "login.html";
+					}
 				}
 			},
 			error:function(data){
