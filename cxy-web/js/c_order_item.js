@@ -106,10 +106,12 @@ $(function(){
 		var html = [];
 		var name = obj.name || "";
 		var code = obj.code || "";
+		var payTime = obj.payTime || "";
 		var status = obj.status || "";
+		status = status == "Procrssing" ? "定金已支付":"定金未支付";
 		html.push('<h4>' + name + '</h4>');
 		html.push('<span style="color:#999;font-size:13px">状态：' + status + '</span>');
-		html.push('<span style="color:#999;margin-left:20px;font-size:13px">时间:</span>');
+		html.push('<span style="color:#999;margin-left:20px;font-size:13px">时间:' + payTime + '</span>');
 		html.push('<hr/>');
 
 		html.push('<div class="col-md-6">');
@@ -123,7 +125,7 @@ $(function(){
 		html.push('<div class="col-md-6">');
 		html.push('<ul class="sub_li">');
 		html.push('<li>有效期限：</li>');
-		html.push('<li>下单时间：</li>');
+		html.push('<li>下单时间：' + payTime+ '</li>');
 		html.push('</ul>');
 		html.push('</div>');
 
