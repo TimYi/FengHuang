@@ -7,6 +7,8 @@ import javax.persistence.Table;
 import javax.persistence.Entity;
 import javax.persistence.Transient;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.commerce.coupons.Coupons;
 import com.fenghuangzhujia.eshop.core.user.User;
@@ -28,6 +30,7 @@ public class CouponsDef extends UUIDBaseModel {
 	/**已经分发优惠券数量*/
 	private Integer consumedCount=0;
 	/**优惠券有效期截止时间*/
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date expireTime;
 	/**是否分发优惠券，true，则按照定义分发优惠券*/
 	private boolean inUse;
