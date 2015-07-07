@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.eshop.core.authentication.token.TokenRepository;
 import com.fenghuangzhujia.eshop.core.authentication.token.UserToken;
+import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.commerce.couponsDef.CouponsAllocater;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
@@ -96,14 +97,11 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 			throw new ErrorCodeException(REGIST_ERROR, e);
 		}
 		User user=userRepository.getByUsername(username);
-		if(user==null) {
-			user=new User();
-			user.setUsername(username);		
-		} else {
-			if(!user.isVerified()) {
-				throw new ErrorCodeException(REGIST_ERROR, "该用户已经注册过，请直接登录！");
-			}
+		if(user!=null) {
+			throw new ErrorCodeException(SystemErrorCodes.REGIST_ERROR, "该用户名已被注册！");
 		}
+		user=new User();
+		user.setUsername(username);
 		user.setPassword(password);
 		user.setVerified(true);
 		user.setRegIp(ip);//保存用户注册id
