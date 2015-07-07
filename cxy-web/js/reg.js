@@ -106,7 +106,7 @@ $(function(){
 				//http://101.200.229.135:8080/api/regist?username=ytm&password=123456&mobile=18612444099&validater=3967
 			}
 			else{
-				alert("账户信息未填");
+				Utils.alert("账户信息未填");
 			}
 		}
 		else{
@@ -180,7 +180,7 @@ $(function(){
 					location.href = "center.html?token=" + token;
 				}
 				else{
-					var msg = data.error;
+					var msg = data.error + "," + data.errorDescription;
 					alert(msg);
 				}
 			},

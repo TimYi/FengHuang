@@ -702,6 +702,7 @@ $(function(){
 					}
 					else{
 						if(hasScrambled){
+							var page = "c_order.html?token=" + g.token + "&p=7";
 							$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">已抢购</div>');
 						}
 						else{
@@ -711,7 +712,7 @@ $(function(){
 							}
 							else{
 								var page = "center/login.html";
-								$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
+								$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
 							}
 						}
 					}
