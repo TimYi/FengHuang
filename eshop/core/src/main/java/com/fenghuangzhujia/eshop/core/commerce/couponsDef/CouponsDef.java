@@ -7,9 +7,11 @@ import javax.persistence.Table;
 import javax.persistence.Entity;
 import javax.persistence.Transient;
 
+import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.commerce.coupons.Coupons;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
+import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 
 @Entity
 @Table(name="fhzj_coupons_def")
@@ -39,12 +41,12 @@ public class CouponsDef extends UUIDBaseModel {
 		coupons.setExpireTime(expireTime);
 		
 		//为了熬夜加班做抢购临时加入的逻辑
-		if(coupons.getType()==null || !coupons.getType().equals("qg"))return coupons;
+		if(event==null || !event.equals("qg"))return coupons;
 		if(remainCount>consumedCount) {
 			consumedCount=consumedCount+1;
 			coupons.setType("qg");
 		} else {
-			return null;
+			throw new ErrorCodeException(SystemErrorCodes.OTHER, "本次优惠券已抢光");
 		}
 		return coupons;
 	}
