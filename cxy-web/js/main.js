@@ -444,7 +444,7 @@ $(function(){
 			}
 		}
 		else{
-			location.href = "login.html";
+			location.href = "center/login.html";
 		}
 	}
 
@@ -507,7 +507,7 @@ $(function(){
 			}
 		}
 		else{
-			location.href = "login.html";
+			location.href = "center/login.html";
 		}
 	}
 
