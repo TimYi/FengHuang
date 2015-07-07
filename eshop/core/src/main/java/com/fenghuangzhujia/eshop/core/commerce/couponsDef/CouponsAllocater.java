@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.commerce.coupons.Coupons;
 import com.fenghuangzhujia.eshop.core.commerce.coupons.CouponsRepository;
+import com.fenghuangzhujia.eshop.core.commerce.coupons.dto.CouponsAdapter;
+import com.fenghuangzhujia.eshop.core.commerce.coupons.dto.CouponsDto;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
@@ -57,6 +59,8 @@ public class CouponsAllocater {
 	private UserRepository userRepository;
 	@Autowired
 	private CouponsRepository couponsRepository;
+	@Autowired
+	private CouponsAdapter couponsAdapter;
 	
 	/**
 	 * 根据不同的触发事件类型，从数据库读取优惠策略
@@ -77,16 +81,17 @@ public class CouponsAllocater {
 	 * @param userId
 	 * @return 是否抢购成功
 	 */
-	public boolean scramble(String userId) {
+	public CouponsDto scramble(String userId) {
 		CouponsDef def=defRepository.findByEvent("qg");
-		if(def==null)return false;
+		if(def==null)throw new ErrorCodeException(SystemErrorCodes.OTHER, "还没有开始优惠券抢购活动，敬请期待");
 		List<Coupons> qgCouponses=couponsRepository.findByUserIdAndType(userId, "qg");
 		if(qgCouponses==null || !qgCouponses.isEmpty())
 			throw new ErrorCodeException(SystemErrorCodes.OTHER, "您已经抢购过一张优惠券");
 		User user=userRepository.findOne(userId);
 		Coupons coupons=def.generateCoupons(user);
-		if(coupons==null)return false;
+		if(coupons==null)throw new ErrorCodeException(SystemErrorCodes.OTHER, "优惠券已经抢光喽");
 		coupons=couponsRepository.save(coupons);
-		return true;
+		CouponsDto result=couponsAdapter.convertToDetailedDto(coupons);
+		return result;
 	}
 }

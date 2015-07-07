@@ -29,7 +29,7 @@ function genUrl1(baseUrl,sn,pageIndex,pageNum){
 	else return url+pSize;
 }
 function genUrl(baseUrl,id){
-	if(id === null || id === undefined || id ==='')
+	if(id=='' || typeof id == 'undefined')
 	{	return url =HOST+ baseUrl;}
 	else 
 	{	return url =HOST+ baseUrl+'/'+id;}
@@ -55,25 +55,19 @@ function filterSelected(items){
 	}
 	return selectedIds;
 }
-function isEmpty(data){
-	if(data === null || data===undefined||data===''){
-			return true;
-	}
-	return false;
-}
+
 //判断获取的数据是否正确
 function isErrorData(data){
-	if(isEmpty(data)){
-		alert("返回数据错误！")
-	}else if(data.status === 'ERROR'){
+	if(data.status === 'ERROR'){
 		alert(data.error+'代码('+data.code+')，描述信息：'+data.errorDescription);
+		
 	}else if(data.status === 'OK'){
 		return false;
 	}
 	return true;
 }
 function genPaginator(total,pSize,curPage,handlePageChange,visibleP){
-	
+	if(total === 0) return;//防止报错
 	if(visibleP === null) 
 		visibleP = 10;
 	
@@ -94,7 +88,7 @@ function genPaginator(total,pSize,curPage,handlePageChange,visibleP){
 }
 //获取数据集合
 function getData(moduleUrl,param,callback){
-	
+	//alert(moduleUrl);
 	var url = genUrl(moduleUrl);
 	requestByGetJSON(url,param,callback);
 }

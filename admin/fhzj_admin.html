@@ -8,25 +8,35 @@
   <title>凤凰驻家 管理中心</title> 
   <link href="assets/css/frame.css" rel="stylesheet" type="text/css" /> 
   <script type="text/javascript" src="assets/js/jquery.js"></script> 
-  <script type="text/javascript" src="assets/js/frame.js"></script> 
-  <!--script type="text/javascript">url = "123.57.218.171";GetAuth();</script--> 
-  <!--script src="assets/js/ruyiso.js" charset="utf-8" id="ruyisomain" type="text/javascript"></script--> 
-  <!--script src="assets/js/b5m.js" charset="utf-8" id="b5mmain" type="text/javascript"></script--> 
+  <script type="text/javascript" src="assets/js/frame.js"></script>  
   <link type="text/css" href="assets/css/rys-elfin.css" rel="stylesheet" /> 
   <script src="assets/js/sea.js" async="" charset="utf-8" id="__tk2__seajsnode"></script> 
-  <!--script src="memberlist.js"></script--> 
+  <script type="text/javascript">
+  var token;
+  function onload(){
+	var username = getUrlParam(window.location.search,"u");
+	token = getUrlParam(window.location.search,"token");
+	//alert("admin"+token);
+	$('#welcome').text('hi,'+username);
+  }
+  function getUrlParam(paramStr,name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = paramStr.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        }
+  </script> 
   <link href="assets/css/tmt.css" type="text/css" rel="stylesheet" /> 
   <link href="assets/css/font-awesome.min.css" type="text/css" rel="stylesheet" /> 
  </head> 
- <body> 
+ <body onload="onload()"> 
   <div class="header"> 
    <a href="javascript:;" id="logo" class="logo"> 
     <center>
      <i class="fa fa-th-list" style="color:#f25618;font-size:1.5em;font-weight:normal;margin-top:7px;"></i>
     </center> </a> 
    <div class="user"> 
-    <span class="name">Hi, admin</span> 
-    <div class="userPanel"> 
+    <span class="name" id="welcome"></span> 
+    <!--div class="userPanel"> 
      <a href="javascript:;" class="arrow"></a> 
      <div style="display: none;" class="panel"> 
       <div class="warp"> 
@@ -55,7 +65,7 @@
         <a href="http://123.57.218.171/admin/logout.php" class="logout">退出(ESC)</a>
        </div> 
       </div> 
-     </div> 
+     </div--> 
     </div> 
    </div> 
    <div class="fun"> 
@@ -71,7 +81,7 @@
   </div> 
   <div class="right"> 
    <div class="main"> 
-    <iframe name="main" id="main" src="memberlist.htm" frameborder="0"></iframe> 
+    <iframe name="main" id="main" src="welcome.html" frameborder="0"></iframe> 
    </div> 
   </div> 
   <div class="lockScreenBg"> 

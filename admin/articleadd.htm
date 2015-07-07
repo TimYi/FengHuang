@@ -1,48 +1,48 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>新增栏目</title>
+<title>新增文章</title>
 <link href="assets/css/admin.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/js/jquery.js"></script>
 <script type="text/javascript" src="assets/js/forms.js"></script>
 <script type="text/javascript" src="assets/js/json2.js"></script>
 <script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/plugin/editor/kindeditor-min.js"></script>
+<script type="text/javascript" src="assets/plugin/editor/lang/zh_CN.js"></script>
 <script type="text/javascript" src="assets/js/mapping_debug.js"></script>
 <script type="text/javascript" src="assets/js/ajax.js"></script>
 <script type="text/javascript" src="global_url.js"></script>
 <script type="text/javascript" src="global_var.js"></script>
 <script type="text/javascript" src="common.js"></script>
 <script type="text/javascript">
-var menuTypeDic;
+var menuDic;
 function onload(){
 	
-	$.getJSON(CATEGORY_QUERY+'column',null,afterGetMenuTypes4Select);
-	
+	$.getJSON(CATEGORY_QUERY+'column',null,afterGetMenus4Select);	
 }
 function submitArticle(){
-	var url = genUrl(MENU_MENU);
+	var url = genUrl(MENU_ARTICLE);
 	submitAsyFormByJson(url,'bTForm',function(data){
 	 			
 		friendlyTip(data);
 	});	 	
 }
-var MenuType = function(id,name){
+var Menu = function(id,name){
 			this.id = id;
 			this.name = name;
 }
-function afterGetMenuTypes4Select(data){
+function afterGetMenus4Select(data){
 
 	if(!isErrorData(data)){
-		var menuTypes = data.result;
-		
-		menuTypeDic = new Array();
-		for(var i in menuTypes){
-			var brandType = new MenuType(menuTypes[i].id,menuTypes[i].name);
-			menuTypeDic.push(brandType);
+		var menus = data.result;		
+		menuDic = new Array();
+		for(var i in menus){
+			var menu = new Menu(menus[i].id,menus[i].name);
+			menuDic.push(menu);
 		}
 		viewModel={
          	
-         	selectableMenu : ko.observableArray(menuTypeDic),
+         	selectableMenu : ko.observableArray(menuDic),
         	selectedMenu:ko.observable() 
         };
    		ko.applyBindings(viewModel);
@@ -52,21 +52,27 @@ function afterGetMenuTypes4Select(data){
 </head>
 <body onload="onload()">
 <div class="formHeader">
- <span class="title">新增栏目</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
+ <span class="title">新增文章</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
 </div>
-<form name="bTForm" id="bTForm" method="post" enctype="multipart/form-data"  onsubmit="return cfm_upadmin();">
+<form name="bTForm" id="bTForm" method="post" enctype="multipart/form-data">
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
-		<tbody>	
+		<tbody>
+			<tr>
+				<td align="right" width="25%" height="40">编码:</td>
+				<td width="75%" ><input name='code' type="text"></td>
+			</tr>	
 			<tr>
 				<td align="right"  height="40">栏目:</td>
-				<td  ><select data-bind="value:selectedMenu,options:selectableMenu,optionsText:'name',optionsCaption: '请选择...'">
-				</select><input type="text" name='typeid' data-bind="value:selectedMenu()?selectedMenu().id:''"></td>
+				<td >
+					<select data-bind="value:selectedMenu,options:selectableMenu,optionsText:'name',optionsCaption: '请选择...'"></select>
+					<input type="hidden" name='menuid' data-bind="value:selectedMenu()?selectedMenu().id:''">
+				</td>
 			</tr>	
 			<tr>
 				<td align="right" width="25%" height="40">标题:</td>
 				<td width="75%" ><input name='title' type="text"></td>
 			</tr>
-			<tr>
+			<!--tr>
 				<td align="right" width="25%" height="40">来源:</td>
 				<td width="75%" ><input name='source' type="text"></td>
 			</tr>
@@ -81,10 +87,26 @@ function afterGetMenuTypes4Select(data){
 			<tr>
 				<td align="right" width="25%" height="40">描述:</td>
 				<td width="75%" ><input name='description' type="text"></td>
-			</tr>
+			</tr-->
 			<tr>
 				<td align="right" width="25%" height="40">内容:</td>
-				<td width="75%" ><input name='content' type="text"></td>
+				<td width="75%" >
+					<textarea name='content'  class="kindeditor" id="content" ></textarea>
+					<script>
+						var editor;
+						KindEditor.ready(function(K) {
+							editor = K.create('textarea[name="content"]', {
+								allowFileManager : true,
+								width:'667px',
+								height:'280px',
+								afterBlur: function(){this.sync();}/*,
+								extraFileUploadParams : {
+									sessionid :  'f6pqand0gdtrnhi1n0vd2kgq21'
+								}*/
+							});
+						});
+					</script>
+				</td>
 			</tr>
 			<tr>
 				<td align="right" width="25%" height="40">点击数:</td>

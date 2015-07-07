@@ -50,8 +50,7 @@ public class CouponsController {
 	public String doScramble(){
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userId=details.getId();
-		boolean success=couponsAllocater.scramble(userId);
-		if(success)return RequestResult.success(true).toJson();
-		return RequestResult.success(false).toJson();
+		CouponsDto result=couponsAllocater.scramble(userId);
+		return RequestResult.success(result).toJson();
 	}
 }

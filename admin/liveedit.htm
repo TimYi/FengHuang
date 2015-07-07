@@ -26,31 +26,23 @@ function afterGetDataById(data){
 	if(!isErrorData(data)){
 		//数据正确时进行绑定
 		data.result.lives = null; 	
-	 	viewModel = ko.mapping.fromJS(data.result);	
-	 	
-	 	viewModel.submit = function(){
-	 	
-	 			var url = genUrl(LIVE_LIVE)+'/'+viewModel.id();	 		
+	 	viewModel = ko.mapping.fromJS(data.result);		 	
+	 	viewModel.submit = function(){	 	
+	 		var url = genUrl(LIVE_LIVE)+'/'+viewModel.id();	 		
 	 		var files = $('input[name="mainPicFile"]').prop('files');//获取到文件列表
-
 			if(files.length == 0){
 			  	submitAsyFormByJson(url, 'form', 
-					function(data){
-		 			
+					function(data){		 			
 			 			friendlyTip(data);
 			 			window.location.href='liveedit.htm?id='+viewModel.id();
-		 		 	}
-	 			);
+		 		 	});
 			}else{	 
 		 		submitFormWithMultipart(url,'form',
 			 		function(formData, jqForm, options){
-			 			//判断是否要上传文件，若不需要上传文件时
-			 			
+			 			//判断是否要上传文件，若不需要上传文件时			 			
 			 			return true;  
-			 		} 
-			 		
-			 		,function(data){
-			 			
+			 		} 			 		
+			 		,function(data){			 			
 			 			friendlyTip(data);
 			 			window.location.href='liveedit.htm?id='+viewModel.id();
 			 		}
@@ -111,9 +103,10 @@ function afterGetDataById(data){
 			</tr>
 			<tr>
 				<td align="right" height="40" >图片：</td>
-				<td width="75%" ><img data-bind='attr:{src:mainPic.url}'/>
-								<br>
-								<input type="file"  name='mainPicFile'>
+				<td width="75%" >
+					<img data-bind='attr:{src:mainPic.url}'/>
+					<br>
+					<input type="file"  name='mainPicFile'>
 				</td>				
 			</tr>			
 		</tbody>

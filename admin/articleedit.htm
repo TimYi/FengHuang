@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>修改文章</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/json2.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/plugin/editor/kindeditor-min.js"></script>
+<script type="text/javascript" src="assets/plugin/editor/lang/zh_CN.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript">
+var menuDic;
+var id;
+function onload(){
+	//第一步：先获取id	
+	id = getUrlParam(window.location.search,"id");
+	getData(MENU_MENU,null,afterGetMenus4Select);
+	
+}
+function submitArticle(){
+	var url = genUrl(MENU_ARTICLE);
+	submitAsyFormByJson(url,'articleForm',function(data){
+	 			
+		friendlyTip(data);
+	});	 	
+}
+var Menu = function(id,name){
+			this.id = id;
+			this.name = name;
+}
+function afterGetMenus4Select(data){
+
+	if(!isErrorData(data)){
+		var menus = data.result.result;		
+		menuDic = new Array();
+		for(var i in menus){
+			var menu = new Menu(menus[i].id,menus[i].name);
+			menuDic.push(menu);
+		}
+		getDataById(MENU_ARTICLE,id,afterGetDataById);
+	}
+}
+function afterGetDataById(data){
+	
+	//先判断并处理错误数据
+	if(!isErrorData(data)){
+		$("#content").val(data.result.content);
+		editor.html(data.result.content);
+		//数据正确时进行绑定
+	 	viewModel = ko.mapping.fromJS(data.result);
+		if(typeof viewModel.menu !== 'function'){
+	 		//注意：sex 为 null时，是function ,不为null时是object
+		 	for(var i in menuDic){
+		 		if(menuDic[i].id === viewModel.menu.id()){
+		 			viewModel.menu = ko.observable(menuDic[i]);
+		 			break;
+		 		}
+		 	}
+	 	}
+	 	viewModel.submit = function(){
+	 		submitArticle();
+	 	}
+	 	viewModel.menuDic = ko.observableArray(menuDic);
+		ko.applyBindings(viewModel);		
+	}
+}
+function submitArticle(){
+	var url = genUrl(MENU_ARTICLE+'/'+id);
+	submitAsyFormByJson(url,'articleForm',function(data){
+	 			
+		friendlyTip(data);
+	});	 	
+}
+</script>
+</head>
+<body onload="onload()">
+<div class="formHeader">
+ <span class="title">修改文章</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
+</div>
+<form name="articleForm" id="articleForm" method="post" enctype="multipart/form-data"  onsubmit="return cfm_upadmin();">
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td align="right" width="25%" height="40">编码:</td>
+				<td width="75%" ><input name='code' data-bind='value:code' type="text"></td>
+			</tr>	
+			<tr>
+				<td align="right"  height="40">栏目:</td>
+				<td >
+					<select data-bind="value:menu,options:menuDic,optionsText:'name',optionsCaption: '请选择...'"></select>
+					<input type="hidden" name='menuid' data-bind="value:menu()?menu().id:''">
+				</td>
+			</tr>	
+			<tr>
+				<td align="right" width="25%" height="40">标题:</td>
+				<td width="75%" ><input name='title' data-bind='value:title' type="text"></td>
+			</tr>
+			<!--tr>
+				<td align="right" width="25%" height="40">来源:</td>
+				<td width="75%" ><input name='source' type="text"></td>
+			</tr>
+			<tr>
+				<td align="right" width="25%" height="40">来源链接:</td>
+				<td width="75%" ><input name='sourceLink' type="text"></td>
+			</tr>
+			<tr>
+				<td align="right" width="25%" height="40">关键字:</td>
+				<td width="75%" ><input name='keywords' type="text"></td>
+			</tr>
+			<tr>
+				<td align="right" width="25%" height="40">描述:</td>
+				<td width="75%" ><input name='description' type="text"></td>
+			</tr-->
+			<tr>
+				<td align="right" width="25%" height="40">内容:</td>
+				<td width="75%" >
+					<textarea name='content'  class="kindeditor" id="content" ></textarea>
+					<script>
+						var editor;
+						KindEditor.ready(function(K) {
+							editor = K.create('textarea[name="content"]', {
+								allowFileManager : true,
+								width:'667px',
+								height:'280px',
+								afterBlur: function(){this.sync();}/*,
+								extraFileUploadParams : {
+									sessionid :  'f6pqand0gdtrnhi1n0vd2kgq21'
+								}*/
+							});
+						});
+					</script>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" width="25%" height="40">点击数:</td>
+				<td width="75%" ><input name='hits' data-bind='value:hits' type="text"></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="formSubBtn">
+		<input class="submit" value="提交" type="button" onclick='submitArticle()'/>
+		<input class="back" value="返回" onclick="history.go(-1)" type="button">
+	</div>
+</form>
+
+</body></html>

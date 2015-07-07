@@ -4,6 +4,7 @@
 <title>新增预约</title>
 <link href="assets/css/admin.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
 <script type="text/javascript" src="assets/js/forms.js"></script>
 <script type="text/javascript" src="assets/js/json2.js"></script>
 <script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
@@ -15,10 +16,26 @@
 <script type="text/javascript">
 function submitCase(){
 	var url = genUrl(CASE_CASE);
-	submitAsyFormByJson(url,'caseForm',function(data){
-	 			
-		friendlyTip(data);
-	});	 	
+	var files = $('input[name="mainPicFile"]').prop('files');//获取到文件列表
+	if(files.length == 0){
+		submitAsyFormByJson(url, 'caseForm', 
+			function(data){		 			
+				friendlyTip(data);
+			 	//window.location.href='caseedit.htm?id='+viewModel.id();
+		 	}
+	 	);
+	}else{	 
+		submitFormWithMultipart(url,'caseForm',
+			function(formData, jqForm, options){
+				//判断是否要上传文件，若不需要上传文件时			 			
+			 	return true;  
+			} 			 		
+			,function(data){			 			
+				friendlyTip(data);
+			 	//window.location.href='caseedit.htm?id='+viewModel.id();
+			 }
+		);
+	}
 }
 </script>
 </head>
@@ -50,8 +67,7 @@ function submitCase(){
 				<td>
 					<input type="text" name='price'/>
 				</td>
-			</tr>
-			
+			</tr>			
 			<tr>
 				<td align="right" height="40" >风格：</td>	
 				<td>		
@@ -65,6 +81,12 @@ function submitCase(){
 				</td>
 			</tr>
 			<tr>
+				<td align="right" height="40" >空间：</td>	
+				<td>		
+					<input type='text' name='space'/>
+				</td>
+			</tr>
+			<tr>
 				<td align="right" height="40" >编号：</td>
 				<td>		
 					<input type='text' name='code'/>
@@ -74,6 +96,12 @@ function submitCase(){
 				<td align="right" height="40">描述：</td>
 				<td size=100>
 					<input type="text" name='description' size=100 />				
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40">标签：</td>
+				<td size=100 >
+					<input type="text" name='tagExpression' /><span>标签之间用空格隔开</span>				
 				</td>
 			</tr>
 			<tr>

@@ -26,7 +26,7 @@
 		<thead>
 			<tr class="head" align="left">
 				<td class="firstCol" width="5%" height="36"><input name="checkid" id="checkid" onclick="CheckAll(this.checked);" type="checkbox"></td>
-				<td width="15%">ID</td>
+				<!--td width="15%">ID</td-->
 				<td width="10%">用户组名称</td>
 				<td width="15%">最小分值</td>
 				<td width="15%">最大分值</td>
@@ -38,7 +38,7 @@
 		<tbody data-bind='foreach: result'>
 			<tr class="dataTr" align="left">
 				<td class="firstCol" height="36"><input name="checkid[]" id="checkid[]" value="1" type="checkbox"></td>
-				<td data-bind='text: id'></td>
+				<!--td data-bind='text: id'></td-->
 				<td data-bind='text: name'></td>
 				<td data-bind='text: minExp'></td>
 				<td data-bind='text: maxExp'></td>
@@ -51,11 +51,11 @@
 	</table>
 </form>
 <div class="bottomToolbar">
-	<span class="selArea"><span>选择：</span> 
+	<!--span class="selArea"><span>选择：</span> 
 		<a href="javascript:CheckAll(true);">全部</a> - 
 		<a href="javascript:CheckAll(false);">无</a> - 
 		<a href="#" data-bind='click: $root.removeSelected'>删除</a>
-	</span> 
+	</span--> 
 	<a href="#" onclick="add()" class="dataBtn">新增</a> </div>
 	
 <div class="page"> 

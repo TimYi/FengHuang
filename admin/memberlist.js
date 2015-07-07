@@ -19,7 +19,6 @@ function onload(){
 function initParam(){
 	
 	param={
-		token : token,
 		size : pSize,
 		page : curPage
 	};
@@ -104,11 +103,12 @@ function bindData(data){
 			
 			item.verified =1;
 			
+			
 		}
 	}
 	dataModel.modify = function(item){
 		
-		window.location.href='memberedit.html?id='+item.id();
+		window.location.href='memberedit.htm?id='+item.id();
 	}	
 	if(!bind){
 		bind = true;
@@ -130,5 +130,5 @@ function handlePageChange (num, type) {
     }            
 }
 function add(){
-	window.location.href="memberadd.html";
+	window.location.href="memberadd.htm";
 }

@@ -1,8 +1,8 @@
 /**
-*ç’‡å­˜æ§‘é”›æ°­æ¹°é‚å›¦æ¬¢é¢ã„¦æ½µç€¹æ°«ç®Ÿurléºãƒ¥å½›é”›å±½î›§éºãƒ¥å½›éˆå¤Šå½‰é”ã„¥å½§é—‡â‚¬é‡å­˜æ•¼ç’‡ãƒ¦æƒæµ æœµè…‘ç€µç‘°ç°²æ¤¤ç‘°åµ†é™?
+*ËµÃ÷£º±¾ÎÄ¼şÓÃÀ´¶¨Òåurl½Ó¿Ú£¬Èç½Ó¿ÚÓĞ±ä¶¯Ö»Ğè¸ü¸Ä¸ÃÎÄ¼şÖĞ¶ÔÓ¦Ïî¼´¿É
 **/
 /*
-URLéç…ç´¡é”›æ°«å¯Œå¦¯â€³æ½¡_ç€›æ„­Äé§æ¢é¿å¶„ç¶”
+URL¸ñÊ½£ºÖ÷Ä£¿é_×ÓÄ£¿é_²Ù×÷
 */
 var HOST='http://101.200.229.135:8080/api/admin/';
 var CAPTCHA = 'http://101.200.229.135:8080/api/captcha?id='
@@ -15,12 +15,12 @@ var MEMBER_GROUP_UPDATEALL = 'userGroup/addAll';
 //var MEMBER_GROUP_UPDATEALL = 'userGroup';
 //var ARTICLE_ARTICLE_LIST='artical';
 var APPOINT_APPOINT = 'appoint';
-var MESSAGE = 'message';//é£æ¬’â–ˆç» ï¼„æ‚Š
+var MESSAGE = 'message';//ÁôÑÔ¹ÜÀí
 var CATEGORY_QUERY ='http://101.200.229.135:8080/api/category/';
 var AREA_QUERY = 'http://101.200.229.135:8080/api/area/level/';
 var CASE_CASE = 'case';
 var MENU_MENU = 'menu';
-var MENU_ARTICAL = 'artical';
+var MENU_ARTICLE = 'artical';
 var BRAND_BRAND = 'brand';
 var BRAND_TYPE = 'brandType';
 
@@ -33,10 +33,11 @@ var COUPON_COUPONSDEF = 'couponsDef';
 var COUPON_COUPON = 'coupons';
 var COUPON_EVENT = 'couponsDef/events';
 
-var ORDER_PACKAGE = 'package';//æ¿‚æ¥…î˜µ
+var ORDER_PACKAGE = 'package';//Ì×²Í
+var ORDER_ORDER = 'order';
 
-//æ¶“è¤æ™«é—ˆãˆ£å½é—æ›¢æ‘¼éº?
-var MODULE_HOST_URL = "http://101.200.229.135/admin/" ;
+//Ö÷½çÃæ²Ëµ¥Á´½Ó
+var MODULE_HOST_URL = "http://localhost:8080/fhzj_web/" ;
 var INDEX = MODULE_HOST_URL +"fhzj_admin.html";
 var MODULE_USR_URL =MODULE_HOST_URL + "memberlist.htm" ;
 var MODULE_GROUP_URL = MODULE_HOST_URL + "membergroup.htm" ;
@@ -48,7 +49,10 @@ var MODULE_LIVE_URL = MODULE_HOST_URL + "livelist.htm";
 var MODULE_COUPON_URL = MODULE_HOST_URL + "couponlist.htm";
 var MODULE_COUPON_DEF = MODULE_HOST_URL + "couponsDef.htm";
 var MODULE_PACKAGE_URL = MODULE_HOST_URL + "packagelist.htm";
-
+var MODULE_COMMENTITEM_URL = MODULE_HOST_URL + "commentItemlist.htm";
+var MODULE_ORDER_URL = MODULE_HOST_URL + "orderlist.htm";
+var MODULE_MENU_URL = MODULE_HOST_URL + "menulist.htm";
+var MODULE_ARTICLE_URL = MODULE_HOST_URL + "articlelist.htm";
 
 
 

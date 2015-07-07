@@ -1,8 +1,6 @@
 var dataModel;
 var bind = false;//数据绑定标识
 var rePage = true;
-
-
 /*
 分页功能变量定义
 */
@@ -19,7 +17,6 @@ function onload(){
 function initParam(){
 	
 	param={
-		//token : token,
 		size : pSize,
 		page : curPage
 	};
@@ -83,8 +80,7 @@ function bindData(data){
 		bind = true;
 		ko.applyBindings(dataModel);
 	}
-	if(rePage){
-		
+	if(rePage){		
 		//生成分页
 		genPaginator(total,pSize,param.page,handlePageChange)
 	}

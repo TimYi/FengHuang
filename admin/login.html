@@ -4,17 +4,20 @@
 <meta charset="utf-8">
 <title>凤凰筑家后台管理中心</title>
 <link href="assets/css/admin.css" rel="stylesheet" type="text/css"/>
-<!--link href="admin.css" rel="stylesheet" type="text/css"/-->
 <script type="text/javascript" src="assets/js/jquery.js"></script>
-<!--script type="text/javascript" src="assets/js/b5m.adv.js"></script-->
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="assets/js/jqPaginator.min.js"></script>
 <script type="text/javascript" src="global_url.js"></script>
 <script type="text/javascript" src="global_var.js"></script>
-<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="common.js"></script>
 <script>
 var tout;
 $(function(){
 	//$("#login").attr("action", LOGIN);
-	$("#verifycode").bind("blur",getImgCode);
+	$("#verifycode").bind("focus",getImgCode);
 	$("#verifycodeImg").bind("click",getImgCode);
 	$(".loginForm input").keydown(function(){
 		$(this).prev().hide();
@@ -64,8 +67,8 @@ function CheckForm()
 	}
 	if($("#verifycode").val() == "")
 	{
-        alert("请输入问题回答！");
-        $("#answer").focus();
+        alert("请输入验证码！");
+        $("#verifycode").focus();
         return false;
     }
     return true;
@@ -76,7 +79,8 @@ function loginSubmit(){
 			function(data){
 				if(data.status == 'OK') {
 					token = data.result;
-					window.location.href=INDEX;
+					//alert(token);
+					window.location.href=INDEX+"?u="+$("#username").val()+"&token="+token;
 				}else{
 					friendlyTip(data);
 				}			
@@ -110,40 +114,14 @@ function loginSubmit(){
 
 				<div class="txtLine mar8">
 					<label>验证码</label>
-					<input type="text" name="captcha" id="verifycode" class="pwd input" maxlength="16" style="width:300px"/>
-					<img src="/rest/sys/login/verifycode" id="verifycodeImg" width="170" height="46" id="captcha" style="float:right;line-height:50px;cursor:pointer;" />
-				</div>				
-				
-				<!--div class="verycodeArea">
-					<label class="label">验证码</label>
-					<div class="verycodeframe">
-						<label>回答</label>
-						<img src="/rest/sys/login/verifycode"   width="66" height="20" class="verycode" id="captcha" style="cursor: pointer;" onclick="refreshVerifyCode();"/>					
-					</div>
-				</div-->
-				<!--div class="quesArea">
-					<select name="question" id="question" class="question">
-						<option value="0">无安全提问</option>
-						<option value="1">母亲的名字</option>
-						<option value="2">爷爷的名字</option>
-						<option value="3">父亲出生的城市</option>
-						<option value="4">你其中一位老师的名字</option>
-						<option value="5">你个人计算机的型号</option>
-						<option value="6">你最喜欢的餐馆名称</option>
-						<option value="7">驾驶执照最后四位数字</option>
-					</select>
-					<div class="asLine">
-						<label>回答</label>
-						<input type="text" name="answer" id="answer" class="answer" />
-					</div>
-				</div-->
+					<input type="text" name="captcha" id="verifycode" class="uname input" maxlength="16" style="width:300px"/>
+					<img src="/rest/sys/login/verifycode" id="verifycodeImg" width="170" height="46" style="float:right;line-height:50px;cursor:pointer;" />
+				</div>
 				<div class="hr_1"></div>
 				<input type="button" class="loginBtn" value="登 录" style="cursor:pointer;" onclick='loginSubmit();' />
 			</form>
-			<!--div class="loginThanks">感谢您使用<span>PHPMyWind</span>产品</div-->
 		</div>
 	</div>
 </div>
-<!--div class="loginCopyright">© 2014 phpMyWind.com</div-->
 </body>
 </html>

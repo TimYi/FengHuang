@@ -15,22 +15,34 @@
 <script type="text/javascript">
 var viewModel;
 var colorDic;
-
+var Color = function(id,name){
+	this.id = id;
+	this.name = name;
+}
 function onload(){
-		var id = getUrlParam(window.location.search,"id");
+		//var id = getUrlParam(window.location.search,"id");
 		$.getJSON(CATEGORY_QUERY+'color',null,function(data){
-	 		colorDic = data.result;
-			var data = {
-				id : null,
-				name : null,
-				minExp: null,
-				maxExp : null,
-				stars : null,
-				colorId : null,
-				color : null
-			}
-			afterGetDataById(data);	
+			var colors = data.result;
+			colorDic = new Array();
+			for(var i in colors){
+				
+				var color = new Color(colors[i].id,colors[i].name);
+				colorDic.push(color);
+			}	 		
+			viewModel={
+         	
+         	selectableColor : ko.observableArray(colorDic),
+        	selectedColor:ko.observable() 
+        };
+   		ko.applyBindings(viewModel);
 	 	});
+}
+function submitUserGroup(){
+	var url = genUrl(MEMBER_GROUP_LIST);
+	submitAsyFormByJson(url,'uGForm',function(data){
+	 			
+		friendlyTip(data);
+	});	 	
 }
 function afterGetDataById(data){
 		viewModel = ko.mapping.fromJS(data);
@@ -69,38 +81,38 @@ function afterGetDataById(data){
 <div class="formHeader">
  <span class="title">新增用户组</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
 </div>
-<form name="form" id="form" method="post">
+<form name="uGForm" id="uGForm" method="post">
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tbody>
 		
 			<tr>
 				<td align="right"  height="40">名称:</td>
-				<td   ><input type="text" data-bind="value:name"></td>
+				<td   ><input type="text" name="name" ></td>
 			</tr>
 			<tr>
 				<td align="right"  height="40">最小分值:</td>
-				<td  ><input type="text" data-bind='value:minExp'></td>
+				<td  ><input type="text" name="minExp" ></td>
 			</tr>
 			<tr>
 				<td align="right"  height="40">最大分值:</td>
-				<td  ><input type="text" data-bind='value:maxExp'></td>
+				<td  ><input type="text" name="maxExp" ></td>
 			</tr>
 			<tr>
 				<td align="right"  height="40">星标数量:</td>
-				<td  ><input type="text" data-bind='value:stars'></td>
+				<td  ><input type="text" name='stars' ></td>
 			</tr>		
 			<tr>
 				<td align="right" height="40">头衔颜色：</td>
 				<td >
-				<select data-bind="value:color,options:colorDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+				<select data-bind="value:selectedColor,options:selectableColor,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 				</select>
-				<input type="hidden" size=100 data-bind="value:color()?color().name:''"></td>
+				<input type="hidden" name='colorId' size=100 data-bind="value:selectedColor()?selectedColor().id:''"></td>
 			</tr>
 		
 		</tbody>
 	</table>
 	<div class="formSubBtn">
-		<input class="submit" value="提交" type="button" data-bind="click:submit"/>
+		<input class="submit" value="提交" type="button" onclick="submitUserGroup();"/>
 		<input class="back" value="返回" onclick="history.go(-1)" type="button">
 	</div>
 </form>
