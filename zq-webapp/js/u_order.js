@@ -11,8 +11,12 @@ $(function(){
 	g.currentPage = 1;
 	g.paseSize = 20;
 
-
-	getMyOrder();
+	var loginStatus = Utils.getUserInfo();
+	if(!loginStatus){
+		location.replace("login.html");
+	}else{
+		getMyOrder();
+	}
 
 	//获取我的订单
 	function getMyOrder(){
@@ -71,6 +75,9 @@ $(function(){
 				else{
 					var msg = data.error || "";
 					alert("获取我的订单错误:" + msg);
+					if(msg == "您需要登录"){
+						location.href = "login.html";
+					}
 				}
 			},
 			error:function(data){

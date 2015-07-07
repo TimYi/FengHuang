@@ -13,8 +13,12 @@ $(function(){
 	g.httpTip = new Utils.httpTip({});
 	g.listdata = [];
 
-	getMyFav();
-
+	var loginStatus = Utils.getUserInfo();
+	if(!loginStatus){
+		location.replace("login.html");
+	}else{
+		getMyFav();
+	}
 	//获取我的收藏
 	function getMyFav(){
 		//token:用户凭据
@@ -47,19 +51,21 @@ $(function(){
 			g.listdata = obj;
 
 			var html = [];
-		
 			for(var i = 0,len = obj.length; i < len; i++){
 				var id = obj[i].id || "";
 				var name = obj[i].name || "";
 				var column = obj[i].column || "";
 				var time = obj[i].createTime || "";
+				var type = obj[i].type.toLowerCase();
+				var source = obj[i].sourceid;
+				var urlstr = type+"_detail.html?id="+source;
 				html.push('<ul class="am-avg-sm-2 house-list"><li class="h-left">');
                 html.push('<div class="am-dropdown" data-am-dropdown>');
-                html.push('<a href="u_fav_item.html?id='+id+'&token='+g.token+'&p=8"><div><ul class="uhouse">');
+                html.push('<a href="'+urlstr+'"><div><ul class="uhouse">');
                 html.push('<li class="ubig">'+ column +'</li>');
                 html.push('<li class="usmall">'+ name + ' / ' + time + '</li></ul></div></a></div></li>');
                 html.push('<li class="h-right"><div class="am-dropdown" data-am-dropdown>');
-                html.push('<a href="u_fav_item.html?id='+id+'&token='+g.token+'&p=8">');
+                html.push('<a href="'+urlstr+'">');
                 html.push('<div><i class="am-icon-angle-right"></i></div></a></div></li></ul>');
 			}
 			$("#myFav").html(html.join(''));
@@ -85,6 +91,9 @@ $(function(){
 				else{
 					var msg = data.error || "";
 					alert("获取我的收藏列表错误:" + msg);
+					if(msg == "您需要登录"){
+						location.href = "login.html";
+					}
 				}
 			},
 			error:function(data){

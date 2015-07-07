@@ -14,7 +14,12 @@ $(function() {
     g.listdata = [];
     //验证登录状态
     g.loginStatus = Utils.getUserInfo();
-    getCoupons();
+
+    if(!g.loginStatus){
+        location.href="login.html";
+    }else{
+        getCoupons();
+    }
     $('.coupon-btn').bind('click',couponScram);
 
     function getCoupons(){
@@ -59,6 +64,7 @@ $(function() {
             success: function(data){
                 if(data){
                     alert("优惠券抢购成功！")
+                    location.href = "u_conpon.html?token="+g.token;
                 }
                 else{
                     alert("优惠券抢购失败!");

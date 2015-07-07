@@ -49,7 +49,7 @@ public class WxMenuTest {
 		//初始化button3
 		WxMenuButton button3_1=createButton("view", "会员中心", "http://123.57.218.171/4g.php?m=u_hyzx", null);
 		WxMenuButton button3_2=createButton("click", "在线客服", null, "FHZJ_ZXKF");
-		WxMenuButton button3_3=createButton("view", "400电话", "tel:4006992888", null);
+		WxMenuButton button3_3=createButton("view", "400电话", "tel:4009689088", null);
 		WxMenuButton button3_4=createButton("click", "意见反馈", null, "FHZJ_YJFK");
 		button3.setSubButtons(getButtons(button3_1,button3_2,button3_3,button3_4));
 		try {

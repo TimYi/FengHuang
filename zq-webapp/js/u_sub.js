@@ -11,7 +11,15 @@ $(function(){
 	g.currentPage = 1;
 	g.paseSize = 20;
 
-	getMySub();
+	var loginStatus = Utils.getUserInfo();
+	if(!loginStatus){
+		//未登录
+		location.replace("login.html");
+	}
+	else{
+		getMySub();
+	}
+
 
 	//获取我的预约
 	function getMySub(){
@@ -40,11 +48,12 @@ $(function(){
 				createTime.substring(0,10);
 				html.push('<ul class="am-avg-sm-2 house-list"><li class="h-left">');
                 html.push('<div class="am-dropdown" data-am-dropdown>');
-                html.push('<a href="u_sub_item.html?id='+id+'&token='+g.token+'&p=5"><div><ul class="uhouse">');
+                html.push('<a href="javascript:void(0)"><div><ul class="uhouse">');
                 html.push('<li class="ubig">'+ type +'</li>');
                 html.push('<li class="usmall">'+ createTime + '</li></ul></div></a></div></li>');
-                html.push('<li class="h-right"><div class="am-dropdown" data-am-dropdown>');
-                html.push('<a href="u_sub_item.html?id='+id+'&token='+g.token+'&p=5">');
+                html.push('<li class="h-right" style="display:none;"><div class="am-dropdown" data-am-dropdown>');
+                //html.push('<a href="u_sub_item.html?id='+id+'&token='+g.token+'&p=5">');
+                html.push('<a href="javascript:void(0)">')
                 html.push('<div><i class="am-icon-angle-right"></i></div></a></div></li></ul>');
 			}
 
@@ -54,6 +63,7 @@ $(function(){
 
 	function sendGetMySubHttp(condi){
 		var url = Base.appointsUrl;
+		console.log(condi);
 		$.ajax({
 			url:url,
 			data:condi,
@@ -70,6 +80,9 @@ $(function(){
 				else{
 					var msg = data.error || "";
 					alert("获取我的预约列表错误:" + msg);
+					if(msg == "您需要登录"){
+						location.href = "login.html";
+					}
 				}
 			},
 			error:function(data){

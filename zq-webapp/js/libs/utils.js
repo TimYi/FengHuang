@@ -444,16 +444,8 @@ Array.prototype.remove = function(n){
 			var obj = JSON.parse(info) || {};
 			var userName = obj.username;
 			//已登录
-			var html = [];
 			var token = Utils.offLineStore.get("token",false) || "";
 			var str = "";
-			if(token !== ""){
-				str = "?token=" + token + "&page=0";
-			}
-			html.push('<li style="padding-right:10px"><i class="fa fa-sign-out"></i>');
-			html.push('<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="javascript:void(0);" style="width:auto;">' + userName + ',你好!</a></b>');
-			html.push('<b style="padding:0 10px;font-weight:normal"><a href="javascript:Utils.loginOut();" style="width:70px">安全退出</a></b></li>');
-			html.push('<li><i class="fa fa-user hui"></i> <a href="center.html' + str + '" style="width:60px">会员中心</a></li>');
 			if($("#loginstatus").length > 0){
 				$("#loginstatus")[0].innerHTML = html.join('');
 			}
@@ -483,6 +475,7 @@ Array.prototype.remove = function(n){
 	Utils.isMobile = isMobile;
 	Utils.getUserInfo = getUserInfo;
 	Utils.loginOut = loginOut;
+
 }(window));
 
 
@@ -504,7 +497,7 @@ $(function(){
 	//验证登录状态
 	g.loginStatus = Utils.getUserInfo();
 
-
+	console.log(g.loginStatus);
 
 	getPackages();
 
@@ -527,7 +520,8 @@ $(function(){
 				console.log("getPackages",data);
 				var status = data.status || "";
 				if(status == "OK"){
-					changePackageNav(data.result.result);
+					//changePackageNav(data.result.result);
+					//PACKLIST = data.result;
 				}
 				else{
 					Utils.alert("预约类别获取失败");
@@ -579,6 +573,15 @@ $(function(){
 
 		$($(".dropdown-menu")[0]).html(html.join(''));
 	}
+
+	$("#uCenter").bind("click",uCenter);
+	function uCenter(){
+		if(g.loginStatus){
+			location.href = "hyzx.html?token="+g.token;
+		}else{
+			location.href = "login.html";
+		}
+	}
 });
 
 var changeTab = function(){
@@ -587,3 +590,4 @@ var changeTab = function(){
 	$('.am-tabs-nav').find('li').eq(g.ptab).addClass('am-active').siblings('li').removeClass('am-active');
 	$('.am-tab-panel').eq(g.ptab).addClass('am-active am-in').siblings('div').removeClass('am-active am-in')
 }();
+
