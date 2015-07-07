@@ -44,7 +44,7 @@ $(function(){
 
 	$("#provId").bind("change",getProvCity);
 
-	//getAppointCategory();
+	getAppointCategory();
 	getProv();
 	function getProvCity(){
 		var id = $(this).val();
@@ -70,7 +70,7 @@ $(function(){
 				var status = data.status || "";
 				if(status == "OK"){
 					changeSelectHtml("typeid",data.result || []);
-					changeSelectHtml("typeid2",data.result || []);
+					//changeSelectHtml("typeid2",data.result || []);
 				}
 				else{
 					Utils.alert("预约类别获取失败");
@@ -299,7 +299,7 @@ $(function(){
 			validater:根据用户绑定手机号码，发送的短信验证码
 			*/
 			condi.token = g.token;
-			condi.typeId = "404040e64e286b93014e286ba43b0001";
+			condi.typeId = $("#typeid").val() || "";
 			condi.cityId = $("#cityId").val() || "";
 			condi.realName = $("#name").val() || "";
 			condi.mobile = $("#phone").val() || "";

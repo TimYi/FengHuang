@@ -97,7 +97,7 @@ $(function(){
 				var status = data.status || "";
 				if(status == "OK"){
 					changeSelectHtml("provId",data.result || []);
-					changeSelectHtml("provId2",data.result || []);
+					//changeSelectHtml("provId2",data.result || []);
 					var id = data.result[0].id;
 					getCity(id,0);
 				}
@@ -128,7 +128,7 @@ $(function(){
 					switch(b){
 						case 0:
 							changeSelectHtml("cityId",data.result || []);
-							changeSelectHtml("cityId2",data.result || []);
+							//changeSelectHtml("cityId2",data.result || []);
 						break;
 						case 1:
 							changeSelectHtml("cityId",data.result || []);
@@ -507,7 +507,8 @@ $(function(){
 					history.go(-1);
 				}
 				else{
-					Utils.alert("预约失败:" +data.errorDescription );
+					$("#tipdiv").html("温馨提示：<b color='red'>" + data.errorDescription + "</b>");
+					Utils.alert("预约失败:" + data.errorDescription );
 				}
 				g.httpTip.hide();
 			},

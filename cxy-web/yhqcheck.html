@@ -181,19 +181,15 @@ $(".m_logo").hover(function(){
 
     <section id="feature"  style="border-top:1px solid #f6f6f6;">
         <div class="container">
-           	<div class="col-md-4" style="width:20%;background:#f9f9f9;height:200px;border-left:1px #eee solid;border-top:1px #eee solid;border-bottom:1px #eee solid;">
+           	<div id="statusdiv" class="col-md-4" style="width:20%;background:#f9f9f9;height:200px;border-left:1px #eee solid;border-top:1px #eee solid;border-bottom:1px #eee solid;display:none;">
            		<div style="margin:50px 0 0 50px;padding:10px;text-align:center;vertical-align:middle;border:4px solid #83bd39;-moz-border-radius:50%;-webkit-border-radius:50%;border-radius:50%; height:100px;width:100px">
            			<i class="fa fa-check" style="color:#83bd39;font-size:70px"></i>
            		</div>
            	</div>
            	<div class="col-md-8 u_ord">
-           		<ul>
-           			<li style="font-weight:800;font-size:20px">您已成功抢购一张家装抵用券</li>
-           			<li class="u_li">面值：<b style="color:#83bd39">1000元</b></li>
-           			<li class="u_li">编号：<b style="color:#83bd39">120905198109284301</b></li>
-           			<li class="u_li">备注：陈宣宇 / 136****0909 / 北京市海淀区***小区 / 3居室 / 95㎡ </li>
-           			<li class="u_li">提示：请于2015年11月23日 15:00:30 前使用，过期作废。</li>
-
+           		<ul id="coupondetail" style="display:none;">
+           			<li style="font-weight:800;font-size:20px">抢购优惠券失败</li>
+				<li class="u_li">原因：<b style="color:#83bd39"></b></li>
            		</ul>
            	</div>
 
@@ -342,6 +338,6 @@ $(".m_logo").hover(function(){
 	<script src="libs/json.js"></script>
 	<script src="libs/base.js"></script>
 	<script src="libs/utils.js"></script>
-
+	<script src="js/yhqcheck.js"></script>
 </body>
 </html>

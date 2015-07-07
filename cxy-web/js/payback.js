@@ -106,6 +106,7 @@ $(function(){
 		html.push('<li class="u_li">');
 		html.push('<br/>本页面可作为付款凭证。');
 		html.push('</li>');
+		html.push('<li class="u_li">提示：您已经成功支付，请等待客服电话联系体验馆实景体验和选材信息。</li>');
 		$("#orderdetail").html(html.join(''));
 		$("#orderdetail").show();
 	}

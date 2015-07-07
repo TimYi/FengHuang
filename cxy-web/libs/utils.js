@@ -601,7 +601,7 @@ $(function(){
 				case 699:
 					id1 = id;
 					if(g.id == id && hasAppointed){
-						//$("#buybtn").html("您已成功预约");
+						$(".buynow").html("您已成功预约");
 						//$("#buybtn2").html("您已成功预约");
 					}
 				break;
