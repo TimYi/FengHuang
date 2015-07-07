@@ -39,6 +39,7 @@
 	var commentsUrl = serverUrl + "/api/user/comments";
 	var commentUrl = serverUrl + "/api/comment";
 	var comments = serverUrl + "/api/comments";
+	var scrambleUrl = serverUrl + "/api/coupons/scramble";
 	//var commentUrl = serverUrl + "/api/user/comment";
 	var couponsUrl = serverUrl + "/api/user/coupons";
 	var collectsUrl = serverUrl + "/api/user/collects";
@@ -81,6 +82,7 @@
 	Base.commentsUrl = commentsUrl;
 	Base.comments = comments;
 	Base.commentUrl = commentUrl;
+	Base.scrambleUrl = scrambleUrl;
 	Base.couponsUrl = couponsUrl;
 	Base.collectsUrl = collectsUrl;
 	Base.collectUrl = collectUrl;
