@@ -18,7 +18,7 @@ $(function(){
 	//验证登录状态
 	g.loginStatus = Utils.getUserInfo();
 
-
+	/*
 	$("#phone").bind("blur",getImgCode);
 	$("#imgcodebtn").bind("click",getImgCode);
 	$("#getcodebtn").bind("click",getValidCode);
@@ -28,7 +28,7 @@ $(function(){
 	$("#imgcodebtn2").bind("click",getImgCode2);
 	$("#getcodebtn2").bind("click",getValidCode2);
 	$("#buybtn2").bind("click",buyBtnUp2);
-
+	*/
 	$("#countbtn").bind("click",countMoney);
 
 	//获取图形验证码
@@ -412,8 +412,8 @@ $(function(){
 		MonthReturn = (Money + Money * Rate_{id}) / Month_{id}
 		Amount = Month_{id} * MonthReturn
 		*/
-		var rate = [0.028634,0.050463,0.095027,0.140796,0.187768,0.285291,0.387527,0.494383];
-		var month = [3,6,12,18,24,36,48,60];
+		var rate = [0.04,0.08,0.12];
+		var month = [12,24,36];
 		var money = $("#inputmoney").val() - 0 || 0;
 		var time = $("#timeselect")[0].selectedIndex - 0;
 		if(money > 0){
