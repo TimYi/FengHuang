@@ -198,6 +198,8 @@ $(function(){
 				html.push('</div>');
 				html.push('</div>');
 			}
+
+			html.push('</div><!--/.row-->');
 			//~ <div class="col-xs-12 col-sm-4 col-md-3">
 			//~ <div class="recent-work-wrap">
 			//~ <img class="img-responsive" src="images/team/team_10.jpg" alt="">

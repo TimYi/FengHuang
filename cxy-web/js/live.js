@@ -130,7 +130,7 @@ $(function(){
 				html.push('<div class="recent-work-inner">');
 				html.push('<h3><a href="javascript:void(0);">' + packageName + '</a></h3>');
 				html.push('<p>'+ village + '/' + area + '/' + house + '<br />开工时间:' +startDate + '</p>');
-				html.push('<a href="live_details.html?id=' + id + '"  style="color:white"><i class="fa fa-eye"></i> 案例详情</a>');
+				html.push('<a href="live_details.html?id=' + id + '"  style="color:white"><i class="fa fa-eye"></i> 直播详情</a>');
 				html.push('</div></div></div></div>');
 			}
 
