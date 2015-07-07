@@ -19,7 +19,6 @@ function onload(){
 function initParam(){
 	
 	param={
-		//token : token,
 		size : pSize,
 		page : curPage
 	};

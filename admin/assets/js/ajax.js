@@ -4,6 +4,19 @@
 
 //避免重复请求的标记变量
 var reqFlag = false;
+//判断返回的data数据是不是因为权限问题，需要调转到登录
+function loginErrorFilter(data,callBack){
+	if(isEmptyData(data)){
+		alert("返回数据错误！")
+	}else 
+	if(data.status == 'ERROR' && data.code == 1){
+			
+		alert(data.error+'代码('+data.code+')，描述信息：'+data.errorDescription);
+		window.parent.location.href = "login.html";
+	}else{		
+		callBack(data);
+	}
+}
 /*
  * 请求服务器，获取json格式数据
  */
@@ -18,7 +31,7 @@ function requestByGetJSON(reqUrl, reqParams, callBack){
 			function(data) {
 				//使用json对象将服务器响应解析成json对象
 				reqFlag = false;
-				callBack(data);
+				loginErrorFilter(data,callBack);
 			});
 }
 function postReq(url,params,callback){
@@ -50,7 +63,7 @@ function updateAll(url,params,callback){
      	contentType: "application/json; charset=utf-8",
      	success:function(data){
    			reqFlag = false;
-			//var dataObj = JSON.parse(data); //依赖与json2
+			
 			callback(data);
    		},
    		error:function(jqXHR, textStatus, errorThrown){
@@ -63,7 +76,7 @@ function modifyReq(url,params,callback){
 		alert("请求已经提交，请耐心等待。");
 		return;
 	}
-	var url = addRandomParam4modifyUrl(url);
+	var url = addUrlRandomParam(url);
 	reqFlag = true;
 	$.post(url,params,function(data){		
 		reqFlag = false;
@@ -103,7 +116,7 @@ function requestByJson(reqUrl, reqParams, callBack){
 			function(data) {
 				//使用json对象将服务器响应解析成json对象
 				reqFlag = false;
-				callBack(data);
+				loginErrorFilter(data,callBack);
 			});
 }
 /*
@@ -147,15 +160,17 @@ function requestByAjax(reqUrl, data,callback){
  * 同步提交form表单数据
  */
 function submitAsyFormByJson(reqUrl, formId, callBack){
+	reqUrl = addUrlRandomParam(reqUrl);
+	//alert(reqUrl);
 	$.ajax({
-   		url:addUrlRandomParam(reqUrl),
+   		url:reqUrl,
    		data:$("#"+formId).serialize(),
    		async:false,
      	type:"post",
      	dataType:"json",
      	success:function(data){
 			reqFlag = false;
-			callBack(data);
+			loginErrorFilter(data,callBack);
    		},
    		error:function(){
         	alert("请求失败");
@@ -169,13 +184,13 @@ function submitFormWithMultipart(reqUrl,formId,beforeSubmit,callBack){
 	$("#"+formId).ajaxSubmit(
 	 		{                    
 	 			type:'post',                    
-	 			url:reqUrl, 
+	 			url:addUrlRandomParam(reqUrl), 
 	 			dataType:"json",
 	 			data : $("#"+formId).serialize(), 
 	 			beforeSubmit:beforeSubmit,                  
 	 			success:function(data){                        
 	 			    reqFlag = false;
-					callBack(data);           
+					loginErrorFilter(data,callBack);           
 	 			},                    
 	 			error:function(XmlHttpRequest,textStatus,errorThrown)
 	 			{                        
@@ -199,7 +214,7 @@ function submitFormByJson(reqUrl, formId, callBack){
 				//使用json对象将服务器响应解析成json对象
 				//var result = JSON.parse(data);
 				reqFlag = false;
-				callBack(data);
+				loginErrorFilter(data,callBack);
 			});
 }
 
@@ -214,7 +229,10 @@ function addUrlRandomParam(url) {
 	}else{
 		randStr = "?rand=" + generateRandomStr(16);
 	}
-	return url+randStr;
+	var token = parent.token;
+	//alert(token);
+	var tokenStr = "&token="+token
+	return url+randStr+tokenStr;
 }
 /*
  * 为修改操作的URL加上一个随机字符串参数，以避免浏览器缓存 
@@ -225,7 +243,14 @@ function addRandomParam4modifyUrl(url) {
 	//return url+randStr;
 	return url;
 }
-
+function isEmptyData(data){
+	//alert(typeof data);
+	if(data != '' && data != null && typeof(data)!= 'undefined'){
+		return false;
+	}else{
+		return true;
+	}
+}
 /*
  * 生成随机字符串，本函数从common.js中复制过来
  */

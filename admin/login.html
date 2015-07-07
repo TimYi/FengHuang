@@ -4,12 +4,15 @@
 <meta charset="utf-8">
 <title>凤凰筑家后台管理中心</title>
 <link href="assets/css/admin.css" rel="stylesheet" type="text/css"/>
-<!--link href="admin.css" rel="stylesheet" type="text/css"/-->
 <script type="text/javascript" src="assets/js/jquery.js"></script>
-<!--script type="text/javascript" src="assets/js/b5m.adv.js"></script-->
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="assets/js/jqPaginator.min.js"></script>
 <script type="text/javascript" src="global_url.js"></script>
 <script type="text/javascript" src="global_var.js"></script>
-<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="common.js"></script>
 <script>
 var tout;
 $(function(){
@@ -76,7 +79,8 @@ function loginSubmit(){
 			function(data){
 				if(data.status == 'OK') {
 					token = data.result;
-					window.location.href=INDEX+"?u="+$("#username").val();
+					//alert(token);
+					window.location.href=INDEX+"?u="+$("#username").val()+"&token="+token;
 				}else{
 					friendlyTip(data);
 				}			

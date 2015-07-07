@@ -51,6 +51,8 @@ var MODULE_COUPON_DEF = MODULE_HOST_URL + "couponsDef.htm";
 var MODULE_PACKAGE_URL = MODULE_HOST_URL + "packagelist.htm";
 var MODULE_COMMENTITEM_URL = MODULE_HOST_URL + "commentItemlist.htm";
 var MODULE_ORDER_URL = MODULE_HOST_URL + "orderlist.htm";
+var MODULE_MENU_URL = MODULE_HOST_URL + "menulist.htm";
+var MODULE_ARTICLE_URL = MODULE_HOST_URL + "articlelist.htm";
 
 
 
