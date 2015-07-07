@@ -603,6 +603,8 @@ $(function(){
 			var scrambleStartTime = obj.scrambleStartTime || "";
 			var scrambleEndTime = obj.scrambleEndTime || "";
 			var hasAppointed = obj.hasAppointed || false;
+			var couldAppoint = obj.couldAppoint || false;
+			var hasScrambled = obj.hasScrambled || false;
 			if(id == Utils.getQueryString("id")){
 				//799
 				if(status == "PREPARE"){
@@ -610,25 +612,30 @@ $(function(){
 				}
 				else if(status == "SCRAMBLE" && inStock > saleNumber){
 
-					if(hasAppointed){
-						$(".buynow").html('<div onclick="miaoSha(\'' + id + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
-						//html.push('<a href="javascript:miaoSha(\'' + id + '\')">');
-					}
-					else{
-						if(g.loginStatus){
-							if(g.reserveStatus){
-								var page = "subcheck.html?id=" + id;
-								$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
-							}
-							else{
-								var page = "c_my.html?token=" + g.token + "&p=1";
-								$(".buynow").html('<div onclick="alert("个人资料不完善,无法预约");location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
-							}
-							//html.push('<a href="javascript:alert(\'你还没有预约\');location.href=\'' + page + '\'">');
+					if(couldAppoint){
+						if(g.reserveStatus){
+							var page = "subcheck.html?id=" + id;
+							$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
 						}
 						else{
-							var page = "center/login.html";
-							$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
+							var page = "c_my.html?token=" + g.token + "&p=1";
+							$(".buynow").html('<div onclick="alert(\'个人资料不完善,无法预约\');location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
+						}
+					}
+					else{
+						if(hasScrambled){
+							var page = "c_order.html?token=" + g.token + "&p=7";
+							$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">已抢购</div>');
+						}
+						else{
+							if(g.loginStatus){
+								$(".buynow").html('<div onclick="miaoSha(\'' + id + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+								//html.push('<a href="javascript:miaoSha(\'' + id + '\')">');
+							}
+							else{
+								var page = "center/login.html";
+								$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+							}
 						}
 					}
 				}

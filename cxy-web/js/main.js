@@ -697,7 +697,7 @@ $(function(){
 						}
 						else{
 							var page = "c_my.html?token=" + g.token + "&p=1";
-							$(".buynow").html('<div onclick="alert("个人资料不完善,无法预约");location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
+							$(".buynow").html('<div onclick="alert(\'个人资料不完善,无法预约\');location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
 						}
 					}
 					else{
