@@ -41,8 +41,8 @@ $(function(){
 			var html = [];
 			html.push('<table class="table u_ct">');
 			html.push('<tr class="u_th">');
-			html.push('<th width=25%>预约编号</th>');
-			html.push('<th width=25%>预约类型</th>');
+			html.push('<th width=25%>订单编号</th>');
+			html.push('<th width=25%>订单类型</th>');
 			html.push('<th>订单时间</th>');
 			html.push('<th width=150>操作</th>');
 			html.push('</tr>');
@@ -50,7 +50,7 @@ $(function(){
 			for(var i = 0,len = obj.length; i < len; i++){
 				var id = obj[i].id|| "";
 				var name = obj[i].code || "";
-				var type = obj[i].type || "";
+				var type = obj[i].name || "";
 				var time =  obj[i].payTime || "";
 				html.push('<tr>');
 				html.push('<td >' + name + '</td>');

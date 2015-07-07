@@ -118,13 +118,13 @@ $(function(){
 		html.push('<ul class="sub_li">');
 		html.push('<li>套餐类型：' + name + '</li>');
 		html.push('<li>订单编号：' + code + '</li>');
-		html.push('<li>备注信息：</li>');
+		//html.push('<li>备注信息：</li>');
 		html.push('</ul>');
 		html.push('</div>');
 
 		html.push('<div class="col-md-6">');
 		html.push('<ul class="sub_li">');
-		html.push('<li>有效期限：</li>');
+		//html.push('<li>有效期限：</li>');
 		html.push('<li>下单时间：' + payTime+ '</li>');
 		html.push('</ul>');
 		html.push('</div>');
