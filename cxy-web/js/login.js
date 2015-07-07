@@ -105,7 +105,8 @@ $(function(){
 					location.href = "center.html?token=" + token + "&p=0";
 				}
 				else{
-					var msg = data.error || "";
+					//var msg = data.error || "";
+					var msg = data.errorDescription || "";
 					alert("登录失败:" + msg);
 					getImgCode();
 				}
