@@ -73,7 +73,7 @@ function isErrorData(data){
 	return true;
 }
 function genPaginator(total,pSize,curPage,handlePageChange,visibleP){
-	
+	if(total === 0) return;//防止报错
 	if(visibleP === null) 
 		visibleP = 10;
 	
@@ -94,7 +94,7 @@ function genPaginator(total,pSize,curPage,handlePageChange,visibleP){
 }
 //获取数据集合
 function getData(moduleUrl,param,callback){
-	
+	//alert(moduleUrl);
 	var url = genUrl(moduleUrl);
 	requestByGetJSON(url,param,callback);
 }

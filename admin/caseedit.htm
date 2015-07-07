@@ -118,19 +118,25 @@ function afterGetDataById(data){
 			<tr>
 				<td align="right" height="40" >风格：</td>	
 				<td>		
-					<input type='text' name='style' data-bind="style"/>
+					<input type='text' name='style' data-bind="value:style"/>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >空间：</td>	
+				<td>		
+					<input type='text' name='space' data-bind="value:space"/>
 				</td>
 			</tr>
 			<tr>
 				<td align="right" height="40" >户型：</td>	
 				<td>		
-					<input type='text' name='houseType' data-bind="houseType"/>
+					<input type='text' name='houseType' data-bind="value:houseType"/>
 				</td>
 			</tr>
 			<tr>
 				<td align="right" height="40" >编号：</td>
 				<td>		
-					<input type='text' name='code' data-bind="code"/>
+					<input type='text' name='code' data-bind="value:code"/>
 				</td>
 			</tr>			
 			<tr>
@@ -148,7 +154,7 @@ function afterGetDataById(data){
 			<tr>
 				<td align="right" height="40" >图片：</td>
 				<td width="75%" >
-					<img data-bind='attr:{src:mainPic.url}'  />
+					<img data-bind='attr:{src:mainPic.url} '  />
 					<br>
 					<input type="file"  name='mainPicFile'>
 				</td>				

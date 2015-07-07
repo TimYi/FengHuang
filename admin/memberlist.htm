@@ -16,7 +16,7 @@
 </head>
 <body onload="onload()">
 <div class="topToolbar"> <span class="title">用户管理</span>                           
-<span class="alltype">
+<!--span class="alltype">
 	<a href="javascript:;" onclick="GetType('','查看全部',$(this))" class="btn">条件筛选</a>
 	<span class="drop">
 		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
@@ -41,11 +41,11 @@
 		<a href="javascript:;" onclick="GetType('4','新闻动态',$(this))">新闻动态</a>	
 
 	</span>
-</span>
+</span-->
 	<a href="javascript:location.reload();" class="reload">刷新</a></div>
-<form name="form" id="form" method="post" action="member_save.php">
+<form name="form" id="form" method="post" >
 	<div id="list">
-<div class="toolbarTab">
+<!--div class="toolbarTab">
 	<ul>
 		<li class="on"><a href="javascript:;" onclick="getMembers()">全部</a></li>
 		<li class="line">-</li>
@@ -58,20 +58,20 @@
 		<li class="line">&nbsp;</li>
 		<li class="line">&nbsp;</li>
 		<li><a href="javascript:;" onclick="searchMembers();">	<input name="keyword" id="keyword" title="输入关键字进行搜索" type="text">&nbsp;搜索</a></li>
-	</ul>
+	</ul-->
 		<!--<div id="search" class="search"> 
 		<span class="s">
 			<input name="keyword" id="keyword" title="输入标题名进行搜索" type="text">搜索
 		</span>
 	<span class="b"><a href="javascript:;" onclick="GetSearch();"></a></span>
-	</div>-->
+	</div>>
 	<div class="cl"></div>
-</div>
+</div-->
 	<table class="dataTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<thead>
 			<tr class="head" align="left">
 				<td class="firstCol" width="5%" height="36"><input name="checkid" id="checkid" onclick="CheckAll(this.checked);" type="checkbox"></td>
-				<td width="5%">ID</td>
+				<!--td width="5%">ID</td-->
 				<td width="15%">用户名</td>
 				<td width="15%">经验值/积分</td>
 				<td width="10%">登录ip</td>
@@ -83,7 +83,7 @@
         <tbody data-bind='foreach: result'>
 			<tr class="dataTr" align="left">
 				<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox" data-bind="checked: selected"></td>
-				<td data-bind='text: id'></td>
+				<!--td data-bind='text: id'></td-->
 				<!--	<td><span class="thumbs" style="width:48px;"><img src="home_data/index.jpg" width="48" height="48"></span></td>-->				
 				<td data-bind='text: username'></td>
 				<td><span style="color:" data-bind='text: expVal'></span><br><span class="red" data-bind='text: integra'></span></td>
@@ -91,7 +91,7 @@
 				<td class="number" data-bind='text: loginTime'></td>
 				<td data-bind ="text: verified == 1 ?  '已审核': '未审核'"></td>
 				<td class="action endCol">				
-					<span class="nb"><a href="#" data-bind='click: $root.enter'>审核</a></span> | 
+					<!--span class="nb"><a href="#" data-bind='click: $root.enter'>审核</a></span--> 
 					<span class="nb"><a href="#" data-bind='click: $root.remove'>删除</a></span> | 
 					<span><a href="#" data-bind='click: $root.modify'>修改</a></span> 
 				</td>
@@ -100,11 +100,11 @@
 	</table>
 </form>
 <div class="bottomToolbar">
-	<span class="selArea"><span>选择：</span> 
+	<!--span class="selArea"><span>选择：</span> 
 		<a href="javascript:CheckAll(true);">全部</a> - 
 		<a href="javascript:CheckAll(false);">无</a> - 
 		<a href="#" data-bind='click: $root.removeSelected'>删除</a>
-	</span> 
+	</span--> 
 	<a href="#" onclick="add()"class="dataBtn">增加用户</a> </div>
 	
 <div class="page"> 

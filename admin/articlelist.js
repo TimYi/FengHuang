@@ -1,10 +1,37 @@
 var dataModel;
 var bind = false;//数据绑定标识
-
+var rePage = true;
+/*
+分页功能变量定义
+*/
+var total ;//总数据条数
+var curPage = 1;//当前页码,初始为1	
 var param;
 function onload(){
+	initParam();
 	var id = getUrlParam(window.location.search,"id");	
-	getData(MENU_ARTICAL,param,afterGetDatas);
+	getData(MENU_ARTICLE,param,afterGetDatas);
+}
+function initParam(){
+	
+	param={
+		token : token,
+		size : pSize,
+		page : curPage
+	};
+}
+function getDatas4page(page){
+	
+	rePage = false;
+	$('.pageList').jqPaginator('option', {
+    	currentPage: page
+	});
+	curPage = page;
+	param.page = page;
+	getDatas();
+}
+function getDatas(){
+	getData(MENU_ARTICLE,param,afterGetDatas);
 }
 function afterGetDatas(data){
 
@@ -13,18 +40,23 @@ function afterGetDatas(data){
 		//数据正确时进行绑定
 	bindData(data.result);	
 }
-function bindData(data){	
+
+function bindData(data){
+	total = data.totalCount;//用于分页	
 	var results = data.result;
 	for(var i in results){
 		results[i].selected = false;
 	}
-	dataModel = ko.mapping.fromJS(data);
-	
+	if(!bind){
+		dataModel = ko.mapping.fromJS(data);	
+	}else{
+		ko.mapping.fromJS(data, dataModel);
+	}	
 	dataModel.remove = function(item){
 		
 		if(ConfDel(0)){
 			
-			var url = genUrl(LIVE_DETAIL)+'/'+item.id();
+			var url = genUrl(MENU_ARTICLE)+'/'+item.id();
 			deleteReq(url,function(dataObj){
 				
 					friendlyTip(dataObj);
@@ -44,22 +76,34 @@ function bindData(data){
 	}
 	dataModel.modify = function(item){
 		
-		window.location.href='livedetailedit.htm?id='+item.id();
+		window.location.href='articleedit.htm?id='+item.id();
 	}
-	dataModel.picMgr = function(item){
+	/*dataModel.picMgr = function(item){
 		
 		window.location.href='livedetail_pic.htm?id='+item.id();
 	}
 	dataModel.interPicMgr = function(item){
 		
 		window.location.href='livedetail_interpic.htm?id='+item.id();
-	}	
+	}*/	
 	if(!bind){
 		bind = true;
 		ko.applyBindings(dataModel);
 	}
+	if(rePage){		
+		//生成分页
+		genPaginator(total,pSize,param.page,handlePageChange)
+	}
+}
+function handlePageChange (num, type) {
+        	
+	//alert(num+':'+type);
+    if(type == 'change'){
+    
+    	getDatas4page(num);
+    }            
 }
 
 function add(){
-		window.location.href="memberadd.html";
+		window.location.href="articleadd.htm";
 }

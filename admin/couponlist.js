@@ -63,14 +63,17 @@ function afterGetDatas(data){
 		//数据正确时进行绑定
 	bindData(data.result);	
 }
-function bindData(data){
-	
+function bindData(data){	
 	total = data.totalCount;
 	var results = data.result;
 	for(var i in results){
 		results[i].selected = false;
 	}
-	dataModel = ko.mapping.fromJS(data);
+	if(!bind){
+		dataModel = ko.mapping.fromJS(data);	
+	}else{
+		ko.mapping.fromJS(data, dataModel);
+	}
 	dataModel.remove = function(item){
 		
 		if(ConfDel(0)){

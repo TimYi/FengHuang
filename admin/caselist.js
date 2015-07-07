@@ -54,7 +54,7 @@ function bindData(data){
 		
 		if(ConfDel(0)){
 			
-			var url = genUrl(ORDER_CASE_LIST)+'/'+item.id;
+			var url = genUrl(CASE_CASE)+'/'+item.id();
 			deleteReq(url,function(dataObj){
 				
 					friendlyTip(dataObj);

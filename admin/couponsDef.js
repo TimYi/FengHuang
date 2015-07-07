@@ -70,7 +70,11 @@ function bindData(data){
 	for(var i in results){
 		results[i].selected = false;
 	}
-	dataModel = ko.mapping.fromJS(data);
+	if(!bind){
+		dataModel = ko.mapping.fromJS(data);	
+	}else{
+		ko.mapping.fromJS(data, dataModel);
+	}
 	dataModel.remove = function(item){
 		
 		if(ConfDel(0)){

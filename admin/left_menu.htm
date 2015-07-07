@@ -38,6 +38,12 @@
 	function openPackageMgr(){		
 		window.parent.frames["main"].location.href=MODULE_PACKAGE_URL;
 	}
+	function openCommentItemMgr(){		
+		window.parent.frames["main"].location.href=MODULE_COMMENTITEM_URL;
+	}
+	function openOrderMgr(){		
+		window.parent.frames["main"].location.href=MODULE_ORDER_URL;
+	}	
 
 </script>
 </head>
@@ -78,8 +84,8 @@
 					<a href="#" onclick ="javascript:openUsrMgr();return false;"  target="main">用户管理</a> 
 					<a href="#" onclick ="javascript:openGroupMgr();return false;"  target="main">用户组</a> 
 					<a href="#" onclick ="javascript:openRoleMgr();return false;"  target="main">角色管理</a> 
-					<!--a href="#" target="main">用户收藏</a> 
-					<a href="#" target="main">用户评论</a-->
+					<!--a href="#" target="main">用户收藏</a--> 
+					<a href="#" onclick ="javascript:openCommentItemMgr();return false;"  target="main">用户评论</a>
 					<a href="#" onclick ="javascript:openMsgMgr();return false;"  target="main">用户留言</a>
 				</div>
 			</div>
@@ -90,8 +96,8 @@
 					 <!--a href="#" target="main">家装套餐管理</a-->
 					 <a href="#" onclick ="javascript:openPackageMgr();return false;"  target="main">套餐管理</a>
 					 <a href="#" onclick ="javascript:openAppointMgr();return false;"  target="main">预约管理</a>
-					 <!--a href="#" target="main">订单管理</a>					 					 
-					<div class="hr_1"> </div>
+					 <a href="#" onclick ="javascript:openOrderMgr();return false;"  target="main">订单管理</a>					 					 
+					<!--div class="hr_1"> </div>
 					<a href="#" target="main">类型管理</a--> 
 				</div>
 			</div>
@@ -111,38 +117,38 @@
 					 <!--a href="#" target="main">直播厅类型管理</a-->
 				</div>
 			</div>
-			<div class="hr_5"></div>
+			<!--div class="hr_5"></div>
 			<div class="menubox">
 				<div class="title" onclick="DisplayMenu('leftmenu06');" title="点击切换显示或隐藏"> 体验馆模块管理 </div>
 				<div id="leftmenu06" style="display:none"> 
-					 <!--a href="#" target="main">体验馆管理</a>
-					 <a href="#" target="main">体验馆类型管理</a-->
+					 <a href="#" target="main">体验馆管理</a>
+					 <a href="#" target="main">体验馆类型管理</a>
 				</div>
-			</div>
+			</div-->
 			<div class="hr_5"></div>
 			<div class="menubox">
 				<div class="title" onclick="DisplayMenu('leftmenu07');" title="点击切换显示或隐藏"> 优惠券模块管理 </div>
 				<div id="leftmenu07" style="display:none"> 
-					<a href="#" onclick ="javascript:openCouponDef();return false;"  target="main">优惠券生成</a>
+					<a href="#" onclick ="javascript:openCouponDef();return false;"  target="main">优惠券定义</a>
 					<a href="#" onclick ="javascript:openCouponMgr();return false;"  target="main">优惠券管理</a>					
 				</div>
 			</div>		
 			<div class="hr_5"></div>
-			<div class="menubox">
+			<!--div class="menubox">
 				<div class="title" onclick="DisplayMenu('leftmenu08');" title="点击切换显示或隐藏"> 界面模块管理 </div>
 				<div id="leftmenu08" style="display:none"> 
-					 <!--a href="#" target="main">导航菜单管理</a>
+					 <a href="#" target="main">导航菜单管理</a>
 					 <a href="#" target="main">快捷方式管理</a>
-					 <a href="#" target="main">单页管理</a-->					 
+					 <a href="#" target="main">单页管理</a>					 
 				</div>
 			</div>
 			<div class="hr_5"></div>
 			<div class="menubox">
 				<div class="title" onclick="DisplayMenu('leftmenu09');" title="点击切换显示或隐藏"> 帮助指南 </div>
 				<div id="leftmenu09" style="display:none"> 
-					 <!--a href="#" target="main">操作日志</a>
+					 <a href="#" target="main">操作日志</a>
 					 <a href="#" target="main">数据统计</a>
-					 <a href="#" target="main">说明指南</a-->					 
+					 <a href="#" target="main">说明指南</a>					 
 				</div>
 			</div>						
 			<!--scrollbar end--> 
