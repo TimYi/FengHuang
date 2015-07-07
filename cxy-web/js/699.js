@@ -619,13 +619,13 @@ $(function(){
 							$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
 						}
 						else{
-							var page = "c_my.html?token=" + g.token + "&p=1";
+							var page = "center/c_my.html?token=" + g.token + "&p=1";
 							$(".buynow").html('<div onclick="alert(\'个人资料不完善,无法预约\');location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
 						}
 					}
 					else{
 						if(hasScrambled){
-							var page = "c_order.html?token=" + g.token + "&p=7";
+							var page = "center/c_order.html?token=" + g.token + "&p=7";
 							$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">已抢购</div>');
 						}
 						else{
