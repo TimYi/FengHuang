@@ -476,8 +476,8 @@ Array.prototype.remove = function(n){
 	function loginOut(){
 		Utils.offLineStore.remove("userinfo",false);
 		Utils.offLineStore.remove("login_userprofile",false);
-		var page = getQueryString("p");
-		if(page !== ""){
+		var page = location.href.indexOf("/center/");
+		if(page > -1){
 			location.href = "../index.html";
 		}
 		else{
@@ -494,8 +494,8 @@ Array.prototype.remove = function(n){
 			if(token !== ""){
 				str = "?token=" + token + "&p=0";
 			}
-			var page = getQueryString("p");
-			if(page !== ""){
+			var page = location.href.indexOf("/center/");
+			if(page > -1){
 				location.href = "center.html" + str;
 			}
 			else{
@@ -503,8 +503,8 @@ Array.prototype.remove = function(n){
 			}
 		}
 		else{
-			var page = getQueryString("p");
-			if(page !== ""){
+			var page = location.href.indexOf("/center/");
+			if(page > -1){
 				location.href = "login.html";
 			}
 			else{
@@ -620,8 +620,8 @@ $(function(){
 				break;
 			}
 		}
-		var page = Utils.getQueryString("p");
-		if(page !== ""){
+		var page = location.href.indexOf("/center/");
+		if(page > -1){
 			html.push('<li><a href="../tc_699.html?id=' + id1 + '">699 装修套餐</a></li>');
 			html.push('<li><a href="../tc_799.html?id=' + id2 + '">软装套餐</a></li>');
 			html.push('<li style="padding:0 5px;margin:5px 0;border-bottom:1px solid #555"></li>');
