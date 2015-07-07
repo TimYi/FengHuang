@@ -43,7 +43,7 @@ public class UserService extends DtoSpecificationService<User, UserDto, UserInpu
 		user=adapter.convertToDo(t);
 		user.setVerified(true); //默认新建用户自动通过审核
 		encryptPassword(user);
-		getRepository().save(user);
+		user=getRepository().save(user);
 		return adapter.convert(user);
 	}
 	
