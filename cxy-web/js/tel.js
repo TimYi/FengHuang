@@ -11,7 +11,7 @@ html.push('<i class="fa fa-phone"></i>');
 html.push('</div>');
 html.push('<div class="media-body">');
 html.push('<h2 style="font-weight:400">我们为用户提供24小时的在线服务</h2>');
-html.push('<p>您可以拨打我们的全国400客服电话' + __Tel__ + '（工作日9:00-18:00），或者通过在线客服联系我们，同时还欢迎您关注我们的微信公众服务号fenghuangzj。');
+html.push('<p>您可以拨打我们的全国400客服电话' + __Tel__ + '（工作日9:00-18:00），或者通过在线客服联系我们，同时还欢迎您关注我们的微信公众服务号"凤凰筑家"。');
 html.push('</p>');
 html.push('</div>');
 html.push('</div>');

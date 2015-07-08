@@ -114,7 +114,7 @@ $(function(){
 		html.push('<span style="color:#999;margin-left:20px;font-size:13px">时间:' + payTime + '</span>');
 		html.push('<hr/>');
 
-		html.push('<div class="col-md-6">');
+		html.push('<div class="col-md-6" style="margin-left: 23px;width: 35%;">');
 		html.push('<ul class="sub_li">');
 		html.push('<li>套餐类型：' + name + '</li>');
 		html.push('<li>订单编号：' + code + '</li>');
