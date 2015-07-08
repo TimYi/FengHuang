@@ -75,7 +75,11 @@ function bindData(data){
 	}
 	dataModel.modify = function(item){
 		
-		window.location.href='livedetailedit.htm?id='+item.id();
+		window.location.href='livedetailedit.htm?id='+item.id()+'&liveId='+liveId;
+	}
+	dataModel.workerConfig = function(item){
+		
+		window.location.href='livedetail_workerconf.htm?id='+item.id()+'&liveId='+liveId;
 	}
 	dataModel.picMgr = function(item){
 		

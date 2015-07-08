@@ -66,7 +66,7 @@ function submitUser(){
 			} 			 		
 			,function(data){			 			
 				friendlyTip(data);
-				//window.location.href='memberedit.htm?id='+viewModel.id();
+				window.location.href='memberlist.htm';
 			}
 		);
 	}
@@ -119,7 +119,7 @@ function afterGetBloodTypeDic(data){
 				<td align="right"  height="40">性别:</td>
 				<td><select data-bind="value:sex,options:sexDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 				</select>
-				<input type='hidden' name='sexId' size=50 data-bind="value:sex()?sex().id:'unknow'">
+				<input type='hidden' name='sexId' size=50 data-bind="value:sex()?sex().id:''">
 				</td>
 			</tr>
 			<tr>

@@ -41,10 +41,8 @@ $(function(){
 });
 function getImgCode(){
 		var userName = $("#username").val() || "";
-		if(userName !== ""){
-			var codeId = userName;
-			//console.log(g.codeId);
-			$("#verifycodeImg").attr("src",CAPTCHA+ codeId);
+		if(userName !== ""){			
+			$("#verifycodeImg").attr("src",CAPTCHA+ userName);
 			/*clearTimeout(tout);
 			tout = setTimeout(function(){
 				getImgCode();
@@ -83,45 +81,51 @@ function loginSubmit(){
 					window.location.href=INDEX+"?u="+$("#username").val()+"&token="+token;
 				}else{
 					friendlyTip(data);
-				}			
-				
+				}							
 			}
 		);
 	}
 }
-
 </script>
 </head>
 
 <body class="loginBody">
-<div class="loginTop" style="background-color:#f9f9f9;background-image:url();background-repeat:repeat-x;background-position:center 0;">
+<div class="loginTop" style="background-color:#fff;background-image:url();background-repeat:repeat-x;background-position:center 0;">
 
 </div>
 <div class="loginWarp">
 	<div class="loginArea">
 		<div class="loginHead"> </div>
-		<div class="loginTxt">凤凰筑家后台管理中心</div>
-		<div class="loginForm">
+		<div class="loginTxt" style="color:#333;font-size:24px;height:40px;line-height:40px;margin-left:-50px">
+			<img src="http://www.ifhzj.com/assets/images/fhzj.jpg">
+			<div style="margin-top:-50px;margin-left:200px">后台管理中心</div>
+		</div>
+		<div class="loginForm" style="margin-left:100px;width:367px">
 			<form name="login" id='login' method="post" action="">
 				<div class="txtLine">
 					<label>用户名</label>
-					<input type="text" name="username" id="username" class="uname input" maxlength="20" />
+					<input type="text" name="username" id="username" class="uname input" maxlength="20" style="width:300px"/>
 				</div>
 				<div class="txtLine mar8">
 					<label>密码</label>
-					<input type="password" name="password" id="password" class="pwd input" maxlength="16" />
+					<input type="password" name="password" id="password" class="pwd input" maxlength="16" style="width:300px"/>
 				</div>
 
 				<div class="txtLine mar8">
 					<label>验证码</label>
-					<input type="text" name="captcha" id="verifycode" class="uname input" maxlength="16" style="width:300px"/>
-					<img src="/rest/sys/login/verifycode" id="verifycodeImg" width="170" height="46" style="float:right;line-height:50px;cursor:pointer;" />
+					<input type="text" name="captcha" id="verifycode" class="pwd input" maxlength="16" style="width:150px"/>
+				</div>					
+				<div class="">
+					<img src="/fhzj_web/assets/images/defaultbackground.gif" id="verifycodeImg" width="130" height="40" style="float:right;line-height:50px;cursor:pointer;border:1px solid #ccc;margin-top:-45px" />
 				</div>
+				
 				<div class="hr_1"></div>
-				<input type="button" class="loginBtn" value="登 录" style="cursor:pointer;" onclick='loginSubmit();' />
+				<input type="button" class="loginBtn" value="登 录" style="cursor:pointer;margin-right:120px;background:#b9090e" onclick='loginSubmit();'/>
 			</form>
+			<!--div class="loginThanks">感谢您使用<span>PHPMyWind</span>产品</div-->
 		</div>
 	</div>
 </div>
+<!--div class="loginCopyright">© 2014 phpMyWind.com</div-->
 </body>
 </html>

@@ -73,6 +73,7 @@ function afterGetDataById(data){
 	 		postReq(url,modelObj,function(data){
 	 			
 	 			friendlyTip(data);
+	 			window.location.href='appointlist.htm';
 	 		});	 		
 	 	}
 		ko.applyBindings(viewModel);
@@ -101,7 +102,7 @@ function afterGetDataById(data){
 				<td>
 					<select data-bind="value:type,options:appointTypeDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 					</select>
-					<input type='text' name='typeId' size=50 data-bind="value:type()?type().id:''"/>
+					<input type='hidden' name='typeId' size=50 data-bind="value:type()?type().id:''"/>
 				</td>
 			</tr>			
 			<tr>
@@ -110,7 +111,7 @@ function afterGetDataById(data){
 				<td>
 					<select data-bind="value:city,options:cityDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 					</select>
-					<input type='text' name='cityId' size=50 data-bind="value:city()?city().id:''"/>
+					<input type='hidden' name='cityId' size=50 data-bind="value:city()?city().id:''"/>
 				</td>
 			</tr>
 			<tr>

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>角色配置</title>
+<title>直播详情工人配置</title>
 <link href="assets/css/admin.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/js/jquery.js"></script>
 <script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
@@ -17,6 +17,7 @@
 var viewModel;
 var statusDic;
 var id;
+var liveId;
 var allUsers;
 var unselectUsers;
 var selectUsers;
@@ -24,15 +25,17 @@ var param;
 function onload(){	
 	//第一步：先获取id	
 	id = getUrlParam(window.location.search,"id");
+	liveId = getUrlParam(window.location.search,"liveId");
 	//获取所有用户
-	getData(MEMBER_MEMBER_LIST,null,afterGetUsers4Select);	
+	getData(USER_WORKER,null,afterGetUsers4Select);	
 	
 }
 function afterGetUsers4Select(data){
 
 	if(!isErrorData(data)){
-		allUsers = data.result.result;	
-		getDataById(MEMBER_ROLE,id,afterGetDataById);
+		allUsers = data.result.result;
+	//	alert(allUsers.length);	
+		getDataById(LIVE_DETAIL,id,afterGetDataById);
 	}
 }
 function afterGetDataById(data){
@@ -42,22 +45,29 @@ function afterGetDataById(data){
 		//数据正确时进行绑定
 		//data.result.statusDic = statusDic;
 		param = data.result;		
-		selectUsers = data.result.users;
+		selectUsers = data.result.workers;
 		//循环遍历allUsers，删除已包含的元素
-		var unselectUsers = new Array();
-		for(var i in allUsers){
-			var exist = false;
-			for(var j in selectUsers){
-				if(allUsers[i].id == selectUsers[j].id){
-					exist = true;
-					break;
+		if(selectUsers.length == 0){
+			unselectUsers = allUsers;
+		}else{
+			unselectUsers = new Array();
+			for(var i in allUsers){
+				//alert("i"+i);
+				var exist = false;
+				for(var j in selectUsers){
+					//alert("j"+j);
+					if(allUsers[i].id == selectUsers[j].id){
+						exist = true;
+						break;
+					}
+				}
+				if(!exist){
+					//不包含时
+					unselectUsers.push(allUsers[i]);
 				}
 			}
-			if(!exist){
-				//不包含时
-				unselectUsers.push(allUsers[i]);
-			}
-		}		
+		}
+			
 	 	viewModel = {
 	 		selectUsers : ko.observableArray(selectUsers),
 	 		chosenSelectUsers:ko.observableArray(),
@@ -67,7 +77,7 @@ function afterGetDataById(data){
 		ko.applyBindings(viewModel);
 	}
 }
-function add2select(){
+function unselect2select(){
 	if(viewModel.chosenUsers().length == 0){
 		alert("请先在右侧所有用户列表中选择待添加的用户！");
 	}else{
@@ -87,9 +97,6 @@ function add2select(){
 			viewModel.unselectUsers.remove(chosenU);
 		}
 	}
-	//alert(viewModel.chosenUsers.length);
-	//alert(viewModel.allUsers.length);
-	//for()
 }
 function select2unselect(){
 	if(viewModel.chosenSelectUsers().length == 0){
@@ -113,51 +120,57 @@ function select2unselect(){
 	}
 }
 function submitConfig(){
+	var useridStr ='';
 	//var userids = new Array();
-	var useridStr = '';
 	var selectUs = viewModel.selectUsers();
 	for(var i in selectUs){
 		//userids.push(selectUs[i].id);
 		useridStr += selectUs[i].id;
-		useridStr += ',';
-		
+		useridStr +=',';
 	}
+	//去掉最后一个逗号	
 	useridStr = useridStr.substring(0,useridStr.length-1);
-	param.userids = useridStr;
-	delete param.users;
+	//alert(useridStr);
+	param.workerids = useridStr;
+	param.liveId = liveId;
+	delete param.workers;
+	delete param.interactPics;
+	delete param.pics;
 	//提交
-	var url = genUrl(MEMBER_ROLE)+'/'+id;
+	var url = genUrl(LIVE_DETAIL)+'/'+id;
+	//JSON.stringify(param)	
 	postReq(url,param,function(data){
 		friendlyTip(data);
-		window.location.href='rolelist.htm?';
+		window.location.href='livedetaillist.htm?liveId='+liveId;;
 	});
 }
 </script>
 </head>
 <body onload="onload()">
 <div class="formHeader">
- <span class="title">角色配置</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
+ <span class="title">直播详情工人配置</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
 </div>
 <form name="orderForm" id="orderForm" method="post">
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tbody>
 			<tr>
-				<td align="middle" width="40%" height="40">所有用户</td>
+				<td align="middle" width="40%" height="40">所有工人</td>
 				<td width="5%" align='middle'/>
 				<td width="5%" align='middle'/>
-				<td align="middle" width="40%" height="40">已配置用户</td>				
+				<td align="middle" width="40%" height="40">已配置工人</td>
+				
 			</tr>			
 			<tr>
 				<td align="middle" height="40" >
-					<select data-bind="options: unselectUsers,optionsText:'username', selectedOptions: chosenUsers"
+					<select data-bind="options: unselectUsers,optionsText:'name', selectedOptions: chosenUsers"
 						style="height:250px;width:150px"  multiple="true">
 					</select>
 				</td>
-				<td align="middle"><input class="submit" value=">>" type="button" onclick='add2select()'/></td>				
+				<td align="middle"><input class="submit" value=">>" type="button" onclick='unselect2select()'/></td>
 				<td align="middle"><input class="submit" value="<<" type="button" onclick='select2unselect()'/></td>				
 				<td align="middle">
 					<!--input type="text" name='status' data-bind='value:selectStatus().value'-->
-					<select data-bind="options: selectUsers,optionsText:'username', selectedOptions: chosenSelectUsers"
+					<select data-bind="options: selectUsers,optionsText:'name', selectedOptions: chosenSelectUsers"
 						style="height:250px;width:150px"  multiple="true">
 					</select>
 					<!--input type="hidden" name='status' data-bind="value:selectStatus()?selectStatus().value:''"--></td>

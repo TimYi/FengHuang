@@ -16,6 +16,7 @@ public class AppointDto extends DtoBaseModel {
 	private boolean readed;
 	private String realName;
 	private Date createTime;
+	private String code;
 	
 	public UserDto getUser() {
 		return user;
@@ -58,5 +59,11 @@ public class AppointDto extends DtoBaseModel {
 	}
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
 }

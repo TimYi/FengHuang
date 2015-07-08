@@ -73,6 +73,7 @@ function afterGetDataById(data){
 	 		postReq(url,modelObj,function(data){
 	 			
 	 			friendlyTip(data);
+	 			window.location.href='commentItemlist.htm';
 	 		});	 		
 	 	}
 		ko.applyBindings(viewModel);

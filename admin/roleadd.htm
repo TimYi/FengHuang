@@ -15,9 +15,9 @@
 <script type="text/javascript">
 function submitRole(){
 	var url = genUrl(MEMBER_ROLE);
-	submitAsyFormByJson(url,'roleForm',function(data){
-	 			
+	submitAsyFormByJson(url,'roleForm',function(data){	 			
 		friendlyTip(data);
+		window.location.href='rolelist.htm?';
 	});	 	
 }
 </script>

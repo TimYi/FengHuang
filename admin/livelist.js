@@ -48,7 +48,7 @@ function bindData(data){
 	total = data.totalCount;
 	var results = data.result;
 	for(var i in results){
-		results[i].selected = false;
+		results[i].selected = false;		
 	}
 	dataModel = ko.mapping.fromJS(data);
 	

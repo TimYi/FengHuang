@@ -21,9 +21,9 @@ function onload(){
 }
 function submitBT(){
 	var url = genUrl(MENU_MENU);
-	submitAsyFormByJson(url,'bTForm',function(data){
-	 			
+	submitAsyFormByJson(url,'bTForm',function(data){	 			
 		friendlyTip(data);
+		window.location.href='menulist.htm';
 	});	 	
 }
 var MenuType = function(id,name){

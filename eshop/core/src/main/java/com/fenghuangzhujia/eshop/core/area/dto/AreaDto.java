@@ -9,6 +9,8 @@ public class AreaDto extends DtoBaseModel {
 	private AreaDto upperArea;
 	private String name;
 	private AreaLevel level;
+	/**区号，市一级有*/
+	private String code;
 	
 	public AreaDto getUpperArea() {
 		return upperArea;
@@ -27,5 +29,11 @@ public class AreaDto extends DtoBaseModel {
 	}
 	public void setLevel(AreaLevel level) {
 		this.level = level;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
 }

@@ -19,10 +19,13 @@
 <script type="text/javascript" src="common.js"></script>
 <script type="text/javascript">
 var viewModel;
+var id;
+var liveId;
 function onload(){
 	//第一步：先获取id	
-	var id = getUrlParam(window.location.search,"id");
-		getDataById(LIVE_DETAIL,id,afterGetDataById);
+	id = getUrlParam(window.location.search,"id");
+	liveId = getUrlParam(window.location.search,"liveId");
+	getDataById(LIVE_DETAIL,id,afterGetDataById);
 }
 function afterGetDataById(data){
 	
@@ -36,9 +39,9 @@ function afterGetDataById(data){
 	 		var  url = genUrl(LIVE_DETAIL)+'/'+modelObj.id;
 	 		var date = document.getElementById("date").value;	 		
 	 		modelObj.date = date;
-	 		postReq(url,modelObj,function(data){
-	 			
+	 		postReq(url,modelObj,function(data){	 			
 	 			friendlyTip(data);
+	 			window.location.href='livedetaillist.htm?liveId='+liveId;
 	 		});	 		
 	 	}
 		ko.applyBindings(viewModel);

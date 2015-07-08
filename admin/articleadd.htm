@@ -22,9 +22,9 @@ function onload(){
 }
 function submitArticle(){
 	var url = genUrl(MENU_ARTICLE);
-	submitAsyFormByJson(url,'bTForm',function(data){
-	 			
+	submitAsyFormByJson(url,'bTForm',function(data){	 			
 		friendlyTip(data);
+		window.location.href='articlelist.htm';
 	});	 	
 }
 var Menu = function(id,name){

@@ -42,38 +42,8 @@ function submitUserGroup(){
 	submitAsyFormByJson(url,'uGForm',function(data){
 	 			
 		friendlyTip(data);
+		window.location.href='membergroup.htm';
 	});	 	
-}
-function afterGetDataById(data){
-		viewModel = ko.mapping.fromJS(data);
-	 	//alert(typeof viewModel.sex);
-	 	if(viewModel.color()){
-	 		alert();
-	 		//注意：为 null时，是function ,不为null时是object
-		 	for(var i in colorDic){
-		 			 			//alert(sexDic[i].id+"==="+viewModel.sex.id());
-		 		if(colorDic[i].id === viewModel.color.id()){
-		 			viewModel.color = ko.observable(colorDic[i]);
-		 			break;
-		 		}
-		 	}
-	 	}
-	 	viewModel.submit = function(){
-		
-	 		var modelObj = ko.mapping.toJS(viewModel);	 
-	 		//alert(typeof viewModel.color);		
-	 		if(viewModel.color()){
-	 			modelObj.colorId = viewModel.color().id;
-	 		}
-	 		var  url = genUrl(MEMBER_GROUP_LIST);
-	 		$.post(url,modelObj,function(data){
-	 			
-	 			var dataObj = JSON.parse(data);
-	 			friendlyTip(dataObj);
-	 		});
-	 	};
-	 	//viewModel.selectableTypes.push(selectedType);
-		ko.applyBindings(viewModel);
 }
 </script>
 </head>
@@ -87,7 +57,7 @@ function afterGetDataById(data){
 		
 			<tr>
 				<td align="right"  height="40">名称:</td>
-				<td   ><input type="text" name="name" ></td>
+				<td   ><input type="text" name="name" class='input'></td>
 			</tr>
 			<tr>
 				<td align="right"  height="40">最小分值:</td>

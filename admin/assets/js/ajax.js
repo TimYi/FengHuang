@@ -9,10 +9,12 @@ function loginErrorFilter(data,callBack){
 	if(isEmptyData(data)){
 		alert("返回数据错误！")
 	}else 
-	if(data.status == 'ERROR' && data.code == 1){
-			
-		alert(data.error+'代码('+data.code+')，描述信息：'+data.errorDescription);
-		window.parent.location.href = "login.html";
+	if(data.status == 'ERROR' ){		
+		alert(data.error+'(代码'+data.code+')，描述信息：'+data.errorDescription);
+		if(data.code == 1)	
+		{
+			window.parent.location.href = "login.html";
+		}		
 	}else{		
 		callBack(data);
 	}

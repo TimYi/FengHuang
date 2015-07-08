@@ -56,7 +56,7 @@ function submitPackage(){
 			 		,function(data){
 			 			
 			 			friendlyTip(data);
-			 		//	window.location.href='packageedit.htm?id='+viewModel.id();
+			 			window.location.href='packagelist.htm';
 			 		}
 			 	);
 	 		}
@@ -134,7 +134,7 @@ function submitPackage(){
 					<!--input type="text" name='status' data-bind='value:selectStatus().value'-->
 					<select data-bind="value:selectedStatus,options:selectableStatus,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 					</select>
-					<input type="text" name='status' data-bind="value:selectedStatus().value"></td>
+					<input type="hidden" name='status' data-bind="value:selectedStatus().value"></td>
 				</td>				
 			</tr>
 			<tr>

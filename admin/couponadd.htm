@@ -20,7 +20,7 @@ function submitForm(){
 					function(data){
 		 			
 			 			friendlyTip(data);
-			 		//	window.location.href='couponedit.htm?id='+viewModel.id();
+			 			window.location.href='couponlist.htm'
 		 		 	}
 	 			);
 	
@@ -76,7 +76,7 @@ function submitForm(){
 		</tbody>
 	</table>
 	<div class="formSubBtn">
-		<input class="submit" value="提交" type="button" data-onclick="submitForm();"/>
+		<input class="submit" value="提交" type="button" onclick="submitForm();"/>
 		<input class="back" value="返回" onclick="history.go(-1)" type="button">
 	</div>
 </form>

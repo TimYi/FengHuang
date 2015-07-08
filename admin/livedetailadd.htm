@@ -30,6 +30,7 @@ function submitLiveDetail(){
 	submitAsyFormByJson(url,'liveDetailForm',function(data){
 	 			
 		friendlyTip(data);
+		window.location.href='livedetaillist.htm?liveId='liveId;
 	});
 }
 function addPic(){
