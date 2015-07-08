@@ -24,7 +24,8 @@ $(function(){
 		var phone = $("#inputPhone3").val() || "";
 		if(phone !== ""){
 			g.imgCodeId = phone;
-			$("#imgcodebtn").attr("src",Base.imgCodeUrl + "?id=" + g.imgCodeId);
+			//$("#imgcodebtn").attr("src",Base.imgCodeUrl + "?id=" + g.imgCodeId);
+			$("#imgcodebtn").attr("src",Base.imgCodeUrl + "?id=" + g.imgCodeId + "&t=" + (new Date() - 0));
 		}
 	}
 

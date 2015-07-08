@@ -27,7 +27,8 @@ $(function(){
 	function getImgCode(evt){
 		var userName = g.username || "";
 		if(userName !== ""){
-			$("#updatepwdcodeimg").attr("src",Base.imgCodeUrl + "?id=" + userName);
+			//$("#updatepwdcodeimg").attr("src",Base.imgCodeUrl + "?id=" + userName);
+			$("#updatepwdcodeimg").attr("src",Base.imgCodeUrl + "?id=" + userName + "&t=" + (new Date() - 0));
 			clearTimeout(g.tout);
 			g.tout = setTimeout(function(){
 				getImgCode();

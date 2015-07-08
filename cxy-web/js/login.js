@@ -25,9 +25,8 @@ $(function(){
 		var userName = $("#inputEmail3").val() || "";
 		if(userName !== ""){
 			g.codeId = userName;
-			console.log(g.codeId);
-			$("#updatecodebtn").attr("src",Base.imgCodeUrl + "?id=" + g.codeId);
-
+			//console.log(g.codeId);
+			$("#updatecodebtn").attr("src",Base.imgCodeUrl + "?id=" + g.codeId + "&t=" + (new Date() - 0));
 			clearTimeout(g.tout);
 			g.tout = setTimeout(function(){
 				getImgCode();
