@@ -56,7 +56,8 @@ $(function(){
 				html.push('<td >' + num + '</td>');
 				html.push('<td >' + type + '</td>');
 				html.push('<td >' + createTime + '</td>');
-				html.push('<td><a href="c_sub_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '" >查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:void(0);">删除</a></td>');
+				//html.push('<td><a href="c_sub_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '" >查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:void(0);">删除</a></td>');
+				html.push('<td><a href="c_sub_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '" >查看</a></td>');
 				html.push('</tr>');
 			}
 			html.push('</table>');
