@@ -90,8 +90,8 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">案例 / Live直播 <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
-				<li><a href="case.html">案例集锦</a></li>
-				<li><a href="live.html">家装进行时</a></li>
+													<li><a href="case.html">案例集锦</a></li>
+													<li><a href="live.html">家装进行时</a></li>
                         </ul>
                     </li>
 										<li style="border:0px"><a href="fhgj.html">凤凰管家</a></li>
@@ -192,10 +192,10 @@ $(".m_logo").hover(function(){
                         <div class="col-sm-6 hidden-xs animation animated-item-4">
                             <div class="slider-img">
                             		<div style="margin:40px 0 20px 0">
-                                	<a id="yhqbtn1" href="javascript:void(0);"><img src="assets/images/z_002.jpg" class="img-responsive" style="box-shadow: 0 0 5px #777;"></a>
+                                	<a id="yhqbtn1" href="javascript:void(0);"><img src="images/next/yhq1.jpg" class="img-responsive" style="box-shadow: 0 0 5px #777;"></a>
                                 </div>
                                 <div>
-                                	<a id="yhqbtn2" href="javascript:void(0);"><img src="assets/images/z_003.jpg" class="img-responsive" style="box-shadow: 0 0 5px #777;"></a>
+                                	<a id="yhqbtn2" href="javascript:void(0);"><img src="images/next/yhq1.jpg" class="img-responsive" style="box-shadow: 0 0 5px #777;"></a>
                                 </div>
                             </div>
                         </div>
@@ -324,7 +324,7 @@ $(".m_logo").hover(function(){
 					<div class="col-md-2  wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="margin-right:44px;">
 					    <div class="feature-wrap">
 					        <i class="fa fa-rmb"></i>
-					        <h3 class="f_16">2 支付一千元定金<br/>银联微信支付宝</h3>
+					        <h3 class="f_16">2 支付1千元定金<br/>银联微信支付宝</h3>
 					    </div>
 					</div>
 
