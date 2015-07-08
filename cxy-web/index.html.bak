@@ -192,10 +192,10 @@ $(".m_logo").hover(function(){
                         <div class="col-sm-6 hidden-xs animation animated-item-4">
                             <div class="slider-img">
                             		<div style="margin:40px 0 20px 0">
-                                	<a id="yhqbtn1" href="javascript:void(0);"><img src="images/next/yhq1.jpg" class="img-responsive" style="box-shadow: 0 0 5px #777;"></a>
+                                	<a id="yhqbtn1" href="javascript:void(0);"><img src="images/next/yhq1.gif" class="img-responsive" style="box-shadow: 0 0 5px #777;"></a>
                                 </div>
                                 <div>
-                                	<a id="yhqbtn2" href="javascript:void(0);"><img src="images/next/yhq1.jpg" class="img-responsive" style="box-shadow: 0 0 5px #777;"></a>
+                                	<a id="yhqbtn2" href="javascript:void(0);"><img src="images/next/yhq1.gif" class="img-responsive" style="box-shadow: 0 0 5px #777;"></a>
                                 </div>
                             </div>
                         </div>
