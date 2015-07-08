@@ -316,7 +316,7 @@ $(".m_logo").hover(function(){
 					<div class="col-md-2 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="margin-right:44px;">
 					    <div class="feature-wrap">
 					        <i class="fa fa-clock-o"></i>
-					        <h3 class="f_16">线上预约<br/>体验店选套餐</h3>
+					        <h3 class="f_16">1 线上预约<br/>体验店选套餐</h3>
 
 					    </div>
 					</div>
@@ -324,28 +324,28 @@ $(".m_logo").hover(function(){
 					<div class="col-md-2  wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="margin-right:44px;">
 					    <div class="feature-wrap">
 					        <i class="fa fa-rmb"></i>
-					        <h3 class="f_16">支付定金1000元<br/>银联微信支付宝</h3>
+					        <h3 class="f_16">2 支付一千元定金<br/>银联微信支付宝</h3>
 					    </div>
 					</div>
 
 					<div class="col-md-2  wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="margin-right:44px;">
 					    <div class="feature-wrap">
 					        <i class="fa fa-check-square-o"></i>
-					        <h3 class="f_16">体验店选材</h3>
+					        <h3 class="f_16">3 体验店选材</h3>
 					    </div>
 					</div>
 
 					<div class="col-md-2  wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="margin-right:44px;">
 					    <div class="feature-wrap">
 					        <i class="fa fa-pencil"></i>
-					        <h3 class="f_16">免费测量<br/>免费设计</h3>
+					        <h3 class="f_16">4 免费测量<br/>免费设计</h3>
 					    </div>
 					</div>
 
 					<div class="col-md-2  wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
 					    <div class="feature-wrap">
 					        <i class="fa fa-file-text-o"></i>
-					        <h3 class="f_16">签订合同<br/>支付80%工程款</h3>
+					        <h3 class="f_16">5 签订合同<br/>支付80%工程款</h3>
 					    </div>
 					</div>
 
@@ -354,7 +354,7 @@ $(".m_logo").hover(function(){
 					<div class="col-md-2  wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="margin-right:44px;">
 					    <div class="feature-wrap">
 					        <i class="fa fa-bookmark"></i>
-					        <h3 class="f_16">办开工手续<br/>装修准备工作</h3>
+					        <h3 class="f_16">6 办开工手续<br/>装修准备工作</h3>
 					    </div>
 					</div>
 
@@ -363,28 +363,28 @@ $(".m_logo").hover(function(){
 					<div class="col-md-2 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="margin-right:44px;">
 					    <div class="feature-wrap">
 					        <i class="fa fa-history"></i>
-					        <h3 class="f_16">开始装修</h3>
+					        <h3 class="f_16">7 开始装修</h3>
 					    </div>
 					</div>
 
 					<div class="col-md-2  wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="margin-right:44px;">
 					    <div class="feature-wrap">
 					        <i class="fa fa-user"></i>
-					        <h3 class="f_16">工程监理</h3>
+					        <h3 class="f_16">8 工程监理</h3>
 					    </div>
 					</div>
 
 					<div class="col-md-2  wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="margin-right:44px;">
 					    <div class="feature-wrap">
 					        <i class="fa fa-search"></i>
-					        <h3 class="f_16">免费验房</br>支付20%尾款</h3>
+					        <h3 class="f_16">9 免费验房</br>支付20%尾款</h3>
 					    </div>
 					</div>
 
 					<div class="col-md-2  wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
 					    <div class="feature-wrap">
 					        <i class="fa fa-cog"></i>
-					        <h3 class="f_16">售后服务</h3>
+					        <h3 class="f_16">10 售后服务</h3>
 					    </div>
 					</div>
 
