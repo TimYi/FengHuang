@@ -19,6 +19,7 @@ import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrderRepository;
 import com.fenghuangzhujia.eshop.core.remind.impl.DtoUnreadRemindSpecificationService;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
+import com.fenghuangzhujia.eshop.core.utils.CodeGenerater;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
 import com.fenghuangzhujia.eshop.prudoct.scramble.PackageGood;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
@@ -114,6 +115,11 @@ public class AppointService extends DtoUnreadRemindSpecificationService<Appoint,
 		Category type=categoryRepository.getByType(Dics.APPOINT_TYPE);
 		CategoryItem tiyanguan=type.getItems().iterator().next();
 		appoint.setType(tiyanguan);
+		
+		//为预约按照编码规则分配可记忆的唯一编码
+		String areaCode=appoint.getCity().getCode();
+		String code=CodeGenerater.generateCode(Appoint.TYPE_CODE, areaCode);
+		appoint.setCode(code);
 		
 		appoint=getRepository().save(appoint);
 		return adapter.convertToDetailedDto(appoint);
