@@ -1,11 +1,11 @@
 jQuery(function($) {'use strict',
 
 	//#main-slider
-	$(function(){
-		$('#main-slider.carousel').carousel({
-			interval: 8000
-		});
-	});
+	//~ $(function(){
+		//~ $('#main-slider.carousel').carousel({
+			//~ interval: 8000
+		//~ });
+	//~ });
 
 
 	// accordian
@@ -720,6 +720,8 @@ $(function(){
 				else{
 					$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">已结束</div>');
 				}
+
+				$(".buynow").parent().show();
 			}
 		}
 	}

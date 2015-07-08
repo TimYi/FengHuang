@@ -16,7 +16,7 @@ $(function(){
 	g.totalPage = 1;
 	g.currentPage = 1;
 	g.paseSize = 20;
-
+	g.httpTip = new Utils.httpTip({});
 
 	getMyOrder();
 
@@ -44,18 +44,34 @@ $(function(){
 			html.push('<th width=25%>订单编号</th>');
 			html.push('<th width=25%>订单类型</th>');
 			html.push('<th>订单时间</th>');
+			html.push('<th>支付状态</th>');
 			html.push('<th width=150>操作</th>');
 			html.push('</tr>');
 
+			var zfobj = {"WAITING":"未支付","PAYED":"进行中","PROCESSING":"进行中","CANCEL":"已取消","COMPLETE":"已完成"};
 			for(var i = 0,len = obj.length; i < len; i++){
 				var id = obj[i].id|| "";
 				var name = obj[i].code || "";
 				var type = obj[i].name || "";
 				var time =  obj[i].payTime || "";
+				var status = obj[i].status || "";
+				var statusText = "";
+				if(status !== ""){
+					status = status.toUpperCase();
+					statusText = zfobj[status] || "";
+				}
+				var cid = obj[i].good.id || "";
+
 				html.push('<tr>');
 				html.push('<td >' + name + '</td>');
 				html.push('<td >' + type + '</td>');
 				html.push('<td >' + time + '</td>');
+				if(status == "WAITING"){
+					html.push('<td ><a href="../orderback_paysel.html?id=' + id + '" >支付</a></td>');
+				}
+				else{
+					html.push('<td >' + statusText + '</td>');
+				}
 				html.push('<td><a href="c_order_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '">查看</a></td>');
 				html.push('</tr>');
 			}
@@ -196,4 +212,41 @@ $(function(){
 			}
 		});
 	}
+
+
+	function miaoSha(id){
+		debugger
+		var url = Base.scramble;
+		var condi = {};
+		condi.token = g.token;
+		condi.id = id;
+		condi.caseId = "";
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"POST",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("miaoSha",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					Utils.alert("抢购成功");
+					var orderId = data.result.id;
+					location.href = "orderback_paysel.html?id=" + orderId;
+				}
+				else{
+					Utils.alert("抢购失败");
+				}
+				g.httpTip.hide();
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+
+	window.miaoSha = miaoSha;
 });

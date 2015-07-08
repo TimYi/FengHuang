@@ -47,7 +47,8 @@ $(function(){
 		if(img.length > 0 && reg.test(tel)){
 			g.codeId = tel;
 			console.log(tel);
-			$("#updatepwdcodeimg").attr("src",Base.imgCodeUrl + "?id=" + g.codeId);
+			//$("#updatepwdcodeimg").attr("src",Base.imgCodeUrl + "?id=" + g.codeId);
+			$("#updatepwdcodeimg").attr("src",Base.imgCodeUrl + "?id=" + g.codeId + "&t=" + (new Date() - 0));
 			clearTimeout(g.tout);
 			g.tout = setTimeout(function(){
 				getImgCode();
