@@ -92,14 +92,14 @@ public class DecorateCase extends UUIDBaseModel {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	public MediaContent getMainPic() {
 		return mainPic;
 	}
 	public void setMainPic(MediaContent mainPic) {
 		this.mainPic = mainPic;
 	}
-	@ManyToMany(cascade=CascadeType.ALL)
+	@ManyToMany(cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})
 	@JoinTable(name="fhzj_case_casetags")
 	public Set<CaseTag> getTags() {
 		return tags;

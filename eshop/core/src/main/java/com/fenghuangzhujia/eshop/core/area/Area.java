@@ -19,6 +19,8 @@ public class Area extends UUIDBaseModel {
 	private Set<Area> underAreas;
 	private String name;
 	private AreaLevel level;
+	/**区号，市一级有*/
+	private String code;
 	
 	/**
 	 * 区域等级
@@ -68,8 +70,12 @@ public class Area extends UUIDBaseModel {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
 
 
 	/**
