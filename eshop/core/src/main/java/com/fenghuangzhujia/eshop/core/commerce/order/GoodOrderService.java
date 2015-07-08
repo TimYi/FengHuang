@@ -37,7 +37,7 @@ public class GoodOrderService {
 	private OrderPayRepository orderPayRepository;
 	
 	/** 生成未支付订单 */
-	public GoodOrder createOrderToPay(User user, Good good, double price, int count, String mobile, String realName) {
+	public GoodOrder createOrderToPay(User user, Good good, double price, int count, String mobile, String realName, String code) {
 		GoodOrder order=new GoodOrder();
 		order.setUser(user);
 		order.setGood(good);
@@ -46,6 +46,7 @@ public class GoodOrderService {
 		order.setMobile(mobile);
 		order.setRealName(realName);
 		order.setStatus(OrderStatus.WAITING);
+		order.setCode(code);
 		order=repository.save(order);
 		
 		OrderPay pay=new OrderPay();

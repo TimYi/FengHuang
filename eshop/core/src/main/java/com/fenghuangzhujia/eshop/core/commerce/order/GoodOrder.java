@@ -14,7 +14,6 @@ import javax.persistence.Transient;
 import com.fenghuangzhujia.eshop.core.commerce.goods.Good;
 import com.fenghuangzhujia.eshop.core.commerce.pay.OrderPay;
 import com.fenghuangzhujia.eshop.core.user.User;
-import com.fenghuangzhujia.eshop.core.utils.CodeGenerater;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 import com.fenghuangzhujia.foundation.media.MediaContent;
 
@@ -45,12 +44,8 @@ public class GoodOrder extends UUIDBaseModel {
 	private String realName;
 	/**支付详情*/
 	private OrderPay payment;
-	/**订单流水号，自动生成的12位订单号码*/
+	/**订单流水号，业务代码+区号+日期+随机尾号*/
 	private String code;
-	
-	public GoodOrder() {
-		code=CodeGenerater.generateOrderCode();
-	}
 	
 	
 	@Column(unique=true)

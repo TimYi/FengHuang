@@ -22,16 +22,21 @@ public class CodeGenerater {
 	
 	/**
 	 * 生成12位字符编号
-	 * 格式：2位类型代码+6位日期+4位随机字符
-	 * @param type 类型代码，2位
+	 * 格式：2位类型代码+区号+4位日期+4位随机字符
+	 * @param type 类型代码
+	 * @param code 地区编号
 	 * @return 12位字符编号
 	 */
-	public static String generateCode(String type) {
+	public static String generateCode(String type, String code) {
 		SimpleDateFormat format=new SimpleDateFormat("yyyyMMdd");
-		String prefix=format.format(new Date());
-		prefix=prefix.substring(2);
-		prefix=type.substring(0, 2)+prefix;
-		String sufix=RandomStringUtils.random(4,true,true);		
-		return prefix.concat(sufix);
+		String date=format.format(new Date());
+		date=date.substring(2);
+		String sufix=RandomStringUtils.random(4,true,true);
+		StringBuilder sb=new StringBuilder();
+		sb.append(type);
+		sb.append(code);		
+		sb.append(date);			
+		sb.append(sufix);
+		return sb.toString();
 	}
 }
