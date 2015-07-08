@@ -100,6 +100,8 @@
 	Base.packageAppointUrl = packageAppointUrl;
 	Base.scramble = scramble;
 	Base.articalUrl = articalUrl;
+
+	Base.serverUrl = serverUrl;
 }(window));
 
 
