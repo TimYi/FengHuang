@@ -1,5 +1,6 @@
 package com.fenghuangzhujia.eshop.appoint;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -7,6 +8,7 @@ import javax.persistence.Table;
 import com.fenghuangzhujia.eshop.core.area.Area;
 import com.fenghuangzhujia.eshop.core.remind.impl.UnreadRemindEntity;
 import com.fenghuangzhujia.eshop.core.user.User;
+import com.fenghuangzhujia.eshop.core.utils.CodeGenerater;
 import com.fenghuangzhujia.foundation.dics.CategoryItem;
 
 /**
@@ -17,6 +19,9 @@ import com.fenghuangzhujia.foundation.dics.CategoryItem;
 @Entity
 @Table(name="fhzj_appoint")
 public class Appoint extends UnreadRemindEntity {
+	
+	
+	public static final String TYPE_CODE="AP";
 	
 	private User user;
 	/**
@@ -29,6 +34,12 @@ public class Appoint extends UnreadRemindEntity {
 	private CategoryItem type;
 	private String realName;
 	private String mobile;
+	/**易于记忆的唯一编码*/
+	private String code;
+	
+	public Appoint() {
+		code=CodeGenerater.generateCode(TYPE_CODE);
+	}
 	
 	@ManyToOne(optional=false)
 	public User getUser() {
@@ -63,5 +74,12 @@ public class Appoint extends UnreadRemindEntity {
 	}
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
-	}	
+	}
+	@Column(unique=true)
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
 }
