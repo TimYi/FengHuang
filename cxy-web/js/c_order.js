@@ -48,23 +48,29 @@ $(function(){
 			html.push('<th width=150>操作</th>');
 			html.push('</tr>');
 
+			var zfobj = {"WAITING":"未支付","PAYED":"进行中","PROCESSING":"进行中","CANCEL":"已取消","COMPLETE":"已完成"};
 			for(var i = 0,len = obj.length; i < len; i++){
 				var id = obj[i].id|| "";
 				var name = obj[i].code || "";
 				var type = obj[i].name || "";
 				var time =  obj[i].payTime || "";
-				var status = obj.status || "";
+				var status = obj[i].status || "";
+				var statusText = "";
+				if(status !== ""){
+					status = status.toUpperCase();
+					statusText = zfobj[status] || "";
+				}
 				var cid = obj[i].good.id || "";
-				status = status == "Procrssing" ? "已支付":"支付";
+
 				html.push('<tr>');
 				html.push('<td >' + name + '</td>');
 				html.push('<td >' + type + '</td>');
 				html.push('<td >' + time + '</td>');
-				if(status == "支付"){
-					html.push('<td ><a href="../orderback_paysel.html?id=' + id + '" >' + status + '</a></td>');
+				if(status == "WAITING"){
+					html.push('<td ><a href="../orderback_paysel.html?id=' + id + '" >支付</a></td>');
 				}
 				else{
-					html.push('<td >' + status + '</td>');
+					html.push('<td >' + statusText + '</td>');
 				}
 				html.push('<td><a href="c_order_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '">查看</a></td>');
 				html.push('</tr>');

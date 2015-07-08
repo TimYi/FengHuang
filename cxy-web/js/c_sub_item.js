@@ -112,6 +112,7 @@ $(function(){
 		if(city !== ""){
 			city = city.name;
 		}
+		var code = obj.code || "";
 		var html = [];
 		html.push('<h4>' + type + '</h4>');
 		//html.push('<span style="color:#999;font-size:13px">状态：<!--客服人员已确认--></span>');
@@ -121,7 +122,7 @@ $(function(){
 		html.push('<div class="col-md-6">');
 		html.push('<ul class="sub_li">');
 		html.push('<li>预约类型：' + type + '</li>');
-		html.push('<li>预约编号：' + id + '</li>');
+		html.push('<li>预约编号：' + code + '</li>');
 		html.push('<li>所在城市：' + city + '</li>');
 		//html.push('<li>详细地址：<!--海淀区上地七街--></li>');
 		html.push('</ul>');
