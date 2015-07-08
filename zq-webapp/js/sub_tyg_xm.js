@@ -419,6 +419,7 @@ $(function(){
 			success: function(data){
 				//console.log("sendAppointHttp",data);
 				var status = data.status || "";
+				console.log(data);
 				if(status == "OK"){
 					Utils.alert("预约体验馆成功");
 					setTimeout(function(){
