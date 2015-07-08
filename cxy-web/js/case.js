@@ -130,7 +130,7 @@ $(function(){
 					mainPic = mainPic.url || "images/case/case_1.jpg";
 				}
 				var packageName = d.packageName || "";
-				var stype = d.stype || "";
+				var style = d.style || "";
 				var space = d.space || "";
 				var houseType = d.houseType || "";
 				var area = d.area || "";
@@ -141,7 +141,7 @@ $(function(){
 				html.push('<img class="img-responsive" src="' + mainPic + '" alt="">');
 				html.push('<div class="overlay">');
 				html.push('<div class="recent-work-inner">');
-				html.push('<h3><a href="javascript:void(0);">' + packageName + '/' + stype + '/' + space + '</a></h3>');
+				html.push('<h3><a href="javascript:void(0);">' + packageName + '/' + style + '/' + space + '</a></h3>');
 				html.push('<p>' + houseType + '/' + area + '/' + description + '</p>');
 				//html.push('<a href="case_details.html?id=' + id + '"  style="color:white"><i class="fa fa-eye"></i> 案例详情</a>');
 				html.push('</div></div></div></div>');
