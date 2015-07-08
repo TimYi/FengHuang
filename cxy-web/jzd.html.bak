@@ -1,12 +1,11 @@
-﻿<?php require_once(dirname(__FILE__).'/include/config.inc.php');?>
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>家装贷 - 家装服务 | 凤凰筑家 www.ifhzj.com</title>
+    <title>凤凰筑家 | ifhzj.com</title>
 		<!-- core CSS -->
     <link href="assets/css/bootstrap.min1.css" rel="stylesheet">
     <link href="assets/css/font-awesome.min.css" rel="stylesheet">
@@ -14,6 +13,7 @@
     <link href="assets/css/prettyPhoto.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="assets/js/html5shiv.js"></script>
     <script src="assets/js/respond.min.js"></script>
@@ -35,7 +35,7 @@
                     <div class="top-number">
                     	<p>
                     		<i class="fa fa-phone-square"></i>
-                    		<span style="color:#666">&nbsp;&nbsp;400-699-2888</span>
+                    		<span style="color:#666">&nbsp;&nbsp;400-968-9088</span>
                     		&nbsp;&nbsp;&nbsp;&nbsp;
                     		<i class="fa fa-map-marker"></i>
                     		<span style="color:#666">&nbsp;&nbsp;<span id="city">定位获取中...</span> <!--span style="font-size:12px;color:#aaa">[ <a href="">切
@@ -46,36 +46,14 @@
                 </div>
                 <div class="col-sm-6 col-xs-8">
                    <div class="social">
-                        <ul class="social-share">
-																<li style="padding-right:10px;">
-																	<i class="fa fa-user
-
-hui"></i>
-																	<span style="color:#aaa"><?=
-
-$c_uname;?>，您好！</span>
-																	<b style="border-right:1px
-
-solid #ddd;padding:0 10px;font-weight:normal"><a href="center.html" style="width:60px">会员中心</a></b>
-																	<b style="padding:0
-
-10px;font-weight:normal"><a href="#" style="width:30px">退出</a></b>
-																</li>
-																<li style="padding-right:10px;">
-																	<i class="fa fa-sign-in
-
-hui"></i>
-																	<b style="border-right:1px
-
-solid #ddd;padding:0 10px;font-weight:normal">
-																		<a href="reg.html"
-
-style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
-																		<a href="login.html"
-
-style="width:30px">登录</a>
-																	</b>
-																</li>
+                         <ul id="loginstatus" class="social-share">
+				<li style="padding-right:10px;">
+					<i class="fa fa-sign-in hui"></i>
+					<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
+						<a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
+						<a href="login.html" style="width:30px">登录</a>
+					</b>
+				</li>
                         </ul>
                    </div>
                 </div>
@@ -94,14 +72,13 @@ style="width:30px">登录</a>
                 </button>
                 <a class="navbar-brand" href="/"><img src="assets/images/fhzj.jpg" alt="logo"></a>
             </div>
-		
+
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">首页</a></li>
+                    <li class=""><a href="index.html">首页</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">家装套餐 <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="tc_699.html">699 装修套餐</a></li>
                             <li><a href="tc_799.html">软装套餐</a></li>
                             <li style="padding:0 5px;margin:5px 0;border-bottom:1px solid #555"></li>
                             <li><a href="tmzs.html">流程展示</a></li>
@@ -109,7 +86,7 @@ style="width:30px">登录</a>
                             <li><a href="zczs.html">主材展示</a></li>
                         </ul>
                     </li>
-                    <li><a href="jzd.html">家装贷</a></li>
+                    <li class="active"><a href="jzd.html">家装贷</a></li>
                     <li><a href="tyg.html">体验馆</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">案例 / Live直播 <i class="fa fa-angle-down"></i></a>
@@ -145,7 +122,7 @@ p=2:123456789:51" alt="点击这里给我发消息" title="点击这里给我发
 
 p=2:2833026848:51" alt="点击这里给我发消息" title="点击这里给我发消息"></a></p>
 			<p class="mt10"><b>电话客服</b><br />
-				400-699-2888<br />
+				400-968-9088<br />
 			</P>
       <p class="mt10"><b>服务时间</b><br />
         9:00-18:00(工作日)<br />
@@ -187,9 +164,7 @@ $(".m_logo").hover(function(){
 			}else{
 				isTransition=false;
 				r++;
-				$(".m_logo a").attr("style","-webkit-mask:-webkit-gradient(radial, 45 25, "+r+", 45 25, "+(r+15)+", from(rgb(0, 0, 0)), color-stop
-
-(0.5, rgba(0, 0, 0, 0.2)), to(rgb(0, 0, 0)));")
+				$(".m_logo a").attr("style","-webkit-mask:-webkit-gradient(radial, 45 25, "+r+", 45 25, "+(r+15)+", from(rgb(0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0.2)), to(rgb(0, 0, 0)));")
 			};
 		},5);
 	}
@@ -256,8 +231,8 @@ $(".m_logo").hover(function(){
             <i class="fa fa-chevron-right"></i>
         </a>
     </section><!--/#main-slider-->
-    
-    
+
+
     <section id="recent-works"  style="border-top:1px solid #f6f6f6;background:#f9f9f9;height:250px">
         <div class="container">
            	<div class="center wow fadeInDown">
@@ -266,7 +241,7 @@ $(".m_logo").hover(function(){
             </div>
         </div>
     </section>
-    
+
     <section id="recent-works"  style="border-top:1px solid #f6f6f6;">
         <div class="container">
            	<div class="center wow fadeInDown">
@@ -277,26 +252,26 @@ $(".m_logo").hover(function(){
 		    			  <div style="color:#b9090e;font-size:25px;padding:0 0 20px 0">万元最低月供311元<span style="font-size:16px">（36期还）</span></div>
 								<div class="form-horizontal">
 							 	 		<div class="form-group">
-							 					<label for="inputEmail3" class="col-sm-2 control-label">贷款金额</label>
+							 					<label for="inputmoney" class="col-sm-2 control-label">贷款金额</label>
 							    			<div class="col-sm-10 input-group" style="width:300px;padding-left:15px">
 							    					<span class="input-group-addon">￥</span>
-							      				<input type="" class="form-control" id="jzd_je" placeholder="">
+							      				<input type="number" class="form-control" id="inputmoney" placeholder="">
 							      				<span class="input-group-addon">元</span>
 							    			</div>
 							  		</div>
 									  <div class="form-group">
 										    <label for="inputEmail3" class="col-sm-2 control-label">贷款周期</label>
 										    <div class="col-sm-10" style="width:83%">
-														<select name="zhuangxiu" id="jzd_zq" class="u_sel" style="width:285px">
-															<option value="12" selected="selected">12期（1年4%）</option>
-															<option value="24">24期（2年8%）</option>
-															<option value="36">36期（3年12%）</option>
+														<select id="timeselect" name="zhuangxiu" class="u_sel" style="width:285px">
+															<option  value="12"  selected="selected">12期（0.04）</option>
+															<option  value="24" >24期（0.08）</option>
+															<option  value="36" >36期（0.12）</option>
 														</select>
 										    </div>
 									  </div>
 									  <div class="form-group" style="margin-top:40px">
 									    	<div class="col-sm-offset-2 col-sm-10">
-									      		<a class="btn-slide" onclick="jzd_calc();" style="background:orange;font-size:20px;color:#000;padding:15px 30px;font-weight:800;-moz-border-radius: 7px;-webkit-border-radius: 7px;border-radius:7px;">
+									      		<a id="countbtn" class="btn-slide" href="javascript:void(0);" style="background:orange;font-size:20px;color:#000;padding:15px 30px;font-weight:800;-moz-border-radius: 7px;-webkit-border-radius: 7px;border-radius:7px;">
 									      			计算还款金额
 									      		</a>
 									    	</div>
@@ -305,49 +280,24 @@ $(".m_logo").hover(function(){
 		    		</div>
 		    		<div class="col-md-8" style="background:#fafafa;padding:20px;width:700px;float:right">
 							<div class="col-md-8" style="width:60%;border-right:1px solid #ddd;height:120px;line-height:120px;font-size:20px;">
-									每月还款 <span style="font-size:40px;color:#b9090e"><span id=jzd_myhk>0</span></span> 元
+									每月还款 <span id="monthmoney" style="font-size:40px;color:#b9090e">0.00</span> 元
 							</div>
-							<div class="col-md-4" style="width:40%;">
-								<ul style="line-height:40px;font-size:16px">
-							    <li>贷款金额： <span id=jzd_dkje>0</span> 元</li>
-							    <li>贷款周期： <span id=jzd_dkzq>0</span> 期</li>
-							    <li>本息合计： <span id=jzd_bxhj>0</span> 元</li>
+							<div class="col-md-4" style="width:39%;">
+								<ul id="allmoney" style="line-height:40px;font-size:16px">
+							    <li>贷款金额： 0 元</li>
+							    <li>贷款周期： 0 期</li>
+							    <li>本息合计： 0元</li>
 							  </ul>
 							</div>
-								
+
 		    		</div>
     		</div>
     </section>
-    
+
 <!--footer-->
 
-<section id="conatcat-info">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8">
-                <div class="media contact-info wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                    <div class="pull-left">
-                        <i class="fa fa-phone"></i>
-                    </div>
-                    <div class="media-body">
-                        <h2 style="font-weight:400">我们为用户提供24小时的在线服务</h2>
-                        <p>您可以拨打我们的全国400客服电话400-699-2888（工作日9:00-18:00），或者通过在线客服联系我们，同时还欢迎您关注我们的微信公众服务号fenghuangzj
-
-。
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div style="margin:20px 0 0 1000px;font-size:20px;">
-              	<div style="height:45px;width:160px;background:#b9090e;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-              		<a href="#">
-              			<div style="text-align:center;line-height:45px;font-size:20px;color:#fff;">400-699-2888</div>
-              		</a>
-              	</div>
-            </div>
-        </div>
-    </div><!--/.container-->
-</section><!--/#conatcat-info-->
+<!--联系电话-->
+<script src="js/tel.js"></script>
 
 <section id="bottom" style="padding:40px 0">
     <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
@@ -395,7 +345,7 @@ $(".m_logo").hover(function(){
                     </ul>
                 </div>
             </div><!--/.col-md-3-->
-            
+
             <div class="col-md-3 col-sm-6" style="width:190px;margin-right:45px">
                 <div class="widget">
                     <h3>官方媒体</h3>
@@ -409,16 +359,28 @@ $(".m_logo").hover(function(){
         </div>
     </div>
 </section><!--/#bottom-->
-
-<footer id="footer" class="midnight-blue"> <div class="container"> <div
-class="row"> <div class="col-sm-6"> &copy; 2015 厦门凤凰筑家网络科技有限公司 保留所有权利 </div>
-<div class="col-sm-6"> <ul class="pull-right"> <li><a href="#">闽ICP备15010680号-
-1</a></li--> <!--li><a href="#">京网文29239-12312</a></li--> </ul> </div> </div>
-</div> </footer><!--/#footer--> <script type="text/javascript"
-src="http://api.map.baidu.com/api?v=2.0&ak=9Z4yvIoj9jnpKfPA4igxxbLP"></script>
-<div id="allmap"></div> <script type="text/javascript"> // 百度地图API功能 var map =
-new BMap.Map("allmap"); var point = new BMap.Point(116.331398,39.897445);
-map.centerAndZoom(point,12);
+<footer id="footer" class="midnight-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                &copy; 2015 厦门凤凰筑家网络科技有限公司 保留所有权利
+            </div>
+            <div class="col-sm-6">
+                <ul class="pull-right">
+                    <li><a href="#">闽ICP备15010680号-1</li>
+                    <!--li><a href="#">京网文29239-12312</a></li-->
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer><!--/#footer-->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=9Z4yvIoj9jnpKfPA4igxxbLP"></script>
+<div id="allmap"></div>
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");
+	var point = new BMap.Point(116.331398,39.897445);
+	map.centerAndZoom(point,12);
 
 	function myFun(result){
 		var cityName = result.name;
@@ -428,13 +390,17 @@ map.centerAndZoom(point,12);
 	var myCity = new BMap.LocalCity();
 	myCity.get(myFun);
 </script>
+
 <!--footer-->
-		<script type="text/javascript" src="assets/js/sales.js"></script>
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/jquery.prettyPhoto.js"></script>
-    <script src="assets/js/jquery.isotope.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/wow.min.js"></script>
+<script type="text/javascript" src="assets/js/sales.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/jquery.prettyPhoto.js"></script>
+<script src="assets/js/jquery.isotope.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script src="libs/json.js"></script>
+<script src="libs/base.js"></script>
+<script src="libs/utils.js"></script>
+<script src="js/jzd.js"></script>
 </body>
 </html>
