@@ -11,6 +11,7 @@ import com.fenghuangzhujia.eshop.core.area.Area.AreaLevel;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
+import com.fenghuangzhujia.eshop.core.utils.CodeGenerater;
 import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.dics.CategoryItem;
@@ -33,7 +34,12 @@ public class AppointDtoAdapter extends AbstractDtoAdapter<Appoint, AppointDto, A
 
 	@Override
 	public Appoint postConvertToDo(AppointInputArgs t, Appoint d) {
-		return postUpdate(t, d);
+		d=postUpdate(t, d);
+		//为预约按照编码规则分配可记忆的唯一编码
+		String areaCode=d.getCity().getCode();
+		String code=CodeGenerater.generateCode(Appoint.TYPE_CODE, areaCode);
+		d.setCode(code);
+		return d;
 	}
 
 	@Override

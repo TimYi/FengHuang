@@ -8,7 +8,6 @@ import javax.persistence.Table;
 import com.fenghuangzhujia.eshop.core.area.Area;
 import com.fenghuangzhujia.eshop.core.remind.impl.UnreadRemindEntity;
 import com.fenghuangzhujia.eshop.core.user.User;
-import com.fenghuangzhujia.eshop.core.utils.CodeGenerater;
 import com.fenghuangzhujia.foundation.dics.CategoryItem;
 
 /**
@@ -36,10 +35,6 @@ public class Appoint extends UnreadRemindEntity {
 	private String mobile;
 	/**易于记忆的唯一编码*/
 	private String code;
-	
-	public Appoint() {
-		code=CodeGenerater.generateCode(TYPE_CODE);
-	}
 	
 	@ManyToOne(optional=false)
 	public User getUser() {

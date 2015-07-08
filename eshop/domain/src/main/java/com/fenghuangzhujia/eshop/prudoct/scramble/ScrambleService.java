@@ -17,6 +17,7 @@ import com.fenghuangzhujia.eshop.core.commerce.order.dto.GoodOrderDto;
 import com.fenghuangzhujia.eshop.core.commerce.order.dto.GoodOrderDtoConverter;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
+import com.fenghuangzhujia.eshop.core.utils.CodeGenerater;
 import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppoint;
 import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppointRepository;
 import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppointService;
@@ -33,6 +34,8 @@ import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 @Service
 @Transactional
 public class ScrambleService {
+	
+	public static final String TYPE_CODE="DP";
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -94,7 +97,9 @@ public class ScrambleService {
 		int count=1;
 		String mobile=appoint.getMobile();
 		String realName=appoint.getRealName();
-		GoodOrder order=goodOrderService.createOrderToPay(user, good, price, count, mobile, realName);
+		//生成订单编号
+		String code=CodeGenerater.generateCode(TYPE_CODE, appoint.getCity().getCode());
+		GoodOrder order=goodOrderService.createOrderToPay(user, good, price, count, mobile, realName,code);
 		
 		//触发抢购套餐分发优惠券事件
 		couponsAllocater.allocate(CouponsAllocater.SCRAMBLE, userId);
