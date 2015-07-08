@@ -54,7 +54,7 @@ $(function(){
 	$("#provId2").bind("change",getProvCity2);
 	*/
 
-	getPackages();
+	//getPackages();
 
 	//getAppointCategory();
 	//getProv();

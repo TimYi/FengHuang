@@ -48,7 +48,7 @@ $(function(){
 			for(var i = 0,len = obj.length; i < len; i++){
 				var d = obj[i];
 				var id = d.id || "";
-				var num = "";
+				var num = d.code || "";
 				var type = d.type.name || "";
 				var createTime = d.createTime || "";
 				createTime.substring(0,10);

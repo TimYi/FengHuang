@@ -120,8 +120,8 @@ $(function(){
 
 		html.push('<div class="col-md-6">');
 		html.push('<ul class="sub_li">');
-		html.push('<li>套餐类型：' + type + '</li>');
-		html.push('<li>订单编号：' + id + '</li>');
+		html.push('<li>预约类型：' + type + '</li>');
+		html.push('<li>预约编号：' + id + '</li>');
 		html.push('<li>所在城市：' + city + '</li>');
 		//html.push('<li>详细地址：<!--海淀区上地七街--></li>');
 		html.push('</ul>');
