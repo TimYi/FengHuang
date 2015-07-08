@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>新增优惠券定义</title>
+<title>编辑优惠券定义</title>
 <link href="assets/css/admin.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/js/jquery.js"></script>
 <script type="text/javascript" src="assets/js/forms.js"></script>
@@ -15,28 +15,58 @@
 <script type="text/javascript">
 var viewModel;
 var eventDic;
-
+var id ;
+var EventObj = function(key,value){
+	this.key = key;
+	this.value = value;
+}
 function onload(){
+		id = getUrlParam(window.location.search,"id");
 		$.getJSON(genUrl(COUPON_EVENT),null,function(data){
+		//	var events = 
 	 		var eventMap = data.result;
 	 		eventDic = new Array();
-	 		for (var key in eventMap) { 
-	 			var obj = {'key':key,
-	 						'value':eventMap[key]} 
-             	//alert(eventMap[key]); 
+	 		for (var key in eventMap) {
+	 			 
+	 			var obj = new EventObj(key,eventMap[key]);
+	 			//{'key':key,'value':eventMap[key]} 
              	eventDic.push(obj); 
          	}  
-         	viewModel={
-         	
+         	getDataById(COUPON_COUPONSDEF,id,afterGetDataById);	
+         	/*viewModel={         	
          		selectableEvent : ko.observableArray(eventDic),
          		selectedEvent:ko.observable() 
          	};
-   			ko.applyBindings(viewModel);
-	 	
+   			ko.applyBindings(viewModel);*/
 	 	});
 }
+function afterGetDataById(data){
+	
+	//先判断并处理错误数据
+	if(!isErrorData(data)){
+		var result = data.result;		
+		//数据正确时进行绑定
+	 	viewModel = ko.mapping.fromJS(data.result); 
+	 	//alert("viewModel.event()"+viewModel.event());
+	 	var exist = false;
+	 	for(var i in eventDic){
+	 		if(viewModel.event() == eventDic[i].key){
+	 			exist = true;
+	 			viewModel.selectedEvent = ko.observable(eventDic[i]);
+	 			break;
+	 		}
+	 	}
+	 	
+	 	if(!exist){
+	 		//alert();
+	 		viewModel.selectedEvent = ko.observable();
+	 	}	 	
+	 	//viewModel.selectableTypes.push(selectedType);
+		ko.applyBindings(viewModel);
+	}
+}
 function submitForm(){
-	var url = genUrl(COUPON_COUPONSDEF);
+	var url = genUrl(COUPON_COUPONSDEF)+"/"+id;
 	//alert(url);
 	submitAsyFormByJson(url, 'couponsDefForm', 
 		function(data){		 			
@@ -49,7 +79,7 @@ function submitForm(){
 </head>
 <body onload="onload()">
 <div class="formHeader">
- <span class="title">新增优惠券定义</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
+ <span class="title">编辑优惠券定义</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
 </div>
 <form name="couponsDefForm" id="couponsDefForm" method="post">
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -57,28 +87,27 @@ function submitForm(){
 		
 			<tr>
 				<td align="right"  height="40">名称:</td>
-				<td   ><input type="text" name='name'></td>
+				<td   ><input type="text" name='name' data-bind="value:name"></td>
 			</tr>
 			<tr>
 				<td align="right"  height="40">事件:</td>
-				<td  ><select data-bind="value:selectedEvent,options:selectableEvent,optionsText:'value',optionsCaption: '请选择...'">
-				</select><input type="hidden" name='event' data-bind="value:selectedEvent().key"></td>
+				<td  ><select data-bind="value:selectedEvent,options:eventDic,optionsText:'value',optionsCaption: '请选择...'">
+				</select><input type="hidden" name='event' data-bind="value:selectedEvent()?selectedEvent().key:''"></td>
 			</tr>
 			<tr>
 				<td align="right"  height="40">金额:</td>
-				<td  ><input type="text" name='money'></td>
+				<td  ><input type="text" name='money' data-bind="value:money"></td>
 			</tr>		
 			<tr>
-				<td align="right" height="40">是否已发放：</td>
-				<td >	<!--input type="text" name='money' data-bind='value:inUse'-->
-					&nbsp;&nbsp;	<input type="checkbox" name="inUse" data-bind="checked: inUse" />&nbsp;已发放			
-					<!--span><input type="radio" name='inUse'value='true' />是</span>
-					<span><input type="radio" name='inUse'value='false' />否</span-->
+				<td align="right" height="40">是否发放：</td>
+				<td >&nbsp;&nbsp;	<input type="checkbox" name="inUse" data-bind="checked: inUse" />&nbsp;已发放		
+					<!--span><input type="radio" name='inUse'value='true' data-bind="checked:inUse" />是</span>
+					<span><input type="radio" name='inUse'value='false' data-bind="checked:inUse"/>否</span-->
 				</td>
 			</tr>
 			<tr>
 				<td align="right"  height="40">过期时间:</td>
-				<td  ><input type="text" id="expireTime" class="inputms" name='expireTime'  readonly="readonly" />
+				<td  ><input type="text" data-bind="value:expireTime" id="expireTime" class="inputms" name='expireTime'  readonly="readonly" />
 					<script type="text/javascript" src="assets/plugin/calendar/calendar.js"></script> 
 					<script type="text/javascript">
 					Calendar.setup({

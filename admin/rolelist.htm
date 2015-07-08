@@ -53,7 +53,7 @@
 				<!--td width="15%">ID</td-->
 				<td width="10%">名称</td>
 				<td width="10%">描述</td>				
-				<td class="endCol" width="10%">操作</td>
+				<td class="endCol" width="20%">操作</td>
 			</tr>
 		</thead>
         <tbody data-bind='foreach: result'>
@@ -64,7 +64,8 @@
 				<td data-bind="text: description"></td>			
 				<td class="action endCol">				
 					<span class="nb"><a href="#" data-bind='click: $root.remove'>删除</a></span> | 
-					<span><a href="#" data-bind='click: $root.modify'>修改</a></span> 
+					<span><a href="#" data-bind='click: $root.modify'>修改</a></span> |
+					<span><a href="#" data-bind='click: $root.config'>配置</a></span> 
 				</td>
 			</tr>
 		</tbody>

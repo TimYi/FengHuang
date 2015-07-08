@@ -25,9 +25,9 @@ function onload(){
 }
 function submitArticle(){
 	var url = genUrl(MENU_ARTICLE);
-	submitAsyFormByJson(url,'articleForm',function(data){
-	 			
+	submitAsyFormByJson(url,'articleForm',function(data){	 			
 		friendlyTip(data);
+		window.location.href='articlelist.htm';
 	});	 	
 }
 var Menu = function(id,name){

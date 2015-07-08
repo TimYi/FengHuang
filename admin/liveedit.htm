@@ -34,7 +34,7 @@ function afterGetDataById(data){
 			  	submitAsyFormByJson(url, 'form', 
 					function(data){		 			
 			 			friendlyTip(data);
-			 			window.location.href='liveedit.htm?id='+viewModel.id();
+			 			window.location.href='livelist.htm';
 		 		 	});
 			}else{	 
 		 		submitFormWithMultipart(url,'form',
@@ -44,7 +44,7 @@ function afterGetDataById(data){
 			 		} 			 		
 			 		,function(data){			 			
 			 			friendlyTip(data);
-			 			window.location.href='liveedit.htm?id='+viewModel.id();
+			 			window.location.href='livelist.htm';
 			 		}
 			 	);
 	 		}	 		
@@ -100,6 +100,10 @@ function afterGetDataById(data){
 				});
 				</script>
 				</td>
+			</tr>
+			<tr>
+				<td align="right"  height="40">是否可见: </td>
+				<td  >&nbsp;&nbsp;<input type="checkbox" name="shouldShow" data-bind='checked:shouldShow' />&nbsp;可见				
 			</tr>
 			<tr>
 				<td align="right" height="40" >图片：</td>

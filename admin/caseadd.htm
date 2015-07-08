@@ -21,7 +21,7 @@ function submitCase(){
 		submitAsyFormByJson(url, 'caseForm', 
 			function(data){		 			
 				friendlyTip(data);
-			 	//window.location.href='caseedit.htm?id='+viewModel.id();
+			 	window.location.href='caselist.htm';
 		 	}
 	 	);
 	}else{	 
@@ -32,7 +32,7 @@ function submitCase(){
 			} 			 		
 			,function(data){			 			
 				friendlyTip(data);
-			 	//window.location.href='caseedit.htm?id='+viewModel.id();
+			 	window.location.href='caselist.htm';
 			 }
 		);
 	}

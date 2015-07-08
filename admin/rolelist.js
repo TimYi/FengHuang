@@ -79,7 +79,10 @@ function bindData(data){
 	}
 	dataModel.modify = function(item){
 		window.location.href='roleedit.htm?id='+item.id();
-	}	
+	}
+	dataModel.config = function(item){
+		window.location.href='roleconfig.htm?id='+item.id();
+	}
 	if(!bind){
 		bind = true;
 		ko.applyBindings(dataModel);

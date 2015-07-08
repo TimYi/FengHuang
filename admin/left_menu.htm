@@ -8,6 +8,7 @@
 <script type="text/javascript" src="assets/js/leftmenu.js"></script>
 <script type="text/javascript" src="global_url.js"></script>
 <script type="text/javascript">
+	var MODULE_WORKER_URL = MODULE_HOST_URL + "workerlist.htm";//方便天明，没有加到global_url里去
 	function openUsrMgr(){		
 		window.parent.frames["main"].location.href=MODULE_USR_URL;
 	}
@@ -50,6 +51,10 @@
 	function openArticleMgr(){		
 		window.parent.frames["main"].location.href=MODULE_ARTICLE_URL;
 	}
+	function openWorkerMgr(){		
+		window.parent.frames["main"].location.href=MODULE_WORKER_URL;
+	}
+	
 
 </script>
 </head>
@@ -91,6 +96,7 @@
 					<div class="hr_1"> </div-->
 					<a href="#" onclick ="javascript:openUsrMgr();return false;"  target="main">用户管理</a> 
 					<a href="#" onclick ="javascript:openGroupMgr();return false;"  target="main">用户组</a> 
+					<a href="#" onclick ="javascript:openWorkerMgr();return false;"  target="main">工人管理</a> 
 					<a href="#" onclick ="javascript:openRoleMgr();return false;"  target="main">角色管理</a> 
 					<!--a href="#" target="main">用户收藏</a--> 
 					<a href="#" onclick ="javascript:openCommentItemMgr();return false;"  target="main">用户评论</a>
