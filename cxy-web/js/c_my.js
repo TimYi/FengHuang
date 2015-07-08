@@ -301,8 +301,8 @@ $(function(){
 		var regTime = obj.regTime || "";
 		var integra = obj.integra || 0;
 		li.push('<li>登录 IP<span class="pull-right">' + loginIp + '</span></li>');
-		li.push('<li>注册时间<span class="pull-right">' + loginTime + '</span></li>');
-		li.push('<li>登录时间<span class="pull-right">' + regTime + '</span></li>');
+		li.push('<li>注册时间<span class="pull-right">' + regTime + '</span></li>');
+		li.push('<li>登录时间<span class="pull-right">' + loginTime + '</span></li>');
 		li.push('<li>用户积分<span class="pull-right">' + integra + '分</span></li>');
 		$("#logintime").html(li.join(''));
 
