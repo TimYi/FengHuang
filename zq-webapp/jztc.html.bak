@@ -173,7 +173,7 @@
                 </p>
             </div>
             <div data-tab-panel-1 class="am-tab-panel ">
-                <div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                <div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
                     <a href="javascript:;" id="buy799">
                         <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">即将开始</div>
                     </a>
