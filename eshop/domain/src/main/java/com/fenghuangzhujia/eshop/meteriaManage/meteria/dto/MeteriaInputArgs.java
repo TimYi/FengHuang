@@ -12,6 +12,7 @@ public class MeteriaInputArgs extends DtoBaseModel {
 	private int ordernum;
 	/**展示图片*/
 	private MultipartFile picFile;
+	
 	public String getProductId() {
 		return productId;
 	}
