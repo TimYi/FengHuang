@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.core.validate.message;
+package com.fenghuangzhujia.eshop.core.rlmessage;
 
 import com.cloopen.rest.sdk.CCPRestSmsSDK;
 

@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.core.validate.message;
+package com.fenghuangzhujia.eshop.core.rlmessage;
 
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
@@ -10,12 +10,22 @@ import org.apache.commons.configuration.PropertiesConfiguration;
  *
  */
 public class Config {
+	/**短信发送请求地址*/
 	public static final String SMS_SITE;
+	/**端口号*/
 	public static final String SMS_PORT;
+	/**账户*/
 	public static final String SMS_ACCOUNT;
+	/**账户token*/
 	public static final String SMS_PASSWORD;
+	/**应用Id*/
 	public static final String SMS_APPID;
+	/**验证短信模板*/
 	public static final String SMS_TEMPLATE;
+	/**预约成功模板*/
+	public static final String APPOINT_SUCCESS_TEMPLATE;
+	/**支付成功模板*/
+	public static final String PAY_SUCCESS_TEMPLATE;
 	
 	private static Configuration configuration;
 	
@@ -30,5 +40,7 @@ public class Config {
 		SMS_PASSWORD=configuration.getString("sms.password");
 		SMS_APPID=configuration.getString("sms.appid");
 		SMS_TEMPLATE=configuration.getString("sms.template");
+		APPOINT_SUCCESS_TEMPLATE=configuration.getString("sms.appointSuccessTemplate");
+		PAY_SUCCESS_TEMPLATE=configuration.getString("sms.paySuccessTemplate");
 	}
 }

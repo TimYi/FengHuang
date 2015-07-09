@@ -19,6 +19,7 @@ import com.fenghuangzhujia.eshop.core.commerce.order.dto.GoodOrderDto;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrderService;
 import com.fenghuangzhujia.eshop.core.commerce.pay.PufaPay;
 import com.fenghuangzhujia.eshop.core.commerce.pay.PufaPayService;
+import com.fenghuangzhujia.eshop.core.utils.LogUtils;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
@@ -64,11 +65,16 @@ public class OrderController {
 		ModelAndView view=new ModelAndView("redirect:http://IFHZJ.com/payback.html");
 		try {
 			PufaPay pufaPay=pufaPayService.revoke(Plain,Signature);
-			String orderId=pufaPayService.findOrderByPufaPay(pufaPay.getId());
-			//支付订单后自动预约体验馆
-			appointService.appointAfterPay(orderId);
 			view.addObject("result", true);
+			String orderId=pufaPayService.findOrderByPufaPay(pufaPay.getId());
 			view.addObject("orderId", orderId);
+			try {
+				//支付订单后自动预约体验馆
+				appointService.appointAfterPay(orderId);
+			} catch (Exception e) {
+				LogUtils.errorLog(e);
+				// 支付回调确认成功之后，无论如何返回给用户支付成功的页面
+			}			
 		} catch (Exception e) {
 			view.addObject("result", false);
 		}
