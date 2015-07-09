@@ -34,7 +34,7 @@ public class BrandService extends DtoSpecificationService<Brand, BrandDto, Brand
 	public BrandVo getDetailedBrand(String id) {
 		Brand brand=getRepository().findOne(id);
 		BrandVo vo=BeanMapper.map(brand, BrandVo.class);
-		return vo;
+		return vo; 
 	}
 	
 	/**
