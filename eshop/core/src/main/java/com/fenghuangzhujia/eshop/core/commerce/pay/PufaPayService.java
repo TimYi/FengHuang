@@ -22,9 +22,11 @@ import com.fenghuangzhujia.eshop.core.commerce.coupons.Coupons;
 import com.fenghuangzhujia.eshop.core.commerce.coupons.CouponsRepository;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrderRepository;
+import com.fenghuangzhujia.eshop.core.rlmessage.MessageSender;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.eshop.core.utils.CodeGenerater;
+import com.fenghuangzhujia.eshop.core.utils.LogUtils;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 
 @Service
@@ -48,6 +50,8 @@ public class PufaPayService {
 	private OrderPayService orderPayService;
 	@Autowired
 	private OrderPayRepository orderPayRepository;
+	@Autowired
+	private MessageSender messageSender;
 	
 	
 	
@@ -144,6 +148,14 @@ public class PufaPayService {
 			//调用OrderPayService回调
 			OrderPay pay=orderPayRepository.getByPufaPay(pufaPay);
 			orderPayService.revoke(pay, pufaPay.getTranAmt());	
+			
+			//发送支付成功通知短信
+			try {
+				messageSender.paySuccess(pay.getOrder().getMobile(), pay.getPayedMoney());
+			} catch (Exception e) {
+				LogUtils.errorLog(e);
+				//无论短信通知结果如何，不要影响正常流程进行
+			}
 			
 			return pufaPay;
 		} catch (Exception e) {

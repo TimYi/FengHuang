@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.web.util;
+package com.fenghuangzhujia.eshop.core.utils;
 
 import org.slf4j.LoggerFactory;
 

@@ -17,6 +17,7 @@ import com.fenghuangzhujia.eshop.core.commerce.couponsDef.CouponsAllocater;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrderRepository;
 import com.fenghuangzhujia.eshop.core.remind.impl.DtoUnreadRemindSpecificationService;
+import com.fenghuangzhujia.eshop.core.rlmessage.MessageSender;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.eshop.core.utils.CodeGenerater;
@@ -49,6 +50,8 @@ public class AppointService extends DtoUnreadRemindSpecificationService<Appoint,
 	private GoodOrderRepository goodOrderRepository;
 	@Autowired
 	private CategoryRepository categoryRepository;
+	@Autowired
+	private MessageSender messageSender;
 	
 	/**
 	 * 为用户预约设置单独的方法，将业务逻辑封装在里面
@@ -93,6 +96,9 @@ public class AppointService extends DtoUnreadRemindSpecificationService<Appoint,
 		
 		//触发预约服务成功分发优惠券
 		couponsAllocater.allocate(CouponsAllocater.APPOINT_SERVICE, user.getId());
+		
+		//发送预约成功提示短信
+		messageSender.appointSuccess(mobile);
 		
 		return adapter.convertToDetailedDto(appoint);
 	}
