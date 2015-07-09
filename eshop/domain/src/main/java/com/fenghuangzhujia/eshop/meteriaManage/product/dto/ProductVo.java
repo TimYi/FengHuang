@@ -1,6 +1,8 @@
 package com.fenghuangzhujia.eshop.meteriaManage.product.dto;
 
-public class ProductVo {
+import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
+
+public class ProductVo extends DtoBaseModel {
 
 	/**产品名称*/
 	private String name;
