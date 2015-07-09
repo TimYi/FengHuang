@@ -138,7 +138,7 @@
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
                     <a href="mffw.html">
                         <div style="margin-top:20px">
-                            <i class="am-icon-th-large" style="font-size:24px;color:#f9090E"></i>
+                            <i class="am-icon-th-large" style="font-size:24px;color:#b9090e"></i>
                             <br />
                             <span style="font-size:13px;">更多套餐</span>
                         </div>
@@ -154,7 +154,7 @@
                 <div class="am-dropdown" data-am-dropdown style="height:100px;margin-bottom:-8px">
                     <a href="jzd.html">
                         <div style="margin:20px 0 0 0">
-                            <i class="am-icon-cny" style="font-size:24px;color:#f9090E"></i>
+                            <i class="am-icon-cny" style="font-size:24px;color:#b9090e"></i>
                             <br />
                             <span style="font-size:13px;">家装贷</span>
                         </div>
@@ -165,7 +165,7 @@
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
                     <a href="tyg.html">
                         <div style="margin-top:20px">
-                            <i class="am-icon-street-view" style="font-size:22px;color:#f9090E;height:38px;"></i>
+                            <i class="am-icon-street-view" style="font-size:22px;color:#b9090e;height:38px;"></i>
                             <br />
                             <span style="font-size:13px;">体验馆</span>
                         </div>
@@ -176,7 +176,7 @@
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
                     <a href="alzb.html">
                         <div style="margin-top:20px">
-                            <i class="am-icon-sitemap" style="font-size:24px;color:#f9090E"></i>
+                            <i class="am-icon-sitemap" style="font-size:24px;color:#b9090e"></i>
                             <br />
                             <span style="font-size:13px;">案例/直播</span>
                         </div>
@@ -192,7 +192,7 @@
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
                     <a href="jrth.html">
                         <div style="margin-top:20px">
-                            <i class="am-icon-certificate" style="font-size:24px;color:#f9090E"></i>
+                            <i class="am-icon-certificate" style="font-size:24px;color:#b9090e"></i>
                             <br />
                             <span style="font-size:13px;">今日特惠</span>
                         </div>
@@ -203,7 +203,7 @@
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
                     <a href="tel:4009689088">
                         <div style="margin-top:20px">
-                            <i class="am-icon-phone" style="font-size:24px;color:#666"></i>
+                            <i class="am-icon-phone" style="font-size:24px;color:#b9090e"></i>
                             <br />
                             <span style="font-size:13px;">400客服</span>
                         </div>
@@ -214,7 +214,7 @@
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
                     <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=3311428220&amp;site=qq&amp;menu=yes">
                         <div style="margin-top:20px">
-                            <i class="am-icon-comments-o" style="font-size:24px;color:#f9090E"></i>
+                            <i class="am-icon-qq" style="font-size:24px;color:#b9090e"></i>
                             <br />
                             <span style="font-size:13px;">在线客服</span>
                         </div>
