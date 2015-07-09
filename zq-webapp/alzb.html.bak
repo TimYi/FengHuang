@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html class="no-js">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>凤凰筑家</title>
+    <title>案例直播</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,6 +13,39 @@
     <link rel="icon" type="image/png" href="assets/i/favicon.png">
     <link rel="stylesheet" href="assets/css/amazeui.min.css">
     <link rel="stylesheet" href="assets/css/app.css">
+    <link href="fhzj/css/bootstrap.min1.css" rel="stylesheet">
+    <style>
+    a:hover {
+        text-decoration: none;
+    }
+    
+    .am-tabs-default .am-tabs-nav {
+        line-height: 40px;
+        background-color: #fff;
+        margin-top: 10px;
+    }
+    
+    .am-tabs-default .am-tabs-nav a {
+        color: #ccc;
+        line-height: 45px;
+    }
+    
+    .am-tabs-default .am-tabs-nav > .am-active a {
+        background-color: #fff;
+        color: #0e90d2;
+        box-shadow: inset -1px 0 1px -1px #999;
+    }
+    
+    .x {
+        box-shadow: inset -1px 0 1px -1px #999;
+    }
+    
+    .ttt {
+        font-size: 13px;
+        margin-top: -15px;
+        color: #666
+    }
+    </style>
 </head>
 
 <body>
@@ -79,27 +112,53 @@
         </nav>
     </div>
     <!--banner+menu end-->
-    <div class="am-tabs-bd" style="margin-top:10px;border:none;">
-        <div data-tab-panel-0 class="am-tab-panel am-active">
-            <p style="font-size:14px;line-height:18px;color:#666">
-                <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">优惠券抢购 COUPON BUYING</span></b>
-                <br/>
-            </p>
-            <p style="font-size:14px;line-height:18px;color:#666">
-                <a href="javascript:void(0)" class="coupon-btn"><img src="images/yhq1.gif"></a>
-            </p>
-            <p style="font-size:14px;line-height:18px;color:#666">
-                <a href="javascript:void(0)" class="coupon-btn"><img src="images/yhq2.gif"></a>
-            </p>
+    <div data-am-widget="tabs" class="am-tabs am-tabs-default" style="width:100%;padding:0;margin:0">
+        <ul class="am-tabs-nav am-cf">
+            <li class="am-active x" style="line-height:10px;">
+                <a href="[data-tab-panel-0]">
+                    <i class="am-icon-cube" style="font-size:24px;"></i>
+                    <div class="ttt">案例馆</div>
+                </a>
+            </li>
+            <li class="x">
+                <a href="[data-tab-panel-1]">
+                    <i class="am-icon-camera-retro" style="font-size:24px;"></i>
+                    <div class="ttt">Live直播</div>
+                </a>
+            </li>
+        </ul>
+        <div class="am-tabs-bd" style="margin-top:10px;border:none; box-shadow:inset -1px 1px 1px -1px #999;padding:0;margin:0">
+            <div data-tab-panel-0 class="am-tab-panel am-active">
+                <!--div id="caseTag" class="tag-wrap am-sticky-placeholder"></div-->
+                <ul id="caseList" data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-overlay" data-am-gallery="{ pureview: false }" style="margin:-10px">
+                    <li>
+                        <div class="am-gallery-item">
+                            <a href="alxq.html" class="">
+                                <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="北京亚运村千鹤家园" />
+                                <h3 class="am-gallery-title" style="font-size:12px;">北京亚运村千鹤家园</h3>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div data-tab-panel-1 class="am-tab-panel ">
+                <div id="liveTag" class="tag-wrap am-sticky" data-am-sticky>
+                    <span class="tag active">最新</span>
+                    <span class="tag">进行中</span>
+                    <span class="tag">已交房</span>
+                    <span class="tag">验收中</span>
+                </div>
+                <ul id="liveList" data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-overlay" data-am-gallery="{ pureview: false }" style="margin:-10px">
+                </ul>
+            </div>
         </div>
     </div>
-    <!--cubes end-->
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/amazeui.min.js"></script>
     <script src="js/libs/json.js"></script>
     <script src="js/libs/base.js"></script>
     <script src="js/libs/utils.js"></script>
-    <script src="js/coupon_scrub.js"></script>
+    <script src="js/case.js"></script>
 </body>
 
 </html>
