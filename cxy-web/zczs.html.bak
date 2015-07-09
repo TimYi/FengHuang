@@ -281,110 +281,106 @@ $(".m_logo").hover(function(){
 								    	<td style="vertical-align: middle;"rowspan=2>东鹏</td>
 								    	<td style="vertical-align: middle;">地面地砖（用于客厅）</td>
 								    	<td>
-								    		<img src="assets/images/icon2/d1.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d2.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-								    		<img src="assets/images/icon2/d3.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-								    		<img src="assets/images/icon2/d4.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-								    		<img src="assets/images/icon2/d5.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/dz1.gif" style="margin-bottom:0;width:100px;">
+								    		<img src="images/699pic/dz2.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/dz3.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/dz4.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/dz5.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/dz6.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/dz7.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
 								    	</td>
 								    </tr>
 								    <tr>
 								    	<td style="vertical-align: middle;">墙地砖（用于厨卫）</td>
 								    	<td>
-								    		<img src="assets/images/icon2/d6.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d7.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-								    		<img src="assets/images/icon2/d8.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-								    		<img src="assets/images/icon2/d9.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/qz1.gif" style="margin-bottom:0;width:100px;">
+								    		<img src="images/699pic/qz2.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/qz3.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/qz4.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/qz5.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/qz6.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/qz7.gif" style="margin-bottom:0;width:100px;margin-left:-10px">	
 								    	</td>
 								    </tr>
 								    <tr>
 								    	<td style="vertical-align: middle;">大自然</td>
 								    	<td style="vertical-align: middle;">地面地砖（用于客厅）</td>
 								    	<td>
-								    		<img src="assets/images/icon2/d10.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d11.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-								    		<img src="assets/images/icon2/d12.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-								    		<img src="assets/images/icon2/d13.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-								    		<img src="assets/images/icon2/d14.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/db1.gif" style="margin-bottom:0;width:100px;">
+								    		<img src="images/699pic/db2.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/db3.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
 								    	</td>
 								    </tr>
 								    <tr>
 								    	<td  style="vertical-align: middle;" rowspan=4>科勒</td>
 								    	<td style="vertical-align: middle;">拉蒂娜面盆</td>
 								    	<td>
-								    		<img src="assets/images/icon2/d25.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d21.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-								    		<img src="assets/images/icon2/d19.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/kl4.gif" style="margin-bottom:0;width:100px;">
+								    		<img src="images/699pic/kl6.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
 								    	</td>
 								    </tr>
 								    <tr>
 								    	<td style="vertical-align: middle;">丽笙龙头</td>
 								    	<td>
-								    		<img src="assets/images/icon2/d16.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d20.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-								    		<img src="assets/images/icon2/d22.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-								    		<img src="assets/images/icon2/d23.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-								    		<img src="assets/images/icon2/d26.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/kl5.gif" style="margin-bottom:0;width:100px;">
 								    	</td>
 								    </tr>
 								    <tr>
 								    	<td style="vertical-align: middle;">凯尔登分体座便器</td>
 								    	<td>
-								    		<img src="assets/images/icon2/d17.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d18.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/kl2.gif" style="margin-bottom:0;width:100px;">
+								    		<img src="images/699pic/kl3.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
 								    	</td>
 								    </tr>
 								    <tr>
 								    	<td style="vertical-align: middle;">挂墙式浴缸花洒龙头</td>
 								    	<td>
-								    		<img src="assets/images/icon2/d32.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d24.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/kl7.gif" style="margin-bottom:0;width:100px;">
 								    	</td>
 								    </tr>
 								    <tr>
 								    	<td style="vertical-align: middle;" rowspan=2>金牌</td>
 								    	<td style="vertical-align: middle;">橱柜</td>
 								    	<td>
-								    		<img src="assets/images/icon2/d36.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d38.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/jp1.gif" style="margin-bottom:0;width:100px;">
 								    	</td>
 								    </tr>
 								    <tr>
 								    	<td style="vertical-align: middle;">烟机灶具</td>
 								    	<td>
-								    		<img src="assets/images/icon2/d27.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d28.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/jp2.gif" style="margin-bottom:0;width:100px;">
+								    		<img src="images/699pic/jp3.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
 								    	</td>
 								    </tr>
 								    <tr>
 								    	<td style="vertical-align: middle;">TATA</td>
 								    	<td style="vertical-align: middle;">实木复合门</td>
 								    	<td>
-								    		<img src="assets/images/icon2/d33.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d34.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/men1.gif" style="margin-bottom:0;width:100px;">
+								    		<img src="images/699pic/men2.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/men3.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/men4.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/men5.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
 								    	</td>
 								    </tr>
 								    <tr>
 								    	<td style="vertical-align: middle;">西门子</td>
 								    	<td style="vertical-align: middle;">开关面板</td>
 								    	<td>
-								    		<img src="assets/images/icon2/d40.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/d42.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-								    		<img src="assets/images/icon2/d43.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-								    		<img src="assets/images/icon2/d29.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-								    		<img src="assets/images/icon2/d35.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/smz1.gif" style="margin-bottom:0;width:100px;">
+								    		<img src="images/699pic/smz13.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/smz12.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/smz10.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/smz11.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/smz7.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/smz8.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
 								    	</td>
 								    </tr>
 								    <tr>
 								    	<td style="vertical-align: middle;">都芳</td>
 								    	<td style="vertical-align: middle;">双效内墙漆</td>
 								    	<td>
-								    		<img src="assets/images/icon2/f1.gif" style="margin-bottom:0;width:100px;">
-								    		<img src="assets/images/icon2/f2.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-								    		<img src="assets/images/icon2/f3.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-								    		<img src="assets/images/icon2/f4.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-								    		<img src="assets/images/icon2/f5.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
-								    		<img src="assets/images/icon2/f6.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+								    		<img src="images/699pic/q1.gif" style="margin-bottom:0;width:100px;">
 								    	</td>
 								    </tr>
 									</table>
