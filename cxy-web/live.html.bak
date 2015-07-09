@@ -172,7 +172,7 @@ $(".m_logo").hover(function(){
         <div class="container">
            	<div class="center wow fadeInDown">
                 <h2>家装进行时<span style="font-size:24px"> DECORATION...</span></h2>
-                <p class="lead">7*24 施工全程微信监控，不用跑工地，装修施工看得懂，验收不满1票否决！上网就能看到装修中的家！ </p>
+                <p class="lead"></p>
             </div>
             <ul id="packagename" class="portfolio-filter text-center">
                 <li><a class="btn btn-default active" href="javascript:void(0);" data-filter="*">最新</a></li>
