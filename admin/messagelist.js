@@ -61,6 +61,7 @@ function bindData(data){
 	var results = data.result;
 	for(var i in results){
 		results[i].selected = false;
+		results[i].readedDisp = (results[i].readed?'已读':'未读');
 	}
 	if(!bind){
 		dataModel = ko.mapping.fromJS(data);	

@@ -44,9 +44,9 @@
 				<td data-bind='text: couponsMoney'></td>
 				<td data-bind='text: expireTime'></td>
 				<td data-bind='text: user.username'></td>				
-				<td data-bind="text: expired?'是': '否'"></td>			
-				<td data-bind="text: readed?'是': '否'"></td>			
-				<td data-bind="text: used?'是': '否'"></td>			
+				<td data-bind="text: expiredDisp"></td>			
+				<td data-bind="text: readedDisp"></td>			
+				<td data-bind="text: usedDisp"></td>			
 
 				<td class="action endCol">	<span class="nb"><a href="#" data-bind='click: $root.remove'>删除</a></span> | 
 					<span><a href="#" data-bind='click: $root.modify'>修改</a></span> </td>
