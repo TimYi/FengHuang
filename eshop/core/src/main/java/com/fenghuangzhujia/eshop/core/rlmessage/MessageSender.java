@@ -11,7 +11,7 @@ import com.cloopen.rest.sdk.CCPRestSmsSDK;
  * @author pc
  *
  */
-@Component
+@Component("messageSender2")
 public class MessageSender {
 		
 	private CCPRestSmsSDK smsSDK;
