@@ -86,10 +86,18 @@ function loginSubmit(){
 		);
 	}
 }
+function BindEnter(obj){
+			 //使用document.getElementById获取到按钮对象
+			 var button = document.getElementById('loginBtn');
+			 if(obj.keyCode == 13){
+			       button.click();
+				   obj.returnValue = false;
+				 }
+			}
 </script>
 </head>
 
-<body class="loginBody">
+<body class="loginBody" onkeydown="BindEnter(event)">
 <div class="loginTop" style="background-color:#fff;background-image:url();background-repeat:repeat-x;background-position:center 0;">
 
 </div>
@@ -120,7 +128,7 @@ function loginSubmit(){
 				</div>
 				
 				<div class="hr_1"></div>
-				<input type="button" class="loginBtn" value="登 录" style="cursor:pointer;margin-right:120px;background:#b9090e" onclick='loginSubmit();'/>
+				<input type="button" id='loginBtn' class="loginBtn" value="登 录" style="cursor:pointer;margin-right:120px;background:#b9090e" onclick='loginSubmit();'/>
 			</form>
 			<!--div class="loginThanks">感谢您使用<span>PHPMyWind</span>产品</div-->
 		</div>

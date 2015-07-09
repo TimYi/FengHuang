@@ -31,7 +31,7 @@
 				<td width="15%">事件</td>
 				<td width="15%">金额</td>
 				<td width="15%">过期时间</td>
-				<td width="10%">已发放</td>
+				<td width="10%">发放状态</td>
 				<td class="endCol" width="12%">操作</td>
 			</tr>
 		</thead>
@@ -43,7 +43,7 @@
 				<td data-bind='text: event'></td>
 				<td data-bind='text: money'></td>
 				<td data-bind='text: expireTime'></td>
-				<td data-bind="text: inUse  ?  '是': '否'"></td>			
+				<td data-bind="text: inUseDisp"></td>			
 				<td class="action endCol">	<span class="nb"><a href="#" data-bind='click: $root.remove'>删除</a></span> | 
 					<span><a href="#" data-bind='click: $root.modify'>修改</a></span> </td>
 			</tr>

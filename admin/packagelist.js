@@ -49,6 +49,8 @@ function bindData(data){
 	var results = data.result;
 	for(var i in results){
 		results[i].selected = false;
+		results[i].hasAppointedDisp = (results[i].hasAppointed?'已预约':'未预约');
+		results[i].couldAppointDisp = (results[i].couldAppoint?'已预约':'未预约');
 	}
 	if(!bind){
 		dataModel = ko.mapping.fromJS(data);	

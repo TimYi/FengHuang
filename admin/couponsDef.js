@@ -68,6 +68,7 @@ function bindData(data){
 	var results = data.result;
 	for(var i in results){
 		results[i].selected = false;
+		results[i].inUseDisp = (results[i].inUse?'已发放':'未发放');
 	}
 	if(!bind){
 		dataModel = ko.mapping.fromJS(data);	

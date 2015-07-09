@@ -66,6 +66,8 @@ function bindData(data){
 	var results = data.result;
 	for(var i in results){
 		results[i].selected = false;
+		results[i].verifyDisp = (results[i].verified ? '通过':'未通过');
+		//alert(results[i].verifyDisp);
 	}
 	if(!bind){
 		dataModel = ko.mapping.fromJS(data);	

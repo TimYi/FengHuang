@@ -49,6 +49,7 @@
 			<tr class="head" align="left">
 				<td class="firstCol" width="5%" height="36"><input name="checkid" id="checkid" onclick="CheckAll(this.checked);" type="checkbox"></td>
 				<!--td width="15%">ID</td-->
+				<td width="5%">名称</td>
 				<td width="5%">价格</td>
 				<td width="5%">订金</td>
 				<td width="5%">描述</td>
@@ -69,6 +70,7 @@
 			<tr class="dataTr" align="left">
 				<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox" data-bind="checked: selected"></td>
 				<!--td data-bind='text: id'></td-->
+				<td data-bind="text: name"></td>
 				<td data-bind="text: price"></td>
 				<td data-bind="text: deposit"></td>
 				<td data-bind="text: description"></td>					
@@ -79,8 +81,8 @@
 				<td data-bind="text: scrambleStartTime"></td>
 				<td data-bind="text: scrambleEndTime"></td>
 				<td data-bind="text: status"></td>
-				<td data-bind="text: hasAppointed?'是':'否'"></td>
-				<td data-bind="text: couldAppoint?'是':'否'"></td>
+				<td data-bind="text: hasAppointedDisp "></td>
+				<td data-bind="text: couldAppointDisp"></td>
 				<td data-bind="text: reasonForCantAppoint"></td>
 				<td class="action endCol">				
 					<span class="nb"><a href="#" data-bind='click: $root.remove'>删除</a></span> | 

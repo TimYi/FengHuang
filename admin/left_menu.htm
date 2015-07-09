@@ -1,4 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>左侧菜单</title>
@@ -9,6 +10,9 @@
 <script type="text/javascript" src="global_url.js"></script>
 <script type="text/javascript">
 	var MODULE_WORKER_URL = MODULE_HOST_URL + "workerlist.htm";//方便天明，没有加到global_url里去
+	var MODULE_MATERIAL_BRAND_URL = MODULE_HOST_URL + "materialbrandlist.htm";
+	var MODULE_MATERIAL_TYPE_URL = MODULE_HOST_URL + "materialtypelist.htm";
+	var MODULE_MATERIAL_URL = MODULE_HOST_URL + "materiallist.htm";
 	function openUsrMgr(){		
 		window.parent.frames["main"].location.href=MODULE_USR_URL;
 	}
@@ -54,14 +58,20 @@
 	function openWorkerMgr(){		
 		window.parent.frames["main"].location.href=MODULE_WORKER_URL;
 	}
-	
+	function openMaterialBrandMgr(){		
+		window.parent.frames["main"].location.href=MODULE_MATERIAL_BRAND_URL;
+	}
+	function openMaterialTypeMgr(){		
+		window.parent.frames["main"].location.href=MODULE_MATERIAL_TYPE_URL;
+	}
+	function openMaterialMgr(){		
+		window.parent.frames["main"].location.href=MODULE_MATERIAL_URL;
+	}
 
 </script>
 </head>
 <body>
 <div style="height:20px"></div>
-
-
 <div id="scrollmenu">
 	<div style="height: 352px;" class="scrollbar disable">
 		<div style="height: 352px;" class="track">
@@ -148,6 +158,16 @@
 				</div>
 			</div>		
 			<div class="hr_5"></div>
+			<div class="menubox">
+				<div class="title" onclick="DisplayMenu('leftmenu08');" title="点击切换显示或隐藏"> 装修材料管理 </div>
+				<div id="leftmenu08" style="display:none"> 
+					<a href="#" onclick ="javascript:openMaterialBrandMgr();return false;"  target="main">材料品牌</a>					
+					<a href="#" onclick ="javascript:openMaterialTypeMgr();return false;"  target="main">材料分类</a>					
+					<a href="#" onclick ="javascript:openMaterialMgr();return false;"  target="main">材料管理</a>					
+				</div>
+			</div>
+			<div class="hr_5"></div>
+		
 			<!--div class="menubox">
 				<div class="title" onclick="DisplayMenu('leftmenu08');" title="点击切换显示或隐藏"> 界面模块管理 </div>
 				<div id="leftmenu08" style="display:none"> 
@@ -171,7 +191,7 @@
 </div>
 <div class="bGradient"></div>
 
-<div class="copyright"> © 2015 <a href="http://phpmywind.com/" target="_blank">phoenixzj.com</a><br>
+<div class="copyright"> © 2015 <a href="http://www.ifhzj.com/" target="_blank">phoenixzj.com</a><br>
 	All Rights Reserved. </div>
 
 </body></html>

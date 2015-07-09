@@ -35,7 +35,7 @@
 				<!--td data-bind='text: id'></td-->
 				<td data-bind="text: name"></td>
 				<td data-bind="text: description"></td>
-				<td data-bind="text:type!=null? type.name:''"></td>
+				<td data-bind="text:type.name != 'd'?type.name:''"></td>
 				<td class="action endCol">				
 					<span class="nb"><a href="#" data-bind='click: $root.remove'>删除</a></span> | 
 					<span><a href="#" data-bind='click: $root.modify'>修改</a></span> 
