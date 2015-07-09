@@ -92,6 +92,11 @@ public class AppointService extends DtoUnreadRemindSpecificationService<Appoint,
 			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "城市id错误");
 		appoint.setCity(city);
 		
+		//为预约按照编码规则分配可记忆的唯一编码
+		String areaCode=appoint.getCity().getCode();
+		String code=CodeGenerater.generateCode(Appoint.TYPE_CODE, areaCode);
+		appoint.setCode(code);
+		
 		appoint=getRepository().save(appoint);
 		
 		//触发预约服务成功分发优惠券
