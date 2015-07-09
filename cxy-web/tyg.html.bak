@@ -183,7 +183,7 @@ $(".m_logo").hover(function(){
                                 <div class="carousel-content">
                                     <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">体验中心厦门站</h1>
                                     <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">
-                                    		每周二、五为开放日，接受在线预约到店体验，在线预约还享受9.5折套餐选购优惠。
+                                    		地址：厦门市湖里区金泰路1798创业大街5层
                                     </h2>
 					                        	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
 																			<a href="subappoint.html" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">预约体验馆</div></a>
@@ -206,7 +206,7 @@ $(".m_logo").hover(function(){
                                 <div class="carousel-content">
                                     <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">体验中心北京站</h1>
                                     <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">
-                                    		每周二、五为开放日，接受在线预约到店体验，在线预约还享受9.5折套餐选购优惠。
+                                    		地址：北京市朝阳区朝阳路大黄庄桥西IdeaPark铭基国际创意公园C栋
                                     </h2>
 					                        	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
 																			<a href="javascript:;" id="buynow" onclick="Buy_tyg_beijing();" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">预约体验馆</div></a>
