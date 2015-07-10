@@ -1,6 +1,6 @@
 package com.fenghuangzhujia.eshop.meteriaManage.meteria.dto;
 
-import com.fenghuangzhujia.eshop.meteriaManage.product.dto.ProductVo;
+import com.fenghuangzhujia.eshop.meteriaManage.brand.dto.SimpleBrandDto;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 import com.fenghuangzhujia.foundation.media.MediaContentDto;
 
@@ -13,7 +13,7 @@ public class MeteriaDto extends DtoBaseModel {
 	/**对主材的描述信息*/
 	private String description;
 	/**所属产品*/
-	private ProductVo product;
+	private SimpleBrandDto product;
 	
 	public int getOrdernum() {
 		return ordernum;
@@ -33,10 +33,10 @@ public class MeteriaDto extends DtoBaseModel {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public ProductVo getProduct() {
+	public SimpleBrandDto getProduct() {
 		return product;
 	}
-	public void setProduct(ProductVo product) {
+	public void setProduct(SimpleBrandDto product) {
 		this.product = product;
 	}
 }
