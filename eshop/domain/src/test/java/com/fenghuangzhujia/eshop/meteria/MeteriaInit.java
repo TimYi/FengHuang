@@ -1,14 +1,20 @@
 package com.fenghuangzhujia.eshop.meteria;
 
 import java.io.File;
-import java.io.FileFilter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import javassist.bytecode.LineNumberAttribute.Pc;
+
+
+
+
+
+
+
+
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
@@ -16,17 +22,15 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.fenghuangzhujia.eshop.meteriaManage.brand.BrandService;
-import com.fenghuangzhujia.eshop.meteriaManage.brand.dto.BrandDto;
-import com.fenghuangzhujia.eshop.meteriaManage.brand.dto.BrandInputArgs;
-import com.fenghuangzhujia.eshop.meteriaManage.meteria.MeteriaService;
-import com.fenghuangzhujia.eshop.meteriaManage.meteria.dto.MeteriaInputArgs;
-import com.fenghuangzhujia.eshop.meteriaManage.product.ProductService;
-import com.fenghuangzhujia.eshop.meteriaManage.product.dto.ProductDto;
-import com.fenghuangzhujia.eshop.meteriaManage.product.dto.ProductInputArgs;
-import com.fenghuangzhujia.foundation.core.rest.RequestResult;
+import com.fenghuangzhujia.eshop.materialManage.brand.BrandService;
+import com.fenghuangzhujia.eshop.materialManage.brand.dto.BrandDto;
+import com.fenghuangzhujia.eshop.materialManage.brand.dto.BrandInputArgs;
+import com.fenghuangzhujia.eshop.materialManage.material.MaterialService;
+import com.fenghuangzhujia.eshop.materialManage.material.dto.MaterialInputArgs;
+import com.fenghuangzhujia.eshop.materialManage.product.ProductService;
+import com.fenghuangzhujia.eshop.materialManage.product.dto.ProductDto;
+import com.fenghuangzhujia.eshop.materialManage.product.dto.ProductInputArgs;
 import com.fenghuangzhujia.foundation.core.test.JpegMultipartFile;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -38,9 +42,8 @@ public class MeteriaInit {
 	@Autowired
 	private ProductService productService;
 	@Autowired
-	private MeteriaService meteriaService;
+	private MaterialService meteriaService;
 	
-	//@Transactional
 	@Test
 	public void initMeterias() {
 		File brandDir=new File("C:/Users/pc/Desktop/brand");
@@ -48,16 +51,16 @@ public class MeteriaInit {
 		for (File dir : brandDir.listFiles()) {
 			BrandInputArgs brand=getBrand(dir.getName(), brandnum, FileUtils.getFile(dir, "logo.gif"));
 		    brandnum++;
-		    Map<ProductInputArgs, List<MeteriaInputArgs>> products=new HashMap<>();
+		    Map<ProductInputArgs, List<MaterialInputArgs>> products=new HashMap<>();
 		    int productnum=0;
 		    for (File pfile : dir.listFiles()) {		    	
 				if(pfile.isFile())continue;
 				ProductInputArgs product=getProduct(pfile.getName(), productnum);
 				productnum++;
-				List<MeteriaInputArgs> meterias=new ArrayList<>();
+				List<MaterialInputArgs> meterias=new ArrayList<>();
 				int meterianum=0;
 				for (File mfile : pfile.listFiles()) {
-					MeteriaInputArgs meteria=createMeteria(meterianum, mfile);
+					MaterialInputArgs meteria=createMeteria(meterianum, mfile);
 					meterias.add(meteria);
 				}
 				products.put(product, meterias);
@@ -66,14 +69,14 @@ public class MeteriaInit {
 		}
 	}
 	
-	private void addBrand(BrandInputArgs brand, Map<ProductInputArgs, List<MeteriaInputArgs>> products) {
+	private void addBrand(BrandInputArgs brand, Map<ProductInputArgs, List<MaterialInputArgs>> products) {
 		BrandDto brandDto=brandService.add(brand);
-		for (Entry<ProductInputArgs, List<MeteriaInputArgs>> productSet : products.entrySet()) {
+		for (Entry<ProductInputArgs, List<MaterialInputArgs>> productSet : products.entrySet()) {
 			ProductInputArgs product=productSet.getKey();
-			List<MeteriaInputArgs> meterias=productSet.getValue();
+			List<MaterialInputArgs> meterias=productSet.getValue();
 			product.setBrandId(brandDto.getId());
 			ProductDto productDto=productService.add(product);
-			for (MeteriaInputArgs meteria : meterias) {
+			for (MaterialInputArgs meteria : meterias) {
 				meteria.setProductId(productDto.getId());
 				meteriaService.add(meteria);
 			}
@@ -96,9 +99,9 @@ public class MeteriaInit {
 		return product;
 	}
 	
-	private MeteriaInputArgs createMeteria(int ordernum, File pic) {
+	private MaterialInputArgs createMeteria(int ordernum, File pic) {
 		JpegMultipartFile picFile=new JpegMultipartFile(pic);
-		MeteriaInputArgs meteria=new MeteriaInputArgs();
+		MaterialInputArgs meteria=new MaterialInputArgs();
 		meteria.setPicFile(picFile);
 		meteria.setOrdernum(ordernum);
 		return meteria;

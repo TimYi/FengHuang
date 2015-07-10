@@ -5,21 +5,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fenghuangzhujia.eshop.materialManage.brand.BrandService;
-import com.fenghuangzhujia.eshop.materialManage.brand.dto.BrandDto;
-import com.fenghuangzhujia.eshop.materialManage.brand.dto.BrandInputArgs;
+import com.fenghuangzhujia.eshop.materialManage.material.MaterialService;
+import com.fenghuangzhujia.eshop.materialManage.material.dto.MaterialDto;
+import com.fenghuangzhujia.eshop.materialManage.material.dto.MaterialInputArgs;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 
-@RestController(value="adminBrandController")
-@RequestMapping("admin/brand")
-public class BrandController extends SpecificationController<BrandDto, BrandInputArgs> {
+@RestController("adminMeteriaController")
+@RequestMapping("admin/meteria")
+public class MaterialController extends SpecificationController<MaterialDto, MaterialInputArgs> {
 
 	@Autowired
-	private BrandService service;
+	private MaterialService service;
 	
 	@Override
-	public BrandService getService() {
+	public MaterialService getService() {
 		return service;
 	}
 	

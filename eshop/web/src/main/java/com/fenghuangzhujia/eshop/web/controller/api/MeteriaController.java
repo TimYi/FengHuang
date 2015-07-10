@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fenghuangzhujia.eshop.meteriaManage.brand.BrandService;
-import com.fenghuangzhujia.eshop.meteriaManage.brand.dto.BrandVo;
+import com.fenghuangzhujia.eshop.materialManage.brand.BrandService;
+import com.fenghuangzhujia.eshop.materialManage.brand.dto.BrandVo;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
 @RestController

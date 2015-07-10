@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fenghuangzhujia.eshop.meteriaManage.product.ProductService;
-import com.fenghuangzhujia.eshop.meteriaManage.product.dto.ProductDto;
-import com.fenghuangzhujia.eshop.meteriaManage.product.dto.ProductInputArgs;
+import com.fenghuangzhujia.eshop.materialManage.product.ProductService;
+import com.fenghuangzhujia.eshop.materialManage.product.dto.ProductDto;
+import com.fenghuangzhujia.eshop.materialManage.product.dto.ProductInputArgs;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 
