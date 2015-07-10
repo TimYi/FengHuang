@@ -1,20 +1,5 @@
-//用于构造集合对应的viewmodel
-/*function PagingViewModel(data){
-	//添加checked属性，默认为false
-	var results = data.result;
-	for(var i in results){
-		results[i].selected = false;
-	}
-	
-	data.result = results;
-	self = this;
-	self.size = ko.observable(data.size);
-	self.totalCount = ko.observable(data.totalCount);
-	self.totalPages = ko.observable(data.totalPages);
-	self.page = ko.observable(data.page);
-	self.result = ko.observableArray(data.result);
-}*/
-//用于构造单个对象对应的viewmodel
+
+var MATERIAL_BRAND = 'brand';
 
 function PagingJson2ViewModel(data){
 

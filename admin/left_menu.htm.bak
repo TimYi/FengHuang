@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>左侧菜单</title>
+<link href="assets/css/menu.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/tinyscrollbar.js"></script>
+<script type="text/javascript" src="assets/js/leftmenu.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript">
+	var MODULE_WORKER_URL = MODULE_HOST_URL + "workerlist.htm";//方便天明，没有加到global_url里去
+	var MODULE_MATERIAL_BRAND_URL = MODULE_HOST_URL + "materialbrandlist.htm";
+	var MODULE_MATERIAL_TYPE_URL = MODULE_HOST_URL + "materialtypelist.htm";
+	var MODULE_MATERIAL_URL = MODULE_HOST_URL + "materiallist.htm";
+	function openUsrMgr(){		
+		window.parent.frames["main"].location.href=MODULE_USR_URL;
+	}
+	function openGroupMgr(){		
+		window.parent.frames["main"].location.href=MODULE_GROUP_URL;
+	}
+	function openRoleMgr(){		
+		window.parent.frames["main"].location.href=MODULE_ROLE_URL;
+	}
+	function openMsgMgr(){		
+		window.parent.frames["main"].location.href=MODULE_MSG_URL;
+	}
+	function openAppointMgr(){		
+		window.parent.frames["main"].location.href=MODULE_APPOINT_URL;
+	}
+	function openCaseMgr(){		
+		window.parent.frames["main"].location.href=MODULE_CASE_URL;
+	}
+	function openLiveMgr(){		
+		window.parent.frames["main"].location.href=MODULE_LIVE_URL;
+	}
+	function openCouponDef(){		
+		window.parent.frames["main"].location.href=MODULE_COUPON_DEF;
+	}
+	function openCouponMgr(){		
+		window.parent.frames["main"].location.href=MODULE_COUPON_URL;
+	}
+	function openPackageMgr(){		
+		window.parent.frames["main"].location.href=MODULE_PACKAGE_URL;
+	}
+	function openCommentItemMgr(){		
+		window.parent.frames["main"].location.href=MODULE_COMMENTITEM_URL;
+	}
+	function openOrderMgr(){		
+		window.parent.frames["main"].location.href=MODULE_ORDER_URL;
+	}
+	function openMenuMgr(){		
+		window.parent.frames["main"].location.href=MODULE_MENU_URL;
+	}
+	function openArticleMgr(){		
+		window.parent.frames["main"].location.href=MODULE_ARTICLE_URL;
+	}
+	function openWorkerMgr(){		
+		window.parent.frames["main"].location.href=MODULE_WORKER_URL;
+	}
+	function openMaterialBrandMgr(){		
+		window.parent.frames["main"].location.href=MODULE_MATERIAL_BRAND_URL;
+	}
+	function openMaterialTypeMgr(){		
+		window.parent.frames["main"].location.href=MODULE_MATERIAL_TYPE_URL;
+	}
+	function openMaterialMgr(){		
+		window.parent.frames["main"].location.href=MODULE_MATERIAL_URL;
+	}
+
+</script>
+</head>
+<body>
+<div style="height:20px"></div>
+<div id="scrollmenu">
+	<div style="height: 352px;" class="scrollbar disable">
+		<div style="height: 352px;" class="track">
+			<div style="top: 0px; height: 352px;" class="thumb">
+				<div class="end"></div>
+			</div>
+		</div>
+	</div>
+	<div style="height: 352px;" class="viewport">
+		<div style="top: 0px;" class="overview"> 
+			<!--scrollbar start-->
+			<div class="menubox">
+				<div class="title on" id="t1" onclick="DisplayMenu('leftmenu01');" title="点击切换显示或隐藏"> 系统模块管理 </div>
+				<div id="leftmenu01"> 
+					<a href="#" onclick ="javascript:openMenuMgr();return false;"  target="main">栏目管理</a> 
+					<a href="#" onclick ="javascript:openArticleMgr();return false;"  target="main">文章管理</a> 
+					<!--a href="http://123.57.218.171/admin/admin.php" target="main">管理员管理</a> 
+					<a href="http://123.57.218.171/admin/site.php" target="main">站点配置管理</a> 
+					<a href="http://123.57.218.171/admin/web_config.php" target="main">网站信息配置</a> 
+					<a href="http://123.57.218.171/admin/upload_filemgr_sql.php" target="main">上传文件管理</a>
+					<a href="http://123.57.218.171/admin/database_backup.php" target="main">数据库管理</a> 
+					<a href="http://123.57.218.171/admin/admingroup.php" target="main" title="管理组管理" class="admingroup"></a--> 
+				</div>
+			</div>
+			<div class="hr_5"></div>
+			<div class="menubox">
+				<div class="title" onclick="DisplayMenu('leftmenu02');" title="点击切换显示或隐藏"> 用户模块管理 </div>
+				<div id="leftmenu02" style="display:none"> 
+					 <!--a href="#" target="main">工人管理</a>
+					 <a href="#" target="main">设计师管理</a>
+					 <a href="#" target="main">导购管理</a>					 					 
+					<div class="hr_1"> </div-->
+					<a href="#" onclick ="javascript:openUsrMgr();return false;"  target="main">用户管理</a> 
+					<a href="#" onclick ="javascript:openGroupMgr();return false;"  target="main">用户组</a> 
+					<a href="#" onclick ="javascript:openWorkerMgr();return false;"  target="main">工人管理</a> 
+					<a href="#" onclick ="javascript:openRoleMgr();return false;"  target="main">角色管理</a> 
+					<!--a href="#" target="main">用户收藏</a--> 
+					<a href="#" onclick ="javascript:openCommentItemMgr();return false;"  target="main">用户评论</a>
+					<a href="#" onclick ="javascript:openMsgMgr();return false;"  target="main">用户留言</a>
+				</div>
+			</div>
+			<div class="hr_5"></div>
+			<div class="menubox">
+				<div class="title" onclick="DisplayMenu('leftmenu03');" title="点击切换显示或隐藏"> 订单模块管理 </div>
+				<div id="leftmenu03" style="display:none"> 
+					 <!--a href="#" target="main">家装套餐管理</a-->
+					 <a href="#" onclick ="javascript:openPackageMgr();return false;"  target="main">套餐管理</a>
+					 <a href="#" onclick ="javascript:openAppointMgr();return false;"  target="main">预约管理</a>
+					 <a href="#" onclick ="javascript:openOrderMgr();return false;"  target="main">订单管理</a>					 					 
+					<!--div class="hr_1"> </div>
+					<a href="#" target="main">类型管理</a--> 
+				</div>
+			</div>
+			<div class="hr_5"></div>
+			<div class="menubox">
+				<div class="title" onclick="DisplayMenu('leftmenu04');" title="点击切换显示或隐藏"> 案例模块管理 </div>
+				<div id="leftmenu04" style="display:none"> 
+					 <a href="#" onclick ="javascript:openCaseMgr();return false;"   target="main">案例管理</a>
+					 <!--a href="#" target="main">案例类型管理</a-->
+				</div>
+			</div>
+			<div class="hr_5"></div>
+			<div class="menubox">
+				<div class="title" onclick="DisplayMenu('leftmenu05');" title="点击切换显示或隐藏"> 直播厅模块管理 </div>
+				<div id="leftmenu05" style="display:none"> 
+					 <a href="#" onclick ="javascript:openLiveMgr();return false;" target="main">直播厅管理</a>
+					 <!--a href="#" target="main">直播厅类型管理</a-->
+				</div>
+			</div>
+			<!--div class="hr_5"></div>
+			<div class="menubox">
+				<div class="title" onclick="DisplayMenu('leftmenu06');" title="点击切换显示或隐藏"> 体验馆模块管理 </div>
+				<div id="leftmenu06" style="display:none"> 
+					 <a href="#" target="main">体验馆管理</a>
+					 <a href="#" target="main">体验馆类型管理</a>
+				</div>
+			</div-->
+			<div class="hr_5"></div>
+			<div class="menubox">
+				<div class="title" onclick="DisplayMenu('leftmenu07');" title="点击切换显示或隐藏"> 优惠券模块管理 </div>
+				<div id="leftmenu07" style="display:none"> 
+					<a href="#" onclick ="javascript:openCouponDef();return false;"  target="main">优惠券定义</a>
+					<a href="#" onclick ="javascript:openCouponMgr();return false;"  target="main">优惠券管理</a>					
+				</div>
+			</div>		
+			<div class="hr_5"></div>
+			<div class="menubox">
+				<div class="title" onclick="DisplayMenu('leftmenu08');" title="点击切换显示或隐藏"> 装修材料管理 </div>
+				<div id="leftmenu08" style="display:none"> 
+					<a href="#" onclick ="javascript:openMaterialBrandMgr();return false;"  target="main">材料品牌</a>					
+					<a href="#" onclick ="javascript:openMaterialTypeMgr();return false;"  target="main">材料分类</a>					
+					<a href="#" onclick ="javascript:openMaterialMgr();return false;"  target="main">材料管理</a>					
+				</div>
+			</div>
+			<div class="hr_5"></div>
+		
+			<!--div class="menubox">
+				<div class="title" onclick="DisplayMenu('leftmenu08');" title="点击切换显示或隐藏"> 界面模块管理 </div>
+				<div id="leftmenu08" style="display:none"> 
+					 <a href="#" target="main">导航菜单管理</a>
+					 <a href="#" target="main">快捷方式管理</a>
+					 <a href="#" target="main">单页管理</a>					 
+				</div>
+			</div>
+			<div class="hr_5"></div>
+			<div class="menubox">
+				<div class="title" onclick="DisplayMenu('leftmenu09');" title="点击切换显示或隐藏"> 帮助指南 </div>
+				<div id="leftmenu09" style="display:none"> 
+					 <a href="#" target="main">操作日志</a>
+					 <a href="#" target="main">数据统计</a>
+					 <a href="#" target="main">说明指南</a>					 
+				</div>
+			</div>						
+			<!--scrollbar end--> 
+		</div>
+	</div>
+</div>
+<div class="bGradient"></div>
+
+<div class="copyright"> © 2015 <a href="http://www.ifhzj.com/" target="_blank">phoenixzj.com</a><br>
+	All Rights Reserved. </div>
+
+</body></html>

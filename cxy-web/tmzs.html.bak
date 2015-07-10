@@ -1,0 +1,411 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+		<title>凤凰筑家 | ifhzj.com</title>
+		<!-- core CSS -->
+    <link href="assets/css/bootstrap.min1.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/animate.min.css" rel="stylesheet">
+    <link href="assets/css/prettyPhoto.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="assets/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+
+<body class="homepage">
+<!-- header-->
+<header id="header" style="border-bottom:1px solid #f6f6f6;">
+    <div class="top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-xs-4">
+                    <div class="top-number">
+                    	<p>
+                    		<i class="fa fa-phone-square"></i>
+                    		<span style="color:#666">&nbsp;&nbsp;400-968-9088</span>
+                    		&nbsp;&nbsp;&nbsp;&nbsp;
+                    		<i class="fa fa-map-marker"></i>
+                    		<span style="color:#666">&nbsp;&nbsp;<span id="city">定位获取中...</span> <!--span style="font-size:12px;color:#aaa">[ <a href="">切换</a> ]</span--></span>
+                    	</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-8">
+                   <div class="social">
+                        <ul id="loginstatus" class="social-share">
+				<li style="padding-right:10px;">
+					<i class="fa fa-sign-in hui"></i>
+					<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
+						<a href="center/reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
+						<a href="center/login.html" style="width:30px">登录</a>
+					</b>
+				</li>
+                        </ul>
+                   </div>
+                </div>
+            </div>
+        </div><!--/.container-->
+    </div><!--/.top-bar-->
+
+    <nav class="navbar navbar-inverse" role="banner" style="height:85px">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="assets/images/fhzj.jpg" alt="logo"></a>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li class=""><a href="index.html">首页</a></li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">家装套餐 <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="tc_799.html">软装套餐</a></li>
+                            <li style="padding:0 5px;margin:5px 0;border-bottom:1px solid #555"></li>
+                            <li><a href="tmzs.html">流程展示</a></li>
+                            <li><a href="gyzs.html">工艺展示</a></li>
+                            <li><a href="zczs.html">主材展示</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="jzd.html">家装贷</a></li>
+                    <li><a href="tyg.html">体验馆</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">案例 / Live直播 <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="case.html">案例集锦</a></li>
+                            <li><a href="live.html">家装进行时</a></li>
+                        </ul>
+                    </li>
+										<li style="border:0px"><a href="fhgj.html">凤凰管家</a></li>
+                </ul>
+            </div>
+        </div><!--/.container-->
+    </nav>
+</header><!--/header-->
+<link rel="stylesheet" href="assets/css/index.css" type="text/css" media="screen" />
+<div class="service_box">
+  <ul class="tab_nav">
+    <li class="qqicon"><a href="#"><i class="icon icon_1"></i></a></li>
+    <li class="weixinicon"><a href="#"><i class="icon icon_3"></i></a></li>
+  </ul>
+  <div class="tab_content1">
+    <div class="tab_plan">
+      <p class="fs14">售前客服<br />
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=932321904&amp;site=qq&amp;menu=yes" class="qq_link"><img border="0" src="http://wpa.qq.com/pa?p=2:2833026848:51" alt="点击这里给我发消息" title="点击这里给我发消息"></a></p>
+      <p class="fs14 mt10">售中客服<br />
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=50695843&amp;site=qq&amp;menu=yes" class="qq_link"><img border="0" src="http://wpa.qq.com/pa?p=2:123456789:51" alt="点击这里给我发消息" title="点击这里给我发消息"></a></p>
+      <p class="fs14 mt10">售后客服<br />
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=932321904&amp;site=qq&amp;menu=yes" class="qq_link"><img border="0" src="http://wpa.qq.com/pa?p=2:2833026848:51" alt="点击这里给我发消息" title="点击这里给我发消息"></a></p>
+			<p class="mt10"><b>电话客服</b><br />
+				400-968-9088<br />
+			</P>
+      <p class="mt10"><b>服务时间</b><br />
+        9:00-18:00(工作日)<br />
+      </p>
+    </div>
+    <div class="tab_plan" style="display: none;"><img src="assets/images/weixin.jpg" alt="官方微信自助客服" width="130" height="130">
+      <p>关注凤凰筑家</p>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(".service_box .tab_nav li").hover(function(){
+	var i=$(this).index();
+	$(this).addClass("active").siblings().removeClass("active");
+	$(".service_box .tab_plan:eq("+i+")").show().siblings().hide();
+});
+$(function(){
+	var t;
+	$(".service_box").hover(function(){
+		$(".service_box").animate({right:0},300)
+		clearTimeout(t);
+	},function(){
+		t=setTimeout(function(e){
+			$(".service_box").animate({right:"-146px"},300);
+			$(".service_box").find(".tab_nav li").removeClass("active");
+		},1000);
+	});
+});
+var isTransition=true;
+$(".m_logo").hover(function(){
+	var r=0;
+	if(isTransition){
+		animateTime = setInterval(function(){
+			if (r>=153){
+				clearInterval(animateTime);
+				isTransition=true;
+			}else{
+				isTransition=false;
+				r++;
+				$(".m_logo a").attr("style","-webkit-mask:-webkit-gradient(radial, 45 25, "+r+", 45 25, "+(r+15)+", from(rgb(0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0.2)), to(rgb(0, 0, 0)));")
+			};
+		},5);
+	}
+},function(){
+	return;
+});
+</script>
+<!--header-->
+
+    <section id="main-slider" class="no-margin">
+        <div class="carousel slide">
+            <ol class="carousel-indicators">
+                <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+                <li data-target="#main-slider" data-slide-to="1"></li>
+            </ol>
+
+            <div class="carousel-inner">
+                <div class="item active" style="background-image: url(assets/images/slider/d_5.jpg)">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">35天筑新家</h1>
+                                    <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">
+                                    		绝不偷工减料 绝不压缩工期<br/>
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item" style="background-image: url(assets/images/slider/d_6.jpg)">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">35天筑新家</h1>
+                                    <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">
+                                    		绝不偷工减料 绝不压缩工期<br/>
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.carousel-inner-->
+        </div><!--/.carousel-->
+        <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+            <i class="fa fa-chevron-left"></i>
+        </a>
+        <a class="next hidden-xs" href="#main-slider" data-slide="next">
+            <i class="fa fa-chevron-right"></i>
+        </a>
+    </section><!--/#main-slider-->
+
+    <section id="feature"  style="margin-top:10px;">
+        <div class="container">
+           	<div class="center wow fadeInDown">
+                <h2>35天工期<span style="font-size:24px"> 35 DAYS</span></h2>
+                <p class="lead">施工步骤紧密衔接，拒绝浪费时间，保证在35天内就为您完成装修，用最高效的方式让您享受最好最快的家装体验。<br/>55项标准节点和标准操作项目，三大改革装修不再磨洋工</p>
+            </div>
+            <div class="center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+            		<img src="assets/images/step55.gif">
+            </div>
+        </div><!--/.container-->
+    </section><!--/#feature-->
+
+		<section  style="background:#f9f9f9">
+		    <div class="container">
+		       	<div class="center wow fadeInDown">
+		            <h2>我们为什么要35天？<span style="font-size:24px"> WHY SO MANY DAYS</span></h2>
+		            <p class="lead">为保障工程质量，我们的施工遵循标准化的施工工艺及流程</p>
+		        </div>
+								<div class="carousel-inner">
+										<div class="item active">
+											<table class="table u_ct_15">
+										    <tr style="border-top:2px solid #f9f9f9">
+										    	<th width="150">周期</th>
+										    	<th>施工流程</th>
+										    </tr>
+										    <tr style="border-top:2px solid #ccc">
+										    	<td>第1天</td>
+										    	<td>屋内强弱电及上下水检测</td>
+										    </tr>
+										    <tr>
+										    	<td>第2~4天</td>
+										    	<td>水电放线、开槽、布线，完工后监理验收</td>
+										    </tr>
+										    <tr>
+										    	<td>第5~12天</td>
+										    	<td>瓦工进场，包立管，卫生间、厨房墙面处理，卫生间地面、墙面防水（48小时闭水实验），厨房、卫生间墙面贴砖（卫生间防水无问题），地面找平（铺地板前，地面需完全干透，预防地板及踢脚线受潮膨胀起鼓，一般夏季10-15天，冬季15-20天），完工后监理验收</td>
+										    </tr>
+										    <tr>
+										    	<td>第13~14天</td>
+										    	<td>地面保养两天，预防其他工种踩踏破坏地面</td>
+										    </tr>
+										    <tr>
+										    	<td>第15~25天</td>
+										    	<td>油工进场，墙顶面基层处理，批刮腻子（2-3层），打磨刷漆（刷漆前墙面需完全干透，严禁雨天刷漆，为保障墙面干透，每层腻子需要间隔1-2天），完工后监理验收</td>
+										    </tr>
+										    <tr>
+										    	<td>第26天</td>
+										    	<td>厨房卫生间吊顶、浴霸安装</td>
+										    </tr>
+										    <tr>
+										    	<td>第27天</td>
+										    	<td>橱柜安装、烟机灶具安装</td>
+										    </tr>
+										    <tr>
+										    	<td>第28天</td>
+										    	<td>室内门安装</td>
+										    </tr>
+										    <tr>
+										    	<td>第29天</td>
+										    	<td>卫生间洁具安装、开关面板安装及卫生间小五金安装第30-32天 地板安装（由于季节和地域特性，地面干燥时间需视实际情况而定）</td>
+										    </tr>
+										    <tr>
+										    	<td>第30~32天</td>
+										    	<td>地板安装（由于季节和地域特性，地面干燥时间需视实际情况而定）</td>
+										    </tr>
+										    <tr>
+										    	<td>第33天</td>
+										    	<td>灯具安装</td>
+										    </tr>
+										    <tr>
+										    	<td>第34天</td>
+										    	<td>开荒前进行主材安装监理验收，验收后进行开荒保洁</td>
+										    </tr>
+										    <tr>
+										    	<td>第35天</td>
+										    	<td>业主验收交房</td>
+										    </tr>
+
+
+											</table>
+									  </div>
+			        	</div>
+			      </div>
+				</div>
+		</section>
+
+
+<!--footer-->
+<!--联系电话-->
+<script src="js/tel.js"></script>
+
+<section id="bottom" style="padding:40px 0">
+    <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+        <div class="row">
+            <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:185px;margin-right:35px">
+                <div class="widget">
+                    <h3>帮助中心</h3>
+                    <ul>
+                        <li><a href="newsshow.html?cid=21&id=22">服务指南</a></li>
+                        <li><a href="newsshow.html?cid=21&id=23">支付方式</a></li>
+                        <li><a href="newsshow.html?cid=21&id=24">常见问题</a></li>
+                    </ul>
+                </div>
+            </div><!--/.col-md-3-->
+
+            <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
+                <div class="widget">
+                    <h3>服务支持</h3>
+                    <ul>
+                        <li><a href="newsshow.html?cid=22&id=25">售后政策</a></li>
+                        <li><a href="newsshow.html?cid=22&id=26">自助服务</a></li>
+                        <li><a href="newsshow.html?cid=22&id=27">相关下载</a></li>
+                    </ul>
+                </div>
+            </div><!--/.col-md-3-->
+
+            <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
+                <div class="widget">
+                    <h3>凤凰之家</h3>
+                    <ul>
+                        <li><a href="newsshow.html?cid=23&id=28">会员俱乐部</a></li>
+                        <li><a href="newsshow.html?cid=23&id=29">会员活动</a></li>
+                        <li><a href="newsshow.html?cid=23&id=30">VIP服务</a></li>
+                    </ul>
+                </div>
+            </div><!--/.col-md-3-->
+
+            <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
+                <div class="widget">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="newsshow.html?cid=24&id=31">联系我们</a></li>
+                        <li><a href="newsshow.html?cid=24&id=32">了解我们</a></li>
+                        <li><a href="newsshow.html?cid=24&id=33">加入我们</a></li>
+                    </ul>
+                </div>
+            </div><!--/.col-md-3-->
+
+            <div class="col-md-3 col-sm-6" style="width:190px;margin-right:45px">
+                <div class="widget">
+                    <h3>官方媒体</h3>
+                    <ul>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">天猫网店</a></li>
+                    </ul>
+                </div>
+            </div><!--/.col-md-3-->
+        </div>
+    </div>
+</section><!--/#bottom-->
+
+<footer id="footer" class="midnight-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                &copy; 2015 厦门凤凰筑家网络科技有限公司 保留所有权利
+            </div>
+            <div class="col-sm-6">
+                <ul class="pull-right">
+                    <li><a href="#">闽ICP备15010680号-1</a></li-->
+                    <!--li><a href="#">京网文29239-12312</a></li-->
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer><!--/#footer-->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=9Z4yvIoj9jnpKfPA4igxxbLP"></script>
+<div id="allmap"></div>
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");
+	var point = new BMap.Point(116.331398,39.897445);
+	map.centerAndZoom(point,12);
+
+	function myFun(result){
+		var cityName = result.name;
+		map.setCenter(cityName);
+		$("#city").html(cityName);
+	}
+	var myCity = new BMap.LocalCity();
+	myCity.get(myFun);
+</script>
+<!--footer-->
+
+
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.prettyPhoto.js"></script>
+    <script src="assets/js/jquery.isotope.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="libs/json.js"></script>
+<script src="libs/base.js"></script>
+<script src="libs/utils.js"></script>
+</body>
+</html>

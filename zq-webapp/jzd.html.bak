@@ -1,0 +1,229 @@
+﻿<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>家装贷</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <style>
+    .am-tabs-default .am-tabs-nav {
+        line-height: 40px;
+        background-color: #fff;
+        margin-top: 10px;
+    }
+    
+    .am-tabs-default .am-tabs-nav a {
+        color: #ccc;
+        line-height: 45px;
+    }
+    
+    .am-tabs-default .am-tabs-nav > .am-active a {
+        background-color: #fff;
+        color: #0e90d2;
+        box-shadow: inset -1px 0 1px -1px #999;
+    }
+    
+    .x {
+        box-shadow: inset -1px 0 1px -1px #999;
+    }
+    
+    .ttt {
+        font-size: 13px;
+        margin-top: -15px;
+        color: #666
+    }
+    </style>
+</head>
+
+<body>
+    <!--banner+menu start-->
+    <div data-am-sticky>
+        <header data-am-widget="header" class="am-header am-header-default" style="border-top:1px solid #000111;background:#000;">
+            <div class="am-header-left am-header-nav">
+                <img src="images/logo.png" style="width:152px;height:18px;margin-top:-5px">
+            </div>
+            <div class="am-header-right am-header-nav">
+                <a id="uCenter" href="javascript:void(0)" class="am-menu-toggle">
+                    <i class="am-menu-toggle-icon am-icon-user" style="font-size:20px;padding-right:50px"></i>
+                </a>
+            </div>
+        </header>
+        <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
+            <a href="javascript: void(0)" class="am-menu-toggle">
+                <i class="am-menu-toggle-icon am-icon-bars"></i>
+            </a>
+            <div class="am-offcanvas">
+                <div class="am-offcanvas-bar" style="background:#333 none repeat scroll 0 0">
+                    <ul class="am-menu-nav sm-block-grid-1">
+                        <li class="">
+                            <a href="index.html">首页</a>
+                        </li>
+                        <li class="am-parent">
+                            <a href="#c3">家装套餐</a>
+                            <ul class="am-menu-sub am-collapse am-avg-sm-1">
+                                <li class="">
+                                    <a href="jztc.html?pt=0">699元家装套餐</a>
+                                </li>
+                                <li class="">
+                                    <a href="jztc.html?pt=1">软装套餐</a>
+                                </li>
+                                <li class="">
+                                    <a href="fwzs.html?pt=0">流程展示</a>
+                                </li>
+                                <li class="">
+                                    <a href="fwzs.html?pt=1">工艺展示</a>
+                                </li>
+                                <li class="">
+                                    <a href="fwzs.html?pt=2">主材展示</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="jzd.html">家装贷</a>
+                        </li>
+                        <li class="">
+                            <a href="tyg.html">体验馆</a>
+                        </li>
+                        <li class="">
+                            <a href="alzb.html?pt=0">案例集锦</a>
+                        </li>
+                        <li class="">
+                            <a href="alzb.html?pt=1">Live直播</a>
+                        </li>
+                        <li class="">
+                            <a href="fhgj.html">凤凰管家</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!--banner+menu end-->
+    <div data-am-widget="tabs" class="am-tabs am-tabs-default" style="width:100%;padding:0;margin:0">
+        <ul class="am-tabs-nav am-cf">
+            <li class="am-active x" style="line-height:10px;">
+                <a href="[data-tab-panel-0]">
+                    <i class="am-icon-bookmark" style="font-size:24px;"></i>
+                    <br />
+                    <div class="ttt">预约贷款</div>
+                </a>
+            </li>
+            <li class="x">
+                <a href="[data-tab-panel-1]">
+                    <i class="am-icon-calculator" style="font-size:24px;"></i>
+                    <br />
+                    <div class="ttt">贷款计算器</div>
+                </a>
+            </li>
+            <li class="" style="box-shadow:0;">
+                <a href="[data-tab-panel-2]">
+                    <i class="am-icon-gift" style="font-size:24px;"></i>
+                    <br />
+                    <div class="ttt">常见问题</div>
+                </a>
+            </li>
+        </ul>
+        <div class="am-tabs-bd" style="margin-top:10px;border:none; box-shadow:inset -1px 1px 1px -1px #999;padding:5px;">
+            <div data-tab-panel-0 class="am-tab-panel am-active">
+                <div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;display:none;">
+                    <a href="javascript:;" id="buynow" onclick="Buy_jzd();">
+                        <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即申请</div>
+                    </a>
+                </div>
+                <p style="font-size:14px;line-height:18px;">
+                    <b>门槛超低：</b>免抵押、免担保、免资产证明
+                    <br/>
+                    <b>申请简易：</b>全程在线操作，通过率大于95%
+                    <br/>
+                    <b>审批快速：</b>绿色贷款通道，最快1天完成审核
+                    <br/>
+                    <b>额度灵活：</b>循环授信额度，最高可贷20万
+                    <br/>
+                    <b>免手续费：</b>提前还款，0手续费，0服务费
+                    <br/>
+                </p>
+                <hr/>
+                <p style="font-size:14px;line-height:18px;color:#666">
+                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">申请流程 APPLICATION PROCESS</span></b>
+                    <br/>
+                    <br/> 1. 申请家装套餐　　　　2. 提交贷款申请
+                    <br/> 3. 审批通过获得额度　　4. 签订还款协议
+                    <br/> 5. 支付装修券
+                    <br/>
+                </p>
+                <hr/>
+            </div>
+            <div data-tab-panel-1 class="am-tab-panel ">
+                <form class="am-form loan-cal">
+                    <p style="font-size:14px;line-height:26px;color:#333;font-weight:800">
+                        贷款金额：<em id="dkje">0</em> 元<br/>
+                        贷款周期：<em id="dkzq">0</em> 期<br/>
+                        本息合计：<em id="bxhj">0</em> 元<br/>
+                        每月还款：<em id="myhk">0</em> 元
+                    </p>
+                    <hr/>
+                    <p style="font-size:14px;line-height:18px;">
+                        平均月息低于80元（借1万12期还）
+                        <div class="am-form-group">
+                            <input type="number" id="inputmoney" placeholder="贷款金额" required="" style="border-color:#e0e0e0;">
+                            <span class="input-group-addon"><span style="font-size:16px;margin-left:2px;font-weight:400">元</span></span>
+                        </div>
+                        <div class="am-form-group am-form-select">
+                            <select id="timeselect" name="zhuangxiu" class="u_sel">
+                                <option value="12" selected="selected">12期（1年4%）</option>
+                                <option value="24">24期（2年8%）</option>
+                                <option value="36">36期（3年12%）</option>
+                            </select>
+                        </div>
+                        <div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                            <a href="javascript:;">
+                                <div id="countbtn" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">计算还款金额</div>
+                            </a>
+                        </div>
+                    </p>
+                </form>
+            </div>
+            <div data-tab-panel-2 class="am-tab-panel ">
+                <p style="font-size:14px;line-height:18px;">
+                    <b>问：什么是凤凰筑家装修贷？</b>
+                    <br/> 答：您好。凤凰筑家装修贷由凤凰筑家与消费金融有限公司共同合作推出，是一款利率超低、额度高、期限灵活、免抵押免担保，专门为用户解决装修资金周转难的装修贷款分期产品。
+                    <br/>
+                    <br/><b>问：凤凰筑家装修贷有什么优势？</b>
+                    <br/> 答：免抵押，免担保，额度最高可达20万；日利率低至万分之4.75；提前还款“0”手续费；全程在线申请，简单便捷，省时高效。
+                    <br/>
+                    <br/>
+                    <b>问：申请凤凰筑家装修贷需要什么条件？</b>
+                    <br/> 答：您好。只要您是凤凰筑家的用户，并且申请家装套餐，就可以在线申请凤凰筑家装修贷。
+                    <br/>
+                    <br/><b>问：已经发布了装修项目，该如何申请？</b>
+                    <br/> 答：您好。您可以在本页面点击“立即申请装修贷”按钮提交贷款申请。
+                    <br/>
+                    <br/><b>问：利息是从什么时候开始计算的？</b>
+                    <br/> 答：您好。获得贷款额度后，如果还没有支付装修款项或取现，则不产生任何利息。利息是从您支付装修款项或取现当天开始计算，您使用多少天就支付多少天的利息。
+                    <br/>
+                    <br/><b>问：如果提前还款会收手续费吗？</b>
+                    <br/> 答：您好。凤凰筑家装修贷提前还款，不收取任何手续费或者违约金。您可以在任何时间提前还款，利息也只按照您实际贷款天数计算。
+                </p>
+                <!--div class="animation animated-item-3" style="margin:0 auto;margin-top:15px;margin-bottom:15px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+        <a href="javascript:;" id="buynow" onclick="Buy_699();" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div></a>
+      </div-->
+            </div>
+        </div>
+    </div>
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/amazeui.min.js"></script>
+    <script src="js/libs/json.js"></script>
+    <script src="js/libs/base.js"></script>
+    <script src="js/libs/utils.js"></script>
+    <script src="js/jzd.js"></script>
+</body>
+
+</html>

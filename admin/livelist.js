@@ -48,7 +48,8 @@ function bindData(data){
 	total = data.totalCount;
 	var results = data.result;
 	for(var i in results){
-		results[i].selected = false;		
+		results[i].selected = false;
+		results[i].shouldShowDisp = results[i].shouldShow?'可见':'不可见'	
 	}
 	dataModel = ko.mapping.fromJS(data);
 	

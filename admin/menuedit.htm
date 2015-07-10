@@ -75,21 +75,21 @@ function afterGetDataById(data){
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tbody>
 			<tr>
-				<td align="right" width="25%" height="40">ID:</td>
+				<td align="right" width="25%" height="40">ID：</td>
 				<td width="75%" ><span data-bind='text:id'></span></td>
 			</tr>
 			<tr>
-				<td align="right" width="25%" height="40">名称:</td>
-				<td width="75%" ><input name='name' type="text" data-bind='value:name'></td>
+				<td align="right" width="25%" height="40">名称：</td>
+				<td width="75%" ><input name='name' type="text" data-bind='value:name' class="input"></td>
 			</tr>
 			<tr>
-				<td align="right" width="25%" height="40">描述:</td>
-				<td width="75%" ><input name='description' type="text" data-bind='value:description'></td>
+				<td align="right" width="25%" height="40">描述：</td>
+				<td width="75%" ><input name='description' type="text" data-bind='value:description' class="input"></td>
 			</tr>
 			<tr>
-				<td align="right"  height="40">上级品牌类型:</td>
-				<td  ><select data-bind="value:type,options:menuTypeDic,optionsText:'name',optionsCaption: '请选择...'">
-				</select><input type="text" name='typeid' data-bind="value:type()?type().id:''"></td>
+				<td align="right"  height="40">上级品牌类型：</td>
+				<td  ><select data-bind="value:type,options:menuTypeDic,optionsText:'name',optionsCaption: '请选择...'" class="input">
+				</select><input type="hidden" name='typeid' data-bind="value:type()?type().id:''" class="input"></td>
 			</tr>		
 		</tbody>
 	</table>

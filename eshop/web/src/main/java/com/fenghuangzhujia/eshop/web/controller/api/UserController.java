@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fenghuangzhujia.eshop.appoint.AppointService;
 import com.fenghuangzhujia.eshop.collect.CollectService;
@@ -87,6 +88,20 @@ public class UserController {
 		messageManager.validate(mobile, validater);
 		userService.bindMobile(userid, mobile);
 		return RequestResult.success("绑定成功").toJson();
+	}
+	
+	/**
+	 * 绑定用户手机号码
+	 * @param mobile
+	 * @param validater
+	 * @return
+	 */
+	@RequestMapping(value="user/changeAvatar",method=RequestMethod.POST)
+	public String changeAvatar(MultipartFile avatar) {
+		SimpleUserDetails details=AuthenticationService.getUserDetail();
+		String userid=details.getId();
+		userService.changeAvater(userid, avatar);
+		return RequestResult.success("上传成功").toJson();
 	}
 	
 	/**

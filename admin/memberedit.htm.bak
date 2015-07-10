@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>编辑用户</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/json2.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript">
+var viewModel;
+var sexDic;
+var bloodTypeDic;
+var constellationDic;
+function afterGetSexDic(data){
+	sexDic = data.result;
+	$.getJSON(CATEGORY_QUERY+'constellation',afterGetConstellationDic);
+	
+}
+function afterGetConstellationDic(data){
+	constellationDic = data.result;
+	$.getJSON(CATEGORY_QUERY+'blood',afterGetBloodTypeDic);
+		
+}
+function afterGetBloodTypeDic(data){	
+	bloodTypeDic = data.result;
+		//第一步：先获取id	
+	var id = getUrlParam(window.location.search,"id");
+	//再根据id获取对应的数据
+	getDataById(MEMBER_MEMBER_LIST,id,afterGetDataById);
+}
+function onload(){
+	
+	$.getJSON(CATEGORY_QUERY+'sex',null,afterGetSexDic);
+}
+function afterGetDataById(data){
+	
+	//先判断并处理错误数据
+	if(!isErrorData(data)){
+
+		//数据正确时进行绑定
+	 	viewModel = ko.mapping.fromJS(data.result);
+	 	//alert(typeof viewModel.sex);
+	 	if(typeof viewModel.sex !== 'function'){
+	 		//注意：sex 为 null时，是function ,不为null时是object
+		 	for(var i in sexDic){
+		 			 			//alert(sexDic[i].id+"==="+viewModel.sex.id());
+		 		if(sexDic[i].id === viewModel.sex.id()){
+		 			viewModel.sex = ko.observable(sexDic[i]);
+		 			break;
+		 		}
+		 	}
+	 	}
+	 	//alert(3);
+	 	if(typeof  viewModel.bloodType !== 'function'){
+	 	
+		 	for(var i in bloodTypeDic){
+		 		if(bloodTypeDic[i].id === viewModel.bloodType.id()){
+		 			viewModel.bloodType = ko.observable(bloodTypeDic[i]);
+		 			break;
+		 		}
+		 	}
+	 	}
+	 	//alert(2);
+	 	if(typeof viewModel.constellation !== 'function'){
+	 	
+		 	for(var i in constellationDic){
+		 		
+		 		if(constellationDic[i].id === viewModel.constellation.id()){
+		 			viewModel.constellation =ko.observable(constellationDic[i]);
+		 			break;
+		 		}
+		 	}
+	 	}
+	  	//	alert(1);
+		viewModel.submit = function(){	 		
+	 		var  url = genUrl(MEMBER_MEMBER_LIST)+'/'+viewModel.id();		
+	 		var files = $('input[name="avatarFile"]').prop('files');//获取到文件列表
+			if(files.length == 0){
+			  	submitAsyFormByJson(url, 'form', 
+					function(data){		 			
+			 			friendlyTip(data);
+			 			window.location.href='memberlist.htm';
+		 		 	});
+			}else{	 
+		 		submitFormWithMultipart(url,'form',
+			 		function(formData, jqForm, options){
+			 			//判断是否要上传文件，若不需要上传文件时			 			
+			 			return true;  
+			 		} 			 		
+			 		,function(data){			 			
+			 			friendlyTip(data);
+			 			window.location.href='memberedit.htm?id='+viewModel.id();
+			 		}
+			 	);
+	 		}	 		
+	 	}
+	 	/*viewModel.submit = function(){
+			var birthDay = document.getElementById("birthDay").value;
+			viewModel.birthDay(birthDay);
+	 		var modelObj = ko.mapping.toJS(viewModel);	 		
+	 		if(typeof viewModel.bloodType !== 'function'){	 			
+	 			modelObj.bloodTypeId = viewModel.bloodType().id;
+	 		}
+	 		if(typeof viewModel.sex !== 'function'){
+	 			modelObj.sexId = viewModel.sex().id;
+	 		}
+	 		if(typeof viewModel.constellation !== 'function'){	 		
+	 			modelObj.constellationId = viewModel.constellation().id;
+	 		}
+	 		modelObj.password = '1';
+	 		var  url = genUrl(MEMBER_MEMBER_LIST)+'/'+modelObj.id;
+	 	//	var url = "http://101.200.229.135:8080/api/admin/user/"+modelObj.id+"?";	 	
+	 		$.post(url,modelObj,function(data){
+	 			
+	 			var dataObj = JSON.parse(data);
+	 			friendlyTip(dataObj);
+	 		});
+	 	};*/
+	 	//viewModel.selectableTypes.push(selectedType);
+		ko.applyBindings(viewModel);
+	}
+}
+</script>
+</head>
+<body onload="onload()">
+<div class="formHeader">
+ <span class="title">编辑用户</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
+</div>
+<form name="form" id="form" enctype="multipart/form-data"  method="post">
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td width="25%" align="right"  height="40">用户名：</td>
+				<td width="75%" ><span data-bind="value:username"></span></td>
+			</tr>	
+			<tr>
+				<td width="25%" align="right"  height="40">姓名：</td>
+				<td width="75%"><input type="text" name="realName" data-bind='value:realName' class="input"></td>
+			</tr>	
+			<tr>
+				<td width="25%" align="right"  height="40">中文名：</td>
+				<td width="75%"><input type="text" name="cnname" data-bind='value:cnname' class="input"></td>
+			</tr>	
+			<tr>
+				<td width="25%" align="right"  height="40">英文名：</td>
+				<td width="75%"><input type="text" name="ename" data-bind='value:ename' class="input"></td>
+			</tr>	
+			
+			<tr class="nb">
+				<td width="25%" align="right"  height="40">验证状态： </td>
+				<td width="75%">&nbsp;&nbsp;<input type="checkbox" name="verified" data-bind="checked: verified" />&nbsp;通过					
+			</tr>	
+			<tr class="nb">
+				<td colspan="2" height="26"><div class="line"></div></td>
+			</tr>			
+			<tr>
+    		<!--input type="text" data-bind="value:verified?'已通过验证':'未通过验证'"> 放弃radio是因为不支持bool型</td-->		
+				<td width="25%" align="right"  height="40">性别：</td>
+				<td width="75%"><select data-bind="value:sex,options:sexDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+				</select>
+				<input type='hidden' size=50 name="sexId" data-bind="value:sex()?sex().id:''">
+				</td>
+			</tr>	
+			<tr>
+				<!--td  >&nbsp;<span><input type="radio" name="sexGroup" value='M' data-bind="checked: sex" /> 男</span>
+    				&nbsp;<span><input type="radio" name="sexGroup" value='F' data-bind="checked: sex"/> 女</span-->
+				<td width="25%" align="right" height="40">电话：</td>
+				<td width="75%"><input type="text" name="mobile" data-bind="value:mobile" class="input"></td>		
+			</tr>	
+			<tr>
+				<td width="25%" align="right" height="40">邮箱：</td>
+				<td width="75%"><input type="text" name="email" data-bind="value:email" class="input"></td>
+			</tr>	
+			<tr>
+				<td width="25%" align="right" height="40">QQ：</td>
+				<td width="75%"><input type="text" name="qqnum" data-bind="value:qqnum" class="input"></td>
+			</tr>	
+			<tr>
+				<td width="25%" align="right" height="40">QQID：</td>
+				<td width="75%"><input type="text" name="qqid" data-bind="value:qqid" class="input"></td>
+			</tr>	
+			<tr>
+				<td width="25%" align="right" height="40">微信号：</td>
+				<td width="75%"><input type="text" name="weixinnum" data-bind="value:weixinnum" class="input"></td>
+			</tr>	
+			<tr>
+				<td width="25%" align="right" height="40">微信ID：</td>
+				<td width="75%"><input type="text" name="weixinid" data-bind="value:weixinid" class="input"></td>
+			</tr>	
+			<tr>
+				<td width="25%" align="right" height="40">微博：</td>
+				<td width="75%"><input type="text" name="weiboid" data-bind="value:weiboid" class="input"></td>	
+			</tr>	
+			<tr>
+				<td width="25%" align="right" height="40">血型：</td>
+				<td width="75%">
+				<select data-bind="value:bloodType,options:bloodTypeDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+				</select>
+				<input type="hidden" name="bloodTypeId" data-bind="value:bloodType()?bloodType().id:''"></td>
+			</tr>	
+			<tr>
+				<td width="25%" align="right" height="40">个人信息：</td>
+				<td width="75%"><input type="text" name="intro"  data-bind="value:intro" class="input"></td>					
+			</tr>	
+			<tr>
+				<td width="25%" align="right" height="40">职业：</td>
+				<td width="75%"><input type="text" name="trade" data-bind="value:trade" class="input"></td>
+			</tr>	
+			<tr>
+				<td width="25%" align="right" height="40">经验值：</td>
+				<td width="75%"><input type="text" name="expVal" data-bind="value:expVal" class="input"></td>		
+			</tr>	
+			<tr>
+				<td width="25%" align="right" height="40">积分：</td>
+				<td width="75%"><input type="text" name="integra" data-bind="value:integra" class="input"></td>
+			</tr>	
+			<tr>
+				<td width="25%" align="right" height="40">生日：</td>
+				<td width="75%"><input type="text" id="birthDay" name="birthDay" class="inputms" data-bind="value:birthDay" readonly="readonly" />
+					<script type="text/javascript" src="assets/plugin/calendar/calendar.js"></script> 
+					<script type="text/javascript">
+					Calendar.setup({
+						inputField     :    "birthDay",
+						//ifFormat       :    "%Y-%m-%d",
+						ifFormat       :    "%Y-%m-%d",
+						showsTime      :    false,
+						timeFormat     :    "24"
+					});
+					</script>
+				</td>
+				<!--td data-bind="text:constellation"></td-->		
+			</tr>	
+			<tr>
+				<td width="25%" align="right" height="40" >星座：</td>
+				<td width="75%">
+					<select data-bind="value:constellation,options:constellationDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					</select>
+					<input type="hidden" name="constellationId" size=100 data-bind="value:constellation()?constellation().id:'unknow'">
+				</td>		
+			</tr>	
+			<tr>
+				<td width="25%" align="right" height="40">地址：<td>
+				<td width="75%">
+					
+					<input type="text" name="trade" data-bind="value:trade" class="input">
+				</td>
+			</tr>				
+			<tr>
+				<td width="25%" align="right" height="40">头像：</td>
+				<td width="75%">
+					<img  data-bind='attr:{src:avatar.url}' style='display: inline; width: 48px; height: 72px;' alt=''/>
+				</td>
+			</tr>	
+			<tr>
+				<td width="25%" align="right" height="40">上传头像：</td>
+				<td width="75%"><input type="file" name='avatarFile' ></td>	
+			</tr>	
+	
+		</tbody>
+	</table>
+	<div class="formSubBtn">
+		<input class="submit" value="提交" type="button" data-bind="click:submit"/>
+		<input class="back" value="返回" onclick="history.go(-1)" type="button">
+	</div>
+</form>
+
+</body></html>

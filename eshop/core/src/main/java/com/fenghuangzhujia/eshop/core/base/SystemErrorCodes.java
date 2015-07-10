@@ -40,8 +40,10 @@ public class SystemErrorCodes {
 	 * 非法参数
 	 */
 	public static final ErrorCode ILLEGAL_ARGUMENT;
-	
+	/**权限不足*/
 	public static final ErrorCode ACCESS_DENIED;
+	
+	public static final ErrorCode MESSAGE_SEND_ERROR;
 	
 	//支付相关异常81~90
 	public static final ErrorCode PAY_FAILED;
@@ -62,6 +64,10 @@ public class SystemErrorCodes {
 	public static final ErrorCode GOOD_INFO_MISSING;
 	/**商品暂不销售*/
 	public static final ErrorCode NOT_ON_SALE;
+	
+	
+	//100 未知错误
+	public static final ErrorCode UNKNOWN_ERROR;
 	
 	
 	//Schedual相关，101~110
@@ -113,6 +119,11 @@ public class SystemErrorCodes {
 		CAPTCHA_ERROR=new ErrorCode(9, "图形验证码错误");
 		FILE_ERROR=new ErrorCode(10, "文件处理异常");
 		ACCESS_DENIED=new ErrorCode(11, "您没有相应权限");
+		MESSAGE_SEND_ERROR=new ErrorCode(12, "短信发送错误");
+		
+		
+		
+		UNKNOWN_ERROR=new ErrorCode(100, "未知错误");
 		
 		PAY_FAILED=new ErrorCode(81, "支付失败");
 		

@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>凤凰筑家</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+
+<body>
+    <!--banner+menu start-->
+    <div data-am-sticky>
+        <header data-am-widget="header" class="am-header am-header-default" style="border-top:1px solid #000111;background:#000;">
+            <div class="am-header-left am-header-nav">
+                <img src="images/logo.png" style="width:152px;height:18px;margin-top:-5px">
+            </div>
+            <div class="am-header-right am-header-nav">
+                <a id="uCenter" href="javascript:void(0)" class="am-menu-toggle">
+                    <i class="am-menu-toggle-icon am-icon-user" style="font-size:20px;padding-right:50px"></i>
+                </a>
+            </div>
+        </header>
+        <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
+            <a href="javascript: void(0)" class="am-menu-toggle">
+                <i class="am-menu-toggle-icon am-icon-bars"></i>
+            </a>
+            <div class="am-offcanvas">
+                <div class="am-offcanvas-bar" style="background:#333 none repeat scroll 0 0">
+                    <ul class="am-menu-nav sm-block-grid-1">
+                        <li class="">
+                            <a href="index.html">首页</a>
+                        </li>
+                        <li class="am-parent">
+                            <a href="#c3">家装套餐</a>
+                            <ul class="am-menu-sub am-collapse am-avg-sm-1">
+                                <li class="">
+                                    <a href="jztc.html?pt=0">699元家装套餐</a>
+                                </li>
+                                <li class="">
+                                    <a href="jztc.html?pt=1">软装套餐</a>
+                                </li>
+                                <li class="">
+                                    <a href="fwzs.html?pt=0">流程展示</a>
+                                </li>
+                                <li class="">
+                                    <a href="fwzs.html?pt=1">工艺展示</a>
+                                </li>
+                                <li class="">
+                                    <a href="fwzs.html?pt=2">主材展示</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="jzd.html">家装贷</a>
+                        </li>
+                        <li class="">
+                            <a href="tyg.html">体验馆</a>
+                        </li>
+                        <li class="">
+                            <a href="alzb.html?pt=0">案例集锦</a>
+                        </li>
+                        <li class="">
+                            <a href="alzb.html?pt=1">Live直播</a>
+                        </li>
+                        <li class="">
+                            <a href="fhgj.html">凤凰管家</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!--banner+menu end-->
+    <div data-am-widget="slider" class="am-slider am-slider-c3" data-am-slider='{&quot;controlNav&quot;:false}'>
+        <ul class="am-slides" style="font-size:12px">
+            <li>
+                <img src="images/s_1.jpg">
+                <div class="am-slider-desc">
+                    <div class="am-slider-counter" style="background:#b9090e">
+                        <span class="am-active">1</span>/4</div>凤凰筑家 专筑您的爱家 / 互联网+家装</div>
+            </li>
+            <li>
+                <img src="images/s_2.jpg">
+                <div class="am-slider-desc">
+                    <div class="am-slider-counter" style="background:#b9090e">
+                        <span class="am-active">2</span>/4</div>一站式套餐化解决方案，让您装修无忧</div>
+            </li>
+            <li>
+                <img src="images/s_3.jpg">
+                <div class="am-slider-desc">
+                    <div class="am-slider-counter" style="background:#b9090e">
+                        <span class="am-active">3</span>/4</div>35天标准化施工流程，透明互动放心</div>
+            </li>
+            <li>
+                <img src="images/s_4.jpg">
+                <div class="am-slider-desc">
+                    <div class="am-slider-counter" style="background:#b9090e">
+                        <span class="am-active">4</span>/4</div>凤凰家装贷为您提供最方便的金融方案</div>
+            </li>
+        </ul>
+    </div>
+    <div class="am-form">
+        <ul class="am-avg-sm-5" style="padding:0 0 0 0;box-shadow: inset 0 -1px 1px -1px #aaa;height:36px;">
+            <img src="images/title.jpg" width:320;height:36px;">
+        </ul>
+    </div>    
+    <div class="am-form">
+        <ul class="am-avg-sm-3" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
+            <li style="text-align:center;">
+                <div style="position:absolute;margin:-4px 2px 0 0;float:right">
+                    <img src="images/xsqg.gif" width="40" style="margin-left:1px">
+                </div>
+                <div class="am-dropdown" data-am-dropdown style="height:100px;padding-left:40px">
+                    <a href="jztc.html">
+                        <div style="margin-top:30px;width:120px">
+                            <div style="height:27px"><img src="images/699p.gif">
+                            <br/>
+                            </div>
+                            <span style="font-size:13px;">新房装修套餐</span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;" data-am-widget="navbar">
+                <div class="am-dropdown" data-am-dropdown style="height:100px;width:100%;">
+                    <a href="jztc.html" style="display:block;height:100%"></a>
+                </div>
+            </li>
+            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;" data-am-widget="navbar">
+                <div class="am-dropdown" data-am-dropdown style="height:100px">
+                    <a href="jztc.html?pt=1">
+                        <div style="margin-top:20px">
+                            <i class="am-icon-th-large" style="font-size:24px;color:#b9090e"></i>
+                            <br />
+                            <span style="font-size:13px;">更多套餐</span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+        </ul>
+        <ul class="am-avg-sm-3" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
+            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
+                <div style="position:absolute;margin:-4px 2px 0 0;float:right">
+                    <img src="images/zjtj.gif" width="40" style="margin-left:1px">
+                </div>
+                <div class="am-dropdown" data-am-dropdown style="height:100px;margin-bottom:-8px">
+                    <a href="jzd.html">
+                        <div style="margin:20px 0 0 0">
+                            <i class="am-icon-cny" style="font-size:24px;color:#b9090e"></i>
+                            <br />
+                            <span style="font-size:13px;">家装贷</span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
+                <div class="am-dropdown" data-am-dropdown style="height:100px">
+                    <a href="tyg.html">
+                        <div style="margin-top:20px">
+                            <i class="am-icon-street-view" style="font-size:22px;color:#b9090e;height:38px;"></i>
+                            <br />
+                            <span style="font-size:13px;">体验馆</span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
+                <div class="am-dropdown" data-am-dropdown style="height:100px">
+                    <a href="alzb.html">
+                        <div style="margin-top:20px">
+                            <i class="am-icon-sitemap" style="font-size:24px;color:#b9090e"></i>
+                            <br />
+                            <span style="font-size:13px;">案例/直播</span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+        </ul>
+        <ul class="am-avg-sm-3" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
+            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
+                <div style="position:absolute;margin:-4px 2px 0 0;float:right">
+                    <img src="images/xsqg.gif" width="40" style="margin-left:1px">
+                </div>
+                <div class="am-dropdown" data-am-dropdown style="height:100px">
+                    <a href="jrth.html">
+                        <div style="margin-top:20px">
+                            <i class="am-icon-certificate" style="font-size:24px;color:#b9090e"></i>
+                            <br />
+                            <span style="font-size:13px;">今日特惠</span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
+                <div class="am-dropdown" data-am-dropdown style="height:100px">
+                    <a href="tel:4009689088">
+                        <div style="margin-top:20px">
+                            <i class="am-icon-phone" style="font-size:24px;color:#b9090e"></i>
+                            <br />
+                            <span style="font-size:13px;">400客服</span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
+                <div class="am-dropdown" data-am-dropdown style="height:100px">
+                    <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=3311428220&amp;site=qq&amp;menu=yes">
+                        <div style="margin-top:20px">
+                            <i class="am-icon-qq" style="font-size:24px;color:#b9090e"></i>
+                            <br />
+                            <span style="font-size:13px;">在线客服</span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--cubes end-->
+    <!--cubes end-->
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/amazeui.min.js"></script>
+    <script src="js/libs/json.js"></script>
+    <script src="js/libs/base.js"></script>
+    <script src="js/libs/utils.js"></script>
+</body>
+
+</html>

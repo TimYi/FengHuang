@@ -67,6 +67,9 @@ function bindData(data){
 	var results = data.result;
 	for(var i in results){
 		results[i].selected = false;
+		results[i].expiredDisp = results[i].expired?'是':'否';
+		results[i].readedDisp = results[i].readed?'是':'否';
+		results[i].usedDisp = results[i].used?'是':'否';
 	}
 	if(!bind){
 		dataModel = ko.mapping.fromJS(data);	

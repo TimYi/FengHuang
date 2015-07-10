@@ -24,7 +24,7 @@ $(function(){
 	//验证登录状态
 	g.loginStatus = Utils.getUserInfo();
 
-	$("section").css("border-top","1px solid #ccc");
+	$("section").css("border-top","0");
 
 	$("#packagename >li > a").bind("click",changePackageName);
 	$("#packagestype1 >li > a").bind("click",changePackageStype);

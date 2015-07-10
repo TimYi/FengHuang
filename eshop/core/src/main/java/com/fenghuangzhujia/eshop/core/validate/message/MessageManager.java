@@ -28,7 +28,7 @@ public class MessageManager extends AbstractValidateManager {
 	}
 	
 	@Autowired
-	public void setMessageSender(MessageSender credentialCreater) {
+	public void setMessageSender(ValidateMessageSender credentialCreater) {
 		super.setCredentialCreater(credentialCreater);
 	}
 	
