@@ -339,7 +339,7 @@ Array.prototype.remove = function(n){
 	//小联网load提示
 	function httpTip(obj){
 		this.scope = obj.scope || this;
-		this.bg = obj.bg || true;
+		this.bg = obj.bg || false;
 		this.hasClose = obj.hasClose === false ? false : true;
 		this.text = obj.text || "正在加载...";
 		this.init.apply(this,arguments);
@@ -355,7 +355,7 @@ Array.prototype.remove = function(n){
 				var html = [];
 				var bgcss = this.bg == true ? "" : "transparentbg";
 				html.push('<div id="_httptip" class="prompt_mask ' + bgcss + '" style="display:none;">');
-				html.push('<div class="p_load" >');
+				//html.push('<div class="p_load" >');
 				html.push('<div class="loadimg"><span></span></div>');
 				/*
 				html.push('<div id="_httptext" class="loadtext">' + this.text + '</div>');
