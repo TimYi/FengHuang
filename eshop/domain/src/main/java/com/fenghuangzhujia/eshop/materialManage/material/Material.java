@@ -15,7 +15,7 @@ import com.fenghuangzhujia.foundation.media.MediaContent;
  *
  */
 @Entity
-@Table(name="fhzj_meterial")
+@Table(name="fhzj_material")
 public class Material extends UUIDBaseModel {
 
 	/**主材所属产品*/
