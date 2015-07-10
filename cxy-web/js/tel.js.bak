@@ -5,7 +5,7 @@ html.push('<section id="conatcat-info">');
 html.push('<div class="container">');
 html.push('<div class="row">');
 html.push('<div class="col-sm-8">');
-html.push('<div class="media contact-info">');
+html.push('<div class="media contact-info wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">');
 html.push('<div class="pull-left">');
 html.push('<i class="fa fa-phone"></i>');
 html.push('</div>');
