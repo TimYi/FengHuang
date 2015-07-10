@@ -23,6 +23,8 @@ public class LiveDetailDto extends DtoBaseModel {
 	private Set<MediaContentDto> pics;
 	/**微信互动截图*/
 	private Set<MediaContentDto> interactPics;
+	/**更新时间*/
+	private Date updateTime;
 	
 	public int getDay() {
 		return day;
@@ -65,5 +67,11 @@ public class LiveDetailDto extends DtoBaseModel {
 	}
 	public void setInteractPics(Set<MediaContentDto> interactPics) {
 		this.interactPics = interactPics;
+	}
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 }
