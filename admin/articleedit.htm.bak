@@ -88,18 +88,18 @@ function submitArticle(){
 		<tbody>
 			<tr>
 				<td align="right" width="25%" height="40">编码：</td>
-				<td width="75%" ><input name='code' data-bind='value:code' type="text"></td>
+				<td width="75%" ><input name='code' data-bind='value:code' type="text" class="input"></td>
 			</tr>	
 			<tr>
 				<td align="right"  height="40">栏目：</td>
 				<td >
-					<select data-bind="value:menu,options:menuDic,optionsText:'name',optionsCaption: '请选择...'"></select>
+					<select data-bind="value:menu,options:menuDic,optionsText:'name',optionsCaption: '请选择...'" class="input"></select>
 					<input type="hidden" name='menuid' data-bind="value:menu()?menu().id:''">
 				</td>
 			</tr>	
 			<tr>
 				<td align="right" width="25%" height="40">标题：</td>
-				<td width="75%" ><input name='title' data-bind='value:title' type="text"></td>
+				<td width="75%" ><input name='title' data-bind='value:title' type="text" class="input"></td>
 			</tr>
 			<!--tr>
 				<td align="right" width="25%" height="40">来源:</td>
@@ -120,7 +120,7 @@ function submitArticle(){
 			<tr>
 				<td align="right" width="25%" height="40">内容：</td>
 				<td width="75%" >
-					<textarea name='content'  class="kindeditor" id="content" ></textarea>
+					<textarea name='content'  class="kindeditor" id="content" class="input"></textarea>
 					<script>
 						var editor;
 						KindEditor.ready(function(K) {
@@ -139,7 +139,7 @@ function submitArticle(){
 			</tr>
 			<tr>
 				<td align="right" width="25%" height="40">点击数：</td>
-				<td width="75%" ><input name='hits' data-bind='value:hits' type="text"></td>
+				<td width="75%" ><input name='hits' data-bind='value:hits' type="text" class="input"></td>
 			</tr>
 		</tbody>
 	</table>
