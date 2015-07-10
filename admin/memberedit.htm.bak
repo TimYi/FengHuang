@@ -152,7 +152,8 @@ function afterGetDataById(data){
 				<td width="25%" align="right"  height="40">英文名：</td>
 				<td width="75%"><input type="text" name="ename" data-bind='value:ename' class="input"></td>
 			</tr>	
-			<tr>
+			
+			<tr class="nb">
 				<td width="25%"align="right"  height="40">验证状态： </td>
 				<td width="75%">&nbsp;&nbsp;<input type="checkbox" name="verified" data-bind="checked: verified" />&nbsp;通过					
 			</tr>	
@@ -253,9 +254,7 @@ function afterGetDataById(data){
 			</tr>	
 			<tr>
 				<td width="25%"align="right" height="40">地址：<td>
-				<td width="75%">
-					<input type="text" name="address" size=100 data-bind="value:address" class="input"/>
-				</td>
+				<td width="75%"><input type="text" name="address" size=100 data-bind="value:address" class="input"/></td>
 			</tr>		
 		</tbody>
 	</table>
