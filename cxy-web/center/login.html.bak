@@ -127,10 +127,10 @@
                         </div>
 
                         
-				                <div class="col-xs-12 col-sm-5" style="margin:50px 0 0 90px">
-														<div class="form-horizontal piao_mid" style="height:250px">
+				                <div class="col-xs-12 col-sm-5" style="margin:100px 0 0 90px">
+														<div class="form-horizontal piao_mid" style="height:250px;padding-top:100px">
 														</div>	
-														<div style="width:350px;margin-top:-320px;margin-left:20px">
+														<div style="width:350px;margin-top:-220px;margin-left:20px">
 																<form action="" onsubmit="return false;" class="form-horizontal" class="media contact-info wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
 																  <div class="form-group">
 																    <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
