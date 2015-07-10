@@ -14,7 +14,7 @@ import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 import com.fenghuangzhujia.foundation.media.MediaContent;
 
 @Entity
-@Table(name="fhzj_meterial_brand")
+@Table(name="fhzj_material_brand")
 public class Brand extends UUIDBaseModel {
 	/**品牌名称*/
 	private String name;

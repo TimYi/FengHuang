@@ -19,7 +19,7 @@ import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
  *
  */
 @Entity
-@Table(name="fhzj_meterial_product")
+@Table(name="fhzj_material_product")
 public class Product extends UUIDBaseModel {
 
 	/**产品名称*/

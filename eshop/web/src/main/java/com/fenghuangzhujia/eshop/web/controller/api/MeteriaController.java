@@ -17,7 +17,7 @@ public class MeteriaController {
 	@Autowired
 	private BrandService brandService;
 
-	@RequestMapping(value="meterias",method=RequestMethod.GET)
+	@RequestMapping(value="materials",method=RequestMethod.GET)
 	public String meterias() {
 		List<BrandVo> result=brandService.getDetailedBrands();
 		return RequestResult.success(result).toJson();
