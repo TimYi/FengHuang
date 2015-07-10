@@ -138,24 +138,24 @@ function afterGetDataById(data){
 		<tbody>
 		
 			<tr>
-				<td align="right"  height="40">用户名:</td>
+				<td align="right"  height="40">用户名：</td>
 				<td   data-bind="value:username"></td>
 		
-				<td align="right"  height="40">姓名:</td>
+				<td align="right"  height="40">姓名：</td>
 				<td  ><input type="text" name="realName" data-bind='value:realName'></td>
 			</tr>
 			<tr>
-				<td align="right"  height="40">中文名:</td>
+				<td align="right"  height="40">中文名：</td>
 				<td  ><input type="text" name="cnname" data-bind='value:cnname'></td>
 		
-				<td align="right"  height="40">英文名:</td>
+				<td align="right"  height="40">英文名：</td>
 				<td  ><input type="text" name="ename" data-bind='value:ename'></td>
 			</tr>
 			<tr>
-				<td align="right"  height="40">验证状态: </td>
+				<td align="right"  height="40">验证状态： </td>
 				<td  >&nbsp;&nbsp;<input type="checkbox" name="verified" data-bind="checked: verified" />&nbsp;通过					
     				<!--input type="text" data-bind="value:verified?'已通过验证':'未通过验证'"> 放弃radio是因为不支持bool型</td-->		
-				<td align="right"  height="40">性别:</td>
+				<td align="right"  height="40">性别：</td>
 				<td><select data-bind="value:sex,options:sexDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 				</select>
 				<input type='hidden' size=50 name="sexId" data-bind="value:sex()?sex().id:''">
