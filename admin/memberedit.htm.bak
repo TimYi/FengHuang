@@ -136,24 +136,17 @@ function afterGetDataById(data){
 <form name="form" id="form" enctype="multipart/form-data"  method="post">
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tbody>
-		
 			<tr>
 				<td align="right"  height="40">用户名：</td>
-				<td   data-bind="value:username"></td>
-		
+				<td><span data-bind="value:username"></span></td>
 				<td align="right"  height="40">姓名：</td>
-				<td  ><input type="text" name="realName" data-bind='value:realName'></td>
-			</tr>
-			<tr>
+				<td><input type="text" name="realName" data-bind='value:realName' class="input"></td>
 				<td align="right"  height="40">中文名：</td>
-				<td  ><input type="text" name="cnname" data-bind='value:cnname'></td>
-		
+				<td><input type="text" name="cnname" data-bind='value:cnname' class="input"></td>
 				<td align="right"  height="40">英文名：</td>
-				<td  ><input type="text" name="ename" data-bind='value:ename'></td>
-			</tr>
-			<tr>
+				<td><input type="text" name="ename" data-bind='value:ename' class="input"></td>
 				<td align="right"  height="40">验证状态： </td>
-				<td  >&nbsp;&nbsp;<input type="checkbox" name="verified" data-bind="checked: verified" />&nbsp;通过					
+				<td>&nbsp;&nbsp;<input type="checkbox" name="verified" data-bind="checked: verified" />&nbsp;通过					
     				<!--input type="text" data-bind="value:verified?'已通过验证':'未通过验证'"> 放弃radio是因为不支持bool型</td-->		
 				<td align="right"  height="40">性别：</td>
 				<td><select data-bind="value:sex,options:sexDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
@@ -162,46 +155,35 @@ function afterGetDataById(data){
 				</td>
 				<!--td  >&nbsp;<span><input type="radio" name="sexGroup" value='M' data-bind="checked: sex" /> 男</span>
     				&nbsp;<span><input type="radio" name="sexGroup" value='F' data-bind="checked: sex"/> 女</span-->
-			</tr>
-			<tr>
 				<td align="right" height="40">电话：</td>
-				<td ><input type="text" name="mobile" data-bind="value:mobile"></td>		
+				<td ><input type="text" name="mobile" data-bind="value:mobile" class="input"></td>		
 				<td align="right" height="40">邮箱：</td>
-				<td ><input type="text" name="email" data-bind="value:email"></td>
-			</tr>
-			<tr>
+				<td ><input type="text" name="email" data-bind="value:email" class="input"></td>
 				<td align="right" height="40">QQ：</td>
-				<td ><input type="text" name="qqnum" data-bind="value:qqnum"></td>
+				<td ><input type="text" name="qqnum" data-bind="value:qqnum" class="input"></td>
 				<td align="right" height="40">QQID：</td>
-				<td ><input type="text" name="qqid" data-bind="value:qqid"></td>
-			</tr>
-			<tr>
-					
+				<td ><input type="text" name="qqid" data-bind="value:qqid" class="input"></td>
 				<td align="right" height="40">微信号：</td>
-				<td ><input type="text" name="weixinnum" data-bind="value:weixinnum"></td>
+				<td ><input type="text" name="weixinnum" data-bind="value:weixinnum" class="input"></td>
 				<td align="right" height="40">微信ID：</td>
-				<td ><input type="text" name="weixinid" data-bind="value:weixinid"></td>
-			</tr>
-			<tr>
+				<td ><input type="text" name="weixinid" data-bind="value:weixinid" class="input"></td>
 				<td align="right" height="40">微博：</td>
-				<td ><input type="text" name="weiboid" data-bind="value:weiboid"></td>	
+				<td ><input type="text" name="weiboid" data-bind="value:weiboid" class="input"></td>	
 				<td align="right" height="40">血型：</td>
 				<td >
-				<select data-bind="value:bloodType,options:bloodTypeDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+				<select data-bind="value:bloodType,options:bloodTypeDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'" class="input">
 				</select>
 				<input type="hidden" name="bloodTypeId" data-bind="value:bloodType()?bloodType().id:''"></td>
-			</tr>
-			<tr>
 				<td align="right" height="40">个人信息：</td>
-				<td ><input type="text" name="intro"  data-bind="value:intro"></td>					
+				<td ><input type="text" name="intro"  data-bind="value:intro" class="input"></td>					
 				<td align="right" height="40">职业：</td>
-				<td ><input type="text" name="trade" data-bind="value:trade"></td>
+				<td ><input type="text" name="trade" data-bind="value:trade" class="input"></td>
 			</tr>		
 			<tr>
 				<td align="right" height="40">经验值：</td>
-				<td ><input type="text" name="expVal" data-bind="value:expVal"></td>		
+				<td ><input type="text" name="expVal" data-bind="value:expVal" class="input"></td>		
 				<td align="right" height="40">积分：</td>
-				<td ><input type="text" name="integra" data-bind="value:integra"></td>
+				<td ><input type="text" name="integra" data-bind="value:integra" class="input"></td>
 			</tr>
 			
 			<tr>
@@ -221,7 +203,7 @@ function afterGetDataById(data){
 				<!--td data-bind="text:constellation"></td-->		
 					<td align="right" height="40" >星座：</td>
 				<td>
-					<select data-bind="value:constellation,options:constellationDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					<select data-bind="value:constellation,options:constellationDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'" class="input">
 					</select>
 					<input type="hidden" name="constellationId" size=100 data-bind="value:constellation()?constellation().id:'unknow'">
 				</td>		
@@ -239,7 +221,7 @@ function afterGetDataById(data){
 				<td align="right" height="40">地址：					
 				</td>
 				<td colspan=3>
-					<input type="text" name="address" size=100 data-bind="value:address"/>
+					<input type="text" name="address" size=100 data-bind="value:address" class="input"/>
 				</td>
 			</tr>		
 		</tbody>
