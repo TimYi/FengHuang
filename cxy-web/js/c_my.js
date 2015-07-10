@@ -33,6 +33,9 @@ $(function(){
 	$("#sendbtn").bind("click",getPhoneCode);
 	$("#bindbtn").bind("click",bindPhone);
 
+	//头像
+	//$("#avatarbtn").bind("click",avatarBtnUp);
+
 	//安全退出
 	function loginOut(){
 		Utils.offLineStore.remove("userinfo",false);
@@ -496,4 +499,68 @@ $(function(){
 			}
 		});
 	}
+
+
+	function avatarBtnUp(){
+		var popbox = $("#popbox");
+		if(popbox.length == 0){
+			var url = Base.serverUrl + "/api/user/changeAvatar";
+			var token = g.token;
+			var html = [];
+			html.push('<div id="popbox" class="prompt_mask transparentbg" style="display: block;">');
+			html.push('<div class="p_load" style="width:600px;height:200px;background:#fff;margin-left:-300px;">');
+			html.push('<form id="avatarform" action="' + url + '" method="post" enctype="multipart/form-data">');
+			html.push('<p>');
+			html.push('<input id="avatar" type="file" name="avatar" multiple="multiple" min="1" max="99" value="选择头像" />');
+			//html.push('<input id="uploadbtn" type="submit" value="upload" />');
+			html.push('<input id="uploadbtn" type="button" value="upload" />');
+			html.push('<input id="token" type="hidden" name="token" value="' + token + '" />');
+			html.push('</p>');
+			html.push('</form>');
+			html.push('</div>');
+			html.push('</div>');
+
+			$("body").append(html.join(''));
+
+			$("#uploadbtn").bind("click",uploadBtnUp);
+		}
+		else{
+			popbox.show();
+		}
+	}
+
+	function uploadBtnUp(){
+		var url = Base.serverUrl + "/api/user/changeAvatar";
+		var token = g.token;
+		var xhr = new XMLHttpRequest();
+		if (xhr.upload) {
+			// 上传中
+			xhr.upload.addEventListener("progress", function(e) {
+				//self.onProgress(file, e.loaded, e.total);
+			}, false);
+
+			// 文件上传成功或是失败
+			xhr.onreadystatechange = function(e) {
+				if (xhr.readyState == 4) {
+					if (xhr.status == 200) {
+						//~ self.onSuccess(file, xhr.responseText);
+						//~ self.funDeleteFile(file);
+						//~ if (!self.fileFilter.length) {
+							//~ //全部完毕
+							//~ self.onComplete();
+						//~ }
+					} else {
+						//~ self.onFailure(file, xhr.responseText);
+					}
+				}
+			};
+//debugger
+			// 开始上传
+			xhr.open("POST", url, true);
+			xhr.setRequestHeader("avatar", avatar);
+			xhr.setRequestHeader("token", g.token);
+			xhr.send(null);
+		}
+	}
+
 });

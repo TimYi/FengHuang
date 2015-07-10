@@ -165,9 +165,7 @@ $(".m_logo").hover(function(){
 			}else{
 				isTransition=false;
 				r++;
-				$(".m_logo a").attr("style","-webkit-mask:-webkit-gradient(radial, 45 25, "+r+", 45 25, "+(r+15)+", from(rgb(0, 0, 0)), color-stop
-
-(0.5, rgba(0, 0, 0, 0.2)), to(rgb(0, 0, 0)));")
+				$(".m_logo a").attr("style","-webkit-mask:-webkit-gradient(radial, 45 25, "+r+", 45 25, "+(r+15)+", from(rgb(0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0.2)), to(rgb(0, 0, 0)));")
 			};
 		},5);
 	}
@@ -178,7 +176,7 @@ $(".m_logo").hover(function(){
 </script>
 <!--header-->
 
-    <section id="feature"  style="border-top:1px solid #f6f6f6;background:#f9f9f9">
+    <section id="feature"  style="border-top:1px solid #f6f6f6;background:#f9f9f9;visibility:hidden;">
         <div class="container">
            	<div class="center wow fadeInDown">
                 <h2>名牌主辅材<span style="font-size:24px"> FAMOUS MATERIAL</span></h2>
@@ -264,7 +262,7 @@ $(".m_logo").hover(function(){
         </div><!--/.container-->
     </section><!--/#feature-->
 
-
+	<section id="featurepro"  style="border-top:1px solid #f6f6f6;background:#f9f9f9;visibility:hidden;">
 		<div class="container">
 		<div class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
 		    <div class="tab_container">
@@ -277,6 +275,8 @@ $(".m_logo").hover(function(){
 								    	<th width=180>产品</th>
 								    	<th>主辅材料</th>
 								    </tr>
+
+
 								    <tr style="border-top:2px solid #ccc">
 								    	<td style="vertical-align: middle;"rowspan=2>东鹏</td>
 								    	<td style="vertical-align: middle;">地面地砖（用于客厅）</td>
@@ -288,6 +288,8 @@ $(".m_logo").hover(function(){
 								    		<img src="assets/images/icon2/d5.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
 								    	</td>
 								    </tr>
+
+
 								    <tr>
 								    	<td style="vertical-align: middle;">墙地砖（用于厨卫）</td>
 								    	<td>
@@ -297,6 +299,8 @@ $(".m_logo").hover(function(){
 								    		<img src="assets/images/icon2/d9.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
 								    	</td>
 								    </tr>
+
+
 								    <tr>
 								    	<td style="vertical-align: middle;">大自然</td>
 								    	<td style="vertical-align: middle;">地面地砖（用于客厅）</td>
@@ -395,7 +399,6 @@ $(".m_logo").hover(function(){
 		    </div>
 		</div>
 		</section>
-
 
 
 <!--footer-->
@@ -505,5 +508,6 @@ $(".m_logo").hover(function(){
     <script src="libs/json.js"></script>
 <script src="libs/base.js"></script>
 <script src="libs/utils.js"></script>
+<script src="js/zczs.js"></script>
 </body>
 </html>

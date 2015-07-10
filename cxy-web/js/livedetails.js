@@ -124,6 +124,7 @@ $(function(){
 			var date = d.date || "";
 			var title = d.title || "";
 			var tips = d.tips || "";
+			var time = d.updateTime || "";
 			date = date.substring(0,10);
 			var year = "";
 			var month = "";
@@ -212,7 +213,9 @@ $(function(){
 			//~ </div>
 			//~ </div><!--/.row-->
 			html.push('<hr/>');
-			html.push('<span>更新于 1分钟 之前</span>');
+			if(time !== ""){
+				html.push('<span>更新于 ' + time + '</span>');
+			}
 			html.push('</div>');
 			html.push('</div>');
 			html.push('</div>');

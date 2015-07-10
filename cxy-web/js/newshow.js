@@ -30,44 +30,58 @@ $(function(){
 
 	function getArtical(){
 		var code = "";
+		var title = "帮助中心";
 		switch(g.id){
 			case 22:
 				code = "服务指南";
+				title = "帮助中心";
 			break;
 			case 23:
 				code = "支付方式";
+				title = "帮助中心";
 			break;
 			case 24:
 				code = "常见问题";
+				title = "帮助中心";
 			break;
 			case 25:
 				code = "售后政策";
+				title = "服务支持";
 			break;
 			case 26:
 				code = "自助服务";
+				title = "服务支持";
 			break;
 			case 27:
 				code = "相关下载";
+				title = "服务支持";
 			break;
 			case 28:
 				code = "会员俱乐部";
+				title = "凤凰之家";
 			break;
 			case 29:
 				code = "会员活动";
+				title = "凤凰之家";
 			break;
 			case 30:
 				code = "VIP服务";
+				title = "凤凰之家";
 			break;
 			case 31:
 				code = "联系我们";
+				title = "关于我们";
 			break;
 			case 32:
 				code = "了解我们";
+				title = "关于我们";
 			break;
 			case 33:
 				code = "加入我们";
+				title = "关于我们";
 			break;
 		}
+		$("#newstitle").html("首页 > 文章 > " + title + " > 正文");
 		sendArticalHttp(code);
 	}
 
