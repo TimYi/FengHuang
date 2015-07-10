@@ -3,6 +3,7 @@ package com.fenghuangzhujia.eshop.core.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationManager;
 import com.fenghuangzhujia.eshop.core.authentication.authority.AuthorityRepository;
@@ -10,8 +11,11 @@ import com.fenghuangzhujia.eshop.core.authentication.role.RoleRepository;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
 import com.fenghuangzhujia.eshop.core.user.dto.UserInputArgs;
+import com.fenghuangzhujia.eshop.core.utils.LogUtils;
 import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
+import com.fenghuangzhujia.foundation.media.MediaContent;
+import com.fenghuangzhujia.foundation.media.MediaService;
 import com.fenghuangzhujia.foundation.utils.validater.PhoneNumberValidater;
 
 @Service
@@ -22,6 +26,8 @@ public class UserService extends DtoSpecificationService<User, UserDto, UserInpu
 	private RoleRepository roleRepository;
 	@Autowired
 	private AuthorityRepository authorityRepository;
+	@Autowired
+	private MediaService mediaService;
 	
 	/**
 	 * 根据用户名称获取用户实体
@@ -70,6 +76,21 @@ public class UserService extends DtoSpecificationService<User, UserDto, UserInpu
 		User user=getRepository().findOne(id);
 		user.setMobile(mobile);
 		getRepository().save(user);
+	}
+	
+	/**
+	 * 修改头像
+	 * @param avatar
+	 */
+	public void changeAvater(String id, MultipartFile avatar) {
+		User user=getRepository().findOne(id);
+		MediaContent ava=user.getAvatar();
+		try {
+			ava=mediaService.update(ava, avatar);
+		} catch (Exception e) {
+			LogUtils.errorLog(e);
+		}
+		user.setAvatar(ava);
 	}
 	
 	private void encryptPassword(User user) {
