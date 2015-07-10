@@ -196,7 +196,7 @@ $(".m_logo").hover(function(){
                             </div>
  
                             
-						                <div class="col-xs-12 col-sm-5 wow fadeInDown" style="margin:50px 0 0 90px">
+						                <div class="col-xs-12 col-sm-5" style="margin:50px 0 0 90px">
 																<div class="form-horizontal piao_mid">
 																</div>	
 																<div style="width:350px;margin-top:-320px;margin-left:20px">
