@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.prudoct.packageContent.meteria;
+package com.fenghuangzhujia.eshop.prudoct.packageContent.material;
 
 import com.fenghuangzhujia.foundation.core.persistance.SpecificationRepository;
 

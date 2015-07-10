@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.prudoct.packageContent.meteria;
+package com.fenghuangzhujia.eshop.prudoct.packageContent.material;
 
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;

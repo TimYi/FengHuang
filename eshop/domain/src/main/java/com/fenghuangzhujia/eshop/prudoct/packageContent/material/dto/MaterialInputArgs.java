@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.prudoct.packageContent.meteria.dto;
+package com.fenghuangzhujia.eshop.prudoct.packageContent.material.dto;
 
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 

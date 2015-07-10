@@ -2,7 +2,7 @@ package com.fenghuangzhujia.eshop.prudoct.packageContent.content.dto;
 
 import java.util.Set;
 
-import com.fenghuangzhujia.eshop.prudoct.packageContent.meteria.dto.MaterialDto;
+import com.fenghuangzhujia.eshop.prudoct.packageContent.material.dto.MaterialDto;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
 public class PackageContentDto extends DtoBaseModel {

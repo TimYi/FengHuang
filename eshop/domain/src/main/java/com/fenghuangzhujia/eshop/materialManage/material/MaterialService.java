@@ -13,13 +13,13 @@ public class MaterialService extends DtoSpecificationService<Material, MaterialD
 
 	/**
 	 * 为素材重新排序
-	 * @param meterias
+	 * @param ids
 	 */
 	public void reOrder(String[] ids) {
 		int i=0;
 		for (String id : ids) {
-			Material meteria=getRepository().findOne(id);
-			meteria.setOrdernum(i);
+			Material material=getRepository().findOne(id);
+			material.setOrdernum(i);
 			i++;
 		}
 	}

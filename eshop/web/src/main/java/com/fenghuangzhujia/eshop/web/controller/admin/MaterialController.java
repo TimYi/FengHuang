@@ -12,7 +12,7 @@ import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 
 @RestController("adminMeteriaController")
-@RequestMapping("admin/meteria")
+@RequestMapping("admin/material")
 public class MaterialController extends SpecificationController<MaterialDto, MaterialInputArgs> {
 
 	@Autowired

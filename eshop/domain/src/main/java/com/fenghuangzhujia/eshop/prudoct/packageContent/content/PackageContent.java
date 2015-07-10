@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fenghuangzhujia.eshop.prudoct.packageContent.meteria.PackageMaterial;
+import com.fenghuangzhujia.eshop.prudoct.packageContent.material.PackageMaterial;
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 
