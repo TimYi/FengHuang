@@ -42,6 +42,7 @@ $(function(){
 		$("#inputPhone3").val("");
 		$("#inputImgCode3").val("");
 		$("#inputCode3").val("");
+		$("#password").val("");		
 	}
 
 	function codeKeyDown(evt){

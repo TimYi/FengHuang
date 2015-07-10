@@ -16,6 +16,7 @@ $(function(){
 	$("#loginbtn").bind("click",loginBtnUp);
 	$("#regbtn").bind("click",openRegPage);
 	$("#inputCode3").bind("keydown",codeKeyDown);
+	$("#resetbtn").bind("click",resetRegInfo);	
 
 	setTimeout(function(){
 		getImgCode();
