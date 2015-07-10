@@ -354,7 +354,7 @@ Array.prototype.remove = function(n){
 			if(tip.length === 0){
 				var html = [];
 				var bgcss = this.bg == true ? "" : "transparentbg";
-				html.push('<div id="_httptip" class="prompt_mask ' + bgcss + '" style="display:none;">');
+				html.push('<div id="_httptip" class="prompt_mask ' + bgcss + '" style="display:none;background:none;">');
 				html.push('<div class="p_load" >');
 				html.push('<div class=""><span></span></div>');
 				/*
