@@ -246,6 +246,10 @@ function afterGetDataById(data){
 				</td>		
 			</tr>	
 			<tr>
+				<td width="25%" align="right" height="40">地址：<td>
+				<td width="75%"><input type="text" name="address" data-bind="value:address" class="input"/></td>
+			</tr>				
+			<tr>
 				<td width="25%" align="right" height="40">头像：</td>
 				<td width="75%">
 					<img  data-bind='attr:{src:avatar.url}' style='display: inline; width: 48px; height: 72px;' alt=''/>
@@ -255,10 +259,7 @@ function afterGetDataById(data){
 				<td width="25%" align="right" height="40">上传头像：</td>
 				<td width="75%"><input type="file" name='avatarFile' ></td>	
 			</tr>	
-			<tr>
-				<td width="25%" align="right" height="40">地址：<td>
-				<td width="75%"><input type="text" name="address" data-bind="value:address" class="input"/></td>
-			</tr>		
+	
 		</tbody>
 	</table>
 	<div class="formSubBtn">
