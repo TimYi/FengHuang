@@ -186,7 +186,7 @@ $(".m_logo").hover(function(){
                         <div class="row slide-margin">
                             <div class="col-sm-6">
                                 <div class="carousel-content">
-                                    <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">注册账户</h1>
+                                    <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">会员注册</h1>
                                     <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">
                                     	欢迎您注册 凤凰筑家 www.ifhzj.com 会员<br />
                                     	如果您已拥有账户，则可在此登录。
@@ -236,7 +236,7 @@ $(".m_logo").hover(function(){
 
 																		  <div class="form-group" style="padding-top:20px 0 100px 0">
 																		    <div class="col-sm-offset-2 col-sm-10" style="width:83%">
-																		      <button id="sendbtn" type="button" class="btn btn-default btn-primary" style="margin-right:10px">　注册　</button>
+																		      <button id="sendbtn" type="button" class="btn btn-default btn-primary" style="margin-left:2px;margin-right:10px">　注册　</button>
 																		      <button id="resetbtn" type="button" class="btn btn-default btn-primary">　重置　</button>
 																		    </div>
 																		  </div>
