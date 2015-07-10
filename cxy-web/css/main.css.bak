@@ -2846,10 +2846,10 @@ shortcodes page css
 .piao_mid{
 	width:400px;
 	height:330px;
-	background:#000;
+	background:#fff;
 	padding:30px;
-	opacity:0.6;
-	filter:alpha(opacity=60);
+	opacity:0.8;
+	filter:alpha(opacity=80);
   -moz-border-radius: 10px;     
   -webkit-border-radius: 10px;   
   border-radius:10px; 	
