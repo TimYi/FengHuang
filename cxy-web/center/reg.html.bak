@@ -234,7 +234,7 @@ $(".m_logo").hover(function(){
 																    </div>
 																  </div>
 
-																  <div class="form-group" style="padding-top:0 0 100px 0">
+																  <div class="form-group" style="padding-top:20px 0 100px 0">
 																    <div class="col-sm-offset-2 col-sm-10" style="width:83%">
 																      <button id="sendbtn" type="button" class="btn btn-default btn-primary" style="margin-left:2px;margin-right:10px">　注册　</button>
 																      <button id="resetbtn" type="button" class="btn btn-default btn-primary">　重置　</button>
