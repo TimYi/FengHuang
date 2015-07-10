@@ -157,8 +157,11 @@ function afterGetDataById(data){
 				<td width="25%"align="right"  height="40">验证状态： </td>
 				<td width="75%">&nbsp;&nbsp;<input type="checkbox" name="verified" data-bind="checked: verified" />&nbsp;通过					
 			</tr>	
+			<tr class="nb">
+				<td colspan="2" height="26"><div class="line"></div></td>
+			</tr>			
 			<tr>
-    				<!--input type="text" data-bind="value:verified?'已通过验证':'未通过验证'"> 放弃radio是因为不支持bool型</td-->		
+    		<!--input type="text" data-bind="value:verified?'已通过验证':'未通过验证'"> 放弃radio是因为不支持bool型</td-->		
 				<td width="25%"align="right"  height="40">性别：</td>
 				<td width="75%"><select data-bind="value:sex,options:sexDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 				</select>
