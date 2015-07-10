@@ -76,7 +76,7 @@ function afterGetDataById(data){
 		<tbody>
 			<tr>
 				<td align="right" width="25%" height="40">ID：</td>
-				<td width="75%" ><span data-bind='text:id'></span><input name='name' type="text" data-bind='text:id' class="input" readonly="readonly"></td>
+				<td width="75%" ><span data-bind='text:id'></span></td>
 			</tr>
 			<tr>
 				<td align="right" width="25%" height="40">名称：</td>
