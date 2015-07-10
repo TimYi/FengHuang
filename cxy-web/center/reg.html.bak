@@ -191,7 +191,7 @@ $(".m_logo").hover(function(){
                                     	欢迎您注册 凤凰筑家 www.ifhzj.com 会员<br />
                                     	如果您已拥有账户，则可在此登录。
                                     </h2>
-                                    <a class="btn-slide animation animated-item-3" href="#" style="padding:10px 30px;font-size:18px">立即登录</a>
+                                    <a class="btn-slide animation animated-item-3" href="login.html" style="padding:10px 30px;font-size:18px;">立即登录</a>
                                 </div>
                             </div>
  
