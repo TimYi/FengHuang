@@ -137,29 +137,29 @@ function afterGetDataById(data){
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tbody>
 			<tr>
-				<td align="right"  height="40">用户名：</td>
-				<td><span data-bind="value:username"></span></td>
+				<td width="25%" align="right"  height="40">用户名：</td>
+				<td width="75%" ><span data-bind="value:username"></span></td>
 			</tr>	
 			<tr>
-				<td align="right"  height="40">姓名：</td>
-				<td><input type="text" name="realName" data-bind='value:realName' class="input"></td>
+				<td width="25%" align="right"  height="40">姓名：</td>
+				<td width="75%"><input type="text" name="realName" data-bind='value:realName' class="input"></td>
 			</tr>	
 			<tr>
-				<td align="right"  height="40">中文名：</td>
-				<td><input type="text" name="cnname" data-bind='value:cnname' class="input"></td>
+				<td width="25%" align="right"  height="40">中文名：</td>
+				<td width="75%"><input type="text" name="cnname" data-bind='value:cnname' class="input"></td>
 			</tr>	
 			<tr>
-				<td align="right"  height="40">英文名：</td>
-				<td><input type="text" name="ename" data-bind='value:ename' class="input"></td>
+				<td width="25%" align="right"  height="40">英文名：</td>
+				<td width="75%"><input type="text" name="ename" data-bind='value:ename' class="input"></td>
 			</tr>	
 			<tr>
-				<td align="right"  height="40">验证状态： </td>
-				<td>&nbsp;&nbsp;<input type="checkbox" name="verified" data-bind="checked: verified" />&nbsp;通过					
+				<td width="25%"align="right"  height="40">验证状态： </td>
+				<td width="75%">&nbsp;&nbsp;<input type="checkbox" name="verified" data-bind="checked: verified" />&nbsp;通过					
 			</tr>	
 			<tr>
     				<!--input type="text" data-bind="value:verified?'已通过验证':'未通过验证'"> 放弃radio是因为不支持bool型</td-->		
-				<td align="right"  height="40">性别：</td>
-				<td><select data-bind="value:sex,options:sexDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+				<td width="25%"align="right"  height="40">性别：</td>
+				<td width="75%"><select data-bind="value:sex,options:sexDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 				</select>
 				<input type='hidden' size=50 name="sexId" data-bind="value:sex()?sex().id:''">
 				</td>
@@ -167,59 +167,59 @@ function afterGetDataById(data){
 			<tr>
 				<!--td  >&nbsp;<span><input type="radio" name="sexGroup" value='M' data-bind="checked: sex" /> 男</span>
     				&nbsp;<span><input type="radio" name="sexGroup" value='F' data-bind="checked: sex"/> 女</span-->
-				<td align="right" height="40">电话：</td>
-				<td ><input type="text" name="mobile" data-bind="value:mobile" class="input"></td>		
+				<td width="25%"align="right" height="40">电话：</td>
+				<td width="75%"><input type="text" name="mobile" data-bind="value:mobile" class="input"></td>		
 			</tr>	
 			<tr>
-				<td align="right" height="40">邮箱：</td>
-				<td ><input type="text" name="email" data-bind="value:email" class="input"></td>
+				<td width="25%"align="right" height="40">邮箱：</td>
+				<td width="75%"><input type="text" name="email" data-bind="value:email" class="input"></td>
 			</tr>	
 			<tr>
-				<td align="right" height="40">QQ：</td>
-				<td ><input type="text" name="qqnum" data-bind="value:qqnum" class="input"></td>
+				<td width="25%"align="right" height="40">QQ：</td>
+				<td width="75%"><input type="text" name="qqnum" data-bind="value:qqnum" class="input"></td>
 			</tr>	
 			<tr>
-				<td align="right" height="40">QQID：</td>
-				<td ><input type="text" name="qqid" data-bind="value:qqid" class="input"></td>
+				<td width="25%"align="right" height="40">QQID：</td>
+				<td width="75%"><input type="text" name="qqid" data-bind="value:qqid" class="input"></td>
 			</tr>	
 			<tr>
-				<td align="right" height="40">微信号：</td>
-				<td ><input type="text" name="weixinnum" data-bind="value:weixinnum" class="input"></td>
+				<td width="25%"align="right" height="40">微信号：</td>
+				<td width="75%"><input type="text" name="weixinnum" data-bind="value:weixinnum" class="input"></td>
 			</tr>	
 			<tr>
-				<td align="right" height="40">微信ID：</td>
-				<td ><input type="text" name="weixinid" data-bind="value:weixinid" class="input"></td>
+				<td width="25%"align="right" height="40">微信ID：</td>
+				<td width="75%"><input type="text" name="weixinid" data-bind="value:weixinid" class="input"></td>
 			</tr>	
 			<tr>
-				<td align="right" height="40">微博：</td>
-				<td ><input type="text" name="weiboid" data-bind="value:weiboid" class="input"></td>	
+				<td width="25%"align="right" height="40">微博：</td>
+				<td width="75%"><input type="text" name="weiboid" data-bind="value:weiboid" class="input"></td>	
 			</tr>	
 			<tr>
-				<td align="right" height="40">血型：</td>
-				<td >
+				<td width="25%"align="right" height="40">血型：</td>
+				<td width="75%">
 				<select data-bind="value:bloodType,options:bloodTypeDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'" class="input">
 				</select>
 				<input type="hidden" name="bloodTypeId" data-bind="value:bloodType()?bloodType().id:''"></td>
 			</tr>	
 			<tr>
-				<td align="right" height="40">个人信息：</td>
-				<td ><input type="text" name="intro"  data-bind="value:intro" class="input"></td>					
+				<td width="25%"align="right" height="40">个人信息：</td>
+				<td width="75%"><input type="text" name="intro"  data-bind="value:intro" class="input"></td>					
 			</tr>	
 			<tr>
-				<td align="right" height="40">职业：</td>
-				<td ><input type="text" name="trade" data-bind="value:trade" class="input"></td>
+				<td width="25%"align="right" height="40">职业：</td>
+				<td width="75%"><input type="text" name="trade" data-bind="value:trade" class="input"></td>
 			</tr>	
 			<tr>
-				<td align="right" height="40">经验值：</td>
-				<td ><input type="text" name="expVal" data-bind="value:expVal" class="input"></td>		
+				<td width="25%"align="right" height="40">经验值：</td>
+				<td width="75%"><input type="text" name="expVal" data-bind="value:expVal" class="input"></td>		
 			</tr>	
 			<tr>
-				<td align="right" height="40">积分：</td>
-				<td ><input type="text" name="integra" data-bind="value:integra" class="input"></td>
+				<td width="25%"align="right" height="40">积分：</td>
+				<td width="75%"><input type="text" name="integra" data-bind="value:integra" class="input"></td>
 			</tr>	
 			<tr>
-				<td align="right" height="40">生日：</td>
-				<td><input type="text" id="birthDay" name="birthDay" class="inputms" data-bind="value:birthDay" readonly="readonly" />
+				<td width="25%"align="right" height="40">生日：</td>
+				<td width="75%"><input type="text" id="birthDay" name="birthDay" class="inputms" data-bind="value:birthDay" readonly="readonly" />
 					<script type="text/javascript" src="assets/plugin/calendar/calendar.js"></script> 
 					<script type="text/javascript">
 					Calendar.setup({
@@ -234,26 +234,26 @@ function afterGetDataById(data){
 				<!--td data-bind="text:constellation"></td-->		
 			</tr>	
 			<tr>
-				<td align="right" height="40" >星座：</td>
-				<td>
+				<td width="25%"align="right" height="40" >星座：</td>
+				<td width="75%">
 					<select data-bind="value:constellation,options:constellationDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'" class="input">
 					</select>
 					<input type="hidden" name="constellationId" size=100 data-bind="value:constellation()?constellation().id:'unknow'">
 				</td>		
 			</tr>	
 			<tr>
-				<td align="right" height="40">头像：</td>
-				<td>
+				<td width="25%"align="right" height="40">头像：</td>
+				<td width="75%">
 					<img  data-bind='attr:{src:avatar.url}' style='display: inline; width: 48px; height: 72px;' alt=''/>
 				</td>
 			</tr>	
 			<tr>
-				<td align="right" height="40">上传头像：</td>
-				<td ><input type="file" name='avatarFile' ></td>	
+				<td width="25%"align="right" height="40">上传头像：</td>
+				<td width="75%"><input type="file" name='avatarFile' ></td>	
 			</tr>	
 			<tr>
-				<td align="right" height="40">地址：<td>
-				<td colspan=3>
+				<td width="25%"align="right" height="40">地址：<td>
+				<td width="75%"colspan=3>
 					<input type="text" name="address" size=100 data-bind="value:address" class="input"/>
 				</td>
 			</tr>		
