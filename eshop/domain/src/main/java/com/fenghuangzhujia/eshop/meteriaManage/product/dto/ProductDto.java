@@ -2,6 +2,7 @@ package com.fenghuangzhujia.eshop.meteriaManage.product.dto;
 
 import java.util.Set;
 
+import com.fenghuangzhujia.eshop.meteriaManage.brand.dto.SimpleBrandDto;
 import com.fenghuangzhujia.eshop.meteriaManage.meteria.dto.MeteriaDto;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
@@ -13,6 +14,8 @@ public class ProductDto extends DtoBaseModel {
 	private int ordernum;
 	/**品牌主材展示*/
 	private Set<MeteriaDto> meterias;
+	/**品牌*/
+	private SimpleBrandDto brand;
 	
 	public String getName() {
 		return name;
@@ -31,5 +34,11 @@ public class ProductDto extends DtoBaseModel {
 	}
 	public void setMeterias(Set<MeteriaDto> meterias) {
 		this.meterias = meterias;
+	}
+	public SimpleBrandDto getBrand() {
+		return brand;
+	}
+	public void setBrand(SimpleBrandDto brand) {
+		this.brand = brand;
 	}
 }
