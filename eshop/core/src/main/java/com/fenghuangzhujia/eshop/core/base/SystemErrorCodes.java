@@ -66,6 +66,10 @@ public class SystemErrorCodes {
 	public static final ErrorCode NOT_ON_SALE;
 	
 	
+	//100 未知错误
+	public static final ErrorCode UNKNOWN_ERROR;
+	
+	
 	//Schedual相关，101~110
 	/**
 	 * schedual校验时发现有时间重叠
@@ -116,6 +120,10 @@ public class SystemErrorCodes {
 		FILE_ERROR=new ErrorCode(10, "文件处理异常");
 		ACCESS_DENIED=new ErrorCode(11, "您没有相应权限");
 		MESSAGE_SEND_ERROR=new ErrorCode(12, "短信发送错误");
+		
+		
+		
+		UNKNOWN_ERROR=new ErrorCode(100, "未知错误");
 		
 		PAY_FAILED=new ErrorCode(81, "支付失败");
 		

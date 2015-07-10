@@ -1,5 +1,6 @@
 package com.fenghuangzhujia.eshop.meteriaManage.product.dto;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,13 +22,16 @@ public class ProductAdapter extends AbstractDtoAdapter<Product, ProductDto, Prod
 
 	@Override
 	public Product postConvertToDo(ProductInputArgs i, Product d) {
-		Brand brand=brandRepository.findOne(i.getBrandId());
-		d.setBrand(brand);
-		return d;
+		return postUpdate(i, d);
 	}
 
 	@Override
 	public Product postUpdate(ProductInputArgs i, Product d) {
+		String brandId=i.getBrandId();
+		if(StringUtils.isNotBlank(brandId)) {
+			Brand brand=brandRepository.findOne(i.getBrandId());
+			d.setBrand(brand);
+		}		
 		return d;
 	}
 }
