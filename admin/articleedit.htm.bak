@@ -120,7 +120,7 @@ function submitArticle(){
 			<tr>
 				<td align="right" width="25%" height="40">内容：</td>
 				<td width="75%" >
-					<textarea name='content'  class="kindeditor" id="content" class="input"></textarea>
+					<textarea name='content'  class="kindeditor" id="content" class="input" style="padding:10px 0"></textarea>
 					<script>
 						var editor;
 						KindEditor.ready(function(K) {
