@@ -1,5 +1,6 @@
 package com.fenghuangzhujia.eshop.meteriaManage.meteria.dto;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,11 +28,7 @@ public class MeterialAdapter extends AbstractDtoAdapter<Meteria, MeteriaDto, Met
 
 	@Override
 	public Meteria postConvertToDo(MeteriaInputArgs i, Meteria d) {
-		d=postUpdate(i, d);
-		String productId=i.getProductId();
-		Product product=productRepository.findOne(productId);
-		d.setProduct(product);
-		return d;
+		return postUpdate(i, d);
 	}
 
 	@Override
@@ -46,6 +43,11 @@ public class MeterialAdapter extends AbstractDtoAdapter<Meteria, MeteriaDto, Met
 				LogUtils.errorLog(e);
 			}
 		}
+		String productId=i.getProductId();
+		if(StringUtils.isNotBlank(productId)) {
+			Product product=productRepository.findOne(productId);
+			d.setProduct(product);
+		}		
 		return d;
 	}
 }

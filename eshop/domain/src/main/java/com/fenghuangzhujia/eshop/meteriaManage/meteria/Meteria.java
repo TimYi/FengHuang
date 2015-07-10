@@ -24,6 +24,8 @@ public class Meteria extends UUIDBaseModel {
 	private int ordernum;
 	/**展示图片*/
 	private MediaContent pic;
+	/**对主材的描述信息*/
+	private String description;
 	
 	@ManyToOne(optional=false)
 	public Product getProduct() {
@@ -44,5 +46,11 @@ public class Meteria extends UUIDBaseModel {
 	}
 	public void setPic(MediaContent pic) {
 		this.pic = pic;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

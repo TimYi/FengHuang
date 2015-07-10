@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>凤凰筑家后台管理中心</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="assets/js/jqPaginator.min.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script>
+var tout;
+$(function(){
+	//$("#login").attr("action", LOGIN);
+	$("#verifycode").bind("focus",getImgCode);
+	$("#verifycodeImg").bind("click",getImgCode);
+	$(".loginForm input").keydown(function(){
+		$(this).prev().hide();
+	}).blur(function(){
+		if($(this).val() == ""){
+			$(this).prev().show();
+		}
+	});
+	
+	$("#username").focus(function(){
+		$("#username").attr("class", "uname inputOn"); 
+	}).blur(function(){
+		$("#username").attr("class", "uname input"); 
+	});
+
+	$("#password").focus(function(){
+		$("#password").attr("class", "pwd inputOn"); 
+	}).blur(function(){
+		$("#password").attr("class", "pwd input"); 
+	});
+});
+function getImgCode(){
+		var userName = $("#username").val() || "";
+		if(userName !== ""){
+			var codeId = userName;
+			//console.log(g.codeId);
+			$("#verifycodeImg").attr("src",CAPTCHA+ codeId);
+			/*clearTimeout(tout);
+			tout = setTimeout(function(){
+				getImgCode();
+			},60000);*/
+		}
+	}
+function CheckForm()
+{
+	if($("#username").val() == "")
+	{
+		alert("请输入用户名！");
+		$("#username").focus();
+		return false;
+	}
+	if($("#password").val() == "")
+	{
+		alert("请输入密码！");
+		$("#password").focus();
+		return false;
+	}
+	if($("#verifycode").val() == "")
+	{
+        alert("请输入验证码！");
+        $("#verifycode").focus();
+        return false;
+    }
+    return true;
+}
+function loginSubmit(){
+	if(CheckForm()){
+		submitAsyFormByJson(LOGIN, 'login', 
+			function(data){
+				if(data.status == 'OK') {
+					token = data.result;
+					//alert(token);
+					window.location.href=INDEX+"?u="+$("#username").val()+"&token="+token;
+				}else{
+					friendlyTip(data);
+				}			
+				
+			}
+		);
+	}
+}
+
+</script>
+</head>
+
+<body class="loginBody">
+<div class="loginTop" style="background-color:#f9f9f9;background-image:url();background-repeat:repeat-x;background-position:center 0;">
+
+</div>
+<div class="loginWarp">
+	<div class="loginArea">
+		<div class="loginHead"> </div>
+		<div class="loginTxt">凤凰筑家后台管理中心</div>
+		<div class="loginForm">
+			<form name="login" id='login' method="post" action="">
+				<div class="txtLine">
+					<label>用户名</label>
+					<input type="text" name="username" id="username" class="uname input" maxlength="20" />
+				</div>
+				<div class="txtLine mar8">
+					<label>密码</label>
+					<input type="password" name="password" id="password" class="pwd input" maxlength="16" />
+				</div>
+
+				<div class="txtLine mar8">
+					<label>验证码</label>
+					<input type="text" name="captcha" id="verifycode" class="uname input" maxlength="16" style="width:300px"/>
+					<img src="/fhzj_web/assets/images/defaultbackground.gif" id="verifycodeImg" width="170" height="46" style="float:right;line-height:50px;cursor:pointer;" />
+				</div>
+				<div class="hr_1"></div>
+				<input type="button" class="loginBtn" value="登 录" style="cursor:pointer;" onclick='loginSubmit();' />
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -12,6 +12,8 @@ public class MeteriaInputArgs extends DtoBaseModel {
 	private int ordernum;
 	/**展示图片*/
 	private MultipartFile picFile;
+	/**对主材的描述信息*/
+	private String description;
 	
 	public String getProductId() {
 		return productId;
@@ -30,5 +32,11 @@ public class MeteriaInputArgs extends DtoBaseModel {
 	}
 	public void setPicFile(MultipartFile picFile) {
 		this.picFile = picFile;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

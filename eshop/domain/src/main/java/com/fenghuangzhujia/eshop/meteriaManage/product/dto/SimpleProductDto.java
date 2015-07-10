@@ -1,19 +1,19 @@
 package com.fenghuangzhujia.eshop.meteriaManage.product.dto;
 
-import java.util.Set;
-
 import com.fenghuangzhujia.eshop.meteriaManage.brand.dto.SimpleBrandDto;
-import com.fenghuangzhujia.eshop.meteriaManage.meteria.dto.MeteriaDto;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
-public class ProductDto extends DtoBaseModel {
+/**
+ * 用户下级关联实体获取上级信息
+ * @author pc
+ *
+ */
+public class SimpleProductDto extends DtoBaseModel {
 
 	/**产品名称*/
 	private String name;
 	/**排序序号*/
 	private int ordernum;
-	/**品牌主材展示*/
-	private Set<MeteriaDto> meterias;
 	/**品牌*/
 	private SimpleBrandDto brand;
 	
@@ -28,12 +28,6 @@ public class ProductDto extends DtoBaseModel {
 	}
 	public void setOrdernum(int ordernum) {
 		this.ordernum = ordernum;
-	}
-	public Set<MeteriaDto> getMeterias() {
-		return meterias;
-	}
-	public void setMeterias(Set<MeteriaDto> meterias) {
-		this.meterias = meterias;
 	}
 	public SimpleBrandDto getBrand() {
 		return brand;
