@@ -2,11 +2,10 @@ package com.fenghuangzhujia.eshop.core.area;
 
 import java.util.List;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
-
 import com.fenghuangzhujia.eshop.core.area.Area.AreaLevel;
+import com.fenghuangzhujia.foundation.core.persistance.SpecificationRepository;
 
-public interface AreaRepository extends PagingAndSortingRepository<Area, String> {
+public interface AreaRepository extends SpecificationRepository<Area, String> {
 	
 	/**
 	 * 按照区域等级获取全部区域

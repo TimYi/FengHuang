@@ -23,6 +23,7 @@ public class BrandService extends DtoSpecificationService<Brand, BrandDto, Brand
 		for (String id : ids) {
 			Brand brand=getRepository().findOne(id);
 			brand.setOrdernum(i);
+			i++;
 		}
 	}
 	

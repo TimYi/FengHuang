@@ -9,11 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fenghuangzhujia.eshop.core.area.Area.AreaLevel;
 import com.fenghuangzhujia.eshop.core.area.dto.AreaDto;
 import com.fenghuangzhujia.eshop.core.area.dto.AreaInputArgs;
-import com.fenghuangzhujia.foundation.core.dto.DtoPagingService;
+import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
 
 @Service
 @Transactional
-public class AreaService extends DtoPagingService<Area, AreaDto, AreaInputArgs, String> {
+public class AreaService extends DtoSpecificationService<Area, AreaDto, AreaInputArgs, String> {
 	
 	/**
 	 * 按照区域等级获取全部区域

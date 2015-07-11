@@ -14,6 +14,10 @@ public class MaterialInputArgs extends DtoBaseModel {
 	private MultipartFile picFile;
 	/**对主材的描述信息*/
 	private String description;
+	/**对应家具，灯具，家具饰品等品类*/
+	private String type;
+	/**使用此材料的套餐id*/
+	private String[] packageIds;
 	
 	public String getProductId() {
 		return productId;
@@ -38,5 +42,17 @@ public class MaterialInputArgs extends DtoBaseModel {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public String getType() {
+		return type;
+	}
+	public String[] getPackageIds() {
+		return packageIds;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public void setPackageIds(String[] packageIds) {
+		this.packageIds = packageIds;
 	}
 }
