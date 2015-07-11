@@ -10,6 +10,8 @@ public class DecoratePackageDto extends DtoBaseModel {
 
 	/**套餐价格(元/m2)*/
 	private Double price;
+	/**套餐名称*/
+	private String name;
 	/**订金（元）*/
 	private Double deposit;
 	private String description;
@@ -29,6 +31,12 @@ public class DecoratePackageDto extends DtoBaseModel {
 	/**用户是否已经抢购此套餐*/
 	private boolean hasScrambled;
 	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public Double getPrice() {
 		return price;
 	}

@@ -9,7 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fenghuangzhujia.eshop.core.area.Area.AreaLevel;
 import com.fenghuangzhujia.eshop.core.area.dto.AreaDto;
 import com.fenghuangzhujia.eshop.core.area.dto.AreaInputArgs;
+import com.fenghuangzhujia.eshop.core.area.dto.AreaVo;
 import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
+import com.fenghuangzhujia.foundation.mapper.BeanMapper;
 
 @Service
 @Transactional
@@ -36,6 +38,12 @@ public class AreaService extends DtoSpecificationService<Area, AreaDto, AreaInpu
 		List<Area> areas=getRepository().findByUpperAreaId(id);
 		List<AreaDto> result=new ArrayList<AreaDto>();
 		result.addAll(adapter.convertDoList(areas));
+		return result;
+	}
+	
+	public List<AreaVo> findVoByLevel(AreaLevel level) {
+		List<Area> areas=getRepository().findByLevel(level);
+		List<AreaVo> result=BeanMapper.mapList(areas, AreaVo.class);
 		return result;
 	}
 	

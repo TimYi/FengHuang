@@ -11,6 +11,7 @@ import com.fenghuangzhujia.eshop.core.area.AreaService;
 import com.fenghuangzhujia.eshop.core.area.Area.AreaLevel;
 import com.fenghuangzhujia.eshop.core.area.dto.AreaDto;
 import com.fenghuangzhujia.eshop.core.area.dto.AreaInputArgs;
+import com.fenghuangzhujia.eshop.core.area.dto.AreaVo;
 import com.fenghuangzhujia.foundation.core.rest.PagingController;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
@@ -28,7 +29,7 @@ public class AreaController extends PagingController<AreaDto,AreaInputArgs> {
 	
 	@RequestMapping(value="level/{level}")
 	public String findByLevel(@PathVariable AreaLevel level) {
-		List<AreaDto> result=getService().findByLevel(level);
+		List<AreaVo> result=getService().findVoByLevel(level);
 		return RequestResult.success(result).toJson();
 	}
 	
