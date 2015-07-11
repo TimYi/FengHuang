@@ -59,12 +59,13 @@ public class MaterialAdapter extends AbstractDtoAdapter<Material, MaterialDto, M
 			Product product=productRepository.findOne(productId);
 			d.setProduct(product);
 		}		
-		String type=i.getType();
+		String type=i.getTypeName();
 		if(type!=null) {
 			MaterialType mtype=materialTypeRepository.findOne(type);
 			if(type!=null) {
 				mtype=new MaterialType();
-				materialTypeRepository.save(mtype);
+				mtype.setName(type);
+				mtype=materialTypeRepository.save(mtype);
 				d.setType(mtype);
 			}
 		}

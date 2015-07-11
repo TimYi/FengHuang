@@ -15,7 +15,7 @@ public class MaterialInputArgs extends DtoBaseModel {
 	/**对主材的描述信息*/
 	private String description;
 	/**对应家具，灯具，家具饰品等品类*/
-	private String type;
+	private String typeName;
 	/**使用此材料的套餐id*/
 	private String[] packageIds;
 	
@@ -43,14 +43,14 @@ public class MaterialInputArgs extends DtoBaseModel {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getType() {
-		return type;
+	public String getTypeName() {
+		return typeName;
+	}
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
 	}
 	public String[] getPackageIds() {
 		return packageIds;
-	}
-	public void setType(String type) {
-		this.type = type;
 	}
 	public void setPackageIds(String[] packageIds) {
 		this.packageIds = packageIds;
