@@ -29,6 +29,7 @@
 					<!--td width="15%">ID</td-->
 					<td width="10%">名称</td>
 					<td width="10%">序号</td>
+					<td width="10%">LOGO</td>
 					<td class="endCol" width="10%">操作</td>
 				</tr>
 			</thead>
@@ -38,6 +39,9 @@
 					<!--td data-bind='text: id'></td-->
 					<td data-bind="text: name"></td>
 					<td data-bind="text: ordernum"></td>
+					<td>
+						<img data-bind="attr:{src:logo.url}" style='display: inline; width: 48px; height: 36px;' alt=''/>
+					</td>
 					<td class="action endCol">
 						<span class="nb"><a href="#" data-bind='click: $root.remove'>删除</a></span> | 
 						<span><a href="#" data-bind='click: $root.modify'>修改</a></span> |
