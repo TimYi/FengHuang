@@ -34,7 +34,7 @@ $(function(){
 	$("#bindbtn").bind("click",bindPhone);
 
 	//头像
-	$("#avatarbtn").bind("click",avatarBtnUp);
+	//$("#avatarbtn").bind("click",avatarBtnUp);
 
 	//安全退出
 	function loginOut(){
