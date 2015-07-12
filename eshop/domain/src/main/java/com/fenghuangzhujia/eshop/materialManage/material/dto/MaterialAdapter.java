@@ -65,9 +65,9 @@ public class MaterialAdapter extends AbstractDtoAdapter<Material, MaterialDto, M
 			if(type!=null) {
 				mtype=new MaterialType();
 				mtype.setName(type);
-				mtype=materialTypeRepository.save(mtype);
-				d.setType(mtype);
+				mtype=materialTypeRepository.save(mtype);				
 			}
+			d.setType(mtype);
 		}
 		String[] packageIds=i.getPackageIds();
 		if(packageIds!=null) {
