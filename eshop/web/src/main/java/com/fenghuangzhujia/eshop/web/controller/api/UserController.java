@@ -3,6 +3,8 @@ package com.fenghuangzhujia.eshop.web.controller.api;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -99,10 +101,11 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value="user/changeAvatar",method=RequestMethod.POST)
-	public String changeAvatar(MultipartFile avatar, String token) {
+	public String changeAvatar(MultipartFile avatar, String token, HttpServletResponse response) {
 		SimpleUserDetails details=authenticationManager.authenticate(token);
 		String userid=details.getId();
 		userService.changeAvater(userid, avatar);
+		response.setHeader("X-Frame-Options", "ALLOW-FROM");
 		return RequestResult.success("上传成功").toJson();
 	}
 	
