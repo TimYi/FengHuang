@@ -32,7 +32,7 @@ function onload(){
 function afterGetBrands4Select(data){
 	if(!isErrorData(data)){
 		brands = data.result.result;
-		getDataById(MATERIAL_TYPE,id,afterGetDataById);
+		getDataById(MATERIAL_PRODUCT,id,afterGetDataById);
 	}
 }
 function afterGetDataById(data){
@@ -55,7 +55,7 @@ function afterGetDataById(data){
 	}
 }
 function submitMT(){
-	var url = genUrl(MATERIAL_TYPE)+'/'+id;
+	var url = genUrl(MATERIAL_PRODUCT)+'/'+id;
 	submitAsyFormByJson(url, 'form', 
 		function(data){
 			friendlyTip(data);

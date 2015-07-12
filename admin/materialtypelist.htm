@@ -38,9 +38,7 @@
 					<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox" data-bind="checked: selected"></td>
 					<!--td data-bind='text: id'></td-->
 					<td data-bind="text: name"></td>
-					<td >
-						<input type='text' size=5 data-bind="value: ordernum"/>
-					</td>
+					<td data-bind="text: ordernum"></td>
 					<td data-bind="text: brand.name!='d'?brand.name:''"></td>
 					<td class="action endCol">				
 						<span class="nb"><a href="#" data-bind='click: $root.remove'>删除</a></span> | 

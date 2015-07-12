@@ -31,7 +31,7 @@ function getDatas4page(page){
 	getDatas();
 }
 function getDatas(){
-	getData(MATERIAL_TYPE,param,afterGetDatas);
+	getData(MATERIAL_PRODUCT,param,afterGetDatas);
 }
 function afterGetDatas(data){	
 	//先判断并处理错误数据
@@ -52,7 +52,7 @@ function bindData(data){
 	}
 	dataModel.remove = function(item){
 		if(ConfDel(0)){
-			var url = genUrl(MATERIAL_TYPE)+'/'+item.id();
+			var url = genUrl(MATERIAL_PRODUCT)+'/'+item.id();
 			deleteReq(url,function(dataObj){
 				
 					friendlyTip(dataObj);
@@ -135,7 +135,7 @@ function reorder(){
 		idStr = idStr.substring(0,idStr.length-1);
 		var param ={ids : idStr};
 		//提交
-		var url = genUrl(MATERIAL_TYPE)+'/order';
+		var url = genUrl(MATERIAL_PRODUCT)+'/order';
 		postReq(url,param,function(data){
 			friendlyTip(data);
 			window.location.href='materialtypelist.htm?';
