@@ -32,6 +32,15 @@ public class OrderPayService {
 	 * 应该在一个持久化transaction内部执行此方法
 	 */
 	public void useCoupons(OrderPay orderPay, Set<Coupons> couponses) {
+		//取消之前使用的优惠券
+		if(orderPay.getCouponses()!=null) {
+			for (Coupons coupons : orderPay.getCouponses()) {
+				coupons.setUsed(false);
+				
+			}
+		}		
+		
+		//使用新优惠券
 		Double couponsMoney=0.0;
 		for (Coupons coupons : couponses) {
 			coupons.setUsed(true);

@@ -1,7 +1,10 @@
 package com.fenghuangzhujia.eshop.web.controller.api;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,8 @@ import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
 import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
 import com.fenghuangzhujia.eshop.core.commerce.order.dto.GoodOrderDto;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
+import com.fenghuangzhujia.eshop.materialManage.material.MaterialService;
+import com.fenghuangzhujia.eshop.materialManage.material.dto.MaterialDto;
 import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppointService;
 import com.fenghuangzhujia.eshop.prudoct.appoint.dto.PackageAppointDto;
 import com.fenghuangzhujia.eshop.prudoct.appoint.dto.PackageAppointInputArgs;
@@ -40,6 +45,8 @@ public class ProductController {
 	private MessageManager messageManager;
 	@Autowired
 	private PackageAppointService packageAppointService;
+	@Autowired
+	private MaterialService materialService;
 
 	@RequestMapping(value="product/packages",method=RequestMethod.GET)
 	public String productList(@RequestParam(defaultValue="1") Integer page,
@@ -58,6 +65,27 @@ public class ProductController {
 	@RequestMapping(value="product/package/{id}",method=RequestMethod.GET)
 	public String product(@PathVariable String id) {
 		DecoratePackageDto result=decoratePackageService.findOne(id);
+		return RequestResult.success(result).toJson();
+	}
+	
+	@RequestMapping(value="product/package/{id}/materials",method=RequestMethod.GET)
+	public String packageMaterials(@PathVariable String id) {
+		List<MaterialDto> materials=materialService.findByPackage(id);
+		if(materials==null) return RequestResult.success(null).toJson();
+		Map<String, List<MaterialDto>> result=new HashMap<String, List<MaterialDto>>();
+		for (MaterialDto materialDto : materials) {
+			List<MaterialDto> mList;
+			String type=materialDto.getType();
+			if(type==null) continue;
+			if(!result.containsKey(type)) {
+				mList=new ArrayList<MaterialDto>();
+				mList.add(materialDto);
+				result.put(type, mList);
+			} else {
+				mList=result.get(type);
+				mList.add(materialDto);
+			}
+		}
 		return RequestResult.success(result).toJson();
 	}
 	
