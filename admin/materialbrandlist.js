@@ -71,7 +71,41 @@ function bindData(data){
 	}
 	dataModel.modify = function(item){
 		window.location.href='materialbrandedit.htm?id='+item.id();
-	}	
+	}
+	dataModel.up = function(item){
+		var brands = dataModel.result();
+		var index = brands.indexOf(item);
+		if(index == 0){
+			alert("已经是第一个了，无法上移！");
+		}
+		var temp = brands[index].ordernum();
+		brands[index].ordernum(brands[index-1].ordernum());		
+		brands[index-1].ordernum(temp);		
+		brands.sort(function(left,right){			
+			var result = left.ordernum() == right.ordernum() ? 0:(
+					left.ordernum() < right.ordernum() ? -1:1
+				);
+			return result;
+		});
+		dataModel.result(brands);
+	}
+	dataModel.down = function(item){
+		var brands = dataModel.result();
+		var index = brands.indexOf(item);
+		if(index == brands.length-1){
+			alert("已经是最后一个了，无法下移！");
+		}
+		var temp = brands[index].ordernum();
+		brands[index].ordernum(brands[index+1].ordernum());	
+		brands[index+1].ordernum(temp);	
+		brands.sort(function(left,right){
+			var result = left.ordernum() == right.ordernum() ? 0:(
+					left.ordernum() < right.ordernum() ? -1:1
+				);			
+			return result;
+		});
+		dataModel.result(brands);
+	}		
 	if(!bind){
 		bind = true;
 		ko.applyBindings(dataModel);
@@ -82,12 +116,26 @@ function bindData(data){
 	}
 }
 function handlePageChange (num, type) {
-        	
-	//alert(num+':'+type);
     if(type == 'change'){
     	getDatas4page(num);
-    }            
+    }
 }
 function add(){
 		window.location.href="materialbrandadd.htm";
 }
+function reorder(){
+		var idStr = '';
+		var brands = dataModel.result();
+		for(var i in brands){
+			idStr += brands[i].id();
+			idStr += ',';
+		}
+		idStr = idStr.substring(0,idStr.length-1);
+		var param ={ids : idStr};
+		//提交
+		var url = genUrl(MATERIAL_BRAND)+'/order';
+		postReq(url,param,function(data){
+			friendlyTip(data);
+			window.location.href='materialbrandlist.htm?';
+		});
+	}

@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>编辑材料</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/json2.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript">
+var id;
+var types;
+var brands;
+var products;
+var packages;
+
+var brandDic;
+var productDic;
+var typeDic;
+var packageDic;
+
+var viewModel;
+var material;
+var brandId;
+var productId;
+var selectedPs;
+
+var selectedPackages;
+var selectedBrand;
+var selectedProduct;
+var selectedType ;
+var Brand = function(id,name){
+	this.id = id;
+	this.name = name;
+}
+var Product = function(id,name){
+	this.id = id;
+	this.name = name;
+}
+var Package = function(id,name){
+	this.id = id;
+	this.name = name;
+}
+var Type = function(name){	
+	this.name = name;
+}
+function onload(){
+	//第一步：先获取id	
+	id = getUrlParam(window.location.search,"id");	
+	$("[name='typeGroup']").on("change",
+		function(e){
+			if($('#newOne').is(':checked')){
+				$("#selectType").hide();
+				$("#inputType").show();
+			}else{
+				$("#selectType").show();
+				$("#inputType").hide();
+			}
+		}
+	);
+	getDataById(MATERIAL_MATERIAL,id,afterGetDataById);
+}
+function afterGetMaterialTypes(data){
+	if(!isErrorData(data)){
+		types = data.result;
+		//获取品牌
+		getData(MATERIAL_BRAND,null,afterGetBrands4Select);	
+	}
+}
+function afterGetBrands4Select(data){
+	if(!isErrorData(data)){
+		brands = data.result.result;
+		getData(ORDER_PACKAGE,null,afterGetPackages);
+	}
+}
+function afterGetPackages(data){
+	if(!isErrorData(data)){
+		packages = data.result.result;	
+		//根据brandId获取brand,主要是获取其包含的可供选择的product列表
+		getDataById(MATERIAL_BRAND,brandId,afterGetBrandById);
+	}
+}
+function afterGetDataById(data){
+
+	//先判断并处理错误数据
+	if(!isErrorData(data)){
+		material = data.result;
+		selectedType = material.type;
+		selectedPs = material.packages;		
+		productId = material.product.id;
+		brandId = material.product.brand.id;
+		//获取类别
+		getData(MATERIAL_TYPE,null,afterGetMaterialTypes);		
+	}
+}
+function afterGetBrandById(data){
+	if(!isErrorData(data)){		
+		var brand = data.result;
+		var products = brand.products;
+		//类别
+		typeDic = new Array();
+		for(var i in types)		{
+			typeDic.push(types[i].name);
+		}
+		//品牌
+		brandDic = new Array();
+		for(var i in brands){
+			var br = new Brand(brands[i].id,brands[i].name);
+			if(br.id === brandId){
+				selectedBrand = br;
+			}
+			brandDic.push(br);
+		}
+		//产品类型
+		productDic = new Array();
+		for(var j in products){
+			var pr = new Product(products[j].id,products[j].name);
+			if(pr.id == productId){
+				selectedProduct = pr;
+			}
+			productDic.push(pr);
+		}
+		//套餐
+		packageDic = new Array();
+		selectedPackages = new Array();
+		for(var i in packages){
+			var p = new Package(packages[i].id,packages[i].name);
+			for(var j in selectedPs){
+				if(packages[i].id == selectedPs[j].id){
+					selectedPackages.push(p);
+					break;
+				}
+			}
+			packageDic.push(p);
+		}
+		//数据正确时进行绑定
+	 	viewModel = ko.mapping.fromJS(material);
+	 	
+	 	viewModel.selectedType = ko.observable(selectedType);
+	 	viewModel.selectedBrand = ko.observable(selectedBrand);
+	 	viewModel.selectedProduct = ko.observable(selectedProduct);	
+	 	viewModel.selectedPackages = ko.observable(selectedPackages);
+	 	
+	 	viewModel.typeDic = ko.observableArray(typeDic);
+	 	viewModel.brandDic = ko.observableArray(brandDic);
+	 	viewModel.productDic = ko.observableArray(productDic);	 
+	 	viewModel.packageDic = ko.observableArray(packageDic);	
+		ko.applyBindings(viewModel);
+	}
+}
+
+function submitMB(){
+
+	var selectedPs = viewModel.selectedPackages();
+	var pIdStr = '';
+	for(var i in selectedPs){
+		pIdStr += selectedPs[i].id+',';
+	}
+	pIdStr = pIdStr.substring(0,pIdStr.length-1);
+	$('#packageIds').val(pIdStr);
+	var url = genUrl(MATERIAL_MATERIAL)+'/'+id;
+	var files = $('input[name="picFile"]').prop('files');//获取到文件列表
+			if(files.length == 0){
+			  	submitAsyFormByJson(url, 'form',afterSubmit);
+			}else{	 
+		 		submitFormWithMultipart(url,'form',
+			 		function(formData, jqForm, options){
+			 			//判断是否要上传文件，若不需要上传文件时			 			
+			 			return true;  
+			 		},afterSubmit);
+	 		}
+}
+function afterSubmit(data){
+	friendlyTip(data);
+	window.location.href='materiallist.htm';
+}
+function onBrandChange(){
+	var selectedBrandId = viewModel.selectedBrand().id;
+	//根据brandid切换
+	viewModel.productDic.removeAll();	
+	viewModel.selectedProduct = ko.observable();
+	for(var i in brands){
+		var br = brands[i];		
+		if(br.id == selectedBrandId){
+			productDic = new Array();
+			var ps = br.products;
+			for(var j in ps){
+				var pr = new Product(ps[j].id,ps[j].name);
+				viewModel.productDic.push(pr);
+			}
+			break;
+		}
+	}
+}
+</script>
+</head>
+<body onload="onload()">
+<div class="formHeader">
+	 <span class="title">编辑材料</span> 
+	 <a href="javascript:location.reload();" class="reload">刷新</a> 
+</div>
+<form name="form" id="form" method="post" enctype="multipart/form-data"  onsubmit="return cfm_upadmin();">
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td align="right" width="25%" height="40">ID:</td>
+				<td width="75%" ><span data-bind='text:id'></span></td>
+			</tr>		
+			<tr>
+				<td align="right" width="25%" height="40">描述:</td>
+				<td width="75%" >
+					<input name='description' type="text" data-bind='value:description'>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >序号：</td>
+				<td width="75%" >
+					<input type="text" name='ordernum' data-bind='value:ordernum'>
+				</td>				
+			</tr>
+			<tr>
+				<td align="right" height="40" >类别：</td>
+				<!--可选，可输入-->
+				<td width="75%" >
+					<input type="radio" id='newOne' name='typeGroup' > 输入
+					<input type="radio" id='selectOne' name='typeGroup' checked='checked' > 选择
+					<select id='selectType' data-bind="value:selectedType,options:typeDic,
+						valueAllowUnset: true">
+					</select>
+					<input type='text' style="display:none;" id='inputType' name='typeName' 
+						data-bind='value:selectedType' />
+				</td>				
+			</tr>
+			<tr>
+				<td align="right" height="40" >所属品牌：</td>
+				<td>
+					<select data-bind="value:selectedBrand,options:brandDic,optionsText:'name',
+						valueAllowUnset: true,optionsCaption: '请选择...',event:{change:onBrandChange}">
+					</select>
+					<input type="text" name='brandId' 
+						data-bind="value:selectedBrand()?selectedBrand().id:''">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >产品类型：</td>
+				<td>
+					<select data-bind="value:selectedProduct,options:productDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					</select>
+					<input type="text" name='productId' 
+						data-bind="value:selectedProduct()?selectedProduct().id:''">
+				</td>
+			</tr>	
+			<tr>
+				<td align="right" height="40" >套餐：</td>
+				<td>
+					<select data-bind="selectedOptions:selectedPackages,options:packageDic,optionsText:'name',
+						valueAllowUnset: true" multiple="true" 	style="height:100px;width:100px">
+					</select>
+					<!--提交前构造值-->
+					<input type="text" size=100 name='packageIds' id='packageIds' />
+				</td>
+			</tr>		
+			<tr>
+				<td align="right" height="40" >图片：</td>
+				<td width="75%">
+					<img data-bind='attr:{src:pic.url}'/>
+					<br>
+					<input type="file"  name='picFile'>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="formSubBtn">
+		<input class="submit" value="提交" type="button" onclick ='click:submitMB();'/>
+		<input class="back" value="返回" onclick="history.go(-1)" type="button">
+	</div>
+</form>
+</body></html>
