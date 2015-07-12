@@ -48,6 +48,10 @@ Array.prototype.remove = function(n){
 	*/
 };
 
+if(typeof console == "undefined"){
+	var console = {};
+	console.log = function(){};
+}
 
 
 (function(window){
