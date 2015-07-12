@@ -191,8 +191,10 @@ $(".m_logo").hover(function(){
                                 </div>
                             </div>
                             <div class="col-sm-6 hidden-xs animation animated-item-4">
-                                <div class="slider-img" style="margin-top:100px">
+                                <div class="slider-img" style="margin-top:130px">
+                                	<a href="subappoint.html" >
                                     <img src="images/tyg_ticket_01.png" class="img-responsive">
+                                  </a>
                                 </div>
                             </div>
                         </div>
@@ -214,11 +216,13 @@ $(".m_logo").hover(function(){
                                 </div>
                             </div>
                             <div class="col-sm-6 hidden-xs animation animated-item-4">
-                                <div class="slider-img" style="margin-top:100px">
+                                <div class="slider-img" style="margin-top:130px">
+                                	<a href="javascript:;" id="buynow" onclick="Buy_tyg_beijing();" >
                                     <img src="images/tyg_ticket_01.png" class="img-responsive">
+                                  </a>
                                 </div>
+                                
                             </div>
-
                         </div>
                     </div>
                 </div>
