@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>编辑材料品牌</title>
+<title>编辑材料类型</title>
 <link href="assets/css/admin.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/js/jquery.js"></script>
 <script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
@@ -16,33 +16,57 @@
 <script type="text/javascript">
 var id;
 var viewModel;
+var brands;
+var brandDic;
+var selectedBrand;
+var Brand = function(id,name){
+	this.id = id;
+	this.name = name;
+}
 function onload(){
 	//第一步：先获取id	
 	id = getUrlParam(window.location.search,"id");
-	getDataById(MATERIAL_BRAND,id,afterGetDataById);
+	//获取所有品牌
+	getData(MATERIAL_BRAND,null,afterGetBrands4Select);
+}
+function afterGetBrands4Select(data){
+	if(!isErrorData(data)){
+		brands = data.result.result;
+		getDataById(MATERIAL_TYPE,id,afterGetDataById);
+	}
 }
 function afterGetDataById(data){
 
 	//先判断并处理错误数据
 	if(!isErrorData(data)){
 		//数据正确时进行绑定
-	 	viewModel = ko.mapping.fromJS(data.result);	
+		brandDic = new  Array();
+		for(var i in brands){
+			var brand = new Brand(brands[i].id,brands[i].name);
+			if(data.result.brand.id == brand.id){
+				selectedBrand = brand;
+			}
+			brandDic.push(brand);
+		}
+	 	viewModel = ko.mapping.fromJS(data.result);
+	 	viewModel.selectedBrand = ko.observable(selectedBrand);
+	 	viewModel.brandDic = ko.observableArray(brandDic);
 		ko.applyBindings(viewModel);
 	}
 }
-function submitMB(){
-	var url = genUrl(MATERIAL_BRAND)+'/'+id;	 		
+function submitMT(){
+	var url = genUrl(MATERIAL_TYPE)+'/'+id;
 	submitAsyFormByJson(url, 'form', 
-		function(data){		 			
+		function(data){
 			friendlyTip(data);
-			window.location.href='materialbrandlist.htm';
-		 }); 
+			window.location.href='materialproductlist.htm';
+		});
 }
 </script>
 </head>
 <body onload="onload()">
 <div class="formHeader">
-	 <span class="title">编辑材料品牌</span> 
+	 <span class="title">编辑材料类型</span> 
 	 <a href="javascript:location.reload();" class="reload">刷新</a> 
 </div>
 <form name="form" id="form" method="post" enctype="multipart/form-data"  onsubmit="return cfm_upadmin();">
@@ -51,29 +75,34 @@ function submitMB(){
 			<tr>
 				<td align="right" width="25%" height="40">ID:</td>
 				<td width="75%" ><span data-bind='text:id'></span></td>
-			</tr>		
+			</tr>
 			<tr>
 				<td align="right" width="25%" height="40">名称:</td>
-				<td width="75%" ><input name='name' type="text" data-bind='value:name'></td>
+				<td width="75%" >
+					<input name='name' type="text" data-bind='value:name'>
+				</td>
 			</tr>
 			<tr>
 				<td align="right" height="40" >序号：</td>
-				<td width="75%" ><input type="text" name='ordernum' data-bind='value:ordernum'></td>				
-			</tr>			
-			<tr>
-				<td align="right" height="40" >LOGO：</td>
 				<td width="75%" >
-					<img data-bind='attr:{src:logo.url}'/>
-					<br>
-					<input type="file"  name='logoFile'>
-				</td>				
-			</tr>			
+					<input type="text" name='ordernum' data-bind='value:ordernum'>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >所属品牌：</td>
+				<td>
+					<select data-bind="value:selectedBrand,options:brandDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					</select>
+					<input type="text" name='brandId' 
+						data-bind="value:selectedBrand()?selectedBrand().id:''">
+				</td>
+			</tr>
 		</tbody>
 	</table>
 	<div class="formSubBtn">
-		<input class="submit" value="提交" type="button" onclick ='click:submitMB();'/>
+		<input class="submit" value="提交" type="button" onclick ='click:submitMT();'/>
 		<input class="back" value="返回" onclick="history.go(-1)" type="button">
 	</div>
 </form>
-
-</body></html>
+</body>
+</html>

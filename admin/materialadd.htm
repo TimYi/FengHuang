@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>新增材料</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/json2.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript">
+var id;
+var brandDic;
+var productDic;
+var typeDic;
+var packageDic;
+var viewModel;
+var brands;
+var brandId;
+var productId;
+var selectedBrand;
+var selectedProduct;
+var material;
+var Brand = function(id,name){
+	this.id = id;
+	this.name = name;
+}
+var Package = function(id,name){
+	this.id = id;
+	this.name = name;
+}
+var Product = function(id,name){
+	this.id = id;
+	this.name = name;
+}
+var Type = function(name){	
+	this.name = name;
+}
+function afterGetPackages(data){
+
+	if(!isErrorData(data)){
+		var packages = data.result.result;
+		packageDic = new Array();
+		for(var i in packages)		{
+			var p = new Package(packages[i].id,packages[i].name);
+			packageDic.push(p);
+		}
+		getData(MATERIAL_TYPE,null,afterGetMaterialTypes);
+	}
+}
+function afterGetMaterialTypes(data){
+	if(!isErrorData(data)){
+		var types = data.result;
+		typeDic = new Array();
+		for(var i in types)		{
+			typeDic.push(types[i].name);
+		}
+		getData(MATERIAL_BRAND,null,afterGetBrands4Select);	
+	}
+}
+function onload(){
+	$("[name='typeGroup']").on("change",
+		function(e){
+			if($('#newOne').is(':checked')){
+				$("#selectType").hide();
+				$("#inputType").show();
+			}else{
+				$("#selectType").show();
+				$("#inputType").hide();
+			}
+		}
+	);
+
+	getData(ORDER_PACKAGE,null,afterGetPackages);	
+}
+function afterGetBrands4Select(data){
+	if(!isErrorData(data)){
+		brands = data.result.result;
+		brandDic = new Array();
+		for(var i in brands){
+			var br = new Brand(brands[i].id,brands[i].name);
+			brandDic.push(br);
+		}
+		viewModel = {
+	 		selectedBrand:ko.observable(),
+	 		selectedProduct : ko.observable(),
+	 		selectedType	: ko.observable(),
+	 		selectedPackages	: ko.observableArray(),
+	 		brandDic : ko.observableArray(brandDic),
+	 		typeDic : ko.observableArray(typeDic),
+	 		productDic : ko.observableArray(productDic),
+	 		packageDic : ko.observableArray(packageDic)
+	 	}
+		ko.applyBindings(viewModel);
+	}
+}
+function submitMB(){
+	var selectedPs = viewModel.selectedPackages();
+	var pIdStr = '';
+	for(var i in selectedPs){
+		pIdStr = selectedPs[i].id+',';
+	}
+	pIdStr = pIdStr.substring(0,pIdStr.length-1);
+	$('#packageIds').val(pIdStr);
+	var url = genUrl(MATERIAL_MATERIAL);
+	var files = $('input[name="picFile"]').prop('files');//获取到文件列表
+			if(files.length == 0){
+			  	submitAsyFormByJson(url, 'form',afterSubmit);
+			}else{	 
+		 		submitFormWithMultipart(url,'form',
+			 		function(formData, jqForm, options){
+			 			//判断是否要上传文件，若不需要上传文件时			 			
+			 			return true;  
+			 		},afterSubmit);
+	 		}
+}
+function afterSubmit(data){
+	friendlyTip(data);
+	window.location.href='materiallist.htm';
+}
+function onProductChange(){
+	$('#productId').val(viewModel.selectedProduct().id);
+}
+function onBrandChange(){
+	var selectedBrandId = viewModel.selectedBrand().id;
+	//根据brandid切换
+	viewModel.productDic.removeAll();	
+	viewModel.selectedProduct = ko.observable();
+	for(var i in brands){
+		var br = brands[i];		
+		if(br.id == selectedBrandId){
+			productDic = new Array();
+			var ps = br.products;
+			for(var j in ps){
+				var pr = new Product(ps[j].id,ps[j].name);
+				viewModel.productDic.push(pr);
+			}
+			break;
+		}
+	}
+}
+
+</script>
+</head>
+<body onload="onload()">
+<div class="formHeader">
+	 <span class="title">新增材料</span> 
+	 <a href="javascript:location.reload();" class="reload">刷新</a> 
+</div>
+<form name="form" id="form" method="post" enctype="multipart/form-data"  onsubmit="return cfm_upadmin();">
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td align="right" width="25%" height="40">描述:</td>
+				<td width="75%" >
+					<input name='description' type="text" >
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >序号：</td>
+				<td width="75%" >
+					<input type="text" name='ordernum' >
+				</td>				
+			</tr>
+			<tr>
+				<td align="right" height="40" >类别：</td>
+				<!--可选，可输入-->
+				<td width="75%" >
+					<input type="radio" id='newOne' name='typeGroup' > 输入
+					<input type="radio" id='selectOne' name='typeGroup' checked='checked' > 选择
+					<select id='selectType' data-bind="value:selectedType,options:typeDic,
+						valueAllowUnset: true">
+					</select>
+					<input type='text' style="display:none;" id='inputType' name='typeName' data-bind='value:selectedType' />
+				</td>				
+			</tr>
+			<tr>
+				<td align="right" height="40" >所属品牌：</td>
+				<td>
+					<select data-bind="value:selectedBrand,options:brandDic,optionsText:'name',
+						valueAllowUnset: true,optionsCaption: '请选择...',event:{change:onBrandChange}">
+					</select>
+					<input type="hidden" name='brandId' 
+						data-bind="value:selectedBrand()?selectedBrand().id:''">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >产品类型：</td>
+				<td>
+					<select data-bind="value:selectedProduct,options:productDic,optionsText:'name',
+						valueAllowUnset: true,optionsCaption: '请选择...', event:{change:onProductChange}">
+					</select>
+					<input type="hidden" name='productId' id='productId'
+						data-bind="value:selectedProduct()?selectedProduct().id:''">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >套餐：</td>
+				<td>
+					<select data-bind="selectedOptions:selectedPackages,options:packageDic,optionsText:'name',
+						valueAllowUnset: true" multiple="true" 	style="height:50px;width:100px">
+					</select>
+					<!--提交前构造值-->
+					<input type="hidden" name='packageIds' id='packageIds' />
+				</td>
+			</tr>			
+			<tr>
+				<td align="right" height="40" >图片：</td>
+				<td width="75%">
+					<input type="file"  name='picFile'>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="formSubBtn">
+		<input class="submit" value="提交" type="button" onclick ='click:submitMB();'/>
+		<input class="back" value="返回" onclick="history.go(-1)" type="button">
+	</div>
+</form>
+</body></html>

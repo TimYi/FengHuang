@@ -31,7 +31,7 @@ function getDatas4page(page){
 	getDatas();
 }
 function getDatas(){
-	getData(MATERIAL_BRAND,param,afterGetDatas);
+	getData(MATERIAL_PRODUCT,param,afterGetDatas);
 }
 function afterGetDatas(data){	
 	//先判断并处理错误数据
@@ -52,7 +52,7 @@ function bindData(data){
 	}
 	dataModel.remove = function(item){
 		if(ConfDel(0)){
-			var url = genUrl(MATERIAL_BRAND)+'/'+item.id();
+			var url = genUrl(MATERIAL_PRODUCT)+'/'+item.id();
 			deleteReq(url,function(dataObj){
 				
 					friendlyTip(dataObj);
@@ -70,7 +70,41 @@ function bindData(data){
 		}
 	}
 	dataModel.modify = function(item){
-		window.location.href='materialbrandedit.htm?id='+item.id();
+		window.location.href='materialproductedit.htm?id='+item.id();
+	}
+	dataModel.up = function(item){
+		var brands = dataModel.result();
+		var index = brands.indexOf(item);
+		if(index == 0){
+			alert("已经是第一个了，无法上移！");
+		}
+		var temp = brands[index].ordernum();
+		brands[index].ordernum(brands[index-1].ordernum());		
+		brands[index-1].ordernum(temp);		
+		brands.sort(function(left,right){			
+			var result = left.ordernum() == right.ordernum() ? 0:(
+					left.ordernum() < right.ordernum() ? -1:1
+				);
+			return result;
+		});
+		dataModel.result(brands);
+	}
+	dataModel.down = function(item){
+		var brands = dataModel.result();
+		var index = brands.indexOf(item);
+		if(index == brands.length-1){
+			alert("已经是最后一个了，无法下移！");
+		}
+		var temp = brands[index].ordernum();
+		brands[index].ordernum(brands[index+1].ordernum());	
+		brands[index+1].ordernum(temp);	
+		brands.sort(function(left,right){
+			var result = left.ordernum() == right.ordernum() ? 0:(
+					left.ordernum() < right.ordernum() ? -1:1
+				);			
+			return result;
+		});
+		dataModel.result(brands);
 	}	
 	if(!bind){
 		bind = true;
@@ -89,5 +123,21 @@ function handlePageChange (num, type) {
     }            
 }
 function add(){
-		window.location.href="materialbrandadd.htm";
+	window.location.href="materialproductadd.htm";
 }
+function reorder(){
+		var idStr = '';
+		var brands = dataModel.result();
+		for(var i in brands){
+			idStr += brands[i].id();
+			idStr += ',';
+		}
+		idStr = idStr.substring(0,idStr.length-1);
+		var param ={ids : idStr};
+		//提交
+		var url = genUrl(MATERIAL_PRODUCT)+'/order';
+		postReq(url,param,function(data){
+			friendlyTip(data);
+			window.location.href='materialtypelist.htm?';
+		});
+	}

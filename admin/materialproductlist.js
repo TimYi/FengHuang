@@ -31,7 +31,7 @@ function getDatas4page(page){
 	getDatas();
 }
 function getDatas(){
-	getData(MATERIAL_BRAND,param,afterGetDatas);
+	getData(MATERIAL_TYPE,param,afterGetDatas);
 }
 function afterGetDatas(data){	
 	//先判断并处理错误数据
@@ -52,7 +52,7 @@ function bindData(data){
 	}
 	dataModel.remove = function(item){
 		if(ConfDel(0)){
-			var url = genUrl(MATERIAL_BRAND)+'/'+item.id();
+			var url = genUrl(MATERIAL_TYPE)+'/'+item.id();
 			deleteReq(url,function(dataObj){
 				
 					friendlyTip(dataObj);
@@ -70,7 +70,7 @@ function bindData(data){
 		}
 	}
 	dataModel.modify = function(item){
-		window.location.href='materialbrandedit.htm?id='+item.id();
+		window.location.href='materialproductedit.htm?id='+item.id();
 	}
 	dataModel.up = function(item){
 		var brands = dataModel.result();
@@ -105,7 +105,7 @@ function bindData(data){
 			return result;
 		});
 		dataModel.result(brands);
-	}		
+	}	
 	if(!bind){
 		bind = true;
 		ko.applyBindings(dataModel);
@@ -116,12 +116,14 @@ function bindData(data){
 	}
 }
 function handlePageChange (num, type) {
+        	
+	//alert(num+':'+type);
     if(type == 'change'){
     	getDatas4page(num);
-    }
+    }            
 }
 function add(){
-		window.location.href="materialbrandadd.htm";
+	window.location.href="materialproductadd.htm";
 }
 function reorder(){
 		var idStr = '';
@@ -133,9 +135,9 @@ function reorder(){
 		idStr = idStr.substring(0,idStr.length-1);
 		var param ={ids : idStr};
 		//提交
-		var url = genUrl(MATERIAL_BRAND)+'/order';
+		var url = genUrl(MATERIAL_TYPE)+'/order';
 		postReq(url,param,function(data){
 			friendlyTip(data);
-			window.location.href='materialbrandlist.htm?';
+			window.location.href='materialtypelist.htm?';
 		});
 	}

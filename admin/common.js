@@ -1,6 +1,8 @@
 
 var MATERIAL_BRAND = 'brand';
-
+var MATERIAL_PRODUCT = 'product';
+var MATERIAL_MATERIAL = 'material';
+var MATERIAL_TYPE = 'material/types';
 function PagingJson2ViewModel(data){
 
 	return ko.mapping.fromJS(data);
