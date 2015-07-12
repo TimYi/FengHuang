@@ -3,6 +3,8 @@ package com.fenghuangzhujia.eshop.web.controller.api;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fenghuangzhujia.eshop.appoint.AppointService;
 import com.fenghuangzhujia.eshop.collect.CollectService;
 import com.fenghuangzhujia.eshop.comment.CommentItemService;
+import com.fenghuangzhujia.eshop.core.authentication.AuthenticationManager;
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
 import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
 import com.fenghuangzhujia.eshop.core.commerce.coupons.CouponsService;
@@ -44,6 +47,8 @@ public class UserController {
 	private MessageManager messageManager;
 	@Autowired
 	private AppointService appointService;
+	@Autowired
+	private AuthenticationManager authenticationManager;
 	
 	/**
 	 * 获取用户个人信息
@@ -91,16 +96,16 @@ public class UserController {
 	}
 	
 	/**
-	 * 绑定用户手机号码
-	 * @param mobile
-	 * @param validater
+	 * 上传头像
+	 * @param avatar
 	 * @return
 	 */
 	@RequestMapping(value="user/changeAvatar",method=RequestMethod.POST)
-	public String changeAvatar(MultipartFile avatar) {
-		SimpleUserDetails details=AuthenticationService.getUserDetail();
+	public String changeAvatar(MultipartFile avatar, String token, HttpServletResponse response) {
+		SimpleUserDetails details=authenticationManager.authenticate(token);
 		String userid=details.getId();
 		userService.changeAvater(userid, avatar);
+		response.setHeader("X-Frame-Options", "ALLOWALL");
 		return RequestResult.success("上传成功").toJson();
 	}
 	

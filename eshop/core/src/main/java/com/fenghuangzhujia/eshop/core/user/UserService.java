@@ -87,6 +87,7 @@ public class UserService extends DtoSpecificationService<User, UserDto, UserInpu
 		MediaContent ava=user.getAvatar();
 		try {
 			ava=mediaService.update(ava, avatar);
+			user.setAvatar(ava);
 		} catch (Exception e) {
 			LogUtils.errorLog(e);
 		}
