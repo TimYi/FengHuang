@@ -105,7 +105,7 @@ public class UserController {
 		SimpleUserDetails details=authenticationManager.authenticate(token);
 		String userid=details.getId();
 		userService.changeAvater(userid, avatar);
-		response.setHeader("X-Frame-Options", "ALLOW-FROM*");
+		response.setHeader("X-Frame-Options", "ALLOWALL");
 		return RequestResult.success("上传成功").toJson();
 	}
 	
