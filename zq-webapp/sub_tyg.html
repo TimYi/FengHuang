@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>预约体验馆 — 厦门</title>
+    <title>预约体验馆</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -82,7 +82,7 @@
     <div class="am-sticky-placeholder" style="height: 49px; margin: 0px;">
         <div data-am-sticky="" style="margin: 0px;">
             <header data-am-widget="header" class="am-header am-header-default am-no-layout" style="background:#fff;box-shadow: inset -1px -1px 1px -1px #666;">
-                <h1 class="am-header-title"><span style="color:#333;font-size:18px;font-weight:bold">预约厦门馆</span></h1>
+                <h1 class="am-header-title"><span style="color:#333;font-size:18px;font-weight:bold">预约体验馆</span></h1>
                 <div class="am-header-left am-header-nav">
                     <a href="tyg.html" class="">
                         <i class="am-header-icon am-icon-chevron-left" style="font-size:16px;color:#999;margin-left:-15px"></i>
@@ -97,7 +97,14 @@
             <div style="height:10px"></div>
         
             <div class="am-form-group am-form-select">
-                <select id="typeid" style="font-size:14px;height:40px"></select>
+                <select id="typeid"></select>
+            </div>
+            <div class="am-form-group" style="overflow-x:hidden;">
+                <select id="provId" required style="border-color:#e0e0e0;width:48%;float:left;">
+                </select>
+                <select id="cityId" required style="border-color:#e0e0e0;width:48%;float:right;">
+                </select>
+                <span class="am-form-caret"></span>
             </div>
 
             <div class="am-form-group">
@@ -137,7 +144,7 @@
     <script src="js/libs/json.js"></script>
     <script src="js/libs/base.js"></script>
     <script src="js/libs/utils.js"></script>
-    <script src="js/sub_tyg_xm.js"></script>
+    <script src="js/sub_tyg.js"></script>
 </body>
 
 </html>

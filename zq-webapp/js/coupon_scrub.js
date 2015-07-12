@@ -64,7 +64,7 @@ $(function() {
             success: function(data){
                 if(data){
                     alert("优惠券抢购成功！")
-                    location.href = "u_conpon.html?token="+g.token;
+                    location.href = "u_coupon.html?token="+g.token;
                 }
                 else{
                     alert("优惠券抢购失败!");

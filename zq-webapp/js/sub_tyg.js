@@ -19,16 +19,24 @@ $(function(){
 	//验证登录状态
 	g.loginStatus = Utils.getUserInfo();
 	g.reserveStatus = false;
-	if(g.loginStatus && g.userprofile !== ""){
+	if(!g.loginStatus){
+		alert('请先登录');
+		location.href='login.html';
+		return;
+	}else if(g.loginStatus && g.userprofile !== ""){
 		var obj = JSON.parse(g.userprofile);
 		var name = obj.realName || "";
 		var mobile = obj.mobile || "";
+		console.log(obj);
 		if(name !== "" && mobile !== ""){
 			//允许预约
 			g.reserveStatus = true;
 		}
 		else{
 			g.reserveStatus = false;
+			alert("个人资料不完善,无法预约");
+			location.href = "u_info.html?token=" + g.token + "&p=1";
+			return;
 		}
 		$("#name").val(name);
 		$("#phone").val(mobile);
@@ -41,9 +49,76 @@ $(function(){
 	$("#imgcodebtn").bind("click",getImgCode);
 	$("#getcodebtn").bind("click",getValidCode);
 	$("#buybtn").bind("click",reserverBtnUp);
+	$("#provId").bind("change",getProvCity);
 
 	getAppointCategory();
+	getProv();
+	function getProvCity(){
+		var id = $(this).val();
+		getCity(id,1);
+	}
 	//获取字典
+	function getProv(){
+		var url = Base.cityUrl + "/PROV";
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:{},
+			type:"GET",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("getProv",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					changeSelectHtml("provId",data.result || []);
+					var id = data.result[0].id;
+					getCity(id,0);
+				}
+				else{
+					Utils.alert("城市获取失败");
+				}
+				g.httpTip.hide();
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+	function getCity(id,b){
+		var url = Base.subareasUrl + "/" + id;
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:{},
+			type:"GET",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("getCity",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					switch(b){
+						case 0:
+							changeSelectHtml("cityId",data.result || []);
+						break;
+						case 1:
+							changeSelectHtml("cityId",data.result || []);
+						break;
+					}
+				}
+				else{
+					Utils.alert("城市获取失败");
+				}
+				g.httpTip.hide();
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
 	function getAppointCategory(){
 		var url = Base.categoryUrl + "/appoint";
 		g.httpTip.show();
@@ -91,15 +166,6 @@ $(function(){
 		}
 	}
 
-	function getImgCode2(evt){
-		var phone = $("#phone2").val() || "";
-		if(phone !== ""){
-			console.log(phone);
-			g.imgCodeId = phone;
-			$("#imgcodebtn2").attr("src",Base.imgCodeUrl + "?id=" + g.imgCodeId);
-		}
-	}
-
 	//获取验证码
 	function getValidCode(evt){
 		var ele = evt.currentTarget;
@@ -132,37 +198,6 @@ $(function(){
 		}
 	}
 
-	function getValidCode2(evt){
-		var ele = evt.currentTarget;
-		//$(ele).removeClass("curr");
-		//if(!this.moved){}
-		var p = $("#phone2").val() || "";
-		var imgCode = $("#inputImgCode32").val() || "";
-		if(p !== ""){
-			var reg = /^1[3,5,7,8]\d{9}$/g;
-			if(reg.test(p)){
-				if(imgCode !== ""){
-					g.phone = p;
-					if(!g.sendCode){
-						sendGetCodeHttp2(imgCode);
-					}
-				}
-				else{
-					Utils.alert("输入图形验证码");
-					$("#inputImgCode32").focus();
-				}
-			}
-			else{
-				Utils.alert("手机输入不合法");
-				$("#phone2").focus();
-			}
-		}
-		else{
-			Utils.alert("请输入手机号");
-			$("#phone2").focus();
-		}
-	}
-
 	//重新获取验证码
 	function resetGetValidCode(){
 		g.sendTime = g.sendTime - 1;
@@ -184,32 +219,12 @@ $(function(){
 		}
 	}
 
-	function resetGetValidCode2(){
-		g.sendTime = g.sendTime - 1;
-		if(g.sendTime > 0){
-			$("#getcodebtn2").html(g.sendTime + "秒后重新发送");
-			setTimeout(function(){
-				resetGetValidCode2();
-			},1000);
-		}
-		else{
-			$("#getcodebtn2").html("重新发送");
-			g.sendTime = 60;
-			g.sendCode2 = false;
-
-			//重新获取图形验证码,1分钟有效
-			getImgCode2();
-			$("#inputImgCode32").val("");
-			$("#inputImgCode32").focus();
-		}
-	}
-
 	function reserverBtnUp(){
 		if(g.loginStatus){
 			if(!g.reserveStatus){
 				//没有添加真实姓名,引导去填写
 				alert("个人资料不完善,无法预约");
-				location.href = ".html?token=" + g.token + "&p=1";
+				location.href = "u_info.html?token=" + g.token + "&p=1";
 				return;
 			}
 			var condi = {};
@@ -267,75 +282,6 @@ $(function(){
 		}
 	}
 
-	function buyBtnUp2(){
-		if(g.loginStatus){
-			var text = $("#buybtn2").text();
-			if(text == "您已成功预约"){
-				return;
-			}
-
-			if(!g.reserveStatus){
-				//没有添加真实姓名,引导去填写
-				alert("个人资料不完善,无法预约");
-				location.href = "u_info.html?token=" + g.token + "&p=1";
-				return;
-			}
-
-			var condi = {};
-			/*
-			token:用户凭据
-			typeid:预约类别（字典类型名称：appoint）
-			areaid:地区id
-			address:手动填写地址
-			mobile:电话号码
-			*/
-			condi.token = g.token;
-			condi.decoratePackageId = Utils.getQueryString("id") ||"";
-			condi.cityId = "404040e64e2a016a014e2a017a2f0001";
-			condi.mobile = $("#phone2").val() || "";
-			condi.realName = $("#name2").val() || "";
-			condi.captcha = $("#inputImgCode32").val() || "";
-			condi.validater = $("#msgcode2").val() || "";
-
-			if(condi.name !== ""){
-				if(condi.mobile !== ""){
-					var reg = /^1[3,5,7,8]\d{9}$/g;
-					if(reg.test(condi.mobile)){
-						if(condi.captcha !== ""){
-							if(condi.msgcode !== ""){
-								sendAppointHttp2(condi);
-							}
-							else{
-								Utils.alert("输入短信验证码");
-								$("#msgcode2").focus();
-							}
-						}
-						else{
-							Utils.alert("输入图形验证码");
-							$("#inputImgCode32").focus();
-						}
-					}
-					else{
-						Utils.alert("手机输入不合法");
-						$("#phone2").focus();
-					}
-				}
-				else{
-					Utils.alert("请输入手机号");
-					$("#phone2").focus();
-				}
-			}
-			else{
-				Utils.alert("请输入姓名");
-				$("#name2").focus();
-			}
-		}
-		else{
-			location.href = "login.html";
-		}
-	}
-
-
 	//请求验证码
 	function sendGetCodeHttp(imgCode){
 		var url = Base.getCodeUrl;
@@ -370,41 +316,6 @@ $(function(){
 			}
 		});
 	}
-
-	function sendGetCodeHttp2(imgCode){
-		var url = Base.getCodeUrl;
-		var condi = {};
-		condi.mobile = g.phone;
-		condi.captcha = imgCode;
-		g.httpTip.show();
-		$.ajax({
-			url:url,
-			data:condi,
-			type:"POST",
-			dataType:"json",
-			context:this,
-			global:false,
-			success: function(data){
-				console.log(data);
-				var status = data.status || "";
-				if(status == "OK"){
-					g.sendCode2 = true;
-					$("#getcodebtn2").html("60秒后重新发送");
-					setTimeout(function(){
-						resetGetValidCode2();
-					},1000);
-				}
-				else{
-					alert("验证码获取失败");
-				}
-				g.httpTip.hide();
-			},
-			error:function(data){
-				g.httpTip.hide();
-			}
-		});
-	}
-
 
 	function sendAppointHttp(condi){
 		var url = Base.appointUrl;
