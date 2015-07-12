@@ -12,7 +12,7 @@ import com.fenghuangzhujia.eshop.materialManage.brand.dto.BrandVo;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
 @RestController
-public class MeteriaController {
+public class MaterialController {
 	
 	@Autowired
 	private BrandService brandService;
