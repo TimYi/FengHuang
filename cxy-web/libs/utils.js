@@ -462,8 +462,8 @@ if(typeof console == "undefined"){
 				str = "?token=" + token + "&p=0";
 			}
 
-			html.push('<li style="padding-right:10px;"><i class="fa fa-user hui"></i>');
-			html.push('<span style="color:#aaa">' + userName + ',您好！</span>');
+			html.push('<li style="padding-right:10px;"><i class="fa fa-user hui"></i>&nbsp&nbsp');
+			html.push('<span style="color:#aaa">' + userName + ',&nbsp您好！</span>');
 			html.push('<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal"><a href="javascript:Utils.gotoCenter();" style="width:60px">会员中心</a></b>');
 			html.push('<b style="padding:0 10px;font-weight:normal"><a href="javascript:Utils.loginOut();" style="width:30px">退出</a></b></li>');
 			if($("#loginstatus").length > 0){
