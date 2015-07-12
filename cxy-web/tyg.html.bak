@@ -191,7 +191,7 @@ $(".m_logo").hover(function(){
                                 </div>
                             </div>
                             <div class="col-sm-6 hidden-xs animation animated-item-4">
-                                <div class="slider-img">
+                                <div class="slider-img" style="margin-top:100px">
                                     <img src="images/tyg_ticket_01.png" class="img-responsive">
                                 </div>
                             </div>
@@ -199,7 +199,7 @@ $(".m_logo").hover(function(){
                     </div>
                 </div>
 
-                <div class="item" style="background-image: url(assets/images/499_5_1.jpg)">
+                <div class="item" style="background-image: url(images/tyg_bg_02.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
                             <div class="col-sm-6">
@@ -214,8 +214,8 @@ $(".m_logo").hover(function(){
                                 </div>
                             </div>
                             <div class="col-sm-6 hidden-xs animation animated-item-4">
-                                <div class="slider-img">
-                                    <img src="assets/images/slider/5.png" class="img-responsive">
+                                <div class="slider-img" style="margin-top:100px">
+                                    <img src="images/tyg_ticket_01.png" class="img-responsive">
                                 </div>
                             </div>
 
