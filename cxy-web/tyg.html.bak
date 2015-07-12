@@ -241,7 +241,8 @@ $(".m_logo").hover(function(){
 		<section id="feature" >
 		    <div class="container">
 		       	<div class="center wow fadeInDown">
-		            <h2>厦门馆 <span style="font-size:24px">XIAMEN STATION</span></h2>
+		            <h2>厦门馆 <br/><span style="font-size:24px">XIAMEN STATION</span></h2>
+		            <div style="border:1px solid #000;width:50px"></div>
 		            <p class="lead">厦门市湖里区金泰路1798创业大街5层</p>
 		        </div>
 		        <div class="row" style="">
