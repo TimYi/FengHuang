@@ -54,18 +54,22 @@ function submitMB(){
 			</tr>		
 			<tr>
 				<td align="right" width="25%" height="40">名称:</td>
-				<td width="75%" ><input name='name' type="text" data-bind='value:name'></td>
+				<td width="75%" ><input   class="input" name='name' type="text" data-bind='value:name'></td>
 			</tr>
 			<tr>
 				<td align="right" height="40" >序号：</td>
-				<td width="75%" ><input type="text" name='ordernum' data-bind='value:ordernum'></td>				
+				<td width="75%" ><input   class="input" type="text" name='ordernum' data-bind='value:ordernum'></td>				
 			</tr>			
 			<tr>
 				<td align="right" height="40" >LOGO：</td>
 				<td width="75%" >
-					<img data-bind='attr:{src:logo.url}'/>
-					<br>
-					<input type="file"  name='logoFile'>
+					<img data-bind='attr:{src:logo.url}'/>				
+				</td>				
+			</tr>
+			<tr>
+				<td align="right" height="40" >更换LOGO：</td>
+				<td width="75%" >					
+					<input   class="input" type="file"  name='logoFile'>
 				</td>				
 			</tr>			
 		</tbody>

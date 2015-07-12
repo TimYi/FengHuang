@@ -59,18 +59,22 @@ function afterGetMenus4Select(data){
 		<tbody>
 			<tr>
 				<td align="right" width="25%" height="40">编码:</td>
-				<td width="75%" ><input name='code' type="text"></td>
+				<td width="75%" ><input   class="input" name='code' type="text"></td>
 			</tr>	
 			<tr>
 				<td align="right"  height="40">栏目:</td>
 				<td >
-					<select data-bind="value:selectedMenu,options:selectableMenu,optionsText:'name',optionsCaption: '请选择...'"></select>
-					<input type="hidden" name='menuid' data-bind="value:selectedMenu()?selectedMenu().id:''">
+					<select  class="input" data-bind="value:selectedMenu,options:selectableMenu,optionsText:'name',optionsCaption: '请选择...'"></select>
+					<input  type="hidden" name='menuid' data-bind="value:selectedMenu()?selectedMenu().id:''">
 				</td>
 			</tr>	
 			<tr>
 				<td align="right" width="25%" height="40">标题:</td>
-				<td width="75%" ><input name='title' type="text"></td>
+				<td width="75%" ><input   class="input" name='title' type="text"></td>
+			</tr>
+				<tr>
+				<td align="right" width="25%" height="40">点击数:</td>
+				<td width="75%" ><input   class="input" name='hits' type="text"></td>
 			</tr>
 			<!--tr>
 				<td align="right" width="25%" height="40">来源:</td>
@@ -78,15 +82,15 @@ function afterGetMenus4Select(data){
 			</tr>
 			<tr>
 				<td align="right" width="25%" height="40">来源链接:</td>
-				<td width="75%" ><input name='sourceLink' type="text"></td>
+				<td width="75%" ><input   class="input" name='sourceLink' type="text"></td>
 			</tr>
 			<tr>
 				<td align="right" width="25%" height="40">关键字:</td>
-				<td width="75%" ><input name='keywords' type="text"></td>
+				<td width="75%" ><input   class="input" name='keywords' type="text"></td>
 			</tr>
 			<tr>
 				<td align="right" width="25%" height="40">描述:</td>
-				<td width="75%" ><input name='description' type="text"></td>
+				<td width="75%" ><input   class="input" name='description' type="text"></td>
 			</tr-->
 			<tr>
 				<td align="right" width="25%" height="40">内容:</td>
@@ -108,10 +112,7 @@ function afterGetMenus4Select(data){
 					</script>
 				</td>
 			</tr>
-			<tr>
-				<td align="right" width="25%" height="40">点击数:</td>
-				<td width="75%" ><input name='hits' type="text"></td>
-			</tr>
+		
 		</tbody>
 	</table>
 	<div class="formSubBtn">

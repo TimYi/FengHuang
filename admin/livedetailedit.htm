@@ -69,19 +69,19 @@ function delPic(){
 			</tr>
 			<tr>
 				<td align="right" width="25%" height="40">第几天:</td>
-				<td width="75%" ><input type="text" data-bind='value:day'></td>
+				<td width="75%" ><input type="text"  class="input" data-bind='value:day'></td>
 			</tr>		
 			<tr>
 				<td align="right" height="40" >标题：</td>
-				<td width="75%" ><input type="text" data-bind='value:title'></td>				
+				<td width="75%" ><input type="text"  class="input" data-bind='value:title'></td>				
 			</tr>
 			<tr>
 				<td align="right" height="40" >提示：</td>
-				<td width="75%" ><input type="text" data-bind='value:tips'></td>				
+				<td width="75%" ><input type="text"  class="input" data-bind='value:tips'></td>				
 			</tr>
 			<tr>
 				<td align="right" height="40">日期：</td>
-				<td><input type="text" id="date" class="inputms" data-bind="value:date" readonly="readonly" />
+				<td><input type="text"  class="input" id="date" class="inputms" data-bind="value:date" readonly="readonly" />
 				<script type="text/javascript" src="assets/plugin/calendar/calendar.js"></script> 
 				<script type="text/javascript">
 				Calendar.setup({
@@ -93,36 +93,7 @@ function delPic(){
 				});
 				</script>
 				</td>
-			</tr>
-			<!--tr>
-				<td align="right" height="40" >直播图片：</td>
-				<td width="75%" class="test"> 
-					
-				<ul data-bind='foreach:pics'>
- 					<li>
- 						<img data-bind='attr:{src:url}' style='display: inline; width: 80px; height: 60px;'/>
- 						</br>
- 						<input type="radio" name="picsRadio" data-bind='value:id' stye = "text-align: center"/>
- 					</li>
- 				</ul>  				
-				</td>				
-			</tr>
-			<tr>
-				<td></td>
-				<td>
-					<input value="添加" type="button" onclick='addPic()'/>
-					<input value="删除" type="button" onclick='delPic()' />
-				</td>
-			</tr>
-			<tr>
-				<td align="right" height="40" >微信互动图片：</td>
-				<td width="75%" class="test"> 
-					
-				<ul data-bind='foreach:interactPics'>
- 					<li><img data-bind='attr:{src:url}' style='display: inline; width: 80px; height: 60px;'/></li>
- 				</ul> 
-				</td>				
-			</tr-->			
+			</tr>		
 		</tbody>
 	</table>
 	<div class="formSubBtn">

@@ -138,7 +138,7 @@ function afterGetDataById(data){
 		<tbody>
 			<tr>
 				<td width="25%" align="right"  height="40">用户名：</td>
-				<td width="75%" ><span data-bind="value:username"></span></td>
+				<td width="75%" ><span data-bind="text:username"></span></td>
 			</tr>	
 			<tr>
 				<td width="25%" align="right"  height="40">姓名：</td>
@@ -163,7 +163,7 @@ function afterGetDataById(data){
 			<tr>
     		<!--input type="text" data-bind="value:verified?'已通过验证':'未通过验证'"> 放弃radio是因为不支持bool型</td-->		
 				<td width="25%" align="right"  height="40">性别：</td>
-				<td width="75%"><select data-bind="value:sex,options:sexDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+				<td width="75%"><select  class="input" data-bind="value:sex,options:sexDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 				</select>
 				<input type='hidden' size=50 name="sexId" data-bind="value:sex()?sex().id:''">
 				</td>
@@ -201,7 +201,7 @@ function afterGetDataById(data){
 			<tr>
 				<td width="25%" align="right" height="40">血型：</td>
 				<td width="75%">
-				<select data-bind="value:bloodType,options:bloodTypeDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+				<select  class="input" data-bind="value:bloodType,options:bloodTypeDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 				</select>
 				<input type="hidden" name="bloodTypeId" data-bind="value:bloodType()?bloodType().id:''"></td>
 			</tr>	
@@ -246,7 +246,7 @@ function afterGetDataById(data){
 			<tr>
 				<td width="25%" align="right" height="40" >星座：</td>
 				<td width="75%">
-					<select data-bind="value:constellation,options:constellationDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					<select  class="input" data-bind="value:constellation,options:constellationDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 					</select>
 					<input type="hidden" name="constellationId" size=100 data-bind="value:constellation()?constellation().id:'unknow'">
 				</td>		

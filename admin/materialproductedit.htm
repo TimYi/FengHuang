@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>编辑材料类型</title>
+<title>编辑产品分类</title>
 <link href="assets/css/admin.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/js/jquery.js"></script>
 <script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
@@ -32,7 +32,7 @@ function onload(){
 function afterGetBrands4Select(data){
 	if(!isErrorData(data)){
 		brands = data.result.result;
-		getDataById(MATERIAL_TYPE,id,afterGetDataById);
+		getDataById(MATERIAL_PRODUCT,id,afterGetDataById);
 	}
 }
 function afterGetDataById(data){
@@ -55,7 +55,7 @@ function afterGetDataById(data){
 	}
 }
 function submitMT(){
-	var url = genUrl(MATERIAL_TYPE)+'/'+id;
+	var url = genUrl(MATERIAL_PRODUCT)+'/'+id;
 	submitAsyFormByJson(url, 'form', 
 		function(data){
 			friendlyTip(data);
@@ -66,7 +66,7 @@ function submitMT(){
 </head>
 <body onload="onload()">
 <div class="formHeader">
-	 <span class="title">编辑材料类型</span> 
+	 <span class="title">编辑产品分类</span> 
 	 <a href="javascript:location.reload();" class="reload">刷新</a> 
 </div>
 <form name="form" id="form" method="post" enctype="multipart/form-data"  onsubmit="return cfm_upadmin();">
@@ -79,21 +79,21 @@ function submitMT(){
 			<tr>
 				<td align="right" width="25%" height="40">名称:</td>
 				<td width="75%" >
-					<input name='name' type="text" data-bind='value:name'>
+					<input   class="input" name='name' type="text" data-bind='value:name'>
 				</td>
 			</tr>
 			<tr>
 				<td align="right" height="40" >序号：</td>
 				<td width="75%" >
-					<input type="text" name='ordernum' data-bind='value:ordernum'>
+					<input   class="input" type="text" name='ordernum' data-bind='value:ordernum'>
 				</td>
 			</tr>
 			<tr>
 				<td align="right" height="40" >所属品牌：</td>
 				<td>
-					<select data-bind="value:selectedBrand,options:brandDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					<select class="input" data-bind="value:selectedBrand,options:brandDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 					</select>
-					<input type="text" name='brandId' 
+					<input type="hidden" name='brandId' 
 						data-bind="value:selectedBrand()?selectedBrand().id:''">
 				</td>
 			</tr>

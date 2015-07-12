@@ -80,32 +80,32 @@ function submitLive(){
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tbody>	
 			<tr>
-				<td align="right"  height="40">用户:</td>
-				<td >
-					<select data-bind="value:selectedUser,options:selectableUser,optionsText:'username',optionsCaption: '请选择...'">
+				<td width="25%"  align="right"  height="40">用户:</td>
+				<td width="75%" >
+					<select class="input" data-bind="value:selectedUser,options:selectableUser,optionsText:'username',optionsCaption: '请选择...'">
 					</select>
 					<input type="hidden" name='userId' data-bind="value:selectedUser()?selectedUser().id:''">
 				</td>
 			</tr>		
 			<tr>
-				<td align="right" width="25%" height="40">名称:</td>
-				<td width="75%" ><input name='name' type="text" ></td>
+				<td width="25%"  align="right" width="25%" height="40">名称:</td>
+				<td width="75%" ><input   class="input" name='name' type="text" ></td>
 			</tr>
 			<tr>
-				<td align="right" height="40" >小区：</td>
-				<td width="75%" ><input type="text" name='village' ></td>				
+				<td width="25%"  align="right" height="40" >小区：</td>
+				<td width="75%" ><input   class="input" type="text" name='village' ></td>				
 			</tr>
 			<tr>
-				<td align="right" height="40" >户型：</td>
-				<td width="75%" ><input type="text" name='house' ></td>				
+				<td width="25%"  align="right" height="40" >户型：</td>
+				<td width="75%" ><input   class="input" type="text" name='house' ></td>				
 			</tr>
 			<tr>
-				<td align="right" height="40" >面积：</td>
-				<td width="75%" ><input type="text" name='area' ></td>				
+				<td width="25%"  align="right" height="40" >面积：</td>
+				<td width="75%" ><input   class="input" type="text" name='area' ></td>				
 			</tr>
 			<tr>
-				<td align="right" height="40">开始日期：</td>
-				<td><input type="text" id="startDate" name='startDate' class="inputms"  readonly="readonly" />
+				<td width="25%"  align="right" height="40">开始日期：</td>
+				<td><input   class="input" type="text" id="startDate" name='startDate' class="inputms"  readonly="readonly" />
 				<script type="text/javascript" src="assets/plugin/calendar/calendar.js"></script> 
 				<script type="text/javascript">
 				Calendar.setup({
@@ -119,13 +119,13 @@ function submitLive(){
 				</td>
 			</tr>
 			<tr>
-				<td align="right"  height="40">是否可见: </td>
-				<td  >&nbsp;&nbsp;<input type="checkbox" name="shouldShow" />&nbsp;可见				
+				<td width="25%"  align="right"  height="40">是否可见: </td>
+				<td  >&nbsp;&nbsp;<input  type="checkbox" name="shouldShow" />&nbsp;可见				
 			</tr>
 			<tr>
-				<td align="right" height="40" >图片：</td>
+				<td width="25%"  align="right" height="40" >图片：</td>
 				<td width="75%" >
-					<input type="file"  name='mainPicFile'>
+					<input   class="input" type="file"  name='mainPicFile'>
 				</td>				
 			</tr>			
 		</tbody>

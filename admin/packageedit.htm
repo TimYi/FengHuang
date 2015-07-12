@@ -97,36 +97,36 @@ function afterGetDataById(data){
 			</tr>
 			<tr>
 				<td align="right" width="25%" height="40">套餐名称:</td>				
-				<td width="75%" ><input name='name' type="text" data-bind='value:name'></td>
+				<td width="75%" ><input   class="input" name='name' type="text" data-bind='value:name'></td>
 			</tr>
 			<tr>
 				<td align="right" width="25%" height="40">套餐价格:</td>				
-				<td width="75%" ><input name='price' type="text" data-bind='value:price'></td>
+				<td width="75%" ><input   class="input" name='price' type="text" data-bind='value:price'></td>
 			</tr>
 			<tr>
 				<td align="right" height="40" >订金金额：</td>
-				<td width="75%" ><input type="text" name='deposit' data-bind='value:deposit'></td>				
+				<td width="75%" ><input   class="input" type="text" name='deposit' data-bind='value:deposit'></td>				
 			</tr>
 			<tr>
 				<td align="right" height="40" >套餐描述：</td>
-				<td width="75%" ><input type="text" name='description' data-bind='value:description'></td>				
+				<td width="75%" ><input   class="input" type="text" name='description' data-bind='value:description'></td>				
 			</tr>
 			<tr>
 				<td align="right" height="40" >库存：</td>
-				<td width="75%" ><input type="text" name='inStock' data-bind='value:inStock'></td>				
+				<td width="75%" ><input   class="input" type="text" name='inStock' data-bind='value:inStock'></td>				
 			</tr>
 			<tr>
 				<td align="right" height="40" >卖出套餐数量：</td>
-				<td width="75%" ><input type="text" name='saleNumber' data-bind='value:saleNumber'></td>				
+				<td width="75%" ><input   class="input" type="text" name='saleNumber' data-bind='value:saleNumber'></td>				
 			</tr>
 			<tr>
 				<td align="right" height="40" >装修方式：</td>
-				<td width="75%" ><input type="text" name='decorate' data-bind='value:decorate'></td>				
+				<td width="75%" ><input   class="input" type="text" name='decorate' data-bind='value:decorate'></td>				
 			</tr>
 			<tr>
 				<td align="right" height="40">抢购开始时间：</td>
 				<td>
-					<input type="text" id="scrambleStartTime" name='scrambleStartTime' class="inputms" data-bind="value:scrambleStartTime" readonly="readonly" />
+					<input   class="input" type="text" id="scrambleStartTime" name='scrambleStartTime' class="inputms" data-bind="value:scrambleStartTime" readonly="readonly" />
 					<script type="text/javascript" src="assets/plugin/calendar/calendar.js"></script> 
 					<script type="text/javascript">
 						Calendar.setup({
@@ -142,7 +142,7 @@ function afterGetDataById(data){
 			<tr>
 				<td align="right" height="40">抢购截止时间：</td>
 				<td>
-					<input type="text" id="scrambleEndTime" name='scrambleEndTime' class="inputms" data-bind="value:scrambleEndTime" readonly="readonly" />
+					<input   class="input" type="text" id="scrambleEndTime" name='scrambleEndTime' class="inputms" data-bind="value:scrambleEndTime" readonly="readonly" />
 					<!--script type="text/javascript" src="assets/plugin/calendar/calendar.js"></script--> 
 					<script type="text/javascript">
 						Calendar.setup({
@@ -159,7 +159,7 @@ function afterGetDataById(data){
 				<td align="right" height="40" >套餐状态：</td>
 				<td width="75%" >
 					<!--input type="text" name='status' data-bind='value:selectStatus().value'-->
-					<select data-bind="value:selectStatus,options:statusDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					<select class="input" data-bind="value:selectStatus,options:statusDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 					</select>
 					<input type="hidden" name='status' data-bind="value:selectStatus().value"></td>
 				</td>				
@@ -167,9 +167,13 @@ function afterGetDataById(data){
 			<tr>
 				<td align="right" height="40" >图片：</td>
 				<td width="75%" >
-					<img data-bind='attr:{src:mainPic.url}'/>
-					<br>
-					<input type="file"  name='mainPicFile'>
+					<img data-bind='attr:{src:mainPic.url}'/>				
+				</td>				
+			</tr>
+			<tr>
+				<td align="right" height="40" >更换图片：</td>
+				<td width="75%" >
+					<input   class="input" type="file"  name='mainPicFile'>
 				</td>				
 			</tr>			
 		</tbody>

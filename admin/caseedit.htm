@@ -95,68 +95,72 @@ function afterGetDataById(data){
 			</tr>
 			<tr>
 				<td align="right" width="25%" height="40">名称:</td>
-				<td width="75%" ><input name='name' type="text" data-bind='value:name'></td>
+				<td width="75%" ><input   class="input" name='name' type="text" data-bind='value:name'></td>
 			</tr>
 			<tr>
 				<td align="right" width="25%" height="40">套餐:</td>
-				<td width="75%" ><input name='packageName' type="text" data-bind='value:packageName'></td>
+				<td width="75%" ><input   class="input" name='packageName' type="text" data-bind='value:packageName'></td>
 			</tr>		
 			<tr>
 				<td align="right" height="40">面积：					
 				</td>
 				<td>
-					<input type="text" name='area'  data-bind="value:area"/>
+					<input   class="input" type="text" name='area'  data-bind="value:area"/>
 				</td>
 			</tr>
 			<tr>
 				<td align="right" height="40">总价：					
 				</td>
 				<td>
-					<input type="text" name='price' data-bind="value:price"/>
+					<input   class="input" type="text" name='price' data-bind="value:price"/>
 				</td>
 			</tr>
 			<tr>
 				<td align="right" height="40" >风格：</td>	
 				<td>		
-					<input type='text' name='style' data-bind="value:style"/>
+					<input   class="input" type='text' name='style' data-bind="value:style"/>
 				</td>
 			</tr>
 			<tr>
 				<td align="right" height="40" >空间：</td>	
 				<td>		
-					<input type='text' name='space' data-bind="value:space"/>
+					<input   class="input" type='text' name='space' data-bind="value:space"/>
 				</td>
 			</tr>
 			<tr>
 				<td align="right" height="40" >户型：</td>	
 				<td>		
-					<input type='text' name='houseType' data-bind="value:houseType"/>
+					<input   class="input" type='text' name='houseType' data-bind="value:houseType"/>
 				</td>
 			</tr>
 			<tr>
 				<td align="right" height="40" >编号：</td>
 				<td>		
-					<input type='text' name='code' data-bind="value:code"/>
+					<input   class="input" type='text' name='code' data-bind="value:code"/>
 				</td>
 			</tr>			
 			<tr>
 				<td align="right" height="40">描述：</td>
 				<td size=100>
-					<input type="text" name='description' size=100  data-bind="value:description"/>				
+					<input   class="input" type="text" name='description' size=100  data-bind="value:description"/>				
 				</td>
 			</tr>
 			<tr>
 				<td align="right" height="40">标签：</td>
 				<td size=100 >
-					<input type="text" name='tagExpression' data-bind="value:tagStr"/><span>标签之间用空格隔开</span>				
+					<input   class="input" type="text" name='tagExpression' data-bind="value:tagStr"/><span>标签之间用空格隔开</span>				
 				</td>
 			</tr>
 			<tr>
 				<td align="right" height="40" >图片：</td>
 				<td width="75%" >
-					<img data-bind='attr:{src:mainPic.url} '  />
-					<br>
-					<input type="file"  name='mainPicFile'>
+					<img data-bind='attr:{src:mainPic.url} '  />				
+				</td>				
+			</tr>
+			<tr>
+				<td align="right" height="40" >更换图片：</td>
+				<td width="75%" >					
+					<input   class="input" type="file"  name='mainPicFile'>
 				</td>				
 			</tr>		
 		</tbody>

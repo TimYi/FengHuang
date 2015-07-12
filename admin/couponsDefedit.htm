@@ -86,28 +86,26 @@ function submitForm(){
 		<tbody>
 		
 			<tr>
-				<td align="right"  height="40">名称:</td>
-				<td   ><input type="text" name='name' data-bind="value:name"></td>
+				<td width="25%"  align="right"  height="40">名称:</td>
+				<td width="75%" ><input type="text"  class="input" name='name' data-bind="value:name"></td>
 			</tr>
 			<tr>
-				<td align="right"  height="40">事件:</td>
-				<td  ><select data-bind="value:selectedEvent,options:eventDic,optionsText:'value',optionsCaption: '请选择...'">
+				<td width="25%"  align="right"  height="40">事件:</td>
+				<td width="75%" ><select   class="input" data-bind="value:selectedEvent,options:eventDic,optionsText:'value',optionsCaption: '请选择...'">
 				</select><input type="hidden" name='event' data-bind="value:selectedEvent()?selectedEvent().key:''"></td>
 			</tr>
 			<tr>
-				<td align="right"  height="40">金额:</td>
-				<td  ><input type="text" name='money' data-bind="value:money"></td>
+				<td width="25%"  align="right"  height="40">金额:</td>
+				<td width="75%" ><input type="text"  class="input" name='money' data-bind="value:money"></td>
 			</tr>		
 			<tr>
-				<td align="right" height="40">是否发放：</td>
+				<td width="25%"  align="right" height="40">是否发放：</td>
 				<td >&nbsp;&nbsp;	<input type="checkbox" name="inUse" data-bind="checked: inUse" />&nbsp;已发放		
-					<!--span><input type="radio" name='inUse'value='true' data-bind="checked:inUse" />是</span>
-					<span><input type="radio" name='inUse'value='false' data-bind="checked:inUse"/>否</span-->
 				</td>
 			</tr>
 			<tr>
-				<td align="right"  height="40">过期时间:</td>
-				<td  ><input type="text" data-bind="value:expireTime" id="expireTime" class="inputms" name='expireTime'  readonly="readonly" />
+				<td width="25%"  align="right"  height="40">过期时间:</td>
+				<td width="75%" ><input type="text"  class="input" data-bind="value:expireTime" id="expireTime" class="inputms" name='expireTime'  readonly="readonly" />
 					<script type="text/javascript" src="assets/plugin/calendar/calendar.js"></script> 
 					<script type="text/javascript">
 					Calendar.setup({
@@ -120,7 +118,6 @@ function submitForm(){
 					</script>
 				</td>
 			</tr>
-		
 		</tbody>
 	</table>
 	<div class="formSubBtn">

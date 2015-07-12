@@ -52,19 +52,19 @@ function delPic(){
 		
 			<tr>
 				<td align="right" width="25%" height="40">第几天:</td>
-				<td width="75%" ><input type="text" name='day'></td>
+				<td width="75%" ><input type="text"  class="input" name='day'></td>
 			</tr>		
 			<tr>
 				<td align="right" height="40" >标题：</td>
-				<td width="75%" ><input type="text" name='title'></td>				
+				<td width="75%" ><input type="text"  class="input" name='title'></td>				
 			</tr>
 			<tr>
 				<td align="right" height="40" >提示：</td>
-				<td width="75%" ><input type="text" name='tips'></td>				
+				<td width="75%" ><input type="text"  class="input" name='tips'></td>				
 			</tr>
 			<tr>
 				<td align="right" height="40">日期：</td>
-				<td><input type="text" id="date" class="inputms" readonly="readonly" name='date'/>
+				<td><input type="text"  class="input" id="date" class="inputms" readonly="readonly" name='date'/>
 				<script type="text/javascript" src="assets/plugin/calendar/calendar.js"></script> 
 				<script type="text/javascript">
 				Calendar.setup({
@@ -77,35 +77,6 @@ function delPic(){
 				</script>
 				</td>
 			</tr>
-			<!--tr>
-				<td align="right" height="40" >直播图片：</td>
-				<td width="75%" class="test"> 
-					
-				<ul data-bind='foreach:pics'>
- 					<li>
- 						<img data-bind='attr:{src:url}' style='display: inline; width: 80px; height: 60px;'/>
- 						</br>
- 						<input type="radio" name="picsRadio" data-bind='value:id' stye = "text-align: center"/>
- 					</li>
- 				</ul>  				
-				</td>				
-			</tr>
-			<tr>
-				<td></td>
-				<td>
-					<input value="添加" type="button" onclick='addPic()'/>
-					<input value="删除" type="button" onclick='delPic()' />
-				</td>
-			</tr>
-			<tr>
-				<td align="right" height="40" >微信互动图片：</td>
-				<td width="75%" class="test"> 
-					
-				<ul data-bind='foreach:interactPics'>
- 					<li><img data-bind='attr:{src:url}' style='display: inline; width: 80px; height: 60px;'/></li>
- 				</ul> 
-				</td>				
-			</tr-->			
 		</tbody>
 	</table>
 	<input id='liveId' type='hidden' name='liveId' />

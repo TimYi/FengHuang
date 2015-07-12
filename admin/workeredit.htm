@@ -72,19 +72,19 @@ function submitWorker(){
 			</tr>
 			<tr>
 				<td align="right" width="25%" height="40">姓名:</td>
-				<td width="75%" ><input type='text' data-bind='value:name' name="name"></td>
+				<td width="75%" ><input   class="input" type='text' data-bind='value:name' name="name"></td>
 			</tr>
 			<tr>
 				<td align="right" height="40" >工种：</td>
 				<td>
-					<select data-bind="value:type,options:workerTypeDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					<select class="input" data-bind="value:type,options:workerTypeDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 					</select>
-					<input type='text' name="typeId" data-bind="value:type()?type().id:''"/>
+					<input    type='hidden' name="typeId" data-bind="value:type()?type().id:''"/>
 				</td>
 			</tr>		
 			<tr>
 				<td align="right" height="40">经验：</td>
-				<td ><input type='text' name="expVal" data-bind='value:expVal'/></td>
+				<td ><input   class="input" type='text' name="expVal" data-bind='value:expVal'/></td>
 			</tr>		
 		</tbody>
 	</table>

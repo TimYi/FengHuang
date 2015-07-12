@@ -72,23 +72,23 @@ function afterGetDataById(data){
 			</tr>
 			<tr>
 				<td align="right" width="25%" height="40">名称:</td>
-				<td width="75%" ><input name='name' type="text" data-bind='value:name'></td>
+				<td width="75%" ><input   class="input" name='name' type="text" data-bind='value:name'></td>
 			</tr>
 			<tr>
 				<td align="right" height="40" >小区：</td>
-				<td width="75%" ><input type="text" name='village' data-bind='value:village'></td>				
+				<td width="75%" ><input   class="input" type="text" name='village' data-bind='value:village'></td>				
 			</tr>
 			<tr>
 				<td align="right" height="40" >户型：</td>
-				<td width="75%" ><input type="text" name='house' data-bind='value:house'></td>				
+				<td width="75%" ><input   class="input" type="text" name='house' data-bind='value:house'></td>				
 			</tr>
 			<tr>
 				<td align="right" height="40" >面积：</td>
-				<td width="75%" ><input type="text" name='area' data-bind='value:area'></td>				
+				<td width="75%" ><input   class="input" type="text" name='area' data-bind='value:area'></td>				
 			</tr>
 			<tr>
 				<td align="right" height="40">开始日期：</td>
-				<td><input type="text" id="startDate" name='startDate' class="inputms" data-bind="value:startDate" readonly="readonly" />
+				<td><input   class="input" type="text" id="startDate" name='startDate' class="inputms" data-bind="value:startDate" readonly="readonly" />
 				<script type="text/javascript" src="assets/plugin/calendar/calendar.js"></script> 
 				<script type="text/javascript">
 				Calendar.setup({
@@ -108,9 +108,13 @@ function afterGetDataById(data){
 			<tr>
 				<td align="right" height="40" >图片：</td>
 				<td width="75%" >
-					<img data-bind='attr:{src:mainPic.url}'/>
-					<br>
-					<input type="file"  name='mainPicFile'>
+					<img data-bind='attr:{src:mainPic.url}'/>				
+				</td>				
+			</tr>
+			<tr>
+				<td align="right" height="40" >更改图片：</td>
+				<td width="75%" >
+					<input   class="input" type="file"  name='mainPicFile'>
 				</td>				
 			</tr>			
 		</tbody>

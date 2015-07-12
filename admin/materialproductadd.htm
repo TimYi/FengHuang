@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>新增材料类型</title>
+<title>新增产品分类</title>
 <link href="assets/css/admin.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/js/jquery.js"></script>
 <script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
@@ -54,7 +54,7 @@ function submitMT(){
 </head>
 <body onload="onload()">
 <div class="formHeader">
-	 <span class="title">新增材料类型</span> 
+	 <span class="title">新增产品分类</span> 
 	 <a href="javascript:location.reload();" class="reload">刷新</a> 
 </div>
 <form name="form" id="form" method="post" enctype="multipart/form-data"  onsubmit="return cfm_upadmin();">
@@ -63,19 +63,19 @@ function submitMT(){
 			<tr>
 				<td align="right" width="25%" height="40">名称:</td>
 				<td width="75%" >
-					<input name='name' type="text" >
+					<input   class="input" name='name' type="text" >
 				</td>
 			</tr>
 			<tr>
 				<td align="right" height="40" >序号：</td>
 				<td width="75%" >
-					<input type="text" name='ordernum'>
+					<input   class="input" type="text" name='ordernum'>
 				</td>
 			</tr>
 			<tr>
 				<td align="right" height="40" >所属品牌：</td>
 				<td>
-					<select data-bind="value:selectedBrand,options:brandDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					<select class="input"  data-bind="value:selectedBrand,options:brandDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 					</select>
 					<input type="hidden" name='brandId' data-bind="value:selectedBrand()?selectedBrand().id:''"></td>
 				</td>

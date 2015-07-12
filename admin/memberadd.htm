@@ -100,72 +100,91 @@ function afterGetBloodTypeDic(data){
 		<tbody>
 		
 			<tr>
-				<td align="right"  height="40">用户名:</td>
-				<td   ><input type="text" name="username"></td>
-		
-				<td align="right"  height="40">姓名:</td>
-				<td  ><input type="text" name="realName"></td>
+				<td width="25%"  align="right"  height="40">用户名:</td>
+				<td  width="75%" ><input type="text"  class="input" name="username"></td>
 			</tr>
 			<tr>
-				<td align="right"  height="40">中文名:</td>
-				<td  ><input type="text" name="cnname"></td>
-		
-				<td align="right"  height="40">英文名:</td>
-				<td  ><input type="text" name='ename'></td>
+				<td width="25%" align="right"  height="40">姓名:</td>
+				<td width="75%" ><input type="text"  class="input" name="realName"></td>
 			</tr>
 			<tr>
-				<td align="right"  height="40">验证状态: </td>
-				<td  >&nbsp;&nbsp;<input type="checkbox" name="verified" />&nbsp;通过					
-				<td align="right"  height="40">性别:</td>
-				<td><select data-bind="value:sex,options:sexDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+				<td width="25%" align="right"  height="40">中文名:</td>
+				<td width="75%" ><input type="text"  class="input" name="cnname"></td>
+			</tr>
+			<tr>
+				<td width="25%"  align="right"  height="40">英文名:</td>
+				<td width="75%" ><input type="text"  class="input" name='ename'></td>
+			</tr>
+			<tr class="nb">
+				<td width="25%"  align="right"  height="40">验证状态: </td>
+				<td width="75%" >&nbsp;&nbsp;<input type="checkbox" name="verified" />&nbsp;通过</td>
+			</tr>
+			<tr class="nb">
+				<td colspan="2" height="26"><div class="line"></div></td>
+			</tr>
+			<tr>					
+				<td  width="25%" align="right"  height="40">性别:</td>
+				<td width="75%" ><select  class="input" data-bind="value:sex,options:sexDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 				</select>
 				<input type='hidden' name='sexId' size=50 data-bind="value:sex()?sex().id:''">
 				</td>
 			</tr>
 			<tr>
-				<td align="right" height="40">电话：</td>
-				<td ><input type="text" name="mobile"></td>		
-				<td align="right" height="40">邮箱：</td>
-				<td ><input type="text" name="email"></td>
+				<td  width="25%" align="right" height="40">电话：</td>
+				<td  width="75%" ><input type="text"  class="input" name="mobile"></td>	
+			</tr>
+			<tr>	
+				<td  width="25%" align="right" height="40">邮箱：</td>
+				<td  width="75%" ><input type="text"  class="input" name="email"></td>
 			</tr>
 			<tr>
-				<td align="right" height="40">QQ：</td>
-				<td ><input type="text" name="qqnum"></td>
-				<td align="right" height="40">QQID：</td>
-				<td ><input type="text" name="qqid"></td>
+				<td  width="25%" align="right" height="40">QQ：</td>
+				<td  width="75%" ><input type="text"  class="input" name="qqnum"></td>
+			</tr>
+			<tr>
+				<td  width="25%" align="right" height="40">QQID：</td>
+				<td  width="75%" ><input type="text"  class="input" name="qqid"></td>
 			</tr>
 			<tr>
 					
-				<td align="right" height="40">微信号：</td>
-				<td ><input type="text" name="weixinnum"></td>
-				<td align="right" height="40">微信ID：</td>
-				<td ><input type="text" name="weixinid"></td>
+				<td  width="25%" align="right" height="40">微信号：</td>
+				<td  width="75%" ><input type="text"  class="input" name="weixinnum"></td>
 			</tr>
 			<tr>
-				<td align="right" height="40">微博：</td>
-				<td ><input type="text" name="weiboid"></td>	
-				<td align="right" height="40">血型：</td>
-				<td >
-				<select data-bind="value:bloodType,options:bloodTypeDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+				<td  width="25%" align="right" height="40">微信ID：</td>
+				<td  width="75%" ><input type="text"  class="input" name="weixinid"></td>
+			</tr>
+			<tr>
+				<td  width="25%" align="right" height="40">微博：</td>
+				<td  width="75%" ><input type="text"  class="input" name="weiboid"></td>
+			</tr>
+			<tr>	
+				<td  width="25%" align="right" height="40">血型：</td>
+				<td  width="75%" >
+				<select  class="input" data-bind="value:bloodType,options:bloodTypeDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 				</select>
 				<input type="hidden" name="bloodTypeId" data-bind="value:bloodType()?bloodType().id:''"></td>
 			</tr>
 			<tr>					
-				<td align="right" height="40">职业：</td>
-				<td ><input type="text" name="trade"></td>
-				<td align="right" height="40">个人信息：</td>
-				<td ><input type="text"  name="intro"></td>
+				<td width="25%"  align="right" height="40">职业：</td>
+				<td  width="75%" ><input type="text"  class="input" name="trade"></td>
+			</tr>
+			<tr>
+				<td  width="25%" align="right" height="40">个人信息：</td>
+				<td  width="75%" ><input type="text"  class="input"  name="intro"></td>
 			</tr>		
 			<tr>
-				<td align="right" height="40">经验值：</td>
-				<td ><input type="text" name="expVal"></td>		
-				<td align="right" height="40">积分：</td>
-				<td ><input type="text" name="integra"></td>
+				<td  width="25%" align="right" height="40">经验值：</td>
+				<td  width="75%" ><input type="text"  class="input" name="expVal"></td>	
+			</tr>
+			<tr>	
+				<td width="25%"  align="right" height="40">积分：</td>
+				<td  width="75%" ><input type="text"  class="input" name="integra"></td>
 			</tr>
 			
 			<tr>
-				<td align="right" height="40">生日：</td>
-				<td><input type="text" name="birthDay" id="birthDay" class="inputms"  readonly="readonly" />
+				<td  width="25%" align="right" height="40">生日：</td>
+				<td width="75%" ><input type="text"  class="input" name="birthDay" id="birthDay" class="inputms"  readonly="readonly" />
 					<script type="text/javascript" src="assets/plugin/calendar/calendar.js"></script> 
 					<script type="text/javascript">
 					Calendar.setup({
@@ -177,25 +196,29 @@ function afterGetBloodTypeDic(data){
 					});
 					</script>
 				</td>
-				<td align="right" height="40" >星座：</td>
-				<td>
-				<select data-bind="value:constellation,options:constellationDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+			</tr>
+			<tr>
+				<td  width="25%" align="right" height="40" >星座：</td>
+				<td width="75%" >
+				<select  class="input" data-bind="value:constellation,options:constellationDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 				</select>
 				<input type="hidden" name="constellationId" size=100 data-bind="value:constellation()?constellation().id:''">
 				</td>		
 				
 			</tr>
 			<tr>
-				<td align="right" height="40">上传头像：</td>
-				<td ><input type="file" name='avatarFile' ></td>
-				<td align="right" height="40">密码：</td>
-				<td ><input type="password" name='password' ></td>
+				<td width="25%"  align="right" height="40">上传头像：</td>
+				<td  width="75%" ><input type="file" name='avatarFile' ></td>
 			</tr>
 			<tr>
-				<td align="right" height="40">地址：					
+				<td  width="25%" align="right" height="40">密码：</td>
+				<td  width="75%" ><input class="input"  type="password" name='password' ></td>
+			</tr>
+			<tr>
+				<td width="25%"  align="right" height="40">地址：					
 				</td>
 				<td colspan=3>
-					<input type="text" size=100 name="address"/>
+					<input type="text"  class="input" size=100 name="address"/>
 				</td>
 			</tr>		
 		</tbody>
