@@ -86,27 +86,27 @@ function submitWorker(){
 			
 			<tr>
 				<td align="right" width="25%" height="40">用户名:</td>
-				<td width="75%" ><input type='text'name='username' ></td>
+				<td width="75%" ><input   class="input" type='text'name='username' ></td>
 			</tr>
 			<tr>
 				<td align="right" width="25%" height="40">密码:</td>
-				<td width="75%" ><input type='password' name='password' ></td>
+				<td width="75%" ><input   class="input" type='password' name='password' ></td>
 			</tr>
 			<tr>
 				<td align="right" width="25%" height="40">姓名:</td>
-				<td width="75%" ><input type='text'  name="name"></td>
+				<td width="75%" ><input   class="input" type='text'  name="name"></td>
 			</tr>
 			<tr>
 				<td align="right" height="40" >工种：</td>
 				<td>
-					<select data-bind="value:bloodType ,options:bloodTypeDic ,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					<select class="input" data-bind="value:bloodType ,options:bloodTypeDic ,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 					</select>
-					<input type='text' name="typeId" data-bind="value:bloodType()?bloodType().id:''"/>
+					<input    type='hidden' name="typeId" data-bind="value:bloodType()?bloodType().id:''"/>
 				</td>
 			</tr>		
 			<tr>
 				<td align="right" height="40">经验：</td>
-				<td ><input type='text' name="expVal" /></td>
+				<td ><input   class="input" type='text' name="expVal" /></td>
 			</tr>		
 		</tbody>
 	</table>

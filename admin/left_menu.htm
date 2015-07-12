@@ -11,7 +11,7 @@
 <script type="text/javascript">
 	var MODULE_WORKER_URL = MODULE_HOST_URL + "workerlist.htm";//方便天明，没有加到global_url里去
 	var MODULE_MATERIAL_BRAND_URL = MODULE_HOST_URL + "materialbrandlist.htm";
-	var MODULE_MATERIAL_TYPE_URL = MODULE_HOST_URL + "materialtypelist.htm";
+	var MODULE_MATERIAL_PRODUCT_URL = MODULE_HOST_URL + "materialproductlist.htm";
 	var MODULE_MATERIAL_URL = MODULE_HOST_URL + "materiallist.htm";
 	function openUsrMgr(){		
 		window.parent.frames["main"].location.href=MODULE_USR_URL;
@@ -62,7 +62,7 @@
 		window.parent.frames["main"].location.href=MODULE_MATERIAL_BRAND_URL;
 	}
 	function openMaterialTypeMgr(){		
-		window.parent.frames["main"].location.href=MODULE_MATERIAL_TYPE_URL;
+		window.parent.frames["main"].location.href=MODULE_MATERIAL_PRODUCT_URL;
 	}
 	function openMaterialMgr(){		
 		window.parent.frames["main"].location.href=MODULE_MATERIAL_URL;
@@ -162,7 +162,7 @@
 				<div class="title" onclick="DisplayMenu('leftmenu08');" title="点击切换显示或隐藏"> 装修材料管理 </div>
 				<div id="leftmenu08" style="display:none"> 
 					<a href="#" onclick ="javascript:openMaterialBrandMgr();return false;"  target="main">材料品牌</a>					
-					<a href="#" onclick ="javascript:openMaterialTypeMgr();return false;"  target="main">材料分类</a>					
+					<a href="#" onclick ="javascript:openMaterialTypeMgr();return false;"  target="main">产品分类</a>					
 					<a href="#" onclick ="javascript:openMaterialMgr();return false;"  target="main">材料管理</a>					
 				</div>
 			</div>

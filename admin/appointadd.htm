@@ -96,35 +96,35 @@ function submitAppoint(){
 <form name="appointlForm" id="appointlForm" >
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tbody>		
-			<td align="right"  height="40">用户:</td>
-				<td >
-					<select data-bind="value:selectedUser,options:selectableUser,optionsText:'username',optionsCaption: '请选择...'">
-					</select>
-					<input type="hidden" name='userId' data-bind="value:selectedUser()?selectedUser().id:''">
-				</td>
+			<td width="25%"  align="right"  height="40">用户:</td>
+			<td width="75%" >
+				<select class="input" data-bind="value:selectedUser,options:selectableUser,optionsText:'username',optionsCaption: '请选择...'">
+				</select>
+				<input type="hidden" name='userId' data-bind="value:selectedUser()?selectedUser().id:''">
+			</td>
 			<tr>
-				<td align="right" height="40" >预约类型：</td>
-				<td><select data-bind="value:selectedAT,options:selectableAT,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+				<td width="25%"  align="right" height="40" >预约类型：</td>
+				<td width="75%" ><select class="input" data-bind="value:selectedAT,options:selectableAT,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 				</select>
 					<input type='hidden' name='typeId' size=50 data-bind="value:selectedAT()?selectedAT().id:''"/>
 				</td>
 			</tr>			
 			<tr>
-				<td align="right" height="40">城市：					
+				<td width="25%"  align="right" height="40">城市：					
 				</td>
-				<td>
-					<select data-bind="value:selectedCity,options:selectableCity,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+				<td width="75%" >
+					<select class="input" data-bind="value:selectedCity,options:selectableCity,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 					</select>
 				<input type='hidden' name='cityId' size=50 data-bind="value:selectedCity()?selectedCity().id:''"/>
 				</td>
 			</tr>
 			<tr>
-				<td align="right" height="40">姓名：</td>
-				<td ><input type='text' name='realName' size=50 /></td>
+				<td width="25%"  align="right" height="40">姓名：</td>
+				<td ><input type="text"  class="input" name='realName' size=50 /></td>
 			</tr>		
 			<tr>
-				<td align="right" height="40">电话：</td>
-				<td ><input type='text' size=50 name='mobile'/></td>
+				<td width="25%"  align="right" height="40">电话：</td>
+				<td ><input type="text"  class="input" size=50 name='mobile'/></td>
 			</tr>		
 		</tbody>
 	</table>

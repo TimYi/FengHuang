@@ -154,7 +154,7 @@ $(function(){
 		condi.token = g.token;
 		condi.orderId = g.orderId;
 		var coupon = $("input[name='couponRadioOptions']:checked").val() || "";
-		condi.couponsIds = coupon;
+		condi.couponsId = coupon;
 		var check = $("input[name='inlineRadioOptions']:checked").val() || "";
 		if(check === ""){
 			alert("请选择支付银行");

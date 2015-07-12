@@ -98,29 +98,29 @@ function afterGetDataById(data){
 				<td width="75%" ><span data-bind='text:user.username'></td>
 			</tr>
 			<tr>
-				<td align="right" height="40" >预约类型：</td>
+				<td align="right" width="25%" height="40" >预约类型：</td>
 				<td>
-					<select data-bind="value:type,options:appointTypeDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					<select  class="input"  data-bind="value:type,options:appointTypeDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 					</select>
 					<input type='hidden' name='typeId' size=50 data-bind="value:type()?type().id:''"/>
 				</td>
 			</tr>			
 			<tr>
-				<td align="right" height="40">城市：					
+				<td align="right" width="25%" height="40">城市：					
 				</td>
 				<td>
-					<select data-bind="value:city,options:cityDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					<select  class="input"  data-bind="value:city,options:cityDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 					</select>
 					<input type='hidden' name='cityId' size=50 data-bind="value:city()?city().id:''"/>
 				</td>
 			</tr>
 			<tr>
-				<td align="right" height="40">姓名：</td>
-				<td ><input type='text' name='realName' size=50 data-bind="value:realName"/></td>
+				<td align="right" width="25%" height="40">姓名：</td>
+				<td><input type="text"  class="input" name='realName' size=50 data-bind="value:realName"/></td>
 			</tr>		
 			<tr>
-				<td align="right" height="40">电话：</td>
-				<td ><input type='text' name='mobile' size=50 data-bind="value:mobile"/></td>
+				<td align="right" width="25%" height="40">电话：</td>
+				<td><input type="text"  class="input" name='mobile' size=50 data-bind="value:mobile"/></td>
 			</tr>
 				
 		</tbody>

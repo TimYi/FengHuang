@@ -71,25 +71,26 @@ function afterGetDataById(data){
 		<tbody>
 		
 			<tr>
-				<td align="right"  height="40">名称:</td>
-				<td   ><input type="text" data-bind="value:name"></td>
+				<td width="25%"  align="right"  height="40">名称:</td>
+				<td width="75%" ><input type="text"  class="input" data-bind="value:name"></td>
 			</tr>
 			<tr>
-				<td align="right"  height="40">最小分值:</td>
-				<td  ><input type="text" data-bind='value:minExp'></td>
+				<td width="25%"  align="right"  height="40">最小分值:</td>
+				<td width="75%" ><input type="text"  class="input" data-bind='value:minExp'></td>
 			</tr>
 			<tr>
-				<td align="right"  height="40">最大分值:</td>
-				<td  ><input type="text" data-bind='value:maxExp'></td>
+				<td width="25%"  align="right"  height="40">最大分值:</td>
+				<td width="75%" ><input type="text"  class="input" data-bind='value:maxExp'></td>
 			</tr>
 			<tr>
-				<td align="right"  height="40">星标数量:</td>
-				<td  ><input type="text" data-bind='value:stars'></td>
+				<td width="25%"  align="right"  height="40">星标数量:</td>
+				<td width="75%" ><input type="text"  class="input" data-bind='value:stars'></td>
 			</tr>		
 			<tr>
-				<td align="right" height="40">头衔颜色：</td>
+				<td width="25%"  align="right" height="40">头衔颜色：</td>
 				<td >
-				<select data-bind="value:color,options:colorDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+				<select data-bind="value:color,options:colorDic,optionsText:'name',
+				valueAllowUnset: true,optionsCaption: '请选择...'" class="input">
 				</select>
 				<input type="hidden" size=100 data-bind="value:color()?color().name:''"></td>
 			</tr>

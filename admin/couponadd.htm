@@ -36,16 +36,16 @@ function submitForm(){
 		<tbody>
 		
 			<tr>
-				<td align="right"  height="40">名称:</td>
-				<td   ><input type="text" name='name' ></td>
+				<td width="25%"  align="right"  height="40">名称:</td>
+				<td width="75%" ><input type="text"  class="input" name='name' ></td>
 			</tr>			
 			<tr>
-				<td align="right"  height="40">金额:</td>
-				<td  ><input type="text" name='couponsMoney' ></td>
+				<td width="25%"  align="right"  height="40">金额:</td>
+				<td width="75%" ><input type="text"  class="input" name='couponsMoney' ></td>
 			</tr>
 			<tr>
-				<td align="right"  height="40">过期时间:</td>
-				<td  ><input type="text" name="expireTime"  id="expireTime" class="inputms"   readonly="readonly" />
+				<td width="25%"  align="right"  height="40">过期时间:</td>
+				<td width="75%" ><input type="text"  class="input" name="expireTime"  id="expireTime" class="inputms"   readonly="readonly" />
 					<script type="text/javascript" src="assets/plugin/calendar/calendar.js"></script> 
 					<script type="text/javascript">
 					Calendar.setup({
@@ -59,14 +59,14 @@ function submitForm(){
 				</td>
 			</tr>	
 			<tr>
-				<td align="right" height="40">已过期：</td>
+				<td width="25%"  align="right" height="40">已过期：</td>
 				<td >	<!--input type="text" name='money' data-bind='value:inUse'-->			
 					<span><input type="radio" name='expired'value='true' />&nbsp;是&nbsp;</span>
 					<span><input type="radio" name='expired'value='false' />&nbsp;否&nbsp;</span>
 				</td>
 			</tr>
 			<tr>
-				<td align="right" height="40">已使用：</td>
+				<td width="25%"  align="right" height="40">已使用：</td>
 				<td >	<!--input type="text" name='money' data-bind='value:inUse'-->			
 					<span><input type="radio" name='used'value='true' />&nbsp;是&nbsp;</span>
 					<span><input type="radio" name='used'value='false' />&nbsp;否&nbsp;</span>

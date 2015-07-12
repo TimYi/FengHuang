@@ -69,16 +69,16 @@ function afterGetDataById(data){
 		<tbody>
 		
 			<tr>
-				<td align="right"  height="40">名称:</td>
-				<td   ><input type="text" name='name' data-bind="value:name"></td>
+				<td width="25%"  align="right"  height="40">名称:</td>
+				<td width="75%" ><input type="text"  class="input" name='name' data-bind="value:name"></td>
 			</tr>			
 			<tr>
-				<td align="right"  height="40">金额:</td>
-				<td  ><input type="text" name='couponsMoney' data-bind='value:couponsMoney'></td>
+				<td width="25%"  align="right"  height="40">金额:</td>
+				<td width="75%" ><input type="text"  class="input" name='couponsMoney' data-bind='value:couponsMoney'></td>
 			</tr>
 			<tr>
-				<td align="right"  height="40">过期时间:</td>
-				<td  ><input type="text" name="expireTime"  id="expireTime" class="inputms"  data-bind="value:expireTime" readonly="readonly" />
+				<td width="25%"  align="right"  height="40">过期时间:</td>
+				<td width="75%" ><input type="text"  class="input" name="expireTime"  id="expireTime" class="inputms"  data-bind="value:expireTime" readonly="readonly" />
 					<script type="text/javascript" src="assets/plugin/calendar/calendar.js"></script> 
 					<script type="text/javascript">
 					Calendar.setup({
@@ -92,14 +92,14 @@ function afterGetDataById(data){
 				</td>
 			</tr>	
 			<tr>
-				<td align="right" height="40">已过期：</td>
+				<td width="25%"  align="right" height="40">已过期：</td>
 				<td >	<!--input type="text" name='money' data-bind='value:inUse'-->			
 					<span><input type="radio" name='expired'value='true' data-bind="checked:expired"/>&nbsp;是&nbsp;</span>
 					<span><input type="radio" name='expired'value='false' data-bind="checked:expired"/>&nbsp;否&nbsp;</span>
 				</td>
 			</tr>
 			<tr>
-				<td align="right" height="40">已使用：</td>
+				<td width="25%"  align="right" height="40">已使用：</td>
 				<td >	<!--input type="text" name='money' data-bind='value:inUse'-->			
 					<span><input type="radio" name='used'value='true' data-bind="checked:used"/>&nbsp;是&nbsp;</span>
 					<span><input type="radio" name='used'value='false' data-bind="checked:used"/>&nbsp;否&nbsp;</span>

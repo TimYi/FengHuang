@@ -103,6 +103,7 @@ $(function(){
 					//location.href = "center.html";
 					var token = data.result || "";
 					Utils.offLineStore.set("token",token,false);
+					//history.go(-1);
 					location.href = "hyzx.html?token=" + token + "&p=0";
 				}
 				else{
