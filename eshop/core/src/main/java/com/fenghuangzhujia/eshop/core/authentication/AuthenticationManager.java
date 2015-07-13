@@ -60,6 +60,25 @@ public interface AuthenticationManager extends UserDetailsService {
 	 */
 	UserToken changePassword(String username, String newPassword, String oldPassword) throws ErrorCodeException;
 	
+	/**
+	 * 忘记密码后，通过手机号码申请修改密码
+	 * @param username
+	 * @param telephone
+	 * @param validater
+	 * @return 允许修改密码凭证
+	 * @throws ErrorCodeException
+	 */
+	String forgetPassword(String username, String telephone) throws ErrorCodeException;
+	
+	/**
+	 * 忘记密码找回
+	 * @param username
+	 * @param validater
+	 * @param newPassword
+	 * @throws ErrorCodeException
+	 */
+	void changeForgotPassword(String username, String validater, String newPassword) throws ErrorCodeException;
+	
 	public static String encryptPassword(String password) {
 		return ENCODER.encode(password);
 	}

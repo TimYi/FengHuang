@@ -73,4 +73,19 @@ public class AccountController {
 		String tokenString=token.getToken();
 		return RequestResult.success(tokenString).toJson();
 	}
+	
+	@RequestMapping(value="forgetPassword", method=RequestMethod.POST)
+	public String forgetPassword(@RequestParam String username,@RequestParam String telephone,
+			@RequestParam String captcha, @RequestParam String validater) {
+		captchaManager.validate(captcha, validater);
+		String code=manager.forgetPassword(username, telephone);
+		return RequestResult.success(code).toJson();
+	}
+	
+	@RequestMapping(value="changeForgotPassword", method=RequestMethod.POST)
+	public String changeForgotPassword(@RequestParam String username, @RequestParam String validater,
+			@RequestParam String password) {
+		manager.changeForgotPassword(username, validater, password);
+		return RequestResult.success("修改成功").toJson();
+	}
 }

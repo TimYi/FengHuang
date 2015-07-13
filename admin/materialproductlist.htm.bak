@@ -1,0 +1,62 @@
+<!--DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>产品分类管理</title>
+	<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="assets/js/jquery.js"></script>
+	<script type="text/javascript" src="assets/js/forms.js"></script>
+	<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+	<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+	<script type="text/javascript" src="assets/js/ajax.js"></script>
+	<script type="text/javascript" src="assets/js/jqPaginator.min.js"></script>
+	<script type="text/javascript" src="global_url.js"></script>
+	<script type="text/javascript" src="global_var.js"></script>
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript" src="materialproductlist.js"></script>
+</head>
+<body onload="onload()">
+	<div class="topToolbar"> 
+		<span class="title">产品分类管理</span>   
+		<a href="javascript:location.reload();" class="reload">刷新</a>
+	</div>
+	<form name="form" id="form" method="post">	
+		<table class="dataTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+			<thead>
+				<tr class="head" align="left">
+					<td class="firstCol" width="5%" height="36"><input name="checkid" id="checkid" onclick="CheckAll(this.checked);" type="checkbox"></td>
+					<!--td width="15%">ID</td-->
+					<td width="10%">名称</td>					
+					<td width="10%">序号</td>
+					<td width="10%">所属品牌</td>
+					<td class="endCol" width="10%">操作</td>
+				</tr>
+			</thead>
+	        <tbody data-bind='foreach: result'>
+				<tr class="dataTr" align="left">
+					<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox" data-bind="checked: selected"></td>
+					<!--td data-bind='text: id'></td-->
+					<td data-bind="text: name"></td>
+					<td data-bind="text: ordernum"></td>
+					<td data-bind="text: brand.name!='d'?brand.name:''"></td>
+					<td class="action endCol">				
+						<span class="nb"><a href="#" data-bind='click: $root.remove'>删除</a></span> | 
+						<span><a href="#" data-bind='click: $root.modify'>修改</a></span> |
+						<span><a href="#" data-bind='click: $root.up'>上移</a></span>|
+						<span><a href="#" data-bind='click: $root.down'>下移</a></span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	<div class="bottomToolbar">	
+		<a href="#" onclick="add()"class="dataBtn">新增产品分类</a>
+		<a href="#" onclick="reorder()"class="dataBtn">保存排序</a>
+	</div>
+	<div class="page"> 
+		<div class="pageList">
+		</div> 
+	</div>
+</body>
+</html>

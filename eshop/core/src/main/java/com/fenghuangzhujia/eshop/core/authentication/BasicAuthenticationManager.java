@@ -16,6 +16,10 @@ import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.commerce.couponsDef.CouponsAllocater;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
+import com.fenghuangzhujia.eshop.core.validate.BasicValidater;
+import com.fenghuangzhujia.eshop.core.validate.core.Validater;
+import com.fenghuangzhujia.eshop.core.validate.dao.DaoValidaterService;
+import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.utils.Identities;
 import com.fenghuangzhujia.foundation.utils.validater.UsernameValidater;
@@ -30,6 +34,10 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	private TokenRepository tokenRepository;
 	@Autowired
 	private CouponsAllocater couponsEventBus;
+	@Autowired
+	private MessageManager messageManager;
+	@Autowired
+	private DaoValidaterService daoValidaterService;
 	
 	/**
 	 * 确保加载全部权限信息
@@ -143,6 +151,36 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 		} catch (Exception e) {
 			throw new ErrorCodeException(CHANGE_PASSWORD_ERROR, e);
 		}
+	}
+	
+	@Override
+	public String forgetPassword(String username, String telephone) throws ErrorCodeException {
+		User user=userRepository.getByUsername(username);
+		if(user==null) throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "用户名不存在");
+		if(!telephone.equals(user.getMobile()))
+			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "请使用绑定手机号");
+		String code=Identities.uuid2();
+		BasicValidater validater2=new BasicValidater(code,username,10);//以生成的uuid为id
+		daoValidaterService.add(validater2);
+		return code;
+	}
+	
+	@Override
+	public void changeForgotPassword(String username, String validater,
+			String password) throws ErrorCodeException {
+		Validater validater2=daoValidaterService.get(validater);
+		validater2.validate(validater, username);
+		User user=userRepository.getByUsername(username);
+		if(user==null) throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "用户名不存在");
+		try {
+			checkPassword(password);
+		} catch (Exception e) {
+			throw new ErrorCodeException(CHANGE_PASSWORD_ERROR, e);
+		}
+		
+		user.setPassword(password);
+		entryptPassword(user);
+		userRepository.save(user);
 	}
 	
 	/**
