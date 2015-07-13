@@ -27,7 +27,7 @@ public class BasicValidater implements Validater {
 	@Override
 	public void validate(String id, String code) {
 		Date now=new Date();
-		if(now.after(expireTime)){
+		if(expireTime!=null && now.after(expireTime)){
 			throw new ExpireException();
 		}
 		if(!(id.equals(this.id) && code.equals(this.code))){
