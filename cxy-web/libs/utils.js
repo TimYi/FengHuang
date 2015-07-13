@@ -553,11 +553,11 @@ $(function(){
 	g.httpTip = new Utils.httpTip({});
 	g.listdata = [];
 	//验证登录状态
-	g.loginStatus = Utils.getUserInfo();
+	//g.loginStatus = Utils.getUserInfo();
 
 
 
-	getPackages();
+	//getPackages();
 
 	//获取字典
 	function getPackages(){
