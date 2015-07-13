@@ -3,10 +3,14 @@ package com.fenghuangzhujia.eshop.navigation;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.fenghuangzhujia.eshop.view.navigation.Navigation;
 import com.fenghuangzhujia.eshop.view.navigation.Navigation.NavigationType;
+import com.fenghuangzhujia.eshop.view.navigation.NavigationRepository;
 import com.fenghuangzhujia.eshop.view.navigation.NavigationService;
 import com.fenghuangzhujia.eshop.view.navigation.dto.NavigationDto;
 import com.fenghuangzhujia.eshop.view.navigation.dto.NavigationInputArgs;
@@ -17,8 +21,24 @@ public class NavigationTest {
 
 	@Autowired
 	private NavigationService navigationService;
+	@Autowired
+	private NavigationRepository navigationRepository;
 	
 	@Test
+	@Transactional
+	public void findAll() {
+		Sort sort=new Sort(new Sort.Order("ordernum"));
+		Iterable<Navigation> navigations=navigationRepository.findAll(sort);
+		for (Navigation navigation : navigations) {
+			if(navigation.getSubNavigations()!=null) {
+				for (Navigation sub : navigation.getSubNavigations()) {
+					System.out.println(sub.getOrdernum());
+				}
+			}
+		}
+	}
+	
+	//@Test
 	public void init() {
 		//首页
 		addNavigation(0, NavigationType.URL, "首页", "http://101.200.229.135", null);
