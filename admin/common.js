@@ -3,6 +3,8 @@ var MATERIAL_BRAND = 'brand';
 var MATERIAL_PRODUCT = 'product';
 var MATERIAL_MATERIAL = 'material';
 var MATERIAL_TYPE = 'material/types';
+var SYSTEM_NAVIGATION = 'navigation';
+var TEMPLATE_CAROUSEL = 'carousel';
 function PagingJson2ViewModel(data){
 
 	return ko.mapping.fromJS(data);

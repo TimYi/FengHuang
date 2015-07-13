@@ -13,6 +13,8 @@
 	var MODULE_MATERIAL_BRAND_URL = MODULE_HOST_URL + "materialbrandlist.htm";
 	var MODULE_MATERIAL_PRODUCT_URL = MODULE_HOST_URL + "materialproductlist.htm";
 	var MODULE_MATERIAL_URL = MODULE_HOST_URL + "materiallist.htm";
+	var MODULE_NAVIGATION_URL = MODULE_HOST_URL + "navigationlist.htm";
+	var MODULE_CAROUSEL_URL = MODULE_HOST_URL + "carousellist.htm";
 	function openUsrMgr(){		
 		window.parent.frames["main"].location.href=MODULE_USR_URL;
 	}
@@ -67,6 +69,13 @@
 	function openMaterialMgr(){		
 		window.parent.frames["main"].location.href=MODULE_MATERIAL_URL;
 	}
+	function openNavigationMgr(){		
+		window.parent.frames["main"].location.href=MODULE_NAVIGATION_URL;
+	}
+	function openCarouselMgr(){		
+		window.parent.frames["main"].location.href=MODULE_CAROUSEL_URL;
+	}
+	
 
 </script>
 </head>
@@ -167,22 +176,11 @@
 				</div>
 			</div>
 			<div class="hr_5"></div>
-		
-			<!--div class="menubox">
-				<div class="title" onclick="DisplayMenu('leftmenu08');" title="点击切换显示或隐藏"> 界面模块管理 </div>
-				<div id="leftmenu08" style="display:none"> 
-					 <a href="#" target="main">导航菜单管理</a>
-					 <a href="#" target="main">快捷方式管理</a>
-					 <a href="#" target="main">单页管理</a>					 
-				</div>
-			</div>
-			<div class="hr_5"></div>
 			<div class="menubox">
-				<div class="title" onclick="DisplayMenu('leftmenu09');" title="点击切换显示或隐藏"> 帮助指南 </div>
+				<div class="title" onclick="DisplayMenu('leftmenu09');" title="点击切换显示或隐藏"> 模板管理</div>
 				<div id="leftmenu09" style="display:none"> 
-					 <a href="#" target="main">操作日志</a>
-					 <a href="#" target="main">数据统计</a>
-					 <a href="#" target="main">说明指南</a>					 
+					<a href="#" onclick ="javascript:openNavigationMgr();return false;"  target="main">菜单管理</a> 
+					<a href="#" onclick ="javascript:openCarouselMgr();return false;"  target="main">滚动图片</a> 
 				</div>
 			</div>						
 			<!--scrollbar end--> 

@@ -147,24 +147,21 @@ function UpOrderID(url)
 //展开合并下级
 function DisplayRows(id)
 {
+	//alert(id);
 	var rowpid = $("div[rel='rowpid_"+id+"']");
 	var rowid  = $("span[id='rowid_"+id+"']");
 
 	if(rowid.attr("class") == "minusSign")
 	{
+		//alert('minus2plus')
 		rowpid.slideUp(200);
-		rowid.attr("class","plusSign");
-		
-		//判断快捷操作栏
-		setTimeout("QuickToolBar()",200);
+		rowid.attr("class","plusSign");	
 	}
 	else
 	{
+		//alert('plus2minus')
 		rowpid.slideDown(200);
 		rowid.attr("class","minusSign");
-		
-		//判断快捷操作栏
-		setTimeout("QuickToolBar()",200);
 	}
 	
 }
