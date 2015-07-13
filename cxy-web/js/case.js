@@ -166,46 +166,46 @@ $(function(){
 		var html = [];
 		if((totalpages - g.currentPage) < 5){
 			html.push('<ul class="pagination pagination-lg ">');
-			html.push('<li class="f_page"><a href="#"><i class="fa fa-step-backward"></i></a></li>');
-			html.push('<li class="p_page"><a href="#"><i class="fa fa-caret-left" style="font-size:1.5em"></i></a></li>');
+			html.push('<li class="f_page"><a href="javascript:void(0);"><i class="fa fa-step-backward"></i></a></li>');
+			html.push('<li class="p_page"><a href="javascript:void(0);"><i class="fa fa-caret-left" style="font-size:1.5em"></i></a></li>');
 
 			if(totalpages > 5){
 				for(var i = totalpages - 5; i <= totalpages; i++){
 					if(i == g.currentPage){
-						html.push('<li class="active"><a href="#">' + i + '</a></li>');
+						html.push('<li class="active"><a href="javascript:void(0);">' + i + '</a></li>');
 					}
 					else{
-						html.push('<li ><a href="#">' + i + '</a></li>');
+						html.push('<li ><a href="javascript:void(0);">' + i + '</a></li>');
 					}
 				}
 			}
 			else{
 				for(var i = 1; i < totalpages + 1; i++){
 					if(i == g.currentPage){
-						html.push('<li class="active"><a href="#">' + i + '</a></li>');
+						html.push('<li class="active"><a href="javascript:void(0);">' + i + '</a></li>');
 					}
 					else{
-						html.push('<li ><a href="#">' + i + '</a></li>');
+						html.push('<li ><a href="javascript:void(0);">' + i + '</a></li>');
 					}
 				}
 			}
-			html.push('<li class="n_page"><a href="#"><i class="fa fa-caret-right" style="font-size:1.5em"></i></a></li>');
-			html.push('<li class="l_page"><a href="#"><i class="fa fa-step-forward"></i></a></li>');
+			html.push('<li class="n_page"><a href="javascript:void(0);"><i class="fa fa-caret-right" style="font-size:1.5em"></i></a></li>');
+			html.push('<li class="l_page"><a href="javascript:void(0);"><i class="fa fa-step-forward"></i></a></li>');
 			html.push('</ul>');
 
 		}
 		else{
 			html.push('<ul class="pagination pagination-lg ">');
-			html.push('<li class="f_page"><a href="#"><i class="fa fa-step-backward"></i></a></li>');
-			html.push('<li class="p_page"><a href="#"><i class="fa fa-caret-left" style="font-size:1.5em"></i></a></li>');
-			html.push('<li class="active"><a href="#">' + g.currentPage + '</a></li>');
-			html.push('<li><a href="#">' + (g.currentPage + 1) + '</a></li>');
-			html.push('<li><a href="#">' + (g.currentPage + 2) + '</a></li>');
-			html.push('<li><a href="#">...</a></li>');
-			html.push('<li><a href="#">' + (totalpages - 1) + '</a></li>');
-			html.push('<li><a href="#">' + (totalpages) + '</a></li>');
-			html.push('<li class="n_page"><a href="#"><i class="fa fa-caret-right" style="font-size:1.5em"></i></a></li>');
-			html.push('<li class="l_page"><a href="#"><i class="fa fa-step-forward"></i></a></li>');
+			html.push('<li class="f_page"><a href="javascript:void(0);"><i class="fa fa-step-backward"></i></a></li>');
+			html.push('<li class="p_page"><a href="javascript:void(0);"><i class="fa fa-caret-left" style="font-size:1.5em"></i></a></li>');
+			html.push('<li class="active"><a href="javascript:void(0);">' + g.currentPage + '</a></li>');
+			html.push('<li><a href="javascript:void(0);">' + (g.currentPage + 1) + '</a></li>');
+			html.push('<li><a href="javascript:void(0);">' + (g.currentPage + 2) + '</a></li>');
+			html.push('<li><a href="javascript:void(0);">...</a></li>');
+			html.push('<li><a href="javascript:void(0);">' + (totalpages - 1) + '</a></li>');
+			html.push('<li><a href="javascript:void(0);">' + (totalpages) + '</a></li>');
+			html.push('<li class="n_page"><a href="javascript:void(0);"><i class="fa fa-caret-right" style="font-size:1.5em"></i></a></li>');
+			html.push('<li class="l_page"><a href="javascript:void(0);"><i class="fa fa-step-forward"></i></a></li>');
 			html.push('</ul>');
 		}
 
@@ -219,7 +219,7 @@ $(function(){
 		var text = $(this).text() - 0 || "";
 		if(text !== ""){
 			if(g.currentPage === text){
-				alert("当前是第" + text + "页");
+				Utils.alert("当前是第" + text + "页");
 			}
 			else{
 				g.currentPage = text;
@@ -231,7 +231,7 @@ $(function(){
 				case "f_page":
 					//第一页
 					if(g.currentPage == 1){
-						alert("当前是第一页");
+						Utils.alert("当前是第一页");
 					}
 					else{
 						g.currentPage = 1;
@@ -243,7 +243,7 @@ $(function(){
 						g.currentPage--;
 					}
 					else{
-						alert("当前是第一页");
+						Utils.alert("当前是第一页");
 					}
 				break;
 				case "n_page":
@@ -257,17 +257,22 @@ $(function(){
 			}
 		}
 
-		var condi = {};
-		//condi.token = g.token;
-		condi.page = g.currentPage;
-		condi.size = g.paseSize;
-		if(g.tags.length > 0 ){
-			condi.tags = g.tags.join(',');
+		if(g.currentPage <= g.totalPage){
+			var condi = {};
+			//condi.token = g.token;
+			condi.page = g.currentPage;
+			condi.size = g.paseSize;
+			if(g.tags.length > 0 ){
+				condi.tags = g.tags.join(',');
+			}
+			else{
+				condi.tags = "";
+			}
+			sendGetCaseListHttp(condi);
 		}
 		else{
-			condi.tags = "";
+			Utils.alert("当前是最后一页");
 		}
-		sendGetCaseListHttp(condi);
 	}
 });
 
