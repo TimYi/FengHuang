@@ -1,11 +1,11 @@
-package com.fenghuangzhujia.eshop.navigation.dto;
+package com.fenghuangzhujia.eshop.view.navigation.dto;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.fenghuangzhujia.eshop.navigation.Navigation;
-import com.fenghuangzhujia.eshop.navigation.NavigationRepository;
+import com.fenghuangzhujia.eshop.view.navigation.Navigation;
+import com.fenghuangzhujia.eshop.view.navigation.NavigationRepository;
 import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
 
 @Component

@@ -1,10 +1,11 @@
-package com.fenghuangzhujia.eshop.navigation;
+package com.fenghuangzhujia.eshop.view.navigation;
 
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Entity;
 
@@ -53,6 +54,7 @@ public class Navigation extends UUIDBaseModel {
 		this.url = url;
 	}
 	@OneToMany(mappedBy="superNavigation",cascade=CascadeType.ALL)
+	@OrderBy("ordernum")
 	public Set<Navigation> getSubNavigations() {
 		return subNavigations;
 	}

@@ -1,7 +1,8 @@
-package com.fenghuangzhujia.eshop.navigation;
+package com.fenghuangzhujia.eshop.view.navigation;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
@@ -14,4 +15,8 @@ public interface NavigationRepository extends PagingAndSortingRepository<Navigat
 	@Override
 	@Query("select n from Navigation n where n.superNavigation is null")
 	public Iterable<Navigation> findAll();
+	
+	@Override
+	@Query("select n from Navigation n where n.superNavigation is null")
+	public Iterable<Navigation> findAll(Sort sort);
 }
