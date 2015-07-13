@@ -106,7 +106,7 @@ function submitMB(){
 		pIdStr += (selectedPs[i].id+',');
 	}
 	pIdStr = pIdStr.substring(0,pIdStr.length-1);
-	alert(pIdStr);
+	//alert(pIdStr);
 	$('#packageIds').val(pIdStr);
 	var url = genUrl(MATERIAL_MATERIAL);
 	var files = $('input[name="picFile"]').prop('files');//获取到文件列表
