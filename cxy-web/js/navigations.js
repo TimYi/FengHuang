@@ -52,7 +52,7 @@
 		html.push('</div>');
 
 		html.push('<div class="collapse navbar-collapse navbar-right">');
-		html.push('<ul class="nav navbar-nav">');
+		html.push('<ul id="navul" class="nav navbar-nav">');
 
 		//class="active"
 
