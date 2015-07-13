@@ -173,7 +173,7 @@ $(".m_logo").hover(function(){
             </ol-->
 
             <div class="carousel-inner">
-                <div class="item active" style="background-image: url(images/699_bg_1.jpg)">
+                <div class="item active" style="background-image: url(images/699_bg_01.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
                             <div class="col-sm-6">
@@ -364,8 +364,50 @@ $(".m_logo").hover(function(){
             <div class="center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
             	<img src="images/gxsj.png">
             </div>
+
+						<div id="carousel-slider" class="carousel slide" data-ride="carousel">
+							<!-- Indicators -->
+						  	<ol class="carousel-indicators visible-xs">
+							    <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
+							    <li data-target="#carousel-slider" data-slide-to="1"></li>
+							    <li data-target="#carousel-slider" data-slide-to="2"></li>
+						  	</ol>
+		
+							<div class="carousel-inner">
+								<div class="item active">
+				            <div>
+												<img src="images/699_22_1.png">
+										</div>
+							   </div>
+							   <div class="item">
+				            <div>
+												<img src="images/699_22_2.png">
+										</div>									
+							   </div> 
+							   <div class="item">
+				            <div>
+												<img src="images/699_22_2.png">
+										</div>									
+							   </div> 
+							</div>
+							
+							<a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
+								<i class="fa fa-angle-left"></i> 
+							</a>
+							
+							<a class=" right carousel-control hidden-xs"href="#carousel-slider" data-slide="next">
+								<i class="fa fa-angle-right"></i> 
+							</a>
+						</div> <!--/#carousel-slider-->
+
+
         </div><!--/.container-->
     </section><!--/#feature-->
+
+
+
+
+
 
     <section id="feature"  style="border-top:1px solid #f6f6f6;background:#f9f9f9">
         <div class="container">
