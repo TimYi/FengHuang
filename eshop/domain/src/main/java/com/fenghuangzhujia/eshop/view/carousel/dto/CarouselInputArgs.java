@@ -1,26 +1,17 @@
-package com.fenghuangzhujia.eshop.view.carousel;
+package com.fenghuangzhujia.eshop.view.carousel.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import org.springframework.web.multipart.MultipartFile;
 
-import org.hibernate.annotations.Type;
+import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
-import com.fenghuangzhujia.eshop.view.navigation.Navigation;
-import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
-import com.fenghuangzhujia.foundation.media.MediaContent;
-
-@Entity
-@Table(name="fhzj_carousel")
-public class Carousel extends UUIDBaseModel {
+public class CarouselInputArgs extends DtoBaseModel {
 
 	/**所属页面*/
-	private Navigation page;
+	private String pageId;
 	/**排序字段*/
 	private int ordernum;
 	/**背景图片*/
-	private MediaContent pic;
+	private MultipartFile picFile;
 	/**左侧标题*/
 	private String title;
 	/**左侧内容文字*/
@@ -29,15 +20,14 @@ public class Carousel extends UUIDBaseModel {
 	private String buttonText;
 	/**button链接*/
 	private String buttonUrl;
-	/**右侧富文本*/
+	/**右侧区域富文本*/
 	private String rightArea;
 	
-	@ManyToOne
-	public Navigation getPage() {
-		return page;
+	public String getPageId() {
+		return pageId;
 	}
-	public void setPage(Navigation page) {
-		this.page = page;
+	public void setPageId(String pageId) {
+		this.pageId = pageId;
 	}
 	public int getOrdernum() {
 		return ordernum;
@@ -45,12 +35,11 @@ public class Carousel extends UUIDBaseModel {
 	public void setOrdernum(int ordernum) {
 		this.ordernum = ordernum;
 	}
-	@OneToOne
-	public MediaContent getPic() {
-		return pic;
+	public MultipartFile getPicFile() {
+		return picFile;
 	}
-	public void setPic(MediaContent pic) {
-		this.pic = pic;
+	public void setPicFile(MultipartFile picFile) {
+		this.picFile = picFile;
 	}
 	public String getTitle() {
 		return title;
@@ -76,7 +65,6 @@ public class Carousel extends UUIDBaseModel {
 	public void setButtonUrl(String buttonUrl) {
 		this.buttonUrl = buttonUrl;
 	}
-	@Type(type="text")
 	public String getRightArea() {
 		return rightArea;
 	}

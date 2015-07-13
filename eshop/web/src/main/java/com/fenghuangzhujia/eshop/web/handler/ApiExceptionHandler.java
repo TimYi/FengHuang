@@ -18,7 +18,7 @@ public class ApiExceptionHandler {
 		return RequestResult.error(e.getErrorCode(), e.getMessage()).toJson();
 	}
 	
-	@ExceptionHandler(value=Exception.class)
+	//@ExceptionHandler(value=Exception.class)
 	public String handleException(Exception e) {
 		LogUtils.errorLog(e);
 		return RequestResult.error(SystemErrorCodes.UNKNOWN_ERROR, e.getMessage()).toJson();

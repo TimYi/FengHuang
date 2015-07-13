@@ -1,26 +1,17 @@
-package com.fenghuangzhujia.eshop.view.carousel;
+package com.fenghuangzhujia.eshop.view.carousel.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import com.fenghuangzhujia.eshop.view.navigation.dto.NavigationVo;
+import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
+import com.fenghuangzhujia.foundation.media.MediaContentDto;
 
-import org.hibernate.annotations.Type;
-
-import com.fenghuangzhujia.eshop.view.navigation.Navigation;
-import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
-import com.fenghuangzhujia.foundation.media.MediaContent;
-
-@Entity
-@Table(name="fhzj_carousel")
-public class Carousel extends UUIDBaseModel {
+public class CarouselDto extends DtoBaseModel {
 
 	/**所属页面*/
-	private Navigation page;
+	private NavigationVo page;
 	/**排序字段*/
 	private int ordernum;
 	/**背景图片*/
-	private MediaContent pic;
+	private MediaContentDto pic;
 	/**左侧标题*/
 	private String title;
 	/**左侧内容文字*/
@@ -32,11 +23,10 @@ public class Carousel extends UUIDBaseModel {
 	/**右侧富文本*/
 	private String rightArea;
 	
-	@ManyToOne
-	public Navigation getPage() {
+	public NavigationVo getPage() {
 		return page;
 	}
-	public void setPage(Navigation page) {
+	public void setPage(NavigationVo page) {
 		this.page = page;
 	}
 	public int getOrdernum() {
@@ -45,11 +35,10 @@ public class Carousel extends UUIDBaseModel {
 	public void setOrdernum(int ordernum) {
 		this.ordernum = ordernum;
 	}
-	@OneToOne
-	public MediaContent getPic() {
+	public MediaContentDto getPic() {
 		return pic;
 	}
-	public void setPic(MediaContent pic) {
+	public void setPic(MediaContentDto pic) {
 		this.pic = pic;
 	}
 	public String getTitle() {
@@ -76,7 +65,6 @@ public class Carousel extends UUIDBaseModel {
 	public void setButtonUrl(String buttonUrl) {
 		this.buttonUrl = buttonUrl;
 	}
-	@Type(type="text")
 	public String getRightArea() {
 		return rightArea;
 	}
