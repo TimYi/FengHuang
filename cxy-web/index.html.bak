@@ -200,7 +200,7 @@ $(".m_logo").hover(function(){
                 </div>
             </div><!--/.item-->
 
-            <div class="item" style="background-image: url(assets/images/slider/d_5.jpg)">
+            <div class="item" style="background-image: url(images/home_bg_3.jpg)">
                 <div class="container">
                     <div class="row slide-margin">
                         <div class="col-sm-6">
@@ -218,7 +218,7 @@ $(".m_logo").hover(function(){
                 </div>
             </div><!--/.item-->
 
-            <div class="item" style="background-image: url(assets/images/slider/n_010.jpg)">
+            <div class="item" style="background-image: url(images/home_bg_2.jpg)">
                 <div class="container">
                     <div class="row slide-margin">
                         <div class="col-sm-6">
@@ -233,7 +233,7 @@ $(".m_logo").hover(function(){
                 </div>
             </div><!--/.item-->
 
-            <div class="item" style="background-image: url(assets/images/slider/n_001.jpg)">
+            <div class="item" style="background-image: url(images/home_bg_1.jpg)">
                 <div class="container">
                     <div class="row slide-margin">
                         <div class="col-sm-6">
@@ -394,7 +394,7 @@ $(".m_logo").hover(function(){
 </section><!--/about-us-->
 
 
-<section id="feature" >
+<section id="feature" style="border-top:1px solid #f6f6f6;">
     <div class="container">
        	<div class="center wow fadeInDown">
             <h2>体验馆 <span style="font-size:24px">EXPERIENCE MUSEUM</span></h2>
