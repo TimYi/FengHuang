@@ -1,9 +1,11 @@
-package com.fenghuangzhujia.eshop.navigation.dto;
+package com.fenghuangzhujia.eshop.view.navigation.dto;
 
-import com.fenghuangzhujia.eshop.navigation.Navigation.NavigationType;
+import java.util.Set;
+
+import com.fenghuangzhujia.eshop.view.navigation.Navigation.NavigationType;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
-public class NavigationInputArgs extends DtoBaseModel {
+public class NavigationDto extends DtoBaseModel {
 
 	/**菜单类型*/
 	private NavigationType type;
@@ -13,8 +15,8 @@ public class NavigationInputArgs extends DtoBaseModel {
 	private String title;
 	/**连接地址，只有URL类型的菜单有*/
 	private String url;
-	/**上级菜单id*/
-	private String superNavigationId;
+	/**下级菜单，只有DROPDOWN类型菜单有*/
+	private Set<NavigationDto> subNavigations;
 	
 	public NavigationType getType() {
 		return type;
@@ -40,10 +42,10 @@ public class NavigationInputArgs extends DtoBaseModel {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	public String getSuperNavigationId() {
-		return superNavigationId;
+	public Set<NavigationDto> getSubNavigations() {
+		return subNavigations;
 	}
-	public void setSuperNavigationId(String superNavigationId) {
-		this.superNavigationId = superNavigationId;
+	public void setSubNavigations(Set<NavigationDto> subNavigations) {
+		this.subNavigations = subNavigations;
 	}
 }

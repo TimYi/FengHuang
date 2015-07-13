@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.navigation;
+package com.fenghuangzhujia.eshop.view.navigation;
 
 import java.util.Set;
 
