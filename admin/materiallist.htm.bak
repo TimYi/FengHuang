@@ -26,13 +26,13 @@
 				<tr class="head" align="left">
 					<td class="firstCol" width="5%" height="36"><input name="checkid" id="checkid" onclick="CheckAll(this.checked);" type="checkbox"></td>
 					<!--td width="15%">ID</td-->
-					<td width="10%">序号</td>
+					<td width="20">序号</td>
 					<td width="10%">描述</td>
 					<td width="10%">类型</td>
 					<td width="10%">品牌</td>
-					<td width="10%">图片</td>					
-					<td width="10%">类别</td>
-					<td width="10%">套餐</td>
+					<td width="100">图片</td>					
+					<td width="">类别</td>
+					<td width="40">套餐</td>
 					<td class="endCol" width="20%">操作</td>
 				</tr>
 			</thead>
@@ -45,7 +45,7 @@
 					<td data-bind="text: product.name"></td>
 					<td data-bind="text: product.brand.name"></td>				
 					<td>
-						<img data-bind="attr:{src:pic.url}" style='display: inline; width: 88px; height: 59px;padding:5px;border:1px solid #ccc' alt=''/>
+						<img data-bind="attr:{src:pic.url}" style='display: inline; width: 88px; height: 59px;padding:5px;border:1px solid #ccc;margin:10px 0' alt=''/>
 					</td>
 					<td data-bind="text: type"></td>
 					<td data-bind="text: packageStr"></td>
