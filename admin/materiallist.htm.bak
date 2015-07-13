@@ -33,7 +33,7 @@
 					<td width="100">图片</td>					
 					<td width="">类别</td>
 					<td width="40">套餐</td>
-					<td class="endCol" width="20%">操作</td>
+					<td class="endCol" width="200">操作</td>
 				</tr>
 			</thead>
 	        <tbody data-bind='foreach: result'>
