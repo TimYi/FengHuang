@@ -396,7 +396,7 @@ $(".m_logo").hover(function(){
                 <p class="lead">墙面处理 / 地面处理 / 防水处理 / 隐蔽施工 / 人性化设计 / 绿色环保 / 智能家居</p>
             </div>
             <div class="center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-            	<img src="images/gxsj.png">
+            	<img src="images/gxsj.jpg">
             </div>
         </div><!--/.container-->
     </section><!--/#feature-->
@@ -501,6 +501,7 @@ $(".m_logo").hover(function(){
                 <p class="lead">施工步骤紧密衔接，保证在35天内完成装修，39项标准节点和标准操作项目，用最高效的方式让您享受到最好最快的家装体验</p>
             </div>
             <div class="center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+            		<!--img src="assets/images/step55.gif"-->
             		<img src="assets/images/step55.gif">
             </div>
         </div><!--/.container-->
