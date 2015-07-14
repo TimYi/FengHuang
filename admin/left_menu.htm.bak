@@ -179,8 +179,8 @@
 			<div class="menubox">
 				<div class="title" onclick="DisplayMenu('leftmenu09');" title="点击切换显示或隐藏"> 模板管理</div>
 				<div id="leftmenu09" style="display:none"> 
-					<a href="#" onclick ="javascript:openNavigationMgr();return false;"  target="main">导航菜单管理</a> 
-					<a href="#" onclick ="javascript:openCarouselMgr();return false;"  target="main">轮播幻灯管理</a> 
+					<a href="#" onclick ="javascript:openNavigationMgr();return false;"  target="main"><span class="subType"></span>导航菜单管理</a> 
+					<a href="#" onclick ="javascript:openCarouselMgr();return false;"  target="main">轮播幻灯片管理</a> 
 				</div>
 			</div>						
 			<!--scrollbar end--> 
