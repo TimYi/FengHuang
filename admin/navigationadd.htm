@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>新增菜单</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/json2.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript">
+var viewModel;
+var typeDic;
+var Type = function(key,value){
+	this.key = key;
+	this.value = value;
+}
+var superId;
+function onload(){
+	//获取上级菜单id,并根据这个id是否存在来判断
+	superId = getUrlParam(window.location.search,"superId");
+	
+	typeDic = new Array();
+	typeDic.push(new Type('URL','URL'));
+	typeDic.push(new Type('DROPDOWN','DROPDOWN'));
+	viewModel = {
+		typeDic : ko.observableArray(typeDic),
+		selectedType : ko.observable(),
+		superId : ko.observable(superId)
+	}
+	ko.applyBindings(viewModel);
+}
+function submitNav(){
+	var url = genUrl(SYSTEM_NAVIGATION);
+	submitAsyFormByJson(url, 'form', 
+		function(data){
+			friendlyTip(data);
+			window.location.href='navigationlist.htm';
+		});
+}
+function onTypeChange(){
+	if(viewModel.selectedType().value === 'URL'){
+		$("#urlTr").show();
+	}else{
+		$("#urlTr").hide();
+	}
+}
+</script>
+</head>
+<body onload="onload()">
+<div class="formHeader">
+	 <span class="title">新增菜单</span> 
+	 <a href="javascript:location.reload();" class="reload">刷新</a> 
+</div>
+<form name="form" id="form" method="post" enctype="multipart/form-data" >
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>		
+			<tr>
+				<td align="right" width="25%" height="40">标题:</td>
+				<td width="75%" >
+					<input class='input' name='title' type="text" >
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >序号：</td>
+				<td width="75%" >
+					<input type="text" name='ordernum' class='input'>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >类型：</td>
+				<td>
+					<select class='input' 
+						data-bind="value:selectedType,options:typeDic,optionsText:'key',
+						valueAllowUnset: true,optionsCaption: '请选择...',event:{change:onTypeChange}">
+					</select>
+					<input type="hidden" name='type' data-bind="value:selectedType()?selectedType().value:''"></td>
+				</td>
+			</tr>
+			<!--该行的显示和隐藏由类型的选择控制-->
+			<tr id='urlTr' style="display:none;">
+				<td align="right" height="40" >链接：</td>
+				<td width="75%" >
+					<input type="text" name='url' class='input'>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<input type="hidden" name='superNavigationId' data-bind="value:superId"></td>
+	<div class="formSubBtn">
+		<input class="submit" value="提交" type="button" onclick ='click:submitNav();'/>
+		<input class="back" value="返回" onclick="history.go(-1)" type="button">
+	</div>
+</form>
+</body>
+</html>

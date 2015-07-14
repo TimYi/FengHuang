@@ -6,21 +6,20 @@ var rePage = true;
 */
 var total ;//总数据条数
 var curPage = 1;//当前页码,初始为1	
-/*
-*定义参数
-*/
 var param;
 function onload(){
 	initParam();
-	getDatas();	
+	var id = getUrlParam(window.location.search,"id");	
+	getData(TEMPLATE_CAROUSEL,param,afterGetDatas);
 }
-function initParam(){
+function initParam(){	
 	param={
 		size : pSize,
 		page : curPage
 	};
 }
-function getDatas4page(page){	
+function getDatas4page(page){
+	
 	rePage = false;
 	$('.pageList').jqPaginator('option', {
     	currentPage: page
@@ -30,36 +29,33 @@ function getDatas4page(page){
 	getDatas();
 }
 function getDatas(){
-	getData(MATERIAL_MATERIAL,param,afterGetDatas);
+	getData(TEMPLATE_CAROUSEL,param,afterGetDatas);
 }
-function afterGetDatas(data){	
+function afterGetDatas(data){
+
 	//先判断并处理错误数据
 	if(!isErrorData(data))
 		//数据正确时进行绑定
 	bindData(data.result);	
 }
+
 function bindData(data){
-	total = data.totalCount;
+	total = data.totalCount;//用于分页	
 	var results = data.result;
 	for(var i in results){
 		results[i].selected = false;
-		var packages = results[i].packages;
-		var packageStr='';
-		for(var j in packages){
-			packageStr += packages[j].name+',';
-		}
-		packageStr = packageStr.substring(0,packageStr.length-1);
-		results[i].packageStr = packageStr;
 	}
 	if(!bind){
 		dataModel = ko.mapping.fromJS(data);	
 	}else{
 		ko.mapping.fromJS(data, dataModel);
-	}
+	}	
 	dataModel.remove = function(item){
+		
 		if(ConfDel(0)){
-			var url = genUrl(MATERIAL_MATERIAL)+'/'+item.id();
-			deleteReq(url,function(dataObj){				
+			var url = genUrl(TEMPLATE_CAROUSEL)+'/'+item.id();
+			deleteReq(url,function(dataObj){
+				
 					friendlyTip(dataObj);
 			    	if(dataObj.status === 'OK'){
 			    	  	dataModel.result.remove(item);
@@ -67,11 +63,17 @@ function bindData(data){
 				});
 		}
 	}
-	dataModel.removeSelected = function(){				
+	dataModel.removeSelected = function(){
+				
 		if(ConfDelAll(0)){
+			
 			//todo 删除
 			alert(filterSelected(dataModel.result()).length);
 		}
+	}
+	dataModel.modify = function(item){
+		
+		window.location.href='carouseledit.htm?id='+item.id();
 	}
 	dataModel.up = function(item){
 		var brands = dataModel.result();
@@ -107,41 +109,44 @@ function bindData(data){
 		});
 		dataModel.result(brands);
 	}
-	dataModel.modify = function(item){
-		window.location.href='materialedit.htm?id='+item.id();
-	}	
 	if(!bind){
 		bind = true;
 		ko.applyBindings(dataModel);
 	}
-	if(rePage){
+	if(rePage){		
 		//生成分页
 		genPaginator(total,pSize,param.page,handlePageChange)
 	}
 }
 function handlePageChange (num, type) {
-        	
-	//alert(num+':'+type);
     if(type == 'change'){
     	getDatas4page(num);
     }            
 }
+
 function add(){
-		window.location.href="materialadd.htm";
+		window.location.href="carouseladd.htm";
 }
 function reorder(){
-		var idStr = '';
+		/*var idStr = '';
 		var brands = dataModel.result();
 		for(var i in brands){
 			idStr += brands[i].id();
 			idStr += ',';
 		}
 		idStr = idStr.substring(0,idStr.length-1);
-		var param ={ids : idStr};
+		var param ={ids : idStr};*/
+		var param ='{';
+		var results = dataModel.result();
+		for(var i in results){
+			param += '"'+ results[i].id()+'":'+results[i].ordernum()+',';		
+		}
+		param = param.substring(0,param.length-1);
+		param += "}";
 		//提交
-		var url = genUrl(MATERIAL_MATERIAL)+'/order';
-		postReq(url,param,function(data){
+		var url = genUrl(TEMPLATE_CAROUSEL)+'/order';
+		postByJsonString(url,param,function(data){
 			friendlyTip(data);
-			window.location.href='materiallist.htm?';
+			window.location.href='carousellist.htm?';
 		});
 }

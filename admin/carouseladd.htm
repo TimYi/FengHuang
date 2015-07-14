@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>新增滚动图片</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="assets/js/json2.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/plugin/editor/kindeditor-min.js"></script>
+<script type="text/javascript" src="assets/plugin/editor/lang/zh_CN.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript">
+var navDic;
+var subNavDic;
+var selectableSubNav;
+
+var navs;
+function onload(){
+	getData(SYSTEM_NAVIGATION,null,afterGetNav4Select);	
+}
+function submitCarousel(){
+	//提交前获取选择的pageId,并填充到hidden
+	if(viewModel.selectedNav().type == null ){
+		alert('请选择所属页面！');
+		return ;
+	}
+	if(viewModel.selectedNav().type == 'DROPDOWN' ){
+		if( viewModel.selectedSubNav().type == null){
+			alert('请选择一个URL类型的菜单作为所属页面！');
+			return ;
+		}else{
+			$('#pageId').val(viewModel.selectedSubNav().id);
+		}
+	}else{
+		$('#pageId').val(viewModel.selectedNav().id);
+	}
+	var url = genUrl(TEMPLATE_CAROUSEL);
+	var files = $('input[name="picFile"]').prop('files');//获取到文件列表
+	if(files.length == 0){
+		submitAsyFormByJson(url,'bTForm',function(data){	 			
+			friendlyTip(data);
+			window.location.href='carousellist.htm';
+		});		
+	}else{
+		submitFormWithMultipart(url,'bTForm',
+			function(formData, jqForm, options){
+				//判断是否要上传文件，若不需要上传文件时			 			
+			 	return true;  
+			 } 			 		
+			 ,function(data){			 			
+			 	friendlyTip(data);
+			 	window.location.href='carousellist.htm';
+			 }
+		);
+	}
+}
+var Nav = function(id,title,type){
+			this.id = id;
+			this.title = title;
+			this.type = type;
+}
+function afterGetNav4Select(data){
+
+	if(!isErrorData(data)){
+		navs = data.result.result;		
+		navDic = new Array();
+		for(var i in navs){
+			var nav = new Nav(navs[i].id,navs[i].title,navs[i].type);
+			navDic.push(nav);
+		}
+		viewModel={
+			selectableSubNav : ko.observableArray(),
+        	selectedSubNav:ko.observable(),
+         	selectableNav : ko.observableArray(navDic),
+        	selectedNav:ko.observable() 
+        };
+   		ko.applyBindings(viewModel);
+	}
+}
+function onNavChange(){
+	//alert(viewModel.selectedNav().type);
+	//先判断是否含有子菜单
+	if(viewModel.selectedNav().type == 'DROPDOWN'){
+		//显示二级下拉列表
+		$("#subNavSelector").show();
+		var selectedNavId = viewModel.selectedNav().id;
+		//根据brandid切换
+		viewModel.selectableSubNav.removeAll();	
+		viewModel.selectedSubNav = ko.observable();
+		for(var i in navs){
+			var nav = navs[i];		
+			if(nav.id == selectedNavId){
+				selectableSubNav = new Array();
+				var subNav = nav.subNavigations;
+				for(var j in subNav){
+					var sub = new Nav(subNav[j].id,subNav[j].title,subNav[j].type);
+					viewModel.selectableSubNav.push(sub);
+				}
+				break;
+			}
+		}
+	}else{
+		$("#subNavSelector").hide();
+	}
+	
+}
+</script>
+</head>
+<body onload="onload()">
+<div class="formHeader">
+ <span class="title">新增滚动图片</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
+</div>
+<form name="bTForm" id="bTForm" method="post" enctype="multipart/form-data">
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>			
+			<tr>
+				<td align="right"  height="40">所属页面:</td>
+				<td >
+					<select data-bind="value:selectedNav,options:selectableNav,optionsText:'title',
+						optionsCaption: '请选择...',event:{change:onNavChange}">
+					</select>
+					<select id='subNavSelector' style="display:none;" 
+						data-bind="value:selectedSubNav,options:selectableSubNav,
+						optionsText:'title',optionsCaption: '请选择...'">
+					</select>
+					<!--提交时将选择的pageId填入-->
+					<input id='pageId'  type="hidden" name='pageId'/>
+				</td>
+			</tr>	
+			<tr>
+				<td align="right" width="25%" height="40">序号:</td>
+				<td width="75%" ><input   class="input" name='ordernum' type="text"></td>
+			</tr>	
+			<tr>
+				<td align="right" width="25%" height="40">标题:</td>
+				<td width="75%" ><input   class="input" name='title' type="text"></td>
+			</tr>
+			<tr>
+				<td align="right" width="25%" height="40">左侧内容:</td>
+				<td width="75%" ><input   class="input" name='content' type="text"></td>
+			</tr>
+			<tr>
+				<td align="right" width="25%" height="40">按钮文字:</td>
+				<td width="75%" ><input   class="input" name='buttonText' type="text"></td>
+			</tr>
+			<tr>
+				<td align="right" width="25%" height="40">按钮链接:</td>
+				<td width="75%" ><input   class="input" name='buttonUrl' type="text"></td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >上传图片：</td>
+				<td width="75%" >					
+					<input   class="input" type="file"  name='picFile'>
+				</td>				
+			</tr>
+			<tr>
+				<td align="right" width="25%" height="40">右侧内容:</td>
+				<td width="75%" >
+					<textarea name='rightArea'  class="kindeditor" id="rightArea" ></textarea>
+					<script>
+						var editor;
+						KindEditor.ready(function(K) {
+							editor = K.create('textarea[name="rightArea"]', {
+								allowFileManager : true,
+								width:'667px',
+								height:'280px',
+								afterBlur: function(){this.sync();}/*,
+								extraFileUploadParams : {
+									sessionid :  'f6pqand0gdtrnhi1n0vd2kgq21'
+								}*/
+							});
+						});
+					</script>
+				</td>
+			</tr>
+		
+		</tbody>
+	</table>
+	<div class="formSubBtn">
+		<input class="submit" value="提交" type="button" onclick='submitCarousel()'/>
+		<input class="back" value="返回" onclick="history.go(-1)" type="button">
+	</div>
+</form>
+
+</body></html>
