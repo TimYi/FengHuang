@@ -14,8 +14,8 @@ function loginErrorFilter(data,callBack){
 		if(data.code == 1)	
 		{
 			window.parent.location.href = "login.html";
-		}		
-	}else{		
+		}
+	}else{
 		callBack(data);
 	}
 }
@@ -49,7 +49,7 @@ function postReq(url,params,callback){
 		callback(dataObj);
 	});
 }
-function updateAll(url,params,callback){
+function postByJsonString(url,params,callback){
 	if(reqFlag) {
 		alert("请求已经提交，请耐心等待。");
 		return;
@@ -61,11 +61,10 @@ function updateAll(url,params,callback){
    		data:params,
    		async:false,
      	type:"post",
-     	//dataType:"json",
+     	dataType:"json",
      	contentType: "application/json; charset=utf-8",
      	success:function(data){
-   			reqFlag = false;
-			
+   			reqFlag = false;			
 			callback(data);
    		},
    		error:function(jqXHR, textStatus, errorThrown){
