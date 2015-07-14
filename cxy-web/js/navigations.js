@@ -48,7 +48,14 @@
 		html.push('<span class="icon-bar"></span>');
 		html.push('<span class="icon-bar"></span>');
 		html.push('</button>');
-		html.push('<a class="navbar-brand" href="index.html"><img src="assets/images/fhzj.jpg" alt="logo"></a>');
+		var page = location.href.indexOf("/center/");
+		if(page > -1){
+			html.push('<a class="navbar-brand" href="../index.html"><img src="assets/images/fhzj.jpg" alt="logo"></a>');
+		}
+		else{
+			html.push('<a class="navbar-brand" href="index.html"><img src="assets/images/fhzj.jpg" alt="logo"></a>');
+		}
+
 		html.push('</div>');
 
 		html.push('<div class="collapse navbar-collapse navbar-right">');

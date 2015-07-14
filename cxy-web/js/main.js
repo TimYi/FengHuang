@@ -90,6 +90,9 @@ $(function(){
 	g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
 	//验证登录状态
 	g.loginStatus = Utils.getUserInfo();
+	if(g.loginStatus){
+		$("#subbtn").attr("href","subappoint.html");
+	}
 	g.reserveStatus = false;
 	if(g.loginStatus && g.userprofile !== ""){
 		var obj = JSON.parse(g.userprofile);
@@ -115,7 +118,6 @@ $(function(){
 	$("#yhqbtn1").bind("click",getCoupon);
 	$("#yhqbtn2").bind("click",getCoupon);
 
-
 	getPackages();
 
 	$("#phone").bind("blur",getImgCode);
@@ -133,8 +135,6 @@ $(function(){
 
 	//getAppointCategory();
 	//getProv();
-
-
 
 	function getCoupon(){
 		console.log(this.id);
@@ -697,7 +697,7 @@ $(function(){
 						}
 						else{
 							var page = "center/c_my.html?token=" + g.token + "&p=1";
-							$(".buynow").html('<div onclick="alert(\'个人资料不完善,无法预约\');location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
+							$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
 						}
 					}
 					else{
@@ -744,9 +744,10 @@ $(function(){
 				console.log("miaoSha",data);
 				var status = data.status || "";
 				if(status == "OK"){
-					Utils.alert("抢购成功");
-					var orderId = data.result.id;
-					location.href = "orderback_paysel.html?id=" + orderId;
+					alert("抢购成功");
+					//Utils.alert("抢购成功");
+					//var orderId = data.result.id;
+					//location.href = "orderback_paysel.html?id=" + orderId;
 				}
 				else{
 					Utils.alert("抢购失败");
