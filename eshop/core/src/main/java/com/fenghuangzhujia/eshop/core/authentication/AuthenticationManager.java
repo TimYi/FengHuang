@@ -42,7 +42,7 @@ public interface AuthenticationManager extends UserDetailsService {
 	
 	/**
 	 * 注册新用户，并返回token
-	 * @param username
+	 * @param username 2~10位，以字母或者汉字开头，由字母、数字或者汉字组成的用户名。
 	 * @param password
 	 * @param ip 注册ip地址
 	 * @return

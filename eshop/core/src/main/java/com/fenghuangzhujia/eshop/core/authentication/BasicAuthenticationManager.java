@@ -69,7 +69,7 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 
 	@Override
 	public UserToken login(String username, String password, String ip) throws ErrorCodeException {
-		User user=userRepository.getByUsername(username);
+		User user=findUser(username);
 		if(user==null) {
 			throw new ErrorCodeException(LOGIN_ERROR,"用户名不存在");
 		}
@@ -107,6 +107,10 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 		User user=userRepository.getByUsername(username);
 		if(user!=null) {
 			throw new ErrorCodeException(SystemErrorCodes.REGIST_ERROR, "该用户名已被注册！");
+		}
+		user=userRepository.getByMobile(mobile);
+		if(user!=null) {
+			throw new ErrorCodeException(SystemErrorCodes.REGIST_ERROR, "改手机号已被使用，一个手机号限一个用户使用！");
 		}
 		user=new User();
 		user.setUsername(username);
@@ -184,6 +188,18 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	}
 	
 	/**
+	 * 根据用户名或者手机号码找到系统用户
+	 * @param principal
+	 * @return
+	 */
+	protected User findUser(String principal) {
+		User user=userRepository.getByUsername(principal);
+		if(user!=null) return user;
+		user=userRepository.getByMobile(principal);
+		return user;
+	}
+	
+	/**
 	 * 生成新token，并将更新持久化。
 	 * @param token
 	 * @return
@@ -203,7 +219,7 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	 */
 	protected void checkAccount(String account) throws Exception {
 		if(!UsernameValidater.isUsername(account)) {
-			throw new Exception("请输入数字、英文字母、下划线或者汉字组成的用户名");
+			throw new Exception("请输入2~10位数字、英文字母、下划线或者汉字组成的用户名");
 		}
 	}
 	/**

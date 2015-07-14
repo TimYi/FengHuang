@@ -73,7 +73,13 @@ public class UserService extends DtoSpecificationService<User, UserDto, UserInpu
 	 */
 	public void bindMobile(String id,String mobile) {
 		if(!PhoneNumberValidater.isMobile(mobile))throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "请输入正确的11位手机号码");
-		User user=getRepository().findOne(id);
+		//检查手机号是否已经使用
+		User user=getRepository().getByMobile(mobile);
+		if(user!=null && !mobile.equals(user.getMobile()))
+			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "手机号已被其它账号绑定，请更换");
+		
+		//绑定手机号
+		user=getRepository().findOne(id);
 		user.setMobile(mobile);
 		getRepository().save(user);
 	}
