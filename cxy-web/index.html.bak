@@ -77,30 +77,14 @@
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">家装套餐 <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
-<<<<<<< HEAD
                             <li><a href="tc_799.html">软装套餐</a></li>
                             <li style="padding:0 5px;margin:5px 0;border-bottom:1px solid #555"></li>
-=======
-                            <li><a href="tc_599.html">599家装套餐</a></li>
-                            <li><a href="tc_599.html">699家装套餐</a></li>
->>>>>>> 42fc00c616a4d48b980eda6f7700836e97d7bb3e
                             <li><a href="tmzs.html">流程展示</a></li>
                             <li><a href="gyzs.html">工艺展示</a></li>
                             <li><a href="zczs.html">主材展示</a></li>
                         </ul>
                     </li>
                     <li><a href="jzd.html">家装贷</a></li>
-<<<<<<< HEAD
-=======
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">升级包 <i class="fa fa-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="rzb.html">软装包</a></li>
-                            <li><a href="rzb.html">吊顶包</a></li>
-                            <li><a href="rzb.html">壁纸包</a></li>
-                        </ul>
-                    </li>
->>>>>>> 42fc00c616a4d48b980eda6f7700836e97d7bb3e
                     <li><a href="tyg.html">体验馆</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">案例 / Live直播 <i class="fa fa-angle-down"></i></a>
