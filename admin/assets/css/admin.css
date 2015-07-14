@@ -441,7 +441,7 @@ input[type="button"]:focus,input[type="submit"]:focus{outline:none;}
 
 /*类别层级*/
 .subType{padding-left:30px;background:url(../images/subTypeBg.gif) no-repeat;margin-left:24px;}
-
+.subType_leftmenu{padding-left:30px;background:url(../images/subTypeBg.gif) no-repeat;}
 
 /*文件夹背景*/
 .isdir{background:url(../images/folder.gif) no-repeat left center;padding-left:18px;}
