@@ -285,11 +285,11 @@ input.search-form:hover {
  }
 
 .navbar-nav>li{
-  margin-left: 35px;
+  margin-left: 25px;
   padding-bottom: 28px;
  /*usradd*/
  border-right:1px #efefef solid;
- padding: 0 30px 0 0;
+ padding: 0 20px 0 0;
  margin-bottom:28px;
  
 }
@@ -809,6 +809,15 @@ input.search-form:hover {
 }
 
 .recent-work-wrap .recent-work-inner{
+  top: 0;
+  background: transparent;
+  opacity: .8;
+  width: 100%;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.recent-work-wrap .recent-work-inner-1{
   top: 0;
   background: transparent;
   opacity: .8;
