@@ -620,7 +620,7 @@ $(function(){
 						}
 						else{
 							var page = "center/c_my.html?token=" + g.token + "&p=1";
-							$(".buynow").html('<div onclick="alert(\'个人资料不完善,无法预约\');location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
+							$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
 						}
 					}
 					else{
@@ -667,9 +667,10 @@ $(function(){
 				console.log("miaoSha",data);
 				var status = data.status || "";
 				if(status == "OK"){
-					Utils.alert("抢购成功");
-					var orderId = data.result.id;
-					location.href = "orderback_paysel.html?id=" + orderId;
+					alert("抢购成功");
+					//Utils.alert("抢购成功");
+					//var orderId = data.result.id;
+					//location.href = "orderback_paysel.html?id=" + orderId;
 				}
 				else{
 					Utils.alert("抢购失败");
