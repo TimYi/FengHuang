@@ -27,7 +27,6 @@ public class CaptchaManager implements ValidateManager {
     private static final List<Font> FONTS = new ArrayList<Font>(3);
     
     static {
-        COLORS.add(Color.RED);
         COLORS.add(Color.BLUE);
 
         FONTS.add(new Font("Geneva", Font.ITALIC, 48));
@@ -58,7 +57,7 @@ public class CaptchaManager implements ValidateManager {
         Captcha captcha = new Captcha.Builder(width, height).addText(wordRenderer)
                 .gimp()
                 //.addNoise()
-                .addBackground(new GradiatedBackgroundProducer())
+                .addBackground(new GradiatedBackgroundProducer(Color.DARK_GRAY,Color.LIGHT_GRAY))
                 .build();
         String code=captcha.getAnswer();
         BasicValidater validater=new BasicValidater(id, code, expireMinutes);
