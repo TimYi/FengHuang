@@ -178,6 +178,7 @@ public class User extends UUIDBaseModel {
 	 * 手机号码
 	 * @return
 	 */
+	@Column(unique=true)
 	public String getMobile() {
 		return mobile;
 	}
