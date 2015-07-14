@@ -1,5 +1,8 @@
 package com.fenghuangzhujia.eshop.view.navigation;
 
+import java.util.Map;
+import java.util.Map.Entry;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -31,5 +34,14 @@ public class NavigationService extends DtoPagingService<Navigation, NavigationDt
 		Iterable<Navigation> all=getRepository().findAll(sort);
 		if(all==null)return null;
 		return adapter.convertDoList(all);
+	}
+	
+	public void reOrder(Map<String, Integer> orders) {
+		for (Entry<String, Integer> order : orders.entrySet()) {
+			String id=order.getKey();
+			int ordernum=order.getValue();
+			Navigation navigation=getRepository().findOne(id);
+			navigation.setOrdernum(ordernum);
+		}
 	}
 }

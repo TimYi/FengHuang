@@ -1,10 +1,13 @@
 package com.fenghuangzhujia.eshop.web.controller.admin;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fenghuangzhujia.eshop.view.carousel.CarouselService;
@@ -25,9 +28,15 @@ public class CarouselController extends SpecificationController<CarouselDto, Car
 		return service;
 	}
 	
-	@RequestMapping("bypage/{pageId}")
+	@RequestMapping(value="bypage/{pageId}", method=RequestMethod.GET)
 	public String findByPage(@PathVariable String pageId) {
 		List<CarouselDto> result=getService().findByPage(pageId);
 		return RequestResult.success(result).toJson();
+	}
+	
+	@RequestMapping(value="order",method=RequestMethod.POST)
+	public String reOrder(@RequestBody Map<String, Integer> orders) {
+		getService().reOrder(orders);
+		return RequestResult.success("排序完成").toJson();
 	}
 }
