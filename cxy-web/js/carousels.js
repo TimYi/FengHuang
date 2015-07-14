@@ -5,8 +5,8 @@
 */
 
 (function(){
-	function sendGetNavigationHttp(){
-		var url = Base.serverUrl + "/api/navigations";
+	function sendGetCarouselsHttp(){
+		var url = Base.serverUrl + "/api/page/" + "404040e64e866c94014e866ca4980001" + "/carousels";
 		//g.httpTip.show();
 		$.ajax({
 			url:url,
@@ -17,10 +17,10 @@
 			global:false,
 			async: false,
 			success: function(data){
-				console.log("sendGetNavigationHttp",data);
+				console.log("sendGetCarouselsHttp",data);
 				var status = data.status || "";
 				if(status == "OK"){
-					changeNavigationHtml(data);
+					//changeNavigationHtml(data);
 				}
 				else{
 					var msg = data.error || "";
@@ -95,7 +95,7 @@
 		$("#navdiv").html(html.join(''));
 	}
 
-	sendGetNavigationHttp();
+	sendGetCarouselsHttp();
 })();
 
 
