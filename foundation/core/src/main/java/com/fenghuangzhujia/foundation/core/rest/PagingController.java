@@ -22,6 +22,12 @@ public abstract class PagingController<T,I> {
 		return RequestResult.success(result).toJson();
 	}
 	
+	@RequestMapping(value="all",method=RequestMethod.GET)
+	public String page() {
+		Iterable<T> result=getService().findAll();
+		return RequestResult.success(result).toJson();
+	}
+	
 	@RequestMapping(value="{id}",method=RequestMethod.GET)
 	public String info(@PathVariable String id) {
 		T result=getService().findOne(id);
