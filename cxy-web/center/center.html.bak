@@ -155,9 +155,18 @@ $(".m_logo").hover(function(){
 																		<div style="padding-right:20px" id="avatarbtn">
 																			<div>
 																				<img src="../images/blog/avatar3.png" alt=""  style="-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius:50%;border:3px #f9f9f9 solid;width:70px;height:70px;" />
-										                    <div class="overlay">
-										                    		更换头像
-										                    </div>																				
+
+                <div class="recent-work-wrap">
+                    <img class="img-responsive" src="assets/images/o-6.jpg" alt="">
+                    <div class="overlay">
+                        <div class="recent-work-inner">
+                            <h3><a href="#">售后团队</a></h3>
+                            <p>终身维护是凤凰的承诺，我们不仅筑巢，更是爱巢的卫士</p>
+                            <!--a class="preview" href="fhzj/images/team/team_10.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a-->
+                        </div>
+                    </div>
+                </div>
+																				
 																			</div>
 																		</div>
 																		<div style="padding:18px 50px 0 50px">
