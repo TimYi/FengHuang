@@ -189,7 +189,7 @@ $(".m_logo").hover(function(){
                 <div class="container">
                     <div class="row slide-margin">
                         <div class="col-sm-6 animation animated-item-1">
-                            <div class="carousel-content" style="margin-top:0px;">
+                            <div class="carousel-content" style="margin-top:50px;">
                                 <!--h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;font-size:48px;font-weight:800">凤凰筑家 专筑您的爱家</h1>
                                 <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;font-size:28px">
                                 	互联网+家装<br/>
