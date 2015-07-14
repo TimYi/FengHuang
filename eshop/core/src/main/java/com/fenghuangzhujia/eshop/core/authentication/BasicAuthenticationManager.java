@@ -108,6 +108,10 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 		if(user!=null) {
 			throw new ErrorCodeException(SystemErrorCodes.REGIST_ERROR, "该用户名已被注册！");
 		}
+		user=userRepository.getByMobile(mobile);
+		if(user!=null) {
+			throw new ErrorCodeException(SystemErrorCodes.REGIST_ERROR, "改手机号已被使用，一个手机号限一个用户使用！");
+		}
 		user=new User();
 		user.setUsername(username);
 		user.setPassword(password);
