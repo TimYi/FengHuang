@@ -818,12 +818,16 @@ input.search-form:hover {
 }
 
 .recent-work-wrap .recent-work-inner-1{
-  top: 0;
   background: transparent;
   opacity: .8;
-  width: 100%;
-  border-radius: 0;
-  margin-bottom: 0;
+
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius:50%;
+	border:3px #f9f9f9 solid;
+	width:70px;
+	height:70px;  
+  
 }
 
 .recent-work-wrap .recent-work-inner h3{
