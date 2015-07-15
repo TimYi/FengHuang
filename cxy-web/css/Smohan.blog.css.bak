@@ -22,17 +22,17 @@ A:hover {
 .timeline_container {
 	Z-INDEX: 50; TEXT-ALIGN: center; MARGIN: 0px auto; WIDTH: 29px; DISPLAY: block; HEIGHT: 100%; CURSOR: pointer
 }
-.timeline {
+.timeline1 {
 	POSITION: absolute; MARGIN: 0px auto; WIDTH: 3px; DISPLAY: block; BACKGROUND: #eeeeee; FLOAT: left; HEIGHT: 100%; FONT-SIZE: 0px; TOP: 0px; LEFT: 488px
 }
-.timeline DIV.plus {
+.timeline1 DIV.plus {
 	Z-INDEX: 5000; POSITION: absolute; WIDTH: 10px; HEIGHT: 10px; TOP: 10px; LEFT: -5px; BACKGROUND:#666;
 	border:2px solid #fff;
   -moz-border-radius: 50%;      
   -webkit-border-radius: 50%;   
   border-radius:50%;            
 }
-.timeline DIV.plus2 {
+.timeline1 DIV.plus2 {
 	POSITION: absolute; WIDTH: 10px; height:10px; BOTTOM: 10px; LEFT: -5px;BACKGROUND:#666;
 	border:2px solid #fff;
   -moz-border-radius: 50%;      

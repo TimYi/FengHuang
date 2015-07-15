@@ -15,6 +15,7 @@
     <link href="assets/css/responsive.css" rel="stylesheet">
     <link href="css/base.css" rel="stylesheet">
 		<link href="css/Smohan.blog.css" rel="stylesheet">    
+		<link href="css/Smohan.base.css" rel="stylesheet">    		
     <!--[if lt IE 9]>
     <script src="assets/js/html5shiv.js"></script>
     <script src="assets/js/respond.min.js"></script>
@@ -515,14 +516,14 @@ $(".m_logo").hover(function(){
             <div class="center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
             		<!--img src="assets/images/step55.gif"-->
             		<!--img src="images/35day.jpg"-->
-								<div id="Container1">
+								<div id="Container">
 								  <div class="timeline_container">
 								    <div class="timeline">
 								      <div class="plus"></div>
 								      <div class="plus2"></div>
 								    </div>
 								  </div>
-									<div class="item1">
+									<div class="item">
 								   	<p class="con1_index">1</p>
 								   	<a href="#">
 									   	<p class="con1">
@@ -530,7 +531,7 @@ $(".m_logo").hover(function(){
 									   	</p>
 								   	</a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con2_index">2</p>
 								  	<a href="#">
 									    <p class="con2">
@@ -538,7 +539,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con1_index">3</p>
 								  	<a href="#">
 									    <p class="con1">
@@ -546,7 +547,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con2_index">4</p>
 								  	<a href="#">
 									    <p class="con2">
@@ -554,7 +555,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con1_index">5</p>
 								  	<a href="#">
 									    <p class="con1">
@@ -562,7 +563,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con2_index">6</p>
 								  	<a href="#">
 									    <p class="con2">
@@ -570,7 +571,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>     
 								  </div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con1_index">7</p>
 								  	<a href="#">
 									    <p class="con1">
@@ -578,7 +579,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con2_index">8</p>
 								  	<a href="#">
 									    <p class="con2">
@@ -586,7 +587,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>     
 								  </div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con1_index">9</p>
 								  	<a href="#">
 									    <p class="con1">
@@ -594,7 +595,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con2_index">10</p>
 								  	<a href="#">
 									    <p class="con2">
@@ -602,7 +603,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>     
 								  </div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con1_index">11</p>
 								  	<a href="#">
 									    <p class="con1">
@@ -610,7 +611,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con2_index">12</p>
 								  	<a href="#">
 									    <p class="con2">
@@ -618,7 +619,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>     
 								  </div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con1_index">13</p>
 								  	<a href="#">
 									    <p class="con1">
@@ -626,7 +627,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con2_index">14</p>
 								  	<a href="#">
 									    <p class="con2">
@@ -634,7 +635,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>     
 								  </div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con1_index">15</p>
 								  	<a href="#">
 									    <p class="con1">
@@ -642,7 +643,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con2_index">16</p>
 								  	<a href="#">
 									    <p class="con2">
@@ -650,7 +651,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>     
 								  </div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con1_index">17</p>
 								  	<a href="#">
 									    <p class="con1">
@@ -658,7 +659,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con2_index">18</p>
 								  	<a href="#">
 									    <p class="con2">
@@ -666,7 +667,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>     
 								  </div>            
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con1_index">19</p>
 								  	<a href="#">
 									    <p class="con1">
@@ -674,7 +675,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con2_index">20</p>
 								  	<a href="#">
 									    <p class="con2">
@@ -682,7 +683,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>     
 								  </div>            
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con1_index">21</p>
 								  	<a href="#">
 									    <p class="con1">
@@ -690,7 +691,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con2_index">22</p>
 								  	<a href="#">
 									    <p class="con2">
@@ -698,7 +699,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>     
 								  </div>            
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con1_index">23</p>
 								  	<a href="#">
 									    <p class="con1">
@@ -706,7 +707,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con2_index">24</p>
 								  	<a href="#">
 									    <p class="con2">
@@ -714,7 +715,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>     
 								  </div>            
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con1_index">25</p>
 								  	<a href="#">
 									    <p class="con1">
@@ -722,7 +723,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con2_index">26</p>
 								  	<a href="#">
 									    <p class="con2">
@@ -730,7 +731,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>     
 								  </div>            
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con1_index">27</p>
 								  	<a href="#">
 									    <p class="con1">
@@ -738,7 +739,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con2_index">28</p>
 								  	<a href="#">
 									    <p class="con2">
@@ -746,7 +747,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>     
 								  </div>            
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con1_index">29</p>
 								  	<a href="#">
 									    <p class="con1">
@@ -754,7 +755,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con2_index">30</p>
 								  	<a href="#">
 									    <p class="con2">
@@ -762,7 +763,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>     
 								  </div>            
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con1_index">31</p>
 								  	<a href="#">
 									    <p class="con1">
@@ -770,7 +771,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con2_index">32</p>
 								  	<a href="#">
 									    <p class="con2">
@@ -778,7 +779,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>     
 								  </div>            
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con1_index">33</p>
 								  	<a href="#">
 									    <p class="con1">
@@ -786,7 +787,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con2_index">34</p>
 								  	<a href="#">
 									    <p class="con2">
@@ -794,7 +795,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>     
 								  </div>            
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con1_index">35</p>
 								  	<a href="#">
 									    <p class="con1">
@@ -802,7 +803,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con2_index">36</p>
 								  	<a href="#">
 									    <p class="con2">
@@ -810,7 +811,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>     
 								  </div>            
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con1_index">37</p>
 								  	<a href="#">
 									    <p class="con1">
@@ -818,7 +819,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con2_index">38</p>
 								  	<a href="#">
 									    <p class="con2">
@@ -826,7 +827,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>     
 								  </div>            
-								  <div class="item1">
+								  <div class="item">
 								  	<p class="con1_index">39</p>
 								  	<a href="#">
 									    <p class="con1">
@@ -834,7 +835,7 @@ $(".m_logo").hover(function(){
 									    </p>
 								    </a>
 									</div>
-								  <div class="item1">
+								  <div class="item">
 								  </div>	
 								</div>
 								<!--/ShowMsg-->
@@ -842,9 +843,9 @@ $(".m_logo").hover(function(){
 								<script type="text/javascript">
 								$(document).ready(function() {
 								  /*时间轴*/
-								  $('#Container1').masonry({itemSelector : '.item1'});
+								  $('#Container').masonry({itemSelector : '.item'});
 									function Arrow_Points(){
-									  var s = $("#Container1").find(".item1");
+									  var s = $("#Container").find(".item");
 									  $.each(s,function(i,obj){
 										var posLeft = $(obj).css("left");
 										if(posLeft == "0px"){
