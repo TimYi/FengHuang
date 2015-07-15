@@ -2,6 +2,8 @@ package com.fenghuangzhujia.eshop.materialManage.material;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -24,13 +26,18 @@ public class MaterialService extends DtoSpecificationService<Material, MaterialD
 	 * 为素材重新排序
 	 * @param ids
 	 */
-	public void reOrder(String[] ids) {
-		int i=0;
-		for (String id : ids) {
+	public void reOrder(Map<String, Integer> orders) {
+		for (Entry<String, Integer> order : orders.entrySet()) {
+			String id=order.getKey();
+			Integer ordernum=order.getValue();
 			Material material=getRepository().findOne(id);
-			material.setOrdernum(i);
-			i++;
+			material.setOrdernum(ordernum);
 		}
+	}
+	
+	public List<MaterialDto> findByProduct(String productId) {
+		List<Material> materials=getRepository().findByProductId(productId);
+		return adapter.convertDoList(materials);
 	}
 	
 	public List<MaterialType> getMaterialTypes() {

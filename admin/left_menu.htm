@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>左侧菜单</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
 <link href="assets/css/menu.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/js/jquery.js"></script>
 <script type="text/javascript" src="assets/js/tinyscrollbar.js"></script>
@@ -95,8 +96,8 @@
 			<div class="menubox">
 				<div class="title on" id="t1" onclick="DisplayMenu('leftmenu01');" title="点击切换显示或隐藏"> 系统模块管理 </div>
 				<div id="leftmenu01"> 
-					<a href="#" onclick ="javascript:openMenuMgr();return false;"  target="main">栏目管理</a> 
-					<a href="#" onclick ="javascript:openArticleMgr();return false;"  target="main">文章管理</a> 
+					<a href="#" onclick ="javascript:openMenuMgr();return false;"  target="main"><span class="subType_leftmenu">栏目管理</span></a> 
+					<a href="#" onclick ="javascript:openArticleMgr();return false;"  target="main"><span class="subType_leftmenu">文章管理</span></a> 
 					<!--a href="http://123.57.218.171/admin/admin.php" target="main">管理员管理</a> 
 					<a href="http://123.57.218.171/admin/site.php" target="main">站点配置管理</a> 
 					<a href="http://123.57.218.171/admin/web_config.php" target="main">网站信息配置</a> 
@@ -113,13 +114,13 @@
 					 <a href="#" target="main">设计师管理</a>
 					 <a href="#" target="main">导购管理</a>					 					 
 					<div class="hr_1"> </div-->
-					<a href="#" onclick ="javascript:openUsrMgr();return false;"  target="main">用户管理</a> 
-					<a href="#" onclick ="javascript:openGroupMgr();return false;"  target="main">用户组</a> 
-					<a href="#" onclick ="javascript:openWorkerMgr();return false;"  target="main">工人管理</a> 
-					<a href="#" onclick ="javascript:openRoleMgr();return false;"  target="main">角色管理</a> 
+					<a href="#" onclick ="javascript:openUsrMgr();return false;"  target="main"><span class="subType_leftmenu">用户管理</span></a> 
+					<a href="#" onclick ="javascript:openGroupMgr();return false;"  target="main"><span class="subType_leftmenu">用户组</span></a> 
+					<a href="#" onclick ="javascript:openWorkerMgr();return false;"  target="main"><span class="subType_leftmenu">工人管理</span></a> 
+					<a href="#" onclick ="javascript:openRoleMgr();return false;"  target="main"><span class="subType_leftmenu">角色管理</span></a> 
 					<!--a href="#" target="main">用户收藏</a--> 
-					<a href="#" onclick ="javascript:openCommentItemMgr();return false;"  target="main">用户评论</a>
-					<a href="#" onclick ="javascript:openMsgMgr();return false;"  target="main">用户留言</a>
+					<a href="#" onclick ="javascript:openCommentItemMgr();return false;"  target="main"><span class="subType_leftmenu">用户评论</span></a>
+					<a href="#" onclick ="javascript:openMsgMgr();return false;"  target="main"><span class="subType_leftmenu">用户留言</span></a>
 				</div>
 			</div>
 			<div class="hr_5"></div>
@@ -127,9 +128,9 @@
 				<div class="title" onclick="DisplayMenu('leftmenu03');" title="点击切换显示或隐藏"> 订单模块管理 </div>
 				<div id="leftmenu03" style="display:none"> 
 					 <!--a href="#" target="main">家装套餐管理</a-->
-					 <a href="#" onclick ="javascript:openPackageMgr();return false;"  target="main">套餐管理</a>
-					 <a href="#" onclick ="javascript:openAppointMgr();return false;"  target="main">预约管理</a>
-					 <a href="#" onclick ="javascript:openOrderMgr();return false;"  target="main">订单管理</a>					 					 
+					 <a href="#" onclick ="javascript:openPackageMgr();return false;"  target="main"><span class="subType_leftmenu">套餐管理</span></a>
+					 <a href="#" onclick ="javascript:openAppointMgr();return false;"  target="main"><span class="subType_leftmenu">预约管理</span></a>
+					 <a href="#" onclick ="javascript:openOrderMgr();return false;"  target="main"><span class="subType_leftmenu">订单管理</span></a>					 					 
 					<!--div class="hr_1"> </div>
 					<a href="#" target="main">类型管理</a--> 
 				</div>
@@ -138,7 +139,7 @@
 			<div class="menubox">
 				<div class="title" onclick="DisplayMenu('leftmenu04');" title="点击切换显示或隐藏"> 案例模块管理 </div>
 				<div id="leftmenu04" style="display:none"> 
-					 <a href="#" onclick ="javascript:openCaseMgr();return false;"   target="main">案例管理</a>
+					 <a href="#" onclick ="javascript:openCaseMgr();return false;"   target="main"><span class="subType_leftmenu">案例管理</span></a>
 					 <!--a href="#" target="main">案例类型管理</a-->
 				</div>
 			</div>
@@ -146,7 +147,7 @@
 			<div class="menubox">
 				<div class="title" onclick="DisplayMenu('leftmenu05');" title="点击切换显示或隐藏"> 直播厅模块管理 </div>
 				<div id="leftmenu05" style="display:none"> 
-					 <a href="#" onclick ="javascript:openLiveMgr();return false;" target="main">直播厅管理</a>
+					 <a href="#" onclick ="javascript:openLiveMgr();return false;" target="main"><span class="subType_leftmenu">直播厅管理</span></a>
 					 <!--a href="#" target="main">直播厅类型管理</a-->
 				</div>
 			</div>
@@ -162,25 +163,25 @@
 			<div class="menubox">
 				<div class="title" onclick="DisplayMenu('leftmenu07');" title="点击切换显示或隐藏"> 优惠券模块管理 </div>
 				<div id="leftmenu07" style="display:none"> 
-					<a href="#" onclick ="javascript:openCouponDef();return false;"  target="main">优惠券定义</a>
-					<a href="#" onclick ="javascript:openCouponMgr();return false;"  target="main">优惠券管理</a>					
+					<a href="#" onclick ="javascript:openCouponDef();return false;"  target="main"><span class="subType_leftmenu">优惠券定义</span></a>
+					<a href="#" onclick ="javascript:openCouponMgr();return false;"  target="main"><span class="subType_leftmenu">优惠券管理</span></a>					
 				</div>
 			</div>		
 			<div class="hr_5"></div>
 			<div class="menubox">
 				<div class="title" onclick="DisplayMenu('leftmenu08');" title="点击切换显示或隐藏"> 装修材料管理 </div>
 				<div id="leftmenu08" style="display:none"> 
-					<a href="#" onclick ="javascript:openMaterialBrandMgr();return false;"  target="main">材料品牌</a>					
-					<a href="#" onclick ="javascript:openMaterialTypeMgr();return false;"  target="main">产品分类</a>					
-					<a href="#" onclick ="javascript:openMaterialMgr();return false;"  target="main">材料管理</a>					
+					<a href="#" onclick ="javascript:openMaterialBrandMgr();return false;"  target="main"><span class="subType_leftmenu">材料品牌</span></a>					
+					<a href="#" onclick ="javascript:openMaterialTypeMgr();return false;"  target="main"><span class="subType_leftmenu">产品分类</span></a>					
+					<a href="#" onclick ="javascript:openMaterialMgr();return false;"  target="main"><span class="subType_leftmenu">材料管理</span></a>					
 				</div>
 			</div>
 			<div class="hr_5"></div>
 			<div class="menubox">
 				<div class="title" onclick="DisplayMenu('leftmenu09');" title="点击切换显示或隐藏"> 模板管理</div>
 				<div id="leftmenu09" style="display:none"> 
-					<a href="#" onclick ="javascript:openNavigationMgr();return false;"  target="main">菜单管理</a> 
-					<a href="#" onclick ="javascript:openCarouselMgr();return false;"  target="main">滚动图片</a> 
+					<a href="#" onclick ="javascript:openNavigationMgr();return false;"  target="main"><span class="subType_leftmenu">导航菜单管理</span></a> 
+					<a href="#" onclick ="javascript:openCarouselMgr();return false;"  target="main"><span class="subType_leftmenu">轮播幻灯片管理</span></a> 
 				</div>
 			</div>						
 			<!--scrollbar end--> 

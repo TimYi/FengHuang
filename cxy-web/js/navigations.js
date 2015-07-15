@@ -4,7 +4,10 @@
  * date:2015-06-05
 */
 
-(function(){
+(function(window){
+	window._pageId = {};
+
+
 	function sendGetNavigationHttp(){
 		var url = Base.serverUrl + "/api/navigations";
 		//g.httpTip.show();
@@ -63,14 +66,30 @@
 
 		//class="active"
 
+		var pageid = {};
+
 		for(var i = 0,len = obj.length; i < len; i++){
 			var sub = obj[i].subNavigations || [];
 			var dropdown = sub.length > 0 ? "dropdown" : "";
-			var url = obj[i].url || "javascript:void(0);";
+			var url = obj[i].url || "";
+			if(url == ""){
+				url = "javascript:void(0);";
+			}
+			else{
+				url = url.substring(1);
+			}
 			var title = obj[i].title || "";
+			var id = obj[i].id || "";
 			html.push('<li class="' + dropdown + '">');
+
 			if(dropdown === ""){
-				html.push('<a href="' + url + '">' + title + '</a>');
+				if(page > -1){
+					html.push('<a href="../' + url + '">' + title + '</a>');
+				}
+				else{
+					html.push('<a href="' + url + '">' + title + '</a>');
+				}
+				pageid[url] = id;
 			}
 			else{
 				html.push('<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">' + title + '<i class="fa fa-angle-down"></i></a>');
@@ -79,8 +98,21 @@
 
 			for(var j = 0,jlen = sub.length; j < jlen; j++){
 				var url = sub[j].url || "";
+				if(url == ""){
+					url = "javascript:void(0);";
+				}
+				else{
+					url = url.substring(1);
+				}
 				var title = sub[j].title || "";
-				html.push('<li><a href="' + url + '">' + title + '</a></li>');
+				var id = sub[j].id || "";
+				if(page > -1){
+					html.push('<li><a href="../' + url + '">' + title + '</a></li>');
+				}
+				else{
+					html.push('<li><a href="' + url + '">' + title + '</a></li>');
+				}
+				pageid[url] = id;
 				//<li style="padding:0 5px;margin:5px 0;border-bottom:1px solid #555"></li>
 			}
 			if(dropdown !== ""){
@@ -93,9 +125,11 @@
 		html.push('</div><!--/.container-->');
 
 		$("#navdiv").html(html.join(''));
+
+		window._pageId = pageid;
 	}
 
 	sendGetNavigationHttp();
-})();
+})(window);
 
 

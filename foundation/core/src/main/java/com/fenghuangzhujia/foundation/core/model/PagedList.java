@@ -32,6 +32,18 @@ public class PagedList<T> {
 	}
 	
 	/**
+	 * 为满足前端一些需要，有时候要将获取全部数据的list转换成pagedList
+	 * @param list
+	 */
+	public PagedList(List<T> list) {
+		this.totalCount=list.size();
+		this.totalPages=1;
+		this.page=1;
+		this.size=list.size();
+		this.result=list;
+	}
+	
+	/**
 	 * @return the totalCount
 	 */
 	public long getTotalCount() {
