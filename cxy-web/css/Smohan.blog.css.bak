@@ -34,6 +34,7 @@ A:hover {
   -webkit-border-radius: 50%;   
   border-radius:50%;    	
 }
+*/
 .leftCorner {
 	Z-INDEX: 99; POSITION: absolute; WIDTH: 36px; DISPLAY: block; HEIGHT: 26px; OVERFLOW: hidden
 }
@@ -108,7 +109,7 @@ A:hover {
   -webkit-border-radius: 20%;  
   border-radius:20%; 		
 }
-*/
+
 .item P {
 }
 .item H4 {

@@ -14,7 +14,7 @@
     <link href="assets/css/main.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
     <link href="css/base.css" rel="stylesheet">
-
+		<link href="css/Smohan.blog.css" rel="stylesheet">    
     <!--[if lt IE 9]>
     <script src="assets/js/html5shiv.js"></script>
     <script src="assets/js/respond.min.js"></script>
