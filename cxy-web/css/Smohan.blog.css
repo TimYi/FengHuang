@@ -1,4 +1,4 @@
-BODY {
+/*BODY {
 	BACKGROUND: url(../Images/Smohan_blog_header.png)  repeat-x; COLOR: #363636; FONT-SIZE: 13px
 }
 
@@ -9,11 +9,10 @@ A {
 A:hover {
 	COLOR: #666;
 	text-decoration:none;
-}
+}*/
 
-#Container1 {
-	POSITION: relative; PADDING-BOTTOM: 30px; MARGIN: 0px auto 200px; PADDING-LEFT: 0px; WIDTH: 1040px; PADDING-RIGHT: 0px; HEIGHT: auto; OVERFLOW: hidden; PADDING-TOP: 30px;
-
+#Container {
+	POSITION: relative; PADDING-BOTTOM: 30px; MARGIN: 0px auto 200px; PADDING-LEFT: 0px; WIDTH: 1040px; PADDING-RIGHT: 0px; HEIGHT: auto; OVERFLOW: hidden; PADDING-TOP: 30px
 }
 .timeline_container {
 	Z-INDEX: 50; TEXT-ALIGN: center; MARGIN: 0px auto; WIDTH: 29px; DISPLAY: block; HEIGHT: 100%; CURSOR: pointer

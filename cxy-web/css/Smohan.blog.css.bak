@@ -11,28 +11,24 @@ A:hover {
 	text-decoration:none;
 }
 
-/* {
-	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
-}*/
-
-
 #Container1 {
 	POSITION: relative; PADDING-BOTTOM: 30px; MARGIN: 0px auto 200px; PADDING-LEFT: 0px; WIDTH: 1040px; PADDING-RIGHT: 0px; HEIGHT: auto; OVERFLOW: hidden; PADDING-TOP: 30px;
+	margin-left:50px;
 }
 .timeline_container {
 	Z-INDEX: 50; TEXT-ALIGN: center; MARGIN: 0px auto; WIDTH: 29px; DISPLAY: block; HEIGHT: 100%; CURSOR: pointer
 }
-.timeline1 {
-	POSITION: absolute; MARGIN: 0px auto; WIDTH: 3px; DISPLAY: block; BACKGROUND: #eeeeee; FLOAT: left; HEIGHT: 100%; FONT-SIZE: 0px; TOP: 0px; LEFT: 488px
+.timeline {
+	POSITION: absolute; MARGIN: 0px auto; WIDTH: 3px; DISPLAY: block; BACKGROUND: #eeeeee; FLOAT: left; HEIGHT: 100%; FONT-SIZE: 0px; TOP: 0px; LEFT: 518px
 }
-.timeline1 DIV.plus {
+.timeline DIV.plus {
 	Z-INDEX: 5000; POSITION: absolute; WIDTH: 10px; HEIGHT: 10px; TOP: 10px; LEFT: -5px; BACKGROUND:#666;
 	border:2px solid #fff;
   -moz-border-radius: 50%;      
   -webkit-border-radius: 50%;   
   border-radius:50%;            
 }
-.timeline1 DIV.plus2 {
+.timeline DIV.plus2 {
 	POSITION: absolute; WIDTH: 10px; height:10px; BOTTOM: 10px; LEFT: -5px;BACKGROUND:#666;
 	border:2px solid #fff;
   -moz-border-radius: 50%;      
@@ -50,8 +46,8 @@ A:hover {
 	
 	TOP: 25px; 
 	RIGHT: -36px;
-	height:10px;
-	width:10px;
+	height:5px;
+	width:5px;
 	background:#000;
 	border:2px solid #fff;
   -moz-border-radius: 50%;      
@@ -63,8 +59,8 @@ A:hover {
 	
 	TOP: 10px; 
 	LEFT: -33px;
-	height:10px;
-	width:10px;
+	height:5px;
+	width:5px;
 	background:#000;
 	border:2px solid #fff;
   -moz-border-radius: 50%;      
