@@ -11,11 +11,10 @@
     <link href="assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/animate.min.css" rel="stylesheet">
     <link href="assets/css/prettyPhoto.css" rel="stylesheet">
-		<link href="css/min.css" rel="stylesheet">    		
+    <link href="assets/css/main.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
     <link href="css/base.css" rel="stylesheet">
-		<link href="css/Smohan.blog.css" rel="stylesheet">    
-		<link href="css/Smohan.base.css" rel="stylesheet">    		
+
     <!--[if lt IE 9]>
     <script src="assets/js/html5shiv.js"></script>
     <script src="assets/js/respond.min.js"></script>
@@ -27,9 +26,9 @@
     <link rel="apple-touch-icon-precomposed" href="assets/images/ico/apple-touch-icon-57-precomposed.png">
 
     <script src="assets/js/jquery.js"></script>
-	<script src="libs/json.js"></script>
-	<script src="libs/base.js"></script>
-	<script src="libs/utils.js"></script>
+		<script src="libs/json.js"></script>
+		<script src="libs/base.js"></script>
+		<script src="libs/utils.js"></script>
 
 </head><!--/head-->
 
