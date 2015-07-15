@@ -927,7 +927,7 @@ $(".m_logo").hover(function(){
 </section><!--/#bottom-->
 
 <footer id="footer" class="midnight-blue">
-    <div class="container">
+    <div class="container" style="width:1040">
         <div class="row">
             <div class="col-sm-6">
                 &copy; 2015 厦门凤凰筑家网络科技有限公司 保留所有权利
@@ -972,9 +972,9 @@ $(".m_logo").hover(function(){
 <script type="text/javascript">
 $(document).ready(function() {
   /*时间轴*/
-  $('#Container').masonry({itemSelector : '.nihao'});
+  $('#scosun').masonry({itemSelector : '.nihao'});
 	function Arrow_Points(){
-	  var s = $("#Container").find(".nihao");
+	  var s = $("#scosun").find(".nihao");
 	  $.each(s,function(i,obj){
 		var posLeft = $(obj).css("left");
 		if(posLeft == "0px"){
