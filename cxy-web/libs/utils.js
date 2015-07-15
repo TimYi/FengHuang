@@ -478,6 +478,23 @@ if(typeof console == "undefined"){
 
 	//安全退出
 	function loginOut(){
+		var token = Utils.offLineStore.get("token",false);
+		var condi = {};
+		condi.token = token;
+		var url = Base.serverUrl + "/api/logout";
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"POST",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("loginout",data);
+			},
+			error:function(data){
+			}
+		});
 		Utils.offLineStore.remove("userinfo",false);
 		Utils.offLineStore.remove("login_userprofile",false);
 		var page = location.href.indexOf("/center/");
