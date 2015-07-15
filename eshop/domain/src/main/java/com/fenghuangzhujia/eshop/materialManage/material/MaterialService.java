@@ -35,6 +35,11 @@ public class MaterialService extends DtoSpecificationService<Material, MaterialD
 		}
 	}
 	
+	public List<MaterialDto> findByProduct(String productId) {
+		List<Material> materials=getRepository().findByProductId(productId);
+		return adapter.convertDoList(materials);
+	}
+	
 	public List<MaterialType> getMaterialTypes() {
 		Sort sort=new Sort(new Sort.Order(Direction.ASC, "ordernum"));
 		Iterable<MaterialType> materials= materialTypeRepository.findAll(sort);

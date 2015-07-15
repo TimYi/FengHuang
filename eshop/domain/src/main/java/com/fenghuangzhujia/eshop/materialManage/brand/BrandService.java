@@ -14,6 +14,7 @@ import com.fenghuangzhujia.eshop.materialManage.brand.dto.BrandDto;
 import com.fenghuangzhujia.eshop.materialManage.brand.dto.BrandInputArgs;
 import com.fenghuangzhujia.eshop.materialManage.brand.dto.BrandVo;
 import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
+import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.mapper.BeanMapper;
 
 @Service
@@ -27,18 +28,15 @@ public class BrandService extends DtoSpecificationService<Brand, BrandDto, Brand
 			Brand brand=getRepository().findOne(id);
 			brand.setOrdernum(ordernum);
 		}
+	}	
+	
+	@Override
+	public PagedList<BrandDto> findAll(int page, int size,
+			Map<String, Object> filters, Map<String, Object> orders) {
+		orders.put("ordernum", "asc");
+		return super.findAll(page, size, filters, orders);
 	}
 	
-	/**
-	 * 返回品牌到下辖产品到素材全部信息
-	 * @param id
-	 * @return
-	 */
-	public BrandVo getDetailedBrand(String id) {
-		Brand brand=getRepository().findOne(id);
-		BrandVo vo=BeanMapper.map(brand, BrandVo.class);
-		return vo; 
-	}
 	
 	/**
 	 * 返回全部品牌到下辖产品到素材全部信息

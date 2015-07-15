@@ -1,5 +1,6 @@
 package com.fenghuangzhujia.eshop.materialManage.product;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -9,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fenghuangzhujia.eshop.materialManage.product.dto.ProductDto;
 import com.fenghuangzhujia.eshop.materialManage.product.dto.ProductInputArgs;
 import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
+
 
 @Service
 @Transactional
@@ -21,5 +23,15 @@ public class ProductService extends DtoSpecificationService<Product, ProductDto,
 			Product product=getRepository().findOne(id);
 			product.setOrdernum(ordernum);
 		}
+	}
+	
+	public List<ProductDto> findByBrand(String brandId) {
+		List<Product> products=getRepository().findByBrandId(brandId);
+		return adapter.convertDoList(products);
+	}
+	
+	@Override
+	public ProductRepository getRepository() {
+		return (ProductRepository)super.getRepository();
 	}
 }
