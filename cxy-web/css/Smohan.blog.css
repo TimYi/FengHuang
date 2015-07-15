@@ -1,33 +1,20 @@
-BODY {
-	BACKGROUND: url(../Images/Smohan_blog_header.png)  repeat-x; COLOR: #363636; FONT-SIZE: 13px
-}
-
-A {
-	COLOR: #000; FONT-SIZE: 13px; FONT-WEIGHT: 200;
-	text-decoration:none;
-}
-A:hover {
-	COLOR: #666;
-	text-decoration:none;
-}
-
 #Container_1 {
 	POSITION: relative; PADDING-BOTTOM: 30px; MARGIN: 0px auto 200px; PADDING-LEFT: 0px; WIDTH: 1040px; PADDING-RIGHT: 0px; HEIGHT: auto; OVERFLOW: hidden; PADDING-TOP: 30px
 }
-.timeline_container {
+.timeline_container_1 {
 	Z-INDEX: 50; TEXT-ALIGN: center; MARGIN: 0px auto; WIDTH: 29px; DISPLAY: block; HEIGHT: 100%; CURSOR: pointer
 }
-.timeline {
+.timeline_1 {
 	POSITION: absolute; MARGIN: 0px auto; WIDTH: 3px; DISPLAY: block; BACKGROUND: #eeeeee; FLOAT: left; HEIGHT: 100%; FONT-SIZE: 0px; TOP: 0px; LEFT: 518px
 }
-.timeline DIV.plus {
+.timeline_1 DIV.plus {
 	Z-INDEX: 5000; POSITION: absolute; WIDTH: 10px; HEIGHT: 10px; TOP: 10px; LEFT: -5px; BACKGROUND:#666;
 	border:2px solid #fff;
   -moz-border-radius: 50%;      /* Gecko browsers */
   -webkit-border-radius: 50%;   /* Webkit browsers */
   border-radius:50%;            /* W3C syntax */	
 }
-.timeline DIV.plus2 {
+.timeline_1 DIV.plus2 {
 	POSITION: absolute; WIDTH: 10px; height:10px; BOTTOM: 10px; LEFT: -5px;BACKGROUND:#666;
 	border:2px solid #fff;
   -moz-border-radius: 50%;      /* Gecko browsers */
