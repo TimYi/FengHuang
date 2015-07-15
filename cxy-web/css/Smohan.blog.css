@@ -11,7 +11,7 @@ A:hover {
 	text-decoration:none;
 }
 
-#Container {
+#Container_1 {
 	POSITION: relative; PADDING-BOTTOM: 30px; MARGIN: 0px auto 200px; PADDING-LEFT: 0px; WIDTH: 1040px; PADDING-RIGHT: 0px; HEIGHT: auto; OVERFLOW: hidden; PADDING-TOP: 30px
 }
 .timeline_container {
@@ -65,7 +65,7 @@ A:hover {
   -webkit-border-radius: 50%;   /* Webkit browsers */
   border-radius:50%; 	
 }
-.item {
+.item_1 {
 	/*BORDER-BOTTOM: #eaeaea 1px solid; */
 	POSITION: relative; 
 	/*BORDER-LEFT: #eaeaea 1px solid; */
