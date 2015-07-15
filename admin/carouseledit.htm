@@ -19,7 +19,7 @@
 var id;
 var navDic;
 var subNavDic;
-var selectableSubNav;
+//var selectableSubNav;
 var carousel;
 var navs;
 var Nav = function(id,title,type){
@@ -78,7 +78,7 @@ function afterGetNav4Select(data){
 					viewModel.selectableSubNav(subNavDic);
 					viewModel.selectedNav(nav);
 				}
-			}			
+			}
 			navDic.push(nav);
 		}
 		viewModel.selectableNav(navDic);
@@ -98,7 +98,7 @@ function onNavChange(){
 		for(var i in navs){
 			var nav = navs[i];		
 			if(nav.id == selectedNavId){
-				selectableSubNav = new Array();
+				//selectableSubNav = new Array();
 				var subNav = nav.subNavigations;
 				for(var j in subNav){
 					var sub = new Nav(subNav[j].id,subNav[j].title,subNav[j].type);
@@ -204,7 +204,7 @@ function submitCarousel(){
 			<tr>
 				<td align="right" height="40" >图片：</td>
 				<td width="75%" >					
-					<img data-bind='attr:{src:pic.url}'/>
+					<img data-bind='attr:{src:pic.url}' style='display: inline; width: 300px; height: 90px;' alt=''/>
 				</td>				
 			</tr>
 			<tr>

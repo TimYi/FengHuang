@@ -126,17 +126,24 @@ function add(){
 	window.location.href="materialproductadd.htm";
 }
 function reorder(){
-		var idStr = '';
+		/*var idStr = '';
 		var brands = dataModel.result();
 		for(var i in brands){
 			idStr += brands[i].id();
 			idStr += ',';
 		}
 		idStr = idStr.substring(0,idStr.length-1);
-		var param ={ids : idStr};
+		var param ={ids : idStr};*/
+		var param ='{';
+		var results = dataModel.result();
+		for(var i in results){
+			param += '"'+ results[i].id()+'":'+results[i].ordernum()+',';		
+		}
+		param = param.substring(0,param.length-1);
+		param += "}";
 		//提交
 		var url = genUrl(MATERIAL_PRODUCT)+'/order';
-		postReq(url,param,function(data){
+		postByJsonString(url,param,function(data){
 			friendlyTip(data);
 			window.location.href='materialtypelist.htm?';
 		});
