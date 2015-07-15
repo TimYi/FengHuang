@@ -181,11 +181,10 @@ function bindData(data){
 function handlePageChange (num, type) {
     if(type == 'change'){
     	getDatas4page(num);
-    }            
+    }
 }
-
 function add(){
-		window.location.href="carouseladd.htm";
+	window.location.href="carouseladd.htm";
 }
 function reorder(){	
 		if(typeof navId === 'undefined'){
