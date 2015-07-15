@@ -518,9 +518,9 @@ $(".m_logo").hover(function(){
             		<!--img src="images/35day.jpg"-->
             		
 
-<div id="Container_1">
-  <div class="timeline_container_1">
-    <div class="timeline_1">
+<div id="Container">
+  <div class="timeline_container">
+    <div class="timeline">
       <div class="plus"></div>
       <div class="plus2"></div>
     </div>
@@ -972,9 +972,9 @@ $(".m_logo").hover(function(){
 <script type="text/javascript">
 $(document).ready(function() {
   /*时间轴*/
-  $('#Container_1').masonry({itemSelector : '.nihao'});
+  $('#Container').masonry({itemSelector : '.nihao'});
 	function Arrow_Points(){
-	  var s = $("#Container_1").find(".nihao");
+	  var s = $("#Container").find(".nihao");
 	  $.each(s,function(i,obj){
 		var posLeft = $(obj).css("left");
 		if(posLeft == "0px"){
