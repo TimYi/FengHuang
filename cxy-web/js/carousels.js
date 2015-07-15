@@ -5,94 +5,120 @@
 */
 
 (function(){
+	var pageId = window._pageId || {};
+	var url = location.href || "";
+	var index = url.lastIndexOf("/");
+	if(index > 10){
+		url = url.substring(index + 1);
+	}
+	else{
+		//直接输入官网,定死首页
+	}
+	var pageid = pageId[url] || "";
 	function sendGetCarouselsHttp(){
-		var url = Base.serverUrl + "/api/page/" + "404040e64e866c94014e866ca4980001" + "/carousels";
-		//g.httpTip.show();
-		$.ajax({
-			url:url,
-			data:{},
-			type:"GET",
-			dataType:"json",
-			context:this,
-			global:false,
-			async: false,
-			success: function(data){
-				console.log("sendGetCarouselsHttp",data);
-				var status = data.status || "";
-				if(status == "OK"){
-					//changeNavigationHtml(data);
+		if(pageid !== ""){
+			var url = Base.serverUrl + "/api/page/" + pageid + "/carousels";
+			//g.httpTip.show();
+			$.ajax({
+				url:url,
+				data:{},
+				type:"GET",
+				dataType:"json",
+				context:this,
+				global:false,
+				async: false,
+				success: function(data){
+					console.log("sendGetCarouselsHttp",data);
+					var status = data.status || "";
+					if(status == "OK"){
+						changeCarouselsHtml(data);
+					}
+					else{
+						var msg = data.error || "";
+						Utils.alert("获取轮播图错误:" + msg);
+					}
+					//g.httpTip.hide();
+				},
+				error:function(data){
+					//g.httpTip.hide();
 				}
-				else{
-					var msg = data.error || "";
-					alert("获取导航栏错误:" + msg);
-				}
-				//g.httpTip.hide();
-			},
-			error:function(data){
-				//g.httpTip.hide();
-			}
-		});
+			});
+		}
+		else{
+			alert("链接错误");
+		}
 	}
 
 
-	function changeNavigationHtml(data){
+	function changeCarouselsHtml(data){
 		var obj = data.result || [];
 		var html = [];
-
-		html.push('<div class="container">');
-
-		html.push('<div class="navbar-header">');
-		html.push('<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">');
-		html.push('<span class="sr-only">Toggle navigation</span>');
-		html.push('<span class="icon-bar"></span>');
-		html.push('<span class="icon-bar"></span>');
-		html.push('<span class="icon-bar"></span>');
-		html.push('</button>');
-		var page = location.href.indexOf("/center/");
-		if(page > -1){
-			html.push('<a class="navbar-brand" href="../index.html"><img src="assets/images/fhzj.jpg" alt="logo"></a>');
+		html.push('<section id="main-slider" class="no-margin">');
+		html.push('<div class="carousel slide">');
+		html.push('<ol class="carousel-indicators">');
+		for(var i = 0, len = obj.length; i < len; i++){
+			var css = i == 0 ? "active" : "";
+			html.push('<li data-target="#main-slider" data-slide-to="' + i + '" class="' + css + '"></li>');
 		}
-		else{
-			html.push('<a class="navbar-brand" href="index.html"><img src="assets/images/fhzj.jpg" alt="logo"></a>');
-		}
+		html.push('</ol>');
 
-		html.push('</div>');
+		html.push('<div class="carousel-inner">');
 
-		html.push('<div class="collapse navbar-collapse navbar-right">');
-		html.push('<ul id="navul" class="nav navbar-nav">');
-
-		//class="active"
-
-		for(var i = 0,len = obj.length; i < len; i++){
-			var sub = obj[i].subNavigations || [];
-			var dropdown = sub.length > 0 ? "dropdown" : "";
-			var url = obj[i].url || "javascript:void(0);";
-			var title = obj[i].title || "";
-			html.push('<li class="' + dropdown + '">');
-			if(dropdown === ""){
-				html.push('<a href="' + url + '">' + title + '</a>');
+		for(var i = 0, len = obj.length; i < len; i++){
+			var bgimg = obj[i].pic || "";
+			if(bgimg !== ""){
+				bgimg = bgimg.url || "images/tyg_bg_01.jpg";
 			}
 			else{
-				html.push('<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">' + title + '<i class="fa fa-angle-down"></i></a>');
-				html.push('<ul class="dropdown-menu">');
+				bgimg = "images/tyg_bg_01.jpg";
+			}
+			var css = i == 0 ? "active" : "";
+			var title = obj[i].title || "";
+			var content = obj[i].content || "";
+			var buttonText = obj[i].buttonText || "";
+			var rightArea = obj[i].rightArea || "";
+
+			html.push('<div class="item ' + css + '" style="background-image: url(' + bgimg + ')">');
+			html.push('<div class="container">');
+			html.push('<div class="row slide-margin">');
+			html.push('<div class="col-sm-6">');
+			html.push('<div class="carousel-content">');
+			html.push('<h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">' + title + '</h1>');
+			html.push('<h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">' + content + '</h2>');
+
+			if(buttonText !== ""){
+				html.push('<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">')
+				html.push('<a class="subbtn" href="center/reg.html" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">' + buttonText + '</div></a>');
+				html.push('</div>');
+			}
+			html.push('</div>');
+			html.push('</div>');
+
+			if(rightArea !== ""){
+				html.push('<div class="col-sm-6 hidden-xs animation animated-item-4">');
+				html.push('<div class="slider-img" style="margin-top:130px">');
+				html.push('<a class="subbtn" href="center/reg.html" >');
+				html.push('<img src="images/tyg_ticket_01.png" class="img-responsive">');
+				html.push('</a>');
+				html.push('</div>');
+				html.push('</div>');
 			}
 
-			for(var j = 0,jlen = sub.length; j < jlen; j++){
-				var url = sub[j].url || "";
-				var title = sub[j].title || "";
-				html.push('<li><a href="' + url + '">' + title + '</a></li>');
-				//<li style="padding:0 5px;margin:5px 0;border-bottom:1px solid #555"></li>
-			}
-			if(dropdown !== ""){
-				html.push('</ul>');
-			}
+			html.push('</div>');
+			html.push('</div>');
+			html.push('</div>');
 		}
 
-		html.push('</ul>');
 		html.push('</div>');
-		html.push('</div><!--/.container-->');
-
-		$("#navdiv").html(html.join(''));
+		html.push('</div>');
+		html.push('<a class="prev hidden-xs" href="#main-slider" data-slide="prev">');
+		html.push('<i class="fa fa-chevron-left"></i>');
+		html.push('</a>');
+		html.push('<a class="next hidden-xs" href="#main-slider" data-slide="next">');
+		html.push('<i class="fa fa-chevron-right"></i>');
+		html.push('</a>');
+		html.push('</section>');
+		document.write(html.join(''));
 	}
 
 	sendGetCarouselsHttp();
