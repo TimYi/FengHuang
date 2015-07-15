@@ -83,7 +83,7 @@ $(function(){
 		});
 	}
 	function getProv(){
-		var url = Base.cityUrl + "/PROV";
+		var url = Base.cityUrl + "/CITY";
 		g.httpTip.show();
 		$.ajax({
 			url:url,
@@ -96,10 +96,11 @@ $(function(){
 				console.log("getProv",data);
 				var status = data.status || "";
 				if(status == "OK"){
-					changeSelectHtml("provId",data.result || []);
-					changeSelectHtml("provId2",data.result || []);
-					var id = data.result[0].id;
-					getCity(id,0);
+					changeSelectHtml("cityId",data.result || []);
+					//changeSelectHtml("provId",data.result || []);
+					//changeSelectHtml("provId2",data.result || []);
+					//var id = data.result[0].id;
+					//getCity(id,0);
 				}
 				else{
 					Utils.alert("城市获取失败");
