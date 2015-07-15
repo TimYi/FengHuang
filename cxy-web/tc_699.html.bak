@@ -515,11 +515,7 @@ $(".m_logo").hover(function(){
             <div class="center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
             		<!--img src="assets/images/step55.gif"-->
             		<!--img src="images/35day.jpg"-->
-								<style type="text/css">
-								* {
-									PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
-								}
-								</style>
+
 
 								<div id="Container1">
 								  <div class="timeline_container">
