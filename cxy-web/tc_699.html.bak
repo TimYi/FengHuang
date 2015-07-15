@@ -511,7 +511,7 @@ $(".m_logo").hover(function(){
                 <h2>39项标准节点<span style="font-size:24px"> STANDARD PROCEDURE</span></h2>
                 <p class="lead">施工步骤紧密衔接，保证在35天内完成装修，39项标准节点和标准操作项目，用最高效的方式让您享受到最好最快的家装体验</p>
             </div>
-            <div class="center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+            <div class="center" >
             		<!--img src="assets/images/step55.gif"-->
             		<!--img src="images/35day.jpg"-->
             		
@@ -526,7 +526,7 @@ $(".m_logo").hover(function(){
 <title></title>
 <meta name="Keywords" content="" />
 <meta name="description" content="" />
-<link href="Css/Smohan.blog.css" type="text/css" rel="stylesheet">
+<link href="css/Smohan.blog.css" type="text/css" rel="stylesheet">
 <style type="text/css">
 * {
 	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
@@ -858,7 +858,7 @@ $(".m_logo").hover(function(){
   </div>	
 </div>
 <!--/ShowMsg-->
-<script src="http://www.ifhzj.com/assets/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="assets/js/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/Smohan.blog.plug.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
