@@ -519,7 +519,7 @@ $(".m_logo").hover(function(){
             		
 
 <div id="Container_1">
-  <div class="timeline_container">
+  <div class="timeline_container_1">
     <div class="timeline_1">
       <div class="plus"></div>
       <div class="plus2"></div>
