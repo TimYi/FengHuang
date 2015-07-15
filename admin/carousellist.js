@@ -100,6 +100,7 @@ function bindData(data){
 		dataModel.selectableSubNav = ko.observableArray(subNavDic);
 	}else{
 		ko.mapping.fromJS(data, dataModel);
+		dataModel.selectedNav(selectedNav);		
 		dataModel.selectedSubNav(selectedSubNav);
 		dataModel.selectableSubNav(subNavDic);
 	}
@@ -213,7 +214,6 @@ function onNavChange(){
 		//显示二级下拉列表
 		$("#subNavSelector").show();
 		var selectedNavId = dataModel.selectedNav().id;
-		//根据brandid切换
 		//dataModel.selectableSubNav.removeAll();	
 		for(var i in navs){
 			var nav = navs[i];		
@@ -228,10 +228,8 @@ function onNavChange(){
 				break;
 			}
 		}
-		selectedSubNav = subNavDic[0];
-		navId = selectedSubNav.id;
-		getData(TEMPLATE_CAROUSEL+'/bypage/'+navId,param,afterGetDatas);
-		
+		dataModel.selectedSubNav();
+		dataModel.selectableSubNav(subNavDic);
 	}else{
 		$("#subNavSelector").hide();
 		navId = dataModel.selectedNav().id
@@ -239,5 +237,8 @@ function onNavChange(){
 	}
 }
 function onSubNavChange(){
-	dataModel.selectedSubNav
+	//alert(dataModel.selectedSubNav().title);
+	selectedSubNav = dataModel.selectedSubNav()
+	navId = dataModel.selectedSubNav().id;
+	getData(TEMPLATE_CAROUSEL+'/bypage/'+navId,param,afterGetDatas);
 }
