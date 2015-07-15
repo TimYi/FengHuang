@@ -94,6 +94,14 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 		token=refreshToken(token);
 		return token;
 	}
+	
+	@Override
+	public void logout(String token) {
+		UserToken tk=tokenRepository.getByToken(token);
+		if(tk!=null) {
+			tokenRepository.delete(tk);
+		}
+	}
 
 	@Override
 	public UserToken regist(String username, String password, String mobile, String ip)

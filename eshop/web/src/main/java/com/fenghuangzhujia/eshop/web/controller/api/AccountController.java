@@ -38,6 +38,12 @@ public class AccountController {
 		return RequestResult.success(tokenString).toJson();
 	}
 	
+	@RequestMapping(value="logout",method=RequestMethod.POST)
+	public String logout(String token) {
+		manager.logout(token);
+		return RequestResult.success("注销成功").toJson();
+	}
+	
 	/**
 	 * 
 	 * @param username

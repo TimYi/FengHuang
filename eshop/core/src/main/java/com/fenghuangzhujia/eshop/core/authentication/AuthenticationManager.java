@@ -32,6 +32,8 @@ public interface AuthenticationManager extends UserDetailsService {
 	 */
 	UserToken login(String username, String password, String ip) throws ErrorCodeException;
 	
+	void logout(String token);
+	
 	/**
 	 * 通过token验证用户身份，返回User之前，一定要将所有 @BasicAuthority 提前计算赋值。可以有缓存算法。
 	 * @param token
