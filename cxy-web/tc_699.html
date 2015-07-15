@@ -521,11 +521,6 @@ $(".m_logo").hover(function(){
 
 
 
-<style type="text/css">
-* {
-	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
-}
-</style>
 
 <div id="Container">
   <div class="timeline_container">
@@ -849,29 +844,7 @@ $(".m_logo").hover(function(){
   <div class="item_1">
   </div>	
 </div>
-<!--/ShowMsg-->
-<script src="assets/js/jquery-1.7.2.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/Smohan.blog.plug.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-  /*时间轴*/
-  $('#Container_1').masonry({itemSelector : '.item_1'});
-	function Arrow_Points(){
-	  var s = $("#Container_1").find(".item_1");
-	  $.each(s,function(i,obj){
-		var posLeft = $(obj).css("left");
-		if(posLeft == "0px"){
-		  html = "<span class='rightCorner'></span>";
-		  $(obj).prepend(html);
-		} else {
-		  html = "<span class='leftCorner'></span>";
-		  $(obj).prepend(html);
-		}
-	  });
-	}
-	Arrow_Points();
-});
-</script>
+
             		
             		
             		
@@ -997,6 +970,29 @@ $(document).ready(function() {
     <script src="assets/js/main.js"></script>
     <script src="assets/js/wow.min.js"></script>
 		<script src="js/699.js"></script>
+
+<script src="assets/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/Smohan.blog.plug.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  /*时间轴*/
+  $('#Container_1').masonry({itemSelector : '.item_1'});
+	function Arrow_Points(){
+	  var s = $("#Container_1").find(".item_1");
+	  $.each(s,function(i,obj){
+		var posLeft = $(obj).css("left");
+		if(posLeft == "0px"){
+		  html = "<span class='rightCorner'></span>";
+		  $(obj).prepend(html);
+		} else {
+		  html = "<span class='leftCorner'></span>";
+		  $(obj).prepend(html);
+		}
+	  });
+	}
+	Arrow_Points();
+});
+</script>
 
 </body>
 </html>
