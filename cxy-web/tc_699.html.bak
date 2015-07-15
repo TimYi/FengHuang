@@ -14,7 +14,6 @@
     <link href="assets/css/main.css" rel="stylesheet">
     <link href="assets/css/responsive.css" rel="stylesheet">
     <link href="css/base.css" rel="stylesheet">
-
     <!--[if lt IE 9]>
     <script src="assets/js/html5shiv.js"></script>
     <script src="assets/js/respond.min.js"></script>
@@ -26,9 +25,9 @@
     <link rel="apple-touch-icon-precomposed" href="assets/images/ico/apple-touch-icon-57-precomposed.png">
 
     <script src="assets/js/jquery.js"></script>
-		<script src="libs/json.js"></script>
-		<script src="libs/base.js"></script>
-		<script src="libs/utils.js"></script>
+	<script src="libs/json.js"></script>
+	<script src="libs/base.js"></script>
+	<script src="libs/utils.js"></script>
 
 </head><!--/head-->
 
@@ -375,12 +374,12 @@ $(".m_logo").hover(function(){
 												<img src="images/699_22_1.gif">
 										</div>
 							   </div>
-							   <div class="item1">
+							   <div class="item">
 				            <div>
 												<img src="images/699_22_2.gif">
 										</div>
 							   </div>
-							   <div class="item1">
+							   <div class="item">
 				            <div>
 												<img src="images/699_22_3.gif">
 										</div>
@@ -512,7 +511,11 @@ $(".m_logo").hover(function(){
                 <h2>39项标准节点<span style="font-size:24px"> STANDARD PROCEDURE</span></h2>
                 <p class="lead">施工步骤紧密衔接，保证在35天内完成装修，39项标准节点和标准操作项目，用最高效的方式让您享受到最好最快的家装体验</p>
             </div>
-            
+            <div class="center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+            		<!--img src="assets/images/step55.gif"-->
+            		<!--img src="images/35day.jpg"-->
+            		
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -878,8 +881,11 @@ $(document).ready(function() {
 });
 </script>
 </body>
-</html>
-
+</html>            		
+            		
+            		
+            		
+            </div>
         </div><!--/.container-->
     </section><!--/#feature-->
 
