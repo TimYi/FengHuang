@@ -1,7 +1,7 @@
-BODY {
+/*BODY {
 	BACKGROUND: url(../Images/Smohan_blog_header.png)  repeat-x; COLOR: #363636; FONT-SIZE: 13px
 }
-
+*/
 A {
 	COLOR: #000; FONT-SIZE: 13px; FONT-WEIGHT: 200;
 	text-decoration:none;
@@ -10,6 +10,10 @@ A:hover {
 	COLOR: #666;
 	text-decoration:none;
 }
+
+/* {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}*/
 
 
 #Container1 {
