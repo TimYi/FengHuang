@@ -2822,7 +2822,7 @@ shortcodes page css
 .piao{
 	width:400px;
 	height:270px;
-	background:#000;
+	background:#fff;
 	padding:30px;
 	opacity:0.8;
 	filter:alpha(opacity=80);
@@ -2846,7 +2846,7 @@ shortcodes page css
 .piao_mid{
 	width:400px;
 	height:330px;
-	background:#000;
+	background:#fff;
 	padding:30px;
 	opacity:0.8;
 	filter:alpha(opacity=80);

@@ -285,11 +285,11 @@ input.search-form:hover {
  }
 
 .navbar-nav>li{
-  margin-left: 35px;
+  margin-left: 25px;
   padding-bottom: 28px;
  /*usradd*/
  border-right:1px #efefef solid;
- padding: 0 30px 0 0;
+ padding: 0 20px 0 0;
  margin-bottom:28px;
  
 }
@@ -816,6 +816,31 @@ input.search-form:hover {
   border-radius: 0;
   margin-bottom: 0;
 }
+
+.recent-work-wrap .recent-work-inner-1{
+  background: transparent;
+  opacity: .8;
+
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius:50%;
+	border:3px #f9f9f9 solid;
+	width:70px;
+	height:70px;  
+}
+
+.recent-work-wrap .overlay-1 {
+  position: absolute;
+  opacity: 0;
+  background: #c52d2f;
+  color: #fff;
+  vertical-align: middle;
+  -webkit-transition: opacity 500ms;
+  -moz-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  transition: opacity 500ms;  
+}
+
 
 .recent-work-wrap .recent-work-inner h3{
   margin: 10px 0;
@@ -2845,7 +2870,7 @@ shortcodes page css
 
 .piao_mid{
 	width:400px;
-	height:330px;
+	height:350px;
 	background:#fff;
 	padding:30px;
 	opacity:0.8;
