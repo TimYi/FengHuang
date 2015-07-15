@@ -36,6 +36,7 @@ public class MaterialController extends SpecificationController<MaterialDto, Mat
 		return RequestResult.success("排序完成").toJson();
 	}
 	
+	@RequestMapping(value="byproduct/{productId}", method=RequestMethod.GET)
 	public String byProduct(@PathVariable String productId) {
 		List<MaterialDto> materials=getService().findByProduct(productId);
 		PagedList<MaterialDto> result=new PagedList<>(materials);

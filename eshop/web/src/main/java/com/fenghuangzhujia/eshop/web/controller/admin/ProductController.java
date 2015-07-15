@@ -34,7 +34,7 @@ public class ProductController extends SpecificationController<ProductDto, Produ
 		return RequestResult.success("排序完成").toJson();
 	}
 	
-	@RequestMapping("bybrand/{brandId}")
+	@RequestMapping(value="bybrand/{brandId}",method=RequestMethod.GET)
 	public String getByBrand(@PathVariable String brandId) {
 		List<ProductDto> products=getService().findByBrand(brandId);
 		PagedList<ProductDto> result=new PagedList<>(products);
