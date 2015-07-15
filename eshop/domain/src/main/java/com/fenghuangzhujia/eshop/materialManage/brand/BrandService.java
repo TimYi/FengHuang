@@ -2,6 +2,8 @@ package com.fenghuangzhujia.eshop.materialManage.brand;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Order;
@@ -18,12 +20,12 @@ import com.fenghuangzhujia.foundation.mapper.BeanMapper;
 @Transactional
 public class BrandService extends DtoSpecificationService<Brand, BrandDto, BrandInputArgs, String> {
 
-	public void reOrder(String[] ids) {
-		int i=0;
-		for (String id : ids) {
+	public void reOrder(Map<String, Integer> orders) {
+		for (Entry<String, Integer> order : orders.entrySet()) {
+			String id=order.getKey();
+			Integer ordernum=order.getValue();
 			Brand brand=getRepository().findOne(id);
-			brand.setOrdernum(i);
-			i++;
+			brand.setOrdernum(ordernum);
 		}
 	}
 	

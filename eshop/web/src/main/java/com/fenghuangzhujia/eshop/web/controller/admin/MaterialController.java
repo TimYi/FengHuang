@@ -1,8 +1,10 @@
 package com.fenghuangzhujia.eshop.web.controller.admin;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,8 +29,8 @@ public class MaterialController extends SpecificationController<MaterialDto, Mat
 	}
 	
 	@RequestMapping(value="order",method=RequestMethod.POST)
-	public String order(String[] ids) {
-		getService().reOrder(ids);
+	public String order(@RequestBody Map<String, Integer> orders) {
+		getService().reOrder(orders);
 		return RequestResult.success("排序完成").toJson();
 	}
 	
