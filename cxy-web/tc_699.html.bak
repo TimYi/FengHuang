@@ -521,11 +521,6 @@ $(".m_logo").hover(function(){
 
 
 
-<style type="text/css">
-* {
-	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
-}
-</style>
 
 <div id="Container">
   <div class="timeline_container">
