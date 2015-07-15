@@ -927,7 +927,7 @@ $(".m_logo").hover(function(){
 </section><!--/#bottom-->
 
 <footer id="footer" class="midnight-blue">
-    <div class="container" style="width:1040">
+    <div class="container">
         <div class="row">
             <div class="col-sm-6">
                 &copy; 2015 厦门凤凰筑家网络科技有限公司 保留所有权利
