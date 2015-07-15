@@ -11,7 +11,7 @@ A:hover {
 	text-decoration:none;
 }*/
 
-#Container {
+/*#Container {
 	POSITION: relative; PADDING-BOTTOM: 30px; MARGIN: 0px auto 200px; PADDING-LEFT: 0px; WIDTH: 1040px; PADDING-RIGHT: 0px; HEIGHT: auto; OVERFLOW: hidden; PADDING-TOP: 30px
 }
 .timeline_container {
@@ -23,15 +23,15 @@ A:hover {
 .timeline DIV.plus {
 	Z-INDEX: 5000; POSITION: absolute; WIDTH: 10px; HEIGHT: 10px; TOP: 10px; LEFT: -5px; BACKGROUND:#666;
 	border:2px solid #fff;
-  -moz-border-radius: 50%;      /* Gecko browsers */
-  -webkit-border-radius: 50%;   /* Webkit browsers */
-  border-radius:50%;            /* W3C syntax */	
+  -moz-border-radius: 50%;      
+  -webkit-border-radius: 50%;   
+  border-radius:50%;            
 }
 .timeline DIV.plus2 {
 	POSITION: absolute; WIDTH: 10px; height:10px; BOTTOM: 10px; LEFT: -5px;BACKGROUND:#666;
 	border:2px solid #fff;
-  -moz-border-radius: 50%;      /* Gecko browsers */
-  -webkit-border-radius: 50%;   /* Webkit browsers */
+  -moz-border-radius: 50%;      
+  -webkit-border-radius: 50%;   
   border-radius:50%;    	
 }
 .leftCorner {
@@ -41,34 +41,34 @@ A:hover {
 	Z-INDEX: 99; POSITION: absolute; WIDTH: 36px; DISPLAY: block; HEIGHT: 26px; OVERFLOW: hidden
 }
 .rightCorner {
-	/*BACKGROUND: url(../Images/timeline.png) 0px 0px;*/
+	
 	TOP: 25px; 
 	RIGHT: -36px;
 	height:5px;
 	width:5px;
 	background:#000;
 	border:2px solid #fff;
-  -moz-border-radius: 50%;      /* Gecko browsers */
-  -webkit-border-radius: 50%;   /* Webkit browsers */
+  -moz-border-radius: 50%;      
+  -webkit-border-radius: 50%;   
   border-radius:50%; 	
   
 }
 .leftCorner {
-	/*BACKGROUND: url(../Images/timeline.png) -36px 0px; */
+	
 	TOP: 10px; 
 	LEFT: -33px;
 	height:5px;
 	width:5px;
 	background:#000;
 	border:2px solid #fff;
-  -moz-border-radius: 50%;      /* Gecko browsers */
-  -webkit-border-radius: 50%;   /* Webkit browsers */
+  -moz-border-radius: 50%;      
+  -webkit-border-radius: 50%;   
   border-radius:50%; 	
 }
 .item {
-	/*BORDER-BOTTOM: #eaeaea 1px solid; */
+	
 	POSITION: relative; 
-	/*BORDER-LEFT: #eaeaea 1px solid; */
+	
 	PADDING-BOTTOM: 0px; 
 	LINE-HEIGHT: 30px; 
 	MARGIN: 0px 30px 0px; 
@@ -81,10 +81,7 @@ A:hover {
 	WORD-WRAP: break-word; BACKGROUND: #ffffff; 
 	FLOAT: left; 
 	FONT-SIZE: 13px; 
-	/*BORDER-TOP: #eaeaea 1px solid; */
-	/*BORDER-RIGHT: #eaeaea 1px solid; */
 	PADDING-TOP: 0px; 
-	/*box-shadow: 0px 1px 8px rgba(202, 202, 202, 0.3)*/
 }
 .item H3 {
 	LINE-HEIGHT: 30px; WIDTH: 428px; DISPLAY: block; HEIGHT: 30px; FONT-WEIGHT: normal
@@ -96,27 +93,23 @@ A:hover {
 	TEXT-ALIGN: right; FLOAT: right; COLOR: #999999; FONT-SIZE: 12px
 }
 .item P.con {
-	/*BORDER-BOTTOM: #ececec 1px dashed; PADDING-BOTTOM: 15px; LINE-HEIGHT: 30px; WIDTH: 428px; DISPLAY: block; COLOR: #555555; BORDER-TOP: #ececec 1px dashed; FONT-WEIGHT: normal; PADDING-TOP: 15px*/
 }
-
 .con1{text-align:right;font-size:15px;font-weight:800;}
-
 .con1_index{
 	height:23px;width:28px;background:#aaa;float:right;margin-left:15px;margin-right:-20px;color:#fff;text-align:center;line-height:23px;margin-top:5px;
-  -moz-border-radius: 20%;      /* Gecko browsers */
-  -webkit-border-radius: 20%;   /* Webkit browsers */
+  -moz-border-radius: 20%;     
+  -webkit-border-radius: 20%;  
   border-radius:20%; 		
 }
 .con2{text-align:left;font-size:15px;font-weight:800;margin-top:15px;}
 .con2_index{
 	height:23px;width:28px;background:#aaa;float:left;margin-right:15px;margin-left:-20px;color:#fff;text-align:center;line-height:23px;margin-top:19px;
-  -moz-border-radius: 20%;      /* Gecko browsers */
-  -webkit-border-radius: 20%;   /* Webkit browsers */
+  -moz-border-radius: 20%;     
+  -webkit-border-radius: 20%;  
   border-radius:20%; 		
 }
-
+*/
 .item P {
-	/*TEXT-INDENT: 2em*/
 }
 .item H4 {
 	PADDING-BOTTOM: 15px; PADDING-LEFT: 0px; WIDTH: 428px; PADDING-RIGHT: 0px; DISPLAY: block; PADDING-TOP: 15px
