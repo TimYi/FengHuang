@@ -11,7 +11,7 @@
     <link href="assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/animate.min.css" rel="stylesheet">
     <link href="assets/css/prettyPhoto.css" rel="stylesheet">
-
+		<link href="css/min.css" rel="stylesheet">    		
     <link href="assets/css/responsive.css" rel="stylesheet">
     <link href="css/base.css" rel="stylesheet">
 		<link href="css/Smohan.blog.css" rel="stylesheet">    
