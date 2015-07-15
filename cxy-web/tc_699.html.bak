@@ -842,7 +842,7 @@ $(".m_logo").hover(function(){
 								<script type="text/javascript">
 								$(document).ready(function() {
 								  /*时间轴*/
-								  $('#Container').masonry({itemSelector : '.item1'});
+								  $('#Container1').masonry({itemSelector : '.item1'});
 									function Arrow_Points(){
 									  var s = $("#Container1").find(".item1");
 									  $.each(s,function(i,obj){
