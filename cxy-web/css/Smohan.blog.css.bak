@@ -1,7 +1,7 @@
 /*BODY {
 	BACKGROUND: url(../Images/Smohan_blog_header.png)  repeat-x; COLOR: #363636; FONT-SIZE: 13px
 }
-
+*/
 A {
 	COLOR: #000; FONT-SIZE: 13px; FONT-WEIGHT: 200;
 	text-decoration:none;
@@ -9,7 +9,7 @@ A {
 A:hover {
 	COLOR: #666;
 	text-decoration:none;
-}*/
+}
 
 #Container1 {
 	POSITION: relative; PADDING-BOTTOM: 30px; MARGIN: 0px auto 200px; PADDING-LEFT: 0px; WIDTH: 1040px; PADDING-RIGHT: 0px; HEIGHT: auto; OVERFLOW: hidden; PADDING-TOP: 30px
