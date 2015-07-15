@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -503,10 +504,6 @@ $(".m_logo").hover(function(){
             </div><!--/pricing-area-->
         </div><!--/.container-->
     </section><!--/#feature-->
-
-
-
-
 
 
     <section id="feature"  style="border-top:1px solid #f6f6f6;>
