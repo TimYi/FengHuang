@@ -23,7 +23,7 @@ A:hover {
 	Z-INDEX: 50; TEXT-ALIGN: center; MARGIN: 0px auto; WIDTH: 29px; DISPLAY: block; HEIGHT: 100%; CURSOR: pointer
 }
 .timeline {
-	POSITION: absolute; MARGIN: 0px auto; WIDTH: 3px; DISPLAY: block; BACKGROUND: #eeeeee; FLOAT: left; HEIGHT: 100%; FONT-SIZE: 0px; TOP: 0px; LEFT: 508px
+	POSITION: absolute; MARGIN: 0px auto; WIDTH: 3px; DISPLAY: block; BACKGROUND: #eeeeee; FLOAT: left; HEIGHT: 100%; FONT-SIZE: 0px; TOP: 0px; LEFT: 488px
 }
 .timeline DIV.plus {
 	Z-INDEX: 5000; POSITION: absolute; WIDTH: 10px; HEIGHT: 10px; TOP: 10px; LEFT: -5px; BACKGROUND:#666;
