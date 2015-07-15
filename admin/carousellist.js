@@ -7,10 +7,55 @@ var rePage = true;
 var total ;//总数据条数
 var curPage = 1;//当前页码,初始为1	
 var param;
+var navs ;
+var navDic;
+var selectedNav;
+var selectedSubNav;
+var subNavDic;
+
+var navId;//可能是一级的也可能是二级的
+var Nav = function(id,title,type){
+			this.id = id;
+			this.title = title;
+			this.type = type;
+}
 function onload(){
 	initParam();
-	var id = getUrlParam(window.location.search,"id");	
-	getData(TEMPLATE_CAROUSEL,param,afterGetDatas);
+	//先获取page信息，并提供下列列表，在选择下列列表的基础上展示对应的轮播图片
+	getData(SYSTEM_NAVIGATION+'/all',param,afterGetNav4Select);
+}
+function afterGetNav4Select(data){
+	if(!isErrorData(data)){
+		navDic = new Array(); 
+		navs = data.result;		
+		for(var i in navs){			
+			var nav = new Nav(navs[i].id,navs[i].title,navs[i].type);
+			navDic.push(nav);
+		}
+		selectedNav = navDic[0];		
+		//判断一级菜单的类型
+		if(selectedNav.type === 'DROPDOWN'){
+			//选择默认二级菜单并显示
+			$("#subNavSelector").show();
+			subNavDic = new Array();
+			var subNavs = navs[0].subNavigations;
+			for(var j in subNavs){
+				var sub = new Nav(subNavs[j].id,subNavs[j].title,subNavs[j].type);
+				subNavDic.push(sub);
+			}
+			if(subNavDic.length !== 0){
+				selectedSubNav = subNavDic[0];
+				navId = selectedSubNav.id;
+			}
+		}else{
+			navId = selectedNav.id;
+		}
+		if(typeof navId != 'undefined'){
+			getData(TEMPLATE_CAROUSEL+'/bypage/'+navId,param,afterGetDatas);
+		}else{
+			getData(TEMPLATE_CAROUSEL,param,afterGetDatas);
+		}
+	}
 }
 function initParam(){	
 	param={
@@ -32,7 +77,6 @@ function getDatas(){
 	getData(TEMPLATE_CAROUSEL,param,afterGetDatas);
 }
 function afterGetDatas(data){
-
 	//先判断并处理错误数据
 	if(!isErrorData(data))
 		//数据正确时进行绑定
@@ -40,33 +84,38 @@ function afterGetDatas(data){
 }
 
 function bindData(data){
-	total = data.totalCount;//用于分页	
+	total = data.totalCount;//用于分页
+	if(typeof data.result == 'undefined'){
+		data.result = new Array();
+	}
 	var results = data.result;
 	for(var i in results){
 		results[i].selected = false;
 	}
 	if(!bind){
-		dataModel = ko.mapping.fromJS(data);	
+		dataModel = ko.mapping.fromJS(data);
+		dataModel.selectableNav = ko.observableArray(navDic);
+		dataModel.selectedNav = ko.observable(selectedNav);
+		dataModel.selectedSubNav = ko.observable(selectedSubNav);
+		dataModel.selectableSubNav = ko.observableArray(subNavDic);
 	}else{
 		ko.mapping.fromJS(data, dataModel);
-	}	
+		dataModel.selectedSubNav(selectedSubNav);
+		dataModel.selectableSubNav(subNavDic);
+	}
 	dataModel.remove = function(item){
-		
 		if(ConfDel(0)){
 			var url = genUrl(TEMPLATE_CAROUSEL)+'/'+item.id();
 			deleteReq(url,function(dataObj){
-				
-					friendlyTip(dataObj);
-			    	if(dataObj.status === 'OK'){
-			    	  	dataModel.result.remove(item);
-			    	}
-				});
+				friendlyTip(dataObj);
+			    if(dataObj.status === 'OK'){
+			    	dataModel.result.remove(item);
+			    }
+			});
 		}
 	}
 	dataModel.removeSelected = function(){
-				
 		if(ConfDelAll(0)){
-			
 			//todo 删除
 			alert(filterSelected(dataModel.result()).length);
 		}
@@ -76,6 +125,11 @@ function bindData(data){
 		window.location.href='carouseledit.htm?id='+item.id();
 	}
 	dataModel.up = function(item){
+		if(typeof navId === 'undefined'){
+			//当前显示为全部轮播图片时
+			alert('请先选择一个菜单，然后再进行操作');
+			return ;
+		}
 		var brands = dataModel.result();
 		var index = brands.indexOf(item);
 		if(index == 0){
@@ -93,6 +147,11 @@ function bindData(data){
 		dataModel.result(brands);
 	}
 	dataModel.down = function(item){
+		if(typeof navId === 'undefined'){
+			//当前显示为全部轮播图片时
+			alert('请先选择一个菜单，然后再进行操作');
+			return ;
+		}
 		var brands = dataModel.result();
 		var index = brands.indexOf(item);
 		if(index == brands.length-1){
@@ -127,15 +186,12 @@ function handlePageChange (num, type) {
 function add(){
 		window.location.href="carouseladd.htm";
 }
-function reorder(){
-		/*var idStr = '';
-		var brands = dataModel.result();
-		for(var i in brands){
-			idStr += brands[i].id();
-			idStr += ',';
-		}
-		idStr = idStr.substring(0,idStr.length-1);
-		var param ={ids : idStr};*/
+function reorder(){	
+		if(typeof navId === 'undefined'){
+			//当前显示为全部轮播图片时
+			alert('请先选择一个菜单，然后再进行操作');
+			return ;
+		}	
 		var param ='{';
 		var results = dataModel.result();
 		for(var i in results){
@@ -149,4 +205,39 @@ function reorder(){
 			friendlyTip(data);
 			window.location.href='carousellist.htm?';
 		});
+}
+function onNavChange(){
+	//alert(dataModel.selectedNav().type);
+	//先判断是否含有子菜单
+	if(dataModel.selectedNav().type == 'DROPDOWN'){
+		//显示二级下拉列表
+		$("#subNavSelector").show();
+		var selectedNavId = dataModel.selectedNav().id;
+		//根据brandid切换
+		//dataModel.selectableSubNav.removeAll();	
+		for(var i in navs){
+			var nav = navs[i];		
+			if(nav.id == selectedNavId){
+				subNavDic = new Array();
+				selectedNav = navDic[i];
+				var subNav = nav.subNavigations;
+				for(var j in subNav){
+					var sub = new Nav(subNav[j].id,subNav[j].title,subNav[j].type);
+					subNavDic.push(sub);
+				}
+				break;
+			}
+		}
+		selectedSubNav = subNavDic[0];
+		navId = selectedSubNav.id;
+		getData(TEMPLATE_CAROUSEL+'/bypage/'+navId,param,afterGetDatas);
+		
+	}else{
+		$("#subNavSelector").hide();
+		navId = dataModel.selectedNav().id
+		getData(TEMPLATE_CAROUSEL+'/bypage/'+navId,param,afterGetDatas);
+	}
+}
+function onSubNavChange(){
+	dataModel.selectedSubNav
 }
