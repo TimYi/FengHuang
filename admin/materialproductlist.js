@@ -10,9 +10,32 @@ var curPage = 1;//当前页码,初始为1
 *定义参数
 */
 var param;
+var brandId;
+var brandDic;
+var selectedBrand;
+var Brand = function(id,name){
+	this.id = id;
+	this.name = name;
+}
 function onload(){
 	initParam();
-	getDatas();	
+	//获取所有品牌
+	getData(MATERIAL_BRAND+'/all',null,afterGetBrands4Select);
+}
+function afterGetBrands4Select(data){
+	if(!isErrorData(data)){
+		brands = data.result;
+		brandDic = new  Array();
+		for(var i in brands){
+			var brand = new Brand(brands[i].id,brands[i].name);
+			brandDic.push(brand);
+		}
+		//默认选取第一个
+		selectedBrand = brandDic[0];
+		brandId = selectedBrand.id;
+		//获取产品类型数据
+		getDatas();
+	}
 }
 function initParam(){
 	param={
@@ -31,9 +54,13 @@ function getDatas4page(page){
 	getDatas();
 }
 function getDatas(){
-	getData(MATERIAL_PRODUCT,param,afterGetDatas);
+	if(typeof brandId != 'undefined'){
+		getData(MATERIAL_PRODUCT+'/bybrand/'+brandId,param,afterGetDatas);
+	}else{
+		getData(MATERIAL_PRODUCT,param,afterGetDatas);
+	}
 }
-function afterGetDatas(data){	
+function afterGetDatas(data){
 	//先判断并处理错误数据
 	if(!isErrorData(data))
 		//数据正确时进行绑定
@@ -46,9 +73,12 @@ function bindData(data){
 		results[i].selected = false;
 	}
 	if(!bind){
-		dataModel = ko.mapping.fromJS(data);	
+		dataModel = ko.mapping.fromJS(data);
+		dataModel.selectedBrand = ko.observable(selectedBrand);	
+		dataModel.brandDic = ko.observableArray(brandDic);
 	}else{
 		ko.mapping.fromJS(data, dataModel);
+		dataModel.selectedBrand(selectedBrand);	
 	}
 	dataModel.remove = function(item){
 		if(ConfDel(0)){
@@ -126,14 +156,6 @@ function add(){
 	window.location.href="materialproductadd.htm";
 }
 function reorder(){
-		/*var idStr = '';
-		var brands = dataModel.result();
-		for(var i in brands){
-			idStr += brands[i].id();
-			idStr += ',';
-		}
-		idStr = idStr.substring(0,idStr.length-1);
-		var param ={ids : idStr};*/
 		var param ='{';
 		var results = dataModel.result();
 		for(var i in results){
@@ -147,4 +169,9 @@ function reorder(){
 			friendlyTip(data);
 			window.location.href='materialproductlist.htm?';
 		});
-	}
+}
+function onBrandChange(){
+	brandId = dataModel.selectedBrand().id;
+	selectedBrand = dataModel.selectedBrand();
+	getDatas();
+}
