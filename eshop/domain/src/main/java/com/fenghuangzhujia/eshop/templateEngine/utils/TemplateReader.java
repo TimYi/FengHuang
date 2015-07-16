@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.templateEngine.template;
+package com.fenghuangzhujia.eshop.templateEngine.utils;
 
 /**
  * 模板变量读取器
@@ -25,6 +25,12 @@ public interface TemplateReader {
 	 * @return
 	 */
 	String getVariableName();
+	
+	/**
+	 * 获取当前模板值
+	 * @return
+	 */
+	String getTemplate();
 	
 	/**
 	 * 将变量值注入当前变量

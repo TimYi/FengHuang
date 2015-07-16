@@ -1,5 +1,6 @@
-package com.fenghuangzhujia.eshop.templateEngine.template;
+package com.fenghuangzhujia.eshop.templateEngine.template.dto;
 
+import com.fenghuangzhujia.eshop.templateEngine.template.VariableDefinition;
 import com.fenghuangzhujia.eshop.templateEngine.template.VariableDefinition.FieldType;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 

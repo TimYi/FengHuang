@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.templateEngine.template;
+package com.fenghuangzhujia.eshop.templateEngine.utils;
 
 public class DefaultTemplateReader implements TemplateReader {
 	
@@ -87,11 +87,19 @@ public class DefaultTemplateReader implements TemplateReader {
 		name=name.trim();
 		return name;
 	}
+	
+	@Override
+	public String getTemplate() {
+		return template;
+	}
 
 	@Override
 	public void injectCurrentVariable(String value) {
-		int lengthChange=value.length()-(variableEndIndex-variableStartIndex);
-		template=template.replace(variable, value);
+		//注意将{{和}}计算进去
+		value=String.valueOf(value);
+		int lengthChange=value.length()-(variableEndIndex-variableStartIndex+4);
+		String toReplace="{{"+variable+"}}";
+		template=template.replace(toReplace, value);
 		currentIndex=currentIndex+lengthChange;
 	}
 

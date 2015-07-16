@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.templateEngine.template;
+package com.fenghuangzhujia.eshop.templateEngine.utils;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -8,6 +8,8 @@ import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
+import com.fenghuangzhujia.eshop.templateEngine.fragment.VariableValue;
+import com.fenghuangzhujia.eshop.templateEngine.template.VariableDefinition;
 import com.fenghuangzhujia.eshop.templateEngine.template.VariableDefinition.FieldType;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 
@@ -39,6 +41,25 @@ public class TemplateResolver {
 		definition.setType(type);
 		definition.setDescription(description);
 		return definition;
+	}
+	
+	public static String calculateTemplate(String template, Set<VariableValue> values) {
+		TemplateReader reader=new DefaultTemplateReader(template);
+		while (reader.next()) {
+			String name=reader.getVariableName();
+			String value=getVariableValue(name, values);
+			reader.injectCurrentVariable(value);			
+		}
+		return reader.getTemplate();
+	}
+	
+	private static String getVariableValue(String name, Set<VariableValue> values) {
+		for (VariableValue value : values) {
+			if(value.getName().equals(name)) {
+				return value.toString();
+			}
+		}
+		return null;
 	}
 	
 	/**
