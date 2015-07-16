@@ -1,10 +1,9 @@
-package com.fenghuangzhujia.eshop.templateEngine;
+package com.fenghuangzhujia.eshop.templateEngine.template;
 
-import org.apache.commons.lang3.StringUtils;
+import com.fenghuangzhujia.eshop.templateEngine.template.VariableDefinition.FieldType;
+import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
-import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
-
-public class TemplateDefinition extends UUIDBaseModel {
+public class VariableDefinitionDto extends DtoBaseModel {
 
 	/**字段名称*/
 	private String name;
@@ -12,7 +11,6 @@ public class TemplateDefinition extends UUIDBaseModel {
 	private FieldType type;
 	/**字段描述*/
 	private String description;
-	
 	
 	public String getName() {
 		return name;
@@ -27,19 +25,9 @@ public class TemplateDefinition extends UUIDBaseModel {
 		this.type = type;
 	}
 	public String getDescription() {
-		if(StringUtils.isBlank(description)) return name;
 		return description;
 	}
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public static enum FieldType {
-		TEXT,IMG;
-		
-		public static FieldType fromString(String type) {
-			type=type.toUpperCase();
-			return FieldType.valueOf(type);
-		}
 	}
 }
