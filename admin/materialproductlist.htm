@@ -20,7 +20,15 @@
 		<span class="title">产品分类管理</span>   
 		<a href="javascript:location.reload();" class="reload">刷新</a>
 	</div>
-	<form name="form" id="form" method="post">	
+	<form name="form" id="form" method="post">
+	<div class="toolbarTab">
+		<div id="search"> 
+			品牌选择：
+			<select data-bind="value:selectedBrand,options:brandDic,
+				optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...',event:{change:onBrandChange}">
+			</select>
+		</div>
+	</div>	
 		<table class="dataTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 			<thead>
 				<tr class="head" align="left">

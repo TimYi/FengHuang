@@ -8,22 +8,40 @@
   <title>凤凰驻家 管理中心</title> 
   <link href="assets/css/frame.css" rel="stylesheet" type="text/css" /> 
   <script type="text/javascript" src="assets/js/jquery.js"></script> 
+  <script type="text/javascript" src="assets/js/ajax.js"></script>
+  <script type="text/javascript" src="global_url.js"></script>
   <script type="text/javascript" src="assets/js/frame.js"></script>  
   <link type="text/css" href="assets/css/rys-elfin.css" rel="stylesheet" /> 
   <script src="assets/js/sea.js" async="" charset="utf-8" id="__tk2__seajsnode"></script> 
   <script type="text/javascript">
-  var token;
-  function onload(){
-	var username = getUrlParam(window.location.search,"u");
-	token = getUrlParam(window.location.search,"token");
-	//alert("admin"+token);
-	$('#welcome').text('hi,'+username);
-  }
-  function getUrlParam(paramStr,name) {
-            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-            var r = paramStr.substr(1).match(reg);  //匹配目标参数
-            if (r != null) return unescape(r[2]); return null; //返回参数值
-        }
+	  var token;
+	  var LOGOUT = 'http://101.200.229.135:8080/api/logout';
+	  var LOGIN =  MODULE_HOST_URL +"login.html";
+
+	  function onload(){
+		var username = getUrlParam(window.location.search,"u");
+		token = getUrlParam(window.location.search,"token");
+		$('#welcome').text('hi,'+username);
+		$('#esc').show();
+	  }
+	  function getUrlParam(paramStr,name) {
+	  	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+	    var r = paramStr.substr(1).match(reg);  //匹配目标参数
+	    if (r != null) return unescape(r[2]); return null; //返回参数值
+	  }
+	  function logout(){
+	  	var param = {
+	  		token : token
+	  	}
+	  	postReq(LOGOUT,param,afterLogout);
+	  }
+	  function afterLogout(data){
+	  	if(data.status == 'OK') {
+			window.location.href=LOGIN;
+		}else{
+			friendlyTip(data);
+		}
+	  }
   </script> 
   <link href="assets/css/tmt.css" type="text/css" rel="stylesheet" /> 
   <link href="assets/css/font-awesome.min.css" type="text/css" rel="stylesheet" /> 
@@ -35,7 +53,10 @@
      <i class="fa fa-th-list" style="color:#f25618;font-size:1.5em;font-weight:normal;margin-top:7px;"></i>
     </center> </a> 
    <div class="user"> 
-    <span class="name" id="welcome"></span> 
+    <span class="name" id="welcome"></span>
+    <span id="esc" style="display:none;">
+    	<a href="#" onclick ="javascript:logout();return false;" class="logout">退出</a> 
+    </span>
     <!--div class="userPanel"> 
      <a href="javascript:;" class="arrow"></a> 
      <div style="display: none;" class="panel"> 
@@ -65,7 +86,7 @@
         <a href="http://123.57.218.171/admin/logout.php" class="logout">退出(ESC)</a>
        </div> 
       </div> 
-     </div--> 
+     </div-->
     </div> 
    </div> 
    <div class="fun"> 
