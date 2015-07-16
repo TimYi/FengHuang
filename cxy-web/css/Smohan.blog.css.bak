@@ -157,7 +157,7 @@ A:hover {
 .nihao .footer LI.read {
 	PADDING-LEFT: 30px; BACKGROUND: url(../Images/icons.png) no-repeat 0px -100px
 }
-#Blog_Container {
+#Blog_ 	 {
 	POSITION: relative; PADDING-BOTTOM: 60px; MARGIN: 0px auto 100px; PADDING-LEFT: 26px; WIDTH: 954px; PADDING-RIGHT: 0px; FONT-FAMILY: "Microsoft JhengHei", "Microsoft YaHei", Arial, sans-serif; HEIGHT: auto; OVERFLOW: hidden; PADDING-TOP: 30px
 }
 #Blog_Timelines {
