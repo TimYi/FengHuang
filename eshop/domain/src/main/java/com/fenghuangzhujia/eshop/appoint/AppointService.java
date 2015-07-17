@@ -103,7 +103,8 @@ public class AppointService extends DtoUnreadRemindSpecificationService<Appoint,
 		couponsAllocater.allocate(CouponsAllocater.APPOINT_SERVICE, user.getId());
 		
 		//发送预约成功提示短信
-		messageSender.appointSuccess(mobile);
+		messageSender.appointSuccess(mobile, appoint.getUser().getCnname(), appoint.getCreateTime(), 
+				appoint.getCity().getName(),appoint.getCode(), appoint.getRealName(), mobile);
 		
 		return adapter.convertToDetailedDto(appoint);
 	}

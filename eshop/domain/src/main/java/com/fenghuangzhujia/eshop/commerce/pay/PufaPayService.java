@@ -28,6 +28,7 @@ import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.eshop.core.utils.CodeGenerater;
 import com.fenghuangzhujia.eshop.core.utils.LogUtils;
 import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppointService;
+import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage;
 import com.fenghuangzhujia.eshop.prudoct.scramble.PackageGood;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 
@@ -155,7 +156,11 @@ public class PufaPayService {
 			
 			//发送支付成功通知短信
 			try {
-				messageSender.paySuccess(pay.getOrder().getMobile(), pay.getPayedMoney());
+				PackageGood pGood=((PackageGood)pay.getOrder().getGood());
+				DecoratePackage dPackage=pGood.getDecoratePackage();
+				messageSender.paySuccess(pay.getOrder().getMobile(), pay.getOrder().getUser().getCnname(),
+						pay.getPayTime(), dPackage.getName(),
+						pay.getPayedMoney(), pay.getOrder().getCode());
 			} catch (Exception e) {
 				LogUtils.errorLog(e);
 				//无论短信通知结果如何，不要影响正常流程进行
