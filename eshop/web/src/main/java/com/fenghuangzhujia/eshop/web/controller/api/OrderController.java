@@ -19,10 +19,8 @@ import com.fenghuangzhujia.eshop.commerce.pay.PufaPay;
 import com.fenghuangzhujia.eshop.commerce.pay.PufaPayService;
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
 import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
-import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.utils.LogUtils;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
-import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
 @RestController
@@ -55,12 +53,7 @@ public class OrderController {
 	public String cancelOrder(@PathVariable String id) {
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userid=details.getId();
-		GoodOrderDto result=orderService.findOneByUser(userid, id);
-		if(result!=null) {
-			if(result.getStatus()!=OrderStatus.WAITING)
-				throw new ErrorCodeException(SystemErrorCodes.OTHER, "暂时不能取消已支付订单");
-			orderService.changeStatus(id, OrderStatus.CANCEL);
-		}
+		orderService.calcelOrder(id, userid);
 		return RequestResult.success("取消成功").toJson();
 	}
 	

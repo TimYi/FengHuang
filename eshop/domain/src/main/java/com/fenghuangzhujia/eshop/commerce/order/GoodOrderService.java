@@ -18,7 +18,11 @@ import com.fenghuangzhujia.eshop.commerce.order.dto.GoodOrderDto;
 import com.fenghuangzhujia.eshop.commerce.order.dto.GoodOrderDtoConverter;
 import com.fenghuangzhujia.eshop.commerce.pay.OrderPay;
 import com.fenghuangzhujia.eshop.commerce.pay.OrderPayRepository;
+import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.user.User;
+import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppointService;
+import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage;
+import com.fenghuangzhujia.eshop.prudoct.scramble.PackageGood;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.persistance.DynamicSpecifications;
 import com.fenghuangzhujia.foundation.core.persistance.SearchFilter;
@@ -35,6 +39,8 @@ public class GoodOrderService {
 	private GoodOrderRepository repository;
 	@Autowired
 	private OrderPayRepository orderPayRepository;
+	@Autowired
+	private PackageAppointService packageAppointService;
 	
 	/** 生成未支付订单 */
 	public GoodOrder createOrderToPay(User user, Good good, double price, int count, String mobile, String realName, String code) {
@@ -110,5 +116,16 @@ public class GoodOrderService {
 	public void changeStatus(String id, OrderStatus status) {
 		GoodOrder order=repository.findOne(id);
 		order.setStatus(status);
+	}
+	
+	public void calcelOrder(String id, String userId) {
+		GoodOrder order=repository.findOne(id);
+		if(!order.getUser().getId().equals(userId))
+			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "这不是您的订单");
+		changeStatus(id, OrderStatus.CANCEL);
+		
+		//重置预约
+		DecoratePackage dPackage=((PackageGood)order.getGood()).getDecoratePackage();
+		packageAppointService.resetAppoint(userId, dPackage.getId());
 	}
 }
