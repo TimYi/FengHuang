@@ -104,7 +104,7 @@ public class AppointService extends DtoUnreadRemindSpecificationService<Appoint,
 		couponsAllocater.allocate(CouponsAllocater.APPOINT_SERVICE, user.getId());
 		
 		//发送预约成功提示短信
-		messageSender.appointSuccess(mobile, appoint.getUser().getCnname(), appoint.getCreateTime(), 
+		messageSender.appointSuccess(mobile, appoint.getCreateTime(), 
 				appoint.getCity().getName(),appoint.getCode(), appoint.getRealName(), mobile);
 		
 		return adapter.convertToDetailedDto(appoint);
@@ -139,7 +139,7 @@ public class AppointService extends DtoUnreadRemindSpecificationService<Appoint,
 		try {
 			//发送预约成功提示短信
 			String mobile=order.getUser().getMobile();
-			messageSender.appointSuccess(mobile, appoint.getUser().getCnname(), appoint.getCreateTime(), 
+			messageSender.appointSuccess(mobile, appoint.getCreateTime(), 
 					appoint.getCity().getName(),appoint.getCode(), appoint.getRealName(), mobile);
 		} catch (Exception e) {
 			LogUtils.errorLog(e);

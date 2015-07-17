@@ -158,7 +158,7 @@ public class PufaPayService {
 			try {
 				PackageGood pGood=((PackageGood)pay.getOrder().getGood());
 				DecoratePackage dPackage=pGood.getDecoratePackage();
-				messageSender.paySuccess(pay.getOrder().getMobile(), pay.getOrder().getUser().getCnname(),
+				messageSender.paySuccess(pay.getOrder().getMobile(), pay.getOrder().getUser().getRealName(),
 						pay.getPayTime(), dPackage.getName(),
 						pay.getPayedMoney(), pay.getOrder().getCode());
 			} catch (Exception e) {
