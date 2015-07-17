@@ -162,7 +162,7 @@ $(".m_logo").hover(function(){
 												                    </div>
 												                </div-->
 <style>
-	.file{ height:30px; filter:alpha(opacity:0);opacity: 0;width:30px;cursor: pointer;} 
+	.file{ height:30px; filter:alpha(opacity:0);opacity: 0;width:30px;cursor: pointer;margin:-30px -30px 0 0;border:1px solid #000} 
 </style>																				
 										                    <div class="recent-work-wrap">
 										                        <img class="img-responsive" src="../images/blog/avatar3.png" alt="" style="-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius:50%;border:3px #f9f9f9 solid;width:70px;height:70px;">
