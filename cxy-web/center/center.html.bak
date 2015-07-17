@@ -161,16 +161,14 @@ $(".m_logo").hover(function(){
 												                        </div>
 												                    </div>
 												                </div-->
-										
+<style>
+	.file{ position:absolute; top:0; right:0; height:24px; filter:alpha(opacity:0);opacity: 0;width:auto } 
+</style>																				
 										                    <div class="recent-work-wrap">
 										                        <img class="img-responsive" src="../images/blog/avatar3.png" alt="" style="-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius:50%;border:3px #f9f9f9 solid;width:70px;height:70px;">
-										                        <div class="overlay" style="-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius:50%;border:3px #f9f9f9 solid;width:70px;height:70px;">
+										                        <div class="overlay" style="-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius:50%;border:3px #f9f9f9 solid;width:70px;height:70px;margin-top:5px">
 										                            <div class="recent-work-inner" >
-										                                <h3><a href="#">01客厅</a> </h3>
-										                                <p>
-																											上传图片
-										                                </p>
-
+																										<input type="file" name="fileField" class="file" id="fileField" size="28" onchange="document.getElementById('textfield').value=this.value" /> 
 										                            </div>
 										                        </div>
 										                    </div>
