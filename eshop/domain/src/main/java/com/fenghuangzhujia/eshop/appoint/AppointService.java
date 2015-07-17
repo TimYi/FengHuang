@@ -134,6 +134,12 @@ public class AppointService extends DtoUnreadRemindSpecificationService<Appoint,
 		appoint.setCode(code);
 		
 		appoint=getRepository().save(appoint);
+		
+		//发送预约成功提示短信
+		String mobile=order.getUser().getMobile();
+		messageSender.appointSuccess(mobile, appoint.getUser().getCnname(), appoint.getCreateTime(), 
+				appoint.getCity().getName(),appoint.getCode(), appoint.getRealName(), mobile);
+		
 		return adapter.convertToDetailedDto(appoint);
 	}
 	
