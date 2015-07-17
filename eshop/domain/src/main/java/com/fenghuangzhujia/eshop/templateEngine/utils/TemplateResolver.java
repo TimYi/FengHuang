@@ -54,6 +54,7 @@ public class TemplateResolver {
 	}
 	
 	private static String getVariableValue(String name, Set<VariableValue> values) {
+		if(values==null) return null;
 		for (VariableValue value : values) {
 			if(value.getName().equals(name)) {
 				return value.toString();
@@ -96,6 +97,7 @@ public class TemplateResolver {
 	 * @return
 	 */
 	private static void validate(Set<VariableDefinition> definitions) {
+		if(definitions==null) return;
 		Set<String> names=new HashSet<>();
 		for (VariableDefinition definition : definitions) {
 			String name=definition.getName();
