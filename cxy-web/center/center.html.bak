@@ -163,6 +163,9 @@ $(".m_logo").hover(function(){
 												                </div-->
 <style>
 	.file{ height:20px; filter:alpha(opacity:0);opacity: 0;width:20px } 
+	.file-box{ position:relative;width:340px}
+	.txt{ height:22px; border:1px solid #cdcdcd; width:180px;}
+	.btn{ background-color:#FFF; border:1px solid #CDCDCD;height:24px; width:70px;} 	
 </style>																				
 										                    <div class="recent-work-wrap">
 										                        <img class="img-responsive" src="../images/blog/avatar3.png" alt="" style="-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius:50%;border:3px #f9f9f9 solid;width:70px;height:70px;">
