@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fenghuangzhujia.eshop.appoint.AppointService;
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
 import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
+import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder.OrderStatus;
 import com.fenghuangzhujia.eshop.core.commerce.order.dto.GoodOrderDto;
 import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrderService;
@@ -21,6 +22,7 @@ import com.fenghuangzhujia.eshop.core.commerce.pay.PufaPay;
 import com.fenghuangzhujia.eshop.core.commerce.pay.PufaPayService;
 import com.fenghuangzhujia.eshop.core.utils.LogUtils;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
+import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
 @RestController
@@ -47,6 +49,19 @@ public class OrderController {
 		String userid=details.getId();
 		GoodOrderDto result=orderService.findOneByUser(userid, id);
 		return RequestResult.success(result).toJson();
+	}
+	
+	@RequestMapping(value="user/order/{id}/cancel",method=RequestMethod.POST)
+	public String cancelOrder(@PathVariable String id) {
+		SimpleUserDetails details=AuthenticationService.getUserDetail();
+		String userid=details.getId();
+		GoodOrderDto result=orderService.findOneByUser(userid, id);
+		if(result!=null) {
+			if(result.getStatus()!=OrderStatus.WAITING)
+				throw new ErrorCodeException(SystemErrorCodes.OTHER, "暂时不能取消已支付订单");
+			orderService.changeStatus(id, OrderStatus.CANCEL);
+		}
+		return RequestResult.success("取消成功").toJson();
 	}
 	
 	@RequestMapping(value="order/{orderId}/pay/pufa",method=RequestMethod.POST)
