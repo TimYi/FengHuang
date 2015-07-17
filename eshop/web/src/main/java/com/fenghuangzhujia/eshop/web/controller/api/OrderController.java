@@ -84,6 +84,7 @@ public class OrderController {
 				// 支付回调确认成功之后，无论如何返回给用户支付成功的页面
 			}			
 		} catch (Exception e) {
+			LogUtils.errorLog(e);
 			view.addObject("result", false);
 		}
 		return view;
