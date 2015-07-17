@@ -164,8 +164,8 @@ $(".m_logo").hover(function(){
 										
 										                    <div class="recent-work-wrap">
 										                        <img class="img-responsive" src="../images/blog/avatar3.png" alt="" style="-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius:50%;border:3px #f9f9f9 solid;width:70px;height:70px;">
-										                        <div class="overlay">
-										                            <div class="recent-work-inner" style="-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius:50%;border:3px #f9f9f9 solid;width:70px;height:70px;">
+										                        <div class="overlay" style="-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius:50%;border:3px #f9f9f9 solid;width:70px;height:70px;">
+										                            <div class="recent-work-inner" >
 										                                <h3><a href="#">01客厅</a> </h3>
 										                                <p>
 																											上传图片
