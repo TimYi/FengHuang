@@ -122,6 +122,8 @@ public class GoodOrderService {
 		GoodOrder order=repository.findOne(id);
 		if(!order.getUser().getId().equals(userId))
 			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "这不是您的订单");
+		if(order.getStatus()!=OrderStatus.WAITING)
+			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "只能取消尚未支付的订单");
 		changeStatus(id, OrderStatus.CANCEL);
 		
 		//重置预约
