@@ -22,7 +22,7 @@ $(function(){
 	if(!g.loginStatus){
 		location.replace("index.html");
 	}
-	if(!g.orderResult){
+	if(g.orderResult == "false"){
 		//支付失败
 		var html = [];
 		html.push('<div style="margin:50px 0 0 50px;padding:10px;text-align:center;vertical-align:middle;border:4px solid #ff0000;-moz-border-radius:50%;-webkit-border-radius:50%;border-radius:50%; height:100px;width:100px">');
@@ -94,7 +94,7 @@ $(function(){
 		var orderId = obj.code;
 		var payTime = obj.payTime || "";
 		var html = [];
-		if(!g.orderResult){
+		if(g.orderResult == "true"){
 			html.push('<li style="font-weight:800;font-size:20px">您已支付成功</li>');
 		}
 		else{
