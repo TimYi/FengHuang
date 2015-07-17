@@ -8,7 +8,7 @@ import java.util.List;
 
 import nl.captcha.Captcha;
 import nl.captcha.backgrounds.GradiatedBackgroundProducer;
-import nl.captcha.text.renderer.ColoredEdgesWordRenderer;
+import nl.captcha.text.renderer.DefaultWordRenderer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -27,7 +27,7 @@ public class CaptchaManager implements ValidateManager {
     private static final List<Font> FONTS = new ArrayList<Font>(3);
     
     static {
-        COLORS.add(Color.BLUE);
+        COLORS.add(Color.BLACK);
 
         FONTS.add(new Font("Geneva", Font.ITALIC, 48));
         FONTS.add(new Font("Courier", Font.BOLD, 48));
@@ -53,11 +53,12 @@ public class CaptchaManager implements ValidateManager {
 
 	@Override
 	public BufferedImage create(String id) {
-		ColoredEdgesWordRenderer wordRenderer = new ColoredEdgesWordRenderer(COLORS, FONTS);
+		//ColoredEdgesWordRenderer wordRenderer = new ColoredEdgesWordRenderer(COLORS, FONTS);
+		DefaultWordRenderer wordRenderer=new DefaultWordRenderer(COLORS, FONTS);
         Captcha captcha = new Captcha.Builder(width, height).addText(wordRenderer)
                 .gimp()
                 //.addNoise()
-                .addBackground(new GradiatedBackgroundProducer(Color.DARK_GRAY,Color.LIGHT_GRAY))
+                .addBackground(new GradiatedBackgroundProducer(Color.LIGHT_GRAY,Color.WHITE))
                 .build();
         String code=captcha.getAnswer();
         BasicValidater validater=new BasicValidater(id, code, expireMinutes);
