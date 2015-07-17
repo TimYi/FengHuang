@@ -94,7 +94,7 @@ $(function(){
 		var orderId = obj.code;
 		var payTime = obj.payTime || "";
 		var html = [];
-		if(!g.orderResult){
+		if(g.orderResult == "true"){
 			html.push('<li style="font-weight:800;font-size:20px">您已支付成功</li>');
 		}
 		else{
