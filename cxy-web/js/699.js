@@ -14,6 +14,8 @@ $(function(){
 	g.paseSize = 20;
 	g.httpTip = new Utils.httpTip({});
 	g.listdata = [];
+	//标识是否抢购成功
+	g.hasbuy = false;
 	g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
 	//验证登录状态
 	g.loginStatus = Utils.getUserInfo();
@@ -606,6 +608,7 @@ $(function(){
 			var hasAppointed = obj.hasAppointed || false;
 			var couldAppoint = obj.couldAppoint || false;
 			var hasScrambled = obj.hasScrambled || false;
+
 			if(id == Utils.getQueryString("id")){
 				//699
 				if(status == "PREPARE"){
@@ -624,6 +627,31 @@ $(function(){
 						}
 					}
 					else{
+						//判断是否可以抢购
+						if(hasAppointed){
+							//可以抢购
+							if(g.loginStatus){
+								$(".buynow").html('<div onclick="miaoSha(\'' + id + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+								//html.push('<a href="javascript:miaoSha(\'' + id + '\')">');
+							}
+							else{
+								var page = "center/login.html";
+								$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+							}
+						}
+						else{
+							//不能抢购
+							if(g.loginStatus){
+								var page = "center/c_order.html?token=" + g.token + "&p=7";
+								$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+							}
+							else{
+								var page = "center/login.html";
+								$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+							}
+						}
+
+						//~ hasScrambled:标识是否已经抢购完并且尚未付款
 						if(hasScrambled){
 							var page = "center/c_order.html?token=" + g.token + "&p=7";
 							$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
@@ -650,6 +678,11 @@ $(function(){
 	}
 
 	function miaoSha(id){
+		if(g.hasbuy){
+			//直接跳订单
+			location.href = "center/c_order.html?token=" + g.token + "&p=7";
+			return;
+		}
 		var url = Base.scramble;
 		var condi = {};
 		condi.token = g.token;
@@ -667,6 +700,7 @@ $(function(){
 				console.log("miaoSha",data);
 				var status = data.status || "";
 				if(status == "OK"){
+					g.hasbuy = true;
 					alert("抢购成功");
 					//Utils.alert("抢购成功");
 					//var orderId = data.result.id;
