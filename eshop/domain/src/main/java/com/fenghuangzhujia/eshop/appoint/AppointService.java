@@ -21,6 +21,7 @@ import com.fenghuangzhujia.eshop.core.rlmessage.MessageSender;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.eshop.core.utils.CodeGenerater;
+import com.fenghuangzhujia.eshop.core.utils.LogUtils;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
 import com.fenghuangzhujia.eshop.prudoct.scramble.PackageGood;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
@@ -135,10 +136,15 @@ public class AppointService extends DtoUnreadRemindSpecificationService<Appoint,
 		
 		appoint=getRepository().save(appoint);
 		
-		//发送预约成功提示短信
-		String mobile=order.getUser().getMobile();
-		messageSender.appointSuccess(mobile, appoint.getUser().getCnname(), appoint.getCreateTime(), 
-				appoint.getCity().getName(),appoint.getCode(), appoint.getRealName(), mobile);
+		try {
+			//发送预约成功提示短信
+			String mobile=order.getUser().getMobile();
+			messageSender.appointSuccess(mobile, appoint.getUser().getCnname(), appoint.getCreateTime(), 
+					appoint.getCity().getName(),appoint.getCode(), appoint.getRealName(), mobile);
+		} catch (Exception e) {
+			LogUtils.errorLog(e);
+		}
+		
 		
 		return adapter.convertToDetailedDto(appoint);
 	}
