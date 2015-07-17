@@ -8,19 +8,20 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.eshop.appoint.dto.AppointDto;
 import com.fenghuangzhujia.eshop.appoint.dto.AppointInputArgs;
+import com.fenghuangzhujia.eshop.commerce.order.GoodOrder;
+import com.fenghuangzhujia.eshop.commerce.order.GoodOrderRepository;
 import com.fenghuangzhujia.eshop.core.area.Area;
 import com.fenghuangzhujia.eshop.core.area.AreaRepository;
 import com.fenghuangzhujia.eshop.core.area.Area.AreaLevel;
 import com.fenghuangzhujia.eshop.core.base.Dics;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
-import com.fenghuangzhujia.eshop.core.commerce.couponsDef.CouponsAllocater;
-import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder;
-import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrderRepository;
+import com.fenghuangzhujia.eshop.core.couponsDef.CouponsAllocater;
 import com.fenghuangzhujia.eshop.core.remind.impl.DtoUnreadRemindSpecificationService;
 import com.fenghuangzhujia.eshop.core.rlmessage.MessageSender;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.eshop.core.utils.CodeGenerater;
+import com.fenghuangzhujia.eshop.core.utils.LogUtils;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
 import com.fenghuangzhujia.eshop.prudoct.scramble.PackageGood;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
@@ -103,7 +104,8 @@ public class AppointService extends DtoUnreadRemindSpecificationService<Appoint,
 		couponsAllocater.allocate(CouponsAllocater.APPOINT_SERVICE, user.getId());
 		
 		//发送预约成功提示短信
-		messageSender.appointSuccess(mobile);
+		messageSender.appointSuccess(mobile, appoint.getCreateTime(), 
+				appoint.getCity().getName(),appoint.getCode(), appoint.getRealName(), mobile);
 		
 		return adapter.convertToDetailedDto(appoint);
 	}
@@ -133,6 +135,17 @@ public class AppointService extends DtoUnreadRemindSpecificationService<Appoint,
 		appoint.setCode(code);
 		
 		appoint=getRepository().save(appoint);
+		
+		try {
+			//发送预约成功提示短信
+			String mobile=order.getUser().getMobile();
+			messageSender.appointSuccess(mobile, appoint.getCreateTime(), 
+					appoint.getCity().getName(),appoint.getCode(), appoint.getRealName(), mobile);
+		} catch (Exception e) {
+			LogUtils.errorLog(e);
+		}
+		
+		
 		return adapter.convertToDetailedDto(appoint);
 	}
 	

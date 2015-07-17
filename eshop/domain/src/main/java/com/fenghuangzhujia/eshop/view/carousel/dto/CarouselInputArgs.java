@@ -2,6 +2,7 @@ package com.fenghuangzhujia.eshop.view.carousel.dto;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fenghuangzhujia.eshop.templateEngine.fragment.dto.TemplateFragmentInputArgs;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
 public class CarouselInputArgs extends DtoBaseModel {
@@ -12,16 +13,8 @@ public class CarouselInputArgs extends DtoBaseModel {
 	private int ordernum;
 	/**背景图片*/
 	private MultipartFile picFile;
-	/**左侧标题*/
-	private String title;
-	/**左侧内容文字*/
-	private String content;
-	/**按钮文字*/
-	private String buttonText;
-	/**button链接*/
-	private String buttonUrl;
-	/**右侧区域富文本*/
-	private String rightArea;
+	/**模板配置信息*/
+	private TemplateFragmentInputArgs fragmentInfo;
 	
 	public String getPageId() {
 		return pageId;
@@ -41,34 +34,10 @@ public class CarouselInputArgs extends DtoBaseModel {
 	public void setPicFile(MultipartFile picFile) {
 		this.picFile = picFile;
 	}
-	public String getTitle() {
-		return title;
+	public TemplateFragmentInputArgs getFragmentInfo() {
+		return fragmentInfo;
 	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
-	}
-	public String getButtonText() {
-		return buttonText;
-	}
-	public void setButtonText(String buttonText) {
-		this.buttonText = buttonText;
-	}
-	public String getButtonUrl() {
-		return buttonUrl;
-	}
-	public void setButtonUrl(String buttonUrl) {
-		this.buttonUrl = buttonUrl;
-	}
-	public String getRightArea() {
-		return rightArea;
-	}
-	public void setRightArea(String rightArea) {
-		this.rightArea = rightArea;
+	public void setFragmentInfo(TemplateFragmentInputArgs fragmentInfo) {
+		this.fragmentInfo = fragmentInfo;
 	}
 }

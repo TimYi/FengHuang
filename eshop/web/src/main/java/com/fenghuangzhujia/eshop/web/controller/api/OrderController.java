@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fenghuangzhujia.eshop.appoint.AppointService;
+import com.fenghuangzhujia.eshop.commerce.order.GoodOrderService;
+import com.fenghuangzhujia.eshop.commerce.order.GoodOrder.OrderStatus;
+import com.fenghuangzhujia.eshop.commerce.order.dto.GoodOrderDto;
+import com.fenghuangzhujia.eshop.commerce.pay.PufaPay;
+import com.fenghuangzhujia.eshop.commerce.pay.PufaPayService;
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
 import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
-import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder.OrderStatus;
-import com.fenghuangzhujia.eshop.core.commerce.order.dto.GoodOrderDto;
-import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrderService;
-import com.fenghuangzhujia.eshop.core.commerce.pay.PufaPay;
-import com.fenghuangzhujia.eshop.core.commerce.pay.PufaPayService;
 import com.fenghuangzhujia.eshop.core.utils.LogUtils;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
@@ -49,6 +49,14 @@ public class OrderController {
 		return RequestResult.success(result).toJson();
 	}
 	
+	@RequestMapping(value="user/order/{id}/cancel",method=RequestMethod.POST)
+	public String cancelOrder(@PathVariable String id) {
+		SimpleUserDetails details=AuthenticationService.getUserDetail();
+		String userid=details.getId();
+		orderService.calcelOrder(id, userid);
+		return RequestResult.success("取消成功").toJson();
+	}
+	
 	@RequestMapping(value="order/{orderId}/pay/pufa",method=RequestMethod.POST)
 	public String pufaPay(@PathVariable String orderId, String couponsId, 
 			PayBank payBank, AccountType accountType){
@@ -76,6 +84,7 @@ public class OrderController {
 				// 支付回调确认成功之后，无论如何返回给用户支付成功的页面
 			}			
 		} catch (Exception e) {
+			LogUtils.errorLog(e);
 			view.addObject("result", false);
 		}
 		return view;

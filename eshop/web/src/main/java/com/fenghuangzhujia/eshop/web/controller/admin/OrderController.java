@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrderService;
-import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrder.OrderStatus;
-import com.fenghuangzhujia.eshop.core.commerce.order.dto.GoodOrderDto;
+import com.fenghuangzhujia.eshop.commerce.order.GoodOrderService;
+import com.fenghuangzhujia.eshop.commerce.order.GoodOrder.OrderStatus;
+import com.fenghuangzhujia.eshop.commerce.order.dto.GoodOrderDto;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 import com.fenghuangzhujia.foundation.core.rest.SpecificationController;

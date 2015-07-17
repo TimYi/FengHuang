@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.fenghuangzhujia.eshop.core.commerce.order.GoodOrderService;
-import com.fenghuangzhujia.eshop.core.commerce.order.dto.GoodOrderDto;
+import com.fenghuangzhujia.eshop.commerce.order.GoodOrderService;
+import com.fenghuangzhujia.eshop.commerce.order.dto.GoodOrderDto;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.utils.JsonSerializer;
 

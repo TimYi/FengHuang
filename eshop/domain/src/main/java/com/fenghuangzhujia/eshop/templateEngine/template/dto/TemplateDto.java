@@ -2,7 +2,6 @@ package com.fenghuangzhujia.eshop.templateEngine.template.dto;
 
 import java.util.Set;
 
-import com.fenghuangzhujia.eshop.templateEngine.template.VariableDefinitionDto;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 import com.fenghuangzhujia.foundation.media.MediaContentDto;
 

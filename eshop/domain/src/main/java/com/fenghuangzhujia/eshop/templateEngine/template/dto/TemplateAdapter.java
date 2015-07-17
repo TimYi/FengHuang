@@ -8,11 +8,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fenghuangzhujia.eshop.core.utils.LogUtils;
-import com.fenghuangzhujia.eshop.templateEngine.template.TemplateResolver;
 import com.fenghuangzhujia.eshop.templateEngine.template.Template;
 import com.fenghuangzhujia.eshop.templateEngine.template.TemplateRepository;
 import com.fenghuangzhujia.eshop.templateEngine.template.VariableDefinition;
 import com.fenghuangzhujia.eshop.templateEngine.template.VariableDefinitionRepository;
+import com.fenghuangzhujia.eshop.templateEngine.utils.TemplateResolver;
 import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
 import com.fenghuangzhujia.foundation.media.MediaContent;
 import com.fenghuangzhujia.foundation.media.MediaService;

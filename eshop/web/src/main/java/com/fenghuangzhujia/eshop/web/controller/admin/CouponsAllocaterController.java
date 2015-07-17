@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fenghuangzhujia.eshop.core.commerce.couponsDef.CouponsAllocater;
-import com.fenghuangzhujia.eshop.core.commerce.couponsDef.CouponsDefService;
-import com.fenghuangzhujia.eshop.core.commerce.couponsDef.dto.CouponsDefDto;
-import com.fenghuangzhujia.eshop.core.commerce.couponsDef.dto.CouponsDefInputArgs;
+import com.fenghuangzhujia.eshop.core.couponsDef.CouponsAllocater;
+import com.fenghuangzhujia.eshop.core.couponsDef.CouponsDefService;
+import com.fenghuangzhujia.eshop.core.couponsDef.dto.CouponsDefDto;
+import com.fenghuangzhujia.eshop.core.couponsDef.dto.CouponsDefInputArgs;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 

@@ -72,7 +72,7 @@ $(function(){
 				else{
 					html.push('<td >' + statusText + '</td>');
 				}
-				html.push('<td><a href="c_order_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '">查看</a></td>');
+				html.push('<td><a href="c_order_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="delete_' + i + '" href="javascript:orderCancel(\'' + id + '\');" class="delete" >取消</a></td>');
 				html.push('</tr>');
 			}
 			html.push('</table>');
@@ -220,7 +220,6 @@ $(function(){
 
 
 	function miaoSha(id){
-		debugger
 		var url = Base.scramble;
 		var condi = {};
 		condi.token = g.token;
@@ -253,5 +252,40 @@ $(function(){
 		});
 	}
 
+	function orderCancel(id){
+		var url = Base.serverUrl + "/api/user/order/" + id + "/cancel";
+		var condi = {};
+		condi.token = g.token;
+		condi.id = id;
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"POST",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("orderCalcel",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					Utils.alert("取消订单成功");
+					setTimeout(function(){
+						getMyOrder();
+					},500);
+				}
+				else{
+					var msg = data.error;
+					Utils.alert("取消订单错误:" + msg);
+				}
+				g.httpTip.hide();
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+
 	window.miaoSha = miaoSha;
+	window.orderCancel = orderCancel;
 });
