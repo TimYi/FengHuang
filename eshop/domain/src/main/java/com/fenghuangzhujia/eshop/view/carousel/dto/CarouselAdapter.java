@@ -6,6 +6,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fenghuangzhujia.eshop.core.utils.LogUtils;
+import com.fenghuangzhujia.eshop.templateEngine.fragment.TemplateFragment;
+import com.fenghuangzhujia.eshop.templateEngine.fragment.TemplateFragmentRepository;
+import com.fenghuangzhujia.eshop.templateEngine.fragment.TemplateFragmentService;
+import com.fenghuangzhujia.eshop.templateEngine.fragment.dto.TemplateFragmentDto;
+import com.fenghuangzhujia.eshop.templateEngine.fragment.dto.TemplateFragmentInputArgs;
 import com.fenghuangzhujia.eshop.view.carousel.Carousel;
 import com.fenghuangzhujia.eshop.view.navigation.Navigation;
 import com.fenghuangzhujia.eshop.view.navigation.NavigationRepository;
@@ -20,6 +25,10 @@ public class CarouselAdapter extends AbstractDtoAdapter<Carousel, CarouselDto, C
 	private NavigationRepository navigationRepository;
 	@Autowired	
 	private MediaService mediaService;
+	@Autowired
+	private TemplateFragmentService templateFragmentService;
+	@Autowired
+	private TemplateFragmentRepository templateFragmentRepository;
 	
 	@Override
 	public CarouselDto postConvert(Carousel d, CarouselDto t) {
@@ -48,6 +57,19 @@ public class CarouselAdapter extends AbstractDtoAdapter<Carousel, CarouselDto, C
 				LogUtils.errorLog(e);
 			}			
 		}
+		
+		TemplateFragmentInputArgs fragmentInfo=i.getFragmentInfo();
+		if(fragmentInfo!=null) {
+			//记录老模板，更新出新模板之后，删除老模板
+			TemplateFragment oldFragment=d.getFragment();
+			TemplateFragmentDto dto=templateFragmentService.add(fragmentInfo);
+			TemplateFragment fragment=templateFragmentRepository.findOne(dto.getId());
+			d.setFragment(fragment);
+			if(oldFragment!=null) {
+				templateFragmentRepository.delete(oldFragment);
+			}
+		}
+
 		return d;
 	}
 

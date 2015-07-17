@@ -1,12 +1,12 @@
 package com.fenghuangzhujia.eshop.view.carousel;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Type;
-
+import com.fenghuangzhujia.eshop.templateEngine.fragment.TemplateFragment;
 import com.fenghuangzhujia.eshop.view.navigation.Navigation;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 import com.fenghuangzhujia.foundation.media.MediaContent;
@@ -21,16 +21,9 @@ public class Carousel extends UUIDBaseModel {
 	private int ordernum;
 	/**背景图片*/
 	private MediaContent pic;
-	/**左侧标题*/
-	private String title;
-	/**左侧内容文字*/
-	private String content;
-	/**按钮文字*/
-	private String buttonText;
-	/**button链接*/
-	private String buttonUrl;
-	/**右侧富文本*/
-	private String rightArea;
+	/**动态模板*/
+	private TemplateFragment fragment;
+	
 	
 	@ManyToOne
 	public Navigation getPage() {
@@ -52,35 +45,11 @@ public class Carousel extends UUIDBaseModel {
 	public void setPic(MediaContent pic) {
 		this.pic = pic;
 	}
-	public String getTitle() {
-		return title;
+	@ManyToOne(cascade=CascadeType.ALL)
+	public TemplateFragment getFragment() {
+		return fragment;
 	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
-	}
-	public String getButtonText() {
-		return buttonText;
-	}
-	public void setButtonText(String buttonText) {
-		this.buttonText = buttonText;
-	}
-	public String getButtonUrl() {
-		return buttonUrl;
-	}
-	public void setButtonUrl(String buttonUrl) {
-		this.buttonUrl = buttonUrl;
-	}
-	@Type(type="text")
-	public String getRightArea() {
-		return rightArea;
-	}
-	public void setRightArea(String rightArea) {
-		this.rightArea = rightArea;
+	public void setFragment(TemplateFragment fragment) {
+		this.fragment = fragment;
 	}
 }

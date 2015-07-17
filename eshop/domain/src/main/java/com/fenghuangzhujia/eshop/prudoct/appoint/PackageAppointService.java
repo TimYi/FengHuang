@@ -8,7 +8,7 @@ import com.fenghuangzhujia.eshop.core.area.Area;
 import com.fenghuangzhujia.eshop.core.area.AreaRepository;
 import com.fenghuangzhujia.eshop.core.area.Area.AreaLevel;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
-import com.fenghuangzhujia.eshop.core.commerce.couponsDef.CouponsAllocater;
+import com.fenghuangzhujia.eshop.core.couponsDef.CouponsAllocater;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
@@ -74,6 +74,18 @@ public class PackageAppointService extends DtoSpecificationService<PackageAppoin
 		couponsAllocater.allocate(CouponsAllocater.APPOINT_PACKAGE, user.getId());
 		
 		return adapter.convertToDetailedDto(appoint);
+	}
+	
+	/**
+	 * 重置用户预约为可用。
+	 * 目前用于用户支付成功之后，让用户可以抢购相同套餐
+	 * @param userId
+	 * @param packageId
+	 */
+	public void resetAppoint(String userId, String packageId) {
+		PackageAppoint appoint=getAliveAppoint(userId, packageId);
+		if(appoint==null) return;
+		appoint.setUsed(false);
 	}
 	
 	/**

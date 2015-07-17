@@ -18,7 +18,7 @@ import com.fenghuangzhujia.eshop.comment.CommentItemService;
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationManager;
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
 import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
-import com.fenghuangzhujia.eshop.core.commerce.coupons.CouponsService;
+import com.fenghuangzhujia.eshop.core.coupons.CouponsService;
 import com.fenghuangzhujia.eshop.core.user.UserService;
 import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
 import com.fenghuangzhujia.eshop.core.user.dto.UserInputArgs;

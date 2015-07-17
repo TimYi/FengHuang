@@ -15,6 +15,6 @@ public interface PackageGoodRepository extends PagingAndSortingRepository<Packag
 	 * @return
 	 */
 	@Query("select p from PackageGood p join p.decoratePackage dp,GoodOrder o join o.good g join o.user u "
-			+ "where u.id=?1 and dp.id=?2 and p.id=g.id")
+			+ "where u.id=?1 and dp.id=?2 and p.id=g.id and o.status=0")
 	public List<PackageGood> processingUserPackageOrder(String userId, String packageId);
 }

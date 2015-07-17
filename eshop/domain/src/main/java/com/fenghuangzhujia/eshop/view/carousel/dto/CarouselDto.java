@@ -1,5 +1,6 @@
 package com.fenghuangzhujia.eshop.view.carousel.dto;
 
+import com.fenghuangzhujia.eshop.templateEngine.fragment.dto.TemplateFragmentDto;
 import com.fenghuangzhujia.eshop.view.navigation.dto.NavigationVo;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 import com.fenghuangzhujia.foundation.media.MediaContentDto;
@@ -12,16 +13,8 @@ public class CarouselDto extends DtoBaseModel {
 	private int ordernum;
 	/**背景图片*/
 	private MediaContentDto pic;
-	/**左侧标题*/
-	private String title;
-	/**左侧内容文字*/
-	private String content;
-	/**按钮文字*/
-	private String buttonText;
-	/**button链接*/
-	private String buttonUrl;
-	/**右侧富文本*/
-	private String rightArea;
+	/**动态模板*/
+	private TemplateFragmentDto fragment;
 	
 	public NavigationVo getPage() {
 		return page;
@@ -41,34 +34,10 @@ public class CarouselDto extends DtoBaseModel {
 	public void setPic(MediaContentDto pic) {
 		this.pic = pic;
 	}
-	public String getTitle() {
-		return title;
+	public TemplateFragmentDto getFragment() {
+		return fragment;
 	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
-	}
-	public String getButtonText() {
-		return buttonText;
-	}
-	public void setButtonText(String buttonText) {
-		this.buttonText = buttonText;
-	}
-	public String getButtonUrl() {
-		return buttonUrl;
-	}
-	public void setButtonUrl(String buttonUrl) {
-		this.buttonUrl = buttonUrl;
-	}
-	public String getRightArea() {
-		return rightArea;
-	}
-	public void setRightArea(String rightArea) {
-		this.rightArea = rightArea;
+	public void setFragment(TemplateFragmentDto fragment) {
+		this.fragment = fragment;
 	}
 }

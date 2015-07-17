@@ -118,6 +118,11 @@ public class TemplateFragmentAdapter extends
 	/**检验输入参数是否和模板匹配*/
 	private void validate(Template template, Set<VariableValue> values) {		
 		Set<VariableDefinition> definitions=template.getDefinitions();
+		
+		if(values==null) return;
+		if(definitions==null) 
+			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "使用了模板中不需要的参数！");
+		
 		Set<String> names=new HashSet<>();
 		for (VariableValue value : values) {
 			String name=value.getName();

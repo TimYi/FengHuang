@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fenghuangzhujia.eshop.core.authentication.token.TokenRepository;
 import com.fenghuangzhujia.eshop.core.authentication.token.UserToken;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
-import com.fenghuangzhujia.eshop.core.commerce.couponsDef.CouponsAllocater;
+import com.fenghuangzhujia.eshop.core.couponsDef.CouponsAllocater;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.eshop.core.validate.BasicValidater;

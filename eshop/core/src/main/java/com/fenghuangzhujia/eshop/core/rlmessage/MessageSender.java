@@ -1,5 +1,8 @@
 package com.fenghuangzhujia.eshop.core.rlmessage;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 import org.springframework.stereotype.Component;
@@ -32,13 +35,15 @@ public class MessageSender {
 	 * 封装预约成功短信通知
 	 * @param telephone
 	 */
-	public void appointSuccess(String telephone) {
-		sendMessage(telephone, Config.APPOINT_SUCCESS_TEMPLATE, null);
+	public void appointSuccess(String mobile, String cname, Date date, String city, String code, String realName, String telephone) {
+		DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String[] params={cname,format.format(date),city,code,realName,telephone};
+		sendMessage(mobile, Config.APPOINT_SUCCESS_TEMPLATE, params);
 	}
 	
-	public void paySuccess(String telephone, Double money) {
-		String[] datas=new String[1];
-		datas[0]=money.toString();
+	public void paySuccess(String telephone, String cname, Date date, String packageName, Double money, String orderCode) {
+		DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String[] datas={cname,format.format(date),packageName,money.toString(),orderCode};
 		sendMessage(telephone, Config.PAY_SUCCESS_TEMPLATE, datas);
 	}
 }
