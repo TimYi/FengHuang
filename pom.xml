@@ -233,7 +233,7 @@
 				<groupId>org.apache.tomcat</groupId>
 				<artifactId>tomcat-jdbc</artifactId>
 				<version>${tomcat-jdbc.version}</version>
-				<scope>runtime</scope>
+				<scope>provided</scope>
 			</dependency>
 			<!-- PERSISTENCE end -->
 
