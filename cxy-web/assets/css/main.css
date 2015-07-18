@@ -285,11 +285,11 @@ input.search-form:hover {
  }
 
 .navbar-nav>li{
-  margin-left: 20px;
+  margin-left: 15px;
   padding-bottom: 28px;
  /*usradd*/
  border-right:1px #efefef solid;
- padding: 0 18px 0 0;
+ padding: 0 13px 0 0;
  margin-bottom:28px;
  
 }
