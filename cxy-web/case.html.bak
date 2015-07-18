@@ -190,9 +190,8 @@ $(".m_logo").hover(function(){
             </div>
             <ul id="packagename" class="portfolio-filter text-center" style="float:left">
                 <li><a class="btn btn-default active" href="javascript:void(0);" data-filter="*">全部</a></li>
-                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".nihao">499套餐</a></li>
+                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".nihao">599套餐</a></li>
                 <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".html">699套餐</a></li>
-                <li><a class="btn btn-default" href="javascript:void(0);" data-filter=".html">799套餐</a></li>
             </ul><!--/#portfolio-filter-->
             <!--div style="clear:both"></div>
             <ul id="packagestype1" class="portfolio-filter text-center" style="margin-top:-20px;float:left">
