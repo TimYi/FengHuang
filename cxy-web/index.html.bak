@@ -193,15 +193,26 @@ $(".m_logo").hover(function(){
                 <div class="container">
                     <div class="row slide-margin">
                         <div class="col-sm-6 animation animated-item-1">
-                            <div class="carousel-content" style="margin-top:80px;">
-                                <!--h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;font-size:48px;font-weight:800">凤凰筑家 专筑您的爱家</h1>
+                        	
+                            <div class="carousel-content">
+                                <h1 class="animation animated-item-1" style="font-weight: 800;text-shadow: 0 0 3px #333;">凤凰筑家 专筑您的爱家</h1>
+                                <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 3px #333;line-height:24px">
+                                	互联网家装新体验挑战传统家装模式<br/>
+                                	<p style="margin-top:15px;font-size:28px;font-weight:800;line-height:28px;">史上性价比最高的家装解决方案</p>
+                                	更平价、更专业、更高效，35天标准化装修<br/>
+                                	专注工艺，不抢工期
+                                </h2>
+                            </div>                        	
+                        	
+                            <!--div class="carousel-content" style="margin-top:80px;">
+                                <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;font-size:48px;font-weight:800">凤凰筑家 专筑您的爱家</h1>
                                 <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;font-size:28px">
                                 	互联网+家装<br/>
                                 	更平价 / 更专业 / 更高效<br/>
                                 	35天标准化装修
-                                </h2-->
+                                </h2>
                                 <img src="images/new_home_page_left.png" />
-                            </div>
+                            </div-->
                         </div>
                         <div class="col-sm-6 hidden-xs animation animated-item-2">
                             <div class="slider-img" style="margin-top:50px;margin-left:220px">
@@ -278,7 +289,7 @@ $(".m_logo").hover(function(){
                             </div>
                         </div>
                         <div class="col-sm-6 hidden-xs animation animated-item-2">
-                            <div class="slider-img" style="margin-top:50px;margin-left:220px">
+                            <div class="slider-img" style="margin-top:70px;margin-left:140px">
                                 <img src="images/jzd_hd_right.png" />
                             </div>
                         </div>                        
