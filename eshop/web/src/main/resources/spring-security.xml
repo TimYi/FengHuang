@@ -19,7 +19,7 @@
 		<form-login login-page="/admin/login" login-processing-url="/admin/login"/>
 		<access-denied-handler error-page="/accessDenied"/>
 		<intercept-url pattern="/admin/login" access="permitAll"/>
-		<intercept-url pattern="/admin/*" access="hasRole('ADMIN')"/>
+		<intercept-url pattern="/admin/**" access="hasRole('ADMIN')"/>
 		<!-- 
 		<intercept-url pattern="/admin" access="hasAnyRole('${authority.designer}','${authority.admin}','${authority.enter}')"/>
 		<intercept-url pattern="/admin/authentication" access="hasRole('${authority.admin}')"/>
