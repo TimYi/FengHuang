@@ -554,13 +554,13 @@ $(function(){
 				data:condi,
 				secureuri: false, //一般设置为false
 				fileElementId: 'avatar', //文件上传空间的id属性  <input type="file" id="file" name="file" />
-				dataType: 'json', //返回值类型 一般设置为json
+				dataType: 'jsonp', //返回值类型 一般设置为json
 				success: function (data, status)  //服务器成功响应处理函数
 				{
 					g.httpTip.hide();
 					Utils.alert("头像上传成功");
 					console.log("ajaxFileUpload",data,status);
-					//location.reload();
+					location.reload();
 
 
 					/*
@@ -600,7 +600,7 @@ $(function(){
 		//获取截取的最后一个字符串，即为后缀名
 		var last=three[three.length-1];
 		//添加需要判断的后缀名类型
-		var tp ="jpg,gif,bmp,JPG,GIF,BMP";
+		var tp ="jpg,gif,bmp,JPG,GIF,BMP,png";
 		//返回符合条件的后缀名在字符串中的位置
 		var rs=tp.indexOf(last);
 		//如果返回的结果大于或等于0，说明包含允许上传的文件类型
