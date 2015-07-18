@@ -372,7 +372,13 @@ $(function(){
 			var column = obj[i].column || "";
 			var createTime = obj[i].createTime || "";
 			var content = obj[i].content || "";
-			var avatar = obj[i].user.avatar || "images/blog/avatar3.png";
+			var avatar = obj[i].user.avatar || "";
+			if(avatar !== ""){
+				avatar = avatar.url || "images/blog/avatar3.png";
+			}
+			else{
+				avatar = "images/blog/avatar3.png";
+			}
 			var realName = obj[i].user.realName || "";
 			html.push('<div class="media comment_section">');
 			html.push('<div class="pull-left post_comments">');
