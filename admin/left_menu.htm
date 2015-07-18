@@ -16,6 +16,7 @@
 	var MODULE_MATERIAL_URL = MODULE_HOST_URL + "materiallist.htm";
 	var MODULE_NAVIGATION_URL = MODULE_HOST_URL + "navigationlist.htm";
 	var MODULE_CAROUSEL_URL = MODULE_HOST_URL + "carousellist.htm";
+	var MODULE_TEMPLATE_URL = MODULE_HOST_URL + "templatelist.htm";
 	function openUsrMgr(){		
 		window.parent.frames["main"].location.href=MODULE_USR_URL;
 	}
@@ -76,8 +77,9 @@
 	function openCarouselMgr(){		
 		window.parent.frames["main"].location.href=MODULE_CAROUSEL_URL;
 	}
-	
-
+	function openTemplateMgr(){		
+		window.parent.frames["main"].location.href=MODULE_TEMPLATE_URL;
+	}
 </script>
 </head>
 <body>
@@ -105,12 +107,10 @@
 			<div class="menubox">
 				<div class="title" onclick="DisplayMenu('leftmenu02');" title="点击切换显示或隐藏"> 用户模块管理 </div>
 				<div id="leftmenu02" style="display:none">					 			 					 
-					<div class="hr_1"> </div-->
 					<a href="#" onclick ="javascript:openUsrMgr();return false;"  target="main"><span class="subType_leftmenu">用户管理</span></a> 
 					<a href="#" onclick ="javascript:openGroupMgr();return false;"  target="main"><span class="subType_leftmenu">用户组</span></a> 
 					<a href="#" onclick ="javascript:openWorkerMgr();return false;"  target="main"><span class="subType_leftmenu">工人管理</span></a> 
 					<a href="#" onclick ="javascript:openRoleMgr();return false;"  target="main"><span class="subType_leftmenu">角色管理</span></a> 
-					<!--a href="#" target="main">用户收藏</a--> 
 					<a href="#" onclick ="javascript:openCommentItemMgr();return false;"  target="main"><span class="subType_leftmenu">用户评论</span></a>
 					<a href="#" onclick ="javascript:openMsgMgr();return false;"  target="main"><span class="subType_leftmenu">用户留言</span></a>
 				</div>
@@ -170,10 +170,11 @@
 			</div>
 			<div class="hr_5"></div>
 			<div class="menubox">
-				<div class="title" onclick="DisplayMenu('leftmenu09');" title="点击切换显示或隐藏"> 模板管理</div>
+				<div class="title" onclick="DisplayMenu('leftmenu09');" title="点击切换显示或隐藏"> 页面定制管理</div>
 				<div id="leftmenu09" style="display:none"> 
 					<a href="#" onclick ="javascript:openNavigationMgr();return false;"  target="main"><span class="subType_leftmenu">导航菜单管理</span></a> 
 					<a href="#" onclick ="javascript:openCarouselMgr();return false;"  target="main"><span class="subType_leftmenu">轮播幻灯片管理</span></a> 
+					<a href="#" onclick ="javascript:openTemplateMgr();return false;"  target="main"><span class="subType_leftmenu">模板管理</span></a> 
 				</div>
 			</div>						
 			<!--scrollbar end--> 

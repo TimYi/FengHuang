@@ -78,6 +78,12 @@
 			var buttonText = obj[i].buttonText || "";
 			var rightArea = obj[i].rightArea || "";
 
+			var content = obj[i].fragment || ""
+			if(content !== ""){
+				content = content.templateContent || "";
+			}
+			html.push(content);
+			/*
 			html.push('<div class="item ' + css + '" style="background-image: url(' + bgimg + ')">');
 			html.push('<div class="container">');
 			html.push('<div class="row slide-margin">');
@@ -107,6 +113,7 @@
 			html.push('</div>');
 			html.push('</div>');
 			html.push('</div>');
+			*/
 		}
 
 		html.push('</div>');
