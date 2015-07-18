@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.apache.commons.lang3.StringUtils;
+import org.hibernate.annotations.Type;
 
 import com.fenghuangzhujia.eshop.templateEngine.template.Template;
 import com.fenghuangzhujia.eshop.templateEngine.utils.TemplateResolver;
@@ -44,6 +44,7 @@ public class TemplateFragment extends UUIDBaseModel {
 	public void setValues(Set<VariableValue> values) {
 		this.values = values;
 	}
+	@Type(type="text")
 	public String getTemplateValue() {
 		return templateValue;
 	}
@@ -75,7 +76,6 @@ public class TemplateFragment extends UUIDBaseModel {
 	@Transient
 	/**缓存的模板是否已经过期*/
 	public boolean shouldReCalculate() {
-		if(StringUtils.isBlank(templateValue)) return true;
 		//发现template在缓存之后有变动
 		if(cachedTime==null) {
 			return true;

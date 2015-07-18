@@ -30,7 +30,7 @@ function onload(){
 	];
 	//第一步：先获取id	
 	id = getUrlParam(window.location.search,"id");
-		getDataById(ORDER_PACKAGE,id,afterGetDataById);
+	getDataById(ORDER_PACKAGE,id,afterGetDataById);
 }
 function afterGetDataById(data){
 
@@ -51,13 +51,11 @@ function afterGetDataById(data){
 		 	}
 	 	}
 	 	viewModel.submit = function(){
-	 	
-	 		var url = genUrl(ORDER_PACKAGE)+'/'+id;	 		
+	 		var url = genUrl(ORDER_PACKAGE)+'/'+id;	
 	 		var files = $('input[name="mainPicFile"]').prop('files');//获取到文件列表
 			if(files.length == 0){
 			  	submitAsyFormByJson(url, 'packageForm', 
 					function(data){
-		 			
 			 			friendlyTip(data);
 			 			window.location.href='packagelist.htm';
 		 		 	}
@@ -68,15 +66,13 @@ function afterGetDataById(data){
 			 			//判断是否要上传文件，若不需要上传文件时
 			 			
 			 			return true;  
-			 		} 
-			 		
+			 		}
 			 		,function(data){
-			 			
 			 			friendlyTip(data);
 			 			window.location.href='packagelist.htm';
 			 		}
 			 	);
-	 		}	 		
+	 		}
 	 	}
 		ko.applyBindings(viewModel);
 	}
