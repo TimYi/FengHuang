@@ -1,5 +1,9 @@
 package com.fenghuangzhujia.eshop.templateEngine;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +22,33 @@ public class TemplateServiceTest {
 	private TemplateService templateService;
 	
 	//@Test
+	public void addCarouselTemplate() {
+		String name="轮播1";
+		File file=new File("C:/Users/pc/Desktop/template.xml");
+		try {
+			String content=FileUtils.readFileToString(file);
+			addTemplate(name, content);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void updateCarouselTemplate() {
+		String name="轮播1";
+		File file=new File("C:/Users/pc/Desktop/template.xml");
+		try {
+			String content=FileUtils.readFileToString(file);
+			System.out.println(content);
+			updateTemplate("404040e64e9fa2a6014e9fa2b7ac0000", name, content);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	//@Test
 	public void add() {
 		String name="test";
 		String content="<div>arguments{{ test:TEXT :测试数据 }}</div>"
@@ -25,7 +56,7 @@ public class TemplateServiceTest {
 		addTemplate(name, content);		
 	}
 	
-	@Test
+	//@Test
 	public void update(){
 		String id="404040e64e94e3ee014e94e4048a0000";
 		String name="test";
