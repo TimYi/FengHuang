@@ -1,8 +1,8 @@
 package com.fenghuangzhujia.eshop.carousel;
 
 import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -77,7 +77,7 @@ public class CarouselServiceTest {
 		String content="地址：厦门市湖里区金泰路1798创业大街5层";
 		variable6.setText(content);
 		
-		Set<VariableValueInputArgs> inputArgs=new HashSet<>();
+		List<VariableValueInputArgs> inputArgs=new ArrayList<VariableValueInputArgs>();
 		inputArgs.add(variable1);
 		inputArgs.add(variable2);
 		inputArgs.add(variable3);
@@ -124,7 +124,7 @@ public class CarouselServiceTest {
 		File file=new File("C:/Users/pc/Desktop/test.jpg");
 		JpegMultipartFile picFile=new JpegMultipartFile(file);
 		variable2.setPicFile(picFile);
-		Set<VariableValueInputArgs> inputArgs=new HashSet<>();
+		List<VariableValueInputArgs> inputArgs=new ArrayList<VariableValueInputArgs>();
 		inputArgs.add(variable1);
 		inputArgs.add(variable2);
 		args.setValues(inputArgs);

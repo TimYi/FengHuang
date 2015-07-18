@@ -152,7 +152,7 @@ public class TemplateFragmentAdapter extends
 	}
 	
 	/**将输入参数转化为模板变量值*/
-	private Set<VariableValue> calculateValues(Set<VariableValueInputArgs> args) {
+	private Set<VariableValue> calculateValues(Iterable<VariableValueInputArgs> args) {
 		if(args==null)return null;
 		Set<VariableValue> values=new HashSet<VariableValue>();
 		for (VariableValueInputArgs arg : args) {
