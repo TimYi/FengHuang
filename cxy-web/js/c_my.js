@@ -35,6 +35,7 @@ $(function(){
 
 	//头像
 	//$("#avatarbtn").bind("click",avatarBtnUp);
+	$("#avatar").bind("change",avatarBtnUp);
 
 	//安全退出
 	function loginOut(){
@@ -508,6 +509,11 @@ $(function(){
 
 
 	function avatarBtnUp(){
+		var avatar = $("#avatar").val() || "";
+		if(avatar !== ""){
+			uploadBtnUp();
+		}
+		/*
 		var popbox = $("#popbox");
 		if(popbox.length == 0){
 			var url = Base.serverUrl + "/api/user/changeAvatar";
@@ -534,6 +540,7 @@ $(function(){
 		else{
 			popbox.show();
 		}
+		*/
 	}
 
 	function uploadBtnUp(){
@@ -550,10 +557,12 @@ $(function(){
 				dataType: 'json', //返回值类型 一般设置为json
 				success: function (data, status)  //服务器成功响应处理函数
 				{
+					g.httpTip.hide();
 					Utils.alert("头像上传成功");
-					location.reload();
-
 					console.log("ajaxFileUpload",data,status);
+					//location.reload();
+
+
 					/*
 					$("#img1").attr("src", data.imgurl);
 					if (typeof (data.error) != 'undefined') {
