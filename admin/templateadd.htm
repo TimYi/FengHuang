@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>新建模板</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/json2.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript">
+var viewModel;
+var typeDic;
+var TypeDic = function(name,value){
+		this.name = name;
+		this.value = value;
+	}
+function onload(){
+	//构造状态下拉列表
+	typeDic = [
+		new TypeDic('TEXT','TEXT'),
+		new TypeDic('IMG','IMG'),
+	];
+	viewModel={
+    	selectableType : ko.observableArray(typeDic),
+        selectedType:ko.observable() 
+    };
+   	ko.applyBindings(viewModel);
+}
+function submitTemplate(){
+
+	var url = genUrl(TEMPLATE_TEMPLATE);	
+	var files = $('input[name="picFile"]').prop('files');//获取到文件列表
+			if(files.length == 0){
+			  	submitAsyFormByJson(url, 'templateForm', 
+					function(data){
+			 			friendlyTip(data);
+		 		 	}
+	 			);
+			}else{
+		 		submitFormWithMultipart(url,'templateForm',
+			 		function(formData, jqForm, options){
+			 			//判断是否要上传文件，若不需要上传文件时
+			 			return true;  
+			 		}
+			 		,function(data){
+			 			friendlyTip(data);
+			 			window.location.href='templatelist.htm';
+			 		}
+			 	);
+	 		}
+}
+</script>
+</head>
+<body onload="onload()">
+<div class="formHeader">
+ <span class="title">新建模板</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
+</div>
+<form name="templateForm" id="templateForm" method="post" enctype="multipart/form-data"  onsubmit="return cfm_upadmin();">
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td align="right" width="25%" height="40">名称:</td>				
+				<td width="75%" ><input   class="input" name='name' type="text" ></td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >类型：</td>
+				<td width="75%" >
+					<select class="input"  data-bind="value:selectedType,options:selectableType,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					</select>
+					<input type="hidden" name='type' data-bind="value:selectedType()?selectedType().value:''"></td>
+				</td>				
+			</tr>
+			<tr>
+				<td align="right" height="40" >示意图：</td>
+				<td width="75%" >					
+					<input  type="file"  name='picFile'>
+				</td>				
+			</tr>
+			<tr>
+				<td align="right" height="40" >内容：</td>
+				<td width="75%" >					
+					<textarea name='content' id="content">
+					</textarea>
+				</td>				
+			</tr>			
+		</tbody>
+	</table>
+	<div class="formSubBtn">
+		<input class="submit" value="提交" type="button" onclick='submitTemplate();'/>
+		<input class="back" value="返回" onclick="history.go(-1)" type="button">
+	</div>
+</form>
+
+</body></html>
