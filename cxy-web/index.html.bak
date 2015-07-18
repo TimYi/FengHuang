@@ -279,7 +279,7 @@ $(".m_logo").hover(function(){
                         </div>
                         <div class="col-sm-6 hidden-xs animation animated-item-2">
                             <div class="slider-img" style="margin-top:50px;margin-left:220px">
-                                <img src="images/images/jzd_hd_left.png" />
+                                <img src="images/jzd_hd_left.png" />
                             </div>
                         </div>                        
                         <!--div class="col-sm-6 hidden-xs animation animated-item-4">
