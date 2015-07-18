@@ -271,12 +271,8 @@ $(".m_logo").hover(function(){
                 <div class="container">
                     <div class="row slide-margin">
                         <div class="col-sm-6">
-                            <div class="carousel-content">
-                                <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">凤凰家装贷</h1>
-                                <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;line-height:28px">
-                                	“没有钱”也可以装修，万元最低月供311元<br />
-                                	无抵押、无担保、分期付
-                                </h2>
+                            <div class="carousel-content" style="margin-top:80px;">
+                                <img src="images/jzd_hd_left.png.png" />
                             </div>
                         </div>
                         <!--div class="col-sm-6 hidden-xs animation animated-item-4">
