@@ -5,6 +5,8 @@ var MATERIAL_MATERIAL = 'material';
 var MATERIAL_TYPE = 'material/types';
 var SYSTEM_NAVIGATION = 'navigation';
 var TEMPLATE_CAROUSEL = 'carousel';
+var TEMPLATE_TEMPLATE = 'template';
+
 function PagingJson2ViewModel(data){
 
 	return ko.mapping.fromJS(data);
