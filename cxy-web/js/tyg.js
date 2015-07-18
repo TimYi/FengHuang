@@ -20,7 +20,7 @@ $(function(){
 	//验证登录状态
 	g.loginStatus = Utils.getUserInfo();
 	if(g.loginStatus){
-		$(".subbtn").attr("href","subappoint.html");
+		//$(".subbtn").attr("href","subappoint.html");
 	}
 });
 
