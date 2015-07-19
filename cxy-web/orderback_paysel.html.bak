@@ -262,7 +262,7 @@ $(".m_logo").hover(function(){
            	</div>
 						<form  method="post" target="_blank">
            	<div class="col-md-8 u_pay3">
-           		<ul style="padding-top:40px">
+           		<ul style="padding-top:40px;padding-left:40px">
            			<li id="couponlist" style="display:none;">
 									<label class="radio-inline" style="padding-right:30px">
 									  <input type="radio" name="inlineRadioOptions" id="" value="">
@@ -360,7 +360,7 @@ $(".m_logo").hover(function(){
 									</label>
 									<label class="radio-inline">
 									  <input type="radio" name="inlineRadioOptions" id="inlineRadio16" value="vbank">
-									  <p style="margin-top:-10px;border:1px solid #eee;height:40px;line-height:40px;width:155px">虚拟银行（测试用）</p>
+									  <p style="margin-top:-10px;border:1px solid #eee;height:40px;line-height:42px;width:163px;text-align:center">虚拟银行（测试用）</p>
 									</label>
            			</li>
            		</ul>
