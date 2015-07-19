@@ -264,10 +264,10 @@ $(".m_logo").hover(function(){
            	<div class="col-md-8 u_pay3">
            		<ul style="padding-top:40px;padding-left:40px">
            			<li id="couponlist" style="display:none;">
-									<label class="radio-inline" style="padding-right:30px">
+									<label class="radio-inline" style="">
 									  <input type="radio" name="inlineRadioOptions" id="" value="">
 									</label>
-									<label class="radio-inline" style="padding-right:30px">
+									<label class="radio-inline" style="">
 									  <input type="radio" name="inlineRadioOptions" id="" value="">
 									</label>
 									<label class="radio-inline">
@@ -360,7 +360,7 @@ $(".m_logo").hover(function(){
 									</label>
 									<label class="radio-inline">
 									  <input type="radio" name="inlineRadioOptions" id="inlineRadio16" value="vbank">
-									  <p style="margin-top:-10px;border:1px solid #eee;height:40px;line-height:42px;width:163px;text-align:center">虚拟银行（测试用）</p>
+									  <p style="margin-top:-10px;border:1px solid #eee;height:42px;line-height:42px;width:165px;text-align:center">虚拟银行（测试用）</p>
 									</label>
            			</li>
            		</ul>
@@ -369,15 +369,15 @@ $(".m_logo").hover(function(){
 
            	<div style="clear:both"></div>
            	<!--form样本-->
-		<form id="bankform" style="display:none;" action="https://ebank.spdb.com.cn/payment/main" method="post" >
-			<input id="transName" type="hidden" name="transName" value="">
-			<input id="Plain" type="hidden" name="Plain" value="">
-			<input id="Signature" type="hidden" name="Signature" value="">
-		</form>
-            <div style="float:right;margin:20px 0 10px 0;">
-            	<div style="height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+						<form id="bankform" style="display:none;" action="https://ebank.spdb.com.cn/payment/main" method="post" >
+							<input id="transName" type="hidden" name="transName" value="">
+							<input id="Plain" type="hidden" name="Plain" value="">
+							<input id="Signature" type="hidden" name="Signature" value="">
+						</form>
+            <div style="margin:20px 0 10px 0;">
+            	<div style="height:45px;width:160px;background:#c52d2f;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
             		<a href="javascript:void(0);">
-            			<div id="playnextbtn" style="text-align:center;line-height:45px;font-size:16px;color:#000;">下一步</div>
+            			<div id="playnextbtn" style="text-align:center;line-height:45px;font-size:16px;color:#fff;">下一步</div>
             		</a>
             	</div>
             </div>
