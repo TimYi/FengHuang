@@ -23,10 +23,10 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="fhzj/images/ico/apple-touch-icon-57-precomposed.png">
-	<script src="assets/js/jquery.js"></script>
+		<script src="assets/js/jquery.js"></script>
     <script src="libs/json.js"></script>
-<script src="libs/base.js"></script>
-<script src="libs/utils.js"></script>
+		<script src="libs/base.js"></script>
+		<script src="libs/utils.js"></script>
 
 </head><!--/head-->
 <body>
@@ -43,8 +43,6 @@
                     		&nbsp;&nbsp;&nbsp;&nbsp;
                     		<i class="fa fa-map-marker"></i>
                     		<span style="color:#666">&nbsp;&nbsp;<span id="city">定位获取中...</span> <!--span style="font-size:12px;color:#aaa">[ <a href="">切换</a> ]</span--></span>
-                    		&nbsp;&nbsp;&nbsp;&nbsp;
-                    		<span style="color:#666">&nbsp;&nbsp;<a href="yqcy.html">一起创业</a></span>
                     	</p>
                     </div>
                 </div>
@@ -189,7 +187,7 @@ $(".m_logo").hover(function(){
             <li data-target="#main-slider" data-slide-to="3"></li>
         </ol>
         <div class="carousel-inner">
-            <div class="item active" style="background-image: url(images/z_001.jpg)">
+            <div class="item active" style="background-image: url(images/bg000.jpg)">
                 <div class="container">
                     <div class="row slide-margin">
                         <div class="col-sm-6 animation animated-item-1">
