@@ -99,10 +99,10 @@
 
 	getCarousels();
 	function getCarousels(){
-		var file = location.pathname;
-		var id = _pageId[file];
+		var arr = location.href.split('/');
+		var len = arr.length;
+		var id = _pageId[arr[len-1]];
 		var url = Base.serverUrl + '/api/page/'+ id +'/carousels';
-		console.log(url);
 		$.ajax({
 			url:url,
 			data:{},
