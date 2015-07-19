@@ -102,6 +102,7 @@
 		var file = location.pathname;
 		var id = _pageId[file];
 		var url = Base.serverUrl + '/api/page/'+ id +'/carousels';
+		console.log(url);
 		$.ajax({
 			url:url,
 			data:{},
