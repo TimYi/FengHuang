@@ -28,7 +28,11 @@
 	<script src="libs/json.js"></script>
 	<script src="libs/base.js"></script>
 	<script src="libs/utils.js"></script>
-
+	<script type="text/javascript">
+		if(!Utils.getUserInfo()){
+			location.href = "center/reg.html";
+		}
+	</script>
 </head>
 <body>
 <!-- header-->
