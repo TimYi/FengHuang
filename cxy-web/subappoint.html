@@ -28,7 +28,11 @@
 	<script src="libs/json.js"></script>
 	<script src="libs/base.js"></script>
 	<script src="libs/utils.js"></script>
-
+	<script type="text/javascript">
+		if(!Utils.getUserInfo()){
+			location.href = "center/reg.html";
+		}
+	</script>
 </head>
 <body>
 <!-- header-->
@@ -242,7 +246,7 @@ $(".m_logo").hover(function(){
 																		<label for="inputImgCode3" class="col-sm-2 control-label">验证码</label>
 																		<div class="col-sm-10" style="width:83%">
 																			<input id="inputImgCode3" type="text" class="form-control" placeholder="图形验证码" style="width:120px;float: left;margin-top: 4px;">
-																			<img id="imgcodebtn" src="" alt="" class="imgcodebtn" style="height: 40px;width: 150px;float:right" />
+																			<img id="imgcodebtn" src="" alt="" class="imgcodebtn" style="height: 40px;width: 150px;float:right;border:1px solid #ccc;" />
 																		</div>
 																	</div>
 
