@@ -1,7 +1,7 @@
 
 (function(window){
 	window._pageId = {};
-	
+
 	sendGetNavigationHttp();
 	function sendGetNavigationHttp(){
 		var url = Base.serverUrl + "/api/navigations";
@@ -71,12 +71,18 @@
 				}
 				else{
 					url = url.substring(1);
-					if(url.indexOf('tc_') > -1){
+					if(url.indexOf('tc_599') > -1){
 						url = "jztc.html";
+					}else if(url.indexOf('tc_699') > -1){
+						url = "jztc.html?pt=1"
 					}else if(url.indexOf('gyzs') > -1){
 						url = "tmzs.html?pt=1";
 					}else if(url.indexOf('live') > -1){
 						url = "case.html?pt=1";
+					}else if(url.indexOf('ddb') > -1){
+						url = "rzb.html?pt=1";
+					}else if(url.indexOf('bzb') > -1){
+						url = "rzb.html?pt=2";
 					}
 				}
 				var title = sub[j].title || "";
@@ -97,7 +103,7 @@
 		window._pageId = pageid;
 	}
 
-	getCarousels();
+	//getCarousels();
 	function getCarousels(){
 		var arr = location.href.split('/');
 		var len = arr.length;
