@@ -177,13 +177,85 @@ $(".m_logo").hover(function(){
 	return;
 });
 </script>
+
+<style>
+#main-slider .carousel-indicators .active {
+    background: transparent;
+    border:none;
+    height: 20px;
+    margin: 30px 50px 0 0;
+    font-weight:800;
+    opacity: 1;
+    color:red;
+    position: relative;
+    width: 20px;
+}
+#main-slider .carousel-indicators .active::after{
+    background: transparent;
+    border:none;
+    height: 20px;
+    opacity: 1;
+    font-weight:800;
+    color:red;
+    position: relative;
+    width: 20px;
+}
+
+#main-slider .carousel-indicators li {
+    background: transparent;
+    border:none;
+    height: 20px;
+    margin: 30px 50px 0 0;
+    opacity: 1;
+    position: relative;
+    width: 20px;
+}
+
+#main-slider .carousel-indicators li > ul{
+    background: transparent;
+    border:none;
+    margin:0;
+    padding:0;
+    margin:0 auto;
+    text-align:center;
+    box-sizing:inherit;
+}
+
+#main-slider .carousel-indicators li::after {
+    background: transparent;
+    border: none;
+}
+#main-slider .carousel-indicators li::after > ul {
+    background: transparent;
+    border: none;
+    color:red;
+}
+
+</style>
+
 <!--header-->
     <section id="main-slider" class="no-margin">
         <div class="carousel slide">
-            <!--ol class="carousel-indicators">
-                <li data-target="#main-slider" data-slide-to="0" class="active"></li>
-                <li data-target="#main-slider" data-slide-to="1"></li>
-            </ol-->
+            <ol class="carousel-indicators" style="margin:0 auto;height:30px;margin-left:-50px;line-height:30px;">
+                <li data-target="#main-slider" data-slide-to="0" class="active">
+                	<ul>客厅</ul>
+                </li>
+                <li data-target="#main-slider" data-slide-to="1">
+                	<ul>厨房</ul>
+                </li>
+                <li data-target="#main-slider" data-slide-to="2">
+                	<ul>卫生间</ul>
+                </li>
+                <li data-target="#main-slider" data-slide-to="3">
+                	<ul>卧室</ul>
+                </li>
+                <li data-target="#main-slider" data-slide-to="4">
+                	<ul>餐厅</ul>
+                </li>
+                <li data-target="#main-slider" data-slide-to="5">
+                	<ul>阳台</ul>
+                </li>                                                                
+            </ol>
 
             <div class="carousel-inner">
                 <div class="item active" style="background-image: url(images/bg008.jpg)">
@@ -203,7 +275,7 @@ $(".m_logo").hover(function(){
                         </div>
                     </div>
                 </div>
-                <!--div class="item" style="background-image: url(assets/images/slider/d_6.jpg)">
+                <div class="item" style="background-image: url(assets/images/slider/d_6.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
                             <div class="col-sm-6">
@@ -216,7 +288,64 @@ $(".m_logo").hover(function(){
                             </div>
                         </div>
                     </div>
-                </div-->
+                </div>
+                <div class="item" style="background-image: url(assets/images/slider/d_6.jpg)">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">全包精装699元/㎡</h1>
+                                    <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">
+                                    		免费测量、设计、验房，进度实施跟踪，终身服务，从毛坯到精装，超高性价比的家装解决方案，数量有限，先到先得<br/>
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item" style="background-image: url(assets/images/slider/d_6.jpg)">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">全包精装699元/㎡</h1>
+                                    <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">
+                                    		免费测量、设计、验房，进度实施跟踪，终身服务，从毛坯到精装，超高性价比的家装解决方案，数量有限，先到先得<br/>
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item" style="background-image: url(assets/images/slider/d_6.jpg)">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">全包精装699元/㎡</h1>
+                                    <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">
+                                    		免费测量、设计、验房，进度实施跟踪，终身服务，从毛坯到精装，超高性价比的家装解决方案，数量有限，先到先得<br/>
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item" style="background-image: url(assets/images/slider/d_6.jpg)">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">全包精装699元/㎡</h1>
+                                    <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">
+                                    		免费测量、设计、验房，进度实施跟踪，终身服务，从毛坯到精装，超高性价比的家装解决方案，数量有限，先到先得<br/>
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
             </div><!--/.carousel-inner-->
         </div><!--/.carousel-->
         <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
@@ -390,7 +519,7 @@ $(".m_logo").hover(function(){
 						            top: 138px;
 						            left: -80px;
 						        }
-						        .boxF, .boxS, .boxT, .overlay
+						        .boxF, .boxS, .boxT, .overlay1
 						        {
 						            width: 150px;
 						            height: 277px;
@@ -436,7 +565,7 @@ $(".m_logo").hover(function(){
 						        {
 						            background-color: rgba(197,45,47,0.8);
 						        }
-						        .boxT:hover .overlay
+						        .boxT:hover .overlay1
 						        {
 						            display: block;
 						        }
