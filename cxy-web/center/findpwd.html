@@ -45,25 +45,23 @@
                     		&nbsp;&nbsp;&nbsp;&nbsp;
                     		<i class="fa fa-map-marker"></i>
                     		<span style="color:#666">&nbsp;&nbsp;<span id="city">定位获取中...</span> <!--span style="font-size:12px;color:#aaa">[ <a href="">切换</a> ]</span--></span>
-                    		&nbsp;&nbsp;&nbsp;&nbsp;
-                    		<span style="color:#666">&nbsp;&nbsp;<a href="../yqcy.html">一起创业</a></span>
                     	</p>
                     </div>
                 </div>
-                    <div class="col-sm-6 col-xs-8">
-                       <div class="social">
-                           <ul id="loginstatus" class="social-share">
-				<li style="padding-right:10px;">
-					<i class="fa fa-sign-in hui"></i>
-					<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
-						<a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
-						<a href="login.html" style="width:30px">登录</a>
-					</b>
-				</li>
+                <div class="col-sm-6 col-xs-8">
+                   <div class="social">
+                        <ul id="loginstatus" class="social-share">
+													<li style="padding-right:10px;">
+														<i class="fa fa-sign-in hui"></i>
+														<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
+															<a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
+															<a href="login.html" style="width:30px">登录</a>
+														</b>
+													</li>
                         </ul>
-
-                       </div>
-                    </div>
+                        <a href="../yqcy.html">一起创业</a>
+                   </div>
+                </div>
             </div>
         </div><!--/.container-->
     </div><!--/.top-bar-->
@@ -148,9 +146,11 @@ $(".m_logo").hover(function(){
     <div class="carousel slide">
         <ol class="carousel-indicators">
             <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+            <!--
             <li data-target="#main-slider" data-slide-to="1"></li>
             <li data-target="#main-slider" data-slide-to="2"></li>
             <li data-target="#main-slider" data-slide-to="3"></li>
+            -->
         </ol>
         <div class="carousel-inner">
 
@@ -168,22 +168,22 @@ $(".m_logo").hover(function(){
                         </div>
 
 												<!--第一屏 开始-->
-				                <div class="col-xs-12 col-sm-5" style="margin:50px 0 0 90px">
+				                <div id="pwdfirstdiv" class="col-xs-12 col-sm-5" style="margin:50px 0 0 90px">
 														<div class="form-horizontal piao_mid" style="height:310px">
 														</div>
 														<div style="width:350px;margin-top:-280px;margin-left:20px">
 																<form class="form-horizontal">
-																	
+
 																  <div class="form-group">
 																    <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
 																    <div class="col-sm-10" style="width:83%">
-																      <input type="" class="form-control" id="inputEmail3" placeholder="请输入用户名">
+																      <input type="" class="form-control" id="inputEmail3" placeholder="请输入注册用户名">
 																    </div>
 																  </div>
 																  <div class="form-group">
 																    <label for="inputPhone3" class="col-sm-2 control-label">手机号</label>
 																    <div class="col-sm-10" style="width:83%">
-																      <input type="text" maxLength=11 class="form-control" id="inputPhone3" placeholder="中国大陆手机号">
+																      <input type="text" maxLength=11 class="form-control" id="inputPhone3" placeholder="请输入注册手机号">
 																    </div>
 																  </div>
 																  <div class="form-group">
@@ -202,17 +202,17 @@ $(".m_logo").hover(function(){
 																  </div>
 																  <div class="form-group" style="padding-top:20px 0 100px 0">
 																    <div class="col-sm-offset-2 col-sm-10" style="width:83%">
-																      <button id="sendbtn" type="button" class="btn btn-default btn-primary" style="margin-left:2px;margin-right:10px">　下一步　</button>
+																      <button id="nextbtn" type="button" class="btn btn-default btn-primary" style="margin-left:2px;margin-right:10px">　下一步　</button>
 																      <button id="resetbtn" type="button" class="btn btn-default btn-primary">　重置　</button>
 																    </div>
 																  </div>
 																</form>
 														</div>
 				                </div>
-				                <!--第一屏 结束-->																  
+				                <!--第一屏 结束-->
 
 												<!--第二屏 开始-->
-				                <div class="col-xs-12 col-sm-5" style="margin:130px 0 0 90px;display:none">
+				                <div id="pwdseconddiv" class="col-xs-12 col-sm-5" style="margin:130px 0 0 90px;display:none">
 														<div class="form-horizontal piao_mid" style="height:200px">
 														</div>
 														<div style="width:350px;margin-top:-170px;margin-left:20px">
@@ -224,15 +224,15 @@ $(".m_logo").hover(function(){
 																    </div>
 																  </div>
 																  <div class="form-group">
-																    <label for="inputPassword3" class="col-sm-2 control-label">重复</label>
+																    <label for="inputPassword4" class="col-sm-2 control-label">重复</label>
 																    <div class="col-sm-10" style="width:83%">
-																      <input type="password" class="form-control" id="inputPassword3" placeholder="请输入密码">
+																      <input type="password" class="form-control" id="inputPassword4" placeholder="请输入密码">
 																    </div>
-																  </div>																  
+																  </div>
 																  <div class="form-group" style="padding-top:20px 0 100px 0">
 																    <div class="col-sm-offset-2 col-sm-10" style="width:83%">
-																      <button id="sendbtn" type="button" class="btn btn-default btn-primary" style="margin-left:2px;margin-right:10px">　下一步　</button>
-																      <button id="resetbtn" type="button" class="btn btn-default btn-primary">　重置　</button>
+																      <button id="sendbtn2" type="button" class="btn btn-default btn-primary" style="margin-left:2px;margin-right:10px">　确认　</button>
+																      <button id="resetbtn2" type="button" class="btn btn-default btn-primary">　重置　</button>
 																    </div>
 																  </div>
 																</form>
@@ -408,12 +408,12 @@ $(".m_logo").hover(function(){
 	myCity.get(myFun);
 </script>
 <!--footer-->
-
-	<script src="../js/jquery.prettyPhoto.js"></script>
-	<script src="../js/jquery.isotope.min.js"></script>
+	<script src="../assets/js/bootstrap.min.js"></script>
+	<script src="../assets/js/jquery.prettyPhoto.js"></script>
+	<script src="../assets/js/jquery.isotope.min.js"></script>
 
 	<script src="../js/wow.min.js"></script>
-	<script src="../js/reg.js"></script>
+	<script src="../js/findpwd.js"></script>
 
 	<script src="../assets/js/sales.js"></script>
 	<script src="../assets/js/main.js"></script>
