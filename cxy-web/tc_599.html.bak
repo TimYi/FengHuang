@@ -38,7 +38,7 @@
 <header id="header" style="border-bottom:1px solid #f6f6f6;">
     <div class="top-bar">
         <div class="container">
-            <div class="row">
+           <div class="row">
                 <div class="col-sm-6 col-xs-4">
                     <div class="top-number">
                     	<p>
@@ -47,22 +47,21 @@
                     		&nbsp;&nbsp;&nbsp;&nbsp;
                     		<i class="fa fa-map-marker"></i>
                     		<span style="color:#666">&nbsp;&nbsp;<span id="city">定位获取中...</span> <!--span style="font-size:12px;color:#aaa">[ <a href="">切换</a> ]</span--></span>
-                    		&nbsp;&nbsp;&nbsp;&nbsp;
-                    		<span style="color:#666">&nbsp;&nbsp;<a href="yqcy.html">一起创业</a></span>
                     	</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xs-8">
                    <div class="social">
                         <ul id="loginstatus" class="social-share">
-				<li style="padding-right:10px;">
-					<i class="fa fa-sign-in hui"></i>
-					<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
-						<a href="center/reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
-						<a href="center/login.html" style="width:30px">登录</a>
-					</b>
-				</li>
+													<li style="padding-right:10px;">
+														<i class="fa fa-sign-in hui"></i>
+														<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
+															<a href="center/reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
+															<a href="center/login.html" style="width:30px">登录</a>
+														</b>
+													</li>
                         </ul>
+                        <a href="yqcy.html">一起创业</a>
                    </div>
                 </div>
             </div>
@@ -187,7 +186,7 @@ $(".m_logo").hover(function(){
             </ol-->
 
             <div class="carousel-inner">
-                <div class="item active" style="background-image: url(images/bg001.jpg)">
+                <div class="item active" style="background-image: url(images/bg007.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
                             <div class="col-sm-6">
@@ -361,7 +360,386 @@ $(".m_logo").hover(function(){
                 <p class="lead">从毛坯到精装，22项精装服务，包设计、主材、施工、水电、垃圾清运… 套餐内绝无增项</p>
             </div>
             <div class="center wow fadeInDown">
-            		<img src="assets/images/quanbao.png">
+            		<!--img src="assets/images/quanbao.png"-->
+						    <style type="text/css">
+
+						        ul, ul li
+						        {
+						            list-style: none;
+						        }
+						        .clear
+						        {
+						            clear: both;
+						        }       
+						        .box
+						        {
+						            position: relative;
+						            width: 730px;
+						            height:800px;
+						            margin: 0 auto;
+						            margin-left:250px;
+						        }
+						        .lineF, .lineS
+						        {
+						            position: absolute;
+						            visibility: hidden;
+						        }
+						        .lineS
+						        {
+						            top: 138px;
+						            left: -80px;
+						        }
+						        .boxF, .boxS, .boxT, .overlay1
+						        {
+						            width: 150px;
+						            height: 277px;
+						            overflow: hidden;
+						        }
+						        .boxF, .boxS
+						        {
+						            visibility: hidden;
+						        }
+						        .boxF
+						        {
+						            transform: rotate(120deg);
+						            float: left;
+						            margin-left: 10px;
+						            -ms-transform: rotate(120deg);
+						            -moz-transform: rotate(120deg);
+						            -webkit-transform: rotate(120deg);
+						        }
+						        .boxS
+						        {
+						            transform: rotate(-60deg);
+						            -ms-transform: rotate(-60deg);
+						            -moz-transform: rotate(-60deg);
+						            -webkit-transform: rotate(-60deg);
+						        }
+						        .boxT
+						        {
+						            transform: rotate(-60deg);
+						            background: no-repeat 50% center;
+						            background-size: 200% auto;
+						            -ms-transform: rotate(-60deg);
+						            -moz-transform: rotate(-60deg);
+						            -webkit-transform: rotate(-60deg);
+						            visibility: visible;
+						        }
+						        .overlay1
+						        {
+						            transition: all 250ms ease-in-out 0s;
+						            display: none;
+						            position: relative;
+						        }
+						        .overlay1:hover
+						        {
+						            background-color: rgba(197,45,47,0.8);
+						        }
+						        .boxT:hover .overlay1
+						        {
+						            display: block;
+						        }
+						        .overlay1 a
+						        {
+						            display: inline-block;
+						            position: absolute;
+						            left: -10px;
+						            top: 100px;
+						            margin: -16px 0 0 -16px;
+						            border-radius: 3px;
+						            /*background-color: #d3b850;*/
+						            text-align: center;
+						            /*line-height: 32px;*/
+						            width: 200px;
+						            height: 200px;
+						            text-decoration: none;
+						            color: White;
+						            font-size: 18px;
+						            font-weight: bolder;
+						        }
+						        .fw_num{
+						        		font-size:34px;
+						        		line-height:50px;
+						        }
+						        .fw_title{
+						        		font-size:24px;
+						        		line-height:24px;
+						        		font-weight: normal;
+						        }						        
+								</style>
+						    <div class="box">
+						        <!--第一行(lineFirst)-->
+						        <div class="lineF">
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_01.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">01<br /></div>
+						                            	<div class="fw_title">免费<br/>设计</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_02.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">02<br /></div>
+						                            	<div class="fw_title">水电<br/>改造</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_03.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">03<br /></div>
+						                            	<div class="fw_title">地面防潮<br/>防水处理</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_04.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">04<br /></div>
+						                            	<div class="fw_title">基础<br/>施工</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_10.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">10<br /></div>
+						                            	<div class="fw_title">整体橱柜<br/>不限米数</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_11.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">11<br /></div>
+						                            	<div class="fw_title">油烟机<br/>灶具</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>						            						            						
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_12.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">12<br /></div>
+						                            	<div class="fw_title">橱柜<br/>配件</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>						            						            												            
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_13.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">13<br /></div>
+						                            	<div class="fw_title">科勒<br/>卫浴</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>						            						            												            
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_19.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">19<br /></div>
+						                            	<div class="fw_title">免杂物费<br/>免管理费</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>						            						            												            
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_20.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">20<br /></div>
+						                            	<div class="fw_title">垃圾<br/>清运</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>						            						            												            
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_21.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">21<br /></div>
+						                            	<div class="fw_title">成品<br/>保护</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>						            						            												            
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_22.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">22<br /></div>
+						                            	<div class="fw_title">开荒<br/>保洁</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>						            						            												            
+						        </div>
+						        <!--第二行(lineSecond)-->
+						        <div class="lineS">
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_05.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">05<br /></div>
+						                            	<div class="fw_title">TATA<br/>木门</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_06.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">06<br /></div>
+						                            	<div class="fw_title">墙/地面瓷砖<br/>不限量</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_07.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">07<br /></div>
+						                            	<div class="fw_title">德国都芳<br/>漆料</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_08.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">08<br /></div>
+						                            	<div class="fw_title">实木复合<br/>地板</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_09.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">09<br /></div>
+						                            	<div class="fw_title">西门子<br/>开关插座</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>						            						            						            
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_14.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">14<br /></div>
+						                            	<div class="fw_title">卫生间<br/>小五金</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>		
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_15.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">15<br /></div>
+						                            	<div class="fw_title">集成<br/>吊顶</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>		
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_16.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">16<br /></div>
+						                            	<div class="fw_title">多功能<br/>浴霸</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>		
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_17.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">17<br /></div>
+						                            	<div class="fw_title">雷士<br/>照明</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>		
+						            <div class="boxF">
+						                <div class="boxS">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_18.png);">
+						                        <div class="overlay1">
+						                            <a href="#">
+						                            	<div class="fw_num">18<br /></div>
+						                            	<div class="fw_title">材料<br/>二次搬运</div>
+						                            </a>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>		
+						        </div>
+						    </div>            		
+            </div>            		
             </div>
 						<!--div id="carousel-slider" class="carousel slide" data-ride="carousel">
 						  	<ol class="carousel-indicators visible-xs">
