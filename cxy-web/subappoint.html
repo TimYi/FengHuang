@@ -28,7 +28,11 @@
 	<script src="libs/json.js"></script>
 	<script src="libs/base.js"></script>
 	<script src="libs/utils.js"></script>
-
+	<script type="text/javascript">
+		if(!Utils.getUserInfo()){
+			location.href = "center/reg.html";
+		}
+	</script>
 </head>
 <body>
 <!-- header-->
@@ -44,22 +48,21 @@
                     		&nbsp;&nbsp;&nbsp;&nbsp;
                     		<i class="fa fa-map-marker"></i>
                     		<span style="color:#666">&nbsp;&nbsp;<span id="city">定位获取中...</span> <!--span style="font-size:12px;color:#aaa">[ <a href="">切换</a> ]</span--></span>
-                    		&nbsp;&nbsp;&nbsp;&nbsp;
-                    		<span style="color:#666">&nbsp;&nbsp;<a href="yqcy.html">一起创业</a></span>
                     	</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xs-8">
                    <div class="social">
                         <ul id="loginstatus" class="social-share">
-				<li style="padding-right:10px;">
-					<i class="fa fa-sign-in hui"></i>
-					<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
-						<a href="center/reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
-						<a href="center/login.html" style="width:30px">登录</a>
-					</b>
-				</li>
+													<li style="padding-right:10px;">
+														<i class="fa fa-sign-in hui"></i>
+														<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
+															<a href="center/reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
+															<a href="center/login.html" style="width:30px">登录</a>
+														</b>
+													</li>
                         </ul>
+                        <a href="yqcy.html">一起创业</a>
                    </div>
                 </div>
             </div>
@@ -238,15 +241,15 @@ $(".m_logo").hover(function(){
 																			<input type="text" maxLength=11 readOnly class="form-control" id="phone" placeholder="中国大陆手机号">
 																		</div>
 																	</div>
-																	
+
 																	<div class="form-group">
 																		<label for="inputImgCode3" class="col-sm-2 control-label">验证码</label>
 																		<div class="col-sm-10" style="width:83%">
 																			<input id="inputImgCode3" type="text" class="form-control" placeholder="图形验证码" style="width:120px;float: left;margin-top: 4px;">
-																			<img id="imgcodebtn" src="" alt="" class="imgcodebtn" style="height: 40px;width: 150px;float:right" />
+																			<img id="imgcodebtn" src="" alt="" class="imgcodebtn" style="height: 40px;width: 150px;float:right;border:1px solid #ccc;" />
 																		</div>
 																	</div>
-																	
+
 																	<div class="form-group">
 																		<label for="msgcode" class="col-sm-2 control-label">验证码</label>
 																		<div class="col-sm-10" style="width:83%">

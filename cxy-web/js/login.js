@@ -16,7 +16,15 @@ $(function(){
 	$("#loginbtn").bind("click",loginBtnUp);
 	$("#regbtn").bind("click",openRegPage);
 	$("#inputCode3").bind("keydown",codeKeyDown);
-	$("#resetbtn").bind("click",resetRegInfo);	
+	$("#resetbtn").bind("click",resetRegInfo);
+
+	//找回密码
+	$("#findpwd").bind("click",findPwdPage);
+
+
+	function findPwdPage(){
+		location.href = "findpwd.html";
+	}
 
 	setTimeout(function(){
 		getImgCode();
@@ -42,7 +50,7 @@ $(function(){
 		$("#inputPhone3").val("");
 		$("#inputImgCode3").val("");
 		$("#inputCode3").val("");
-		$("#password").val("");		
+		$("#password").val("");
 	}
 
 	function codeKeyDown(evt){
