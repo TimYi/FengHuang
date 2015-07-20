@@ -1,0 +1,73 @@
+.eui-calendar {
+    display: none;
+    position: absolute;
+    left: 20px;
+    top: 50px;
+    width: 250px;
+    min-width: 200px;
+    min-height: 200px;
+    padding: 10px 5px;
+    background: rgb(255,255,255);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgb(232,239,243);
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: 微软雅黑, Verdana, sans-serif;
+}
+
+.eui-calendar-selectcontent,  .eui-calendar-datecontent, .eui-calendar-week{
+    margin: 0;
+    padding: 0;
+    list-style: none outside none;
+}
+
+.eui-calendar-selectcontent li {
+    display: inline;
+}
+
+select[data-calendar="year"], select[data-calendar="month"] {
+    width: 119px;
+    border: 1px solid rgb(223,229,233);
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.eui-calendar-week{
+    margin: 0 0 40px;
+}
+
+.eui-calendar-weekday, .eui-calendar-lastmonthdate, .eui-calendar-date {
+    float: left;
+    width: 30px;
+    height: 30px;
+    margin: 2px;
+    font-size: 12px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.eui-calendar-weekday {
+    font-weight: bold;
+    color: rgb(89, 89, 112);
+}
+
+.eui-calendar-date {
+    background: rgb(236, 236, 239);
+    color: rgb(60, 187, 246);
+    text-shadow: 0px 1px 1px rgba(250, 250, 250, 0.6);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 3px 3px 3px 3px;
+    cursor: pointer;
+}
+
+.eui-calendar-today{
+    box-shadow: 0px 0px 12px rgba(0, 160, 250, 0.5) inset;
+    background: rgb(195, 226, 250)\9;
+}
+
+.eui-calendar-date:hover {
+    box-shadow: 0px 0px 6px rgba(0, 160, 250, 0.6) inset;
+    background: rgb(185, 196, 220)\9;
+    color: rgb(255,255,255)\9;
+}
+
+
