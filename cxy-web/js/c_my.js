@@ -5,6 +5,16 @@
 */
 //页面初始化
 $(function(){
+	if(typeof eui !== "undefined"){
+		var birthday = $('#birthday');
+		if(birthday.length > 0){
+			eui.calendar({
+				startYear: 1900,
+				input:birthday[0]
+			});
+		}
+	}
+
 	var g = {};
 	g.phone = "";
 	g.imgCodeId = "";

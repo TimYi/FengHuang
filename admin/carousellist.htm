@@ -37,11 +37,7 @@
 				<!--td width="15%">ID</td-->
 				<td width="10%">所属页面</td>
 				<td width="5%">序号</td>
-				<td width="15%">图片</td>
-				<td width="10%">标题</td>
-				<td width="10%">内容</td>
-				<td width="5%">按钮</td>
-				<td width="10%">链接</td>
+				<td width="15%">背景图片</td>
 				<td class="endCol" width="20%">操作</td>
 			</tr>
 		</thead>
@@ -53,10 +49,6 @@
 				<td data-bind="text: page?page.title:'&nbsp;'"></td>
 				<td data-bind="text: ordernum"></td>
 				<td><img data-bind="attr:{src:pic.url}" style='display: inline; width: 120px; height: 36px;' alt=''></td>
-				<td data-bind="text: title"></td>	
-				<td data-bind='text: content'></td>
-				<td data-bind='text: buttonText'></td>
-				<td data-bind='text: buttonUrl'></td>
 				<td class="action endCol">				
 					<span class="nb"><a href="#" data-bind='click: $root.remove'>删除</a></span> | 
 					<span><a href="#" data-bind='click: $root.modify'>修改</a></span>|

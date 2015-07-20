@@ -29,6 +29,8 @@
 	<script src="../libs/base.js"></script>
 	<script src="../libs/utils.js"></script>
 
+	 <link href="../css/calendar.css" rel="stylesheet">
+	<script src="../libs/calendar.js"></script>
 </head><!--/head-->
 
 <!-- header-->
@@ -44,24 +46,23 @@
                     		&nbsp;&nbsp;&nbsp;&nbsp;
                     		<i class="fa fa-map-marker"></i>
                     		<span style="color:#666">&nbsp;&nbsp;<span id="city">定位获取中...</span> <!--span style="font-size:12px;color:#aaa">[ <a href="">切换</a> ]</span--></span>
-                    		&nbsp;&nbsp;&nbsp;&nbsp;
-                    		<span style="color:#666">&nbsp;&nbsp;<a href="../yqcy.html">一起创业</a></span>
                     	</p>
                     </div>
                 </div>
-                    <div class="col-sm-6 col-xs-8">
-                       <div class="social">
-                            <ul id="loginstatus" class="social-share">
-				<li style="padding-right:10px;">
-					<i class="fa fa-sign-in hui"></i>
-					<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
-						<a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
-						<a href="login.html" style="width:30px">登录</a>
-					</b>
-				</li>
+                <div class="col-sm-6 col-xs-8">
+                   <div class="social">
+                        <ul id="loginstatus" class="social-share">
+													<li style="padding-right:10px;">
+														<i class="fa fa-sign-in hui"></i>
+														<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
+															<a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
+															<a href="login.html" style="width:30px">登录</a>
+														</b>
+													</li>
                         </ul>
-                       </div>
-                    </div>
+                        <a href="../yqcy.html">一起创业</a>
+                   </div>
+                </div>
             </div>
         </div><!--/.container-->
     </div><!--/.top-bar-->
@@ -297,6 +298,13 @@ $(".m_logo").hover(function(){
                                     </div>
                                     <div style="clear:both"></div>
 	                                  <div class="col-sm-5">
+
+						<div class="form-group">
+	                                            <label>绑定手机号 *</label>
+	                                            <input id="phonetext" type="text" readonly class="form-control" required="required">
+	                                        </div>
+
+						 <!--
 	                                        <div class="form-group">
 	                                            <label>手机号 *</label>
 	                                            <input id="phonetext" type="text" class="form-control" required="required">
@@ -313,7 +321,7 @@ $(".m_logo").hover(function(){
 							</div>
 	                                            <p style="margin-top:-15px;color:#b9090e">变更手机号码需要短信验证</p>
 	                                        </div>
-
+						-->
 	                                        <div class="form-group" style="display:none;">
 	                                            <label>QQ号码</label>
 	                                            <input id="qqtext" type="text" class="form-control" required="required">
@@ -336,7 +344,7 @@ $(".m_logo").hover(function(){
                                     <div class="col-sm-5">
                                         <div class="form-group">
                                             <label>生日</label>
-                                            <input id="birthday" type="date" class="form-control" required="required">
+                                            <input id="birthday" type="text" class="form-control" required="required">
                                         </div>
                                         <div class="form-group">
                                             <label>行业</label>

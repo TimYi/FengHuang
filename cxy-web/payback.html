@@ -28,6 +28,11 @@
 	<script src="libs/json.js"></script>
 	<script src="libs/base.js"></script>
 	<script src="libs/utils.js"></script>
+	<script type="text/javascript">
+		if(!Utils.getUserInfo()){
+			location.href = "center/reg.html";
+		}
+	</script>
 </head>
 <body>
 <!-- header-->
@@ -37,28 +42,27 @@
             <div class="row">
                 <div class="col-sm-6 col-xs-4">
                     <div class="top-number">
-                    <p>
+                    	<p>
                     		<i class="fa fa-phone-square"></i>
                     		<span style="color:#666">&nbsp;&nbsp;400-968-9088</span>
                     		&nbsp;&nbsp;&nbsp;&nbsp;
                     		<i class="fa fa-map-marker"></i>
                     		<span style="color:#666">&nbsp;&nbsp;<span id="city">定位获取中...</span> <!--span style="font-size:12px;color:#aaa">[ <a href="">切换</a> ]</span--></span>
-                    		&nbsp;&nbsp;&nbsp;&nbsp;
-                    		<span style="color:#666">&nbsp;&nbsp;<a href="yqcy.html">一起创业</a></span>
                     	</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xs-8">
                    <div class="social">
                         <ul id="loginstatus" class="social-share">
-				<li style="padding-right:10px;">
-					<i class="fa fa-sign-in hui"></i>
-					<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
-						<a href="center/reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
-						<a href="center/login.html" style="width:30px">登录</a>
-					</b>
-				</li>
+													<li style="padding-right:10px;">
+														<i class="fa fa-sign-in hui"></i>
+														<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
+															<a href="center/reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
+															<a href="center/login.html" style="width:30px">登录</a>
+														</b>
+													</li>
                         </ul>
+                        <a href="yqcy.html">一起创业</a>
                    </div>
                 </div>
             </div>

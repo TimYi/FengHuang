@@ -62,6 +62,8 @@
 	var articalUrl = serverUrl + "/api/artical/code";
 	var couponScram = serverUrl + "/api/coupons/scramble";
 
+	Base.serverUrl = serverUrl;
+
 	Base.userName = userName;
 	Base.urlPort = urlPort;
 	Base.maskTimeOut = maskTimeOut;
