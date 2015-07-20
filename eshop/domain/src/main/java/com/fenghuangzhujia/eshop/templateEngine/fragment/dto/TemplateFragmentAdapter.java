@@ -166,6 +166,7 @@ public class TemplateFragmentAdapter extends
 		VariableValue value;
 		if(StringUtils.isNotBlank(arg.getId())) {
 			value=variableValueRepository.findOne(arg.getId());
+			if(value==null)value=new VariableValue();
 		} else {
 			value=new VariableValue();
 		}
