@@ -19,13 +19,20 @@
 var id;
 var navDic;
 var subNavDic;
-//var selectableSubNav;
+var templateDic;
 var carousel;
+var fragment;
 var navs;
+var templates;
 var Nav = function(id,title,type){
-			this.id = id;
-			this.title = title;
-			this.type = type;
+	this.id = id;
+	this.title = title;
+	this.type = type;
+}
+var Template = function(id,name,definitions){
+	this.id = id;
+	this.name = name;
+	this.definitions = definitions;
 }
 function onload(){
 	id = getUrlParam(window.location.search,"id");
@@ -33,14 +40,19 @@ function onload(){
 }
 function afterGetDataById(data){
 	if(!isErrorData(data)){
-		carousel = data.result;
-		$("#rightArea").val(carousel.rightArea);
-		editor.html(carousel.rightArea);
-		getData(SYSTEM_NAVIGATION,null,afterGetNav4Select);	
+		carousel = data.result;		
+		//获取可选模板
+		getData(TEMPLATE_TEMPLATE,null,afterGetTemplate4Select);	
+	}
+}
+function afterGetTemplate4Select(data){
+	if(!isErrorData(data)){
+		templates = data.result.result;
+		//需求可选菜单
+		getData(SYSTEM_NAVIGATION,null,afterGetNav4Select);
 	}
 }
 function afterGetNav4Select(data){
-
 	if(!isErrorData(data)){
 		navs = data.result.result;
 		viewModel = ko.mapping.fromJS(carousel);
@@ -48,6 +60,9 @@ function afterGetNav4Select(data){
 		viewModel.selectedNav = ko.observable();
 		viewModel.selectableSubNav = ko.observableArray();
 		viewModel.selectedSubNav = ko.observable();
+		viewModel.selectableTem = ko.observableArray();	
+		viewModel.selectedTem = ko.observable();
+		viewModel.definitions = ko.observableArray();
 		navDic = new Array();
 		var find = false;		
 		for(var i in navs){
@@ -82,6 +97,42 @@ function afterGetNav4Select(data){
 			navDic.push(nav);
 		}
 		viewModel.selectableNav(navDic);
+		templateDic = new Array();
+		fragment = carousel.fragment;
+		var selectedTem = fragment.template;
+		for(var i in templates){
+			var definitions = templates[i].definitions;
+			var template;
+			if(selectedTem.id === templates[i].id){
+				for(var j in definitions){
+					definitions[j].no=j;
+					definitions[j].fragId = null;
+					definitions[j].fragValue = null;
+					var fragmentValues = fragment.values;
+					for(var k in fragmentValues){
+						if(definitions[j].name == fragmentValues[k].name){
+							//alert("i:"+i+',j:'+j+',k:'+k+','+definitions[j].name+'=='+fragmentValues[k].name+','+fragmentValues[k].text);
+							definitions[j].fragId = fragmentValues[k].id;
+							definitions[j].fragValue = fragmentValues[k].text;
+							break;
+						}
+					}
+				}
+				template = new Template(templates[i].id,templates[i].name,definitions);
+				viewModel.selectedTem(template);
+				viewModel.definitions(definitions);
+			}else{
+				for(var j in definitions){
+					definitions[j].no=j;
+					definitions[j].fragId = null;
+					definitions[j].fragValue = null;
+					var fragmentValues = fragment.values;					
+				}
+				template = new Template(templates[i].id,templates[i].name,definitions);
+			}
+			templateDic.push(template);
+		}
+		viewModel.selectableTem(templateDic);
    		ko.applyBindings(viewModel);
 	}
 }
@@ -147,6 +198,13 @@ function submitCarousel(){
 		);
 	}
 }
+function onTemChange(){
+	var template = viewModel.selectedTem();
+	var definitions = template.definitions;
+	viewModel.definitions(definitions);
+	//alert(template.id);
+	//alert($("input[name='test4']").val());
+}
 </script>
 </head>
 <body onload="onload()">
@@ -170,70 +228,53 @@ function submitCarousel(){
 					<!--提交时将选择的pageId填入-->
 					<input id='pageId'  type="hidden" name='pageId'/>
 				</td>
+			</tr>
+			<tr>
+				<td align="right"  height="40">模板:</td>
+				<td >
+					<select data-bind="value:selectedTem,options:selectableTem,optionsText:'name',
+						optionsCaption: '请选择...',event:{change:onTemChange}">
+					</select>
+					<input id='temId' size=50 type="text" name='fragmentInfo.templateId' data-bind="value:selectedTem()?selectedTem().id:''" />
+				</td>
+			</tr>
+			<tr >
+				<td colspan=2>
+				<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%"
+					data-bind="foreach:definitions">
+					<tr >
+						<td align="right" width="25%" height="40" data-bind = "text:'变量'+name+'的值:'"></td>
+						<td width="75%">
+							<input type="text" size=50 data-bind="attr:{name:'fragmentInfo.values['+no+'].id'},value:fragId">
+							<input type="text" data-bind="attr:{name:'fragmentInfo.values['+no+'].name'},value:name">
+							<input type="text" data-bind="attr:{name:'fragmentInfo.values['+no+'].type'},value:type">
+							<input type="text" data-bind="attr:{name:'fragmentInfo.values['+no+'].text'},
+								visible: type=='TEXT',value:fragValue ">
+							<input type="file" data-bind="attr:{name:'fragmentInfo.values['+no+'].file'},
+								visible: type=='IMG'">
+						</td>
+					</tr>
+				</table>
+				</td>
 			</tr>	
 			<tr>
 				<td align="right" width="25%" height="40">序号:</td>
 				<td width="75%" >
 					<input type="text"  class="input" data-bind="value:ordernum" name='ordernum' >
 				</td>
-			</tr>	
-			<tr>
-				<td align="right" width="25%" height="40">标题:</td>
-				<td width="75%" >
-					<input class="input" name='title' data-bind="value:title"  type="text">
-				</td>
-			</tr>
-			<tr>
-				<td align="right" width="25%" height="40">左侧内容:</td>
-				<td width="75%" >
-					<input   class="input" name='content' data-bind="value:content"  type="text">
-				</td>
-			</tr>
-			<tr>
-				<td align="right" width="25%" height="40">按钮文字:</td>
-				<td width="75%" >
-					<input   class="input" name='buttonText' data-bind="value:buttonText"  type="text">
-				</td>
-			</tr>
-			<tr>
-				<td align="right" width="25%" height="40">按钮链接:</td>
-				<td width="75%" >
-					<input   class="input" name='buttonUrl' data-bind="value:buttonUrl" type="text">
-				</td>
 			</tr>
 			<tr>
 				<td align="right" height="40" >图片：</td>
 				<td width="75%" >					
 					<img data-bind='attr:{src:pic.url}' style='display: inline; width: 300px; height: 90px;' alt=''/>
-				</td>				
+				</td>
 			</tr>
 			<tr>
 				<td align="right" height="40" >更换图片：</td>
 				<td width="75%" >					
 					<input type="file"  name='picFile'>
-				</td>				
-			</tr>
-			<tr>
-				<td align="right" width="25%" height="40">右侧内容:</td>
-				<td width="75%" >
-					<textarea name='rightArea'  class="kindeditor" id="rightArea" ></textarea>
-					<script>
-						var editor;
-						KindEditor.ready(function(K) {
-							editor = K.create('textarea[name="rightArea"]', {
-								allowFileManager : true,
-								width:'667px',
-								height:'280px',
-								afterBlur: function(){this.sync();}/*,
-								extraFileUploadParams : {
-									sessionid :  'f6pqand0gdtrnhi1n0vd2kgq21'
-								}*/
-							});
-						});
-					</script>
 				</td>
 			</tr>
-		
 		</tbody>
 	</table>
 	<div class="formSubBtn">
