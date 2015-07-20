@@ -5,6 +5,19 @@
 */
 //页面初始化
 $(function(){
+	if(typeof eui !== "undefined"){
+		eui.calendar({
+			startYear: 1900,
+			input: document.getElementById('launchDate'),
+			id:"launchDate"
+		});
+		eui.calendar({
+			startYear: 1900,
+			input: document.getElementById('decorateDate'),
+			id:"decorateDate"
+		});
+	}
+
 	var g = {};
 	g.phone = "";
 	g.imgCodeId = "";
