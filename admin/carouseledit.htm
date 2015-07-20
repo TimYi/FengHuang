@@ -179,7 +179,7 @@ function submitCarousel(){
 		$('#pageId').val(viewModel.selectedNav().id);
 	}
 	var url = genUrl(TEMPLATE_CAROUSEL)+'/'+id;
-	var files = $('input[name="picFile"]').prop('files');//获取到文件列表
+	var files = $('input[name$="picFile"]').prop('files');//获取到文件列表
 	if(files.length == 0){
 		submitAsyFormByJson(url,'bTForm',function(data){	 			
 			friendlyTip(data);

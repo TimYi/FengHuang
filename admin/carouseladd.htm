@@ -90,9 +90,9 @@ function submitCarousel(){
 	}else{
 		$('#pageId').val(viewModel.selectedNav().id);
 	}
-	alert('pageId:'+	$('#pageId').val());
+//	alert('pageId:'+	$('#pageId').val());
 	var url = genUrl(TEMPLATE_CAROUSEL);
-	var files = $('input[name="picFile"]').prop('files');//获取到文件列表
+	var files = $('input[name$="picFile"]').prop('files');//获取到文件列表
 	if(files.length == 0){
 		submitAsyFormByJson(url,'bTForm',function(data){	 			
 			friendlyTip(data);
