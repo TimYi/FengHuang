@@ -249,7 +249,7 @@ function onBrandChange(){
 					<select  class="input"  data-bind="value:selectedBrand,options:brandDic,optionsText:'name',
 						valueAllowUnset: true,optionsCaption: '请选择...',event:{change:onBrandChange}">
 					</select>
-					<input   class="input" type="hidden" name='brandId' 
+					<input  type="hidden" name='brandId' 
 						data-bind="value:selectedBrand()?selectedBrand().id:''">
 				</td>
 			</tr>
@@ -258,7 +258,7 @@ function onBrandChange(){
 				<td>
 					<select   class="input" data-bind="value:selectedProduct,options:productDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 					</select>
-					<input   class="input" type="hidden" name='productId' 
+					<input type="hidden" name='productId' 
 						data-bind="value:selectedProduct()?selectedProduct().id:''">
 				</td>
 			</tr>	

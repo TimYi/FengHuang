@@ -163,13 +163,7 @@ public class TemplateFragmentAdapter extends
 	}
 	
 	private VariableValue calculateValue(VariableValueInputArgs arg) {
-		VariableValue value;
-		if(StringUtils.isNotBlank(arg.getId())) {
-			value=variableValueRepository.findOne(arg.getId());
-			if(value==null)value=new VariableValue();
-		} else {
-			value=new VariableValue();
-		}
+		VariableValue value=new VariableValue();
 		value.setName(arg.getName());
 		value.setType(arg.getType());
 		
@@ -187,6 +181,11 @@ public class TemplateFragmentAdapter extends
 				} catch (Exception e) {
 					LogUtils.errorLog(e);
 				}
+			} else {
+				if(StringUtils.isNotBlank(arg.getId())) {
+					VariableValue oldValue=variableValueRepository.findOne(arg.getId());
+					value.setPic(oldValue.getPic());
+				}				
 			}
 		}
 		return value;
