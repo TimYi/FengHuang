@@ -92,7 +92,7 @@
 				pageid[url] = id;
 			}
 			else{
-				html.push('<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">' + title + '<i class="fa fa-angle-down"></i></a>');
+				html.push('<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">' + title + '&nbsp;<i class="fa fa-angle-down"></i></a>');
 				html.push('<ul class="dropdown-menu">');
 			}
 

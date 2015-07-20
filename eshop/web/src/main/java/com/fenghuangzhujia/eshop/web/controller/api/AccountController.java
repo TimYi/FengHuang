@@ -82,8 +82,8 @@ public class AccountController {
 	
 	@RequestMapping(value="forgetPassword", method=RequestMethod.POST)
 	public String forgetPassword(@RequestParam String username,@RequestParam String telephone,
-			@RequestParam String captcha, @RequestParam String validater) {
-		captchaManager.validate(captcha, validater);
+			@RequestParam String validater) {
+		messageManager.validate(telephone, validater);
 		String code=manager.forgetPassword(username, telephone);
 		return RequestResult.success(code).toJson();
 	}

@@ -28,14 +28,18 @@
 	<script src="libs/json.js"></script>
 	<script src="libs/base.js"></script>
 	<script src="libs/utils.js"></script>
-
+	<script type="text/javascript">
+		if(!Utils.getUserInfo()){
+			location.href = "center/reg.html";
+		}
+	</script>
 </head>
 <body>
 <!-- header-->
 <header id="header" style="border-bottom:1px solid #f6f6f6;">
     <div class="top-bar">
         <div class="container">
-            <div class="row">
+           <div class="row">
                 <div class="col-sm-6 col-xs-4">
                     <div class="top-number">
                     	<p>
@@ -44,22 +48,21 @@
                     		&nbsp;&nbsp;&nbsp;&nbsp;
                     		<i class="fa fa-map-marker"></i>
                     		<span style="color:#666">&nbsp;&nbsp;<span id="city">定位获取中...</span> <!--span style="font-size:12px;color:#aaa">[ <a href="">切换</a> ]</span--></span>
-                    		&nbsp;&nbsp;&nbsp;&nbsp;
-                    		<span style="color:#666">&nbsp;&nbsp;<a href="yqcy.html">一起创业</a></span>
                     	</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xs-8">
                    <div class="social">
-                      <ul id="loginstatus" class="social-share">
-				<li style="padding-right:10px;">
-					<i class="fa fa-sign-in hui"></i>
-					<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
-						<a href="center/reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
-						<a href="center/login.html" style="width:30px">登录</a>
-					</b>
-				</li>
+                        <ul id="loginstatus" class="social-share">
+													<li style="padding-right:10px;">
+														<i class="fa fa-sign-in hui"></i>
+														<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
+															<a href="center/reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
+															<a href="center/login.html" style="width:30px">登录</a>
+														</b>
+													</li>
                         </ul>
+                        <a href="yqcy.html">一起创业</a>
                    </div>
                 </div>
             </div>
@@ -262,12 +265,12 @@ $(".m_logo").hover(function(){
            	</div>
 						<form  method="post" target="_blank">
            	<div class="col-md-8 u_pay3">
-           		<ul style="padding-top:40px">
+           		<ul style="padding-top:40px;padding-left:40px">
            			<li id="couponlist" style="display:none;">
-									<label class="radio-inline" style="padding-right:30px">
+									<label class="radio-inline" style="">
 									  <input type="radio" name="inlineRadioOptions" id="" value="">
 									</label>
-									<label class="radio-inline" style="padding-right:30px">
+									<label class="radio-inline" style="">
 									  <input type="radio" name="inlineRadioOptions" id="" value="">
 									</label>
 									<label class="radio-inline">
@@ -283,68 +286,84 @@ $(".m_logo").hover(function(){
 
            	<div class="col-md-4 u_pay1" >
          			<ul>
-           			<li style="font-weight:800;color:#000;">选择其他银行支付</li>
-           			<li>推荐使用微信支付，快捷又方便</li>
+           			<li style="font-weight:800;color:#000;">选择网上银行支付</li>
+           			<li>15家网上银行</li>
          			</ul>
            	</div>
 
 						<form action="https://xx.xx.xx.xx/payment/main" method="post" target="_blank" >
            	<div class="col-md-8 u_pay2">
-           		<ul style="padding-top:40px">
+           		<ul style="padding-top:40px;padding-left:40px">
            			<li>
-									<label class="radio-inline" style="padding-right:30px">
-									  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="cmb">招商银行
+									<label class="radio-inline" style="">
+									  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="cmb">
+									  <p style="margin-top:-10px;border:1px solid #eee"><img src="images/bankicon/cmb.gif"></p>
 									</label>
-									<label class="radio-inline" style="padding-right:30px">
-									  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="icbc">工商银行银行
+									<label class="radio-inline" style="">
+									  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="icbc">
+									  <p style="margin-top:-10px;border:1px solid #eee"><img src="images/bankicon/icbc.gif"></p>
 									</label>
 									<label class="radio-inline">
-									  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="ccb">中国建设银行
+									  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="ccb">
+									  <p style="margin-top:-10px;border:1px solid #eee"><img src="images/bankicon/ccb.gif"></p>
 									</label>
 									<label class="radio-inline">
-									  <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="abc">中国农业银行
+									  <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="abc">
+									  <p style="margin-top:-10px;border:1px solid #eee"><img src="images/bankicon/abc.gif"></p>
 									</label>
 								</li>
 								<li>
 									<label class="radio-inline">
-									  <input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="cmbc">中国民生银行
+									  <input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="cmbc">
+									  <p style="margin-top:-10px;border:1px solid #eee"><img src="images/bankicon/cmbc.gif"></p>
 									</label>
 									<label class="radio-inline">
-									  <input type="radio" name="inlineRadioOptions" id="inlineRadio6" value="hxb">华夏银行
+									  <input type="radio" name="inlineRadioOptions" id="inlineRadio6" value="hxb">
+									  <p style="margin-top:-10px;border:1px solid #eee"><img src="images/bankicon/hxb.gif"></p>
 									</label>
 									<label class="radio-inline">
-									  <input type="radio" name="inlineRadioOptions" id="inlineRadio7" value="cgb">广东发展银行
+									  <input type="radio" name="inlineRadioOptions" id="inlineRadio7" value="cgb">
+									  <p style="margin-top:-10px;border:1px solid #eee"><img src="images/bankicon/cgb.gif"></p>
 									</label>
 									<label class="radio-inline">
-									  <input type="radio" name="inlineRadioOptions" id="inlineRadio8" value="cib">兴业银行
-									</label>
-								</li>
-								<li>
-									<label class="radio-inline">
-									  <input type="radio" name="inlineRadioOptions" id="inlineRadio9" value="ceb">光大银行
-									</label>
-									<label class="radio-inline">
-									  <input type="radio" name="inlineRadioOptions" id="inlineRadio10" value="comm">交通银行
-									</label>
-									<label class="radio-inline">
-									  <input type="radio" name="inlineRadioOptions" id="inlineRadio11" value="boc">中国银行
-									</label>
-									<label class="radio-inline">
-									  <input type="radio" name="inlineRadioOptions" id="inlineRadio12" value="citic">中信银行
+									  <input type="radio" name="inlineRadioOptions" id="inlineRadio8" value="cib">
+									  <p style="margin-top:-10px;border:1px solid #eee"><img src="images/bankicon/cib.gif"></p>
 									</label>
 								</li>
 								<li>
 									<label class="radio-inline">
-									  <input type="radio" name="inlineRadioOptions" id="inlineRadio13" value="bos">上海银行
+									  <input type="radio" name="inlineRadioOptions" id="inlineRadio9" value="ceb">
+									  <p style="margin-top:-10px;border:1px solid #eee"><img src="images/bankicon/ceb.gif"></p>
 									</label>
 									<label class="radio-inline">
-									  <input type="radio" name="inlineRadioOptions" id="inlineRadio14" value="pingan">平安银行
+									  <input type="radio" name="inlineRadioOptions" id="inlineRadio10" value="comm">
+									  <p style="margin-top:-10px;border:1px solid #eee"><img src="images/bankicon/comm.gif"></p>
 									</label>
 									<label class="radio-inline">
-									  <input type="radio" name="inlineRadioOptions" id="inlineRadio15" value="psbc">邮政储蓄
+									  <input type="radio" name="inlineRadioOptions" id="inlineRadio11" value="boc">
+									  <p style="margin-top:-10px;border:1px solid #eee"><img src="images/bankicon/boc.gif"></p>
 									</label>
 									<label class="radio-inline">
-									  <input type="radio" name="inlineRadioOptions" id="inlineRadio16" value="vbank">虚拟银行（测试用）
+									  <input type="radio" name="inlineRadioOptions" id="inlineRadio12" value="citic">
+									  <p style="margin-top:-10px;border:1px solid #eee"><img src="images/bankicon/citic.gif"></p>
+									</label>
+								</li>
+								<li>
+									<label class="radio-inline">
+									  <input type="radio" name="inlineRadioOptions" id="inlineRadio13" value="bos">
+									  <p style="margin-top:-10px;border:1px solid #eee"><img src="images/bankicon/bos.gif"></p>
+									</label>
+									<label class="radio-inline">
+									  <input type="radio" name="inlineRadioOptions" id="inlineRadio14" value="pingan">
+									  <p style="margin-top:-10px;border:1px solid #eee"><img src="images/bankicon/pingan.gif"></p>
+									</label>
+									<label class="radio-inline">
+									  <input type="radio" name="inlineRadioOptions" id="inlineRadio15" value="psbc">
+									  <p style="margin-top:-10px;border:1px solid #eee"><img src="images/bankicon/psbc.gif"></p>
+									</label>
+									<label class="radio-inline">
+									  <input type="radio" name="inlineRadioOptions" id="inlineRadio16" value="vbank">
+									  <p style="margin-top:-10px;border:1px solid #eee;height:42px;line-height:42px;width:165px;text-align:center">虚拟银行（测试用）</p>
 									</label>
            			</li>
            		</ul>
@@ -353,15 +372,15 @@ $(".m_logo").hover(function(){
 
            	<div style="clear:both"></div>
            	<!--form样本-->
-		<form id="bankform" style="display:none;" action="https://ebank.spdb.com.cn/payment/main" method="post" >
-			<input id="transName" type="hidden" name="transName" value="">
-			<input id="Plain" type="hidden" name="Plain" value="">
-			<input id="Signature" type="hidden" name="Signature" value="">
-		</form>
-            <div style="float:right;margin:20px 0 10px 0;">
-            	<div style="height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+						<form id="bankform" style="display:none;" action="https://ebank.spdb.com.cn/payment/main" method="post" >
+							<input id="transName" type="hidden" name="transName" value="">
+							<input id="Plain" type="hidden" name="Plain" value="">
+							<input id="Signature" type="hidden" name="Signature" value="">
+						</form>
+            <div style="margin-left:500px;margin-top:20px;margin-bottom:10px">
+            	<div style="height:45px;width:160px;background:#c52d2f;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
             		<a href="javascript:void(0);">
-            			<div id="playnextbtn" style="text-align:center;line-height:45px;font-size:16px;color:#000;">下一步</div>
+            			<div id="playnextbtn" style="text-align:center;font-weight:800;line-height:45px;font-size:16px;color:#fff;">下一步</div>
             		</a>
             	</div>
             </div>
