@@ -72,15 +72,19 @@ $(function(){
 				else{
 					html.push('<td >' + statusText + '</td>');
 				}
-				if(status == "WAITING" || status == "PAYED" || status == "PROCESSING"){
+				// || status == "PAYED" || status == "PROCESSING"
+				if(status == "WAITING"){
 					html.push('<td><a href="c_order_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="delete_' + i + '" href="javascript:orderCancel(\'' + id + '\');" class="delete" >取消</a></td>');
 				}
-				else if(status == "CANCEL"){
-					html.push('<td><a href="c_order_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="delete_' + i + '" href="javascript:Utils.alert(\'订单已取消\');" class="delete" >取消</a></td>');
-				}
 				else{
-					html.push('<td><a href="c_order_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="delete_' + i + '" href="javascript:Utils.alert(\'订单已完成\');" class="delete" >取消</a></td>');
+					html.push('<td><a href="c_order_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '">查看</a>&nbsp;&nbsp;</td>');
 				}
+				//~ else if(status == "CANCEL"){
+					//~ html.push('<td><a href="c_order_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="delete_' + i + '" href="javascript:Utils.alert(\'订单已取消\');" class="delete" >取消</a></td>');
+				//~ }
+				//~ else{
+					//~ html.push('<td><a href="c_order_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="delete_' + i + '" href="javascript:Utils.alert(\'订单已完成\');" class="delete" >取消</a></td>');
+				//~ }
 				html.push('</tr>');
 			}
 			html.push('</table>');
