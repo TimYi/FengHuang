@@ -36,7 +36,7 @@
 <header id="header" style="border-bottom:1px solid #f6f6f6;">
     <div class="top-bar">
         <div class="container">
-           <div class="row">
+            <div class="row">
                 <div class="col-sm-6 col-xs-4">
                     <div class="top-number">
                     	<p>
@@ -190,13 +190,15 @@ $(".m_logo").hover(function(){
                         <div class="row slide-margin">
                             <div class="col-sm-6">
                                 <div class="carousel-content">
-                                    <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">吊顶包</h1>
+                                    <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">软装包</h1>
                                     <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">
                                     		×××××××××××××××××××××
                                     </h2>
+                                    <!--
 					                        	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
 																			<a href="javascript:;" class="buynow11" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div></a>
 																		</div>
+																		-->
                                 </div>
                             </div>
                         </div>
