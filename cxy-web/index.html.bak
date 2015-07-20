@@ -214,8 +214,8 @@ $(".m_logo").hover(function(){
                                 	<a id="yhqbtn2" href="javascript:void(0);"><img src="images/home_yhq_2.png" class="img-responsive" style="margin-top:-100px/*box-shadow: 0 0 5px #777;*/"></a>
                                 </div-->
                                 <!--img src="images/index_hd_1_right.png" />
-                            </div-->
-                        </div>
+                            </div>
+                        </div-->
                     </div>
                 </div>
             </div><!--/.item-->
@@ -311,9 +311,165 @@ $(".m_logo").hover(function(){
         <i class="fa fa-chevron-right"></i>
     </a>
 </section><!--/#main-slider-->
+			
+				
+<section id="recent-works"  style="border-top:1px solid #f6f6f6;">
+    <div class="container">
+       	<div class="center wow fadeInDown">
+            <h2>家装套餐＋升级包选购<br/><span style="font-size:24px"> HOME IMPROVEMENT PACKAGES</span></h2>
+            <p class="lead">专注工艺，不抢工期，一线名牌主辅材料，预约体验所见即所得，现已开放抢购，2000套名额先到先得。</p>
+        </div>
+
+				<div class="row">
+				  <div class="col-xs-12 col-sm-6 col-md-8">
+                <div class="recent-work-wrap">
+                    <img class="img-responsive" src="assets/images/space/space10.jpg" alt="" style="height:273px">
+                    <div class="overlay">
+                        <div class="recent-work-inner" style="padding-left:20px">
+                            <h3><a href="#">【推荐】699元/平米精装套餐</a></h3>
+                            <p>
+															温馨提示：<br/>
+															每周三开放抢购，注册用户须完善个人基本信息，并在抢购前请提前行预约，每人每周限抢购一次套餐。<br/>
+															提供免费上门验房、量房，房型设计，体验馆实景体验。<br/>
+															使用一线名牌主辅材料，从毛坯到精装，工期35天，微信互动实时了解家装进度。
+			                        	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+																	<a href="javascript:;" class="buynow" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
+																</div>															
+                            </p>
+                            <!--a class="preview" href=""images/space/space10.jpg"" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
+                        </div>
+                    </div>
+                </div>				  		
+				  </div>
+				  <div class="col-xs-6 col-md-4">
+                <div class="recent-work-wrap">
+                    <img class="img-responsive" src="assets/images/space/space11.jpg" alt="">
+                    <div class="overlay">
+                        <div class="recent-work-inner">
+                            <h3><a href="#">599元/平米简装套餐</a></h3>
+                            <p>
+															温馨提示：<br/>
+															22项全包服务、35天工期<br/>
+															免费验房、量房、设计，体验馆实景体验。<br/>
+															使用一线名牌主辅材料，微信互动。
+			                        	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+																	<a href="javascript:;" class="buynow" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
+																</div>															
+                            </p>
+                            <!--a class="preview" href="images/space/space1.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
+                        </div>
+                    </div>
+                </div>				  
+				  </div>
+				</div>
+				<div class="row" style="margin-top:30px">
+				  <div class="col-xs-6 col-sm-4">
+            <div class="recent-work-wrap">
+              <img class="img-responsive" src="assets/images/space/space11.jpg" alt="">
+              <div class="overlay">
+                <div class="recent-work-inner">
+                    <h3><a href="#">【升级】软装包</a></h3>
+                    <p>
+											温馨提示：<br/>
+											×××××××××××××<br/>
+											×××××××××××××<br/>
+                      	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+													<a href="javascript:;" class="buynow" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
+												</div>															
+                    </p>
+                    <!--a class="preview" href="images/space/space1.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
+                </div>
+              </div>
+            </div>				  
+				  </div>
+				  <div class="col-xs-6 col-sm-4">
+            <div class="recent-work-wrap">
+              <img class="img-responsive" src="assets/images/space/space11.jpg" alt="">
+              <div class="overlay">
+                <div class="recent-work-inner">
+                  <h3><a href="#">【升级】吊顶包</a></h3>
+                  <p>
+										温馨提示：<br/>
+										×××××××××××××<br/>
+										×××××××××××××<br/>
+                  	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+											<a href="javascript:;" class="buynow" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
+										</div>															
+                  </p>
+                  <!--a class="preview" href="images/space/space1.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
+                </div>
+              </div>
+            </div>				  
+				  </div>
+
+				  <div class="col-xs-6 col-sm-4">
+            <div class="recent-work-wrap">
+              <img class="img-responsive" src="assets/images/space/space11.jpg" alt="">
+              <div class="overlay">
+                <div class="recent-work-inner">
+                  <h3><a href="#">【升级】壁纸包</a></h3>
+                  <p>
+										温馨提示：<br/>
+										×××××××××××××<br/>
+										×××××××××××××<br/>
+                  	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+											<a href="javascript:;" class="buynow" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
+										</div>															
+                  </p>
+                  <!--a class="preview" href="images/space/space1.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
+                </div>
+              </div>
+            </div>				  
+				  </div>
+				</div>  
+
+				<div class="row" style="margin-top:30px">
+				  <div class="col-xs-6">
+            <div class="recent-work-wrap">
+              <img class="img-responsive" src="assets/images/space/space11.jpg" alt="" style="height:150px">
+              <div class="overlay">
+                <div class="recent-work-inner">
+									<div class="row">
+									  <div class="col-xs-6">
+									  	现金抵用券<br/>
+									  	2015年8月30日前使用，每张抵用券在任意套餐只能使用一次。
+									  </div>
+									  <div class="col-xs-6" style="float:left">
+                    	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+												<a id="yhqbtn1" href="javascript:void(0);"><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
+											</div>									  
+									  </div>
+									</div>                	
+                </div>
+              </div>
+            </div>				  
+				  </div>
+				  <div class="col-xs-6">
+            <div class="recent-work-wrap">
+              <img class="img-responsive" src="assets/images/space/space11.jpg" alt="" style="height:150px">
+              <div class="overlay">
+                <div class="recent-work-inner">
+									<div class="row">
+									  <div class="col-xs-6">
+									  	【优惠券】电器包优惠券<br/>
+									  	2015年8月30日前使用，每张抵用券在任意套餐只能使用一次。
+									  </div>
+									  <div class="col-xs-6" style="float:left">
+                    	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+												<a id="yhqbtn2" href="javascript:void(0);"><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
+											</div>									  
+									  </div>
+									</div>
+                </div>
+              </div>
+            </div>				  
+				  </div>
+				</div> 
+    </div>
+</section>
 
 
-<section id="feature" >
+<!--section id="feature" >
     <div class="container">
        	<div class="center wow fadeInDown">
             <h2>家装套餐 <span style="font-size:24px">HOME RENOVATION PACKAGES</span></h2>
@@ -350,7 +506,7 @@ $(".m_logo").hover(function(){
 					</div>
 				</div>
     </div>
-</section>
+</section-->
 
 
 
