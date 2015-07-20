@@ -194,11 +194,11 @@ $(".m_logo").hover(function(){
                                     <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">
                                     		×××××××××××××××××××××
                                     </h2>
-                                    <!--
+                                    
 					                        	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
 																			<a href="javascript:;" class="buynow11" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div></a>
 																		</div>
-																		-->
+																		
                                 </div>
                             </div>
                         </div>
