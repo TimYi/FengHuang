@@ -201,11 +201,11 @@ $(".m_logo").hover(function(){
                                 	专注工艺，不抢工期
                                 </h2>
                             </div-->                        	
-                            <!--div class="carousel-content" style="margin-top:120px;">
+                            <div class="carousel-content" style="margin-top:120px;">
                                 <img src="images/index_hd_1_left.png" />
-                            </div-->
+                            </div>
                         </div>
-                        <div class="col-sm-6 hidden-xs animation animated-item-2">
+                        <!--div class="col-sm-6 hidden-xs animation animated-item-2">
                             <div class="slider-img" style="margin-top:110px;margin-left:50px">
                             		<!--div style="margin:20px 0 20px 0">
                                 	<a id="yhqbtn1" href="javascript:void(0);"><img src="images/home_yhq_1.png" class="img-responsive" style="/*box-shadow: 0 0 5px #777;*/"></a>
@@ -213,8 +213,8 @@ $(".m_logo").hover(function(){
                                 <div>
                                 	<a id="yhqbtn2" href="javascript:void(0);"><img src="images/home_yhq_2.png" class="img-responsive" style="margin-top:-100px/*box-shadow: 0 0 5px #777;*/"></a>
                                 </div-->
-                                <img src="images/index_hd_1_right.png" />
-                            </div>
+                                <!--img src="images/index_hd_1_right.png" />
+                            </div-->
                         </div>
                     </div>
                 </div>
