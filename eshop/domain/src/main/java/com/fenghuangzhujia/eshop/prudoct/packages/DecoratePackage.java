@@ -3,8 +3,10 @@ package com.fenghuangzhujia.eshop.prudoct.packages;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 
 
 import com.fenghuangzhujia.foundation.core.entity.BaseModel;
@@ -38,6 +40,7 @@ public class DecoratePackage extends BaseModel implements Identified<String> {
 	private Date scrambleEndTime;
 	private ScrambleStatus status;
 
+	@Id
 	public String getId() {
 		return id;
 	}
