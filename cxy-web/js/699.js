@@ -677,7 +677,7 @@ $(function(){
 					}
 				}
 				else{
-					$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">已结束</div>');
+					$(".buynow").html('<div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">已结束</div>');
 				}
 
 				$(".buynow").parent().show();

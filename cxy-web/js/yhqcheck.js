@@ -63,7 +63,8 @@ $(function(){
 					changeCouponDetailsHtml(data);
 				}
 				else{
-					Utils.alert("优惠券抢购失败");
+					var msg = data.errorDescription || "";
+					Utils.alert("优惠券抢购失败:" + msg);
 					changeCouponErrorHtml(data);
 				}
 				g.httpTip.hide();
