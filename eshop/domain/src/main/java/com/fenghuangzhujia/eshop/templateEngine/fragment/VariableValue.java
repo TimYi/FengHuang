@@ -66,10 +66,14 @@ public class VariableValue extends UUIDBaseModel {
 	@Override
 	public String toString() {
 		if(type==FieldType.TEXT) {
+			if(text==null)return "";
 			return text;
-		} else {
-			if(pic==null) return null;
+		} else if(type==FieldType.IMG) {
+			if(pic==null) return "#";
 			return pic.getUrl();
+		} else {//URL类型
+			if(text==null) return "#";
+			return text;
 		}
 	}
 }
