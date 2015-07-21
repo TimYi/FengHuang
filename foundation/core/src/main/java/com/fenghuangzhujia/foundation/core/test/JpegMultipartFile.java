@@ -17,6 +17,9 @@ public class JpegMultipartFile implements MultipartFile {
 	public JpegMultipartFile(File imgFile) {
 		this.imgFile=imgFile;
 	}
+	public JpegMultipartFile(String filePath) {
+		this.imgFile=new File(filePath);
+	}
 	private File imgFile;
 	@Override
 	public String getName() {
