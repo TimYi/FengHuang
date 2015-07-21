@@ -105,7 +105,7 @@ function BindEnter(obj){
 	<div class="loginArea">
 		<div class="loginHead"> </div>
 		<div class="loginTxt" style="color:#333;font-size:24px;height:40px;line-height:40px;margin-left:-50px">
-			<img src="http://www.ifhzj.com/center/assets/images/fhzj.jpg">
+			<img src="http://www.ifhzj.com/assets/images/fhzj.jpg">
 			<div style="margin-top:-50px;margin-left:200px">后台管理中心</div>
 		</div>
 		<div class="loginForm" style="margin-left:100px;width:367px">
