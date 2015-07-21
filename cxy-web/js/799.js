@@ -137,7 +137,10 @@ $(function(){
 		html.push('</table>');
 		html.push('</div>');
 
-		$("#tab1").html(html.join(''));
+		if(html.length > 5){
+			$("#tab1").html(html.join(''));
+			$("#tab1").show();
+		}
 	}
 
 
