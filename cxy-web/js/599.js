@@ -613,6 +613,8 @@ $(function(){
 			var couldAppoint = obj.couldAppoint || false;
 			var hasScrambled = obj.hasScrambled || false;
 
+			var hasshow = true;
+
 			if(id == Utils.getQueryString("packageId")){
 				//599
 				if(status == "PREPARE"){
@@ -666,6 +668,8 @@ $(function(){
 								//向用户提示reasonForCantAppoint里的内容
 								var msg = obj.reasonForCantAppoint || "套餐异常";
 								Utils.alert(msg);
+
+								hasshow = false;
 							}
 						}
 					}
@@ -674,7 +678,9 @@ $(function(){
 					$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">已结束</div>');
 				}
 
-				$(".buynow").parent().show();
+				if(hasshow){
+					$(".buynow").parent().show();
+				}
 			}
 		}
 	}
