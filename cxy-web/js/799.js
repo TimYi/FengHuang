@@ -13,6 +13,8 @@ $(function(){
 	g.currentPage = 1;
 	g.paseSize = 20;
 	g.httpTip = new Utils.httpTip({});
+	//标识是否抢购成功
+	g.hasbuy = false;
 	g.listdata = [];
 	g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
 	//验证登录状态
@@ -769,6 +771,11 @@ $(function(){
 	}
 
 	function miaoSha(id){
+		if(g.hasbuy){
+			//直接跳订单
+			location.href = "center/c_order.html?token=" + g.token + "&p=7";
+			return;
+		}
 		var url = Base.scramble;
 		var condi = {};
 		condi.token = g.token;
@@ -786,9 +793,11 @@ $(function(){
 				console.log("miaoSha",data);
 				var status = data.status || "";
 				if(status == "OK"){
-					Utils.alert("抢购成功");
-					var orderId = data.result.id;
-					location.href = "orderback_paysel.html?id=" + orderId;
+					g.hasbuy = true;
+					alert("抢购成功");
+					//Utils.alert("抢购成功");
+					//var orderId = data.result.id;
+					//location.href = "orderback_paysel.html?id=" + orderId;
 				}
 				else{
 					Utils.alert("抢购失败");
