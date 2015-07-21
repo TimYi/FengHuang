@@ -54,7 +54,7 @@ $(function(){
 	$("#provId2").bind("change",getProvCity2);
 	*/
 
-	//getPackages();
+	getPackages();
 
 	//getAppointCategory();
 	//getProv();
@@ -62,7 +62,7 @@ $(function(){
 	getPackageMeterias();
 
 	function getPackageMeterias(){
-		var id = Utils.getQueryString("id") || "";
+		var id = Utils.getQueryString("packageId") || "";
 		if(id !== ""){
 			var condi = {};
 			condi.id = id;
@@ -688,29 +688,28 @@ $(function(){
 			var hasAppointed = obj.hasAppointed || false;
 			var couldAppoint = obj.couldAppoint || false;
 			var hasScrambled = obj.hasScrambled || false;
-			if(id == Utils.getQueryString("id")){
+
+			if(id == Utils.getQueryString("packageId")){
 				//799
 				if(status == "PREPARE"){
 					$(".buynow").html('<div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">未开始</div>');
 				}
 				else if(status == "SCRAMBLE" && inStock > saleNumber){
+					//~ 先判断hasAppointed，true直接显示是否开始抢购
+					//~ false->判断couldAppoint，true让用户预约。
+					//~ false->判断hasScrambled，true，引导用户到订单界面
+					//~ false->向用户提示reasonForCantAppoint里的内容
 
-					if(couldAppoint){
-						if(g.reserveStatus){
-							var page = "subcheck.html?id=" + id;
-							$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
-						}
-						else{
-							var page = "center/c_my.html?token=" + g.token + "&p=1";
-							$(".buynow").html('<div onclick="alert(\'个人资料不完善,无法预约\');location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
-						}
+					//没有登录,这些属性都是false,没用
+					if(!g.loginStatus){
+						//没登录,去登录
+						var page = "center/login.html";
+						$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
 					}
 					else{
-						if(hasScrambled){
-							var page = "center/c_order.html?token=" + g.token + "&p=7";
-							$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
-						}
-						else{
+						//判断是否可以抢购
+						if(hasAppointed){
+							//可以抢购
 							if(g.loginStatus){
 								$(".buynow").html('<div onclick="miaoSha(\'' + id + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
 								//html.push('<a href="javascript:miaoSha(\'' + id + '\')">');
@@ -720,11 +719,48 @@ $(function(){
 								$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
 							}
 						}
+						else{
+							//不能抢购,判断couldAppoint，true让用户预约
+							if(couldAppoint){
+								if(g.loginStatus){
+									//~ var page = "center/c_order.html?token=" + g.token + "&p=7";
+									//~ $(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+									if(g.reserveStatus){
+										var page = "subcheck.html?id=" + id;
+										$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
+									}
+									else{
+										var page = "center/c_my.html?token=" + g.token + "&p=1";
+										$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
+									}
+								}
+								else{
+									var page = "center/login.html";
+									$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+								}
+							}
+							else{
+								////~ hasScrambled:标识是否已经抢购完并且尚未付款
+								if(hasScrambled){
+									var page = "center/c_order.html?token=" + g.token + "&p=7";
+									$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+								}
+								else{
+									//向用户提示reasonForCantAppoint里的内容
+									var msg = obj.reasonForCantAppoint || "套餐异常";
+									Utils.alert(msg);
+
+									hasshow = false;
+								}
+							}
+						}
 					}
 				}
 				else{
 					$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">已结束</div>');
 				}
+
+				$(".buynow").parent().show();
 			}
 		}
 	}
