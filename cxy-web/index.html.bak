@@ -609,7 +609,7 @@ $(".m_logo").hover(function(){
 
         <div class="row">
 					<div class="col-md-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-						<div style="background-image: url(assets/images/banner_tyg.jpg);width:1140px;height:250px">
+						<div style="background-image: url(assets/images/banner_tyg.jpg);width:1140px;height:250px;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
 							<div>
                 <div class="feature-wrap" style="border:0;height:290px;color:#fff;text-shadow: 0 0 2px #333;color:#fff;margin-left:30px;">
                     <h3 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="font-weight: 800;font-size:24px;text-shadow: 0 0 2px #333;color:#fff;margin-top:50px">厦门馆</h1>
