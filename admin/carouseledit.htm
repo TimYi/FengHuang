@@ -179,8 +179,10 @@ function submitCarousel(){
 		$('#pageId').val(viewModel.selectedNav().id);
 	}
 	var url = genUrl(TEMPLATE_CAROUSEL)+'/'+id;
-	var files = $('input[name$="picFile"]').prop('files');//获取到文件列表
-	if(files.length == 0){
+	var mainfiles = $('input[name="picFile"]').prop('files');//获取到文件列表
+	var subfiles = $('input[name$=".picFile"]').prop('files');//获取到文件列表
+	//alert(files.length);
+	if(mainfiles.length == 0 && subfiles.length == 0){
 		submitAsyFormByJson(url,'bTForm',function(data){	 			
 			friendlyTip(data);
 			window.location.href='carousellist.htm';
