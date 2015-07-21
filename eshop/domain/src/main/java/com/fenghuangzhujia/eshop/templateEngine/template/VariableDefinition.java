@@ -53,7 +53,7 @@ public class VariableDefinition extends UUIDBaseModel {
 
 
 	public static enum FieldType {
-		TEXT,IMG;
+		TEXT,IMG,URL;
 		
 		public static FieldType fromString(String type) {
 			type=type.toUpperCase();
