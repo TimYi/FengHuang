@@ -436,7 +436,7 @@ $(".m_logo").hover(function(){
 									  </div>
 									  <div class="col-xs-6" style="float:left">
                     	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-												<a id="yhqbtn1" href="javascript:void(0);"><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
+												<a id="yhqbtn1" href="javascript:void(0);"><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即领取</div></a>
 											</div>									  
 									  </div>
 									</div>                	
@@ -456,7 +456,7 @@ $(".m_logo").hover(function(){
 									  </div>
 									  <div class="col-xs-6" style="float:left">
                     	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-												<a id="yhqbtn2" href="javascript:void(0);"><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
+												<a id="yhqbtn2" href="javascript:void(0);"><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即领取</div></a>
 											</div>									  
 									  </div>
 									</div>
@@ -518,7 +518,7 @@ $(".m_logo").hover(function(){
           <h2>服务流程 <span style="font-size:24px">CASE PROCESS</span></h2>
       </div>
 			<div class="row" style="margin:50px 0 100px 0">
-					<img src="images/home_case_process.png">
+					<img src="images/fwlc.png">
 					<!--div class="col-md-2 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="margin-right:44px;">
 					    <div class="feature-wrap">
 					        <i class="fa fa-clock-o"></i>
