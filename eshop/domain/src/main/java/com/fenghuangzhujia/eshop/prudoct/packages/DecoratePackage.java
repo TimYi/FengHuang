@@ -3,10 +3,14 @@ package com.fenghuangzhujia.eshop.prudoct.packages;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
+
+
+import com.fenghuangzhujia.foundation.core.entity.BaseModel;
+import com.fenghuangzhujia.foundation.core.entity.Identified;
 import com.fenghuangzhujia.foundation.media.MediaContent;
 
 /**
@@ -16,7 +20,8 @@ import com.fenghuangzhujia.foundation.media.MediaContent;
  */
 @Entity
 @Table(name="fhzj_decorate_package")
-public class DecoratePackage extends UUIDBaseModel {
+public class DecoratePackage extends BaseModel implements Identified<String> {
+	private String id;
 	/**套餐价格(元/m2)*/
 	private Double price;
 	/**套餐名称*/
@@ -35,6 +40,13 @@ public class DecoratePackage extends UUIDBaseModel {
 	private Date scrambleEndTime;
 	private ScrambleStatus status;
 
+	@Id
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public Double getPrice() {
 		return price;
 	}

@@ -430,7 +430,6 @@ $(function(){
 		}
 	}
 
-
 	//请求验证码
 	function sendGetCodeHttp(imgCode){
 		var url = Base.getCodeUrl;
@@ -562,6 +561,11 @@ $(function(){
 
 
 
+
+
+
+
+
 	function getPackages(){
 		var url = Base.packagesUrl;
 		var condi = {};
@@ -609,8 +613,10 @@ $(function(){
 			var couldAppoint = obj.couldAppoint || false;
 			var hasScrambled = obj.hasScrambled || false;
 
+			var hasshow = true;
+
 			if(id == Utils.getQueryString("packageId")){
-				//699
+				//599
 				if(status == "PREPARE"){
 					$(".buynow").html('<div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">未开始</div>');
 				}
@@ -680,7 +686,9 @@ $(function(){
 					$(".buynow").html('<div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">已结束</div>');
 				}
 
-				$(".buynow").parent().show();
+				if(hasshow){
+					$(".buynow").parent().show();
+				}
 			}
 		}
 	}

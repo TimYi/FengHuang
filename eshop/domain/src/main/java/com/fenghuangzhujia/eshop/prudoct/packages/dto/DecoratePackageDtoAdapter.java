@@ -28,7 +28,10 @@ public class DecoratePackageDtoAdapter extends AbstractDtoAdapter<DecoratePackag
 	@Override
 	public DecoratePackage postConvertToDo(DecoratePackageInputArgs t,
 			DecoratePackage d) {
-		return postUpdate(t, d);
+		d=postUpdate(t, d);
+		Integer price=t.getPrice().intValue();
+		d.setId(price.toString());
+		return d;
 	}
 
 	@Override
