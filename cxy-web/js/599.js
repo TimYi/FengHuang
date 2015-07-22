@@ -59,6 +59,90 @@ $(function(){
 
 	getPackages();
 
+	getPackageMeterias();
+	function getPackageMeterias(){
+		var id = Utils.getQueryString("packageId") || "";
+		if(id !== ""){
+			var condi = {};
+			condi.id = id;
+			sendgetPackageMeteriasHttp(condi);
+		}
+		else{
+			Utils.alert("没有获取到套餐id");
+		}
+	}
+
+	function sendgetPackageMeteriasHttp(condi){
+		var url = Base.serverUrl + "/api/product/package/" + condi.id + "/materials";
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"GET",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("sendgetPackageMeteriasHttp",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					changeMeteriasHtml(data.result);
+				}
+				else{
+					alert("获取软装包详情错误");
+				}
+				g.httpTip.hide();
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+
+	function changeMeteriasHtml(data){
+		var obj = data || [];
+		var html = [];
+		html.push('<div class="carousel-inner">');
+		html.push('<div class="item active">');
+		html.push('<table class="table u_ct_15">');
+
+		var i = 0;
+		for(var key in obj){
+
+			var name = key;
+			var trcss = i == 0 ? "border-top:2px solid #fff" : "";
+
+			html.push('<tr style="' + trcss + '">');
+			html.push('<td style="vertical-align: middle;">' + name + '</td>');
+			html.push('<td style="vertical-align: middle;">');
+
+
+			var imgarr = obj[key] || [];
+			for(var j = 0, jlen = imgarr.length; j < jlen; j++){
+				var css = j == 0 ? "margin-bottom:0;width:100px" : "margin-bottom:0;width:100px;margin-left:-10px";
+				var imgUrl = imgarr[j].pic || "";
+				if(imgUrl !== ""){
+					imgUrl = imgUrl.url || "";
+				}
+
+				html.push('<img src="' + imgUrl + '" style="' + css + '">');
+			}
+
+			html.push('</td>');
+			html.push('</tr>');
+
+			i++;
+		}
+		html.push('</table>');
+		html.push('</div>');
+
+		if(html.length > 5){
+			$("#tab1").html(html.join(''));
+			$("#tab1").show();
+		}
+	}
+
+
 	//getAppointCategory();
 	//getProv();
 	function getProvCity(){
