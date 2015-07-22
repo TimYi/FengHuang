@@ -172,23 +172,19 @@ public class GoodOrder extends UUIDBaseModel {
 
 
 	public static enum OrderStatus {
-		/**
-		 * 等待支付
-		 */
+		/**等待支付*/
 		WAITING,
-		/**
-		 * 用户支付完成
-		 */
+		/**用户支付完成*/
 		PAYED,
 		/**后台和用户沟通处理开始，到整个家装过程结束*/
 		PROCESSING,
-		/**
-		 * 已完成
-		 */
+		/**已完成*/
 		COMPLETE,
-		/**
-		 * 已取消
-		 */
-		CANCEL;		
+		/**已取消，用于用户未付款时*/
+		CANCEL,	
+		/**退款申请中*/
+		DRAWBACKING,
+		/**已退款*/
+		DRAWBACKED;
 	}
 }

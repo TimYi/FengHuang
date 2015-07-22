@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fenghuangzhujia.eshop.appoint.AppointService;
+import com.fenghuangzhujia.eshop.commerce.drawback.DrawbackService;
 import com.fenghuangzhujia.eshop.commerce.order.GoodOrderService;
 import com.fenghuangzhujia.eshop.commerce.order.GoodOrder.OrderStatus;
 import com.fenghuangzhujia.eshop.commerce.order.dto.GoodOrderDto;
@@ -32,6 +33,8 @@ public class OrderController {
 	private PufaPayService pufaPayService;
 	@Autowired
 	private AppointService appointService;
+	@Autowired
+	private DrawbackService drawbackService;
 
 	@RequestMapping(value="user/orders",method=RequestMethod.GET)
 	public String list(@RequestParam(defaultValue="1")Integer page,@RequestParam(defaultValue="8") Integer size, OrderStatus status) {
@@ -65,6 +68,14 @@ public class OrderController {
 		RequestModel result=
 				pufaPayService.calculatePayArgs(userId, orderId, couponsId, payBank, accountType);
 		return RequestResult.success(result).toJson();
+	}
+	
+	@RequestMapping(value="order/{orderId}/drawback",method=RequestMethod.POST)
+	public String drawback(@PathVariable String orderId, String reason) {
+		SimpleUserDetails details=AuthenticationService.getUserDetail();
+		String userId=details.getId();
+		drawbackService.drawback(orderId, userId, reason);
+		return RequestResult.success("已申请退款，客服将在3-5个工作日内与您联系，请耐心等待。").toJson();
 	}
 	
 	@RequestMapping(value="pufa/revoke",method=RequestMethod.POST)
