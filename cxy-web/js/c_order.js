@@ -20,6 +20,8 @@ $(function(){
 
 	getMyOrder();
 
+	$("#enterbackbtn").bind('click',enterBackBtn);
+
 	//获取我的订单
 	function getMyOrder(){
 		//token:用户凭据
@@ -78,7 +80,7 @@ $(function(){
 				}
 				else if(status == "PAYED" || status == "PROCESSING"){
 					//可以申请退款
-					html.push('<td><a href="c_order_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="delete_' + i + '" href="javascript:orderDrawback(\'' + id + '\');" class="delete" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" >申请退款</a></td>');
+					html.push('<td><a href="c_order_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="delete_' + i + '" href="javascript:orderDrawback(\'' + id + '\');" class="delete" data-toggle="modal" data-target="#exampleModal" data-whatever="' +id + '" >申请退款</a></td>');
 				}
 				else{
 					html.push('<td><a href="c_order_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '">查看</a>&nbsp;&nbsp;</td>');

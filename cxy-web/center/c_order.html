@@ -297,13 +297,13 @@ $(".m_logo").hover(function(){
       <div class="modal-body" style="height:90px;">
         <form>
           <div class="form-group">
-            <textarea class="form-control" id="message-text">说点什么</textarea>
+            <textarea class="form-control" id="message-text"></textarea>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary">确定</button>
+        <button id="enterbackbtn" type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
       </div>
     </div>
   </div>
@@ -311,6 +311,7 @@ $(".m_logo").hover(function(){
 
 <script>
 $('#exampleModal').on('show.bs.modal', function (event) {
+	debugger
   var button = $(event.relatedTarget)
   var recipient = button.data('whatever')
   var modal = $(this)
