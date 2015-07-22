@@ -108,7 +108,8 @@ $(function(){
 		var code = obj.code || "";
 		var payTime = obj.payTime || "";
 		var status = obj.status || "";
-		status = status == "Procrssing" ? "定金已支付":"定金未支付";
+		var zfobj = {"WAITING":"未支付","PAYED":"进行中","PROCESSING":"进行中","CANCEL":"已取消","COMPLETE":"已完成","DRAWBACKING":"退款中","DRAWBACKED":"已退款"};
+		status = zfobj[status] || "";
 		html.push('<h4>' + name + '</h4>');
 		html.push('<span style="color:#999;font-size:13px">状态：' + status + '</span>');
 		html.push('<span style="color:#999;margin-left:20px;font-size:13px">时间:' + payTime + '</span>');
