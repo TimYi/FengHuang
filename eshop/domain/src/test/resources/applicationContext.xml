@@ -15,7 +15,7 @@
 	<description>Spring公共配置 </description>
 
 	<!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
-	<context:component-scan base-package="com.fenghuangzhujia"/>
+	<context:component-scan base-package="com.fenghuangzhujia,org.sharechina"/>
 	
 	<!-- 读取属性文件 -->
 	<context:property-placeholder location="classpath:app.properties" file-encoding="utf-8"/>

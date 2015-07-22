@@ -3,7 +3,6 @@ package com.fenghuangzhujia.eshop.commerce.drawback;
 import java.util.Date;
 
 import com.fenghuangzhujia.eshop.commerce.drawback.Drawback.DrawbackStatus;
-import com.fenghuangzhujia.eshop.commerce.order.GoodOrder.OrderStatus;
 import com.fenghuangzhujia.eshop.commerce.order.dto.GoodOrderDto;
 import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
@@ -22,8 +21,6 @@ public class DrawbackDto extends DtoBaseModel {
 	private Date processDate;
 	/**退款状态*/
 	private DrawbackStatus status;
-	/**退款申请前的订单状态*/
-	private OrderStatus orderStatus;
 	
 	public GoodOrderDto getOrder() {
 		return order;
@@ -60,11 +57,5 @@ public class DrawbackDto extends DtoBaseModel {
 	}
 	public void setStatus(DrawbackStatus status) {
 		this.status = status;
-	}
-	public OrderStatus getOrderStatus() {
-		return orderStatus;
-	}
-	public void setOrderStatus(OrderStatus orderStatus) {
-		this.orderStatus = orderStatus;
 	}
 }

@@ -32,7 +32,7 @@ public class DrawbackManager {
 	 */
 	public Drawback drawback(GoodOrder order, String reason) {
 		OrderStatus status=order.getStatus();
-		if(status==OrderStatus.WAITING || status==OrderStatus.CANCEL) {
+		if(!(status==OrderStatus.PAYED || status==OrderStatus.PROCESSING)) {
 			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "订单所处状态不允许退款操作");
 		}
 		
