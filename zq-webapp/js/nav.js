@@ -77,12 +77,10 @@
 						url = "jztc.html?pt=1"
 					}else if(url.indexOf('gyzs') > -1){
 						url = "tmzs.html?pt=1";
+					}else if(url.indexOf('zczs') > -1){
+						url = "tmzs.html?pt=2";
 					}else if(url.indexOf('live') > -1){
 						url = "case.html?pt=1";
-					}else if(url.indexOf('ddb') > -1){
-						url = "rzb.html?pt=1";
-					}else if(url.indexOf('bzb') > -1){
-						url = "rzb.html?pt=2";
 					}
 				}
 				var title = sub[j].title || "";
