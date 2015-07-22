@@ -144,7 +144,7 @@ $(function(){
 		phtml.push('</div>');
 
 		$("#featurelogo").html(logo.join(''));
-		//$("#featurepro").html(phtml.join(''));
+		$("#featurepro").html(phtml.join(''));
 		//$("#featurelogo").css("visibility","visible");
 		//$("#featurepro").css("visibility","visible");
 	}
