@@ -81,6 +81,9 @@
 			var content = obj[i].fragment || ""
 			if(content !== ""){
 				content = content.templateContent || "";
+				if(i > 0){
+					content = content.replace("active","");
+				}
 			}
 			html.push(content);
 			/*
