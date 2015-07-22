@@ -47,6 +47,8 @@ public class SystemErrorCodes {
 	
 	//支付相关异常81~90
 	public static final ErrorCode PAY_FAILED;
+	public static final ErrorCode SIGNATURE_WRONG;
+	public static final ErrorCode DRAWBACK_FAILED;
 	
 	//订单相关异常91~100
 	public static final ErrorCode GOOD_CONVERTER_MISSING;
@@ -123,15 +125,19 @@ public class SystemErrorCodes {
 		
 		
 		
-		UNKNOWN_ERROR=new ErrorCode(100, "未知错误");
+		
 		
 		PAY_FAILED=new ErrorCode(81, "支付失败");
+		SIGNATURE_WRONG=new ErrorCode(82, "签名错误");
+		DRAWBACK_FAILED=new ErrorCode(83, "退款失败");
 		
 		GOOD_CONVERTER_MISSING=new ErrorCode(91, "商品转换器缺失！");
 		NO_GOOD=new ErrorCode(92, "无货");
 		GOOD_TYPE_DISMISS=new ErrorCode(93,"商品类型不统一");
 		GOOD_INFO_MISSING=new ErrorCode(94, "商品信息不完整");
 		NOT_ON_SALE=new ErrorCode(95, "商品暂不销售");
+		
+		UNKNOWN_ERROR=new ErrorCode(100, "未知错误");
 		
 		SCHEDUAL_CONFILICT=new ErrorCode(101, "出现时间重叠，请重新选择时间！");
 		SCHEDUAL_OCCUPIED=new ErrorCode(102, "此时间段已经被预约，请您重新选择！");

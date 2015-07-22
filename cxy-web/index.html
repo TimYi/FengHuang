@@ -599,6 +599,73 @@ $(".m_logo").hover(function(){
 	</div><!--/.container-->
 </section><!--/about-us-->
 
+<style>
+.form-group{padding-bottom:25px}
+</style>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document" style="width:420px">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel"></h4>
+      </div>
+      <div class="modal-body" style="height:300px;width:420px">
+        <form>
+				  <div class="form-group">
+				    <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
+				    <div class="col-sm-10" style="width:83%">
+				      <input type="" class="form-control" id="inputEmail3" placeholder="请输入用户名">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+				    <div class="col-sm-10" style="width:83%">
+				      <input type="password" class="form-control" id="inputPassword3" placeholder="请输入密码">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputPhone3" class="col-sm-2 control-label">手机号</label>
+				    <div class="col-sm-10" style="width:83%">
+				      <input type="text" maxLength=11 class="form-control" id="inputPhone3" placeholder="中国大陆手机号">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputImgCode3" class="col-sm-2 control-label">验证码</label>
+				    <div class="col-sm-10" style="width:83%">
+							<input type="text" class="form-control" id="inputImgCode3" placeholder="请输入图形验证码" style="width:160px;float: left;">
+							<img id="imgcodebtn" src="" alt="" style="height: 33px;margin-top:0;width: 115px;float:right;border:1px solid #ccc;background:url(../images/yzmbg.gif)" />
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputCode3" class="col-sm-2 control-label">验证码</label>
+				    <div class="col-sm-10" style="width:83%">
+				      <input type="text" class="form-control" id="inputCode3" placeholder="请输入短信验证码" style="width:160px">
+				      <button id="getcodebtn" type="button" class="btn btn-default" style="float:right;margin-top:-34px;width:115px">发送短信</button>
+				    </div>
+				  </div>
+
+				  <div class="form-group" style="padding-top:20px 0 100px 0">
+				    <div class="col-sm-offset-2 col-sm-10" style="width:83%">
+				      <button id="sendbtn" type="button" class="btn btn-default btn-primary" style="margin-left:2px;margin-right:10px">　注册　</button>
+				      <button id="resetbtn" type="button" class="btn btn-default btn-primary">　重置　</button>
+				    </div>
+				  </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) 
+  var recipient = button.data('whatever') 
+  var modal = $(this)
+  modal.find('.modal-title').text('一分钟快速注册')
+  modal.find('.modal-body input').val(recipient)
+})
+</script>
 
 <section id="feature" style="border-top:1px solid #f6f6f6;">
     <div class="container">
@@ -617,9 +684,10 @@ $(".m_logo").hover(function(){
                     	厦门市湖里区金泰路1798创业大街5层
                     </h2>
                     <div style="margin-top:30px;text-shadow:none;" class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" >
-                    	<div style="height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                    	<!--div style="height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
 												<a id="subbtn" href="center/reg.html"  ><div style="text-align:center;line-height:45px;font-size:16px;color:#000;font-weight:800">马上预约</div></a>
-                    	</div>
+                    	</div-->
+                    	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">马上预约</button>
                     </div>
                 </div>
 							</div>
