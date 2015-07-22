@@ -148,8 +148,8 @@ function submitCarousel(){
 	}
 //	alert('pageId:'+	$('#pageId').val());
 	var url = genUrl(TEMPLATE_CAROUSEL);
-	var mainfiles = $('input[name="picFile"]').prop('files');//获取到文件列表
-	var subfiles = $('input[name$="].picFile"]').prop('files');//获取到文件列表
+	var mainfiles = $('input[id="picFile"]').prop('files');//获取到文件列表
+	var subfiles = $('input[id$="].picFile"]').prop('files');//获取到文件列表
 	//alert(mainfiles.length);
 	//alert(subfiles.length)
 	if(mainfiles.length == 0 && subfiles.length == 0){
@@ -226,6 +226,10 @@ function toVaild(){
 	//$("#bTForm").attr('action',url);
 	return true;
 }
+function onSelectFile(obj){
+	
+	obj.name =  obj.id;
+}
 </script>
 </head>
 <body onload="onload()">
@@ -256,7 +260,7 @@ function toVaild(){
 			<tr>
 				<td align="right" height="40" >上传图片：</td>
 				<td width="75%" >
-					<input type="file" id='picFile'  name='picFile'>
+					<input type="file" id='picFile'  onchange="onSelectFile(this)">
 				</td>
 			</tr>
 			<tr>
@@ -287,7 +291,7 @@ function toVaild(){
 				<input type="text" data-bind="attr:{name:'fragmentInfo.values['+no+'].text'}">
 			</span>
 			<span data-bind="if:type=='IMG'">
-				<input type="file" data-bind="attr:{name:'fragmentInfo.values['+no+'].picFile'}">
+				<input type="file" data-bind="attr:{id:'fragmentInfo.values['+no+'].picFile'}" onchange="onSelectFile(this)">
 			</span>
 			</td>
 		</tr>
