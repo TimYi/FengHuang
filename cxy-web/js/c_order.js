@@ -20,7 +20,7 @@ $(function(){
 
 	getMyOrder();
 
-	$("#enterbackbtn").bind('click',enterBackBtn);
+	//$("#enterbackbtn").bind('click',enterBackBtn);
 
 	//获取我的订单
 	function getMyOrder(){
