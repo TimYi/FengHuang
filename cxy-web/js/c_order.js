@@ -20,7 +20,7 @@ $(function(){
 
 	getMyOrder();
 
-	//$("#enterbackbtn").bind('click',enterBackBtn);
+	$("#enterbackbtn").bind('click',enterBackBtnUp);
 
 	//获取我的订单
 	function getMyOrder(){
@@ -305,45 +305,48 @@ $(function(){
 	}
 
 	function orderDrawback(id){
-		$('#exampleModal').addClass("in");
-		$('#exampleModal').attr("aria-hidden",false);
-		$('#exampleModal').show();
+		var modal = $('#exampleModal');
+		modal.addClass("in");
+		modal.attr("aria-hidden",false);
+		modal.find('.modal-title').text('退款理由');
+		modal.find('.modal-body input').val(recipient);
+		modal.show();
+		g.backorderid = id;
+	}
+	function enterBackBtnUp(){
+		var url = Base.serverUrl + "/api/user/order/" + id + "/drawback";
+		var condi = {};
+		condi.token = g.token;
+		condi.id = g.backorderid;
+		condi.reason = $("#message-text").val() || "";
 
-		if(confirm("您确认要申请退款?")){
-			var url = Base.serverUrl + "/api/user/order/" + id + "/drawback";
-			var condi = {};
-			condi.token = g.token;
-			condi.id = id;
-			condi.reason = "退款原因";
-
-			g.httpTip.show();
-			$.ajax({
-				url:url,
-				data:condi,
-				type:"POST",
-				dataType:"json",
-				context:this,
-				global:false,
-				success: function(data){
-					console.log("orderDrawback",data);
-					var status = data.status || "";
-					if(status == "OK"){
-						Utils.alert("订单申请退款成功");
-						setTimeout(function(){
-							getMyOrder();
-						},500);
-					}
-					else{
-						var msg = data.error;
-						Utils.alert("订单申请退款错误:" + msg);
-					}
-					g.httpTip.hide();
-				},
-				error:function(data){
-					g.httpTip.hide();
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"POST",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("orderDrawback",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					Utils.alert("订单申请退款成功");
+					setTimeout(function(){
+						getMyOrder();
+					},500);
 				}
-			});
-		}
+				else{
+					var msg = data.error;
+					Utils.alert("订单申请退款错误:" + msg);
+				}
+				g.httpTip.hide();
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
 	}
 
 	window.miaoSha = miaoSha;
