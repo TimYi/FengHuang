@@ -93,7 +93,7 @@ $(function(){
 	//验证登录状态
 	g.loginStatus = Utils.getUserInfo();
 	if(g.loginStatus){
-		//$("#subbtn").attr("href","subappoint.html");
+
 	}
 	g.reserveStatus = false;
 	if(g.loginStatus && g.userprofile !== ""){
@@ -103,9 +103,11 @@ $(function(){
 		if(name !== "" && mobile !== ""){
 			//允许预约
 			g.reserveStatus = true;
+			$("#subbtn").attr("href","subappoint.html");
 		}
 		else{
 			g.reserveStatus = false;
+			$("#subbtn").attr("href","center/c_my.html?token=" + g.token + "&p=1");
 		}
 		//$("#name").val(name);
 		//$("#phone").val(mobile);
