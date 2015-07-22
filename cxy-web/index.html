@@ -633,7 +633,7 @@ $(".m_logo").hover(function(){
 				    <label for="inputImgCode3" class="col-sm-2 control-label">验证码</label>
 				    <div class="col-sm-10" style="width:83%">
 							<input type="text" class="form-control" id="inputImgCode3" placeholder="请输入图形验证码" style="width:160px;float: left;">
-							<img id="imgcodebtn" src="" alt="" style="height: 33px;margin-top:0;width: 115px;float:right;border:1px solid #ccc;background:url(../images/yzmbg.gif)" />
+							<img id="imgcodebtn" src="" alt="" style="height: 33px;margin-top:0;width: 115px;float:right;border:1px solid #ccc;background:url(images/yzmbg.gif)" />
 				    </div>
 				  </div>
 				  <div class="form-group">
@@ -650,7 +650,7 @@ $(".m_logo").hover(function(){
 				      <button id="resetbtn" type="button" class="btn btn-default btn-primary">　重置　</button>
 				    </div>
 				  </div>
-          
+
         </form>
       </div>
     </div>
@@ -659,11 +659,29 @@ $(".m_logo").hover(function(){
 
 <script>
 $('#exampleModal').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) 
-  var recipient = button.data('whatever') 
-  var modal = $(this)
-  modal.find('.modal-title').text('一分钟快速注册')
-  modal.find('.modal-body input').val(recipient)
+	//判断是否已注册
+	var loginStatus = Utils.getUserInfo();
+	if(loginStatus){
+		var userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
+		if(userprofile !== ""){
+			var obj = JSON.parse(userprofile);
+			var name = obj.realName || "";
+			var mobile = obj.mobile || "";
+			if(name !== "" && mobile !== ""){
+				location.href = "subappoint.html";
+			}
+			else{
+				location.href = "center/c_my.html?token=" + g.token + "&p=1";
+			}
+		}
+	}
+	else{
+		var button = $(event.relatedTarget);
+		var recipient = button.data('whatever');
+		var modal = $(this);
+		modal.find('.modal-title').text('一分钟快速注册');
+		modal.find('.modal-body input').val(recipient);
+	}
 })
 </script>
 
@@ -933,6 +951,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 <script src="assets/js/jquery.isotope.min.js"></script>
 <script src="assets/js/wow.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/reg.js"></script>
 </body>
 </html>
 
