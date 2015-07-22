@@ -314,7 +314,7 @@ $(function(){
 		g.backorderid = id;
 	}
 	function enterBackBtnUp(){
-		var url = Base.serverUrl + "/api/user/order/" + id + "/drawback";
+		var url = Base.serverUrl + "/api/user/order/" + g.backorderid + "/drawback";
 		var condi = {};
 		condi.token = g.token;
 		condi.id = g.backorderid;
@@ -329,7 +329,7 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log("orderDrawback",data);
+				console.log("enterBackBtnUp",data);
 				var status = data.status || "";
 				if(status == "OK"){
 					Utils.alert("订单申请退款成功");
