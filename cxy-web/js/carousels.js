@@ -8,11 +8,12 @@
 	var pageId = window._pageId || {};
 	var url = location.href || "";
 	var index = url.lastIndexOf("/");
-	if(index > 10){
+	if(index > 16){
 		url = url.substring(index + 1);
 	}
 	else{
 		//直接输入官网,定死首页
+		url = "index.html";
 	}
 	var pageid = pageId[url] || "";
 	function sendGetCarouselsHttp(){
@@ -128,7 +129,9 @@
 		html.push('<i class="fa fa-chevron-right"></i>');
 		html.push('</a>');
 		html.push('</section>');
-		document.write(html.join(''));
+		if(html.length > 14){
+			document.write(html.join(''));
+		}
 	}
 
 	sendGetCarouselsHttp();
