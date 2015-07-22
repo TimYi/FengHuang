@@ -286,7 +286,7 @@ $(".m_logo").hover(function(){
          </div>
     </section>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">退款理由</button>
+<span data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">退款理由</span>
 
 <style>
 .form-group{padding-bottom:25px}
