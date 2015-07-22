@@ -193,7 +193,7 @@ $(".m_logo").hover(function(){
 		                    </div>
                         <div class="overlay">
                             <div class="recent-work-inner">
-                                <h3><a href="#">03卫生间</a></h3>
+                                <h3><a href="#">01 PVC线管线盒</a></h3>
                                 <p>
 																	PVC线管线盒，暗管暗槽横平竖直，电线导管无折皱、无裂缝保证电线导管畅通。
                                 </p>
@@ -208,7 +208,7 @@ $(".m_logo").hover(function(){
 		                    </div>
                         <div class="overlay">
                             <div class="recent-work-inner">
-                                <h3><a href="#">03卫生间</a></h3>
+                                <h3><a href="#">02 强弱电</a></h3>
                                 <p>
 																	强弱电要分开，互不干扰很重要“左零右火中间零”安装面板要记牢
                                 </p>
@@ -221,18 +221,18 @@ $(".m_logo").hover(function(){
 		                    <div class="recent-work-wrap">
 		                        <img class="img-responsive" src="assets/images/dl3.gif" alt="">
 		                    </div>
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">03 大功率电器</a></h3>
+                                <p>
+																	10A以上大功率电器，必须使用4mm的电源线设置专用供电回路，确保大功率电器稳定运行
+                                </p>
+                                
+                            </div>
+                        </div>		                    
 		                </div>
 								</div><!--/.row-->
 		        </div><!--/.row-->
-
-						<div style="clear:both"></div>
-						<div style="margin:0 0 50px 40px;font-size:16px;line-height:32px;" class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-							<ul>
-								<li>PVC线管线盒，暗管暗槽横平竖直，电线导管无折皱、无裂缝保证电线导管畅通。</li>
-								<li>强弱电要分开，互不干扰很重要“左零右火中间零”安装面板要记牢</li>
-								<li>10A以上大功率电器，必须使用4mm的电源线设置专用供电回路，确保大功率电器稳定运行</li>
-							</ul>
-						</div>
         </div><!--/.container-->
     </section><!--/#feature-->
 
@@ -249,31 +249,48 @@ $(".m_logo").hover(function(){
 		                    <div class="recent-work-wrap">
 		                        <img class="img-responsive" src="assets/images/sl1.gif" alt="">
 		                    </div>
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">01 PPR水管</a></h3>
+                                <p>
+																	PPR水管（冷、热水管），暗管暗槽横平竖直，避免其他工程误操作
+                                </p>
+                                
+                            </div>
+                        </div>		                    
 		                </div>
 
 		                <div class="col-xs-9 col-sm-4 col-md-4">
 		                    <div class="recent-work-wrap">
 		                        <img class="img-responsive" src="assets/images/sl2.gif" alt="">
 		                    </div>
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">02 打压试验</a></h3>
+                                <p>
+																	水管做打压试验，测试压力不低于0.60Mpa，稳压1小时
+                                </p>
+                                
+                            </div>
+                        </div>		                    
 		                </div>
 
 		                <div class="col-xs-9 col-sm-4 col-md-4">
 		                    <div class="recent-work-wrap">
 		                        <img class="img-responsive" src="assets/images/sl3.gif" alt="">
 		                    </div>
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">03 通水实验</a></h3>
+                                <p>
+																	通水实验同样重要，保证每个出水口都能正常出
+                                </p>
+                                
+                            </div>
+                        </div>		                    
 		                </div>
 								</div><!--/.row-->
 		        </div><!--/.row-->
-
-						<div style="clear:both"></div>
-						<div style="margin:0 0 50px 40px;font-size:16px;line-height:32px;" class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-							<ul>
-								<li>PPR水管（冷、热水管）</li>
-								<li>暗管暗槽横平竖直，避免其他工程误操作</li>
-								<li>水管做打压试验，测试压力不低于0.60Mpa，稳压1小时</li>
-								<li>通水实验同样重要，保证每个出水口都能正常出水</li>
-							</ul>
-						</div>
         </div><!--/.container-->
     </section><!--/#feature-->
 
@@ -290,31 +307,48 @@ $(".m_logo").hover(function(){
 		                    <div class="recent-work-wrap">
 		                        <img class="img-responsive" src="assets/images/fs1.gif" alt="">
 		                    </div>
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">01 防水砂浆</a></h3>
+                                <p>
+																	柔性防水砂浆，环保性能、物理性能优越，寿命长；防水高度卫生间淋浴区域1.8m，其它区域高出地面0.3m
+                                </p>
+                                
+                            </div>
+                        </div>		                    
 		                </div>
 
 		                <div class="col-xs-9 col-sm-4 col-md-4">
 		                    <div class="recent-work-wrap">
 		                        <img class="img-responsive" src="assets/images/fs2.gif" alt="">
 		                    </div>
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">02 地面薄刮</a></h3>
+                                <p>
+																	防水做完后地面薄刮纯水泥浆保护防水免遭破坏，同时增加了瓷砖与墙面的粘结度
+                                </p>
+                                
+                            </div>
+                        </div>		                    
 		                </div>
 
 		                <div class="col-xs-9 col-sm-4 col-md-4">
 		                    <div class="recent-work-wrap">
 		                        <img class="img-responsive" src="assets/images/fs3.gif" alt="">
 		                    </div>
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">03 闭水试验</a></h3>
+                                <p>
+																	闭水试验蓄水水位高出地面最高点2厘米，24小时后观察楼下卫生间及卫生间公用墙有无水痕
+                                </p>
+                                
+                            </div>
+                        </div>		                    
 		                </div>
 								</div><!--/.row-->
 		        </div><!--/.row-->
-
-						<div style="clear:both"></div>
-						<div style="margin:0 0 50px 40px;font-size:16px;line-height:32px;" class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-							<ul>
-			          <li>柔性防水砂浆，环保性能、物理性能优越，寿命长</li>
-			          <li>防水高度卫生间淋浴区域1.8m，其它区域高出地面0.3m</li>
-			          <li>防水做完后地面薄刮纯水泥浆保护防水免遭破坏，同时增加了瓷砖与墙面的粘结度</li>
-			          <li>闭水试验蓄水水位高出地面最高点2厘米，24小时后观察楼下卫生间及卫生间公用墙有无水痕</li>
-							</ul>
-						</div>
         </div><!--/.container-->
     </section><!--/#feature-->
 
