@@ -237,7 +237,9 @@ function onNavChange(){
 }
 function onSubNavChange(){
 	//alert(dataModel.selectedSubNav().title);
-	selectedSubNav = dataModel.selectedSubNav()
-	navId = dataModel.selectedSubNav().id;
-	getData(TEMPLATE_CAROUSEL+'/bypage/'+navId,param,afterGetDatas);
+	selectedSubNav = dataModel.selectedSubNav();
+	if(typeof dataModel.selectedSubNav() !='undefined'){
+		navId = dataModel.selectedSubNav().id;
+		getData(TEMPLATE_CAROUSEL+'/bypage/'+navId,param,afterGetDatas);
+	}
 }
