@@ -301,7 +301,7 @@ $(".m_logo").hover(function(){
       <div class="modal-body" style="height:200px;">
         <form>
           <div class="form-group">
-            <textarea class="form-control" id="message-text"></textarea>
+            <textarea class="form-control" id="message-text">说点什么</textarea>
           </div>
         </form>
       </div>
