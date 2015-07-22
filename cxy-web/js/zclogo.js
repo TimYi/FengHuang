@@ -9,6 +9,7 @@ $(function(){
 	g.username = Base.userName;
 	g.token = Utils.offLineStore.get("token",false);
 	g.page = Utils.getQueryString("p") - 0;
+	g.packageId =  Utils.getQueryString("packageId") || "";
 	g.totalPage = 1;
 	g.currentPage = 1;
 	g.paseSize = 20;
@@ -24,15 +25,22 @@ $(function(){
 	getMeterias();
 
 	function getMeterias(){
-		sendMeteriasHttp();
+		if(g.packageId !== ""){
+			sendMeteriasHttp();
+		}
+		else{
+			Utils.alert("没有获取到套餐ID");
+		}
 	}
 
 	function sendMeteriasHttp(code){
-		var url = Base.serverUrl + "/api/materials";
+		var url = Base.serverUrl + "/api/product/package/" + g.packageId  + "/materials";
 		g.httpTip.show();
+		var condi = {};
+		condi.id =  g.packageId;
 		$.ajax({
 			url:url,
-			data:{},
+			data:condi,
 			type:"GET",
 			dataType:"json",
 			context:this,
