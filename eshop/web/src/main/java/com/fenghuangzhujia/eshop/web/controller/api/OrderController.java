@@ -70,7 +70,7 @@ public class OrderController {
 		return RequestResult.success(result).toJson();
 	}
 	
-	@RequestMapping(value="order/{orderId}/drawback",method=RequestMethod.POST)
+	@RequestMapping(value="user/order/{orderId}/drawback",method=RequestMethod.POST)
 	public String drawback(@PathVariable String orderId, String reason) {
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userId=details.getId();
