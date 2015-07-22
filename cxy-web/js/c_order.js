@@ -308,6 +308,8 @@ $(function(){
 			var condi = {};
 			condi.token = g.token;
 			condi.id = id;
+			condi.reason = "退款原因";
+
 			g.httpTip.show();
 			$.ajax({
 				url:url,
