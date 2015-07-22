@@ -273,7 +273,7 @@ $(".m_logo").hover(function(){
                     </div>
                 </div>
             </div><!--/.item-->
-            <div class="item" style="background-image: url(images/jzd_bg_1.jpg.jpg)">
+            <div class="item" style="background-image: url(images/jzd_bg_1.jpg)">
                 <div class="container">
                     <div class="row slide-margin">
                         <!--div class="col-sm-6 animation animated-item-1">
