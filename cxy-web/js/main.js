@@ -103,7 +103,7 @@ $(function(){
 		if(name !== "" && mobile !== ""){
 			//允许预约
 			g.reserveStatus = true;
-			$("#subbtn").attr("href","subappoint.html");
+			//$("#subbtn").attr("href","subappoint.html");
 		}
 		else{
 			g.reserveStatus = false;
@@ -124,18 +124,18 @@ $(function(){
 
 	getPackages();
 
-	$("#phone").bind("blur",getImgCode);
-	$("#imgcodebtn").bind("click",getImgCode);
-	$("#getcodebtn").bind("click",getValidCode);
-	$("#reservebtn").bind("click",reserverBtnUp);
+	//$("#phone").bind("blur",getImgCode);
+	//$("#imgcodebtn").bind("click",getImgCode);
+	//$("#getcodebtn").bind("click",getValidCode);
+	//$("#reservebtn").bind("click",reserverBtnUp);
 
-	$("#phone2").bind("blur",getImgCode2);
-	$("#imgcodebtn2").bind("click",getImgCode2);
-	$("#getcodebtn2").bind("click",getValidCode2);
-	$("#reservebtn2").bind("click",reserverBtnUp2);
+	//$("#phone2").bind("blur",getImgCode2);
+	//$("#imgcodebtn2").bind("click",getImgCode2);
+	//$("#getcodebtn2").bind("click",getValidCode2);
+	//$("#reservebtn2").bind("click",reserverBtnUp2);
 
-	$("#provId").bind("change",getProvCity);
-	$("#provId2").bind("change",getProvCity2);
+	//$("#provId").bind("change",getProvCity);
+	//$("#provId2").bind("change",getProvCity2);
 
 	//getAppointCategory();
 	//getProv();

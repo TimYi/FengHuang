@@ -20,6 +20,8 @@ $(function(){
 
 	getMyOrder();
 
+	$("#enterbackbtn").bind('click',enterBackBtnUp);
+
 	//获取我的订单
 	function getMyOrder(){
 		//token:用户凭据
@@ -78,7 +80,7 @@ $(function(){
 				}
 				else if(status == "PAYED" || status == "PROCESSING"){
 					//可以申请退款
-					html.push('<td><a href="c_order_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="delete_' + i + '" href="javascript:orderDrawback(\'' + id + '\');" class="delete" >申请退款</a></td>');
+					html.push('<td><a href="c_order_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="delete_' + i + '" href="javascript:orderDrawback(\'' + id + '\');" class="delete" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onclick="orderDrawback(\'' + id + '\');">申请退款</a></td>');
 				}
 				else{
 					html.push('<td><a href="c_order_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '">查看</a>&nbsp;&nbsp;</td>');
@@ -303,41 +305,49 @@ $(function(){
 	}
 
 	function orderDrawback(id){
-		if(confirm("您确认要申请退款?")){
-			var url = Base.serverUrl + "/api/user/order/" + id + "/drawback";
-			var condi = {};
-			condi.token = g.token;
-			condi.id = id;
-			condi.reason = "退款原因";
+		//~ var modal = $('#exampleModal');
+		//~ modal.addClass("in");
+		//~ modal.attr("aria-hidden",false);
+		//~ modal.find('.modal-title').text('退款理由');
+		//~ modal.find('.modal-body input').val("");
+		//~ modal.show();
+		g.backorderid = id;
+	}
+	function enterBackBtnUp(){
+		var url = Base.serverUrl + "/api/user/order/" + g.backorderid + "/drawback";
+		var condi = {};
+		condi.token = g.token;
+		condi.id = g.backorderid;
+		condi.reason = $("#message-text").val() || "";
 
-			g.httpTip.show();
-			$.ajax({
-				url:url,
-				data:condi,
-				type:"POST",
-				dataType:"json",
-				context:this,
-				global:false,
-				success: function(data){
-					console.log("orderDrawback",data);
-					var status = data.status || "";
-					if(status == "OK"){
-						Utils.alert("订单申请退款成功");
-						setTimeout(function(){
-							getMyOrder();
-						},500);
-					}
-					else{
-						var msg = data.error;
-						Utils.alert("订单申请退款错误:" + msg);
-					}
-					g.httpTip.hide();
-				},
-				error:function(data){
-					g.httpTip.hide();
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"POST",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("enterBackBtnUp",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					//Utils.alert("订单申请退款成功");
+					alert("订单申请退款成功:" + data.result);
+					setTimeout(function(){
+						getMyOrder();
+					},500);
 				}
-			});
-		}
+				else{
+					var msg = data.error;
+					Utils.alert("订单申请退款错误:" + msg);
+				}
+				g.httpTip.hide();
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
 	}
 
 	window.miaoSha = miaoSha;
