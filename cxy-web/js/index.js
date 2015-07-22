@@ -109,7 +109,6 @@ PageManager.prototype = {
 	},
 
 	regBtnUp:function(evt){
-		debugger
 		var phone = $("#emailAndPhone").val() || "";
 		var userName = $("#userName").val() || "";
 		var usePwd = $("#usePwd").val() || "";
