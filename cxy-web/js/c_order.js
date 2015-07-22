@@ -305,14 +305,13 @@ $(function(){
 	}
 
 	function orderDrawback(id){
-		alert(id);
 		//~ var modal = $('#exampleModal');
 		//~ modal.addClass("in");
 		//~ modal.attr("aria-hidden",false);
 		//~ modal.find('.modal-title').text('退款理由');
 		//~ modal.find('.modal-body input').val("");
 		//~ modal.show();
-		//~ g.backorderid = id;
+		g.backorderid = id;
 	}
 	function enterBackBtnUp(){
 		var url = Base.serverUrl + "/api/user/order/" + g.backorderid + "/drawback";
@@ -334,7 +333,7 @@ $(function(){
 				var status = data.status || "";
 				if(status == "OK"){
 					//Utils.alert("订单申请退款成功");
-					alert("订单申请退款成功:" + data.errorDescription);
+					alert("订单申请退款成功:" + data.result);
 					setTimeout(function(){
 						getMyOrder();
 					},500);
