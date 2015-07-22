@@ -304,9 +304,7 @@ $(".m_logo").hover(function(){
                 <div class="recent-work-inner">
                     <h3><a href="#">【升级】电器包</a></h3>
                     <p>
-											温馨提示：<br/>
-											×××××××××××××<br/>
-											×××××××××××××<br/>
+											空调、冰箱、滚筒洗衣机（海尔）、热水器（史密斯）
                       	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;display:none;">
 													<a href="javascript:;" class="buynow899" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
 												</div>
@@ -323,9 +321,7 @@ $(".m_logo").hover(function(){
                 <div class="recent-work-inner">
                   <h3><a href="#">【升级】软装包</a></h3>
                   <p>
-										温馨提示：<br/>
-										×××××××××××××<br/>
-										×××××××××××××<br/>
+										空调、冰箱、滚筒洗衣机（海尔）、热水器（史密斯）
                   	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;display:none;">
 											<a href="javascript:;" class="buynow799" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
 										</div>
@@ -343,9 +339,7 @@ $(".m_logo").hover(function(){
                 <div class="recent-work-inner">
                   <h3><a href="#">【升级】个性化包</a></h3>
                   <p>
-										温馨提示：<br/>
-										×××××××××××××<br/>
-										×××××××××××××<br/>
+										壁纸、客厅吊顶、背景墙
                   	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;display:none;">
 											<a href="javascript:;" class="buynow799" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
 										</div>
