@@ -179,7 +179,6 @@ function submitCarousel(){
 		$('#pageId').val(viewModel.selectedNav().id);
 	}
 	var url = genUrl(TEMPLATE_CAROUSEL)+'/'+id;
-
 	var mainfiles = $('input[id="picFile"]').prop('files');//获取到文件列表
 	var subfiles = $('input[id$=".picFile"]').prop('files');//获取到文件列表
 	if(mainfiles.length == 0 && subfiles.length == 0){
