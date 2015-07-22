@@ -702,7 +702,8 @@ $(function(){
 				if(!g.loginStatus){
 					//没登录,去登录
 					var page = "center/reg.html";
-					$(".buynow" + price).html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">立刻抢购</div>');
+					//$(".buynow" + price).html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">立刻抢购</div>');
+					$(".buynow" + price).html('<div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">立刻抢购</div>');
 				}
 				else{
 					//判断是否可以抢购
@@ -714,7 +715,8 @@ $(function(){
 						}
 						else{
 							var page = "center/reg.html";
-							$(".buynow" + price).html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">立刻抢购</div>');
+							//$(".buynow" + price).html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">立刻抢购</div>');
+							$(".buynow" + price).html('<div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">立刻抢购</div>');
 						}
 					}
 					else{
@@ -734,7 +736,8 @@ $(function(){
 							}
 							else{
 								var page = "center/login.html";
-								$(".buynow" + price).html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+								//$(".buynow" + price).html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+								$(".buynow" + price).html('<div  style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">立刻抢购</div>');
 							}
 						}
 						else{
