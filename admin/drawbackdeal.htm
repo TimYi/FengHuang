@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>退款申请详情</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/json2.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript">
+var id;
+var viewModel;
+var statusDic;
+var Status = function(key,value){
+	this.key = key;
+	this.value = value;
+}
+function onload(){
+	//第一步：先获取id	
+	id = getUrlParam(window.location.search,"id");
+	statusDic = new Array();
+	statusDic.push(new Status("批准退款","APPROVE"));
+	statusDic.push(new Status("拒绝退款","DISAPPROVE"));
+	getDataById(ORDER_DRAWBACK,id,afterGetDataById);
+}
+function afterGetDataById(data){
+
+	//先判断并处理错误数据
+	if(!isErrorData(data)){
+		//数据正确时进行绑定		
+	 	viewModel = ko.mapping.fromJS(data.result);
+	 	viewModel.selectedStatus = ko.observable();	
+		viewModel.statusDic = ko.observableArray(statusDic);
+		ko.applyBindings(viewModel);
+	}
+}
+function submitMT(){
+	if(typeof viewModel.selectedStatus() ==='undefined'){
+		alert("请先进行审核操作！");
+		return;
+	}
+	var status = viewModel.selectedStatus().value;
+	var url = genUrl(ORDER_DRAWBACK)+'/'+id;
+	if(status === "APPROVE"){
+		url += '/approve';
+	}else{
+		url += '/disapprove';
+	}
+	submitAsyFormByJson(url, 'form', 
+		function(data){
+			friendlyTip(data);
+			window.location.href='drawbacklist.htm';
+		});
+}
+function onStatusChange(){
+	var status = viewModel.selectedStatus().value;
+	if(status == 'DISAPPROVE'){
+		//显示退款原因
+		$("#disapproveTR").show();
+	}else{
+		//隐藏退款原因
+		$("#disapproveTR").hide();
+	}
+}
+</script>
+</head>
+<body onload="onload()">
+<div class="formHeader">
+	 <span class="title">退款申请详情</span> 
+	 <a href="javascript:location.reload();" class="reload">刷新</a> 
+</div>
+<form name="form" id="form" method="post">
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>			
+			<tr>
+				<td align="right" width="25%" height="40">退款原因:</td>
+				<td width="75%" data-bind='text:reason'>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >订单：</td>
+				<td width="75%" data-bind='text:order.name'>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >处理日期：</td>
+				<td width="75%" data-bind="text: processDate">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >状态：</td>
+				<td width="75%" data-bind="text: status">
+					<!--input   class="input" type="text" name='ordernum' data-bind='value:ordernum'-->
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div data-bind="if:status() !== 'WAITING'">
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%" >
+		<tbody>
+			<tr data-bind="if:status() === 'DISAPPROVE'">
+				<td align="right" height="40" >拒退原因：</td>
+				<td width="75%" data-bind="text: reasonForDisapprove">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >审核人：</td>
+				<td width="75%" data-bind="text: authenticater.realName">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<div data-bind="if:status() === 'WAITING'">
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%" >
+			<tr>
+				<td align="right" height="40" >审核：</td>
+				<td width="75%">
+					<select data-bind="value:selectedStatus,options:statusDic,
+						optionsText:'key',valueAllowUnset: true,optionsCaption: '请选择...',event:{change:onStatusChange}">
+					</select>
+				</td>
+			</tr>
+			<tr id="disapproveTR" style="display:none;" >
+				<td align="right" height="40" >拒退原因：</td>
+				<td width="75%">
+					<textarea name='reason'>
+					</textarea>
+				</td>
+			</tr>
+	</table>
+	</div>
+	<div class="formSubBtn">
+		<span data-bind="if:status() == 'WAITING'">
+			<input class="submit" value="保存" type="button" onclick ='click:submitMT();'/>
+		</span>
+		<input class="back" value="返回" onclick="history.go(-1)" type="button">
+	</div>
+</form>
+</body>
+</html>
