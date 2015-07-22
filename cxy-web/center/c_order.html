@@ -311,12 +311,11 @@ $(".m_logo").hover(function(){
 
 <script>
 $('#exampleModal').on('show.bs.modal', function (event) {
-	debugger
   var button = $(event.relatedTarget)
   var recipient = button.data('whatever')
   var modal = $(this)
   modal.find('.modal-title').text('退款理由')
-  modal.find('.modal-body input').val(recipient)
+  modal.find('.modal-body input').val("");
 })
 </script>
 

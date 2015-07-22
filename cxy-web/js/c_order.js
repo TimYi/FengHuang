@@ -309,7 +309,7 @@ $(function(){
 		modal.addClass("in");
 		modal.attr("aria-hidden",false);
 		modal.find('.modal-title').text('退款理由');
-		modal.find('.modal-body input').val(recipient);
+		modal.find('.modal-body input').val("");
 		modal.show();
 		g.backorderid = id;
 	}
