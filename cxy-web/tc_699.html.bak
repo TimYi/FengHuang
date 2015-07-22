@@ -178,12 +178,12 @@ $(".m_logo").hover(function(){
 });
 </script>
 
-<style>
+<!--style>
 #main-slider .carousel-indicators .active {
     background: transparent;
     border:none;
     height: 20px;
-    margin: 30px 50px 0 0;
+    margin: 70px 50px 0 0;
     font-weight:800;
     opacity: 1;
     color:red;
@@ -205,7 +205,7 @@ $(".m_logo").hover(function(){
     background: transparent;
     border:none;
     height: 20px;
-    margin: 30px 50px 0 0;
+    margin: 70px 50px 0 0;
     opacity: 1;
     position: relative;
     width: 20px;
@@ -231,12 +231,12 @@ $(".m_logo").hover(function(){
     color:red;
 }
 
-</style>
+</style-->
 
 <!--header-->
     <section id="main-slider" class="no-margin">
         <div class="carousel slide">
-            <ol class="carousel-indicators" style="margin:0 auto;height:30px;margin-left:-50px;line-height:30px;">
+            <!--ol class="carousel-indicators" style="margin:0 auto;height:30px;margin-left:-50px;line-height:30px;">
                 <li data-target="#main-slider" data-slide-to="0" class="active">
                 	<ul>客厅</ul>
                 </li>
@@ -254,11 +254,41 @@ $(".m_logo").hover(function(){
                 </li>
                 <li data-target="#main-slider" data-slide-to="5">
                 	<ul>阳台</ul>
-                </li>                                                                
-            </ol>
+                </li>
+            </ol-->
 
             <div class="carousel-inner">
-                <div class="item active" style="background-image: url(images/bg008.jpg)">
+            	
+		            <div class="item" style="background-image: url(images/699_bg_1.jpg)">
+		                <div class="container">
+		                    <div class="row slide-margin">
+		                        <div class="col-sm-6">
+		                            <div class="carousel-content"  style="margin:40px 0 0 300px;">
+		                                <!--h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 3px #333;">全包精装699元/㎡</h1>
+		                                <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 3px #333;line-height:28px">
+		                                	免费测量、设计、验房，进度实施跟踪，终身服务，从毛坯到精装，超高性价比的家装解决方案，数量有限，先到先得
+		                                </h2>
+					                        	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+																			<a href="tc_699.html" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">了解详情</div></a>
+																		</div-->
+																		<img src="images/699_bg_2.png" class="animation animated-item-1" />
+					                        	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+																			<a href="tc_699.html" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">了解详情</div></a>
+																		</div>
+		                            </div>
+		                        </div>
+		                        <!--div class="col-sm-6 hidden-xs animation animated-item-4">
+		                            <div class="slider-img">
+		                            		<div style="margin:20px 0 20px 0">
+		                                	<a id="yhqbtn1" href="javascript:void(0);"><img src="images/home_ipad.png" class="img-responsive" style="/*box-shadow: 0 0 5px #777;*/"></a>
+		                                </div>
+		                            </div>
+		                        </div-->
+		                    </div>
+		                </div>
+		            </div><!--/.item-->            	
+            	
+                <!--div class="item active" style="background-image: url(images/bg008.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
                             <div class="col-sm-6">
@@ -344,16 +374,16 @@ $(".m_logo").hover(function(){
                             </div>
                         </div>
                     </div>
-                </div>
-        
+                </div-->
+
             </div><!--/.carousel-inner-->
         </div><!--/.carousel-->
-        <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+        <!--a class="prev hidden-xs" href="#main-slider" data-slide="prev">
             <i class="fa fa-chevron-left"></i>
         </a>
         <a class="next hidden-xs" href="#main-slider" data-slide="next">
             <i class="fa fa-chevron-right"></i>
-        </a>
+        </a-->
     </section><!--/#main-slider-->
 
     <section id="recent-works"  style="border-top:1px solid #f6f6f6;">
@@ -490,7 +520,7 @@ $(".m_logo").hover(function(){
             </div>
             <div class="center wow fadeInDown">
             		<!--img src="assets/images/quanbao.png"-->
-            		
+
 						    <style type="text/css">
 
 						        ul, ul li
@@ -500,7 +530,7 @@ $(".m_logo").hover(function(){
 						        .clear
 						        {
 						            clear: both;
-						        }       
+						        }
 						        .box
 						        {
 						            position: relative;
@@ -595,7 +625,7 @@ $(".m_logo").hover(function(){
 						        		font-size:24px;
 						        		line-height:24px;
 						        		font-weight: normal;
-						        }						        
+						        }
 								</style>
 						    <div class="box">
 						        <!--第一行(lineFirst)-->
@@ -671,7 +701,7 @@ $(".m_logo").hover(function(){
 						                        </div>
 						                    </div>
 						                </div>
-						            </div>						            						            						
+						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
 						                    <div class="boxT" style="background-image: url(images/quanbao/f_12.png);">
@@ -683,7 +713,7 @@ $(".m_logo").hover(function(){
 						                        </div>
 						                    </div>
 						                </div>
-						            </div>						            						            												            
+						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
 						                    <div class="boxT" style="background-image: url(images/quanbao/f_13.png);">
@@ -695,7 +725,7 @@ $(".m_logo").hover(function(){
 						                        </div>
 						                    </div>
 						                </div>
-						            </div>						            						            												            
+						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
 						                    <div class="boxT" style="background-image: url(images/quanbao/f_19.png);">
@@ -707,7 +737,7 @@ $(".m_logo").hover(function(){
 						                        </div>
 						                    </div>
 						                </div>
-						            </div>						            						            												            
+						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
 						                    <div class="boxT" style="background-image: url(images/quanbao/f_20.png);">
@@ -719,7 +749,7 @@ $(".m_logo").hover(function(){
 						                        </div>
 						                    </div>
 						                </div>
-						            </div>						            						            												            
+						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
 						                    <div class="boxT" style="background-image: url(images/quanbao/f_21.png);">
@@ -731,7 +761,7 @@ $(".m_logo").hover(function(){
 						                        </div>
 						                    </div>
 						                </div>
-						            </div>						            						            												            
+						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
 						                    <div class="boxT" style="background-image: url(images/quanbao/f_22.png);">
@@ -743,7 +773,7 @@ $(".m_logo").hover(function(){
 						                        </div>
 						                    </div>
 						                </div>
-						            </div>						            						            												            
+						            </div>
 						        </div>
 						        <!--第二行(lineSecond)-->
 						        <div class="lineS">
@@ -806,7 +836,7 @@ $(".m_logo").hover(function(){
 						                        </div>
 						                    </div>
 						                </div>
-						            </div>						            						            						            
+						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
 						                    <div class="boxT" style="background-image: url(images/quanbao/f_14.png);">
@@ -818,7 +848,7 @@ $(".m_logo").hover(function(){
 						                        </div>
 						                    </div>
 						                </div>
-						            </div>		
+						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
 						                    <div class="boxT" style="background-image: url(images/quanbao/f_15.png);">
@@ -830,7 +860,7 @@ $(".m_logo").hover(function(){
 						                        </div>
 						                    </div>
 						                </div>
-						            </div>		
+						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
 						                    <div class="boxT" style="background-image: url(images/quanbao/f_16.png);">
@@ -842,7 +872,7 @@ $(".m_logo").hover(function(){
 						                        </div>
 						                    </div>
 						                </div>
-						            </div>		
+						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
 						                    <div class="boxT" style="background-image: url(images/quanbao/f_17.png);">
@@ -854,7 +884,7 @@ $(".m_logo").hover(function(){
 						                        </div>
 						                    </div>
 						                </div>
-						            </div>		
+						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
 						                    <div class="boxT" style="background-image: url(images/quanbao/f_18.png);">
@@ -866,16 +896,16 @@ $(".m_logo").hover(function(){
 						                        </div>
 						                    </div>
 						                </div>
-						            </div>		
+						            </div>
 						        </div>
-						    </div>            		
+						    </div>
             </div>
-            
 
 
-            
-            
-            
+
+
+
+
 						<!--div id="carousel-slider" class="carousel slide" data-ride="carousel">
 						  	<ol class="carousel-indicators visible-xs">
 							    <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
@@ -932,7 +962,8 @@ $(".m_logo").hover(function(){
 
 
 
-    <section id="feature"  style="border-top:1px solid #f6f6f6;background:#f9f9f9">
+    <section id="featurelogo"  style="border-top:1px solid #f6f6f6;background:#f9f9f9">
+	    <!--
         <div class="container">
            	<div class="center wow fadeInDown">
                 <h2>名牌主辅材<span style="font-size:24px"> FAMOUS MATERIAL</span></h2>
@@ -1014,8 +1045,8 @@ $(".m_logo").hover(function(){
                     </div>
 
                 </div>
-            </div><!--/pricing-area-->
-        </div><!--/.container-->
+            </div>
+        </div>-->
     </section><!--/#feature-->
 
 
@@ -1478,6 +1509,7 @@ $(".m_logo").hover(function(){
     <script src="assets/js/jquery.isotope.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/wow.min.js"></script>
+    <script src="js/zclogo.js"></script>
 		<script src="js/699.js"></script>
 
 <script src="assets/js/jquery-1.7.2.min.js" type="text/javascript"></script>
