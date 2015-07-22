@@ -74,6 +74,62 @@ function afterGetNav4Select(data){
    		ko.applyBindings(viewModel);
 	}
 }
+function submitCar(){
+	//提交前获取选择的pageId,并填充到hidden
+	if(typeof viewModel.selectedNav() == 'undefined' ){
+		alert('请选择所属页面！');
+		return ;
+	}
+	if(viewModel.selectedNav().type == 'DROPDOWN' ){
+		if( viewModel.selectedSubNav().type == null){
+			alert('请选择一个URL类型的菜单作为所属页面！');
+			return ;
+		}else{
+			$('#pageId').val(viewModel.selectedSubNav().id);
+		}
+	}else{
+		$('#pageId').val(viewModel.selectedNav().id);
+	}
+	var url = genUrl(TEMPLATE_CAROUSEL);
+	var mainfiles = $('input[name="picFile"]').prop('files');//获取到文件列表
+	var subfiles = $('input[name$="].picFile"]').prop('files');//获取到文件列表
+	alert(mainfiles.length);
+	alert(subfiles.length)
+	if(mainfiles.length == 0 && subfiles.length == 0){
+	//	alert('普通提交');
+		submitAsyFormByJson(url,'bTForm',function(data){	 			
+			friendlyTip(data);
+			window.location.href='carousellist.htm';
+		});		
+	}else{
+		//改用ajaxFileupload提交
+		var dataStr = "{";
+		//静态的
+		dataStr += '"pageId":'+'"'+$('#pageId').val()+'",';
+		dataStr += '"ordernum":'+'"'+$('#ordernum').val()+'",';
+		dataStr += '"fragmentInfo.templateId":'+'"'+$('#templateId').val()+'"}';
+		alert(dataStr);
+		var dataObj = JSON.parse(dataStr);
+		var fileElementIdArr = new Array();
+		fileElementIdArr.push('picFile');
+		fileElementIdArr.push('fragmentInfo.values[1].picFile');
+		$.ajaxFileUpload({  
+            url:url,  
+            secureuri:false,  
+            fileElementId:fileElementIdArr,//file标签的id  
+            dataType: 'json',//返回数据的类型  
+            data:dataObj,//一同上传的数据  
+            success: function(data){	 			
+				friendlyTip(data);
+				window.location.href='carousellist.htm';
+			},  
+            error: function (data, status, e) {  
+                alert(e);  
+            }  
+        });  
+
+	}
+}
 function submitCarousel(){
 	//提交前获取选择的pageId,并填充到hidden
 	if(typeof viewModel.selectedNav() == 'undefined' ){
@@ -93,8 +149,9 @@ function submitCarousel(){
 //	alert('pageId:'+	$('#pageId').val());
 	var url = genUrl(TEMPLATE_CAROUSEL);
 	var mainfiles = $('input[name="picFile"]').prop('files');//获取到文件列表
-	var subfiles = $('input[name$=".picFile"]').prop('files');//获取到文件列表
-	//alert(files.length);
+	var subfiles = $('input[name$="].picFile"]').prop('files');//获取到文件列表
+	//alert(mainfiles.length);
+	//alert(subfiles.length)
 	if(mainfiles.length == 0 && subfiles.length == 0){
 	//	alert('普通提交');
 		submitAsyFormByJson(url,'bTForm',function(data){	 			
@@ -102,12 +159,13 @@ function submitCarousel(){
 			window.location.href='carousellist.htm';
 		});		
 	}else{
+		//alert($("#bTForm").serialize());
 		submitFormWithMultipart(url,'bTForm',
 			function(formData, jqForm, options){
 				//判断是否要上传文件，若不需要上传文件时			 			
 			 	return true;  
-			 } 			 		
-			 ,function(data){			 			
+			 } 
+			 ,function(data){
 			 	friendlyTip(data);
 			 	window.location.href='carousellist.htm';
 			 }
@@ -147,13 +205,34 @@ function onTemChange(){
 	//alert(template.id);
 	//alert($("input[name='test4']").val());
 }
+function toVaild(){
+	//提交前获取选择的pageId,并填充到hidden
+	if(typeof viewModel.selectedNav() == 'undefined' ){
+		alert('请选择所属页面！');
+		return false;
+	}
+	if(viewModel.selectedNav().type == 'DROPDOWN' ){
+		if( viewModel.selectedSubNav().type == null){
+			alert('请选择一个URL类型的菜单作为所属页面！');
+			return ;
+		}else{
+			$('#pageId').val(viewModel.selectedSubNav().id);
+		}
+	}else{
+		$('#pageId').val(viewModel.selectedNav().id);
+	}
+//	alert('pageId:'+	$('#pageId').val());
+	//var url = genUrl(TEMPLATE_CAROUSEL);
+	//$("#bTForm").attr('action',url);
+	return true;
+}
 </script>
 </head>
 <body onload="onload()">
 <div class="formHeader">
  <span class="title">新增滚动图片</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
 </div>
-<form name="bTForm" id="bTForm" method="post" enctype="multipart/form-data">
+<form name="bTForm" id="bTForm" method="post" enctype="multipart/form-data" >
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tbody>			
 			<tr>
@@ -169,6 +248,16 @@ function onTemChange(){
 					<!--提交时将选择的pageId填入-->
 					<input id='pageId'  type="hidden" name='pageId'/>
 				</td>
+			</tr>			
+			<tr>
+				<td align="right" width="25%" height="40">序号:</td>
+				<td width="75%" ><input   class="input" id='ordernum'  name='ordernum' type="text"></td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >上传图片：</td>
+				<td width="75%" >
+					<input type="file" id='picFile'  name='picFile'>
+				</td>
 			</tr>
 			<tr>
 				<td align="right"  height="40">模板:</td>
@@ -176,61 +265,35 @@ function onTemChange(){
 					<select data-bind="value:selectedTem,options:selectableTem,optionsText:'name',
 						optionsCaption: '请选择...',event:{change:onTemChange}">
 					</select>
-				<input type="text" size=50 name="fragmentInfo.templateId" data-bind="value:selectedTem()?selectedTem().id:''"></td>
+				<input type="hidden" size=50 id='templateId' name="fragmentInfo.templateId" data-bind="value:selectedTem()?selectedTem().id:''"></td>
 				</td>
 			</tr>
-			<tr >
+			<!--tr >
 				<td colspan=2>
-				<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%"
-					data-bind="foreach:definitions">
-					<tr >
-						<td align="right" width="25%" height="40" data-bind = "text:'变量'+name+'的值:'"></td>
-						<td width="75%">
-							<!--input type="text" data-bind="attr:{name:'fragmentInfo.values['+no+'].id'},value:id"-->
-							<input type="text" data-bind="attr:{name:'fragmentInfo.values['+no+'].name'},value:name">
-							<input type="text" data-bind="attr:{name:'fragmentInfo.values['+no+'].type'},value:type">
-							<input type="text" data-bind="attr:{name:'fragmentInfo.values['+no+'].text'},
-								visible: type=='TEXT' ">
-							<input type="file" data-bind="attr:{name:'fragmentInfo.values['+no+'].picFile'},
-								visible: type=='IMG'">
-						</td>
-					</tr>
-				</table>
-				</td>
-			</tr>
-			<tr>
-				<td align="right" width="25%" height="40">序号:</td>
-				<td width="75%" ><input   class="input" name='ordernum' type="text"></td>
-			</tr>
-			<tr>
-				<td align="right" height="40" >上传图片：</td>
-				<td width="75%" >					
-					<input type="file"  name='picFile'>
-				</td>				
-			</tr>
-			<!--tr>
-				<td align="right" width="25%" height="40">右侧内容:</td>
-				<td width="75%" >
-					<textarea name='rightArea'  class="kindeditor" id="rightArea" ></textarea>
-					<script>
-						var editor;
-						KindEditor.ready(function(K) {
-							editor = K.create('textarea[name="rightArea"]', {
-								allowFileManager : true,
-								width:'667px',
-								height:'280px',
-								afterBlur: function(){this.sync();}/*,
-								extraFileUploadParams : {
-									sessionid :  'f6pqand0gdtrnhi1n0vd2kgq21'
-								}*/
-							});
-						});
-					</script>
+				
 				</td>
 			</tr-->
 		</tbody>
 	</table>
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%"
+		data-bind="foreach:definitions">
+		<tr >
+			<td align="right" width="25%" height="40" data-bind = "text:'变量'+name+'的值:'"></td>
+			<td width="75%">
+			<!--input type="text" data-bind="attr:{name:'fragmentInfo.values['+no+'].id'},value:id"-->
+			<input type="hidden" data-bind="attr:{name:'fragmentInfo.values['+no+'].name'},value:name">
+			<input type="hidden" data-bind="attr:{name:'fragmentInfo.values['+no+'].type'},value:type">
+			<span data-bind="if:type=='TEXT'">
+				<input type="text" data-bind="attr:{name:'fragmentInfo.values['+no+'].text'}">
+			</span>
+			<span data-bind="if:type=='IMG'">
+				<input type="file" data-bind="attr:{name:'fragmentInfo.values['+no+'].picFile'}">
+			</span>
+			</td>
+		</tr>
+	</table>
 	<div class="formSubBtn">
+		<!--input class="submit" value="提交" type="submit"/-->
 		<input class="submit" value="提交" type="button" onclick='submitCarousel()'/>
 		<input class="back" value="返回" onclick="history.go(-1)" type="button">
 	</div>

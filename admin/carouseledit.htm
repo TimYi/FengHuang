@@ -214,7 +214,7 @@ function onTemChange(){
 	 <span class="title">修改滚动图片</span> 
 	 <a href="javascript:location.reload();" class="reload">刷新</a> 
 </div>
-<form name="bTForm" id="bTForm" method="post" enctype="multipart/form-data">
+<form name="bTForm" id="bTForm" method="post" enctype="multipart/form-data" onsubmit="return toVaild()">
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tbody>			
 			<tr>
@@ -231,34 +231,7 @@ function onTemChange(){
 					<input id='pageId'  type="hidden" name='pageId'/>
 				</td>
 			</tr>
-			<tr>
-				<td align="right"  height="40">模板:</td>
-				<td >
-					<select data-bind="value:selectedTem,options:selectableTem,optionsText:'name',
-						optionsCaption: '请选择...',event:{change:onTemChange}">
-					</select>
-					<input id='temId' size=50 type="text" name='fragmentInfo.templateId' data-bind="value:selectedTem()?selectedTem().id:''" />
-				</td>
-			</tr>
-			<tr >
-				<td colspan=2>
-				<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%"
-					data-bind="foreach:definitions">
-					<tr >
-						<td align="right" width="25%" height="40" data-bind = "text:'变量'+name+'的值:'"></td>
-						<td width="75%">
-							<input type="text" size=50 data-bind="attr:{name:'fragmentInfo.values['+no+'].id'},value:fragId">
-							<input type="text" data-bind="attr:{name:'fragmentInfo.values['+no+'].name'},value:name">
-							<input type="text" data-bind="attr:{name:'fragmentInfo.values['+no+'].type'},value:type">
-							<input type="text" data-bind="attr:{name:'fragmentInfo.values['+no+'].text'},
-								visible: type=='TEXT',value:fragValue ">
-							<input type="file" data-bind="attr:{name:'fragmentInfo.values['+no+'].picFile'},
-								visible: type=='IMG'">
-						</td>
-					</tr>
-				</table>
-				</td>
-			</tr>	
+			
 			<tr>
 				<td align="right" width="25%" height="40">序号:</td>
 				<td width="75%" >
@@ -277,8 +250,36 @@ function onTemChange(){
 					<input type="file"  name='picFile'>
 				</td>
 			</tr>
+			<tr>
+				<td align="right"  height="40">模板:</td>
+				<td >
+					<select data-bind="value:selectedTem,options:selectableTem,optionsText:'name',
+						optionsCaption: '请选择...',event:{change:onTemChange}">
+					</select>
+					<input id='temId' size=50 type="hidden" name='fragmentInfo.templateId' data-bind="value:selectedTem()?selectedTem().id:''" />
+				</td>
+			</tr>				
 		</tbody>
 	</table>
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%"
+					data-bind="foreach:definitions">
+					<tr >
+						<td align="right" width="25%" height="40" data-bind = "text:'变量'+name+'的值:'"></td>
+						<td width="75%">
+							<input type="hidden" size=50 data-bind="attr:{name:'fragmentInfo.values['+no+'].id'},value:fragId">
+							<input type="hidden" data-bind="attr:{name:'fragmentInfo.values['+no+'].name'},value:name">
+							<input type="hidden" data-bind="attr:{name:'fragmentInfo.values['+no+'].type'},value:type">
+							<span data-bind="if:type=='TEXT'">
+								<input type="text" data-bind="attr:{name:'fragmentInfo.values['+no+'].text'},
+									visible: type=='TEXT',value:fragValue ">
+							</span>
+							<span data-bind="if:type=='IMG'">
+								<input type="file" data-bind="attr:{name:'fragmentInfo.values['+no+'].picFile'},
+									visible: type=='IMG'">
+							</span>
+						</td>
+					</tr>
+				</table>
 	<div class="formSubBtn">
 		<input class="submit" value="提交" type="button" onclick='submitCarousel()'/>
 		<input class="back" value="返回" onclick="history.go(-1)" type="button">

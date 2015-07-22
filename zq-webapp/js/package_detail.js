@@ -19,8 +19,13 @@ $(function() {
 
     function changeBtn(data){
         var $buy699 = $("#buy699");
-        var $buy799 = $("#buy799");
+        var $buy599 = $("#buy599");
         var obj = data.result;
+        for(var i = 0,len=obj.length;i<len;i++){
+            if(obj[i].id="599"){
+                
+            }
+        }
         if(obj[0].hasScrambled ){
             $buy699.find("div").text("已抢购");
             return false;
