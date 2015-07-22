@@ -7,9 +7,9 @@
 (function(){
 	var pageId = window._pageId || {};
 	var url = location.href || "";
-	var index = url.lastIndexOf("/");
+	var index = url.indexOf(".html");
 	if(index > 16){
-		url = url.substring(index + 1);
+		url = url.substring(url.lastIndexOf("/") + 1);
 	}
 	else{
 		//直接输入官网,定死首页
