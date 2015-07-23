@@ -1,0 +1,96 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>凤凰筑家</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+
+<body>
+    <!--banner+menu start-->
+    <div data-am-sticky>
+        <header data-am-widget="header" class="am-header am-header-default" style="border-top:1px solid #000111;background:#000;">
+            <div class="am-header-left am-header-nav">
+                <img src="images/logo.png" style="width:152px;height:18px;margin-top:-5px">
+            </div>
+            <div class="am-header-right am-header-nav">
+                <a id="uCenter" href="javascript:void(0)" class="am-menu-toggle">
+                    <i class="am-menu-toggle-icon am-icon-user" style="font-size:20px;padding-right:50px"></i>
+                </a>
+            </div>
+        </header>
+        <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
+            <a href="javascript: void(0)" class="am-menu-toggle">
+                <i class="am-menu-toggle-icon am-icon-bars"></i>
+            </a>
+            <div id="navBar" class="am-offcanvas">
+            </div>
+        </nav>
+    </div>
+    <!--banner+menu end-->
+    <div style="height:10px;"></div>
+    <div class="am-g">
+        <div id="pwdfirstdiv" class="am-u-lg-6 am-u-md-8 am-u-sm-centered" style="width:95%">
+            <form id="form" method="post" action="" class="am-form">
+                <div style="height:10px;"></div>
+                <input type="text" name="username" id="inputEmail3" placeholder="请输入注册用户名" />
+                <div style="height:10px;"></div>
+                <input type="text" name="mobile" id="inputPhone3" placeholder="请输入注册手机号" />
+                <div style="height:10px;"></div>
+                <div class="am-cf">
+                    <input class="am-fl" type="text" id="inputImgCode3" placeholder="图形验证码" style="width:55%" />
+                    <div style="height:10px;"></div>
+                    <div style="float:right;margin-top:-10px;width:40%">
+                        <img id="imgcodebtn" src="images/bg-code.jpg" style="height:42px;width:100%;" />
+                    </div>
+                </div>
+                <div style="height:10px;"></div>
+                <div class="am-cf">
+                    <input class="am-fl" type="text" id="inputCode3" placeholder="短信验证码" style="width:55%" />
+                    <div style="height:10px;"></div>
+                    <div id="getcodebtn" style="float:right;margin-top:-10px;width:40%">
+                        <div style="height:42px;text-align:center;line-height:40px;color:#999;background:#eee">发送短信</div>
+                    </div>
+                </div>
+                <div style="clear:both;height:20px;"></div>
+                <div id="nextbtn" style="height:45px;background:orange;border-radius:7px;">
+                    <a class="buy-pack" href="javascript:void(0);">
+                        <div>下一步</div>
+                    </a>
+                </div>
+            </form>
+        </div>
+        <div id="pwdseconddiv" class="am-u-lg-6 am-u-md-8 am-u-sm-centered" style="width:95%;display: none;">
+            <form id="form" method="post" action="" class="am-form">
+                <div style="height:10px;"></div>
+                <input type="password" id="inputPassword3" placeholder="请输入新密码" />
+                <div style="height:10px;"></div>
+                <input type="password" id="inputPassword4" placeholder="请再次输入新密码" />
+                <div style="clear:both;height:20px;"></div>
+                <div id="sendbtn2" style="height:45px;background:orange;border-radius:7px;">
+                    <a class="buy-pack" href="javascript:void(0);">
+                        <div>确定</div>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/amazeui.min.js"></script>
+    <script src="js/libs/json.js"></script>
+    <script src="js/libs/base.js"></script>
+    <script src="js/libs/utils.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/findpwd.js"></script>
+</body>
+
+</html>

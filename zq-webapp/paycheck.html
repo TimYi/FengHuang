@@ -37,39 +37,56 @@
         </nav>
     </div>
     <!--banner+menu end-->
-
     <div class="am-tabs-bd" style="margin-top:10px;border:none;">
         <div data-tab-panel-0 class="am-tab-panel am-active">
             <p style="font-size:14px;line-height:18px;">
-                <b>您已成功抢购699家装套餐！</b><br>
+                <b>您已成功抢购<span id="pName"></span>！</b>
+                <br>
                 <br/> 订单：<span id="orderId"></span>
                 <br/> 定金：<span id="deposit"></span>元
             </p>
             <hr/>
             <p style="font-size:14px;line-height:18px;color:#666">
+                <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">选择优惠券（仅能选择一个）</span></b>
+                <br>
+                <form class="am-form">
+                    <div class="am-form-group am-form-select">
+                        <select style="font-size:14px;height:40px" id="couponlist">
+                            <option value="-1">请选择优惠券</option>
+                        </select>
+                    </div>
+                </form>
+            </p>
+            <p style="font-size:14px;line-height:18px;color:#666">
                 <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">选择支付方式 PAY STYLE</span></b>
-                <br/>
                 <br/>
                 <form class="am-form" action="https://xx.xx.xx.xx/payment/main" method="post" target="_blank">
                     <div class="am-form-group am-form-select">
+                        <select style="font-size:14px;height:40px" id="accountType">
+                            <option value="-1">请选择银行卡类型</option>
+                            <option value="JIEJJI">借记卡</option>
+                            <option value="XINYONG">信用卡</option>
+                        </select>
+                    </div>
+                    <div class="am-form-group am-form-select">
                         <select style="font-size:14px;height:40px" id="bank">
                             <option value="-1">请选择支付银行</option>
-                            <option value="2">招商银行</option>
-                            <option value="2">工商银行银行</option>
-                            <option value="1">中国建设银行</option>
-                            <option value="2">中国农业银行</option>
-                            <option value="2">中国民生银行</option>
-                            <option value="1">华夏银行</option>
-                            <option value="2">广东发展银行</option>
-                            <option value="2">兴业银行</option>
-                            <option value="1">光大银行</option>
-                            <option value="2">交通银行</option>
-                            <option value="2">中国银行</option>
-                            <option value="1">中信银行</option>
-                            <option value="2">上海银行</option>
-                            <option value="2">平安银行</option>
-                            <option value="1">邮政储蓄</option>
-                            <option value="2">虚拟银行（测试用）</option>
+                            <option value="cmb">招商银行</option>
+                            <option value="icbc">中国工商银行</option>
+                            <option value="ccb">中国建设银行</option>
+                            <option value="abc">中国农业银行</option>
+                            <option value="cmbc">中国民生银行</option>
+                            <option value="hxb">华夏银行</option>
+                            <option value="cgb">广东发展银行</option>
+                            <option value="cib">兴业银行</option>
+                            <option value="ceb">光大银行</option>
+                            <option value="comm">交通银行</option>
+                            <option value="boc">中国银行</option>
+                            <option value="citic">中信银行</option>
+                            <option value="bos">上海银行</option>
+                            <option value="pingan">平安银行</option>
+                            <option value="psbc">邮政储蓄</option>
+                            <option value="vbank">虚拟银行（测试用）</option>
                         </select>
                     </div>
                 </form>
@@ -83,10 +100,10 @@
         </div>
     </div>
     <form id="bankform" style="display:none;" action="https://124.74.239.32/payment/main" method="post">
-            <input id="transName" type="hidden" name="transName" value="">
-            <input id="Plain" type="hidden" name="Plain" value="">
-            <input id="Signature" type="hidden" name="Signature" value="">
-        </form>
+        <input id="transName" type="hidden" name="transName" value="">
+        <input id="Plain" type="hidden" name="Plain" value="">
+        <input id="Signature" type="hidden" name="Signature" value="">
+    </form>
     <!--cubes end-->
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/amazeui.min.js"></script>

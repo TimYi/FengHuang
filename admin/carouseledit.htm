@@ -179,9 +179,8 @@ function submitCarousel(){
 		$('#pageId').val(viewModel.selectedNav().id);
 	}
 	var url = genUrl(TEMPLATE_CAROUSEL)+'/'+id;
-	var mainfiles = $('input[name="picFile"]').prop('files');//获取到文件列表
-	var subfiles = $('input[name$=".picFile"]').prop('files');//获取到文件列表
-	//alert(files.length);
+	var mainfiles = $('input[id="picFile"]').prop('files');//获取到文件列表
+	var subfiles = $('input[id$=".picFile"]').prop('files');//获取到文件列表
 	if(mainfiles.length == 0 && subfiles.length == 0){
 		submitAsyFormByJson(url,'bTForm',function(data){	 			
 			friendlyTip(data);
@@ -206,6 +205,10 @@ function onTemChange(){
 	viewModel.definitions(definitions);
 	//alert(template.id);
 	//alert($("input[name='test4']").val());
+}
+function onSelectFile(obj){
+	
+	obj.name =  obj.id;
 }
 </script>
 </head>
@@ -247,7 +250,7 @@ function onTemChange(){
 			<tr>
 				<td align="right" height="40" >更换图片：</td>
 				<td width="75%" >					
-					<input type="file"  name='picFile'>
+					<input type="file"  id='picFile' onchange="onSelectFile(this)">
 				</td>
 			</tr>
 			<tr>
@@ -274,8 +277,8 @@ function onTemChange(){
 									visible: type=='TEXT',value:fragValue ">
 							</span>
 							<span data-bind="if:type=='IMG'">
-								<input type="file" data-bind="attr:{name:'fragmentInfo.values['+no+'].picFile'},
-									visible: type=='IMG'">
+								<input type="file" data-bind="attr:{id:'fragmentInfo.values['+no+'].picFile'},
+									visible: type=='IMG'" onchange="onSelectFile(this)">
 							</span>
 						</td>
 					</tr>

@@ -2,6 +2,7 @@ package com.fenghuangzhujia.eshop.commerce.pay;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.security.SignatureException;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -11,7 +12,10 @@ import org.sharechina.pay.pufa.protocal.AccountType;
 import org.sharechina.pay.pufa.protocal.PayBank;
 import org.sharechina.pay.pufa.protocal.PayType;
 import org.sharechina.pay.pufa.protocal.RequestModel;
+import org.sharechina.pay.pufa.protocal.ResponseModel;
 import org.sharechina.pay.pufa.protocal.pay.KhzfResponseData;
+import org.sharechina.pay.pufa.protocal.refund.RefundResponseData;
+import org.sharechina.pay.pufa.service.KhthService;
 import org.sharechina.pay.pufa.service.KhzfService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.eshop.commerce.order.GoodOrder;
 import com.fenghuangzhujia.eshop.commerce.order.GoodOrderRepository;
+import com.fenghuangzhujia.eshop.commerce.order.GoodOrder.SourceType;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.coupons.Coupons;
 import com.fenghuangzhujia.eshop.core.coupons.CouponsRepository;
@@ -37,8 +42,8 @@ import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 public class PufaPayService {
 	
 	/**客户号*/
-	//private static final String MERC_CODE="983708160009501";//测试客户号
-	private static final String MERC_CODE="360448160000101";//正式客户号
+	private static final String MERC_CODE="983708160009501";//测试客户号
+	//private static final String MERC_CODE="360448160000101";//正式客户号
 	
 	//private static Logger logger=LoggerFactory.getLogger(PufaPayService.class);
 
@@ -58,8 +63,8 @@ public class PufaPayService {
 	private MessageSender messageSender;
 	@Autowired
 	private PackageAppointService packageAppointService;
-	
-	
+	@Autowired
+	private KhthService khthService;	
 	
 	/**
 	 * 计算优惠券优惠金额
@@ -74,13 +79,16 @@ public class PufaPayService {
 	 * @return
 	 */
 	public RequestModel calculatePayArgs(String userId, String orderId,
-			String couponsId, PayBank payBank, AccountType accountType) {
+			String couponsId, PayBank payBank, AccountType accountType, SourceType source) {
 		User user=userRepository.findOne(userId);
 		if(user==null) throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "错误的用户");
 		GoodOrder order=orderRepository.findOne(orderId);
 		if(order==null)throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "空订单错误");
 		if(!order.getUser().getId().equals(userId))
 			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "这不是您的订单");
+		
+		//设置订单来源
+		order.setSource(source);
 		
 		OrderPay pay=order.getPayment();
 		if(pay==null) {
@@ -181,6 +189,31 @@ public class PufaPayService {
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}		
+	}
+	
+	/**
+	 * 如果退款成功，直接改变支付状态。如果退款失败，抛出异常。
+	 * @param pay
+	 * @throws ErrorCodeException
+	 */
+	public void drawback(PufaPay pay) throws ErrorCodeException {
+		try {
+			String drawbackTermSsn=CodeGenerater.generateOrderCode();
+			ResponseModel<RefundResponseData> result=khthService.sendKhthRequest(null, drawbackTermSsn, 
+					pay.getClearDate(), pay.getAcqSsn(), MERC_CODE, null, pay.getTranAmt(), null, null);
+			if(!result.isSuccess()) {
+				throw new ErrorCodeException(SystemErrorCodes.DRAWBACK_FAILED, result.getErrorMsg());
+			}			
+			RefundResponseData data=result.getData();
+			if(!data.getRespCode().equals("00")) {
+				throw new ErrorCodeException(SystemErrorCodes.DRAWBACK_FAILED, "错误码："+data.getRespCode());
+			}
+			
+			pay.setDrawbacked(true);
+			pay.setDrawbackTermSsn(drawbackTermSsn);
+		} catch (SignatureException e) {
+			throw new ErrorCodeException(SystemErrorCodes.PAY_FAILED, "签名错误");
+		}
 	}
 	
 	/**

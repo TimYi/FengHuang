@@ -93,7 +93,8 @@ $(function(){
 	//验证登录状态
 	g.loginStatus = Utils.getUserInfo();
 	if(g.loginStatus){
-
+		$("#yhqbtn1div").html('<a id="yhqbtn1" href="yhqcheck.html" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即领取</div></a>');
+		$("#yhqbtn2div").html('<a id="yhqbtn2" href="yhqcheck.html" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即领取</div></a>');
 	}
 	g.reserveStatus = false;
 	if(g.loginStatus && g.userprofile !== ""){
@@ -103,11 +104,11 @@ $(function(){
 		if(name !== "" && mobile !== ""){
 			//允许预约
 			g.reserveStatus = true;
-			$("#subbtn").attr("href","subappoint.html");
+			//$("#subbtn").attr("href","subappoint.html");
 		}
 		else{
 			g.reserveStatus = false;
-			$("#subbtn").attr("href","center/c_my.html?token=" + g.token + "&p=1");
+			//$("#subbtn").attr("href","center/c_my.html?token=" + g.token + "&p=1");
 		}
 		//$("#name").val(name);
 		//$("#phone").val(mobile);
@@ -119,35 +120,34 @@ $(function(){
 		//getImgCode2();
 	}
 
-	$("#yhqbtn1").bind("click",getCoupon);
-	$("#yhqbtn2").bind("click",getCoupon);
+
 
 	getPackages();
 
-	$("#phone").bind("blur",getImgCode);
-	$("#imgcodebtn").bind("click",getImgCode);
-	$("#getcodebtn").bind("click",getValidCode);
-	$("#reservebtn").bind("click",reserverBtnUp);
+	//$("#phone").bind("blur",getImgCode);
+	//$("#imgcodebtn").bind("click",getImgCode);
+	//$("#getcodebtn").bind("click",getValidCode);
+	//$("#reservebtn").bind("click",reserverBtnUp);
 
-	$("#phone2").bind("blur",getImgCode2);
-	$("#imgcodebtn2").bind("click",getImgCode2);
-	$("#getcodebtn2").bind("click",getValidCode2);
-	$("#reservebtn2").bind("click",reserverBtnUp2);
+	//$("#phone2").bind("blur",getImgCode2);
+	//$("#imgcodebtn2").bind("click",getImgCode2);
+	//$("#getcodebtn2").bind("click",getValidCode2);
+	//$("#reservebtn2").bind("click",reserverBtnUp2);
 
-	$("#provId").bind("change",getProvCity);
-	$("#provId2").bind("change",getProvCity2);
+	//$("#provId").bind("change",getProvCity);
+	//$("#provId2").bind("change",getProvCity2);
 
 	//getAppointCategory();
 	//getProv();
 
 	function getCoupon(){
-		console.log(this.id);
+		//console.log(this.id);
 		var id = this.id;
 		if(g.loginStatus){
 			location.href = "yhqcheck.html";
 		}
 		else{
-			location.href = "center/login.html";
+			location.href = "center/reg.html";
 		}
 	}
 
@@ -701,8 +701,9 @@ $(function(){
 				//没有登录,这些属性都是false,没用
 				if(!g.loginStatus){
 					//没登录,去登录
-					var page = "center/login.html";
-					$(".buynow" + price).html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+					var page = "center/reg.html";
+					//$(".buynow" + price).html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">立刻抢购</div>');
+					$(".buynow" + price).html('<div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">立刻抢购</div>');
 				}
 				else{
 					//判断是否可以抢购
@@ -713,8 +714,9 @@ $(function(){
 							//html.push('<a href="javascript:miaoSha(\'' + id + '\')">');
 						}
 						else{
-							var page = "center/login.html";
-							$(".buynow" + price).html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+							var page = "center/reg.html";
+							//$(".buynow" + price).html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">立刻抢购</div>');
+							$(".buynow" + price).html('<div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">立刻抢购</div>');
 						}
 					}
 					else{
@@ -734,7 +736,8 @@ $(function(){
 							}
 							else{
 								var page = "center/login.html";
-								$(".buynow" + price).html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+								//$(".buynow" + price).html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+								$(".buynow" + price).html('<div  style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">立刻抢购</div>');
 							}
 						}
 						else{
@@ -790,8 +793,8 @@ $(function(){
 					g.hasbuy = true;
 					alert("抢购成功");
 					//Utils.alert("抢购成功");
-					//var orderId = data.result.id;
-					//location.href = "orderback_paysel.html?id=" + orderId;
+					var orderId = data.result.id;
+					location.href = "orderback_paysel.html?id=" + orderId;
 				}
 				else{
 					Utils.alert("抢购失败");

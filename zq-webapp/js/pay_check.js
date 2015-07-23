@@ -19,7 +19,7 @@ $(function(){
 	g.loginStatus = Utils.getUserInfo();
 	g.reserveStatus = false;
 	if(!g.loginStatus){
-		location.replace("index.html");
+		location.replace("login.html");
 		return false;
 	}
 
@@ -32,6 +32,7 @@ $(function(){
 	$("#payBtn").bind("click",getPayCondi);
 
 	getOrderDetail();
+	getMyCoupon();
 	//getMyCoupon();
 	//获取我的优惠券
 	function getMyCoupon(){
@@ -73,17 +74,19 @@ $(function(){
 	function changeCouponListHtml(data){
 		var obj = data.result || [];
 		var html = [];
+		var len = obj.length;
+		console.log(obj);
+		if(len){
+			html.push('<option value="-1">请选择优惠券</option>');
+		}else{
+			html.push('<option value="-1">暂无可用优惠券</option>');
+		}
 		for(var i = 0,len = obj.length; i < len; i++){
 			var id = obj[i].id || "";
 			var name = obj[i].name || "";
-			html.push('<label class="radio-inline" style="padding-right:30px">');
-			html.push('<input type="radio" name="couponRadioOptions" value="' + id + '">' + name);
-			html.push('</label>');
+			html.push('<option value="'+ id +'">'+ name +'</option>');
 		}
-
 		$("#couponlist").html(html.join(''));
-		$("#couponlist").show();
-
 	}
 
 
@@ -138,8 +141,10 @@ $(function(){
 		var obj = data || {};
 		var price = obj.price || "";
 		var orderId = g.orderId;
+		var pname = obj.name;
 		$("#orderId").text(orderId);
 		$("#deposit").text(price);
+		$('#pName').text(pname);
 	}
 
 	function getPayCondi(){
@@ -155,7 +160,7 @@ $(function(){
 			return;
 		}
 		condi.payBank = check;
-		condi.accountType = "JIEJJI";//借记卡：JIEJJI,信用卡：XINYONG，前端写死。
+		condi.accountType = $("#accountType").val() || '';
 		//~ token:用户凭据
 		//~ orderId：订单id，路径参数
 		//~ couponsIds:用户选择使用的优惠券id，可以是多个

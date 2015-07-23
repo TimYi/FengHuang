@@ -20,6 +20,8 @@ $(function(){
 
 	getMyOrder();
 
+	$("#enterbackbtn").bind('click',enterBackBtnUp);
+
 	//获取我的订单
 	function getMyOrder(){
 		//token:用户凭据
@@ -48,7 +50,7 @@ $(function(){
 			html.push('<th width=150>操作</th>');
 			html.push('</tr>');
 
-			var zfobj = {"WAITING":"未支付","PAYED":"进行中","PROCESSING":"进行中","CANCEL":"已取消","COMPLETE":"已完成"};
+			var zfobj = {"WAITING":"未支付","PAYED":"进行中","PROCESSING":"进行中","CANCEL":"已取消","COMPLETE":"已完成","DRAWBACKING":"退款中","DRAWBACKED":"已退款"};
 			for(var i = 0,len = obj.length; i < len; i++){
 				var id = obj[i].id|| "";
 				var name = obj[i].code || "";
@@ -75,6 +77,10 @@ $(function(){
 				// || status == "PAYED" || status == "PROCESSING"
 				if(status == "WAITING"){
 					html.push('<td><a href="c_order_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="delete_' + i + '" href="javascript:orderCancel(\'' + id + '\');" class="delete" >取消</a></td>');
+				}
+				else if(status == "PAYED" || status == "PROCESSING"){
+					//可以申请退款
+					html.push('<td><a href="c_order_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="delete_' + i + '" href="javascript:orderDrawback(\'' + id + '\');" class="delete" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onclick="orderDrawback(\'' + id + '\');">申请退款</a></td>');
 				}
 				else{
 					html.push('<td><a href="c_order_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '">查看</a>&nbsp;&nbsp;</td>');
@@ -298,6 +304,53 @@ $(function(){
 		});
 	}
 
+	function orderDrawback(id){
+		//~ var modal = $('#exampleModal');
+		//~ modal.addClass("in");
+		//~ modal.attr("aria-hidden",false);
+		//~ modal.find('.modal-title').text('退款理由');
+		//~ modal.find('.modal-body input').val("");
+		//~ modal.show();
+		g.backorderid = id;
+	}
+	function enterBackBtnUp(){
+		var url = Base.serverUrl + "/api/user/order/" + g.backorderid + "/drawback";
+		var condi = {};
+		condi.token = g.token;
+		condi.id = g.backorderid;
+		condi.reason = $("#message-text").val() || "";
+
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"POST",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("enterBackBtnUp",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					//Utils.alert("订单申请退款成功");
+					alert("订单申请退款成功:" + data.result);
+					setTimeout(function(){
+						getMyOrder();
+					},500);
+				}
+				else{
+					var msg = data.error;
+					Utils.alert("订单申请退款错误:" + msg);
+				}
+				g.httpTip.hide();
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+
 	window.miaoSha = miaoSha;
 	window.orderCancel = orderCancel;
+	window.orderDrawback = orderDrawback;
 });

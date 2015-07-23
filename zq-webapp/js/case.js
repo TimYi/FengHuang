@@ -159,7 +159,7 @@ $(function(){
 				var description = d.description || "";
 
 				html.push('<li><div class="am-gallery-item">');
-				html.push('<a href="case_detail.html?id='+id+'"><img src="'+mainPic+'" alt="'+description+'" data-am-pureviewed="1"></a>');
+				html.push('<a href="'+mainPic+'"><img src="'+mainPic+'" alt="'+description+'"></a>');
 				html.push('<h3 class="am-gallery-title" style="font-size:12px;">'+packageName+'</h3>');
 				html.push('</div>');
 			}

@@ -37,16 +37,22 @@ $(function(){
 		var obj = data.result || [];
 		if(obj.length > 0){
 			var html = [];
-
+			var zfobj = {"WAITING":"未支付","PAYED":"进行中","PROCESSING":"进行中","CANCEL":"已取消","COMPLETE":"已完成","DRAWBACKING":"退款中","DRAWBACKED":"已退款"};
 			for(var i = 0,len = obj.length; i < len; i++){
 				var id = obj[i].id|| "";
 				var name = obj[i].name || "";
 				var type = obj[i].type || "";
 				var time =  "2015-06-02 10:00";
+				var status = obj[i].status || "";
+				var statusText = "";
+				if(status !== ""){
+					status = status.toUpperCase();
+					statusText = zfobj[status] || "";
+				}
 				html.push('<ul class="am-avg-sm-2 house-list"><li class="h-left">');
                 html.push('<div class="am-dropdown" data-am-dropdown>');
                 html.push('<a href="u_order_item.html?id='+id+'&token='+g.token+'&p=7"><div><ul class="uhouse">');
-                html.push('<li class="ubig">'+ name +'</li>');
+                html.push('<li class="ubig">'+ name +'<span style="float:right;color:#666;font-size:14px;">'+ statusText +'</span></li>');
                 html.push('<li class="usmall">'+ type + ' / '+ time + '</li></ul></div></a></div></li>');
                 html.push('<li class="h-right"><div class="am-dropdown" data-am-dropdown>');
                 html.push('<a href="u_order_item.html?id='+id+'&token='+g.token+'&p=7">');

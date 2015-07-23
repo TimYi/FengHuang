@@ -3,6 +3,7 @@ package com.fenghuangzhujia.eshop.commerce.order.dto;
 import java.util.Date;
 
 import com.fenghuangzhujia.eshop.commerce.order.GoodOrder.OrderStatus;
+import com.fenghuangzhujia.eshop.commerce.order.GoodOrder.SourceType;
 import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 import com.fenghuangzhujia.foundation.media.MediaContentDto;
@@ -21,6 +22,8 @@ public class GoodOrderDto extends DtoBaseModel {
 	private String code;
 	private String mobile;
 	private String realName;
+	/**订单来源*/
+	private SourceType source;
 
 	public double getPrice() {
 		return price;
@@ -93,5 +96,11 @@ public class GoodOrderDto extends DtoBaseModel {
 	}
 	public void setRealName(String realName) {
 		this.realName = realName;
+	}
+	public SourceType getSource() {
+		return source;
+	}
+	public void setSource(SourceType source) {
+		this.source = source;
 	}
 }

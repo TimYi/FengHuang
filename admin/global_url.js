@@ -4,9 +4,9 @@
 /*
 URL格式：主模块_子模块_操作
 */
-var HOST='http://101.200.229.135:8080/api/admin/';
-var CAPTCHA = 'http://101.200.229.135:8080/api/captcha?id='
-var LOGIN = 'http://101.200.229.135:8080/api/login'
+var HOST='http://www.ifhzj.com/api/admin/';
+var CAPTCHA = 'http://www.ifhzj.com/api/captcha?id='
+var LOGIN = 'http://www.ifhzj.com/api/login'
 //var MEMBER_MEMBER_LIST = 'assets/data/member.json';
 var MEMBER_MEMBER_LIST = 'user';
 var MEMBER_GROUP_LIST = 'userGroup';
@@ -16,8 +16,8 @@ var MEMBER_GROUP_UPDATEALL = 'userGroup/addAll';
 //var ARTICLE_ARTICLE_LIST='artical';
 var APPOINT_APPOINT = 'appoint';
 var MESSAGE = 'message';//留言管理
-var CATEGORY_QUERY ='http://101.200.229.135:8080/api/category/';
-var AREA_QUERY = 'http://101.200.229.135:8080/api/area/level/';
+var CATEGORY_QUERY ='http://www.ifhzj.com/api/category/';
+var AREA_QUERY = 'http://www.ifhzj.com/api/area/level/';
 var CASE_CASE = 'case';
 var MENU_MENU = 'menu';
 var MENU_ARTICLE = 'artical';

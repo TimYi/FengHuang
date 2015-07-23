@@ -35,8 +35,9 @@ $(function() {
             global:false,
             success: function(data){
                 var status = data.status || "";
+                console.log(data);
                 if(status == "OK"){
-                    g.id=data.result.id;
+                    //g.id=data.result.id;
                 }
                 else{
                     Utils.alert("优惠券抢购获取失败");
@@ -62,12 +63,14 @@ $(function() {
             context:this,
             global:false,
             success: function(data){
-                if(data){
+                console.log(data);
+                if(data.status == 'OK'){
                     alert("优惠券抢购成功！")
                     location.href = "u_coupon.html?token="+g.token;
                 }
                 else{
-                    alert("优惠券抢购失败!");
+                    var msg = data.errorDescription ;
+                    alert(msg);
                 }
                 g.httpTip.hide();
             },

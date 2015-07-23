@@ -32,6 +32,18 @@
         font-size: 13px;
         color: #999
     }
+    .btn{
+        display:block;
+        font-weight:800;
+        text-align:center;
+        line-height:45px;
+        font-size:18px;
+        color:#000;
+        height:45px;
+        background:orange;
+        border-radius: 7px;
+        margin:20px auto;
+    }
     </style>
 </head>
 
@@ -70,12 +82,12 @@
         </div>
     </div>
     <div class="am-form u_sub">
-        <ul>
+        <ul id="orderDetail">
             <dt id="orderName"></dt>
-            <dd>更新时间：<span id="payTime"></span></dd>
+            <dd>支付时间：<span id="payTime"></span></dd>
             <hr>
             <li><b>订单编号：</b><span id="orderCode"></span></li>
-            <li style="display:none;"><b>订单状态：</b><span id="orderStatus"></span></li>
+            <li><b>订单状态：</b><span id="orderStatus"></span></li>
             <li><b>客户姓名：</b><span id="userName"></span></li>
             <li><b>联系电话：</b><span id="mobile"></span></li>
             <li><b>套餐类型：</b><span id="orderTitle"></span></li>
@@ -84,6 +96,18 @@
             <li><b>温馨提示：</b>如需修改订单 请致电4009689088与客服人员联系。</li>
         </ul>
     </div>
+    <div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt">
+        <div class="am-modal-dialog">
+        <div class="am-modal-hd">退款理由</div>
+        <div class="am-modal-bd">
+        <textarea type="text" class="am-modal-prompt-input" id="message-text" style="margin:0;width:100%;"></textarea>
+    </div>
+    <div class="am-modal-footer">
+      <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+      <span class="am-modal-btn" data-am-modal-confirm id="enterbackbtn">提交</span>
+    </div>
+  </div>
+</div>
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/amazeui.min.js"></script>
     <script src="js/libs/json.js"></script>

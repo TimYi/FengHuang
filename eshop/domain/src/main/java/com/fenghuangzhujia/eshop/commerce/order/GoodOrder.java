@@ -46,6 +46,8 @@ public class GoodOrder extends UUIDBaseModel {
 	private OrderPay payment;
 	/**订单流水号，业务代码+区号+日期+随机尾号*/
 	private String code;
+	/**订单来源*/
+	private SourceType source;
 	
 	
 	@Column(unique=true)
@@ -109,11 +111,9 @@ public class GoodOrder extends UUIDBaseModel {
 	public void setStatus(OrderStatus status) {
 		this.status = status;
 	}
-
 	public double getPrice() {
 		return price;
 	}
-
 	public void setPrice(double price) {
 		this.price = price;
 	}
@@ -141,7 +141,6 @@ public class GoodOrder extends UUIDBaseModel {
 	public void setCount(Integer count) {
 		this.count = count;
 	}
-	
 	/**
 	 * 获得用户手机号码
 	 * @return
@@ -152,14 +151,12 @@ public class GoodOrder extends UUIDBaseModel {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-
 	public String getRealName() {
 		return realName;
 	}
 	public void setRealName(String realName) {
 		this.realName = realName;
 	}
-
 	@OneToOne(cascade=CascadeType.ALL)
 	public OrderPay getPayment() {
 		return payment;
@@ -167,28 +164,39 @@ public class GoodOrder extends UUIDBaseModel {
 	public void setPayment(OrderPay payment) {
 		this.payment = payment;
 	}
+	public SourceType getSource() {
+		return source;
+	}
+	public void setSource(SourceType source) {
+		this.source = source;
+	}
 
 
 
 
 	public static enum OrderStatus {
-		/**
-		 * 等待支付
-		 */
+		/**等待支付*/
 		WAITING,
-		/**
-		 * 用户支付完成
-		 */
+		/**用户支付完成*/
 		PAYED,
 		/**后台和用户沟通处理开始，到整个家装过程结束*/
 		PROCESSING,
-		/**
-		 * 已完成
-		 */
+		/**已完成*/
 		COMPLETE,
-		/**
-		 * 已取消
-		 */
-		CANCEL;		
+		/**已取消，用于用户未付款时*/
+		CANCEL,	
+		/**退款申请中*/
+		DRAWBACKING,
+		/**已退款*/
+		DRAWBACKED;
+	}
+	
+	public static enum SourceType {
+		/**电脑端*/
+		PCWEB,
+		/**手机网页*/
+		MOBILE,
+		/**手机app*/
+		APP;
 	}
 }

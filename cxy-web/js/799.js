@@ -708,8 +708,8 @@ $(function(){
 					//没有登录,这些属性都是false,没用
 					if(!g.loginStatus){
 						//没登录,去登录
-						var page = "center/login.html";
-						$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+						//var page = "center/login.html";
+						//$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
 					}
 					else{
 						//判断是否可以抢购
@@ -720,8 +720,8 @@ $(function(){
 								//html.push('<a href="javascript:miaoSha(\'' + id + '\')">');
 							}
 							else{
-								var page = "center/login.html";
-								$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+								//var page = "center/login.html";
+								//$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
 							}
 						}
 						else{
@@ -740,8 +740,8 @@ $(function(){
 									}
 								}
 								else{
-									var page = "center/login.html";
-									$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+									//var page = "center/login.html";
+									//$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
 								}
 							}
 							else{
@@ -796,8 +796,8 @@ $(function(){
 					g.hasbuy = true;
 					alert("抢购成功");
 					//Utils.alert("抢购成功");
-					//var orderId = data.result.id;
-					//location.href = "orderback_paysel.html?id=" + orderId;
+					var orderId = data.result.id;
+					location.href = "orderback_paysel.html?id=" + orderId;
 				}
 				else{
 					Utils.alert("抢购失败");

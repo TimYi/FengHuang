@@ -7,12 +7,14 @@
 (function(){
 	var pageId = window._pageId || {};
 	var url = location.href || "";
-	var index = url.lastIndexOf("/");
-	if(index > 10){
-		url = url.substring(index + 1);
+	var index = url.indexOf(".html");
+	url = url.replace("#","");
+	if(index > 16){
+		url = url.substring(url.lastIndexOf("/") + 1);
 	}
 	else{
 		//直接输入官网,定死首页
+		url = "index.html";
 	}
 	var pageid = pageId[url] || "";
 	function sendGetCarouselsHttp(){
@@ -128,10 +130,48 @@
 		html.push('<i class="fa fa-chevron-right"></i>');
 		html.push('</a>');
 		html.push('</section>');
-		document.write(html.join(''));
+		if(html.length > 14){
+			document.write(html.join(''));
+		}
 	}
 
 	sendGetCarouselsHttp();
 })();
 
 
+
+$(function(){
+	var loginStatus = Utils.getUserInfo();
+
+	var subbtn = $(".subbtn");
+	if(subbtn.length == 0){
+		subbtn = $(".buynow");
+	}
+	for(var i = 0,len = subbtn.length; i < len; i++){
+		var btn = $(subbtn[i]);
+		var href = btn.attr("href");
+		if(href == "#TYG_XM_BTNTITLE#" || href == "#TYG_BJ_BTNTITLE#"){
+			//预约体验馆
+			if(loginStatus){
+				btn.attr("href","subappoint.html");
+			}
+			else{
+				btn.attr({"href":"#","data-toggle":"modal","data-target":"#exampleModal","data-whatever":"@mdo"});
+			}
+		}
+		else if(href == "#"){
+			btn.attr("href","javascript:void(0);");
+		}
+		else if(href == "#TC599_BTNURL#" || href == "#TC699_BTNURL#" || href == "#RZB_BTNURL#" || href == "#DQB_BTNURL#" || href == "#GXHB_BTNURL#"){
+			//599套餐
+			//预约套餐
+			if(loginStatus){
+				btn.attr("href","javascript:void(0);");
+			}
+			else{
+				btn.attr({"href":"#","data-toggle":"modal","data-target":"#exampleModal","data-whatever":"@mdo"});
+			}
+		}
+	}
+
+});

@@ -10,11 +10,15 @@ $(function(){
 	g.token = Utils.offLineStore.get("token",false);
 	g.httpTip = new Utils.httpTip({});
 	g.listdata = [];
+	g.packageId = Utils.getQueryString("id");
 	g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
 	//验证登录状态
 	g.loginStatus = Utils.getUserInfo();
 	g.reserveStatus = false;
-	if(g.loginStatus && g.userprofile !== ""){
+	if(!g.loginStatus){
+		alert('请先登录！');
+		location.href='login.html';
+	}else if(g.loginStatus && g.userprofile !== ""){
 		var obj = JSON.parse(g.userprofile);
 		var name = obj.realName || "";
 		var mobile = obj.mobile || "";
@@ -188,7 +192,7 @@ $(function(){
 			mobile:电话号码
 			*/
 			condi.token = g.token;
-			condi.decoratePackageId = Utils.getQueryString("id") ||"";
+			condi.decoratePackageId = g.packageId ||"";
 			condi.cityId = $("#cityId").val() || "";
 			condi.mobile = $("#phone").val() || "";
 			condi.realName = $("#name").val() || "";
@@ -285,7 +289,11 @@ $(function(){
 					Utils.alert("预约成功");
 					$("#buybtn div").html("您已成功预约");
 					alert("您已成功预约");
-					location.href="jztc.html";
+					if(g.packageId == '699'){
+						location.href="jztc.html?pt=1";
+					}else{
+						location.href="jztc.html";
+					}
 				}
 				else{
 					Utils.alert("预约失败");
