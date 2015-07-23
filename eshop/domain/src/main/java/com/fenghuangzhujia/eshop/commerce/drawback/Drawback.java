@@ -3,6 +3,7 @@ package com.fenghuangzhujia.eshop.commerce.drawback;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -41,6 +42,7 @@ public class Drawback extends UUIDBaseModel {
 	public User getUser() {
 		return getOrder().getUser();
 	}
+	@JoinColumn(name="drawback_order")
 	@OneToOne(optional=false)
 	public GoodOrder getOrder() {
 		return order;

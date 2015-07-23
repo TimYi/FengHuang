@@ -234,158 +234,38 @@ $(".m_logo").hover(function(){
 </style-->
 
 <!--header-->
+
+<script src="js/carousels.js" type="text/javascript"></script>
+
+<!--
     <section id="main-slider" class="no-margin">
         <div class="carousel slide">
-            <!--ol class="carousel-indicators" style="margin:0 auto;height:30px;margin-left:-50px;line-height:30px;">
-                <li data-target="#main-slider" data-slide-to="0" class="active">
-                	<ul>客厅</ul>
-                </li>
-                <li data-target="#main-slider" data-slide-to="1">
-                	<ul>厨房</ul>
-                </li>
-                <li data-target="#main-slider" data-slide-to="2">
-                	<ul>卫生间</ul>
-                </li>
-                <li data-target="#main-slider" data-slide-to="3">
-                	<ul>卧室</ul>
-                </li>
-                <li data-target="#main-slider" data-slide-to="4">
-                	<ul>餐厅</ul>
-                </li>
-                <li data-target="#main-slider" data-slide-to="5">
-                	<ul>阳台</ul>
-                </li>
-            </ol-->
 
             <div class="carousel-inner">
-            	
-		            <div class="item" style="background-image: url(images/699_bg_1.jpg)">
+
+		            <div class="item active" style="background-image: url(images/699_bg_1.jpg)">
 		                <div class="container">
 		                    <div class="row slide-margin">
 		                        <div class="col-sm-6">
 		                            <div class="carousel-content"  style="margin:40px 0 0 300px;">
-		                                <!--h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 3px #333;">全包精装699元/㎡</h1>
-		                                <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 3px #333;line-height:28px">
-		                                	免费测量、设计、验房，进度实施跟踪，终身服务，从毛坯到精装，超高性价比的家装解决方案，数量有限，先到先得
-		                                </h2>
-					                        	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-																			<a href="tc_699.html" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">了解详情</div></a>
-																		</div-->
+
 																		<img src="images/699_bg_2.png" class="animation animated-item-1" />
 					                        	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
 																			<a href="tc_699.html" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">了解详情</div></a>
 																		</div>
 		                            </div>
 		                        </div>
-		                        <!--div class="col-sm-6 hidden-xs animation animated-item-4">
-		                            <div class="slider-img">
-		                            		<div style="margin:20px 0 20px 0">
-		                                	<a id="yhqbtn1" href="javascript:void(0);"><img src="images/home_ipad.png" class="img-responsive" style="/*box-shadow: 0 0 5px #777;*/"></a>
-		                                </div>
-		                            </div>
-		                        </div-->
+
 		                    </div>
 		                </div>
-		            </div><!--/.item-->            	
-            	
-                <!--div class="item active" style="background-image: url(images/bg008.jpg)">
-                    <div class="container">
-                        <div class="row slide-margin">
-                            <div class="col-sm-6">
-                                <div class="carousel-content">
-                                    <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">全包精装699元/㎡</h1>
-                                    <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">
-                                    		免费测量、设计、验房，进度实施跟踪，终身服务，从毛坯到精装，超高性价比的家装解决方案，数量有限，先到先得<br/>
-                                    </h2>
-					                        	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;display:none;">
-																			<a href="javascript:;" class="buynow"  ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div></a>
-																		</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item" style="background-image: url(assets/images/slider/d_6.jpg)">
-                    <div class="container">
-                        <div class="row slide-margin">
-                            <div class="col-sm-6">
-                                <div class="carousel-content">
-                                    <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">全包精装699元/㎡</h1>
-                                    <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">
-                                    		免费测量、设计、验房，进度实施跟踪，终身服务，从毛坯到精装，超高性价比的家装解决方案，数量有限，先到先得<br/>
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item" style="background-image: url(assets/images/slider/d_6.jpg)">
-                    <div class="container">
-                        <div class="row slide-margin">
-                            <div class="col-sm-6">
-                                <div class="carousel-content">
-                                    <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">全包精装699元/㎡</h1>
-                                    <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">
-                                    		免费测量、设计、验房，进度实施跟踪，终身服务，从毛坯到精装，超高性价比的家装解决方案，数量有限，先到先得<br/>
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item" style="background-image: url(assets/images/slider/d_6.jpg)">
-                    <div class="container">
-                        <div class="row slide-margin">
-                            <div class="col-sm-6">
-                                <div class="carousel-content">
-                                    <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">全包精装699元/㎡</h1>
-                                    <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">
-                                    		免费测量、设计、验房，进度实施跟踪，终身服务，从毛坯到精装，超高性价比的家装解决方案，数量有限，先到先得<br/>
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item" style="background-image: url(assets/images/slider/d_6.jpg)">
-                    <div class="container">
-                        <div class="row slide-margin">
-                            <div class="col-sm-6">
-                                <div class="carousel-content">
-                                    <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">全包精装699元/㎡</h1>
-                                    <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">
-                                    		免费测量、设计、验房，进度实施跟踪，终身服务，从毛坯到精装，超高性价比的家装解决方案，数量有限，先到先得<br/>
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item" style="background-image: url(assets/images/slider/d_6.jpg)">
-                    <div class="container">
-                        <div class="row slide-margin">
-                            <div class="col-sm-6">
-                                <div class="carousel-content">
-                                    <h1 class="animation animated-item-1" style="font-weight: normal;text-shadow: 0 0 2px #333;">全包精装699元/㎡</h1>
-                                    <h2 class="animation animated-item-2" style="font-weight: normal;text-shadow: 0 0 2px #333;">
-                                    		免费测量、设计、验房，进度实施跟踪，终身服务，从毛坯到精装，超高性价比的家装解决方案，数量有限，先到先得<br/>
-                                    </h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div-->
+		            </div>
+            </div>
+        </div>
+    </section>/#main-slider-->
 
-            </div><!--/.carousel-inner-->
-        </div><!--/.carousel-->
-        <!--a class="prev hidden-xs" href="#main-slider" data-slide="prev">
-            <i class="fa fa-chevron-left"></i>
-        </a>
-        <a class="next hidden-xs" href="#main-slider" data-slide="next">
-            <i class="fa fa-chevron-right"></i>
-        </a-->
-    </section><!--/#main-slider-->
-
+		<style>
+			.mt20{margin-top:20px}
+		</style>
     <section id="recent-works"  style="border-top:1px solid #f6f6f6;">
         <div class="container">
            	<div class="center wow fadeInDown">
@@ -393,7 +273,385 @@ $(".m_logo").hover(function(){
                 <p class="lead">资深设计师，为您提供一对一免费设计服务，打造最完美的装修方案</p>
             </div>
 
-						<div class="row" style="margin:-20px 0 30px 0">
+		    		<ul class="portfolio-filter text-center" id="myTab">
+		          <li><a class="btn btn-default" href="#keting">客厅</a></li>
+		          <li><a class="btn btn-default" href="#chufang">厨房</a></li>
+		          <li><a class="btn btn-default" href="#weishengjian">卫生间</a></li>
+		          <li><a class="btn btn-default" href="#woshi">卧室</a></li>
+		          <li><a class="btn btn-default" href="#canting">餐厅</a></li>
+		          <li><a class="btn btn-default" href="#yangtai">阳台</a></li>
+		        </ul>
+		        <div class="tab-content mt20">
+		          <div class="tab-pane active" id="keting">
+								<div class="row">
+	                <div class="col-xs-9 col-sm-4 col-md-4">
+	                    <div class="recent-work-wrap">
+	                        <img class="img-responsive" src="assets/images/space/space10.jpg" alt="">
+	                    </div>
+	                </div>
+	                <div class="col-xs-9 col-sm-4 col-md-4">
+	                    <div class="recent-work-wrap">
+	                        <img class="img-responsive" src="assets/images/space/space10.jpg" alt="">
+	                    </div>
+	                </div>
+	
+	                <div class="col-xs-9 col-sm-4 col-md-4">
+	                    <div class="recent-work-wrap">
+	                        <img class="img-responsive" src="assets/images/space/space10.jpg" alt="">
+	                    </div>
+	                </div>
+	            	</div>
+								<div class="carousel-inner">
+										<div class="item active">
+											<table class="table u_ct_15">
+										    <tr style="border-top:2px solid #fff">
+										    	<th>#</th>
+										    	<th width="150">类型</th>
+										    	<th>品牌</th>
+										    	<th>备注</th>
+										    </tr>
+										    <tr style="border-top:2px solid #ccc">
+										    	<td>1</td>
+										    	<td>地砖</td>
+										    	<td>东鹏</td>
+										    	<td></td>
+										    </tr>
+										    <tr>
+										    	<td>2</td>
+										    	<td>墙面漆</td>
+										    	<td>都芳</td>
+										    	<td></td>
+										    </tr>
+										    <tr>
+										    	<td>3</td>
+										    	<td>石膏线</td>
+										    	<td>泰丽雅</td>
+										    	<td></td>										    	
+										    </tr>
+										    <tr>
+										    	<td>4</td>
+										    	<td>开关面板</td>
+										    	<td>西门子</td>
+										    	<td></td>										    	
+										    </tr>										    
+											</table>
+									  </div>
+			        	</div>	            	
+		          </div>
+
+		          <div class="tab-pane" id="chufang">
+								<div class="row">
+	                <div class="col-xs-9 col-sm-4 col-md-4">
+	                    <div class="recent-work-wrap">
+	                        <img class="img-responsive" src="assets/images/space/space4.jpg" alt="">
+	                    </div>
+	                </div>
+	                <div class="col-xs-9 col-sm-4 col-md-4">
+	                    <div class="recent-work-wrap">
+	                        <img class="img-responsive" src="assets/images/space/space4.jpg" alt="">
+	                    </div>
+	                </div>
+	
+	                <div class="col-xs-9 col-sm-4 col-md-4">
+	                    <div class="recent-work-wrap">
+	                        <img class="img-responsive" src="assets/images/space/space4.jpg" alt="">
+	                    </div>
+	                </div>
+	            	</div>		          
+								<div class="carousel-inner mt20">
+										<div class="item active">
+											<table class="table u_ct_15">
+										    <tr style="border-top:2px solid #fff">
+										    	<th>#</th>
+										    	<th width="150">类型</th>
+										    	<th>品牌</th>
+										    	<th>备注</th>
+										    </tr>
+										    <tr style="border-top:2px solid #ccc">
+										    	<td>1</td>
+										    	<td>橱柜/烟机/灶具/水盆</td>
+										    	<td>金牌</td>
+										    	<td></td>
+										    </tr>
+										    <tr>
+										    	<td>2</td>
+										    	<td>五金</td>
+										    	<td>九牧</td>
+										    	<td></td>										    	
+										    </tr>										    
+										    <tr>
+										    	<td>3</td>
+										    	<td>木门</td>
+										    	<td>TATA</td>
+										    	<td></td>										    	
+										    </tr>										    
+										    <tr>
+										    	<td>4</td>
+										    	<td>墙地砖</td>
+										    	<td>东鹏</td>
+										    	<td></td>										    	
+										    </tr>										    
+										    <tr>
+										    	<td>5</td>
+										    	<td>开关面板</td>
+										    	<td>西门子</td>
+										    	<td></td>										    	
+										    </tr>										    
+										    <tr>
+										    	<td>6</td>
+										    	<td>吊顶</td>
+										    	<td>友邦</td>
+										    	<td></td>										    	
+										    </tr>										    
+										    <tr>
+										    	<td>7</td>
+										    	<td>集成灯具</td>
+										    	<td>雷士照明</td>
+										    	<td></td>										    	
+										    </tr>										    
+											</table>
+									  </div>
+			        	</div>	            	
+		          </div>
+		          <div class="tab-pane" id="weishengjian">
+								<div class="row">
+	                <div class="col-xs-9 col-sm-4 col-md-4">
+	                    <div class="recent-work-wrap">
+	                        <img class="img-responsive" src="assets/images/space/space1.jpg" alt="">
+	                    </div>
+	                </div>
+	                <div class="col-xs-9 col-sm-4 col-md-4">
+	                    <div class="recent-work-wrap">
+	                        <img class="img-responsive" src="assets/images/space/space1.jpg" alt="">
+	                    </div>
+	                </div>
+	
+	                <div class="col-xs-9 col-sm-4 col-md-4">
+	                    <div class="recent-work-wrap">
+	                        <img class="img-responsive" src="assets/images/space/space1.jpg" alt="">
+	                    </div>
+	                </div>
+	            	</div>		          
+								<div class="carousel-inner mt20">
+										<div class="item active">
+											<table class="table u_ct_15">
+										    <tr style="border-top:2px solid #fff">
+										    	<th>#</th>
+										    	<th width="150">类型</th>
+										    	<th>品牌</th>
+										    	<th>备注</th>
+										    </tr>
+										    <tr style="border-top:2px solid #ccc">
+										    	<td>1</td>
+										    	<td>墙地砖</td>
+										    	<td>东鹏</td>
+										    	<td></td>
+										    </tr>
+										    <tr>
+										    	<td>2</td>
+										    	<td>面盆/马桶/龙头</td>
+										    	<td>科勒</td>
+										    	<td></td>
+										    </tr>
+										    <tr>
+										    	<td>3</td>
+										    	<td>木门</td>
+										    	<td>TATA</td>
+										    	<td></td>										    	
+										    </tr>
+										    <tr>
+										    	<td>4</td>
+										    	<td>五金</td>
+										    	<td>九牧</td>
+										    	<td></td>										    	
+										    </tr>		
+										    <tr>
+										    	<td>5</td>
+										    	<td>开关面板</td>
+										    	<td>西门子</td>
+										    	<td></td>										    	
+										    </tr>										    
+										    <tr>
+										    	<td>6</td>
+										    	<td>吊顶</td>
+										    	<td>友邦</td>
+										    	<td></td>										    	
+										    </tr>										    								    
+											</table>
+									  </div>
+			        	</div>	            	
+		          </div>
+		          <div class="tab-pane" id="woshi">
+								<div class="row">
+	                <div class="col-xs-9 col-sm-4 col-md-4">
+	                    <div class="recent-work-wrap">
+	                        <img class="img-responsive" src="assets/images/space/space3.jpg" alt="">
+	                    </div>
+	                </div>
+	                <div class="col-xs-9 col-sm-4 col-md-4">
+	                    <div class="recent-work-wrap">
+	                        <img class="img-responsive" src="assets/images/space/space3.jpg" alt="">
+	                    </div>
+	                </div>
+	
+	                <div class="col-xs-9 col-sm-4 col-md-4">
+	                    <div class="recent-work-wrap">
+	                        <img class="img-responsive" src="assets/images/space/space3.jpg" alt="">
+	                    </div>
+	                </div>
+	            	</div>
+								<div class="carousel-inner mt20">
+										<div class="item active">
+											<table class="table u_ct_15">
+										    <tr style="border-top:2px solid #fff">
+										    	<th>#</th>
+										    	<th width="150">类型</th>
+										    	<th>品牌</th>
+										    	<th>备注</th>
+										    </tr>
+										    <tr style="border-top:2px solid #ccc">
+										    	<td>1</td>
+										    	<td>地板</td>
+										    	<td>大自然</td>
+										    	<td></td>
+										    </tr>
+										    <tr>
+										    	<td>2</td>
+										    	<td>墙面漆</td>
+										    	<td>都芳</td>
+										    	<td></td>
+										    </tr>
+										    <tr>
+										    	<td>3</td>
+										    	<td>石膏线</td>
+										    	<td>泰丽雅</td>
+										    	<td></td>										    	
+										    </tr>
+										    <tr>
+										    	<td>4</td>
+										    	<td>开关面板</td>
+										    	<td>西门子</td>
+										    	<td></td>										    	
+										    </tr>	
+										    <tr>
+										    	<td>5</td>
+										    	<td>木门</td>
+										    	<td>TATA</td>
+										    	<td></td>
+										    </tr>										    									    
+											</table>
+									  </div>
+			        	</div>	            			          
+		          </div>
+		          <div class="tab-pane" id="canting">
+								<div class="row">
+	                <div class="col-xs-9 col-sm-4 col-md-4">
+	                    <div class="recent-work-wrap">
+	                        <img class="img-responsive" src="assets/images/space/space11.jpg" alt="">
+	                    </div>
+	                </div>
+	                <div class="col-xs-9 col-sm-4 col-md-4">
+	                    <div class="recent-work-wrap">
+	                        <img class="img-responsive" src="assets/images/space/space11.jpg" alt="">
+	                    </div>
+	                </div>
+	
+	                <div class="col-xs-9 col-sm-4 col-md-4">
+	                    <div class="recent-work-wrap">
+	                        <img class="img-responsive" src="assets/images/space/space11.jpg" alt="">
+	                    </div>
+	                </div>
+	            	</div>
+								<div class="carousel-inner">
+										<div class="item active mt20">
+											<table class="table u_ct_15">
+										    <tr style="border-top:2px solid #fff">
+										    	<th>#</th>
+										    	<th width="150">类型</th>
+										    	<th>品牌</th>
+										    	<th>备注</th>
+										    </tr>
+										    <tr style="border-top:2px solid #ccc">
+										    	<td>1</td>
+										    	<td>地砖</td>
+										    	<td>东鹏</td>
+										    	<td></td>
+										    </tr>
+										    <tr>
+										    	<td>2</td>
+										    	<td>墙面漆</td>
+										    	<td>都芳</td>
+										    	<td></td>
+										    </tr>
+										    <tr>
+										    	<td>3</td>
+										    	<td>石膏线</td>
+										    	<td>泰丽雅</td>
+										    	<td></td>										    	
+										    </tr>
+										    <tr>
+										    	<td>4</td>
+										    	<td>开关面板</td>
+										    	<td>西门子</td>
+										    	<td></td>										    	
+										    </tr>										    
+											</table>
+									  </div>
+			        	</div>	            			          
+		          </div>
+		          <div class="tab-pane" id="yangtai">
+								<div class="row">
+	                <div class="col-xs-9 col-sm-4 col-md-4">
+	                    <div class="recent-work-wrap">
+	                        <img class="img-responsive" src="assets/images/space/space6.jpg" alt="">
+	                    </div>
+	                </div>
+	                <div class="col-xs-9 col-sm-4 col-md-4">
+	                    <div class="recent-work-wrap">
+	                        <img class="img-responsive" src="assets/images/space/space6.jpg" alt="">
+	                    </div>
+	                </div>
+	
+	                <div class="col-xs-9 col-sm-4 col-md-4">
+	                    <div class="recent-work-wrap">
+	                        <img class="img-responsive" src="assets/images/space/space6.jpg" alt="">
+	                    </div>
+	                </div>
+	            	</div>	
+								<div class="carousel-inner mt20">
+										<div class="item active">
+											<table class="table u_ct_15">
+										    <tr style="border-top:2px solid #fff">
+										    	<th>#</th>
+										    	<th width="150">类型</th>
+										    	<th>品牌</th>
+										    	<th>备注</th>
+										    </tr>
+										    <tr style="border-top:2px solid #ccc">
+										    	<td>1</td>
+										    	<td>地砖</td>
+										    	<td>东鹏</td>
+										    	<td></td>
+										    </tr>
+										    <tr>
+										    	<td>2</td>
+										    	<td>墙面漆</td>
+										    	<td>都芳</td>
+										    	<td></td>
+										    </tr>
+										    <tr>
+										    	<td>3</td>
+										    	<td>灯具</td>
+										    	<td>雷士照明</td>
+										    	<td></td>										    	
+										    </tr>
+											</table>
+									  </div>
+			        	</div>	            		          	
+		          </div>
+		        </div>
+
+						<!--div class="row" style="margin:-20px 0 30px 0">
                 <div class="col-xs-9 col-sm-4 col-md-4">
                     <div class="recent-work-wrap">
                         <img class="img-responsive" src="assets/images/space/space10.jpg" alt="">
@@ -406,7 +664,7 @@ $(".m_logo").hover(function(){
 																	石膏线：泰丽雅<br/>
 																	开关面板：西门子
                                 </p>
-                                <!--a class="preview" href=""images/space/space10.jpg"" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
+                                
                             </div>
                         </div>
                     </div>
@@ -427,7 +685,7 @@ $(".m_logo").hover(function(){
 																	吊顶：友邦<br/>
 																	集成灯具：雷士照明
                                 </p>
-                                <!--a class="preview" href="images/space/space3.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
+                                
                             </div>
                         </div>
                     </div>
@@ -447,12 +705,12 @@ $(".m_logo").hover(function(){
 																	开关面板：西门子<br/>
 																	吊顶：友邦
                                 </p>
-                                <!--a class="preview" href="images/space/space11.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
+                                
                             </div>
                         </div>
                     </div>
                 </div>
-							</div><!--/.row-->
+							</div>
 							<div class="row" style="margin:0 0 30px 0">
                 <div class="col-xs-9 col-sm-4 col-md-4">
                     <div class="recent-work-wrap">
@@ -468,7 +726,7 @@ $(".m_logo").hover(function(){
 																	开关面板：西门子<br/>
 																	窗台面：米黄/定制
                                 </p>
-                                <!--a class="preview" href="images/space/space4.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
+                                
                             </div>
                         </div>
                     </div>
@@ -486,7 +744,7 @@ $(".m_logo").hover(function(){
 																	石膏线：泰丽雅<br/>
 																	开关面板：西门子
                                 </p>
-                                <!--a class="preview" href="images/space/space1.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
+                                
                             </div>
                         </div>
                     </div>
@@ -503,12 +761,12 @@ $(".m_logo").hover(function(){
 																	墙面漆：都芳<br/>
 																	灯具：雷士照明
                                 </p>
-                                <!--a class="preview" href="images/space/space6.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
+                  
                             </div>
                         </div>
                     </div>
                 </div>
-            </div><!--/.row-->
+            </div-->
         </div>
     </section>
 
@@ -963,7 +1221,7 @@ $(".m_logo").hover(function(){
 
 
     <section id="featurelogo"  style="border-top:1px solid #f6f6f6;background:#f9f9f9">
-	    <!--
+	    <!---->
         <div class="container">
            	<div class="center wow fadeInDown">
                 <h2>名牌主辅材<span style="font-size:24px"> FAMOUS MATERIAL</span></h2>
@@ -1046,9 +1304,633 @@ $(".m_logo").hover(function(){
 
                 </div>
             </div>
-        </div>-->
+        </div>
     </section><!--/#feature-->
 
+	<section style="margin-top:-50px">
+		<div class="container">
+		<div class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+		    <div class="tab_container">
+		        <div id="tab1" class="tab_content" style="display: none; ">
+								<div class="carousel-inner">
+										<div class="item active">
+											<table class="table u_ct_15">
+										    <tr style="border-top:2px solid #fff">
+										    	<td style="vertical-align: middle;">家具</td>
+										    	<td style="vertical-align: middle;">
+										    		<img src="images/rzb/r4.gif" style="margin-bottom:0;width:100px">
+										    		<img src="assets/images/icon/r22.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+														<img src="assets/images/icon/r3.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+														<img src="assets/images/icon/r21.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+														<img src="assets/images/icon/r17.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+														<img src="assets/images/icon/r13.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+														<img src="assets/images/icon/r26.gif" style="margin-bottom:0;;width:100px;margin-left:-10px">
+														<img src="assets/images/icon/r24.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+														<img src="assets/images/icon/r19.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+										    	</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">灯具</td>
+										    	<td style="vertical-align: middle;">
+										    		<img src="assets/images/icon/r7.gif" style="margin-bottom:0;width:100px">
+										    		<img src="assets/images/icon/r14.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+														<img src="assets/images/icon/r18.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+										    	</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">家居饰品</td>
+										    	<td style="vertical-align: middle;">
+										    		<img src="assets/images/icon/r4.gif" style="margin-bottom:0;width:100px">
+										    		<img src="assets/images/icon/r15.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+														<img src="assets/images/icon/r16.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+														<img src="assets/images/icon/r10.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+														<img src="assets/images/icon/r9.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+														<img src="assets/images/icon/r11.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+
+										    	</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">家居用品</td>
+										    	<td style="vertical-align: middle;">
+										    		<img src="assets/images/icon/r12.gif" style="margin-bottom:0;width:100px">
+										    		<img src="assets/images/icon/r2.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+														<img src="assets/images/icon/r23.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+														<img src="assets/images/icon/r1.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+										    	</td>
+										    </tr>
+										    <tr style="border-bottom:0">
+										    	<td style="vertical-align: middle;">窗帘</td>
+										    	<td style="vertical-align: middle;">
+										    		<img src="assets/images/icon/r8.gif" style="margin-bottom:0;width:100px">
+										    		<img src="assets/images/icon/r25.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+														<img src="assets/images/icon/r27.gif" style="margin-bottom:0;width:100px;margin-left:-10px">
+										    	</td>
+										    </tr>
+											</table>
+									  </div>
+			        	</div>
+			      </div>
+		        <div id="tab2" class="tab_content" style="display: none; ">
+								<div class="carousel-inner">
+										<div class="item active">
+											<table class="table u_ct_15">
+										    <tr class="u_th">
+										    	<th></th>
+										    	<th>索引</th>
+										    	<th>区域</th>
+										    	<th>位置</th>
+										    	<th>名称</th>
+										    	<th>照片</th>
+										    	<th>规格</th>
+										    	<th>数量</th>
+										    	<th>单位</th>
+										    	<th>备注</th>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">F01</td>
+										    	<td style="vertical-align: middle;">餐厅</td>
+										    	<td style="vertical-align: middle;">餐桌</td>
+										    	<td style="vertical-align: middle;">吊灯</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">常规</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">2</td>
+										    	<td style="vertical-align: middle;">F02</td>
+										    	<td style="vertical-align: middle;">客厅</td>
+										    	<td style="vertical-align: middle;">沙发</td>
+										    	<td style="vertical-align: middle;">吊灯</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">直径680*H285</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">3</td>
+										    	<td style="vertical-align: middle;">F03</td>
+										    	<td style="vertical-align: middle;">主卧</td>
+										    	<td style="vertical-align: middle;">床</td>
+										    	<td style="vertical-align: middle;">吊灯</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">常规</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">4</td>
+										    	<td style="vertical-align: middle;">F04</td>
+										    	<td style="vertical-align: middle;">主卧</td>
+										    	<td style="vertical-align: middle;">床头柜</td>
+										    	<td style="vertical-align: middle;">台灯</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">常规</td>
+										    	<td style="vertical-align: middle;">2</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">5</td>
+										    	<td style="vertical-align: middle;">F05</td>
+										    	<td style="vertical-align: middle;">儿童房</td>
+										    	<td style="vertical-align: middle;">床</td>
+										    	<td style="vertical-align: middle;">吸顶灯</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">直径450*H100</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">6</td>
+										    	<td style="vertical-align: middle;">F06</td>
+										    	<td style="vertical-align: middle;">儿童房</td>
+										    	<td style="vertical-align: middle;">床头柜</td>
+										    	<td style="vertical-align: middle;">台灯</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">常规</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">7</td>
+										    	<td style="vertical-align: middle;">F07</td>
+										    	<td style="vertical-align: middle;">儿童房</td>
+										    	<td style="vertical-align: middle;">书桌</td>
+										    	<td style="vertical-align: middle;">台灯</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">常规</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+											</table>
+									  </div>
+			        	</div>
+		        </div>
+		        <div id="tab3" class="tab_content" style="display: none; ">
+								<div class="carousel-inner">
+										<div class="item active">
+											<table class="table u_ct_15">
+										    <tr class="u_th">
+										    	<th></th>
+										    	<th>索引</th>
+										    	<th>位置</th>
+										    	<th>名称</th>
+										    	<th>照片</th>
+										    	<th>规格</th>
+										    	<th>数量</th>
+										    	<th>单位</th>
+										    	<th>备注</th>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">F01</td>
+										    	<td style="vertical-align: middle;">餐厅</td>
+										    	<td style="vertical-align: middle;">餐桌</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L1700*D850*H750</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">2</td>
+										    	<td style="vertical-align: middle;">F02</td>
+										    	<td style="vertical-align: middle;">餐厅</td>
+										    	<td style="vertical-align: middle;">餐椅</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">常规</td>
+										    	<td style="vertical-align: middle;">4</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">3</td>
+										    	<td style="vertical-align: middle;">F03</td>
+										    	<td style="vertical-align: middle;">客厅</td>
+										    	<td style="vertical-align: middle;">沙发</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L2100*D800*H800</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">4</td>
+										    	<td style="vertical-align: middle;">F04</td>
+										    	<td style="vertical-align: middle;">客厅</td>
+										    	<td style="vertical-align: middle;">茶几</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L900*D835*H330</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">5</td>
+										    	<td style="vertical-align: middle;">F05</td>
+										    	<td style="vertical-align: middle;">客厅</td>
+										    	<td style="vertical-align: middle;">电视柜</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L1800*W394*H543</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">6</td>
+										    	<td style="vertical-align: middle;">F06</td>
+										    	<td style="vertical-align: middle;">主卧</td>
+										    	<td style="vertical-align: middle;">床</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">W1500*D1900*H1100</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">7</td>
+										    	<td style="vertical-align: middle;">F07</td>
+										    	<td style="vertical-align: middle;">主卧</td>
+										    	<td style="vertical-align: middle;">床头柜</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L550*D450*H533</td>
+										    	<td style="vertical-align: middle;">2</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">8</td>
+										    	<td style="vertical-align: middle;">F08</td>
+										    	<td style="vertical-align: middle;">主卧</td>
+										    	<td style="vertical-align: middle;">电视柜</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L1200*W394*H500</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">9</td>
+										    	<td style="vertical-align: middle;">F09</td>
+										    	<td style="vertical-align: middle;">儿童房</td>
+										    	<td style="vertical-align: middle;">床</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">W1200*D1900*H1100</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">10</td>
+										    	<td style="vertical-align: middle;">F10</td>
+										    	<td style="vertical-align: middle;">儿童房</td>
+										    	<td style="vertical-align: middle;">床头柜</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L400*D480*H550</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">11</td>
+										    	<td style="vertical-align: middle;">F11</td>
+										    	<td style="vertical-align: middle;">儿童房</td>
+										    	<td style="vertical-align: middle;">书桌</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L1200xD530xH750</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">12</td>
+										    	<td style="vertical-align: middle;">F12</td>
+										    	<td style="vertical-align: middle;">儿童房</td>
+										    	<td style="vertical-align: middle;">椅子</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">常规</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+											</table>
+									  </div>
+			        	</div>
+			      </div>
+		        <div id="tab4" class="tab_content" style="display: none; ">
+								<div class="carousel-inner">
+										<div class="item active">
+											<table class="table u_ct_15">
+										    <tr class="u_th">
+										    	<th></th>
+										    	<th>索引</th>
+										    	<th>位置</th>
+										    	<th>名称</th>
+										    	<th>照片</th>
+										    	<th>规格</th>
+										    	<th>数量</th>
+										    	<th>单位</th>
+										    	<th>备注</th>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">F01</td>
+										    	<td style="vertical-align: middle;">餐厅</td>
+										    	<td style="vertical-align: middle;">餐桌</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L1700*D850*H750</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">2</td>
+										    	<td style="vertical-align: middle;">F02</td>
+										    	<td style="vertical-align: middle;">餐厅</td>
+										    	<td style="vertical-align: middle;">餐椅</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">常规</td>
+										    	<td style="vertical-align: middle;">4</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">3</td>
+										    	<td style="vertical-align: middle;">F03</td>
+										    	<td style="vertical-align: middle;">客厅</td>
+										    	<td style="vertical-align: middle;">沙发</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L2100*D800*H800</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">4</td>
+										    	<td style="vertical-align: middle;">F04</td>
+										    	<td style="vertical-align: middle;">客厅</td>
+										    	<td style="vertical-align: middle;">茶几</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L900*D835*H330</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">5</td>
+										    	<td style="vertical-align: middle;">F05</td>
+										    	<td style="vertical-align: middle;">客厅</td>
+										    	<td style="vertical-align: middle;">电视柜</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L1800*W394*H543</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">6</td>
+										    	<td style="vertical-align: middle;">F06</td>
+										    	<td style="vertical-align: middle;">主卧</td>
+										    	<td style="vertical-align: middle;">床</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">W1500*D1900*H1100</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">7</td>
+										    	<td style="vertical-align: middle;">F07</td>
+										    	<td style="vertical-align: middle;">主卧</td>
+										    	<td style="vertical-align: middle;">床头柜</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L550*D450*H533</td>
+										    	<td style="vertical-align: middle;">2</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">8</td>
+										    	<td style="vertical-align: middle;">F08</td>
+										    	<td style="vertical-align: middle;">主卧</td>
+										    	<td style="vertical-align: middle;">电视柜</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L1200*W394*H500</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">9</td>
+										    	<td style="vertical-align: middle;">F09</td>
+										    	<td style="vertical-align: middle;">儿童房</td>
+										    	<td style="vertical-align: middle;">床</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">W1200*D1900*H1100</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">10</td>
+										    	<td style="vertical-align: middle;">F10</td>
+										    	<td style="vertical-align: middle;">儿童房</td>
+										    	<td style="vertical-align: middle;">床头柜</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L400*D480*H550</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">11</td>
+										    	<td style="vertical-align: middle;">F11</td>
+										    	<td style="vertical-align: middle;">儿童房</td>
+										    	<td style="vertical-align: middle;">书桌</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L1200xD530xH750</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">12</td>
+										    	<td style="vertical-align: middle;">F12</td>
+										    	<td style="vertical-align: middle;">儿童房</td>
+										    	<td style="vertical-align: middle;">椅子</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">常规</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+											</table>
+									  </div>
+			        	</div>
+		        </div>
+		        <div id="tab5" class="tab_content" style="display: none; ">
+								<div class="carousel-inner">
+										<div class="item active">
+											<table class="table u_ct_15">
+										    <tr class="u_th">
+										    	<th></th>
+										    	<th>索引</th>
+										    	<th>位置</th>
+										    	<th>名称</th>
+										    	<th>照片</th>
+										    	<th>规格</th>
+										    	<th>数量</th>
+										    	<th>单位</th>
+										    	<th>备注</th>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">F01</td>
+										    	<td style="vertical-align: middle;">餐厅</td>
+										    	<td style="vertical-align: middle;">餐桌</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L1700*D850*H750</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">2</td>
+										    	<td style="vertical-align: middle;">F02</td>
+										    	<td style="vertical-align: middle;">餐厅</td>
+										    	<td style="vertical-align: middle;">餐椅</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">常规</td>
+										    	<td style="vertical-align: middle;">4</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">3</td>
+										    	<td style="vertical-align: middle;">F03</td>
+										    	<td style="vertical-align: middle;">客厅</td>
+										    	<td style="vertical-align: middle;">沙发</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L2100*D800*H800</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">4</td>
+										    	<td style="vertical-align: middle;">F04</td>
+										    	<td style="vertical-align: middle;">客厅</td>
+										    	<td style="vertical-align: middle;">茶几</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L900*D835*H330</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">5</td>
+										    	<td style="vertical-align: middle;">F05</td>
+										    	<td style="vertical-align: middle;">客厅</td>
+										    	<td style="vertical-align: middle;">电视柜</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L1800*W394*H543</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">6</td>
+										    	<td style="vertical-align: middle;">F06</td>
+										    	<td style="vertical-align: middle;">主卧</td>
+										    	<td style="vertical-align: middle;">床</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">W1500*D1900*H1100</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">7</td>
+										    	<td style="vertical-align: middle;">F07</td>
+										    	<td style="vertical-align: middle;">主卧</td>
+										    	<td style="vertical-align: middle;">床头柜</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L550*D450*H533</td>
+										    	<td style="vertical-align: middle;">2</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">8</td>
+										    	<td style="vertical-align: middle;">F08</td>
+										    	<td style="vertical-align: middle;">主卧</td>
+										    	<td style="vertical-align: middle;">电视柜</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L1200*W394*H500</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">9</td>
+										    	<td style="vertical-align: middle;">F09</td>
+										    	<td style="vertical-align: middle;">儿童房</td>
+										    	<td style="vertical-align: middle;">床</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">W1200*D1900*H1100</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">10</td>
+										    	<td style="vertical-align: middle;">F10</td>
+										    	<td style="vertical-align: middle;">儿童房</td>
+										    	<td style="vertical-align: middle;">床头柜</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L400*D480*H550</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">11</td>
+										    	<td style="vertical-align: middle;">F11</td>
+										    	<td style="vertical-align: middle;">儿童房</td>
+										    	<td style="vertical-align: middle;">书桌</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">L1200xD530xH750</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+										    <tr>
+										    	<td style="vertical-align: middle;">12</td>
+										    	<td style="vertical-align: middle;">F12</td>
+										    	<td style="vertical-align: middle;">儿童房</td>
+										    	<td style="vertical-align: middle;">椅子</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    	<td style="vertical-align: middle;">常规</td>
+										    	<td style="vertical-align: middle;">1</td>
+										    	<td style="vertical-align: middle;">件</td>
+										    	<td style="vertical-align: middle;">-</td>
+										    </tr>
+											</table>
+									  </div>
+			        	</div>
+		        </div>
+		    </div>
+		    </div>
+		</div>
+		</section>
 
     <section id="feature"  style="border-top:1px solid #f6f6f6;>
         <div class="container">
@@ -1509,7 +2391,9 @@ $(".m_logo").hover(function(){
     <script src="assets/js/jquery.isotope.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/wow.min.js"></script>
+    <!--
     <script src="js/zclogo.js"></script>
+    -->
 		<script src="js/699.js"></script>
 
 <script src="assets/js/jquery-1.7.2.min.js" type="text/javascript"></script>

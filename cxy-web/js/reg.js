@@ -111,7 +111,7 @@ $(function(){
 			}
 		}
 		else{
-			alert("用户名输入错误,请输入邮箱或者手机号");
+			Utils.alert("用户名输入错误,请输入邮箱或者手机号");
 			$("#inputEmail3").focus();
 		}
 
@@ -142,7 +142,7 @@ $(function(){
 					},1000);
 				}
 				else{
-					alert("验证码获取失败");
+					Utils.alert("验证码获取失败");
 				}
 				g.httpTip.hide();
 			},

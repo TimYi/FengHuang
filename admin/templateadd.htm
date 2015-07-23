@@ -70,11 +70,7 @@ function submitTemplate(){
 			</tr>
 			<tr>
 				<td align="right" height="40" >类型：</td>
-				<td width="75%" >
-					<select class="input"  data-bind="value:selectedType,options:selectableType,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
-					</select>
-					<input type="hidden" name='type' data-bind="value:selectedType()?selectedType().value:''"></td>
-				</td>				
+				<td width="75%" ><input   class="input" name='type' type="text" ></td>				
 			</tr>
 			<tr>
 				<td align="right" height="40" >示意图：</td>

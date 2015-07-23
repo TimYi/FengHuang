@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="assets/css/app.css">
 </head>
+
 <body>
     <!--banner+menu start-->
     <div data-am-sticky>
@@ -38,46 +39,58 @@
     <!--banner+menu end-->
     <div style="height:10px;"></div>
     <div class="am-g">
-        <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered" style="width:95%">
-            <form id="form" method="post" action="" onsubmit="" class="am-form">
+        <div id="pwdfirstdiv" class="am-u-lg-6 am-u-md-8 am-u-sm-centered" style="width:95%">
+            <form id="form" method="post" action="" class="am-form">
                 <div style="height:10px;"></div>
-                <input type="text" name="username" id="username" placeholder="用户名" />
+                <input type="text" name="username" id="inputEmail3" placeholder="请输入注册用户名" />
                 <div style="height:10px;"></div>
-                <input type="password" name="password" id="password" placeholder="密码" />
-                <div style="height:10px;"></div>
-                <input type="text" name="username" id="mobile" placeholder="中国大陆手机号码" />
+                <input type="text" name="mobile" id="inputPhone3" placeholder="请输入注册手机号" />
                 <div style="height:10px;"></div>
                 <div class="am-cf">
-                    <input class="am-fl" type="text" name="img-validate" id="img-validate" placeholder="图形验证码" style="width:55%" />
+                    <input class="am-fl" type="text" id="inputImgCode3" placeholder="图形验证码" style="width:55%" />
                     <div style="height:10px;"></div>
                     <div style="float:right;margin-top:-10px;width:40%">
-                        <img id="regcodebtn" src="images/bg-code.jpg" alt="" style="height:42px;width:100%;" />
+                        <img id="imgcodebtn" src="images/bg-code.jpg" style="height:42px;width:100%;" />
                     </div>
                 </div>
                 <div style="height:10px;"></div>
                 <div class="am-cf">
-                    <input class="am-fl" type="text" name="validate" id="validate" placeholder="短信验证码" style="width:55%" />
+                    <input class="am-fl" type="text" id="inputCode3" placeholder="短信验证码" style="width:55%" />
                     <div style="height:10px;"></div>
                     <div id="getcodebtn" style="float:right;margin-top:-10px;width:40%">
                         <div style="height:42px;text-align:center;line-height:40px;color:#999;background:#eee">发送短信</div>
                     </div>
                 </div>
                 <div style="clear:both;height:20px;"></div>
-                <div id="regbtn" class="am-cf">
-                    <a href="javascript:void(0);">
-                        <div class="am-btn am-btn-secondary" style="background:#f25618;border-color:#f25618;width:100%" type="submit">注册</div>
+                <div id="nextbtn" style="height:45px;background:orange;border-radius:7px;">
+                    <a class="buy-pack" href="javascript:void(0);">
+                        <div>下一步</div>
+                    </a>
+                </div>
+            </form>
+        </div>
+        <div id="pwdseconddiv" class="am-u-lg-6 am-u-md-8 am-u-sm-centered" style="width:95%;display: none;">
+            <form id="form" method="post" action="" class="am-form">
+                <div style="height:10px;"></div>
+                <input type="password" id="inputPassword3" placeholder="请输入新密码" />
+                <div style="height:10px;"></div>
+                <input type="password" id="inputPassword4" placeholder="请再次输入新密码" />
+                <div style="clear:both;height:20px;"></div>
+                <div id="sendbtn2" style="height:45px;background:orange;border-radius:7px;">
+                    <a class="buy-pack" href="javascript:void(0);">
+                        <div>确定</div>
                     </a>
                 </div>
             </form>
         </div>
     </div>
-        <script src="js/libs/jquery.min.js"></script>
-        <script src="js/libs/amazeui.min.js"></script>
-        <script src="js/libs/json.js"></script>
-        <script src="js/libs/base.js"></script>
-        <script src="js/libs/utils.js"></script>
-        <script src="js/nav.js"></script>
-        <script src="js/reg.js"></script>
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/amazeui.min.js"></script>
+    <script src="js/libs/json.js"></script>
+    <script src="js/libs/base.js"></script>
+    <script src="js/libs/utils.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/findpwd.js"></script>
 </body>
 
 </html>
