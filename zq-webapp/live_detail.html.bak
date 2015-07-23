@@ -87,7 +87,6 @@
         </nav>
     </div>
     <!--banner+menu end-->
-    <div style="box-shadow: inset -1px 0 1px -1px #999;"></div>
     <div class="am-tabs am-tabs-default" style="width:100%;padding:0;margin:0px;margin-bottom:-30px;box-shadow: inset -1px 0 1px -1px #999;">
         <div class="am-tabs-bd" style="margin-top:10px;border:none; padding:5px;">
             <div class="am-tab-panel am-active">
