@@ -23,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.eshop.commerce.order.GoodOrder;
 import com.fenghuangzhujia.eshop.commerce.order.GoodOrderRepository;
+import com.fenghuangzhujia.eshop.commerce.order.GoodOrder.SourceType;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.coupons.Coupons;
 import com.fenghuangzhujia.eshop.core.coupons.CouponsRepository;
@@ -78,13 +79,16 @@ public class PufaPayService {
 	 * @return
 	 */
 	public RequestModel calculatePayArgs(String userId, String orderId,
-			String couponsId, PayBank payBank, AccountType accountType) {
+			String couponsId, PayBank payBank, AccountType accountType, SourceType source) {
 		User user=userRepository.findOne(userId);
 		if(user==null) throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "错误的用户");
 		GoodOrder order=orderRepository.findOne(orderId);
 		if(order==null)throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "空订单错误");
 		if(!order.getUser().getId().equals(userId))
 			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "这不是您的订单");
+		
+		//设置订单来源
+		order.setSource(source);
 		
 		OrderPay pay=order.getPayment();
 		if(pay==null) {
