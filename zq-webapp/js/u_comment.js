@@ -9,7 +9,7 @@ $(function(){
 	g.page = Utils.getQueryString("p") - 0;
 	g.totalPage = 1;
 	g.currentPage = 1;
-	g.paseSize = 20;
+	g.paseSize = 99999999;
 	g.listdata = [];
 	g.httpTip = new Utils.httpTip({});
 
@@ -44,15 +44,17 @@ $(function(){
 				var column = obj[i].column || "";
 				var content = obj[i].content || "";
 				var createTime =  obj[i].createTime || "";
-				var sourceUrl = obj[i].url;
+				var sourceUrl = obj[i].url || '';
+				var mUrl = sourceUrl.replace('ifhzj.com','ifhzj.com/mobile');
+				var mUrl = mUrl.replace('live_details','live_detail');
 				var id = obj[i].id || "";
 				html.push('<ul class="am-avg-sm-2 house-list"><li class="h-left">');
                 html.push('<div class="am-dropdown" data-am-dropdown>');
-                html.push('<a href="'+ sourceUrl +'"><div><ul class="uhouse">');
+                html.push('<a href="'+ mUrl +'"><div><ul class="uhouse">');
                 html.push('<li class="ubig">'+ content  +'</li>');
                 html.push('<li class="usmall">'+ column+ ' / ' + createTime + '</li></ul></div></a></div></li>');
                 html.push('<li class="h-right"><div class="am-dropdown" data-am-dropdown>');
-                html.push('<a href="'+ sourceUrl +'">');
+                html.push('<a href="'+ mUrl +'">');
                 html.push('<div><i class="am-icon-angle-right"></i></div></a></div></li></ul>');
 			}
 
