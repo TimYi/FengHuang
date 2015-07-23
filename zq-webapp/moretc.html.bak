@@ -44,7 +44,7 @@
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
                     <a href="jztc.html?pt=1">
                         <div style="margin-top:30px;width:120px">
-                            <div style="height:27px"><img src="images/599p.gif">
+                            <div style="height:27px"><img src="images/599s.gif" width=90>
                             <br/>
                             </div>
                             <span style="font-size:13px;">豪华全包简装</span>
@@ -54,11 +54,12 @@
             </li>
             <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="tyg.html">
-                        <div style="margin-top:20px">
-                            <i class="am-icon-street-view" style="font-size:22px;color:#b9090e;height:38px;"></i>
-                            <br />
-                            <span style="font-size:13px;">体验馆</span>
+                    <a href="jztc.html?pt=1">
+                        <div style="margin-top:30px;width:120px">
+                            <div style="height:27px"><img src="images/699s.gif" width=90>
+                            <br/>
+                            </div>
+                            <span style="font-size:13px;">豪华全包精装</span>
                         </div>
                     </a>
                 </div>
