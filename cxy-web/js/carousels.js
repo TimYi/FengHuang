@@ -142,7 +142,7 @@
 $(function(){
 	var loginStatus = Utils.getUserInfo();
 
-	var subbtn = $("#subbtn");
+	var subbtn = $(".subbtn");
 	for(var i = 0,len = subbtn.length; i < len; i++){
 		var btn = $(subbtn[i]);
 		var href = btn.attr("href");
