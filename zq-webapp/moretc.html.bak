@@ -42,24 +42,25 @@
         <ul class="am-avg-sm-3" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
             <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="jztc.html?pt=1">
-                        <div style="margin-top:30px;width:120px">
-                            <div style="height:27px"><img src="images/599s.gif" width=90>
+                    <a href="#">
+                        <div style="margin:30px 0 0 0">
+                            <div style="height:27px"><img src="images/599s.gif" width=80>
                             <br/>
                             </div>
-                            <span style="font-size:13px;">豪华全包简装</span>
+                            <span style="font-size:13px;">全包简装</span>
                         </div>
                     </a>
+                  
                 </div>
             </li>
             <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="jztc.html?pt=1">
-                        <div style="margin-top:30px;width:120px">
-                            <div style="height:27px"><img src="images/699s.gif" width=90>
+                    <a href="#">
+                        <div style="margin:30px 0 0 0">
+                            <div style="height:27px"><img src="images/699s.gif" width=80>
                             <br/>
                             </div>
-                            <span style="font-size:13px;">豪华全包精装</span>
+                            <span style="font-size:13px;">全包简装</span>
                         </div>
                     </a>
                 </div>
