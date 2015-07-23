@@ -35,7 +35,8 @@ $(function(){
 		var logo_html = [];
 		var phtml = [];
 		for(var i = 0,len=obj.length;i<len;i++){
-			var logosrc = obj[i].logo.url || '';
+			var logo = obj[i].logo || '';
+			var logosrc = logo.url || '';
 			if(logosrc != ''){
 				logo_html.push('<li><img src="'+ logosrc +'"></li>');
 			}
