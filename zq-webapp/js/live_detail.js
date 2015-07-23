@@ -18,6 +18,8 @@ $(function() {
 
     getLiveDetails();
     getLiveDayDetails();
+    getComments();
+    $("#issuebtn").bind("click",issueComment);
 
     function getLiveDetails() {
         var condi = {};
@@ -170,6 +172,122 @@ $(function() {
         }
         $("#cd-timeline").html(html.join(''));
 		$.AMUI.gallery.init();
+    }
+
+    function getComments(){
+        var condi = {};
+        condi.sourceid = g.liveId;
+        condi.page = 1;
+        condi.size = 9999;
+        sendGetCommentHttp(condi);
+    }
+
+    function sendGetCommentHttp(condi){
+        var url = Base.comments;
+        g.httpTip.show();
+        $.ajax({
+            url:url,
+            data:condi,
+            type:"GET",
+            dataType:"json",
+            context:this,
+            global:false,
+            success: function(data){
+                var status = data.status || "";
+                console.log(data);
+                if(status == "OK"){
+                    changeCommentsHtml(data.result);
+                }
+                else{
+                    var msg = data.error || "";
+                    alert("获取直播评论错误:" + msg);
+                }
+                g.httpTip.hide();
+            },
+            error:function(data){
+                g.httpTip.hide();
+            }
+        });
+    }
+
+    function changeCommentsHtml(data){
+        var obj = data.result || [];
+
+        var totalCount = data.totalCount;
+        var html = [];
+        for(var i = 0; i < obj.length; i++){
+            var column = obj[i].column || "";
+            var createTime = obj[i].createTime || "";
+            var content = obj[i].content || "";
+            var realName = obj[i].user.realName || "";
+            html.push('<li><p><i class="am-icon-user"></i>');
+            html.push('<b>'+ realName +'</b></p>');
+            html.push('<p>'+ content +'</p>');
+            html.push('<p class="time">'+ createTime +'</p></li>');
+        }
+        $("#commentList").html(html.join(''));
+    }
+
+    function issueComment(){
+        /*
+        column:栏目标题
+        type:资源类型，为枚举值：ARTICAL,PACKAGE,CASE;
+        token:用户凭据
+        replyid:如果是回复某条评论，传被评论的id，否则不传
+        url:当前地址url，可选
+        content:回复的内容
+        */
+        var condi = {};
+        condi.sourceid = g.liveId;
+        condi.column = "栏目标题";
+        condi.type = "LIVE";
+        condi.token = g.token;
+        condi.replyid = "";
+        condi.url = location.href;
+        condi.content = $("#message").val() || "";
+
+        if(g.loginStatus){
+            if(condi.content !==""){
+                sendAddCommentHttp(condi);
+            }
+            else{
+                Utils.alert("输入评论内容");
+                $("#message").focus();
+            }
+        }
+        else{
+            alert("请先登录");
+            location.href = "login.html";
+        }
+    }
+
+    function sendAddCommentHttp(condi){
+        var url = Base.commentUrl;
+        g.httpTip.show();
+        $.ajax({
+            url:url,
+            data:condi,
+            type:"POST",
+            dataType:"json",
+            context:this,
+            global:false,
+            success: function(data){
+                var status = data.status || "";
+                if(status == "OK"){
+                    alert("评论发表成功");
+                    $("#message").val("");
+                    //location.reload();
+                    getComments();
+                }else{
+                    var msg = data.error || "";
+                    alert("添加案例评论错误:" + msg);
+                }
+                g.httpTip.hide();
+            },
+            error:function(data){
+                g.httpTip.hide();
+            }
+        });
     }
 
 });
