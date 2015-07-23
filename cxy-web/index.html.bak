@@ -260,7 +260,7 @@ $(".m_logo").hover(function(){
                     <img class="img-responsive" src="images/index_pt_5.png" alt="" style="height:273px">
                     <div class="overlay">
                         <div class="recent-work-inner" style="padding-left:20px">
-                            <h3><a href="#">【推荐】699元/平米精装套餐</a></h3>
+                            <h3><a href="#">699元/㎡【奢华家装套餐】</a></h3>
                             <p>
 															温馨提示：<br/>
 															每周三开放抢购，注册用户须完善个人基本信息，并在抢购前请提前行预约，每人每周限抢购一次套餐。<br/>
@@ -321,7 +321,7 @@ $(".m_logo").hover(function(){
                 <div class="recent-work-inner">
                   <h3><a href="#">【升级】软装包</a></h3>
                   <p>
-										空调、冰箱、滚筒洗衣机（海尔）、热水器（史密斯）
+										地毯、床上用品、家居摆件、钟表、画框
                   	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;display:none;">
 											<a href="javascript:;" class="buynow799" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
 										</div>
