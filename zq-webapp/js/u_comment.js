@@ -57,7 +57,6 @@ $(function(){
                 html.push('<a href="'+ mUrl +'">');
                 html.push('<div><i class="am-icon-angle-right"></i></div></a></div></li></ul>');
 			}
-
 			$("#myComment").html(html.join(''));
 		}
 	}
