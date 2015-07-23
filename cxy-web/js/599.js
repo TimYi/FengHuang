@@ -803,8 +803,8 @@ $(function(){
 					g.hasbuy = true;
 					alert("抢购成功");
 					//Utils.alert("抢购成功");
-					//var orderId = data.result.id;
-					//location.href = "orderback_paysel.html?id=" + orderId;
+					var orderId = data.result.id;
+					location.href = "orderback_paysel.html?id=" + orderId;
 				}
 				else{
 					Utils.alert("抢购失败");
