@@ -138,3 +138,23 @@
 })();
 
 
+
+$(function(){
+	var loginStatus = Utils.getUserInfo();
+
+	var subbtn = $("#subbtn");
+	for(var i = 0,len = subbtn.length; i < len; i++){
+		var btn = $(subbtn[i]);
+		var href = btn.attr("href");
+		if(href == "#TYG_XM_BTNTITLE#"){
+			//预约体验馆
+			if(loginStatus){
+				btn.attr("href","subappoint.html");
+			}
+			else{
+				btn.attr({"href":"#","data-toggle":"modal","data-target":"#exampleModal","data-whatever":"@mdo"});
+			}
+		}
+	}
+
+});
