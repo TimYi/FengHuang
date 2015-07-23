@@ -144,6 +144,9 @@ $(function(){
 	var loginStatus = Utils.getUserInfo();
 
 	var subbtn = $(".subbtn");
+	if(subbtn.length == 0){
+		subbtn = (".buynow");
+	}
 	for(var i = 0,len = subbtn.length; i < len; i++){
 		var btn = $(subbtn[i]);
 		var href = btn.attr("href");
@@ -158,6 +161,16 @@ $(function(){
 		}
 		else if(href == "#"){
 			btn.attr("href","javascript:void(0);");
+		}
+		else if(href == "#TC599_BTNURL#" || href == "#TC699_BTNURL#" || href == "#RZB_BTNURL#" || href == "#DQB_BTNURL#" || href == "#GXHB_BTNURL#"){
+			//599套餐
+			//预约套餐
+			if(loginStatus){
+				btn.attr("href","javascript:void(0);");
+			}
+			else{
+				btn.attr({"href":"#","data-toggle":"modal","data-target":"#exampleModal","data-whatever":"@mdo"});
+			}
 		}
 	}
 
