@@ -18,25 +18,34 @@ $(function() {
     getPackages();
 
     function changeBtn(data){
-        var $buy699 = $("#buy699");
-        var $buy599 = $("#buy599");
         var obj = data.result;
+        var $buy599 = $('#buy599');
+        var $buy699 = $('#buy699');
+
         for(var i = 0,len=obj.length;i<len;i++){
-            if(obj[i].id="599"){
-                
+            if(obj[i].id == "599"){
+                if(obj[i].hasScrambled){
+                    $buy599.find("div").text("已抢购");
+                }else if(obj[i].hasAppointed){
+                    $buy599.find("div").text("立刻抢购");
+                    $buy599.attr('href','javascript:miaoSha(599)');
+                }else{
+                    $buy599.find("div").text("立刻预约");
+                    $buy599.attr("href","subcheck.html?id="+obj[i]["id"]);
+                }
+            }else if(obj[i].id == "699"){
+                console.log(222);
+                if(obj[i].hasScrambled){
+                    $buy699.find("div").text("已抢购");
+                }else if(obj[i].hasAppointed){
+                    $buy699.find("div").text("立刻抢购");
+                    console.log(222);
+                    $buy699.attr("href","javascript:miaoSha(699)");
+                }else{
+                    $buy699.find("div").text("立刻预约");
+                    $buy699.attr("href","subcheck.html?id="+obj[i]["id"]);
+                }
             }
-        }
-        if(obj[0].hasScrambled ){
-            $buy699.find("div").text("已抢购");
-            return false;
-        }else if(obj[0].hasAppointed){
-            $buy699.find("div").text("立刻抢购");
-            $buy699.click(function(){
-                miaoSha(obj[0].id);
-            });
-        }else{
-            $buy699.find("div").text("立刻预约");
-            $buy699.attr("href","subcheck.html?id="+obj[0]["id"]);
         }
     }
 
@@ -57,10 +66,8 @@ $(function() {
             success: function(data){
                 var status = data.status || "";
                 if(status == "OK"){
-                    console.log(data);
                     changeBtn(data.result);
-                }
-                else{
+                }else{
                     Utils.alert("预约类别获取失败");
                 }
                 g.httpTip.hide();

@@ -25,7 +25,6 @@ $(function() {
     function getCoupons(){
         var url = Base.couponScram;
         var condi = {};
-        condi.token = g.token;
         g.httpTip.show();
         $.ajax({
             url:url,

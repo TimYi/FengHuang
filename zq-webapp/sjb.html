@@ -1,0 +1,81 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>升级包</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <style>
+    .am-tabs-default .am-tabs-nav {
+        line-height: 40px;
+        background-color: #fff;
+        margin-top: 10px;
+    }
+    
+    .am-tabs-default .am-tabs-nav a {
+        color: #ccc;
+        line-height: 45px;
+    }
+    
+    .am-tabs-default .am-tabs-nav > .am-active a {
+        background-color: #fff;
+        color: #0e90d2;
+        box-shadow: inset -1px 0 1px -1px #999;
+    }
+    
+    .x {
+        box-shadow: inset -1px 0 1px -1px #999;
+    }
+    #packageList li{
+        box-shadow:inset 1px -1px 1px -1px #aaa;
+    }
+    #packageList .cbox{
+        margin:10px 0;
+    }
+    </style>
+</head>
+
+<body>
+    <!--banner+menu start-->
+    <div data-am-sticky>
+        <header data-am-widget="header" class="am-header am-header-default" style="border-top:1px solid #000111;background:#000;">
+            <div class="am-header-left am-header-nav">
+                <img src="images/logo.png" style="width:152px;height:18px;margin-top:-5px">
+            </div>
+            <div class="am-header-right am-header-nav">
+                <a id="uCenter" href="javascript:void(0)" class="am-menu-toggle">
+                    <i class="am-menu-toggle-icon am-icon-user" style="font-size:20px;padding-right:50px"></i>
+                </a>
+            </div>
+        </header>
+        <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
+            <a href="javascript: void(0)" class="am-menu-toggle">
+                <i class="am-menu-toggle-icon am-icon-bars"></i>
+            </a>
+            <div id="navBar" class="am-offcanvas">
+            </div>
+        </nav>
+    </div>
+    <!--banner+menu end-->
+    
+    <div class="am-form center-wrap" >
+        <ul class="am-avg-sm-3" id="packageList" style="box-shadow:none;">
+        </ul>
+    </div>
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/amazeui.min.js"></script>
+    <script src="js/libs/json.js"></script>
+    <script src="js/libs/base.js"></script>
+    <script src="js/libs/utils.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/package.js"></script>
+</body>
+
+</html>

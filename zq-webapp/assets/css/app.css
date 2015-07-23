@@ -1010,3 +1010,4 @@ input[placeholder],[placeholder],*[placeholder] {
 .loan-cal em{font-style:normal;font-weight: normal;}
 .loan-cal em:last-child{font-size:18px;color:#b9090e;}
 .buy-pack div{font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;}
+.login-btn,.login-btn:hover{display:block;background:orange;border:none;color:#000;height:45px;line-height: 45px;font-size:18px;font-weight:800;padding:0;border-radius:7px;}
