@@ -14,7 +14,34 @@
     <link rel="stylesheet" href="assets/css/amazeui.min.css">
     <link rel="stylesheet" href="assets/css/app.css">
 </head>
-
+    <style>
+    .am-tabs-default .am-tabs-nav {
+        line-height: 40px;
+        background-color: #fff;
+        margin-top: 10px;
+    }
+    
+    .am-tabs-default .am-tabs-nav a {
+        color: #ccc;
+        line-height: 45px;
+    }
+    
+    .am-tabs-default .am-tabs-nav > .am-active a {
+        background-color: #fff;
+        color: #0e90d2;
+        box-shadow: inset -1px 0 1px -1px #999;
+    }
+    
+    .x {
+        box-shadow: inset -1px 0 1px -1px #999;
+    }
+    
+    .ttt {
+        font-size: 13px;
+        margin: -10px;
+        color: #666
+    }
+    </style>
 <body>
     <!--banner+menu start-->
     <div data-am-sticky>
@@ -40,52 +67,140 @@
     <div data-am-widget="slider" class="am-slider am-slider-c3" data-am-slider='{&quot;controlNav&quot;:false}'>
         <ul class="am-slides" style="font-size:12px">
             <li>
-                <img src="images/tyg_xm.jpg">
+                <img src="images/s599.jpg">
 
             </li>
         </ul>
     </div>
-    <div class="am-form">
-        <ul class="am-avg-sm-2" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
-            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;" data-am-widget="navbar">
-                <div class="am-dropdown" data-am-dropdown style="height:100px;width:100%;">
-                    <a href="sub_tyg.html">
-                        <div style="margin-top:20px">
-                            <i class="am-icon-tags" style="font-size:24px;color:#666"></i>
-                            <br />
-                            <span style="font-size:13px;">立即预约</span>
-                        </div>
-                    </a>
-                </div>
+
+    <div data-am-widget="tabs" class="am-tabs am-tabs-default" style="width:100%;padding:0;margin:0">
+        <ul class="am-tabs-nav am-cf">
+            <li class="am-active x" style="line-height:10px;">
+                <a href="[data-tab-panel-0]">
+                    <div class="ttt">套餐详情</div>
+                </a>
             </li>
-            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
-                <div class="am-dropdown" data-am-dropdown style="height:100px;width:100%;">
-                    <a href="tel:4009689088">
-                        <div style="margin-top:20px">
-                            <i class="am-icon-phone" style="font-size:24px;color:#666"></i>
-                            <br />
-                            <span style="font-size:13px;">电话预约</span>
-                        </div>
-                    </a>
-                </div>
+            <li class="am-active x" style="line-height:10px;">
+                <a href="[data-tab-panel-1]">
+                    <div class="ttt">主材展示</div>
+                </a>
+            </li>
+            <li class="x">
+                <a href="[data-tab-panel-2]">
+                    <div class="ttt">服务展示</div>
+                </a>
             </li>
         </ul>
-    </div>
-    <!--cubes end-->
-    <div class="am-tabs-bd" style="margin-top:10px;border:none;">
-        <div data-tab-panel-0 class="am-tab-panel am-active">
-            <p style="font-size:14px;line-height:18px;">
-                国内一线品牌主材，免费测量、设计、验房、进度实施跟踪，终身服务，从毛坯到精装，超高性价比的奢华家装解决方案。
-            </p>
-            <hr/>
-            <p style="font-size:14px;line-height:18px;color:#666">
-                <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">温馨提示 REMINDER</span></b>
-                <br/>
-                <br/> 您可以通过在线预约或电话预约的方式，预约到店参观，体验馆提供实景装修样板间，即选即得，欢迎您的到来。
-            </p>
-            <hr/>
+        <div class="am-tabs-bd" style="margin-top:10px;border:none; box-shadow:inset -1px 1px 1px -1px #999;padding:5px;">
+            <div data-tab-panel-0 class="am-tab-panel am-active">
+                <div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                    <a class="buy-pack" id="buy599" href="">
+                        <div>立刻抢购</div>
+                    </a>
+                </div>
+                <p style="font-size:14px;line-height:18px;">
+                    599元/㎡家装套餐已开放抢购，先到者先得。提供免费验房、量房、设计，进度实时跟踪等服务，从毛坯到精装，史上性价比最高的家装解决方案。
+                </p>
+                <hr/>
+                <p style="font-size:14px;line-height:18px;color:#666">
+                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">人性化设计 HUMANIZED DESIGN</span></b>
+                    <br/>
+                    <br/> 墙面处理 / 地面处理 / 防水处理 / 隐蔽施工 / 人性化设计 / 绿色环保 / 智能家居
+                </p>
+                <hr/>
+                <p style="font-size:14px;line-height:18px;color:#666">
+                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">名牌主辅材 FAMOUS MATERIAL</span></b>
+                    <br/>
+                    <br/> TATA、大自然、科勒、都芳、东鹏、金牌、九牧、友邦、西门子、雷士等10 大一线主材品牌,为您提供品质保障、极致体验。
+                </p>
+                <hr/>
+                <p style="font-size:14px;line-height:18px;color:#666">
+                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">35天工期 DAYS</span></b>
+                    <br/>
+                    <br/> 施工步骤紧密衔接，拒绝浪费时间，保证在35天内就为您完成装修，用最高效的方式让您享受最好最快的家装体验。39项标准节点和标准操作项目，三大改革装修不再磨洋工
+                </p>
+                <hr/>
+                <p style="font-size:14px;line-height:18px;color:#666">
+                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">管家式服务 BUTLER SERVICE</span></b>
+                    <br/>
+                    <br/> 专属服务：从下单到入住提供一对一全程服务；
+                    <br/> 家装日报：装修进度每日更新；
+                    <br/> 在线客服：网上客服、400服务热线；
+                    <br/> 增值服务：提供丰富的专项增值服务；
+                    <br/> 终身维护：装修档案终身留存，迅捷维护；
+                    <br/> 售后维修：水电5年，基础施工2年质保；
+                    <br/> 实时互动：实时掌握家装动态，与施工人员实时沟通；
+                </p>
+            </div>
+            <div data-tab-panel-1 class="am-tab-panel">
+                
+		            <p style="font-size:14px;line-height:18px;color:#666">
+                    <span style="color:#000">大自然 ／ 底板</span>
+    		        </p>
+								<ul class="am-avg-sm-4 am-thumbnails">
+								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-1.jpg" /></li>
+								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-2.jpg" /></li>
+								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-3.jpg" /></li>
+								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" /></li>
+								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-1.jpg" /></li>
+								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-2.jpg" /></li>
+								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-3.jpg" /></li>
+								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" /></li>								  
+								</ul>     		        
+
+		            <p style="font-size:14px;line-height:18px;color:#666">
+                    <span style="color:#000">大自然 ／ 底板</span>
+    		        </p>
+								<ul class="am-avg-sm-4 am-thumbnails">
+								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-1.jpg" /></li>
+								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-2.jpg" /></li>
+								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-3.jpg" /></li>
+								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" /></li>
+								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-1.jpg" /></li>
+								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-2.jpg" /></li>
+								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-3.jpg" /></li>
+								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" /></li>								  
+								</ul> 							
+            </div>
+            <div data-tab-panel-2 class="am-tab-panel">
+                <p style="font-size:14px;line-height:18px;">
+                    699元/㎡家装套餐已开放抢购，先到者先得。提供免费验房、量房、设计，进度实时跟踪等服务，从毛坯到精装，史上性价比最高的家装解决方案。
+                </p>
+                <hr/>
+                <p style="font-size:14px;line-height:18px;color:#666">
+                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">人性化设计 HUMANIZED DESIGN</span></b>
+                    <br/>
+                    <br/> 墙面处理 / 地面处理 / 防水处理 / 隐蔽施工 / 人性化设计 / 绿色环保 / 智能家居
+                </p>
+                <hr/>
+                <p style="font-size:14px;line-height:18px;color:#666">
+                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">名牌主辅材 FAMOUS MATERIAL</span></b>
+                    <br/>
+                    <br/> TATA、大自然、科勒、都芳、东鹏、金牌、九牧、友邦、西门子、雷士等10 大一线主材品牌,为您提供品质保障、极致体验。
+                </p>
+                <hr/>
+                <p style="font-size:14px;line-height:18px;color:#666">
+                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">35天工期 DAYS</span></b>
+                    <br/>
+                    <br/> 施工步骤紧密衔接，拒绝浪费时间，保证在35天内就为您完成装修，用最高效的方式让您享受最好最快的家装体验。39项标准节点和标准操作项目，三大改革装修不再磨洋工
+                </p>
+                <hr/>
+                <p style="font-size:14px;line-height:18px;color:#666">
+                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">管家式服务 BUTLER SERVICE</span></b>
+                    <br/>
+                    <br/> 专属服务：从下单到入住提供一对一全程服务；
+                    <br/> 家装日报：装修进度每日更新；
+                    <br/> 在线客服：网上客服、400服务热线；
+                    <br/> 增值服务：提供丰富的专项增值服务；
+                    <br/> 终身维护：装修档案终身留存，迅捷维护；
+                    <br/> 售后维修：水电5年，基础施工2年质保；
+                    <br/> 实时互动：实时掌握家装动态，与施工人员实时沟通；
+                </p>
+            </div>
         </div>
     </div>
+
+
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/amazeui.min.js"></script>
     <script src="js/libs/json.js"></script>
