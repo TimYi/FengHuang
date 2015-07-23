@@ -133,34 +133,70 @@
                 </p>
             </div>
             <div data-tab-panel-1 class="am-tab-panel">
-                
-		            <p style="font-size:14px;line-height:18px;color:#666">
-                    <span style="color:#000">大自然 ／ 底板</span>
-    		        </p>
-								<ul class="am-avg-sm-4 am-thumbnails">
-								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-1.jpg" /></li>
-								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-2.jpg" /></li>
-								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-3.jpg" /></li>
-								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" /></li>
-								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-1.jpg" /></li>
-								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-2.jpg" /></li>
-								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-3.jpg" /></li>
-								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" /></li>								  
-								</ul>     		        
-
-		            <p style="font-size:14px;line-height:18px;color:#666">
-                    <span style="color:#000">大自然 ／ 底板</span>
-    		        </p>
-								<ul class="am-avg-sm-4 am-thumbnails">
-								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-1.jpg" /></li>
-								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-2.jpg" /></li>
-								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-3.jpg" /></li>
-								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" /></li>
-								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-1.jpg" /></li>
-								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-2.jpg" /></li>
-								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-3.jpg" /></li>
-								  <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" /></li>								  
-								</ul> 							
+    		        <span style="color:#000;font-size:14px;">大自然 ／ 实木地板</span>
+								<ul data-am-widget="gallery" class="am-gallery am-avg-sm-4
+								  am-gallery-default" data-am-gallery="{ pureview: true }">
+								  <li>
+								    <div class="am-gallery-item">
+								      <a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">
+								        <img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
+								      </a>
+								    </div>
+								  </li>
+								  <li>
+								    <div class="am-gallery-item">
+								      <a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">
+								        <img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
+								      </a>
+								    </div>
+								  </li>
+								  <li>
+								    <div class="am-gallery-item">
+								      <a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">
+								        <img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
+								      </a>
+								    </div>
+								  </li>
+								  <li>
+								    <div class="am-gallery-item">
+								      <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+								        <img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
+								      </a>
+								    </div>
+								  </li>
+								</ul>    		        
+    		        <span style="color:#000;font-size:14px;">大自然 ／ 实木地板</span>
+								<ul data-am-widget="gallery" class="am-gallery am-avg-sm-4
+								  am-gallery-default" data-am-gallery="{ pureview: true }">
+								  <li>
+								    <div class="am-gallery-item">
+								      <a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">
+								        <img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
+								      </a>
+								    </div>
+								  </li>
+								  <li>
+								    <div class="am-gallery-item">
+								      <a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">
+								        <img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
+								      </a>
+								    </div>
+								  </li>
+								  <li>
+								    <div class="am-gallery-item">
+								      <a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">
+								        <img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
+								      </a>
+								    </div>
+								  </li>
+								  <li>
+								    <div class="am-gallery-item">
+								      <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+								        <img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
+								      </a>
+								    </div>
+								  </li>
+								</ul>							
             </div>
             <div data-tab-panel-2 class="am-tab-panel">
                 <p style="font-size:14px;line-height:18px;">
