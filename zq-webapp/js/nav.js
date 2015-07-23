@@ -72,15 +72,21 @@
 				else{
 					url = url.substring(1);
 					if(url.indexOf('tc_599') > -1){
-						url = "jztc.html";
+						url = "tcdetails.html?packageId=599";
 					}else if(url.indexOf('tc_699') > -1){
-						url = "jztc.html?pt=1"
+						url = "tcdetails.html?packageId=699";
 					}else if(url.indexOf('gyzs') > -1){
 						url = "tmzs.html?pt=1";
 					}else if(url.indexOf('zczs') > -1){
 						url = "tmzs.html?pt=2";
 					}else if(url.indexOf('live') > -1){
 						url = "case.html?pt=1";
+					}else if(url.indexOf('rzb') > -1){
+						url = "tcdetails.html?packageId=799";
+					}else if(url.indexOf('dqb') > -1){
+						url = "tcdetails.html?packageId=1099";
+					}else if(url.indexOf('gxhb') > -1){
+						url = "tcdetails.html?packageId=1199";
 					}
 				}
 				var title = sub[j].title || "";
