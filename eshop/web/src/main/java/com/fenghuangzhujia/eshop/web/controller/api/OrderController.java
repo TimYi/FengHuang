@@ -98,7 +98,7 @@ public class OrderController {
 	@RequestMapping(value="pufa/revoke",method=RequestMethod.POST)
 	public ModelAndView pufaRevoke(String Plain, String Signature) {
 		//LogUtils.errorLog(Plain);//先记录下返回的数据，查看是哪里出现异常。
-		ModelAndView view=new ModelAndView("redirect:http://IFHZJ.com/payback.html");
+		ModelAndView view=new ModelAndView("payend");
 		try {
 			PufaPay pufaPay=pufaPayService.revoke(Plain,Signature);
 			view.addObject("result", true);

@@ -9,7 +9,7 @@
 </head>
 <body>
 	<script type="text/javascript">
-		<c:if test='${result}'>var url="http://www.ifhzj.com/api/payend?result=true&orderId=${orderid}"</c:if>
+		<c:if test='${result}'>var url="http://www.ifhzj.com/api/payend?result=true&orderId=${orderId}"</c:if>
 		<c:if test='${!result}'>var url="http://www.ifhzj.com/api/payend?result=false&reason=${reason}"</c:if>
 		window.location.href=url;
 	</script>
