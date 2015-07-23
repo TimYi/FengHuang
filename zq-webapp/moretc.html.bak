@@ -44,7 +44,7 @@
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
                     <a href="#">
                         <div style="margin:30px 0 0 0">
-                            <div style="height:27px"><img src="images/599s.gif" width=80>
+                            <div style="height:27px"><img src="images/599s.gif" width=75>
                             <br/>
                             </div>
                             <span style="font-size:13px;">全包简装</span>
@@ -57,7 +57,7 @@
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
                     <a href="#">
                         <div style="margin:30px 0 0 0">
-                            <div style="height:27px"><img src="images/699s.gif" width=80>
+                            <div style="height:27px"><img src="images/699s.gif" width=75>
                             <br/>
                             </div>
                             <span style="font-size:13px;">全包简装</span>
