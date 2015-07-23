@@ -13,6 +13,28 @@
     <link rel="icon" type="image/png" href="assets/i/favicon.png">
     <link rel="stylesheet" href="assets/css/amazeui.min.css">
     <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="build_fhzj/webapp/assets/css/style.css">
+    <style type="text/css">
+    h2.top_title {
+        border-bottom: none;
+        background: none;
+        text-align: center;
+        line-height: 32px;
+        font-size: 13px
+    }
+    
+    h2.top_title span {
+        font-size: 14px;
+        color: #666;
+        font-weight: 500
+    }
+    .am-gallery-item{
+        width:100%;
+        height:0;
+        padding-bottom:75%;
+        overflow:hidden;
+    }
+    </style>
 </head>
 
 <body>
@@ -37,61 +59,35 @@
         </nav>
     </div>
     <!--banner+menu end-->
-    <div class="am-sticky-placeholder" style="display:none;height: 49px; margin: 0px;">
-        <div data-am-sticky="" class="am-sticky" style="margin: 0px; top: 0px; left: 0px; width: 389px;">
-            <header data-am-widget="header" class="am-header am-header-default am-no-layout" style="background:#fff;box-shadow: inset -1px -1px 1px -1px #666;">
-                <h1 class="am-header-title"><span style="color:#333;font-size:18px;font-weight:bold">第1天</span></h1>
-                <div class="am-header-left am-header-nav">
-                    <a href="u_live.html" class="">
-                        <i class="am-header-icon am-icon-chevron-left" style="font-size:16px;color:#999;margin-left:-15px"></i>
-                    </a>
-                </div>
-                <div class="am-header-right am-header-nav">
-                    <a href="u_live/u_live_comment.html" class="">
-                        <i class="am-header-icon am-icon-reply" style="font-size:22px;color:#f25618;"></i>
-                    </a>
-                </div>
-            </header>
+    <div class="am-tabs am-tabs-default" style="width:100%;padding:0;margin:0px;margin-bottom:-30px">
+        <div class="am-tabs-bd" style="margin-top:10px;border:none; padding:5px;">
+            <div class="am-tab-panel am-active">
+                <p style="font-size:14px;line-height:10px;color:#666">
+                    <i class="am-icon-home" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span id="liveTitle" style="color:#000;font-size:16px;">王女士家 / 82㎡ / 三居室</span></b>
+                    <br/>
+                    <br/> <span id="liveDistrict">北京市朝阳区三里屯小区</span>
+                    <br/>
+                    <br/> <span id="liveStart">2015-06-01</span> 开工
+                </p>
+                <hr/>
+            </div>
         </div>
     </div>
-    <div data-am-widget="slider" style="display:none;" class="am-slider am-slider-a1 am-no-layout" data-am-slider="{&quot;directionNav&quot;:false}">
-        <div class="am-viewport" style="overflow: hidden; position: relative;">
-            <ul class="am-slides" style="width: 1200%; -webkit-transition-duration: 0.6s; transition-duration: 0.6s; -webkit-transform: translate3d(-778px, 0px, 0px); transform: translate3d(-778px, 0px, 0px);">
-                <li class="clone" aria-hidden="true" style="width: 389px; float: left; display: block;">
-                    <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" draggable="false">
-                </li>
-                <li class="" style="width: 389px; float: left; display: block;">
-                    <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" draggable="false">
-                </li>
-                <li class="am-active-slide" style="width: 389px; float: left; display: block;">
-                    <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg" draggable="false">
-                </li>
-                <li class="" style="width: 389px; float: left; display: block;">
-                    <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg" draggable="false">
-                </li>
-                <li class="" style="width: 389px; float: left; display: block;">
-                    <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" draggable="false">
-                </li>
-                <li class="clone" aria-hidden="true" style="width: 389px; float: left; display: block;">
-                    <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" draggable="false">
-                </li>
-            </ul>
-        </div>
-        <ol class="am-control-nav am-control-paging">
-            <li><a class="">1</a><i></i></li>
-            <li><a class="am-active">2</a><i></i></li>
-            <li><a class="">3</a><i></i></li>
-            <li><a class="">4</a><i></i></li>
-        </ol>
+    <section id="cd-timeline" class="cd-container">
+    </section>
+    <div data-am-widget="gotop" class="am-gotop am-gotop-fixed">
+        <a href="#top" title="回到顶部">
+            <span class="am-gotop-title">回到顶部</span>
+            <i class="am-gotop-icon am-icon-chevron-up"></i>
+        </a>
     </div>
-
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/amazeui.min.js"></script>
     <script src="js/libs/json.js"></script>
     <script src="js/libs/base.js"></script>
     <script src="js/libs/utils.js"></script>
     <script src="js/nav.js"></script>
-    <script src="js/u_live.js"></script>
+    <script src="js/u_live_item.js"></script>
 </body>
 
 </html>

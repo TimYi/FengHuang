@@ -11,8 +11,13 @@ public class KhthServiceTest {
 	public void khth() {
 		KhthService service=new KhthService();
 		try {
-			ResponseModel<RefundResponseData> result=service.sendKhthRequest(null, "test", "20151226", "12345678", "983708160009501", null, 888.0, null, null);
-			TestUtils.printEachField(result);
+			ResponseModel<RefundResponseData> result=service.sendKhthRequest(null, "20150722HZtm", "20150722", "100001042405", "983708160009501", null, 500.0, null, null);
+			if(result.isSuccess()) {
+				RefundResponseData data=result.getData();
+				TestUtils.printEachField(data);
+			} else {
+				System.out.println(result.getErrorMsg());
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

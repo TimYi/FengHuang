@@ -25,6 +25,7 @@ $(function() {
     function getCoupons(){
         var url = Base.couponScram;
         var condi = {};
+        condi.token = g.token;
         g.httpTip.show();
         $.ajax({
             url:url,
@@ -35,6 +36,7 @@ $(function() {
             global:false,
             success: function(data){
                 var status = data.status || "";
+                console.log(data);
                 if(status == "OK"){
                     //g.id=data.result.id;
                 }

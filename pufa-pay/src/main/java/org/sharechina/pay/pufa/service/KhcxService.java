@@ -8,6 +8,7 @@ import org.sharechina.pay.pufa.protocal.RequestModel;
 import org.sharechina.pay.pufa.protocal.ResponseModel;
 import org.sharechina.pay.pufa.protocal.TransName;
 import org.sharechina.pay.pufa.protocal.query.QueryRequestData;
+import org.sharechina.pay.pufa.protocal.query.QueryResponseData;
 import org.springframework.stereotype.Service;
 
 /**
@@ -30,11 +31,11 @@ public class KhcxService {
 	 * @param OTranAbbr	原交易缩写
 	 * @param termSsn	订单号，不能重复
 	 */
-	public ResponseModel<QueryRequestData> sendKhcxRequest(String mercCode, TransName OTranAbbr, String termSsn)
+	public ResponseModel<QueryResponseData> sendKhcxRequest(String mercCode, TransName OTranAbbr, String termSsn)
 		throws SignatureException {
 		QueryRequestData data=new QueryRequestData(mercCode, OTranAbbr, termSsn);
 		RequestModel model=new RequestModel(data);
-		String result=httpsService.postXml(RequestModel.PRODUCTION_URL, model.toXml());
-		return ResponseModel.fromXml(result, QueryRequestData.class);
+		String result=httpsService.postXml(RequestModel.TEST_URL, model.toXml());
+		return ResponseModel.fromXml(result, QueryResponseData.class);
 	}
 }
