@@ -31,6 +31,8 @@ public class PufaPay extends UUIDBaseModel {
 	private boolean hasPayed;
 	/**是否已经退款*/
 	private Boolean drawbacked=false;
+	/**退款单号*/
+	private String drawbackTermSsn;
 	
 	public String getAcqSsn() {
 		return acqSsn;
@@ -75,5 +77,11 @@ public class PufaPay extends UUIDBaseModel {
 	}
 	public void setDrawbacked(Boolean drawbacked) {
 		this.drawbacked = drawbacked;
+	}
+	public String getDrawbackTermSsn() {
+		return drawbackTermSsn;
+	}
+	public void setDrawbackTermSsn(String drawbackTermSsn) {
+		this.drawbackTermSsn = drawbackTermSsn;
 	}
 }

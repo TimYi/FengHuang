@@ -27,7 +27,7 @@ public class KhthService {
 	/**
 	 * 
 	 * @param masterId	企业客户号，企业客户支付时必须提供，个人客户支付时不需要
-	 * @param termSsn	订单号，不能重复
+	 * @param termSsn	订单号，不能重复，与支付时的订单号不是同一个，需要新生成一个单号并记录
 	 * @param osttDate	原交易的清算日期，从支付回调结果中记录
 	 * @param oacqSsn	原交易的网关流水，从支付回调结果中记录
 	 * @param mercCode	商户号，开户时获得
@@ -42,8 +42,7 @@ public class KhthService {
 		RefundRequestData data=new RefundRequestData(masterId, termSsn, osttDate, oacqSsn, mercCode, termCode,
 				tranAmt, remark1, remark2);
 		RequestModel model=new RequestModel(data);
-		System.out.println(model.toXml());
-		String result=httpsService.postXml(RequestModel.PRODUCTION_URL, model.toXml());
+		String result=httpsService.postXml(RequestModel.TEST_URL, model.toXml());
 		ResponseModel<RefundResponseData> response=ResponseModel.fromXml(result, RefundResponseData.class);
 		return response;
 	}

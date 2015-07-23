@@ -194,16 +194,19 @@ public class PufaPayService {
 	 */
 	public void drawback(PufaPay pay) throws ErrorCodeException {
 		try {
-			ResponseModel<RefundResponseData> result=khthService.sendKhthRequest(null, pay.getTermSsn(), 
+			String drawbackTermSsn=CodeGenerater.generateOrderCode();
+			ResponseModel<RefundResponseData> result=khthService.sendKhthRequest(null, drawbackTermSsn, 
 					pay.getClearDate(), pay.getAcqSsn(), MERC_CODE, null, pay.getTranAmt(), null, null);
 			if(!result.isSuccess()) {
 				throw new ErrorCodeException(SystemErrorCodes.DRAWBACK_FAILED, result.getErrorMsg());
-			}
+			}			
 			RefundResponseData data=result.getData();
 			if(!data.getRespCode().equals("00")) {
 				throw new ErrorCodeException(SystemErrorCodes.DRAWBACK_FAILED, "错误码："+data.getRespCode());
 			}
+			
 			pay.setDrawbacked(true);
+			pay.setDrawbackTermSsn(drawbackTermSsn);
 		} catch (SignatureException e) {
 			throw new ErrorCodeException(SystemErrorCodes.PAY_FAILED, "签名错误");
 		}
