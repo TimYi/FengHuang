@@ -46,13 +46,13 @@
                         <span class="am-active">1</span>/4</div>凤凰筑家 专筑您的爱家 / 互联网+家装</div>
             </li>
             <li>
-                <img src="images/s_2.jpg">
+                <img src="images/s599.jpg">
                 <div class="am-slider-desc">
                     <div class="am-slider-counter" style="background:#b9090e">
                         <span class="am-active">2</span>/4</div>一站式套餐化解决方案，让您装修无忧</div>
             </li>
             <li>
-                <img src="images/s_3.jpg">
+                <img src="images/s699.jpg">
                 <div class="am-slider-desc">
                     <div class="am-slider-counter" style="background:#b9090e">
                         <span class="am-active">3</span>/4</div>35天标准化施工流程，透明互动放心</div>
@@ -94,7 +94,7 @@
             </li>
             <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;" data-am-widget="navbar">
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="jztc.html?pt=2">
+                    <a href="moretc.html">
                         <div style="margin-top:20px">
                             <i class="am-icon-th-large" style="font-size:24px;color:#b9090e"></i>
                             <br />
