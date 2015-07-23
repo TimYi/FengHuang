@@ -11,9 +11,9 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link href="fhzj/css/bootstrap.min1.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/amazeui.min.css">
     <link rel="stylesheet" href="assets/css/app.css">
-    <link href="fhzj/css/bootstrap.min1.css" rel="stylesheet">
     <style>
     a:hover {
         text-decoration: none;
@@ -44,6 +44,26 @@
         font-size: 13px;
         margin-top: -15px;
         color: #666
+    }
+    .am-tab-panel{
+        padding:0!important;
+        margin-top:1px;
+    }
+    .am-tab-panel ul{
+        padding:15px 15px;
+    }
+    .am-selected-btn{
+        background:#fff!important;
+        border:none;
+    }
+    .am-selected-btn span{
+        color:#333;
+    }
+    .am-selected-icon{
+        color:#333;
+    }
+    .am-selected-list{
+        padding:0!important;
     }
     </style>
 </head>
@@ -88,15 +108,64 @@
         <div class="am-tabs-bd" style="margin-top:10px;border:none; box-shadow:inset -1px 1px 1px -1px #999;padding:0;margin:0">
             <div data-tab-panel-0 class="am-tab-panel am-active">
                 <!--div id="caseTag" class="tag-wrap am-sticky-placeholder"></div-->
-                <ul id="caseList" data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-overlay" data-am-gallery="{ pureview: false }" style="margin:-10px">
-                    <li>
-                        <div class="am-gallery-item">
-                            <a href="alxq.html" class="">
-                                <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="北京亚运村千鹤家园" />
-                                <h3 class="am-gallery-title" style="font-size:12px;">北京亚运村千鹤家园</h3>
-                            </a>
-                        </div>
-                    </li>
+                <div class="am-sticky-placeholder" style="height: 43px; margin: 0px;">
+                    <div class="am-form" data-am-sticky="" style="margin: 0px;">
+                        <ul class="am-avg-sm-4" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
+                            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
+                                <div class="am-dropdown" data-am-dropdown="">
+                                    <select data-am-selected="{btnWidth: 75, btnSize: 'sm',btnStyle: 'primary'}" style="display: none;">
+                                        <option value="b">宜家</option>
+                                        <option value="o">欧式</option>
+                                        <option value="m">中式</option>
+                                        <option value="m">美式</option>
+                                        <option value="m">日式</option>
+                                        <option value="m">田园</option>
+                                        <option value="m">古典</option>
+                                        <option value="m">不限</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
+                                <div class="am-dropdown" data-am-dropdown="">
+                                    <select data-am-selected="{btnWidth: 75, btnSize: 'sm',btnStyle: 'primary'}" style="display: none;">
+                                        <option value="a">一居</option>
+                                        <option value="b">二居</option>
+                                        <option value="o">三居</option>
+                                        <option value="m">四居</option>
+                                        <option value="m">公寓</option>
+                                        <option value="m">复式</option>
+                                        <option value="m">别墅</option>
+                                        <option value="a">不限</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
+                                <div class="am-dropdown" data-am-dropdown="">
+                                    <select data-am-selected="{btnWidth: 75, btnSize: 'sm',btnStyle: 'primary'}" style="display: none;">
+                                        <option value="a">60m²</option>
+                                        <option value="b">80m²</option>
+                                        <option value="o">100m²</option>
+                                        <option value="m">120m²</option>
+                                        <option value="m">150m²</option>
+                                        <option value="m">更大</option>
+                                        <option value="m">不限</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
+                                <div class="am-dropdown" data-am-dropdown="">
+                                    <select data-am-selected="{btnWidth: 75, btnSize: 'sm',btnStyle: 'primary'}" style="display: none;">
+                                        <option value="a">白色</option>
+                                        <option value="b">棕色</option>
+                                        <option value="o">黄色</option>
+                                        <option value="m">不限</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <ul id="caseList" data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-overlay" data-am-gallery="{ pureview: true }" style="margin:-10px">
                 </ul>
             </div>
             <div data-tab-panel-1 class="am-tab-panel ">

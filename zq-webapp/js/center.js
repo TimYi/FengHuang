@@ -54,7 +54,7 @@ $(function(){
 		html.push('<li><div class="am-dropdown" data-am-dropdown>');
 		html.push('<a href="u_comment.html?token=' +g.token +'&p=7" ' + (g.page == 7 ? h : "") + '>');
 		html.push('<div class="cbox"><i class="am-icon-comments-o"></i><br /><span>我的评论</span></div></a></div></li>');
-		html.push('<li><div class="am-dropdown" data-am-dropdown>');
+		html.push('<li style="display:none;"><div class="am-dropdown" data-am-dropdown>');
 		html.push('<a href="u_fav.html?token=' +g.token +'&p=8" ' + (g.page == 8 ? h : "") + '>');
 		html.push('<div class="cbox"><i class="am-icon-star-o"></i><br /><span>我的收藏</span></div></a></div></li>');
 		html.push('<li><div class="am-dropdown" data-am-dropdown>');
