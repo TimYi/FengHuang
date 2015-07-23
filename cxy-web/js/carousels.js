@@ -8,6 +8,7 @@
 	var pageId = window._pageId || {};
 	var url = location.href || "";
 	var index = url.indexOf(".html");
+	url = url.replace("#","");
 	if(index > 16){
 		url = url.substring(url.lastIndexOf("/") + 1);
 	}
@@ -146,7 +147,7 @@ $(function(){
 	for(var i = 0,len = subbtn.length; i < len; i++){
 		var btn = $(subbtn[i]);
 		var href = btn.attr("href");
-		if(href == "#TYG_XM_BTNTITLE#"){
+		if(href == "#TYG_XM_BTNTITLE#" || href == "#TYG_BJ_BTNTITLE#"){
 			//预约体验馆
 			if(loginStatus){
 				btn.attr("href","subappoint.html");
@@ -154,6 +155,9 @@ $(function(){
 			else{
 				btn.attr({"href":"#","data-toggle":"modal","data-target":"#exampleModal","data-whatever":"@mdo"});
 			}
+		}
+		else if(href == "#"){
+			btn.attr("href","javascript:void(0);");
 		}
 	}
 
