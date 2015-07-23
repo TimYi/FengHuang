@@ -149,7 +149,7 @@ $(function(){
 	}
 	for(var i = 0,len = subbtn.length; i < len; i++){
 		var btn = $(subbtn[i]);
-		var href = btn.attr("href").tirm();;
+		var href = btn.attr("href");
 		if(href == "#TYG_XM_BTNTITLE#" || href == "#TYG_BJ_BTNTITLE#"){
 			//预约体验馆
 			if(loginStatus){
