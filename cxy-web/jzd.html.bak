@@ -233,12 +233,12 @@ $(".m_logo").hover(function(){
                 </div-->
             </div><!--/.carousel-inner-->
         </div><!--/.carousel-->
-        <a class="prev hidden-xs" href="assets/#main-slider" data-slide="prev">
+        <!--a class="prev hidden-xs" href="assets/#main-slider" data-slide="prev">
             <i class="fa fa-chevron-left"></i>
         </a>
         <a class="next hidden-xs" href="assets/#main-slider" data-slide="next">
             <i class="fa fa-chevron-right"></i>
-        </a>
+        </a-->
     </section><!--/#main-slider-->
 
 
