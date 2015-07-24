@@ -43,7 +43,7 @@ public class ExperienceMuseumAdapter extends
 		String cityId=i.getCityId();
 		if(StringUtils.isNotBlank(cityId)) {
 			Area city=areaRepository.findOne(cityId);
-			if(city.getLevel()!=AreaLevel.CITY) {
+			if(city==null || city.getLevel()!=AreaLevel.CITY) {
 				throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "区域等级必须为城市");
 			}
 			d.setCity(city);
