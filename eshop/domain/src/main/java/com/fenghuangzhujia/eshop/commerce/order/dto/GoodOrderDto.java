@@ -24,6 +24,8 @@ public class GoodOrderDto extends DtoBaseModel {
 	private String realName;
 	/**订单来源*/
 	private SourceType source;
+	private Date createTime;
+	private Date updateTime;
 
 	public double getPrice() {
 		return price;
@@ -102,5 +104,17 @@ public class GoodOrderDto extends DtoBaseModel {
 	}
 	public void setSource(SourceType source) {
 		this.source = source;
+	}
+	public Date getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 }

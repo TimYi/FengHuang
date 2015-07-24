@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +27,7 @@ import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage;
 import com.fenghuangzhujia.eshop.prudoct.scramble.PackageGood;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.persistance.DynamicSpecifications;
+import com.fenghuangzhujia.foundation.core.persistance.PageableBuilder;
 import com.fenghuangzhujia.foundation.core.persistance.SearchFilter;
 import com.fenghuangzhujia.foundation.core.persistance.SortFilter;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
@@ -78,7 +81,8 @@ public class GoodOrderService {
 	}
 	
 	public PagedList<GoodOrderDto> findByStatus(int page, int size, OrderStatus status) {
-		PageRequest pageable=new PageRequest(page-1, size);
+		Sort sort=new Sort(new Sort.Order(Direction.DESC, "updateTime"));
+		Pageable pageable=PageableBuilder.build(sort, page, size);
 		Page<GoodOrder> goods;
 		if(status==null) {
 			goods=repository.findAll(pageable);
