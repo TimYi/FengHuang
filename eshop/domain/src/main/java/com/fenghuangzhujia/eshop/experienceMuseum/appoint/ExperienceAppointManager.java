@@ -19,8 +19,10 @@ import org.springframework.stereotype.Service;
 import com.fenghuangzhujia.eshop.commerce.order.GoodOrder;
 import com.fenghuangzhujia.eshop.core.area.Area;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
+import com.fenghuangzhujia.eshop.core.rlmessage.MessageSender;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.utils.CodeGenerater;
+import com.fenghuangzhujia.eshop.core.utils.LogUtils;
 import com.fenghuangzhujia.eshop.experienceMuseum.ExperienceMuseum;
 import com.fenghuangzhujia.eshop.experienceMuseum.ExperienceMuseumRepository;
 import com.fenghuangzhujia.eshop.prudoct.scramble.PackageGood;
@@ -35,6 +37,8 @@ public class ExperienceAppointManager {
 	private ExperienceAppointRepository repository;
 	@Autowired
 	private ExperienceMuseumRepository museumRepository;
+	@Autowired
+	private MessageSender messageSender;
 	
 	/**
 	 * 用户预约体验馆
@@ -50,9 +54,11 @@ public class ExperienceAppointManager {
 		}
 		if(!user.getInfoComplete())
 			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "用户信息不完整，不能预约");
-		couldAppoint(user, museum);
+		couldAppoint(user, museum);		
+		ExperienceAppoint appoint=saveAppoint(user, museum, realName, mobile);		
 		
-		ExperienceAppoint appoint=saveAppoint(user, museum, realName, mobile);
+		//发送预约成功提醒短信
+		sendAppointSuccessMessage(appoint);
 		return appoint;
 	}
 	
@@ -69,6 +75,9 @@ public class ExperienceAppointManager {
 		if(museums==null || museums.isEmpty()) return null;
 		ExperienceMuseum museum=museums.get(0);		
 		ExperienceAppoint appoint=saveAppoint(order.getUser(), museum, order.getRealName(), order.getMobile());
+		
+		//发送预约成功提醒短信
+		sendAppointSuccessMessage(appoint);
 		return appoint;		
 	}
 	
@@ -121,5 +130,15 @@ public class ExperienceAppointManager {
 				return cb.and(predicates.toArray(new Predicate[predicates.size()]));
 			}
 		};
+	}
+	
+	private void sendAppointSuccessMessage(ExperienceAppoint appoint) {
+		try {
+			//发送预约成功提示短信
+			messageSender.appointSuccess(appoint.getMobile(), appoint.getCreateTime(), 
+					appoint.getMuseum().getCity().getName(),appoint.getCode(), appoint.getRealName(), appoint.getMobile());
+		} catch (Exception e) {
+			LogUtils.errorLog(e);
+		}
 	}
 }
