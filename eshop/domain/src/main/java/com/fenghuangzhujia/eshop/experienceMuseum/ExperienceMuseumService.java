@@ -1,10 +1,10 @@
-package com.fenghuangzhujia.eshop.experience;
+package com.fenghuangzhujia.eshop.experienceMuseum;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fenghuangzhujia.eshop.experience.dto.ExperienceMuseumDto;
-import com.fenghuangzhujia.eshop.experience.dto.ExperienceMuseumInputArgs;
+import com.fenghuangzhujia.eshop.experienceMuseum.dto.ExperienceMuseumDto;
+import com.fenghuangzhujia.eshop.experienceMuseum.dto.ExperienceMuseumInputArgs;
 import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
 
 @Service

@@ -1,17 +1,22 @@
-package com.fenghuangzhujia.eshop.experience.dto;
+package com.fenghuangzhujia.eshop.experienceMuseum.dto;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fenghuangzhujia.eshop.core.area.Area;
 import com.fenghuangzhujia.eshop.core.area.AreaRepository;
+import com.fenghuangzhujia.eshop.core.area.Area.AreaLevel;
+import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.utils.LogUtils;
-import com.fenghuangzhujia.eshop.experience.ExperienceMuseum;
+import com.fenghuangzhujia.eshop.experienceMuseum.ExperienceMuseum;
 import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
+import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.media.MediaContent;
 import com.fenghuangzhujia.foundation.media.MediaService;
 
+@Component
 public class ExperienceMuseumAdapter extends 
 	AbstractDtoAdapter<ExperienceMuseum, ExperienceMuseumDto, ExperienceMuseumInputArgs> {
 
@@ -38,6 +43,9 @@ public class ExperienceMuseumAdapter extends
 		String cityId=i.getCityId();
 		if(StringUtils.isNotBlank(cityId)) {
 			Area city=areaRepository.findOne(cityId);
+			if(city.getLevel()!=AreaLevel.CITY) {
+				throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "区域等级必须为城市");
+			}
 			d.setCity(city);
 		}
 		MultipartFile picFile=i.getPicFile();

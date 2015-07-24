@@ -1,15 +1,13 @@
-package com.fenghuangzhujia.eshop.experience;
+package com.fenghuangzhujia.eshop.experienceMuseum;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fenghuangzhujia.eshop.core.area.Area;
-import com.fenghuangzhujia.eshop.core.area.Area.AreaLevel;
-import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
-import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.media.MediaContent;
 
 @Entity
@@ -20,19 +18,18 @@ public class ExperienceMuseum extends UUIDBaseModel {
 	private Area city;
 	private MediaContent pic;
 	
+	@Column(nullable=false)
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	@ManyToOne
+	@ManyToOne(optional=false)
 	public Area getCity() {
 		return city;
 	}
 	public void setCity(Area city) {
-		if(city !=null && !city.getLevel().equals(AreaLevel.CITY)) 
-			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "只能指定城市");
 		this.city = city;
 	}
 	@OneToOne

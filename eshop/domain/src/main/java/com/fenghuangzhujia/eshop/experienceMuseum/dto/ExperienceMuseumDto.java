@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.experience.dto;
+package com.fenghuangzhujia.eshop.experienceMuseum.dto;
 
 import com.fenghuangzhujia.eshop.core.area.dto.AreaDto;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
