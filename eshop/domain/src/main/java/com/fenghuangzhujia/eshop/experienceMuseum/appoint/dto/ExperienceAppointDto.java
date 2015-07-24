@@ -1,6 +1,9 @@
 package com.fenghuangzhujia.eshop.experienceMuseum.appoint.dto;
 
+import java.util.Date;
+
 import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
+import com.fenghuangzhujia.eshop.experienceMuseum.appoint.ExperienceAppoint.AppointStatus;
 import com.fenghuangzhujia.eshop.experienceMuseum.dto.ExperienceMuseumDto;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
@@ -16,6 +19,12 @@ public class ExperienceAppointDto extends DtoBaseModel {
 	private String realName;
 	/**用户手机号码*/
 	private String mobile;
+	/**预约状态*/
+	private AppointStatus status;
+	/**后台客服给用户的留言*/
+	private String message;
+	/**后台客服联系用户后，双方商定的到馆时间*/
+	private Date appointTime;
 	
 	public String getCode() {
 		return code;
@@ -46,5 +55,23 @@ public class ExperienceAppointDto extends DtoBaseModel {
 	}
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
+	}
+	public AppointStatus getStatus() {
+		return status;
+	}
+	public void setStatus(AppointStatus status) {
+		this.status = status;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	public Date getAppointTime() {
+		return appointTime;
+	}
+	public void setAppointTime(Date appointTime) {
+		this.appointTime = appointTime;
 	}
 }

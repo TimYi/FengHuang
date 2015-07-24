@@ -1,5 +1,7 @@
 package com.fenghuangzhujia.eshop.experienceMuseum.appoint;
 
+import java.util.Date;
+
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Entity;
@@ -24,6 +26,12 @@ public class ExperienceAppoint extends UUIDBaseModel {
 	private String realName;
 	/**用户手机号码*/
 	private String mobile;
+	/**预约状态*/
+	private AppointStatus status=AppointStatus.WAITING;
+	/**后台客服给用户的留言*/
+	private String message;
+	/**后台客服联系用户后，双方商定的到馆时间*/
+	private Date appointTime;
 	
 	public String getCode() {
 		return code;
@@ -56,5 +64,34 @@ public class ExperienceAppoint extends UUIDBaseModel {
 	}
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
+	}
+	public AppointStatus getStatus() {
+		return status;
+	}
+	public void setStatus(AppointStatus status) {
+		this.status = status;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	public Date getAppointTime() {
+		return appointTime;
+	}
+	public void setAppointTime(Date appointTime) {
+		this.appointTime = appointTime;
+	}
+
+	public static enum AppointStatus {
+		/**等待客服确认*/
+		WAITING,
+		/**客服已确认，准备到店*/
+		PROCESSING,
+		/**已经完成*/
+		FINISH,
+		/**已取消*/
+		CANCEL;
 	}
 }

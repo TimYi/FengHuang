@@ -11,6 +11,7 @@ import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
 import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
 import com.fenghuangzhujia.eshop.experienceMuseum.ExperienceMuseumService;
 import com.fenghuangzhujia.eshop.experienceMuseum.appoint.ExperienceAppointService;
+import com.fenghuangzhujia.eshop.experienceMuseum.appoint.ExperienceAppoint.AppointStatus;
 import com.fenghuangzhujia.eshop.experienceMuseum.appoint.dto.ExperienceAppointDto;
 import com.fenghuangzhujia.eshop.experienceMuseum.dto.ExperienceMuseumDto;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
@@ -45,10 +46,11 @@ public class ExperienceMuseumController {
 	}
 	
 	@RequestMapping(value="user/museumAppoints",method=RequestMethod.GET)
-	public String myAppoints(@RequestParam(defaultValue="1") Integer page, @RequestParam(defaultValue="8") Integer size) {
+	public String myAppoints(@RequestParam(defaultValue="1") Integer page, 
+			@RequestParam(defaultValue="8") Integer size, AppointStatus status) {
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userId=details.getId();
-		PagedList<ExperienceAppointDto> result=experienceAppointService.findUserAppoints(userId, page, size);
+		PagedList<ExperienceAppointDto> result=experienceAppointService.findUserAppoints(userId, page, size, status);
 		return RequestResult.success(result).toJson();
 	}
 	

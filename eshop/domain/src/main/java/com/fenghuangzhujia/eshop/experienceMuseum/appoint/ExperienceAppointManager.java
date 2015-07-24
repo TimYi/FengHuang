@@ -25,6 +25,7 @@ import com.fenghuangzhujia.eshop.core.utils.CodeGenerater;
 import com.fenghuangzhujia.eshop.core.utils.LogUtils;
 import com.fenghuangzhujia.eshop.experienceMuseum.ExperienceMuseum;
 import com.fenghuangzhujia.eshop.experienceMuseum.ExperienceMuseumRepository;
+import com.fenghuangzhujia.eshop.experienceMuseum.appoint.ExperienceAppoint.AppointStatus;
 import com.fenghuangzhujia.eshop.prudoct.scramble.PackageGood;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.utils.Java8TimeUtils;
@@ -39,6 +40,35 @@ public class ExperienceAppointManager {
 	private ExperienceMuseumRepository museumRepository;
 	@Autowired
 	private MessageSender messageSender;
+	
+	/**
+	 * 取消预约，可以取消任意预约，后台管理员使用。
+	 * @param appoint
+	 * @return
+	 */
+	public ExperienceAppoint cancelAppoint(ExperienceAppoint appoint) {
+		if(appoint==null)return null;
+		appoint.setStatus(AppointStatus.CANCEL);
+		return appoint;
+	}
+	
+	/**用户本人取消预约*/
+	public ExperienceAppoint cancelAppointByUser(User user, ExperienceAppoint appoint) {
+		if(appoint==null || user==null)return null;
+		if(!appoint.getUser().getId().equals(user.getId())) {
+			return null;
+		}
+		appoint.setStatus(AppointStatus.CANCEL);
+		return appoint;
+	}
+	
+	/**后台处理用户预约，录入预约时间和留言*/
+	public ExperienceAppoint processAppoint(ExperienceAppoint appoint, User waiter, String message, Date appointTime) {
+		appoint.setStatus(AppointStatus.PROCESSING);
+		appoint.setMessage(message);
+		appoint.setAppointTime(appointTime);
+		return appoint;
+	}
 	
 	/**
 	 * 用户预约体验馆

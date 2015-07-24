@@ -1,5 +1,7 @@
 package com.fenghuangzhujia.eshop.experienceMuseum.appoint;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.domain.Page;
@@ -13,6 +15,7 @@ import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
 import com.fenghuangzhujia.eshop.experienceMuseum.ExperienceMuseum;
 import com.fenghuangzhujia.eshop.experienceMuseum.ExperienceMuseumRepository;
+import com.fenghuangzhujia.eshop.experienceMuseum.appoint.ExperienceAppoint.AppointStatus;
 import com.fenghuangzhujia.eshop.experienceMuseum.appoint.dto.ExperienceAppointDto;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.persistance.PageableBuilder;
@@ -34,9 +37,14 @@ public class ExperienceAppointService {
 	@Autowired
 	private MessageManager messageManager;
 	
-	public PagedList<ExperienceAppointDto> findUserAppoints(String userId, int page, int size) {
+	public PagedList<ExperienceAppointDto> findUserAppoints(String userId, int page, int size, AppointStatus status) {
 		Pageable pageable=PageableBuilder.build(page, size);
-		Page<ExperienceAppoint> appoints=repository.findByUserId(userId, pageable);
+		Page<ExperienceAppoint> appoints;
+		if(status==null) {
+			appoints=repository.findByUserId(userId, pageable);
+		} else {
+			appoints=repository.findByUserIdAndStatus(userId, status, pageable);
+		}
 		Page<ExperienceAppointDto> result=appoints.map(getConverter());
 		return new PagedList<>(result);
 	}
@@ -45,6 +53,40 @@ public class ExperienceAppointService {
 		ExperienceAppoint appoint=repository.findOne(id);
 		if(appoint==null || !appoint.getUser().getId().equals(userId))return null;
 		return getConverter().convert(appoint);
+	}
+	
+	public PagedList<ExperienceAppointDto> findAppoints(int page, int size, AppointStatus status) {
+		Pageable pageable=PageableBuilder.build(page, size);
+		Page<ExperienceAppoint> appoints;
+		if(status==null) {
+			appoints=repository.findAll(pageable);
+		} else {
+			appoints=repository.findByStatus(status, pageable);
+		}
+		Page<ExperienceAppointDto> result=appoints.map(getConverter());
+		return new PagedList<>(result);
+	}
+	
+	public ExperienceAppointDto findAppoint(String id) {
+		ExperienceAppoint result=repository.findOne(id);
+		return getConverter().convert(result);
+	}
+	
+	public void calcelAppoint(String id) {
+		ExperienceAppoint appoint=repository.findOne(id);
+		manager.cancelAppoint(appoint);
+	}
+	
+	public void cancelAppointByUser(String userId, String id) {
+		User user=userRepository.findOne(userId);
+		ExperienceAppoint appoint=repository.findOne(id);
+		manager.cancelAppointByUser(user, appoint);
+	}
+	
+	public void processAppoint(String id, String userId, String message, Date appointTime) {
+		ExperienceAppoint appoint=repository.findOne(id);
+		User waiter=userRepository.findOne(userId);
+		manager.processAppoint(appoint, waiter, message, appointTime);
 	}
 	
 	/**
