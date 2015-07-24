@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
 import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
-import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
 import com.fenghuangzhujia.eshop.experienceMuseum.ExperienceMuseumService;
 import com.fenghuangzhujia.eshop.experienceMuseum.appoint.ExperienceAppointService;
 import com.fenghuangzhujia.eshop.experienceMuseum.appoint.dto.ExperienceAppointDto;
@@ -24,15 +23,12 @@ public class ExperienceMuseumController {
 	private ExperienceAppointService experienceAppointService;
 	@Autowired
 	private ExperienceMuseumService experienceMuseumService;
-	@Autowired
-	private MessageManager messageManager;
 	
 	@RequestMapping(value="museum/{id}/appoint",method=RequestMethod.POST)
 	public String appoint(@PathVariable String id, String realName, String mobile, String validater) {
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userId=details.getId();
-		messageManager.validate(mobile, validater);
-		ExperienceAppointDto result=experienceAppointService.appoint(userId, id, realName, mobile);
+		ExperienceAppointDto result=experienceAppointService.appoint(userId, id, realName, mobile, validater);
 		return RequestResult.success(result).toJson();
 	}
 	
