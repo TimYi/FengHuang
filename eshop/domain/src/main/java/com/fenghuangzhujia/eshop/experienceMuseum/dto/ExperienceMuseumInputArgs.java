@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.experience.dto;
+package com.fenghuangzhujia.eshop.experienceMuseum.dto;
 
 import org.springframework.web.multipart.MultipartFile;
 
