@@ -577,8 +577,9 @@ $(".m_logo").hover(function(){
 
 				  <div class="form-group" style="padding-top:20px 0 100px 0">
 				    <div class="col-sm-offset-2 col-sm-10" style="width:83%">
-				      <button id="sendbtn" type="button" class="btn btn-default btn-primary" style="margin-left:2px;margin-right:10px">　注册　</button>
-				      <button id="resetbtn" type="button" class="btn btn-default btn-primary">　重置　</button>
+				      <button id="sendbtn" type="button" class="btn btn-default btn-primary" style="margin-left:2px;margin-right:10px">注册</button>
+				      <button id="resetbtn" type="button" class="btn btn-default btn-primary">重置</button>
+                      <a href="center/reg.html" style="font-size:12px;font-weight:800">立即登陆</a>
 				    </div>
 				  </div>
 
@@ -610,7 +611,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 		var button = $(event.relatedTarget);
 		var recipient = button.data('whatever');
 		var modal = $(this);
-		modal.find('.modal-title').text('一分钟快速注册 | <a href=reg.html style=font-weight:800>登陆<a>');
+		modal.find('.modal-title').text('一分钟快速注册');
 		modal.find('.modal-body input').val(recipient);
 	}
 })
