@@ -114,7 +114,7 @@ $(function(){
 
 			html.push('<tr style="' + trcss + '">');
 			html.push('<td style="vertical-align: middle;">' + name + '</td>');
-			html.push('<td style="vertical-align: middle;">');
+			html.push('<td style="vertical-align: middle;text-align:left">');
 
 
 			var imgarr = obj[key] || [];
