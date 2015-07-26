@@ -114,7 +114,7 @@ $(function(){
 
 			html.push('<tr style="' + trcss + '">');
 			html.push('<td style="vertical-align: middle;">' + name + '</td>');
-			html.push('<td style="vertical-align: middle;">');
+			html.push('<td style="vertical-align: middle;"><table><tr>');
 
 
 			var imgarr = obj[key] || [];
@@ -126,13 +126,13 @@ $(function(){
 				}
 				var description =  imgarr[j].description || "";
 
-				html.push('<img src="' + imgUrl + '" style="' + css + '">');
+				html.push('<td><span style="font-size:12px;width:100px">'+ description +'</span><br/><img src="' + imgUrl + '" style="' + css + '"></td>');
 
 				//新增产品描述
-				html.push('<p>' + description + "</p>");
+				//html.push('<p>' + description + "</p>");
 			}
 
-			html.push('</td>');
+			html.push('</tr></table></td>');
 			html.push('</tr>');
 
 			i++;
