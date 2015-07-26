@@ -189,7 +189,7 @@ $(function(){
 
 
 	function sendGetMySubHttp(condi){
-		var url = Base.serverUrl + "user/museumAppoints";
+		var url = Base.serverUrl + "/api/user/museumAppoints";
 		$.ajax({
 			url:url,
 			data:condi,
