@@ -736,7 +736,7 @@ $(function(){
 									}
 									else{
 										var page = "center/c_my.html?token=" + g.token + "&p=1";
-										var msg = "您需要完善个人资料,才能抢购";
+										var msg = "尊敬的" + g.username + "用户，您好！预约前，请先到会员中心完善个人资料。是否前往？";
 										$(".buynow").html('<div onclick="buyTip(\'' + msg + '\',\'' + page + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
 									}
 								}
@@ -749,7 +749,7 @@ $(function(){
 								////~ hasScrambled:标识是否已经抢购完并且尚未付款
 								if(hasScrambled){
 									var page = "center/c_order.html?token=" + g.token + "&p=7";
-									var msg = "套餐一个用户30天内只能抢购1次";
+									var msg = "尊敬的" + g.username + "用户，您好！本月您已成功抢购过该套餐且已完成定金支付，每人每月仅限抢购一次，请下个月再试，谢谢您的参与。";
 									$(".buynow").html('<div onclick="buyTip(\'' + msg + '\',\'' + page + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
 								}
 								else{
@@ -813,8 +813,9 @@ $(function(){
 	}
 
 	function buyTip(msg,url){
-		alert(msg);
-		location.href = url;
+		if(confirm(msg)){
+			location.href = url;
+		}
 	}
 	window.miaoSha = miaoSha;
 	window.buyTip = buyTip;
