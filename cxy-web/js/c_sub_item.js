@@ -107,7 +107,7 @@ $(function(){
 
 		var arr = {"WAITING":"等待客服确认","PROCESSING":"处理中","FINISH":"已到店","CANCEL":"取消"};
 		var code = obj.code || "";
-		var user = obj.user || "";
+		//var user = obj.user || "";
 		var type = obj.museum.name || "";
 		var realName = obj.realName || "";
 		var mobile = obj.mobile || "";
@@ -129,7 +129,7 @@ $(function(){
 		html.push('<ul class="sub_li">');
 		//html.push('<li>预约类型：' + type + '</li>');
 		html.push('<li>预约编号：' + code + '</li>');
-		html.push('<li>预约用户：' + user + '</li>');
+		//html.push('<li>预约用户：' + user + '</li>');
 		html.push('<li>真实姓名：' + realName + '</li>');
 		html.push('<li>留言：' + message + '</li>');
 		//html.push('<li>所在城市：' + city + '</li>');
@@ -147,7 +147,7 @@ $(function(){
 		html.push('</div>');
 
 		$("#infodiv").html(html.join(''));
-		$("#infodiv").show();
+		$("#infopage").show();
 	}
 });
 
