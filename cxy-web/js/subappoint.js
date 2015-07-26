@@ -519,11 +519,14 @@ $(function(){
 				console.log("sendAppointHttp",data);
 				var status = data.status || "";
 				if(status == "OK"){
-					Utils.alert("预约体验馆成功");
+					alert("预约体验馆成功");
+					location.href = "center/c_sub.html?token=" + g.token + "&p=6";
+					/*
 					setTimeout(function(){
 						location.href = "center/c_sub.html?token=" + g.token + "&p=6";
 						//history.go(-1);
 					},1000);
+					*/
 				}
 				else{
 					var msg = data.errorDescription || "";
