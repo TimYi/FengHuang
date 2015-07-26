@@ -283,10 +283,10 @@ $(".m_logo").hover(function(){
 										    </tr>	
 										    <tr style="border-top:2px solid #ccc">
 										    	<td>4</td>
-										    	<td>开关/插座</td>
-										    	<td>西门子</td>
-										    	<td>/</td>
-										    	<td>6个10A五孔插座，1个防溅盒（插座），1个单开单控（开关）</td>
+										    	<td>石膏线</td>
+										    	<td> </td>
+										    	<td>不限</td>
+										    	<td></td>
 										    </tr>										    									    
 											</table>
 									  </div>
