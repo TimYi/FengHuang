@@ -321,21 +321,21 @@ $(".m_logo").hover(function(){
 										    	<td>不限</td>
 										    	<td>地砖（配套踢脚线）</td>
 										    </tr>
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>2</td>
 										    	<td>顶面/墙面</td>
 										    	<td>德国都芳</td>
 										    	<td>不限</td>
 										    	<td>乳胶漆（含基层处理、底漆面漆及专业施工）</td>
 										    </tr>
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>3</td>
 										    	<td>开关/插座</td>
 										    	<td>西门子</td>
 										    	<td>/</td>
 										    	<td>6个10A五孔插座，1个防溅盒（插座），1个单开单控（开关）</td>
 										    </tr>	
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc;border-bottom:2px solid #ccc">
 										    	<td>4</td>
 										    	<td>石膏线</td>
 										    	<td> </td>
@@ -376,7 +376,7 @@ $(".m_logo").hover(function(){
 										    	<th>数量</th>
 										    	<th>详细说明</th>
 										    </tr>
-										    <tr style="border-top:1px solid #ccc">
+										    <tr style="border-top:2px solid #ccc">
 										    	<td>1</td>
 										    	<td>墙面</td>
 										    	<td>东鹏 / 德高</td>
@@ -468,7 +468,7 @@ $(".m_logo").hover(function(){
 										    <tr style="border-top:2px solid #fff">
 										    <tr style="border-top:2px solid #fff">
 										    	<th>#</th>
-										    	<th width="150">厨房包含项目</th>
+										    	<th width="150">卫生间包含项目</th>
 										    	<th>品牌</th>
 										    	<th>数量</th>
 										    	<th>详细说明</th>
@@ -639,7 +639,7 @@ $(".m_logo").hover(function(){
 											<table class="table u_ct_15">
 										    <tr style="border-top:2px solid #fff">
 										    	<th>#</th>
-										    	<th width="150">儿童房包含项目</th>
+										    	<th width="150">次卧包含项目</th>
 										    	<th>品牌</th>
 										    	<th>数量</th>
 										    	<th>详细说明</th>
@@ -843,28 +843,39 @@ $(".m_logo").hover(function(){
 											<table class="table u_ct_15">
 										    <tr style="border-top:2px solid #fff">
 										    	<th>#</th>
-										    	<th width="150">类型</th>
+										    	<th width="150">阳台包含项目</th>
 										    	<th>品牌</th>
-										    	<th>备注</th>
+										    	<th>数量</th>
+										    	<th>详细说明</th>
 										    </tr>
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>1</td>
-										    	<td>地砖</td>
-										    	<td>东鹏</td>
-										    	<td></td>
+										    	<td>地面</td>
+										    	<td>东鹏 / 德高</td>
+										    	<td>不限</td>
+										    	<td>地面防水处理，满铺及铺贴辅料（规格300×300）</td>
 										    </tr>
-										    <tr>
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>2</td>
-										    	<td>墙面漆</td>
-										    	<td>都芳</td>
-										    	<td></td>
-										    </tr>
-										    <tr>
+										    	<td>开关 / 插座 / 照明</td>
+										    	<td>西门子 / 雷士</td>
+										    	<td>/</td>
+										    	<td>1个10A五孔插座，1个防溅盒插座，1个单开单控开关，标准阳台照明灯1个</td>
+										    </tr>										    
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>3</td>
-										    	<td>灯具</td>
-										    	<td>雷士照明</td>
-										    	<td></td>
-										    </tr>
+										    	<td>五金</td>
+										    	<td>九牧</td>
+										    	<td>1套</td>
+										    	<td>洗衣池下水1套，洗衣机龙头、洗衣池龙头、地漏各1个</td>
+										    </tr>											    
+										    <tr style="border-top:1px solid #ccc;border-bottom:2px solid #ccc">
+										    	<td>4</td>
+										    	<td>洗衣池</td>
+										    	<td>凤凰筑家</td>
+										    	<td>1个</td>
+										    	<td>1个成品洗衣池（800×800mm以内）</td>
+										    </tr>	
 											</table>
 									  </div>
 			        	</div>
