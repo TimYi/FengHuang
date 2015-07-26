@@ -69,7 +69,7 @@ $(function(){
 				console.log("getAppointMuseums",data);
 				var status = data.status || "";
 				if(status == "OK"){
-					changeSelectHtml("typeid",data.result || []);
+					changeMuseumsSelectHtml("typeid",data.result || []);
 					//changeSelectHtml("typeid2",data.result || []);
 				}
 				else{
@@ -158,6 +158,19 @@ $(function(){
 			option.push('<option value="' + id + '"' + ( i == 0 ? "selected" : "") + '>' + name + '</option>');
 		}
 		$("#" + domid).html(option.join(''));
+	}
+
+	function changeMuseumsSelectHtml(domid,data){
+		var obj = data.result || [];
+		if(obj.length > 0){
+			var option = [];
+			for(var i = 0,len = obj.length; i < len; i++){
+				var id = data[i].id || "";
+				var name = data[i].name || "";
+				option.push('<option value="' + id + '"' + ( i == 0 ? "selected" : "") + '>' + name + '</option>');
+			}
+			$("#" + domid).html(option.join(''));
+		}
 	}
 
 	//获取图形验证码
