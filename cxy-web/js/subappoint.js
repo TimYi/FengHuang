@@ -527,7 +527,7 @@ $(function(){
 				}
 				else{
 					var msg = data.errorDescription || "";
-					Utils.alert("预约体验馆失败:" + msg);
+					alert("预约体验馆失败:" + msg);
 				}
 				g.httpTip.hide();
 			},
