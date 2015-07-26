@@ -125,7 +125,7 @@ $(function(){
 					imgUrl = imgUrl.url || "";
 				}
 				var description =  imgarr[j].description || "";
-				html.push('<div><span style="font-size:12px;width:100px">'+ description +'</span><br/><img src="' + imgUrl + '" style="' + css + '"></div>');
+				html.push('<span><span style="font-size:12px;width:100px">'+ description +'</span><br/><img src="' + imgUrl + '" style="' + css + '"></span>');
 
 				//新增产品描述
 				//html.push('<div style="font-size:12px;width:30px">' + description + "</div>");
