@@ -466,14 +466,13 @@ $(".m_logo").hover(function(){
 										<div class="item active">
 											<table class="table u_ct_15">
 										    <tr style="border-top:2px solid #fff">
-										    <tr style="border-top:2px solid #fff">
 										    	<th>#</th>
 										    	<th width="150">卫生间包含项目</th>
 										    	<th>品牌</th>
 										    	<th>数量</th>
 										    	<th>详细说明</th>
 										    </tr>
-										    <tr style="border-top:1px solid #ccc">
+										    <tr style="border-top:2px solid #ccc">
 										    	<td>1</td>
 										    	<td>墙面</td>
 										    	<td>东鹏 / 德高</td>
@@ -569,7 +568,7 @@ $(".m_logo").hover(function(){
 										    	<th>数量</th>
 										    	<th>详细说明</th>
 										    </tr>
-										    <tr style="border-top:1px solid #ccc">
+										    <tr style="border-top:2px solid #ccc">
 										    	<td>1</td>
 										    	<td>地面</td>
 										    	<td>大自然 / 世友</td>
@@ -644,7 +643,7 @@ $(".m_logo").hover(function(){
 										    	<th>数量</th>
 										    	<th>详细说明</th>
 										    </tr>
-										    <tr style="border-top:1px solid #ccc">
+										    <tr style="border-top:2px solid #ccc">
 										    	<td>1</td>
 										    	<td>地面</td>
 										    	<td>大自然 / 世友</td>
@@ -719,7 +718,7 @@ $(".m_logo").hover(function(){
 										    	<th>数量</th>
 										    	<th>详细说明</th>
 										    </tr>
-										    <tr style="border-top:1px solid #ccc">
+										    <tr style="border-top:2px solid #ccc">
 										    	<td>1</td>
 										    	<td>地面</td>
 										    	<td>大自然 / 世友</td>
@@ -794,7 +793,7 @@ $(".m_logo").hover(function(){
 										    	<th>数量</th>
 										    	<th>详细说明</th>
 										    </tr>
-										    <tr style="border-top:1px solid #ccc">
+										    <tr style="border-top:2px solid #ccc">
 										    	<td>1</td>
 										    	<td>地面</td>
 										    	<td>东鹏</td>
@@ -848,7 +847,7 @@ $(".m_logo").hover(function(){
 										    	<th>数量</th>
 										    	<th>详细说明</th>
 										    </tr>
-										    <tr style="border-top:1px solid #ccc">
+										    <tr style="border-top:2px solid #ccc">
 										    	<td>1</td>
 										    	<td>地面</td>
 										    	<td>东鹏 / 德高</td>
