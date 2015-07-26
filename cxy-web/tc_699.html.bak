@@ -263,6 +263,7 @@ $(".m_logo").hover(function(){
         </div>
     </section>/#main-slider-->
 
+
 		<style>
 			.mt20{margin-top:20px}
 		</style>
@@ -283,21 +284,21 @@ $(".m_logo").hover(function(){
 		        </ul>
 		        <div class="tab-content">
 		          <div class="tab-pane active" id="keting">
-								<div class="row">
+					<div class="row">
 	                <div class="col-xs-9 col-sm-4 col-md-4">
 	                    <div class="recent-work-wrap">
-	                        <img class="img-responsive" src="assets/images/space/space10.jpg" alt="">
+	                        <img class="img-responsive" src="images/kongjian/kt/1.jpg" alt="">
 	                    </div>
 	                </div>
 	                <div class="col-xs-9 col-sm-4 col-md-4">
 	                    <div class="recent-work-wrap">
-	                        <img class="img-responsive" src="assets/images/space/space10.jpg" alt="">
+	                        <img class="img-responsive" src="images/kongjian/kt/2.jpg" alt="">
 	                    </div>
 	                </div>
 
 	                <div class="col-xs-9 col-sm-4 col-md-4">
 	                    <div class="recent-work-wrap">
-	                        <img class="img-responsive" src="assets/images/space/space10.jpg" alt="">
+	                        <img class="img-responsive" src="images/kongjian/kt/2.jpg" alt="">
 	                    </div>
 	                </div>
 	            	</div>
@@ -306,34 +307,39 @@ $(".m_logo").hover(function(){
 											<table class="table u_ct_15">
 										    <tr style="border-top:2px solid #fff">
 										    	<th>#</th>
-										    	<th width="150">类型</th>
+										    	<th width="150">客厅包含项目</th>
 										    	<th>品牌</th>
-										    	<th>备注</th>
+										    	<th>数量</th>
+										    	<th>详细说明</th>
 										    </tr>
 										    <tr style="border-top:2px solid #ccc">
 										    	<td>1</td>
-										    	<td>地砖</td>
+										    	<td>地面</td>
 										    	<td>东鹏</td>
-										    	<td></td>
+										    	<td>不限</td>
+										    	<td>地砖（配套踢脚线）</td>
 										    </tr>
-										    <tr>
+										    <tr style="border-top:2px solid #ccc">
 										    	<td>2</td>
-										    	<td>墙面漆</td>
-										    	<td>都芳</td>
-										    	<td></td>
+										    	<td>顶面/墙面</td>
+										    	<td>德国都芳</td>
+										    	<td>不限</td>
+										    	<td>乳胶漆（含基层处理、底漆面漆及专业施工）</td>
 										    </tr>
-										    <tr>
+										    <tr style="border-top:2px solid #ccc">
 										    	<td>3</td>
-										    	<td>石膏线</td>
-										    	<td>泰丽雅</td>
-										    	<td></td>
-										    </tr>
-										    <tr>
-										    	<td>4</td>
-										    	<td>开关面板</td>
+										    	<td>开关/插座</td>
 										    	<td>西门子</td>
+										    	<td>/</td>
+										    	<td>6个10A五孔插座，1个防溅盒（插座），1个单开单控（开关）</td>
+										    </tr>	
+										    <tr style="border-top:2px solid #ccc">
+										    	<td>4</td>
+										    	<td>石膏线</td>
+										    	<td> </td>
+										    	<td>不限</td>
 										    	<td></td>
-										    </tr>
+										    </tr>										    									    
 											</table>
 									  </div>
 			        	</div>
@@ -343,18 +349,18 @@ $(".m_logo").hover(function(){
 								<div class="row">
 	                <div class="col-xs-9 col-sm-4 col-md-4">
 	                    <div class="recent-work-wrap">
-	                        <img class="img-responsive" src="assets/images/space/space4.jpg" alt="">
+	                        <img class="img-responsive" src="images/kongjian/cf/1.jpg" alt="">
 	                    </div>
 	                </div>
 	                <div class="col-xs-9 col-sm-4 col-md-4">
 	                    <div class="recent-work-wrap">
-	                        <img class="img-responsive" src="assets/images/space/space4.jpg" alt="">
+	                        <img class="img-responsive" src="images/kongjian/cf/2.jpg" alt="">
 	                    </div>
 	                </div>
 
 	                <div class="col-xs-9 col-sm-4 col-md-4">
 	                    <div class="recent-work-wrap">
-	                        <img class="img-responsive" src="assets/images/space/space4.jpg" alt="">
+	                        <img class="img-responsive" src="images/kongjian/cf/3.jpg" alt="">
 	                    </div>
 	                </div>
 	            	</div>
@@ -363,52 +369,60 @@ $(".m_logo").hover(function(){
 											<table class="table u_ct_15">
 										    <tr style="border-top:2px solid #fff">
 										    	<th>#</th>
-										    	<th width="150">类型</th>
+										    	<th width="150">厨房包含项目</th>
 										    	<th>品牌</th>
-										    	<th>备注</th>
+										    	<th>数量</th>
+										    	<th>详细说明</th>
 										    </tr>
 										    <tr style="border-top:2px solid #ccc">
 										    	<td>1</td>
-										    	<td>橱柜/烟机/灶具/水盆</td>
-										    	<td>金牌</td>
-										    	<td></td>
+										    	<td>墙面</td>
+										    	<td>东鹏 / 德高</td>
+										    	<td>不限</td>
+										    	<td>墙面防水处理瓷砖及铺贴辅料（规格300×600mm或300×450，300×300）</td>
 										    </tr>
-										    <tr>
+										    <tr style="border-top:2px solid #ccc">
 										    	<td>2</td>
-										    	<td>五金</td>
-										    	<td>九牧</td>
-										    	<td></td>
+										    	<td>地面</td>
+										    	<td>东鹏 / 德高</td>
+										    	<td>不限</td>
+										    	<td>地面防水处理，铺满及铺贴辅料（规格300*300）</td>
 										    </tr>
-										    <tr>
+										    <tr style="border-top:2px solid #ccc">
 										    	<td>3</td>
-										    	<td>木门</td>
-										    	<td>TATA</td>
-										    	<td></td>
-										    </tr>
-										    <tr>
-										    	<td>4</td>
-										    	<td>墙地砖</td>
-										    	<td>东鹏</td>
-										    	<td></td>
-										    </tr>
-										    <tr>
-										    	<td>5</td>
-										    	<td>开关面板</td>
-										    	<td>西门子</td>
-										    	<td></td>
-										    </tr>
-										    <tr>
-										    	<td>6</td>
-										    	<td>吊顶</td>
+										    	<td>集成吊顶</td>
 										    	<td>友邦</td>
-										    	<td></td>
-										    </tr>
-										    <tr>
+										    	<td>不限</td>
+										    	<td>铝扣板及安装辅料（不含烟感、凉霸等安装布线移位）</td>
+										    </tr>	
+										    <tr style="border-top:2px solid #ccc">
+										    	<td>4</td>
+										    	<td>开关 / 插座 / 照明</td>
+										    	<td>西门 / 雷士</td>
+										    	<td>/</td>
+										    	<td>7个10A五孔插座，1个防溅盒（插座），1个单开单控（开关），标准厨房照明灯1个</td>
+										    </tr>		
+										    <tr style="border-top:2px solid #ccc">
+										    	<td>5</td>
+										    	<td>门</td>
+										    	<td>家园</td>
+										    	<td>1套</td>
+										    	<td>铝合金门门套及五金专业安装</td>
+										    </tr>			
+										    <tr style="border-top:2px solid #ccc">
+										    	<td>6</td>
+										    	<td>整体橱柜</td>
+										    	<td>凤凰筑家</td>
+										    	<td>不嫌</td>
+										    	<td>不限延米，标准功能柜任选一组，石英石台面柜体深度600mm</td>
+										    </tr>		
+										    <tr style="border-top:2px solid #ccc">
 										    	<td>7</td>
-										    	<td>集成灯具</td>
-										    	<td>雷士照明</td>
-										    	<td></td>
-										    </tr>
+										    	<td>厨房设备</td>
+										    	<td>九牧 / 方太</td>
+										    	<td>1套</td>
+										    	<td>（方太）油烟机感应、灶具各1套，（九牧）不锈钢、水盆及水龙头1套，含安装安装配件</td>
+										    </tr>											    									    									    								    									    
 											</table>
 									  </div>
 			        	</div>
@@ -417,18 +431,18 @@ $(".m_logo").hover(function(){
 								<div class="row">
 	                <div class="col-xs-9 col-sm-4 col-md-4">
 	                    <div class="recent-work-wrap">
-	                        <img class="img-responsive" src="assets/images/space/space1.jpg" alt="">
+	                        <img class="img-responsive" src="images/kongjian/wsj/1.jpg" alt="">
 	                    </div>
 	                </div>
 	                <div class="col-xs-9 col-sm-4 col-md-4">
 	                    <div class="recent-work-wrap">
-	                        <img class="img-responsive" src="assets/images/space/space1.jpg" alt="">
+	                        <img class="img-responsive" src="images/kongjian/wsj/2.jpg" alt="">
 	                    </div>
 	                </div>
 
 	                <div class="col-xs-9 col-sm-4 col-md-4">
 	                    <div class="recent-work-wrap">
-	                        <img class="img-responsive" src="assets/images/space/space1.jpg" alt="">
+	                        <img class="img-responsive" src="images/kongjian/wsj/3.jpg" alt="">
 	                    </div>
 	                </div>
 	            	</div>
@@ -485,18 +499,18 @@ $(".m_logo").hover(function(){
 								<div class="row">
 	                <div class="col-xs-9 col-sm-4 col-md-4">
 	                    <div class="recent-work-wrap">
-	                        <img class="img-responsive" src="assets/images/space/space3.jpg" alt="">
+	                        <img class="img-responsive" src="images/kongjian/ws/1.jpg" alt="">
 	                    </div>
 	                </div>
 	                <div class="col-xs-9 col-sm-4 col-md-4">
 	                    <div class="recent-work-wrap">
-	                        <img class="img-responsive" src="assets/images/space/space3.jpg" alt="">
+	                        <img class="img-responsive" src="images/kongjian/ws/2.jpg" alt="">
 	                    </div>
 	                </div>
 
 	                <div class="col-xs-9 col-sm-4 col-md-4">
 	                    <div class="recent-work-wrap">
-	                        <img class="img-responsive" src="assets/images/space/space3.jpg" alt="">
+	                        <img class="img-responsive" src="images/kongjian/ws/3.jpg" alt="">
 	                    </div>
 	                </div>
 	            	</div>
@@ -547,18 +561,18 @@ $(".m_logo").hover(function(){
 								<div class="row">
 	                <div class="col-xs-9 col-sm-4 col-md-4">
 	                    <div class="recent-work-wrap">
-	                        <img class="img-responsive" src="assets/images/space/space11.jpg" alt="">
+	                        <img class="img-responsive" src="images/kongjian/ct/1.jpg" alt="">
 	                    </div>
 	                </div>
 	                <div class="col-xs-9 col-sm-4 col-md-4">
 	                    <div class="recent-work-wrap">
-	                        <img class="img-responsive" src="assets/images/space/space11.jpg" alt="">
+	                        <img class="img-responsive" src="images/kongjian/ct/2.jpg" alt="">
 	                    </div>
 	                </div>
 
 	                <div class="col-xs-9 col-sm-4 col-md-4">
 	                    <div class="recent-work-wrap">
-	                        <img class="img-responsive" src="assets/images/space/space11.jpg" alt="">
+	                        <img class="img-responsive" src="images/kongjian/ct/3.jpg" alt="">
 	                    </div>
 	                </div>
 	            	</div>
@@ -603,18 +617,18 @@ $(".m_logo").hover(function(){
 								<div class="row">
 	                <div class="col-xs-9 col-sm-4 col-md-4">
 	                    <div class="recent-work-wrap">
-	                        <img class="img-responsive" src="assets/images/space/space6.jpg" alt="">
+	                        <img class="img-responsive" src="images/kongjian/yt/1.jpg" alt="">
 	                    </div>
 	                </div>
 	                <div class="col-xs-9 col-sm-4 col-md-4">
 	                    <div class="recent-work-wrap">
-	                        <img class="img-responsive" src="assets/images/space/space6.jpg" alt="">
+	                        <img class="img-responsive" src="images/kongjian/yt/2.jpg" alt="">
 	                    </div>
 	                </div>
 
 	                <div class="col-xs-9 col-sm-4 col-md-4">
 	                    <div class="recent-work-wrap">
-	                        <img class="img-responsive" src="assets/images/space/space6.jpg" alt="">
+	                        <img class="img-responsive" src="images/kongjian/yt/3.jpg" alt="">
 	                    </div>
 	                </div>
 	            	</div>
@@ -849,7 +863,6 @@ $(".m_logo").hover(function(){
 						            display: none;
 						            position: relative;
 						        }
-						        
 						        .overlay1:hover
 						        {
 						            background-color: rgba(197,45,47,0.8);
@@ -878,10 +891,10 @@ $(".m_logo").hover(function(){
 						        }
 						        .overlay2 a
 						        {
-						        	  background-color: rgba(197,45,47,0.8);
+						        	background-color: rgba(197,45,47,0.8);
 						            display: inline-block;
 						            position: absolute;
-						            left: -10px;
+						            left: 16px;
 						            top: 60px;
 						            margin: -16px 0 0 -16px;
 						            border-radius: 3px;
@@ -889,13 +902,13 @@ $(".m_logo").hover(function(){
 						            text-align: center;
 						            /*line-height: 32px;*/
 						            padding-top:40px;
-						            width: 200px;
+						            width: 150px;
 						            height: 200px;
 						            text-decoration: none;
 						            color: White;
 						            font-size: 18px;
 						            font-weight: bolder;
-						        }						        
+						        }
 						        .fw_num{
 						        		font-size:34px;
 						        		line-height:50px;
@@ -911,7 +924,7 @@ $(".m_logo").hover(function(){
 						        <div class="lineF">
 						            <div class="boxF">
 						                <div class="boxS">
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_01.png);">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_01.jpg);">
 						                        <div class="overlay1">
 						                            <a href="#">
 						                            	<div class="fw_num">01<br /></div>
@@ -923,7 +936,7 @@ $(".m_logo").hover(function(){
 						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_02.png);">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_02.jpg);">
 						                        <div class="overlay1">
 						                            <a href="#">
 						                            	<div class="fw_num">02<br /></div>
@@ -935,13 +948,8 @@ $(".m_logo").hover(function(){
 						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
-<<<<<<< HEAD
 						                    <div class="boxT" style="background-image: url(images/quanbao/f_03.jpg);">
 						                        <div class="overlay2">
-=======
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_03.png);">
-						                        <div class="overlay1">
->>>>>>> 13b8a2779f3ed84f0fc1d8615e443d9a83327b49
 						                            <a href="#">
 						                            	<div class="fw_num">03<br /></div>
 						                            	<div class="fw_title">地面防潮<br/>防水处理</div>
@@ -952,7 +960,7 @@ $(".m_logo").hover(function(){
 						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_04.png);">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_04.jpg);">
 						                        <div class="overlay1">
 						                            <a href="#">
 						                            	<div class="fw_num">04<br /></div>
@@ -964,7 +972,7 @@ $(".m_logo").hover(function(){
 						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_10.png);">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_10.jpg);">
 						                        <div class="overlay1">
 						                            <a href="#">
 						                            	<div class="fw_num">10<br /></div>
@@ -976,13 +984,8 @@ $(".m_logo").hover(function(){
 						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
-<<<<<<< HEAD
 						                    <div class="boxT" style="background-image: url(images/quanbao/f_11.jpg);">
 						                        <div class="overlay2 	">
-=======
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_11.png);">
-						                        <div class="overlay1">
->>>>>>> 13b8a2779f3ed84f0fc1d8615e443d9a83327b49
 						                            <a href="#">
 						                            	<div class="fw_num">11<br /></div>
 						                            	<div class="fw_title">油烟机<br/>灶具</div>
@@ -993,7 +996,7 @@ $(".m_logo").hover(function(){
 						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_12.png);">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_12.jpg);">
 						                        <div class="overlay1">
 						                            <a href="#">
 						                            	<div class="fw_num">12<br /></div>
@@ -1005,7 +1008,7 @@ $(".m_logo").hover(function(){
 						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_13.png);">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_13.jpg);">
 						                        <div class="overlay1">
 						                            <a href="#">
 						                            	<div class="fw_num">13<br /></div>
@@ -1017,7 +1020,7 @@ $(".m_logo").hover(function(){
 						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_19.png);">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_19.jpg);">
 						                        <div class="overlay1">
 						                            <a href="#">
 						                            	<div class="fw_num">19<br /></div>
@@ -1029,7 +1032,7 @@ $(".m_logo").hover(function(){
 						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_20.png);">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_20.jpg);">
 						                        <div class="overlay1">
 						                            <a href="#">
 						                            	<div class="fw_num">20<br /></div>
@@ -1041,7 +1044,7 @@ $(".m_logo").hover(function(){
 						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_21.png);">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_21.jpg);">
 						                        <div class="overlay1">
 						                            <a href="#">
 						                            	<div class="fw_num">21<br /></div>
@@ -1053,7 +1056,7 @@ $(".m_logo").hover(function(){
 						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_22.png);">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_22.jpg);">
 						                        <div class="overlay1">
 						                            <a href="#">
 						                            	<div class="fw_num">22<br /></div>
@@ -1068,13 +1071,8 @@ $(".m_logo").hover(function(){
 						        <div class="lineS">
 						            <div class="boxF">
 						                <div class="boxS">
-<<<<<<< HEAD
 						                    <div class="boxT" style="background-image: url(images/quanbao/f_05.jpg);">
 						                        <div class="overlay2">
-=======
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_05.png);">
-						                        <div class="overlay1">
->>>>>>> 13b8a2779f3ed84f0fc1d8615e443d9a83327b49
 						                            <a href="#">
 						                            	<div class="fw_num">05<br /></div>
 						                            	<div class="fw_title">TATA<br/>木门</div>
@@ -1085,7 +1083,7 @@ $(".m_logo").hover(function(){
 						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_06.png);">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_06.jpg);">
 						                        <div class="overlay1">
 						                            <a href="#">
 						                            	<div class="fw_num">06<br /></div>
@@ -1097,7 +1095,7 @@ $(".m_logo").hover(function(){
 						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_07.png);">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_07.jpg);">
 						                        <div class="overlay1">
 						                            <a href="#">
 						                            	<div class="fw_num">07<br /></div>
@@ -1109,7 +1107,7 @@ $(".m_logo").hover(function(){
 						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_08.png);">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_08.jpg);">
 						                        <div class="overlay1">
 						                            <a href="#">
 						                            	<div class="fw_num">08<br /></div>
@@ -1121,7 +1119,7 @@ $(".m_logo").hover(function(){
 						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_09.png);">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_09.jpg);">
 						                        <div class="overlay1">
 						                            <a href="#">
 						                            	<div class="fw_num">09<br /></div>
@@ -1133,7 +1131,7 @@ $(".m_logo").hover(function(){
 						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_14.png);">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_14.jpg);">
 						                        <div class="overlay1">
 						                            <a href="#">
 						                            	<div class="fw_num">14<br /></div>
@@ -1145,7 +1143,7 @@ $(".m_logo").hover(function(){
 						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_15.png);">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_15.jpg);">
 						                        <div class="overlay1">
 						                            <a href="#">
 						                            	<div class="fw_num">15<br /></div>
@@ -1157,7 +1155,7 @@ $(".m_logo").hover(function(){
 						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_16.png);">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_16.jpg);">
 						                        <div class="overlay1">
 						                            <a href="#">
 						                            	<div class="fw_num">16<br /></div>
@@ -1169,13 +1167,8 @@ $(".m_logo").hover(function(){
 						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
-<<<<<<< HEAD
 						                    <div class="boxT" style="background-image: url(images/quanbao/f_17.jpg);">
 						                        <div class="overlay2">
-=======
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_17.png);">
-						                        <div class="overlay1">
->>>>>>> 13b8a2779f3ed84f0fc1d8615e443d9a83327b49
 						                            <a href="#">
 						                            	<div class="fw_num">17<br /></div>
 						                            	<div class="fw_title">雷士<br/>照明</div>
@@ -1186,7 +1179,7 @@ $(".m_logo").hover(function(){
 						            </div>
 						            <div class="boxF">
 						                <div class="boxS">
-						                    <div class="boxT" style="background-image: url(images/quanbao/f_18.png);">
+						                    <div class="boxT" style="background-image: url(images/quanbao/f_18.jpg);">
 						                        <div class="overlay1">
 						                            <a href="#">
 						                            	<div class="fw_num">18<br /></div>
@@ -1298,7 +1291,9 @@ $(".m_logo").hover(function(){
                             </li>
                         </ul>
                     </div>
-										<div style="clear:both;height:20px"></div>
+					
+					<div style="clear:both;height:20px"></div>
+                    
                     <div class="col-sm-6 col-md-3 wow fadeInDown">
                         <ul>
                             <li style="background:#fff">
@@ -1327,7 +1322,9 @@ $(".m_logo").hover(function(){
                             </li>
                         </ul>
                     </div>
-										<div style="clear:both;height:20px"></div>
+					
+					<div style="clear:both;height:20px"></div>
+                    
                     <div class="col-sm-6 col-md-3 wow fadeInDown">
                         <ul>
                             <li style="background:#fff">
@@ -1342,7 +1339,75 @@ $(".m_logo").hover(function(){
                             </li>
                         </ul>
                     </div>
+                    <div class="col-sm-6 col-md-3 wow fadeInDown">
+                        <ul>
+                            <li style="background:#fff">
+                                <img src="assets/images/zfc/13.gif" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 wow fadeInDown">
+                        <ul>
+                            <li style="background:#fff">
+                                <img src="assets/images/zfc/14.gif" />
+                            </li>
+                        </ul>
+                    </div>
 
+					<div style="clear:both;height:20px"></div>
+                    
+                    <div class="col-sm-6 col-md-3 wow fadeInDown">
+                        <ul>
+                            <li style="background:#fff">
+                                <img src="assets/images/zfc/15.gif" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 wow fadeInDown">
+                        <ul>
+                            <li style="background:#fff">
+                                <img src="assets/images/zfc/16.gif" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 wow fadeInDown">
+                        <ul>
+                            <li style="background:#fff">
+                                <img src="assets/images/zfc/17.gif" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 wow fadeInDown">
+                        <ul>
+                            <li style="background:#fff">
+                                <img src="assets/images/zfc/18.gif" />
+                            </li>
+                        </ul>
+                    </div>  
+
+					<div style="clear:both;height:20px"></div>
+                    
+                    <div class="col-sm-6 col-md-3 wow fadeInDown">
+                        <ul>
+                            <li style="background:#fff">
+                                <img src="assets/images/zfc/19.gif" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 wow fadeInDown">
+                        <ul>
+                            <li style="background:#fff">
+                                <img src="assets/images/zfc/20.gif" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 wow fadeInDown">
+                        <ul>
+                            <li style="background:#fff">
+                                <img src="assets/images/zfc/21.gif" />
+                            </li>
+                        </ul>
+                    </div>                                      
                 </div>
             </div>
         </div>
@@ -1973,7 +2038,7 @@ $(".m_logo").hover(function(){
 		</div>
 		</section>
 
-    <section id="feature"  style="border-top:1px solid #f6f6f6;>
+    <section id="feature"  style="border-top:1px solid #f6f6f6;">
         <div class="container">
            	<div class="center wow fadeInDown">
                 <h2>39项标准节点<span style="font-size:24px"> STANDARD PROCEDURE</span></h2>
@@ -2380,8 +2445,9 @@ $(".m_logo").hover(function(){
 
 				  <div class="form-group" style="padding-top:20px 0 100px 0">
 				    <div class="col-sm-offset-2 col-sm-10" style="width:83%">
-				      <button id="sendbtn" type="button" class="btn btn-default btn-primary" style="margin-left:2px;margin-right:10px">　注册　</button>
-				      <button id="resetbtn" type="button" class="btn btn-default btn-primary">　重置　</button>
+				      <button id="sendbtn" type="button" class="btn btn-default btn-primary" style="margin-left:2px;margin-right:10px">注册</button>
+				      <button id="resetbtn" type="button" class="btn btn-default btn-primary">重置</button>
+				      &nbsp;&nbsp;<a href="center/login.html"><div class="btn btn-default btn-primary">登录</div></a>
 				    </div>
 				  </div>
 
@@ -2514,7 +2580,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 </script>
 <!--footer-->
 
-		<script type="text/javascript" src="assets/js/sales.js"></script>
+	<script type="text/javascript" src="assets/js/sales.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.prettyPhoto.js"></script>
     <script src="assets/js/jquery.isotope.min.js"></script>
@@ -2526,7 +2592,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
     <script src="js/reg.js"></script>
 		<script src="js/699.js"></script>
 
-<script src="assets/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<!--script src="assets/js/jquery-1.7.2.min.js" type="text/javascript"></script-->
 <script type="text/javascript" src="js/Smohan.blog.plug.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -2548,6 +2614,16 @@ $(document).ready(function() {
 	Arrow_Points();
 });
 </script>
+<!--tab js-->
+<script> 
+  $(function () {
+    $('#myTab a:last').tab('show');//初始化显示哪个tab
 
+    $('#myTab a').click(function (e) {
+      e.preventDefault();//阻止a链接的跳转行为
+      $(this).tab('show');//显示当前选中的链接及关联的content
+    })
+  })
+</script>
 </body>
 </html>
