@@ -268,11 +268,11 @@ $(".m_logo").hover(function(){
             </div>
 
 		    		<ul class="portfolio-filter text-center" id="myTab">
-		          <li><a class="btn btn-default" href="#keting">厦门</a></li>
-		          <li><a class="btn btn-default" href="#chufang">北京</a></li>
+		          <li><a class="btn btn-default" href="#xiamen">厦门</a></li>
+		          <li><a class="btn btn-default" href="#beijing">北京</a></li>
 		        </ul>
 		        <div class="tab-content">
-		          <div class="tab-pane active" id="keting">
+		          <div class="tab-pane active" id="xiamen">
 								<div class="carousel-inner mt20">
 									<div class="item active">
 
@@ -282,9 +282,9 @@ $(".m_logo").hover(function(){
 						                    <img class="img-responsive" src="images/index_pt_5.png" alt="" style="height:273px">
 						                    <div class="overlay">
 						                        <div class="recent-work-inner" style="padding-left:20px">
-						                            <h3><a href="#">699元/㎡【奢华家装套餐】</a></h3>
+						                            <h3><a href="#">预约厦门体验馆</a></h3>
 						                            <p>
-																					奢华精装套餐，包工包料，国际国内一线品牌主辅材，35天工期，网上预约，先到先得。
+																					地址：厦门市湖里区金泰路1798创业大街5层
 									                        	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;display:none;">
 																							<a href="javascript:;" class="buynow699" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
 																						</div>
@@ -422,7 +422,7 @@ $(".m_logo").hover(function(){
 			        	</div>
 		          </div>
 
-		          <div class="tab-pane" id="chufang">
+		          <div class="tab-pane" id="beijing">
 								<div class="carousel-inner mt20">
 										<div class="item">
 											
