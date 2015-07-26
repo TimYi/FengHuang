@@ -732,7 +732,7 @@ $(function(){
 								else{
 									var page = "center/c_my.html?token=" + g.token + "&p=1";
 									var msg = "您需要完善个人资料,才能抢购";
-									$(".buynow").html('<div onclick="buyTip(\'' + msg + '\',\'' + page + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
+									$(".buynow" + price).html('<div onclick="buyTip(\'' + msg + '\',\'' + page + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
 								}
 							}
 							else{
@@ -746,7 +746,7 @@ $(function(){
 							if(hasScrambled){
 								var page = "center/c_order.html?token=" + g.token + "&p=7";
 								var msg = "套餐一个用户30天内只能抢购1次";
-								$(".buynow").html('<div onclick="buyTip(\'' + msg + '\',\'' + page + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+								$(".buynow" + price).html('<div onclick="buyTip(\'' + msg + '\',\'' + page + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
 							}
 							else{
 								//向用户提示reasonForCantAppoint里的内容
