@@ -128,7 +128,7 @@ $(function(){
 				html.push('<div><img src="' + imgUrl + '" style="' + css + '"><br/>');
 
 				//新增产品描述
-				html.push('<div style="font-size:12px;">' + description + "</div>");
+				html.push('<div style="font-size:12px;width:30px">' + description + "</div>");
 			}
 
 			html.push('</td>');
