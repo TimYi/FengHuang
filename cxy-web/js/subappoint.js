@@ -165,8 +165,8 @@ $(function(){
 		if(obj.length > 0){
 			var option = [];
 			for(var i = 0,len = obj.length; i < len; i++){
-				var id = data[i].id || "";
-				var name = data[i].name || "";
+				var id = obj[i].id || "";
+				var name = obj[i].name || "";
 				option.push('<option value="' + id + '"' + ( i == 0 ? "selected" : "") + '>' + name + '</option>');
 			}
 			$("#" + domid).html(option.join(''));
