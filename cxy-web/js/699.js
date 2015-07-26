@@ -125,10 +125,10 @@ $(function(){
 					imgUrl = imgUrl.url || "";
 				}
 				var description =  imgarr[j].description || "";
-				html.push('<tr><img src="' + imgUrl + '" style="' + css + '">');
+				html.push('<table><tr><td><img src="' + imgUrl + '" style="' + css + '">');
 
 				//新增产品描述
-				html.push('<span style="font-size:12px;">' + description + "</span></tr>");
+				html.push('<span style="font-size:12px;">' + description + "</span><td></tr></table>");
 			}
 
 			html.push('</td>');
