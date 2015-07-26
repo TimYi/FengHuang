@@ -506,7 +506,7 @@ $(function(){
 
 
 	function sendAppointHttp(condi){
-		var url = Base.serverUrl + "/museum/" + condi.id + "/appoint";
+		var url = Base.serverUrl + "/api/museum/" + condi.id + "/appoint";
 		g.httpTip.show();
 		$.ajax({
 			url:url,
