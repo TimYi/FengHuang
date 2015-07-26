@@ -42,10 +42,10 @@ $(function(){
 	$("#getcodebtn").bind("click",getValidCode);
 	$("#buybtn").bind("click",reserverBtnUp);
 
-	$("#provId").bind("change",getProvCity);
+	//$("#provId").bind("change",getProvCity);
 
-	getAppointCategory();
-	getProv();
+	getAppointMuseums();
+	//getProv();
 	function getProvCity(){
 		var id = $(this).val();
 		getCity(id,1);
@@ -55,8 +55,8 @@ $(function(){
 		getCity(id,2);
 	}
 	//获取字典
-	function getAppointCategory(){
-		var url = Base.categoryUrl + "/appoint";
+	function getAppointMuseums(){
+		var url = Base.serverUrl + "/api/museums";
 		g.httpTip.show();
 		$.ajax({
 			url:url,
@@ -66,14 +66,15 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log("getAppointCategory",data);
+				console.log("getAppointMuseums",data);
 				var status = data.status || "";
 				if(status == "OK"){
 					changeSelectHtml("typeid",data.result || []);
 					//changeSelectHtml("typeid2",data.result || []);
 				}
 				else{
-					Utils.alert("预约类别获取失败");
+					var msg = data.error || "";
+					Utils.alert("预约城市获取失败:" + msg);
 				}
 				g.httpTip.hide();
 			},
@@ -302,8 +303,8 @@ $(function(){
 			validater:根据用户绑定手机号码，发送的短信验证码
 			*/
 			condi.token = g.token;
-			condi.typeId = $("#typeid").val() || "";
-			condi.cityId = $("#cityId").val() || "";
+			condi.id = $("#typeid").val() || "";
+			//condi.cityId = $("#cityId").val() || "";
 			condi.realName = $("#name").val() || "";
 			condi.mobile = $("#phone").val() || "";
 			condi.captcha = $("#inputImgCode3").val() || "";
@@ -487,7 +488,7 @@ $(function(){
 
 
 	function sendAppointHttp(condi){
-		var url = Base.appointUrl;
+		var url = Base.serverUrl + "/museum/" + condi.id + "/appoint";
 		g.httpTip.show();
 		$.ajax({
 			url:url,
