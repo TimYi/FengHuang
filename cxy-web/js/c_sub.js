@@ -48,7 +48,7 @@ $(function(){
 			html.push('<th width=100>操作</th>');
 			html.push('</tr>');
 
-			var arr = ["WAITING":"等待客服确认","PROCESSING":"处理中","FINISH":"已到店","CANCEL":"取消"];
+			var arr ={"WAITING":"等待客服确认","PROCESSING":"处理中","FINISH":"已到店","CANCEL":"取消"};
 			for(var i = 0,len = obj.length; i < len; i++){
 				var d = obj[i];
 				var id = d.id || "";

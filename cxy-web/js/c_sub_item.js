@@ -105,7 +105,7 @@ $(function(){
 	function changeListInfoHtml(data){
 		var obj = data || {};
 
-		var arr = ["WAITING":"等待客服确认","PROCESSING":"处理中","FINISH":"已到店","CANCEL":"取消"];
+		var arr = {"WAITING":"等待客服确认","PROCESSING":"处理中","FINISH":"已到店","CANCEL":"取消"};
 		var code = obj.code || "";
 		var user = obj.user || "";
 		var type = obj.museum.name || "";
