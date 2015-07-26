@@ -38,7 +38,7 @@ $(function(){
 	getOrderDetail();
 
 	function back(){
-		location.replace("index.html");
+		location.replace("center/c_order.html?token=" + g.token + "&p=7");
 	}
 
 	function getOrderDetail(){
