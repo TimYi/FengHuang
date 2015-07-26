@@ -160,14 +160,21 @@ $(function(){
 			alert("请选择支付银行");
 			return;
 		}
+
 		condi.payBank = check;
-		condi.accountType = "JIEJJI";//借记卡：JIEJJI,信用卡：XINYONG，前端写死。
+		var accountType = $("input[name='inlineRadioAccountType']:checked").val() || "";
+		if(accountType === ""){
+			alert("请选择支付类型");
+			return;
+		}
+		condi.accountType = accountType;//借记卡：JIEJJI,信用卡：XINYONG，前端写死。
 		//~ token:用户凭据
 		//~ orderId：订单id，路径参数
 		//~ couponsIds:用户选择使用的优惠券id，可以是多个
 		//~ payBank:支付银行，详情请见{支付过程}附表A
 		//~ accountType:支付方式，详情见{支付过程}附表B
 		g.httpTip.show();
+		console.log("sendGetOrderDetailsHttp--condi",condi);
 		$.ajax({
 			url:url,
 			data:condi,
