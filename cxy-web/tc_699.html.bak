@@ -569,42 +569,42 @@ $(".m_logo").hover(function(){
 										    	<th>数量</th>
 										    	<th>详细说明</th>
 										    </tr>
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>1</td>
 										    	<td>地面</td>
 										    	<td>大自然 / 世友</td>
 										    	<td>不限</td>
 										    	<td>多层实木复合底板标配木质踢脚线</td>
 										    </tr>
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>2</td>
 										    	<td>顶面/墙面</td>
 										    	<td>德国都芳</td>
 										    	<td>不限</td>
 										    	<td>乳胶漆（含基层处理、底漆面漆及专业施工）</td>
 										    </tr>
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>3</td>
 										    	<td>开关/插座</td>
 										    	<td>西门子</td>
 										    	<td>/</td>
 										    	<td>6个10A五孔插座，1个16A空调插座，一个但开单控开关</td>
 										    </tr>	
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>4</td>
 										    	<td>石膏线</td>
 										    	<td> </td>
 										    	<td>不限</td>
 										    	<td></td>
 										    </tr>		
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>5</td>
 										    	<td>内门</td>
 										    	<td>TATA</td>
 										    	<td>1套</td>
 										    	<td>标准内门含五金配件及安装</td>
 										    </tr>	
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc;border-bottom:2px solid #ccc">
 										    	<td>6</td>
 										    	<td>进口天然大理石</td>
 										    	<td>TATA</td>
@@ -639,53 +639,53 @@ $(".m_logo").hover(function(){
 											<table class="table u_ct_15">
 										    <tr style="border-top:2px solid #fff">
 										    	<th>#</th>
-										    	<th width="150">次卧包含项目</th>
+										    	<th width="150">儿童房包含项目</th>
 										    	<th>品牌</th>
 										    	<th>数量</th>
 										    	<th>详细说明</th>
 										    </tr>
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>1</td>
 										    	<td>地面</td>
 										    	<td>大自然 / 世友</td>
 										    	<td>不限</td>
 										    	<td>多层实木复合底板标配木质踢脚线</td>
 										    </tr>
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>2</td>
 										    	<td>顶面/墙面</td>
 										    	<td>德国都芳</td>
 										    	<td>不限</td>
 										    	<td>乳胶漆（含基层处理、底漆面漆及专业施工）</td>
 										    </tr>
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>3</td>
 										    	<td>开关/插座</td>
 										    	<td>西门子</td>
 										    	<td>/</td>
 										    	<td>3个10A五孔插座，1个16A空调插座，一个但开单控开关</td>
 										    </tr>	
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>4</td>
 										    	<td>石膏线</td>
 										    	<td> </td>
 										    	<td>不限</td>
 										    	<td></td>
 										    </tr>		
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>5</td>
 										    	<td>内门</td>
 										    	<td>TATA</td>
 										    	<td>1套</td>
 										    	<td>标准内门含五金配件及安装</td>
 										    </tr>	
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc;border-bottom:2px solid #ccc">
 										    	<td>6</td>
 										    	<td>进口天然大理石</td>
 										    	<td>TATA</td>
 										    	<td>/</td>
 										    	<td></td>
-										    </tr>	
+										    </tr>		
 											</table>
 									  </div>
 			        	</div>
@@ -719,42 +719,42 @@ $(".m_logo").hover(function(){
 										    	<th>数量</th>
 										    	<th>详细说明</th>
 										    </tr>
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>1</td>
 										    	<td>地面</td>
 										    	<td>大自然 / 世友</td>
 										    	<td>不限</td>
 										    	<td>多层实木复合底板标配木质踢脚线</td>
 										    </tr>
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>2</td>
 										    	<td>顶面/墙面</td>
 										    	<td>德国都芳</td>
 										    	<td>不限</td>
 										    	<td>乳胶漆（含基层处理、底漆面漆及专业施工）</td>
 										    </tr>
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>3</td>
 										    	<td>开关/插座</td>
 										    	<td>西门子</td>
 										    	<td>/</td>
 										    	<td>3个10A五孔插座，1个16A空调插座，一个但开单控开关</td>
 										    </tr>	
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>4</td>
 										    	<td>石膏线</td>
 										    	<td> </td>
 										    	<td>不限</td>
 										    	<td></td>
 										    </tr>		
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>5</td>
 										    	<td>内门</td>
 										    	<td>TATA</td>
 										    	<td>1套</td>
 										    	<td>标准内门含五金配件及安装</td>
 										    </tr>	
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc;border-bottom:2px solid #ccc">
 										    	<td>6</td>
 										    	<td>进口天然大理石</td>
 										    	<td>TATA</td>
@@ -789,34 +789,32 @@ $(".m_logo").hover(function(){
 											<table class="table u_ct_15">
 										    <tr style="border-top:2px solid #fff">
 										    	<th>#</th>
-										    	<th width="150">类型</th>
+										    	<th width="150">餐厅包含项目</th>
 										    	<th>品牌</th>
-										    	<th>备注</th>
+										    	<th>数量</th>
+										    	<th>详细说明</th>
 										    </tr>
-										    <tr style="border-top:2px solid #ccc">
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>1</td>
-										    	<td>地砖</td>
+										    	<td>地面</td>
 										    	<td>东鹏</td>
-										    	<td></td>
+										    	<td>不限</td>
+										    	<td>地砖（配套踢脚线）</td>
 										    </tr>
-										    <tr>
+										    <tr style="border-top:1px solid #ccc">
 										    	<td>2</td>
-										    	<td>墙面漆</td>
-										    	<td>都芳</td>
-										    	<td></td>
-										    </tr>
-										    <tr>
+										    	<td>顶面 / 墙面</td>
+										    	<td>德国都芳</td>
+										    	<td>不限</td>
+										    	<td>乳胶漆（含基层处理、底漆面漆及专业施工）</td>
+										    </tr>										    
+										    <tr style="border-top:1px solid #ccc;border-bottom:2px solid #ccc">
 										    	<td>3</td>
-										    	<td>石膏线</td>
-										    	<td>泰丽雅</td>
-										    	<td></td>
-										    </tr>
-										    <tr>
-										    	<td>4</td>
-										    	<td>开关面板</td>
+										    	<td>开关 / 插座</td>
 										    	<td>西门子</td>
+										    	<td>2个10A五孔插座，1个防溅盒插座，1个但开单控开关</td>
 										    	<td></td>
-										    </tr>
+										    </tr>											    
 											</table>
 									  </div>
 			        	</div>
