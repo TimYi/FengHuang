@@ -10,6 +10,7 @@ $(function(){
 	g.token = Utils.offLineStore.get("token",false);
 	g.page = Utils.getQueryString("p") - 0;
 	g.id = Utils.getQueryString("id") - 0;
+	g.ctype = Utils.getQueryString("type") - 0 || "";
 	g.totalPage = 1;
 	g.currentPage = 1;
 	g.paseSize = 20;
@@ -170,6 +171,10 @@ $(function(){
 				option.push('<option value="' + id + '"' + ( i == 0 ? "selected" : "") + '>' + name + '</option>');
 			}
 			$("#" + domid).html(option.join(''));
+
+			if(g.ctype !== ""){
+				$("#" + domid)[0].selectedIndex = g.ctype;
+			}
 		}
 	}
 
