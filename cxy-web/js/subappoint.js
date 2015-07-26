@@ -516,16 +516,18 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				//console.log("sendAppointHttp",data);
+				console.log("sendAppointHttp",data);
 				var status = data.status || "";
 				if(status == "OK"){
 					Utils.alert("预约体验馆成功");
 					setTimeout(function(){
-						history.go(-1);
+						location.href = "center/c_sub.html?token=" + g.token + "&p=6";
+						//history.go(-1);
 					},1000);
 				}
 				else{
-					Utils.alert("预约体验馆失败");
+					var msg = data.errorDescription || "";
+					Utils.alert("预约体验馆失败:" + msg);
 				}
 				g.httpTip.hide();
 			},

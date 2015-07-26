@@ -124,8 +124,12 @@ $(function(){
 				if(imgUrl !== ""){
 					imgUrl = imgUrl.url || "";
 				}
+				var description =  imgarr[j].description || "";
 
 				html.push('<img src="' + imgUrl + '" style="' + css + '">');
+
+				//新增产品描述
+				html.push('<p>' + description + "</p>");
 			}
 
 			html.push('</td>');
