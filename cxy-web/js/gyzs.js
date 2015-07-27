@@ -13,9 +13,9 @@ $(function(){
 	g.currentPage = 1;
 	g.paseSize = 20;
 	g.httpTip = new Utils.httpTip({});
+	g.listdata = [];
 	//标识是否抢购成功
 	g.hasbuy = false;
-	g.listdata = [];
 	g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
 	//验证登录状态
 	g.loginStatus = Utils.getUserInfo();
@@ -24,6 +24,7 @@ $(function(){
 		var obj = JSON.parse(g.userprofile);
 		var name = obj.realName || "";
 		var mobile = obj.mobile || "";
+		//g.userName = obj.username || "";
 		if(name !== "" && mobile !== ""){
 			//允许预约
 			g.reserveStatus = true;
@@ -31,38 +32,13 @@ $(function(){
 		else{
 			g.reserveStatus = false;
 		}
-		//$("#name").val(name);
-		//$("#phone").val(mobile);
 
-		//$("#name2").val(name);
-		//$("#phone2").val(mobile);
-
-		//getImgCode();
-		//getImgCode2();
 	}
 
-	/*
-	$("#phone").bind("blur",getImgCode);
-	$("#imgcodebtn").bind("click",getImgCode);
-	$("#getcodebtn").bind("click",getValidCode);
-	$("#buybtn").bind("click",buyBtnUp);
 
-	$("#phone2").bind("blur",getImgCode2);
-	$("#imgcodebtn2").bind("click",getImgCode2);
-	$("#getcodebtn2").bind("click",getValidCode2);
-	$("#buybtn2").bind("click",buyBtnUp2);
-
-	$("#provId").bind("change",getProvCity);
-	$("#provId2").bind("change",getProvCity2);
-	*/
-
-	getPackages();
-
-	//getAppointCategory();
-	//getProv();
+	//getPackages();
 
 	//getPackageMeterias();
-
 	function getPackageMeterias(){
 		var id = Utils.getQueryString("packageId") || "";
 		if(id !== ""){
@@ -117,7 +93,7 @@ $(function(){
 
 			html.push('<tr style="' + trcss + '">');
 			html.push('<td style="vertical-align: middle;">' + name + '</td>');
-			html.push('<td style="vertical-align: middle;">');
+			html.push('<td style="vertical-align: middle;"><table><tr>');
 
 
 			var imgarr = obj[key] || [];
@@ -127,11 +103,15 @@ $(function(){
 				if(imgUrl !== ""){
 					imgUrl = imgUrl.url || "";
 				}
+				var description =  imgarr[j].description || "";
 
-				html.push('<img src="' + imgUrl + '" style="' + css + '">');
+				html.push('<td valign="top"><span style="font-size:12px;width:100px;text-align:center">'+ description +'</span><br/><img src="' + imgUrl + '" style="' + css + '"></td>');
+
+				//新增产品描述
+				//html.push('<p>' + description + "</p>");
 			}
 
-			html.push('</td>');
+			html.push('</tr></table></td>');
 			html.push('</tr>');
 
 			i++;
@@ -146,6 +126,8 @@ $(function(){
 	}
 
 
+	//getAppointCategory();
+	//getProv();
 	function getProvCity(){
 		var id = $(this).val();
 		getCity(id,1);
@@ -170,7 +152,7 @@ $(function(){
 				var status = data.status || "";
 				if(status == "OK"){
 					changeSelectHtml("typeid",data.result || []);
-					changeSelectHtml("typeid2",data.result || []);
+					//changeSelectHtml("typeid2",data.result || []);
 				}
 				else{
 					Utils.alert("预约类别获取失败");
@@ -197,7 +179,7 @@ $(function(){
 				var status = data.status || "";
 				if(status == "OK"){
 					changeSelectHtml("provId",data.result || []);
-					changeSelectHtml("provId2",data.result || []);
+					//changeSelectHtml("provId2",data.result || []);
 					var id = data.result[0].id;
 					getCity(id,0);
 				}
@@ -228,13 +210,13 @@ $(function(){
 					switch(b){
 						case 0:
 							changeSelectHtml("cityId",data.result || []);
-							changeSelectHtml("cityId2",data.result || []);
+							//changeSelectHtml("cityId2",data.result || []);
 						break;
 						case 1:
 							changeSelectHtml("cityId",data.result || []);
 						break;
 						case 2:
-							changeSelectHtml("cityId2",data.result || []);
+							//changeSelectHtml("cityId2",data.result || []);
 						break;
 					}
 				}
@@ -515,7 +497,6 @@ $(function(){
 		}
 	}
 
-
 	//请求验证码
 	function sendGetCodeHttp(imgCode){
 		var url = Base.getCodeUrl;
@@ -647,6 +628,11 @@ $(function(){
 
 
 
+
+
+
+
+
 	function getPackages(){
 		var url = Base.packagesUrl;
 		var condi = {};
@@ -694,8 +680,10 @@ $(function(){
 			var couldAppoint = obj.couldAppoint || false;
 			var hasScrambled = obj.hasScrambled || false;
 
+			var hasshow = true;
+
 			if(id == Utils.getQueryString("packageId")){
-				//799
+				//599
 				if(status == "PREPARE"){
 					$(".buynow").html('<div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">未开始</div>');
 				}
@@ -749,7 +737,7 @@ $(function(){
 								////~ hasScrambled:标识是否已经抢购完并且尚未付款
 								if(hasScrambled){
 									var page = "center/c_order.html?token=" + g.token + "&p=7";
-									var msg = "尊敬的" + g.username + "用户，您好！本月您已成功抢购过该套餐且已完成定金支付，\n每人每月仅限抢购一次，请下个月再试，谢谢您的参与。";
+									var msg = "尊敬的" + g.username + "用户，您好！本月您已成功抢购过该套餐且已完成定金支付，每人每月仅限抢购一次，请下个月再试，谢谢您的参与。";
 									$(".buynow").html('<div onclick="buyTip(\'' + msg + '\',\'' + page + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
 								}
 								else{
@@ -767,7 +755,9 @@ $(function(){
 					$(".buynow").html('<div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">已结束</div>');
 				}
 
-				$(".buynow").parent().show();
+				if(hasshow){
+					$(".buynow").parent().show();
+				}
 			}
 		}
 	}

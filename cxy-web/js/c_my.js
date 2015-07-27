@@ -311,7 +311,7 @@ $(function(){
 		var li = [];
 		//li.push('<li>ID：' + obj.username + '</li>');
 		li.push('<li>' + obj.username + '</li>');
-		li.push('<li>5星级用户</li>');
+		li.push('<li>' + phone + '</li>');
 		$("#user_ul").html(li.join(''));
 
 		var li = [];

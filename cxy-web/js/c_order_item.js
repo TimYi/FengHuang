@@ -132,6 +132,7 @@ $(function(){
 
 		$("#orderinfo").html(html.join(''));
 		$("#orderinfo").show();
+		$("#orderinfodiv").show();
 	}
 
 });
