@@ -1,6 +1,7 @@
 package com.fenghuangzhujia.eshop.core.authentication;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -76,7 +77,11 @@ public class TokenAuthFilter extends GenericFilterBean {
 	protected String getToken(HttpServletRequest request) {
 		String token;
 		token=request.getHeader(TOKEN_HEADER_NAME);
-		LogUtils.errorLog("token header is: "+token);
+		Enumeration<String> headers=request.getHeaderNames();
+		if(headers.hasMoreElements()) {
+			String name=headers.nextElement();
+			LogUtils.errorLog("header name is: "+name+"; and header value is: "+request.getHeader(name));
+		}
 		//今后统一从header中获取token，为了在一期兼容已有代码，也支持parameter中的参数
 		if(StringUtils.isBlank(token)) {
 			token=(String)request.getParameter(TOKEN_NAME);
