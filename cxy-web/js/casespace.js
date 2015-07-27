@@ -83,14 +83,14 @@ $(function(){
 		var spaces = obj.spaces || [];
 		for(var i = 0,len = spaces.length; i < len; i++){
 			var name = spaces[i].name || ""
-			phtml.push('<li><a class="btn btn-default" href="#i_' + i + '" >' + name + '</a></li>');
+			phtml.push('<li><a class="btn btn-default" href="#pack_' + i + '" >' + name + '</a></li>');
 		}
 		phtml.push('</ul>');
 
 		phtml.push('<div class="tab-content">');
 		for(var j = 0,jlen = spaces.length; j < jlen; j++){
 			var css = j == 0 ? "active" : "";
-			phtml.push('<div class="tab-pane ' + css + '" id="i_' + j + '" >');
+			phtml.push('<div class="tab-pane ' + css + '" id="pack_' + j + '" >');
 
 			var pic1 = spaces[j].pic1 || "";
 			var pic2 = spaces[j].pic2 || "";
@@ -158,6 +158,13 @@ $(function(){
 		$("#recent-works").html(phtml.join(''));
 		//$("#featurelogo").css("visibility","visible");
 		//$("#featurepro").css("visibility","visible");
+
+		$('#myTab a:last').tab('show');//初始化显示哪个tab
+
+		$('#myTab a').click(function (e) {
+			e.preventDefault();//阻止a链接的跳转行为
+			$(this).tab('show');//显示当前选中的链接及关联的content
+		})
 	}
 
 });
