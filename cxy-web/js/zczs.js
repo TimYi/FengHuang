@@ -97,7 +97,7 @@ $(function(){
 			logo.push('<div class="col-sm-6 col-md-3 wow fadeInDown">');
 			logo.push('<ul>');
 			logo.push('<li style="background:#fff">');
-			logo.push('<img src="' + logoUrl + '" />');
+			logo.push('<img src="' + logoUrl + '" style="width:178px;height:80px;" />');
 			logo.push('</li>');
 			logo.push('</ul>');
 			logo.push('</div>');
@@ -119,9 +119,8 @@ $(function(){
 
 				var meterias = products[k].materials || [];
 				for(var n = 0,nlen = meterias.length; n < nlen; n++){
-					var margin = n == 0 ? "margin-bottom:0;width:178px;height:80px;" : "margin-bottom:0;width:178px;height:80px;margin-left:-10px";
+					var margin = n == 0 ? "margin-bottom:0;width:100px;" : "margin-bottom:0;width:100px;margin-left:-10px";
 					var mpic = meterias[n].pic || "";
-					console.log("mpic",mpic);
 					if(mpic !== ""){
 						mpic = mpic.url;
 					}
