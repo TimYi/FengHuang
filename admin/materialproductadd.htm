@@ -25,11 +25,11 @@ var Brand = function(id,name){
 }
 function onload(){
 	//获取所有品牌
-	getData(MATERIAL_BRAND,null,afterGetBrands4Select);
+	getData(MATERIAL_BRAND+'/all',null,afterGetBrands4Select);
 }
 function afterGetBrands4Select(data){
 	if(!isErrorData(data)){
-		brands = data.result.result;
+		brands = data.result;
 		brandDic = new  Array();
 		for(var i in brands){
 			var brand = new Brand(brands[i].id,brands[i].name);

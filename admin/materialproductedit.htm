@@ -27,11 +27,11 @@ function onload(){
 	//第一步：先获取id	
 	id = getUrlParam(window.location.search,"id");
 	//获取所有品牌
-	getData(MATERIAL_BRAND,null,afterGetBrands4Select);
+	getData(MATERIAL_BRAND+'/all',null,afterGetBrands4Select);
 }
 function afterGetBrands4Select(data){
 	if(!isErrorData(data)){
-		brands = data.result.result;
+		brands = data.result;
 		getDataById(MATERIAL_PRODUCT,id,afterGetDataById);
 	}
 }

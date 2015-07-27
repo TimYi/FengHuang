@@ -51,9 +51,11 @@ function afterGetBrands4Select(data){
 			brandDic.push(br);
 		}
 		//默认选取第一个品牌
-		selectedBrand = brandDic[0];		
+		//selectedBrand = brandDic[0]; 150727
+		//selectedBrand = null;		
 		//取第一个作为默认产品类型
-		selectedProduct = selectedBrand.productDic[0];
+		//selectedProduct = selectedBrand.productDic[0];150727
+		//selectedProduct = 'undefined';
 		getDatas();	
 	}
 }
@@ -72,13 +74,12 @@ function getDatas4page(page){
 	param.page = page;
 	getDatas();
 }
-function getDatas(){	
+function getDatas(){
 	if(typeof selectedProduct === 'undefined'){
 		getData(MATERIAL_MATERIAL,param,afterGetDatas);
 	}else{
 		getData(MATERIAL_MATERIAL+'/byproduct/'+selectedProduct.id,param,afterGetDatas);
 	}
-
 }
 function afterGetDatas(data){	
 	//先判断并处理错误数据
@@ -101,16 +102,18 @@ function bindData(data){
 	}
 	if(!bind){
 		dataModel = ko.mapping.fromJS(data);
-		dataModel.selectedBrand = ko.observable(selectedBrand);	
+		//dataModel.selectedBrand = ko.observable(selectedBrand);
+		dataModel.selectedBrand = ko.observable();	
 		dataModel.brandDic = ko.observableArray(brandDic);
-		dataModel.selectedProduct = ko.observable(selectedProduct);
-		//dataModel.productDic = ko.observableArray(productDic);
+		//dataModel.selectedProduct = ko.observable(selectedProduct);
+		dataModel.selectedProduct = ko.observable();
+		dataModel.productDic = ko.observableArray();
 	}else{
 		ko.mapping.fromJS(data, dataModel);
 		dataModel.selectedBrand(selectedBrand);	
 		dataModel.brandDic(brandDic);
 		dataModel.selectedProduct(selectedProduct);
-		//dataModel.productDic(productDic);
+		dataModel.productDic(selectedBrand.productDic);
 	}
 	dataModel.remove = function(item){
 		if(ConfDel(0)){
@@ -217,14 +220,17 @@ function reorder(){
 }
 function onProductChange(){
 	selectedProduct = dataModel.selectedProduct();
+	if(typeof selectedProduct === 'undefined')
+	return;
 	getDatas();
 }
 function onBrandChange(){
 	selectedBrand = dataModel.selectedBrand();
-	var selectedBrandId = selectedBrand.id;
+	//var selectedBrandId = selectedBrand.id;
 	productDic =  selectedBrand.productDic;
+	dataModel.productDic(productDic);
 	//根据brandid切换
-	selectedProduct = productDic[0];
-	dataModel.selectedProduct(selectedProduct);
-	getDatas();
+	//selectedProduct = productDic[0];
+	//dataModel.selectedProduct(selectedProduct);
+	//getDatas();
 }
