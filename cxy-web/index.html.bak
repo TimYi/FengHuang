@@ -31,13 +31,13 @@
 <body>
 
 <style>
-.D_BACKGROUNDCOLOR_1{border-bottom:1px solid #f6f6f6;}
-.C_666{color:#666}
+.D_BACKGROUNDCOLOR_1{}
+
 </style>
 
 
 <!-- 顶部BANNER 开始-->
-<header id="header" class="D_BACKGROUNDCOLOR_1">
+<header id="header" style="border-bottom:1px solid #f6f6f6;">
   <div class="top-bar">
     <div class="container">
       <div class="row">
@@ -45,10 +45,10 @@
             <div class="top-number">
             	<p>
             		<i class="fa fa-phone-square"></i>
-            		<span class="C_666">&nbsp;&nbsp;400-968-9088</span>
+            		<span style="color:#666">&nbsp;&nbsp;400-968-9088</span>
             		&nbsp;&nbsp;&nbsp;&nbsp;
             		<i class="fa fa-map-marker"></i>
-            		<span class="C_666">&nbsp;&nbsp;<span id="city">定位获取中...</span></span>
+            		<span style="color:#666">&nbsp;&nbsp;<span id="city">定位获取中...</span></span>
             	</p>
             </div>
           </div>
