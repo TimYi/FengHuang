@@ -27,10 +27,10 @@
     <script src="libs/json.js"></script>
 		<script src="libs/base.js"></script>
 		<script src="libs/utils.js"></script>
-
-</head><!--/head-->
+</head>
 <body>
-<!-- header-->
+	
+<!-- 顶部BANNER 开始-->
 <header id="header" style="border-bottom:1px solid #f6f6f6;">
     <div class="top-bar">
         <div class="container">
@@ -63,6 +63,8 @@
             </div>
         </div>
     </div>
+    
+    <!--导航栏 模板 开始-->
     <nav id="navdiv" class="navbar navbar-inverse" role="banner" style="height:85px">
         <div class="container" style="display:none;">
             <div class="navbar-header">
@@ -77,9 +79,9 @@
 
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.html">首页</a></li>
+                    <li></li>
                     <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">家装套餐 <i class="fa fa-angle-down"></i></a>
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
                             <li></li>
                             <li></li>
@@ -97,16 +99,21 @@
 													<li></li>
                         </ul>
                     </li>
-										<li style="border:0px"><a href="fhgj.html"></a></li>
+										<li></li>
                 </ul>
             </div>
         </div>
     </nav>
-
+		<!--导航栏 模板 结束-->
+		
+		<!--导航栏 加载 开始-->
 		<script src="js/navigations.js" type="text/javascript"></script>
-		
-		
-</header><!--/header-->
+		<!--导航栏 加载 结束-->
+
+</header>
+<!-- 顶部BANNER 结束-->
+
+<!--客服弹窗 模板 开始-->
 <link rel="stylesheet" href="assets/css/index.css" type="text/css" media="screen" />
 <div class="service_box">
   <ul class="tab_nav">
@@ -133,47 +140,9 @@
     </div>
   </div>
 </div>
+<!--客服弹窗 模板 结束-->
 
-<script type="text/javascript" src="assets/js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript">
-$(".service_box .tab_nav li").hover(function(){
-	var i=$(this).index();
-	$(this).addClass("active").siblings().removeClass("active");
-	$(".service_box .tab_plan:eq("+i+")").show().siblings().hide();
-});
-$(function(){
-	var t;
-	$(".service_box").hover(function(){
-		$(".service_box").animate({right:0},300)
-		clearTimeout(t);
-	},function(){
-		t=setTimeout(function(e){
-			$(".service_box").animate({right:"-146px"},300);
-			$(".service_box").find(".tab_nav li").removeClass("active");
-		},1000);
-	});
-});
-var isTransition=true;
-$(".m_logo").hover(function(){
-	var r=0;
-	if(isTransition){
-		animateTime = setInterval(function(){
-			if (r>=153){
-				clearInterval(animateTime);
-				isTransition=true;
-			}else{
-				isTransition=false;
-				r++;
-				$(".m_logo a").attr("style","-webkit-mask:-webkit-gradient(radial, 45 25, "+r+", 45 25, "+(r+15)+", from(rgb(0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0.2)), to(rgb(0, 0, 0)));")
-			};
-		},5);
-	}
-},function(){
-	return;
-});
 
-</script>
-<!--header-->
 
 <!--幻灯片 开始-->
 <script src="js/carousels.js" type="text/javascript"></script>
@@ -424,13 +393,13 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 })
 </script>
 
+
 <section id="feature" style="border-top:1px solid #f6f6f6;">
     <div class="container">
        	<div class="center wow fadeInDown">
             <h2>体验馆 <span style="font-size:24px">EXPERIENCE MUSEUM</span></h2>
             <p class="lead">实景样板空间，现场主材选购，所见即所得，一站式家装体验</p>
         </div>
-
         <div class="row">
 					<div class="col-md-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
 						<div style="background-image: url(assets/images/banner_tyg.jpg);width:1140px;height:250px;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px;">
@@ -441,9 +410,6 @@ $('#exampleModal').on('show.bs.modal', function (event) {
                     	厦门市湖里区金泰路1798创业大街5层
                     </h2>
                     <div style="margin-top:30px;text-shadow:none;" class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" >
-                    	<!--div style="height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-												<a id="subbtn" href="center/reg.html"  ><div style="text-align:center;line-height:45px;font-size:16px;color:#000;font-weight:800">马上预约</div></a>
-                    	</div-->
                     	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">马上预约</button>
                     </div>
                 </div>
@@ -467,6 +433,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 </section>
 
 
+<!--我们的团队 开始-->
 <section id="recent-works" style="border-top:1px solid #f6f6f6;background:#f9f9f9">
     <div class="container">
         <div class="center wow fadeInDown">
@@ -482,6 +449,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
                         <div class="recent-work-inner">
                             <h3><a href="#">销售团队</a> </h3>
                             <p>所有客户都享受一对一的专属销售服务</p>
+                            <!--备用按钮-->
                             <!--a class="preview" href="fhzj/images/team/team_1.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a-->
                         </div>
                     </div>
@@ -495,7 +463,6 @@ $('#exampleModal').on('show.bs.modal', function (event) {
                         <div class="recent-work-inner">
                             <h3><a href="#">设计团队</a></h3>
                             <p>每个家装项目都有专属的设计团队负责，每个作品都是凤凰筑家的样板间</p>
-                            <!--a class="preview" href="fhzj/images/team/team_2.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a-->
                         </div>
                     </div>
                 </div>
@@ -508,7 +475,6 @@ $('#exampleModal').on('show.bs.modal', function (event) {
                         <div class="recent-work-inner">
                             <h3><a href="#">测量团队</a></h3>
                             <p>专业测量团队，精准、精确</p>
-                            <!--a class="preview" href="fhzj/images/team/team_3.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a-->
                         </div>
                     </div>
                 </div>
@@ -521,7 +487,6 @@ $('#exampleModal').on('show.bs.modal', function (event) {
                         <div class="recent-work-inner">
                             <h3><a href="#">施工团队</a></h3>
                             <p>自有专业施工人员，标准化作业</p>
-                            <!--a class="preview" href="fhzj/images/team/team_12.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a-->
                         </div>
                     </div>
                 </div>
@@ -534,7 +499,6 @@ $('#exampleModal').on('show.bs.modal', function (event) {
                         <div class="recent-work-inner">
                             <h3><a href="#">客服团队</a></h3>
                             <p>在线客服24小时竭诚为您服务</p>
-                            <!--a class="preview" href="fhzj/images/team/team_5.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a-->
                         </div>
                     </div>
                 </div>
@@ -547,7 +511,6 @@ $('#exampleModal').on('show.bs.modal', function (event) {
                         <div class="recent-work-inner">
                             <h3><a href="#">售后团队</a></h3>
                             <p>终身维护是凤凰的承诺，我们不仅筑巢，更是爱巢的卫士</p>
-                            <!--a class="preview" href="fhzj/images/team/team_10.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a-->
                         </div>
                     </div>
                 </div>
@@ -560,7 +523,6 @@ $('#exampleModal').on('show.bs.modal', function (event) {
                         <div class="recent-work-inner">
                             <h3><a href="#">监理团队</a></h3>
                             <p>严格监管施工质量，严格控制实施进度，保障装修质量</p>
-                            <!--a class="preview" href="fhzj/images/team/team_7.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a-->
                         </div>
                     </div>
                 </div>
@@ -573,20 +535,20 @@ $('#exampleModal').on('show.bs.modal', function (event) {
                         <div class="recent-work-inner">
                             <h3><a href="#">管理团队</a></h3>
                             <p>专业化管理团队，结合高效化管理经验，保障客户利益</p>
-                            <!--a class="preview" href="fhzj/images/team/team_9.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a-->
                         </div>
                     </div>
                 </div>
             </div>
-        </div><!--/.row-->
-    </div><!--/.container-->
-</section><!--/#recent-works-->
-<!--footer-->
+        </div>
+    </div>
+</section>
+<!--我们的团队 结束-->
 
-<!--联系电话-->
+<!--联系电话JS 开始-->
 <script src="js/tel.js"></script>
+<!--联系电话JS 结束-->
 
-
+<!--底部文章 开始-->
 <section id="bottom" style="padding:40px 0">
     <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
         <div class="row">
@@ -646,8 +608,11 @@ $('#exampleModal').on('show.bs.modal', function (event) {
             </div><!--/.col-md-3-->
         </div>
     </div>
-</section><!--/#bottom-->
+</section>
+<!--底部文章 结束-->
 
+
+<!--底部BANNER 开始-->
 <footer id="footer" class="midnight-blue">
     <div class="container">
         <div class="row">
@@ -662,7 +627,11 @@ $('#exampleModal').on('show.bs.modal', function (event) {
             </div>
         </div>
     </div>
-</footer><!--/#footer-->
+</footer>
+<!--底部BANNER 结束-->
+
+
+<!--BAIDU定位JS 开始-->
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=9Z4yvIoj9jnpKfPA4igxxbLP"></script>
 <div id="allmap"></div>
 <script type="text/javascript">
@@ -679,9 +648,48 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 	var myCity = new BMap.LocalCity();
 	myCity.get(myFun);
 </script>
+<!--BAIDU定位JS 结束-->
 
-<!--footer-->
-
+<!--客服弹窗JS 开始-->
+<script type="text/javascript" src="assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(".service_box .tab_nav li").hover(function(){
+	var i=$(this).index();
+	$(this).addClass("active").siblings().removeClass("active");
+	$(".service_box .tab_plan:eq("+i+")").show().siblings().hide();
+});
+$(function(){
+	var t;
+	$(".service_box").hover(function(){
+		$(".service_box").animate({right:0},300)
+		clearTimeout(t);
+	},function(){
+		t=setTimeout(function(e){
+			$(".service_box").animate({right:"-146px"},300);
+			$(".service_box").find(".tab_nav li").removeClass("active");
+		},1000);
+	});
+});
+var isTransition=true;
+$(".m_logo").hover(function(){
+	var r=0;
+	if(isTransition){
+		animateTime = setInterval(function(){
+			if (r>=153){
+				clearInterval(animateTime);
+				isTransition=true;
+			}else{
+				isTransition=false;
+				r++;
+				$(".m_logo a").attr("style","-webkit-mask:-webkit-gradient(radial, 45 25, "+r+", 45 25, "+(r+15)+", from(rgb(0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0.2)), to(rgb(0, 0, 0)));")
+			};
+		},5);
+	}
+},function(){
+	return;
+});
+</script>
+<!--客服弹窗JS 结束-->
 
 
 <script type="text/javascript" src="assets/js/sales.js"></script>
