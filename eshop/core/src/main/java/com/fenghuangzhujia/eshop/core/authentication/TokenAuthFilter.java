@@ -81,6 +81,8 @@ public class TokenAuthFilter extends GenericFilterBean {
 		if(headers.hasMoreElements()) {
 			String name=headers.nextElement();
 			LogUtils.errorLog("header name is: "+name+"; and header value is: "+request.getHeader(name));
+		} else {
+			LogUtils.errorLog("no more headers");
 		}
 		//今后统一从header中获取token，为了在一期兼容已有代码，也支持parameter中的参数
 		if(StringUtils.isBlank(token)) {
