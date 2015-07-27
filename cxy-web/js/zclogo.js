@@ -22,19 +22,19 @@ $(function(){
 	g.loginStatus = Utils.getUserInfo();
 
 
-	getMeterias();
+	getBrands();
 
-	function getMeterias(){
+	function getBrands(){
 		if(g.packageId !== ""){
-			sendMeteriasHttp();
+			sendBrandsHttp();
 		}
 		else{
 			Utils.alert("没有获取到套餐ID");
 		}
 	}
 
-	function sendMeteriasHttp(code){
-		var url = Base.serverUrl + "/api/product/package/" + g.packageId  + "/materials";
+	function sendBrandsHttp(code){
+		var url = Base.serverUrl + "/api/product/package/" + g.packageId  + "/brands";
 		g.httpTip.show();
 		var condi = {};
 		condi.id =  g.packageId;
@@ -46,14 +46,14 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log("sendMeteriasHttp",data);
+				console.log("sendBrandsHttp",data);
 				var status = data.status || "";
 				if(status == "OK"){
 					changeMeteriasHtml(data.result);
 				}
 				else{
-					var msg = data.error || "";
-					Utils.alert("获取主材品牌错误:" + msg);
+					var msg = data.errorDescription || "";
+					Utils.alert("获取套餐主材错误:" + msg);
 				}
 				g.httpTip.hide();
 			},

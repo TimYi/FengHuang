@@ -60,7 +60,7 @@ $(function(){
 
 	getPackages();
 
-	getPackageMeterias();
+	//getPackageMeterias();
 	function getPackageMeterias(){
 		var id = Utils.getQueryString("packageId") || "";
 		if(id !== ""){

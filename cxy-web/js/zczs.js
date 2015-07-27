@@ -124,7 +124,7 @@ $(function(){
 					if(mpic !== ""){
 						mpic = mpic.url;
 					}
-					var description =  imgarr[j].description || "";
+					var description = meterias[n].description || "";
 					phtml.push('<img src="' + mpic + '" style="' + margin + '">');
 
 					//新增产品描述
