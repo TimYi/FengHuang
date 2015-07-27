@@ -10,6 +10,7 @@ $(function(){
 	g.token = Utils.offLineStore.get("token",false);
 	g.page = Utils.getQueryString("p") - 0;
 	g.id = Utils.getQueryString("id") - 0;
+	g.ctype = Utils.getQueryString("type") - 0 || "";
 	g.totalPage = 1;
 	g.currentPage = 1;
 	g.paseSize = 20;
@@ -42,10 +43,10 @@ $(function(){
 	$("#getcodebtn").bind("click",getValidCode);
 	$("#buybtn").bind("click",reserverBtnUp);
 
-	$("#provId").bind("change",getProvCity);
+	//$("#provId").bind("change",getProvCity);
 
-	getAppointCategory();
-	getProv();
+	getAppointMuseums();
+	//getProv();
 	function getProvCity(){
 		var id = $(this).val();
 		getCity(id,1);
@@ -55,8 +56,8 @@ $(function(){
 		getCity(id,2);
 	}
 	//获取字典
-	function getAppointCategory(){
-		var url = Base.categoryUrl + "/appoint";
+	function getAppointMuseums(){
+		var url = Base.serverUrl + "/api/museums";
 		g.httpTip.show();
 		$.ajax({
 			url:url,
@@ -66,14 +67,15 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log("getAppointCategory",data);
+				console.log("getAppointMuseums",data);
 				var status = data.status || "";
 				if(status == "OK"){
-					changeSelectHtml("typeid",data.result || []);
+					changeMuseumsSelectHtml("typeid",data.result || []);
 					//changeSelectHtml("typeid2",data.result || []);
 				}
 				else{
-					Utils.alert("预约类别获取失败");
+					var msg = data.error || "";
+					Utils.alert("预约城市获取失败:" + msg);
 				}
 				g.httpTip.hide();
 			},
@@ -157,6 +159,23 @@ $(function(){
 			option.push('<option value="' + id + '"' + ( i == 0 ? "selected" : "") + '>' + name + '</option>');
 		}
 		$("#" + domid).html(option.join(''));
+	}
+
+	function changeMuseumsSelectHtml(domid,data){
+		var obj = data.result || [];
+		if(obj.length > 0){
+			var option = [];
+			for(var i = 0,len = obj.length; i < len; i++){
+				var id = obj[i].id || "";
+				var name = obj[i].name || "";
+				option.push('<option value="' + id + '"' + ( i == 0 ? "selected" : "") + '>' + name + '</option>');
+			}
+			$("#" + domid).html(option.join(''));
+
+			if(g.ctype !== ""){
+				$("#" + domid)[0].selectedIndex = g.ctype;
+			}
+		}
 	}
 
 	//获取图形验证码
@@ -302,8 +321,8 @@ $(function(){
 			validater:根据用户绑定手机号码，发送的短信验证码
 			*/
 			condi.token = g.token;
-			condi.typeId = $("#typeid").val() || "";
-			condi.cityId = $("#cityId").val() || "";
+			condi.id = $("#typeid").val() || "";
+			//condi.cityId = $("#cityId").val() || "";
 			condi.realName = $("#name").val() || "";
 			condi.mobile = $("#phone").val() || "";
 			condi.captcha = $("#inputImgCode3").val() || "";
@@ -487,7 +506,7 @@ $(function(){
 
 
 	function sendAppointHttp(condi){
-		var url = Base.appointUrl;
+		var url = Base.serverUrl + "/api/museum/" + condi.id + "/appoint";
 		g.httpTip.show();
 		$.ajax({
 			url:url,
@@ -497,16 +516,21 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				//console.log("sendAppointHttp",data);
+				console.log("sendAppointHttp",data);
 				var status = data.status || "";
 				if(status == "OK"){
-					Utils.alert("预约体验馆成功");
+					alert("预约体验馆成功");
+					location.href = "center/c_sub.html?token=" + g.token + "&p=6";
+					/*
 					setTimeout(function(){
-						history.go(-1);
+						location.href = "center/c_sub.html?token=" + g.token + "&p=6";
+						//history.go(-1);
 					},1000);
+					*/
 				}
 				else{
-					Utils.alert("预约体验馆失败");
+					var msg = data.errorDescription || "";
+					alert("预约体验馆失败:" + msg);
 				}
 				g.httpTip.hide();
 			},

@@ -346,7 +346,7 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				//console.log("sendGetHomeListHttp",data);
+				console.log("sendGetHomeListHttp",data);
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){

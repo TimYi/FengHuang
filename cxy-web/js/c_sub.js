@@ -29,6 +29,7 @@ $(function(){
 		condi.token = g.token;
 		condi.page = g.currentPage;
 		condi.size = g.paseSize;
+		condi.status = "";
 
 		sendGetMySubHttp(condi);
 	}
@@ -39,22 +40,32 @@ $(function(){
 			var html = [];
 			html.push('<table class="table u_ct">');
 			html.push('<tr class="u_th">');
-			html.push('<th width=25%>预约编号</th>');
-			html.push('<th width=25%>预约类型</th>');
-			html.push('<th>预约时间</th>');
-			html.push('<th width=150>操作</th>');
+			html.push('<th width=20%>预约编号</th>');
+			html.push('<th width=15%>预约类型</th>');
+			html.push('<th width=15%>真实姓名</th>');
+			html.push('<th width=15% >预约状态</th>');
+			html.push('<th width=20%>预约时间</th>');
+			html.push('<th width=100>操作</th>');
 			html.push('</tr>');
 
+			var arr ={"WAITING":"等待客服确认","PROCESSING":"处理中","FINISH":"已到店","CANCEL":"取消"};
 			for(var i = 0,len = obj.length; i < len; i++){
 				var d = obj[i];
 				var id = d.id || "";
 				var num = d.code || "";
-				var type = d.type.name || "";
+				var type = d.museum.name || "";
+				var realName = d.realName || "";
+				var status = d.status || "";
+				if(status !== ""){
+					status = arr[status] || "";
+				}
 				var createTime = d.createTime || "";
 				createTime.substring(0,10);
 				html.push('<tr>');
 				html.push('<td >' + num + '</td>');
 				html.push('<td >' + type + '</td>');
+				html.push('<td >' + realName + '</td>');
+				html.push('<td >' + status + '</td>');
 				html.push('<td >' + createTime + '</td>');
 				//html.push('<td><a href="c_sub_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '" >查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:void(0);">删除</a></td>');
 				html.push('<td><a href="c_sub_item.html?id=' + id + '&token=' + g.token + '&p=' + g.page + '" >查看</a></td>');
@@ -178,7 +189,7 @@ $(function(){
 
 
 	function sendGetMySubHttp(condi){
-		var url = Base.appointsUrl;
+		var url = Base.serverUrl + "/api/user/museumAppoints";
 		$.ajax({
 			url:url,
 			data:condi,
@@ -187,13 +198,13 @@ $(function(){
 			context:this,
 			global:false,
 			success: function(data){
-				console.log("sendGetMySubHttp",data);
+				console.log("sendGetMyMuseumHttp",data);
 				var status = data.status || "";
 				if(status == "OK"){
 					changeSubListHtml(data.result);
 				}
 				else{
-					var msg = data.error || "";
+					var msg = data.errorDescription || "";
 					alert("获取我的预约列表错误:" + msg);
 				}
 			},

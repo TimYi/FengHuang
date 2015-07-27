@@ -153,7 +153,15 @@ $(function(){
 		if(href == "#TYG_XM_BTNTITLE#" || href == "#TYG_BJ_BTNTITLE#"){
 			//预约体验馆
 			if(loginStatus){
-				btn.attr("href","subappoint.html");
+				if(href == "#TYG_BJ_BTNTITLE#"){
+					btn.attr("href","subappoint.html?type=0");
+				}
+				else if(href == "#TYG_XM_BTNTITLE#"){
+					btn.attr("href","subappoint.html?type=1");
+				}
+				else{
+					btn.attr("href","subappoint.html");
+				}
 			}
 			else{
 				btn.attr({"href":"#","data-toggle":"modal","data-target":"#exampleModal","data-whatever":"@mdo"});
