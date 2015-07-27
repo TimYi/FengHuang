@@ -10,6 +10,8 @@ import com.fenghuangzhujia.eshop.decorateProcess.DecorateProcessService;
 import com.fenghuangzhujia.eshop.decorateProcess.dto.DecorateProcessDto;
 import com.fenghuangzhujia.eshop.view.carousel.CarouselService;
 import com.fenghuangzhujia.eshop.view.carousel.dto.CarouselDto;
+import com.fenghuangzhujia.eshop.view.decorateTechnology.DecorateTechnologyService;
+import com.fenghuangzhujia.eshop.view.decorateTechnology.dto.DecorateTechnologyDto;
 import com.fenghuangzhujia.eshop.view.navigation.NavigationService;
 import com.fenghuangzhujia.eshop.view.navigation.dto.NavigationDto;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
@@ -23,6 +25,8 @@ public class PageController {
 	private CarouselService carouselService;
 	@Autowired
 	private DecorateProcessService decorateProcessService;
+	@Autowired
+	private DecorateTechnologyService technologyService;
 
 	@RequestMapping(value="navigations",method=RequestMethod.GET)
 	public String navagations() {
@@ -39,6 +43,12 @@ public class PageController {
 	@RequestMapping(value="decorateProcess",method=RequestMethod.GET)
 	public String decorateProcess() {
 		Iterable<DecorateProcessDto> result=decorateProcessService.findAll();
+		return RequestResult.success(result).toJson();
+	}
+	
+	@RequestMapping(value="technologies",method=RequestMethod.GET)
+	public String technologies() {
+		Iterable<DecorateTechnologyDto> result=technologyService.findAll();
 		return RequestResult.success(result).toJson();
 	}
 }
