@@ -9,7 +9,7 @@ $(function(){
 	g.username = Base.userName;
 	g.token = Utils.offLineStore.get("token",false);
 	g.page = Utils.getQueryString("p") - 0;
-	g.id = Utils.getQueryString("id") - 0;
+	g.id = Utils.getQueryString("id");
 	g.totalPage = 1;
 	g.currentPage = 1;
 	g.paseSize = 20;
@@ -291,8 +291,10 @@ $(function(){
 			}
 			if(!g.reserveStatus){
 				//没有添加真实姓名,引导去填写
-				alert("个人资料不完善,无法预约");
-				location.href = "c_my.html?token=" + g.token + "&p=1";
+				var msg = "尊敬的" + g.username + "用户，您好！预约前，请先到会员中心完善个人资料。是否前往？";
+				if(confirm(msg)){
+					location.href = "c_my.html?token=" + g.token + "&p=1";
+				}
 				return;
 			}
 
@@ -506,11 +508,14 @@ $(function(){
 					//Utils.alert("预约成功");
 					//$("#buybtn").html("您已成功预约");
 					//$("#buybtn2").html("您已成功预约");
-					history.go(-1);
+					var msg = "尊敬的" + g.username + "用户，您好，您已成功预约" + Utils.getQueryString("id") + "套餐，该套餐抢购已开放，是否进行抢购？";
+					if(confirm(msg)){
+						history.go(-1);
+					}
 				}
 				else{
 					$("#tipdiv").html("温馨提示：<b color='red'>" + data.errorDescription + "</b>");
-					Utils.alert("预约失败:" + data.errorDescription );
+					alert("预约失败:" + data.errorDescription );
 				}
 				g.httpTip.hide();
 			},

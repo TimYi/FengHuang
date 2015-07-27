@@ -97,7 +97,7 @@ $(function(){
 			logo.push('<div class="col-sm-6 col-md-3 wow fadeInDown">');
 			logo.push('<ul>');
 			logo.push('<li style="background:#fff">');
-			logo.push('<img src="' + logoUrl + '" />');
+			logo.push('<img src="' + logoUrl + '" style="width:178px;height:80px;" />');
 			logo.push('</li>');
 			logo.push('</ul>');
 			logo.push('</div>');
@@ -124,11 +124,13 @@ $(function(){
 					if(mpic !== ""){
 						mpic = mpic.url;
 					}
-					var description =  imgarr[j].description || "";
+					var description = meterias[n].description || "";
+
+					//phtml.push('<td valign="top"><span style="font-size:12px;width:100px;text-align:center">'+ description +'</span><br/><img src="' + mpic + '" style="' + margin + '"></td>');
 					phtml.push('<img src="' + mpic + '" style="' + margin + '">');
 
 					//新增产品描述
-					html.push('<p>' + description + "</p>");
+					//phtml.push('<p>' + description + "</p>");
 				}
 				phtml.push('</td>');
 				phtml.push('</tr>');

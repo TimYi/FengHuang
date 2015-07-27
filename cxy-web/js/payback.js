@@ -10,6 +10,7 @@ $(function(){
 	g.token = Utils.offLineStore.get("token",false);
 	g.orderId = Utils.getQueryString("orderId") || "";
 	g.orderResult = Utils.getQueryString("result") || "";
+	g.payprice = 0;
 	g.totalPage = 1;
 	g.currentPage = 1;
 	g.paseSize = 20;
@@ -91,6 +92,7 @@ $(function(){
 		//~ good:具体的商品信息，目前这个就是购买的套餐的信息
 		var obj = data || {};
 		var price = obj.price || "";
+		g.payprice = price;
 		var orderId = obj.code;
 		var payTime = obj.payTime || "";
 		var html = [];
@@ -106,11 +108,11 @@ $(function(){
 		html.push('<li class="u_li">');
 		html.push('<br/>本页面可作为付款凭证。');
 		html.push('</li>');
-		html.push('<li class="u_li">提示：您已经成功支付，请等待客服电话联系体验馆实景体验和选材信息。</li>');
+		var msg = "尊敬的" + g.username + "用户，您好，您已成功支付定金" + price + "元，同时我们为您预约了厦门体验馆到店体验服务，详情请致电400-968-9088具体咨询。";
+		html.push('<li class="u_li">提示：' + msg + '</li>');
 		$("#orderdetail").html(html.join(''));
 		$("#orderdetail").show();
 	}
-
 
 });
 

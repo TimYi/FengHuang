@@ -798,13 +798,18 @@ $(function(){
 				var status = data.status || "";
 				if(status == "OK"){
 					g.hasbuy = true;
-					alert("抢购成功");
-					//Utils.alert("抢购成功");
-					var orderId = data.result.id;
-					location.href = "orderback_paysel.html?id=" + orderId;
+					var d = new Date(new Date() - 0 + (7 * 24 * 60 * 60 * 1000));
+					var dt = d.format("yyyy-MM-dd");
+					var msg = "尊敬的" + g.username + "用户，您好，您已成功抢购" + id + "套餐，请于" + dt + "前完成定金支付方可生效，是否现在支付？";
+					if(confirm(msg)){
+						//Utils.alert("抢购成功");
+						var orderId = data.result.id;
+						location.href = "orderback_paysel.html?id=" + orderId;
+					}
 				}
 				else{
-					Utils.alert("抢购失败");
+					var msg = data.errorDescription || "";
+					alert("抢购失败:" + msg);
 				}
 				g.httpTip.hide();
 			},
