@@ -14,6 +14,7 @@ import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 import com.fenghuangzhujia.foundation.core.rest.SpecificationController;
 
+@RequestMapping("admin/decorateSpace")
 @RestController
 public class DecorateSpaceController extends SpecificationController<DecorateSpaceDto, DecorateSpaceInputArgs> {
 
