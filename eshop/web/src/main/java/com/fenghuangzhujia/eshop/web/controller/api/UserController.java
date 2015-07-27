@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.fenghuangzhujia.eshop.appoint.AppointService;
 import com.fenghuangzhujia.eshop.collect.CollectService;
 import com.fenghuangzhujia.eshop.comment.CommentItemService;
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationManager;
@@ -23,6 +22,7 @@ import com.fenghuangzhujia.eshop.core.user.UserService;
 import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
 import com.fenghuangzhujia.eshop.core.user.dto.UserInputArgs;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
+import com.fenghuangzhujia.eshop.experienceMuseum.appoint.ExperienceAppointService;
 import com.fenghuangzhujia.eshop.message.MessageService;
 import com.fenghuangzhujia.eshop.userGroup.UserGroupService;
 import com.fenghuangzhujia.eshop.userGroup.dto.UserGroupDto;
@@ -46,9 +46,9 @@ public class UserController {
 	@Autowired
 	private MessageManager messageManager;
 	@Autowired
-	private AppointService appointService;
-	@Autowired
 	private AuthenticationManager authenticationManager;
+	@Autowired
+	private ExperienceAppointService experienceAppointService;
 	
 	/**
 	 * 获取用户个人信息
@@ -120,7 +120,7 @@ public class UserController {
 		Map<String, Long> counts=new HashMap<>();
 		Long messageCount=messageService.countByIsReaded(userid, false);
 		counts.put("messages", messageCount);
-		Long appointCount=appointService.countByIsReaded(userid, false);
+		Long appointCount=experienceAppointService.countByIsReaded(userid, false);
 		counts.put("appoints", appointCount);
 		Long commentCount=commentService.countByIsReaded(userid, false);
 		counts.put("comments", commentCount);

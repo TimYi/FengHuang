@@ -110,6 +110,15 @@ public class ExperienceAppointService {
 		return getConverter().convert(appoint);
 	}
 	
+	public Long countByIsReaded(String userid, boolean readed) {
+		return repository.countByUserIdAndReaded(userid, readed);
+	}
+
+	public void setIsReaded(String id, boolean readed) {
+		ExperienceAppoint appoint=repository.findOne(id);
+		appoint.setReaded(readed);
+	}
+	
 	private Converter<ExperienceAppoint, ExperienceAppointDto> getConverter() {
 		return new Converter<ExperienceAppoint, ExperienceAppointDto>() {
 			@Override
