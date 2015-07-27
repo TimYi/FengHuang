@@ -125,10 +125,12 @@ $(function(){
 						mpic = mpic.url;
 					}
 					var description = meterias[n].description || "";
-					phtml.push('<img src="' + mpic + '" style="' + margin + '">');
+
+					phtml.push('<td valign="top"><span style="font-size:12px;width:100px;text-align:center">'+ description +'</span><br/><img src="' + mpic + '" style="' + margin + '"></td>');
+					//phtml.push('<img src="' + mpic + '" style="' + margin + '">');
 
 					//新增产品描述
-					phtml.push('<p>' + description + "</p>");
+					//phtml.push('<p>' + description + "</p>");
 				}
 				phtml.push('</td>');
 				phtml.push('</tr>');
