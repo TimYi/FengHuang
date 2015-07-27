@@ -169,7 +169,7 @@ $(function(){
 				e.preventDefault();//阻止a链接的跳转行为
 				$(this).tab('show');//显示当前选中的链接及关联的content
 
-				("#recent-works .item.active").removeClass("active");
+				$("#recent-works .item.active").removeClass("active");
 				var href = $(this).attr("href");
 				$(href + " .item").addClass("active");
 			});
