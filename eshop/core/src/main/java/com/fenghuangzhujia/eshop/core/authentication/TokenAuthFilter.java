@@ -17,6 +17,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;
 
+import com.fenghuangzhujia.eshop.core.utils.LogUtils;
+
 @Component(value="tokenAuthFilter")
 public class TokenAuthFilter extends GenericFilterBean {
 	
@@ -74,6 +76,7 @@ public class TokenAuthFilter extends GenericFilterBean {
 	protected String getToken(HttpServletRequest request) {
 		String token;
 		token=request.getHeader(TOKEN_HEADER_NAME);
+		LogUtils.errorLog("token header is: "+token);
 		//今后统一从header中获取token，为了在一期兼容已有代码，也支持parameter中的参数
 		if(StringUtils.isBlank(token)) {
 			token=(String)request.getParameter(TOKEN_NAME);
