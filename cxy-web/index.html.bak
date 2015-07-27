@@ -79,7 +79,7 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="index.html">首页</a></li>
                     <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">家装套餐 <i class="fa fa-angle-down"></i></a>
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="tc_799.html"></a></li>
                             <li style="padding:0 5px;margin:5px 0;border-bottom:1px solid #555"></li>
