@@ -796,7 +796,9 @@ $(function(){
 				var status = data.status || "";
 				if(status == "OK"){
 					g.hasbuy = true;
-					var msg = "尊敬的" + g.username + "用户，您好，您已成功抢购" + id + "套餐，请于2015-08-01前完成定金支付方可生效，是否现在支付？";
+					var d = new Date(new Date() - 0 + (7 * 24 * 60 * 60 * 1000));
+					var dt = d.format("yyyy-MM-dd");
+					var msg = "尊敬的" + g.username + "用户，您好，您已成功抢购" + id + "套餐，请于" + dt + "前完成定金支付方可生效，是否现在支付？";
 					if(confirm(msg)){
 						//Utils.alert("抢购成功");
 						var orderId = data.result.id;
