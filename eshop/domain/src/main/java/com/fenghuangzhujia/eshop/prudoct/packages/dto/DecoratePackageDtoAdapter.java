@@ -1,6 +1,7 @@
 package com.fenghuangzhujia.eshop.prudoct.packages.dto;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -8,6 +9,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage;
+import com.fenghuangzhujia.eshop.prudoct.packages.space.DecorateSpaceService;
+import com.fenghuangzhujia.eshop.prudoct.packages.space.dto.DecorateSpaceDto;
 import com.fenghuangzhujia.foundation.core.dto.adapter.AbstractDtoAdapter;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.media.MediaContent;
@@ -18,6 +21,8 @@ public class DecoratePackageDtoAdapter extends AbstractDtoAdapter<DecoratePackag
 
 	@Autowired
 	private MediaService mediaService;
+	@Autowired
+	private DecorateSpaceService decorateSpaceService;
 	
 	@Override
 	public DecoratePackageDto postConvert(DecoratePackage d,
@@ -48,5 +53,13 @@ public class DecoratePackageDtoAdapter extends AbstractDtoAdapter<DecoratePackag
 			throw new ErrorCodeException(SystemErrorCodes.FILE_ERROR, e.getMessage());
 		}
 	}
-
+	
+	@Override
+	public DecoratePackageDto convertToDetailedDto(DecoratePackage d) {
+		DecoratePackageDto t=super.convertToDetailedDto(d);
+		String id=d.getId();
+		List<DecorateSpaceDto> spaces=decorateSpaceService.findByPackage(id);
+		t.setSpaces(spaces);
+		return t;
+	}
 }

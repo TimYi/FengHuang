@@ -118,6 +118,7 @@ public class BrandService extends DtoSpecificationService<Brand, BrandDto, Brand
 				return o1.getOrdernum()-o2.getOrdernum();
 			}
 		});
+		brands.addAll(brandMap.values());
 		List<BrandVo> vos=new ArrayList<>();
 		for (Brand brand : brands) {
 			BrandVo vo=BeanMapper.map(brand, BrandVo.class);

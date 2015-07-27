@@ -1,8 +1,10 @@
 package com.fenghuangzhujia.eshop.prudoct.packages.dto;
 
 import java.util.Date;
+import java.util.List;
 
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage.ScrambleStatus;
+import com.fenghuangzhujia.eshop.prudoct.packages.space.dto.DecorateSpaceDto;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 import com.fenghuangzhujia.foundation.media.MediaContentDto;
 
@@ -30,6 +32,8 @@ public class DecoratePackageDto extends DtoBaseModel {
 	private String reasonForCantAppoint;
 	/**用户是否已经抢购此套餐*/
 	private boolean hasScrambled;
+	/**装修空间详情*/
+	private List<DecorateSpaceDto> spaces;
 	
 	public String getName() {
 		return name;
@@ -120,5 +124,11 @@ public class DecoratePackageDto extends DtoBaseModel {
 	}
 	public void setHasScrambled(boolean hasScrambled) {
 		this.hasScrambled = hasScrambled;
+	}
+	public List<DecorateSpaceDto> getSpaces() {
+		return spaces;
+	}
+	public void setSpaces(List<DecorateSpaceDto> spaces) {
+		this.spaces = spaces;
 	}
 }
