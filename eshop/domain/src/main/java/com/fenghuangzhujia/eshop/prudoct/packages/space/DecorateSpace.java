@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage;
@@ -72,6 +73,7 @@ public class DecorateSpace extends UUIDBaseModel {
 		this.pic3 = pic3;
 	}
 	@OneToMany(mappedBy="space")
+	@OrderBy("ordernum")
 	public Set<DecorateItem> getItems() {
 		return items;
 	}
