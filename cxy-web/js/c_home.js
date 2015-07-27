@@ -365,7 +365,7 @@ $(function(){
 
 	function sendDeleteHomeHttp(condi){
 		g.httpTip.show();
-		var url = Base.house + "/" + condi.id;
+		var url = Base.house + "/" + condi.id + "?token=" + condi.token;
 		$.ajax({
 			url:url,
 			headers:{"fhzj_auth_token":condi.token},
