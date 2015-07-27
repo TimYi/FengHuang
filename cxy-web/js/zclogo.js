@@ -117,7 +117,7 @@ $(function(){
 			var products = obj[j].products || [];
 			for(var k = 0,klen = products.length; k < klen; k++){
 				var pname = products[k].name || "";
-				var css = k == 0 ? "border-top:2px solid #ccc" : "border-top:1px solid #ccc";
+				var css = "border-top:1px solid #ccc";
 				phtml.push('<tr style="' + css + '">');
 				if(k == 0){
 					phtml.push('<td style="vertical-align: middle;" rowspan=' + klen + '>' + logoName + '</td>');
