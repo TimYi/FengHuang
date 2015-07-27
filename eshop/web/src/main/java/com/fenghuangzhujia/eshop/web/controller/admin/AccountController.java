@@ -14,8 +14,15 @@ public class AccountController {
 		return RequestResult.error(SystemErrorCodes.UNAUTH, "您需要登录").toJson();
 	}
 	
+	@RequestMapping(value="admin/auth")
+	public String auth() {
+		return RequestResult.success("授权成功").toJson();
+	}
+	
 	@RequestMapping(value="/accessDenied")
 	public String accessDeny() {
 		return RequestResult.error(SystemErrorCodes.ACCESS_DENIED, "权限不足").toJson();
 	}
+	
+	
 }
