@@ -34,9 +34,8 @@ $(function(){
 	}
 
 	function sendPackageHttp(code){
-		//var url = Base.serverUrl + "/api/product/package/" + g.packageId;
-		//
-		var url = "http://www.ifhzj.com" + "/api/product/package/" + g.packageId;
+		var url = Base.serverUrl + "/api/product/package/" + g.packageId;
+		//var url = "http://www.ifhzj.com" + "/api/product/package/" + g.packageId;
 		g.httpTip.show();
 		var condi = {};
 		condi.id =  g.packageId;
@@ -51,7 +50,7 @@ $(function(){
 				console.log("sendPackageHttp",data);
 				var status = data.status || "";
 				if(status == "OK"){
-					//changeMeteriasHtml(data.result);
+					changePackageHtml(data.result);
 				}
 				else{
 					var msg = data.errorDescription || "";
@@ -66,7 +65,7 @@ $(function(){
 	}
 
 
-	function changeMeteriasHtml(data){
+	function changePackageHtml(data){
 		var obj = data || [];
 
 
