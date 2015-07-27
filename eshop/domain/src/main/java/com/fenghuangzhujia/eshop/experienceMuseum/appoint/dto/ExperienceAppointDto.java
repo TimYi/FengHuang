@@ -25,6 +25,8 @@ public class ExperienceAppointDto extends DtoBaseModel {
 	private String message;
 	/**后台客服联系用户后，双方商定的到馆时间*/
 	private Date appointTime;
+	/**是否已读*/
+	private boolean readed;
 	
 	public String getCode() {
 		return code;
@@ -73,5 +75,11 @@ public class ExperienceAppointDto extends DtoBaseModel {
 	}
 	public void setAppointTime(Date appointTime) {
 		this.appointTime = appointTime;
+	}
+	public boolean getReaded() {
+		return readed;
+	}
+	public void setReaded(boolean readed) {
+		this.readed = readed;
 	}
 }

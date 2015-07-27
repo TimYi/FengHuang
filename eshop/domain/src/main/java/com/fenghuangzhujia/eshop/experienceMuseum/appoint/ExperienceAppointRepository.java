@@ -3,10 +3,10 @@ package com.fenghuangzhujia.eshop.experienceMuseum.appoint;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import com.fenghuangzhujia.eshop.core.remind.impl.UnreadRemindSpecificationRepository;
 import com.fenghuangzhujia.eshop.experienceMuseum.appoint.ExperienceAppoint.AppointStatus;
-import com.fenghuangzhujia.foundation.core.persistance.SpecificationRepository;
 
-public interface ExperienceAppointRepository extends SpecificationRepository<ExperienceAppoint, String> {
+public interface ExperienceAppointRepository extends UnreadRemindSpecificationRepository<ExperienceAppoint, String> {
 
 	Page<ExperienceAppoint> findByUserId(String userId, Pageable pageable);
 	

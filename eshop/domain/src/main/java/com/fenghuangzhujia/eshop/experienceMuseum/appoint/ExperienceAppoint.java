@@ -6,13 +6,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Entity;
 
+import com.fenghuangzhujia.eshop.core.remind.impl.UnreadRemindEntity;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.experienceMuseum.ExperienceMuseum;
-import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 
 @Entity
 @Table(name="fhzj_experience_appoint")
-public class ExperienceAppoint extends UUIDBaseModel {
+public class ExperienceAppoint extends UnreadRemindEntity {
 
 	public static final String TYPE_CODE="EA";
 	
