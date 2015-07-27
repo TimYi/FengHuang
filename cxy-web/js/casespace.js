@@ -82,8 +82,9 @@ $(function(){
 		phtml.push('<ul class="portfolio-filter text-center" id="myTab">');
 		var spaces = obj.spaces || [];
 		for(var i = 0,len = spaces.length; i < len; i++){
+			var css = i == 0 ? "active" : "";
 			var name = spaces[i].name || ""
-			phtml.push('<li><a class="btn btn-default" href="#pack_' + i + '" >' + name + '</a></li>');
+			phtml.push('<li><a class="btn btn-default ' + css + '" href="#pack_' + i + '" >' + name + '</a></li>');
 		}
 		phtml.push('</ul>');
 
@@ -117,7 +118,7 @@ $(function(){
 			phtml.push('</div>');
 
 			phtml.push('<div class="carousel-inner mt20">');
-			phtml.push('<div class="item' + css + '">');
+			phtml.push('<div class="item ' + css + '">');
 
 			phtml.push('<table class="table u_ct_15">');
 			phtml.push('<tr style="border-top:2px solid #fff">');
@@ -159,7 +160,7 @@ $(function(){
 		//$("#featurelogo").css("visibility","visible");
 		//$("#featurepro").css("visibility","visible");
 
-		$('#myTab a:last').tab('show');//初始化显示哪个tab
+		//$('#myTab a:last').tab('show');//初始化显示哪个tab
 
 		$('#myTab a').click(function (e) {
 			e.preventDefault();//阻止a链接的跳转行为
