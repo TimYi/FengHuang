@@ -17,7 +17,7 @@ public class DrawbackDto extends DtoBaseModel {
 	/**不同意退款原因*/
 	private String reasonForDisapprove;
 	/**审核处理人*/
-	private UserDto authenticater;
+	private String authenticater;
 	/**处理日期*/
 	private Date processDate;
 	/**退款状态*/
@@ -41,10 +41,10 @@ public class DrawbackDto extends DtoBaseModel {
 	public void setReasonForDisapprove(String reasonForDisapprove) {
 		this.reasonForDisapprove = reasonForDisapprove;
 	}
-	public UserDto getAuthenticater() {
+	public String getAuthenticater() {
 		return authenticater;
 	}
-	public void setAuthenticater(UserDto authenticater) {
+	public void setAuthenticater(String authenticater) {
 		this.authenticater = authenticater;
 	}
 	public Date getProcessDate() {
