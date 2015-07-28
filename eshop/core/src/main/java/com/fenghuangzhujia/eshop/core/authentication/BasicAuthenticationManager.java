@@ -215,7 +215,7 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	protected UserToken refreshToken(UserToken token) {
 		String tokenString=Identities.uuid2();
 		token.setToken(tokenString);
-		tokenRepository.save(token);
+		token=tokenRepository.save(token);
 		return token;
 	}
 	

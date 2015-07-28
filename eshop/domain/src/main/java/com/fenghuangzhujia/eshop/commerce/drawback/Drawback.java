@@ -29,7 +29,7 @@ public class Drawback extends UUIDBaseModel {
 	/**不同意退款原因*/
 	private String reasonForDisapprove;
 	/**审核处理人*/
-	private User authenticater;
+	private String authenticater;
 	/**处理日期*/
 	private Date processDate;
 	/**退款状态*/
@@ -62,11 +62,10 @@ public class Drawback extends UUIDBaseModel {
 	public void setReasonForDisapprove(String reasonForDisapprove) {
 		this.reasonForDisapprove = reasonForDisapprove;
 	}
-	@OneToOne
-	public User getAuthenticater() {
+	public String getAuthenticater() {
 		return authenticater;
 	}
-	public void setAuthenticater(User authenticater) {
+	public void setAuthenticater(String authenticater) {
 		this.authenticater = authenticater;
 	}
 	public Date getProcessDate() {

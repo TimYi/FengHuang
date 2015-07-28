@@ -63,7 +63,7 @@ public class ExperienceAppointManager {
 	}
 	
 	/**后台处理用户预约，录入预约时间和留言*/
-	public ExperienceAppoint processAppoint(ExperienceAppoint appoint, User waiter, String message, Date appointTime) {
+	public ExperienceAppoint processAppoint(ExperienceAppoint appoint, String message, Date appointTime) {
 		appoint.setStatus(AppointStatus.PROCESSING);
 		appoint.setMessage(message);
 		appoint.setAppointTime(appointTime);

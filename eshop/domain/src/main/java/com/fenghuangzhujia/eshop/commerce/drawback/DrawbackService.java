@@ -11,7 +11,6 @@ import com.fenghuangzhujia.eshop.commerce.drawback.Drawback.DrawbackStatus;
 import com.fenghuangzhujia.eshop.commerce.order.GoodOrder;
 import com.fenghuangzhujia.eshop.commerce.order.GoodOrderRepository;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
-import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
 import com.fenghuangzhujia.foundation.core.persistance.PageableBuilder;
@@ -56,15 +55,13 @@ public class DrawbackService {
 		drawbackManager.drawback(order, reason);
 	}
 	
-	public void approve(String drawbackId, String userId) {
+	public void approve(String drawbackId, String authenticater) {
 		Drawback drawback=drawbackRepository.findOne(drawbackId);
-		User authenticater=userRepository.findOne(userId);
 		drawbackManager.approve(drawback, authenticater);
 	}
 	
-	public void disapprove(String drawbackId, String userId, String reason) {
+	public void disapprove(String drawbackId, String authenticater, String reason) {
 		Drawback drawback=drawbackRepository.findOne(drawbackId);
-		User authenticater=userRepository.findOne(userId);
 		drawbackManager.disapprove(drawback, authenticater, reason);
 	}
 	

@@ -13,7 +13,6 @@ import com.fenghuangzhujia.eshop.commerce.pay.OrderPay;
 import com.fenghuangzhujia.eshop.commerce.pay.PufaPay;
 import com.fenghuangzhujia.eshop.commerce.pay.PufaPayService;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
-import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 
 @Service
@@ -48,7 +47,7 @@ public class DrawbackManager {
 	}
 	
 	/**批准退款并执行退款操作*/
-	public Drawback approve(Drawback drawback, User authenticater) {
+	public Drawback approve(Drawback drawback, String authenticater) {
 		drawback.setAuthenticater(authenticater);
 		drawback.setProcessDate(new Date());
 		drawback.setStatus(DrawbackStatus.APPROVE);
@@ -58,7 +57,7 @@ public class DrawbackManager {
 	}
 	
 	/**拒绝退款并修改订单状态*/
-	public Drawback disapprove(Drawback drawback, User authenticater, String reason) {
+	public Drawback disapprove(Drawback drawback, String authenticater, String reason) {
 		drawback.setAuthenticater(authenticater);
 		drawback.setProcessDate(new Date());
 		drawback.setStatus(DrawbackStatus.DISAPPROVE);

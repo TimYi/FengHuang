@@ -83,10 +83,9 @@ public class ExperienceAppointService {
 		manager.cancelAppointByUser(user, appoint);
 	}
 	
-	public void processAppoint(String id, String userId, String message, Date appointTime) {
+	public void processAppoint(String id, String message, Date appointTime) {
 		ExperienceAppoint appoint=repository.findOne(id);
-		User waiter=userRepository.findOne(userId);
-		manager.processAppoint(appoint, waiter, message, appointTime);
+		manager.processAppoint(appoint, message, appointTime);
 	}
 	
 	/**

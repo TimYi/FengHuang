@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.web.handler;
+package com.fenghuangzhujia.eshop.admin.handler;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

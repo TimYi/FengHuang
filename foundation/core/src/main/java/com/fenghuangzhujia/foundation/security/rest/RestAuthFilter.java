@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.core.authentication;
+package com.fenghuangzhujia.foundation.security.rest;
 
 import java.io.IOException;
 
@@ -8,28 +8,31 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;
 
-@Component(value="tokenAuthFilter")
-public class TokenAuthFilter extends GenericFilterBean {
+/**
+ * 获取验证凭据，并根据凭据将授权信息加载到验证流中。
+ * @author pc
+ *
+ */
+@Component("restAuthFilter")
+public class RestAuthFilter extends GenericFilterBean {
 	
+	/**验证信息所在请求头*/
+	private String authHeader="Auth_Token";
 	@Autowired
-	private AuthenticationManager authenticationManager;
-	
-	private static final String TOKEN_NAME="token";
-	
-	private static final String TOKEN_HEADER_NAME="fhzj_auth_token";
+	private RestAuthManager restAuthManager;
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
-			FilterChain chain) throws IOException, ServletException {		
+			FilterChain chain) throws IOException, ServletException {
 		SecurityContext context=SecurityContextHolder.getContext();
 		Authentication oldAuthentication=context.getAuthentication();
 		//如果用户已经通过session方式登录，不会再次验证
@@ -46,7 +49,7 @@ public class TokenAuthFilter extends GenericFilterBean {
 		//标识是否需要清除Authentication，防止重复请求接口产生大量Authentication
 		boolean shouldClean=false;
 		try {
-			SimpleUserDetails user=authenticationManager.authenticate(token);
+			UserDetails user=restAuthManager.authenticate(token);
 			if(user!=null) {
 				UsernamePasswordAuthenticationToken authentication=
 						new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword(), user.getAuthorities());	
@@ -73,11 +76,15 @@ public class TokenAuthFilter extends GenericFilterBean {
 	 */
 	protected String getToken(HttpServletRequest request) {
 		String token;
-		token=request.getHeader(TOKEN_HEADER_NAME);
-		//今后统一从header中获取token，为了在一期兼容已有代码，也支持parameter中的参数
-		if(StringUtils.isBlank(token)) {
-			token=(String)request.getParameter(TOKEN_NAME);
-		}
+		token=request.getHeader(authHeader);
 		return token;
+	}
+
+	public void setAuthHeader(String authHeader) {
+		this.authHeader = authHeader;
+	}
+	
+	public void setAuthenticationManager(RestAuthManager authenticationManager) {
+		this.restAuthManager = authenticationManager;
 	}
 }
