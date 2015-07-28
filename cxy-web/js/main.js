@@ -745,7 +745,7 @@ $(function(){
 							////~ hasScrambled:标识是否已经抢购完并且尚未付款
 							if(hasScrambled){
 								var page = "center/c_order.html?token=" + g.token + "&p=7";
-								var msg = "尊敬的" + g.username + "用户，您好！本月您已成功抢购过该套餐且已完成定金支付，<br/>每人每月仅限抢购一次，请下个月再试，谢谢您的参与。";
+								var msg = "尊敬的" + g.username + "用户，您好！本月您已成功抢购过该套餐且已完成定金支付，'\n'每人每月仅限抢购一次，请下个月再试，谢谢您的参与。";
 								$(".buynow" + price).html('<div onclick="buyTip(\'' + msg + '\',\'' + page + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
 							}
 							else{
