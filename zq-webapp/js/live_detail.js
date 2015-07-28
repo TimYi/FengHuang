@@ -12,6 +12,8 @@ $(function() {
     g.paseSize = 2;
     g.httpTip = new Utils.httpTip({});
     g.listdata = [];
+    var currentPage = 1;
+
 
     //验证登录状态
     g.loginStatus = Utils.getUserInfo();
@@ -177,8 +179,8 @@ $(function() {
     function getComments(){
         var condi = {};
         condi.sourceid = g.liveId;
-        condi.page = 1;
-        condi.size = 9999;
+        condi.page = currentPage++;
+        condi.size = 5;
         sendGetCommentHttp(condi);
     }
 
@@ -212,20 +214,31 @@ $(function() {
 
     function changeCommentsHtml(data){
         var obj = data.result || [];
-
+        var page = data.page;
+        var totalPages = data.totalPages;
         var totalCount = data.totalCount;
         var html = [];
-        for(var i = 0; i < obj.length; i++){
+        var data = '';
+        var $commentList = $("#commentList");
+        for(var i = obj.length-1; i >=0 ; i--){
             var column = obj[i].column || "";
             var createTime = obj[i].createTime || "";
             var content = obj[i].content || "";
             var realName = obj[i].user.realName || "";
+
             html.push('<li><p><i class="am-icon-user"></i>');
             html.push('<b>'+ realName +'</b></p>');
             html.push('<p>'+ content +'</p>');
             html.push('<p class="time">'+ createTime +'</p></li>');
         }
-        $("#commentList").html(html.join(''));
+        var data = html.join('');
+        var $data = $(data);
+        $commentList.append($data);
+        if(page<totalPages){
+            $('.load-more').show().bind('click',getComments);
+        }else{
+            $('.load-more').hide();
+        }
     }
 
     function issueComment(){
