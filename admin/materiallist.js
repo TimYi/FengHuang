@@ -37,7 +37,7 @@ function onload(){
 }
 function afterGetBrands4Select(data){
 	if(!isErrorData(data)){
-		brands = data.result;
+		brands = data.result.result;
 		brandDic = new Array();
 		for(var i in brands){
 			var products = brands[i].products;

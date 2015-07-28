@@ -27,7 +27,7 @@ function onload(){
 function afterGetNav4Select(data){
 	if(!isErrorData(data)){
 		navDic = new Array(); 
-		navs = data.result;		
+		navs = data.result.result;		
 		for(var i in navs){			
 			var nav = new Nav(navs[i].id,navs[i].title,navs[i].type);
 			navDic.push(nav);
