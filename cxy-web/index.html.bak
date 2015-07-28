@@ -281,6 +281,24 @@
         </div>
 		  </div>
 		</div>
+		<!--自定义广告区 开始-->
+		<div class="row" style="margin-top:30px">
+		  <div class="col-xs-6">
+        <div class="recent-work-wrap">
+          <div style="border:1px dashed #ccc;width:555px;height:150px;line-height:150px">
+          	首页广告区#001（555px×150px）
+          </div>
+        </div>
+		  </div>
+		  <div class="col-xs-6">
+        <div class="recent-work-wrap">
+					<div style="border:1px dashed #ccc;width:555px;height:150px;line-height:150px">
+						首页广告区#002（555px×150px）
+					</div>
+        </div>
+		  </div>
+		</div>
+		<!--自定义广告区 结束-->
   </div>
 </section>
 <!--集中展示区 结束-->
@@ -376,7 +394,7 @@
                 	电话：厦门网络公司0592-2129088<br/>厦门装饰公司0592-5109088
 
                 </h2>
-                <div style="margin-top:30px;text-shadow:none;" class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" >
+                <div style="text-shadow:none;" class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" >
                 	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">马上预约</button>
                 </div>
             </div>

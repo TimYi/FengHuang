@@ -983,7 +983,7 @@ input[placeholder],[placeholder],*[placeholder] {
 .center-wrap ul{padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;}
 .center-wrap ul li{padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;}
 .center-wrap ul li .dropdown{height:100px;}
-.center-wrap .cbox{margin-top:20px}
+.center-wrap .cbox{margin:15px 0 10px;}
 .center-wrap .cbox i{font-size:24px;color:#666}
 .center-wrap .cbox span{font-size:13px;}
 .house-list{padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;}

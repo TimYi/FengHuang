@@ -1,9 +1,10 @@
-<!doctype html>
+﻿<!doctype html>
 <html class="no-js">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>升级包</title>
+    <title>会员中心</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -12,34 +13,6 @@
     <link rel="icon" type="image/png" href="assets/i/favicon.png">
     <link rel="stylesheet" href="assets/css/amazeui.min.css">
     <link rel="stylesheet" href="assets/css/app.css">
-    <style>
-    .am-tabs-default .am-tabs-nav {
-        line-height: 40px;
-        background-color: #fff;
-        margin-top: 10px;
-    }
-    .am-tabs-default .am-tabs-nav a {
-        color: #ccc;
-        line-height: 45px;
-    }
-    .am-tabs-default .am-tabs-nav > .am-active a {
-        background-color: #fff;
-        color: #0e90d2;
-        box-shadow: inset -1px 0 1px -1px #999;
-    }
-    .x {
-        box-shadow: inset -1px 0 1px -1px #999;
-    }
-    #packageList li{
-        box-shadow:inset 1px -1px 1px -1px #aaa;
-    }
-    #packageList .cbox{
-        margin:10px 0;
-    }
-    .center-wrap i{
-        font-size:24px;
-    }
-    </style>
 </head>
 
 <body>
@@ -63,125 +36,151 @@
             </div>
         </nav>
     </div>
-
+    <!--banner+menu end-->
     <div data-am-widget="slider" class="am-slider am-slider-c3" data-am-slider='{&quot;controlNav&quot;:false}'>
         <ul class="am-slides" style="font-size:12px">
             <li>
-                <img src="images/rzb.jpg">
+                <img src="images/s_1.jpg">
+                <div class="am-slider-desc">
+                    <div class="am-slider-counter" style="background:#b9090e">
+                        <span class="am-active">1</span>/4</div>凤凰筑家 专筑您的爱家 / 互联网+家装</div>
             </li>
             <li>
-                <img src="images/dqb.jpg">
+                <img src="images/s_2.jpg">
+                <div class="am-slider-desc">
+                    <div class="am-slider-counter" style="background:#b9090e">
+                        <span class="am-active">2</span>/4</div>一站式套餐化解决方案，让您装修无忧</div>
             </li>
             <li>
-                <img src="images/gxhb.jpg">
+                <img src="images/s_3.jpg">
+                <div class="am-slider-desc">
+                    <div class="am-slider-counter" style="background:#b9090e">
+                        <span class="am-active">3</span>/4</div>35天标准化施工流程，透明互动放心</div>
+            </li>
+            <li>
+                <img src="images/s_4.jpg">
+                <div class="am-slider-desc">
+                    <div class="am-slider-counter" style="background:#b9090e">
+                        <span class="am-active">4</span>/4</div>凤凰家装贷为您提供最方便的金融方案</div>
             </li>
         </ul>
     </div>
-    <!--banner+menu end-->
-    <div class="am-form center-wrap">
-        <ul class="am-avg-sm-3" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
-            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
+    <div class="am-form center-wrap" id="center">
+        <ul class="am-avg-sm-3">
+            <li>
+                <div class="am-dropdown" data-am-dropdown style="">
+                    <a href="u_info.html">
+                        <div class="cbox">
+                            <i class="am-icon-user"></i>
+                            <br />
+                            <span>个人资料</span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;" data-am-widget="navbar">
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="t_sjb.html?packageId=799&type=rzb">
-                        <div style="margin:30px 0 0 0">
-                            <i class="am-icon-gift" style="color:#b9090e"></i>
-                            <br/>
-                            <span style="font-size:13px;">软装包</span>
+                    <a href="u_message.html">
+                        <div style="margin-top:20px">
+                            <i class="am-icon-envelope-o" style="font-size:24px;color:#666"></i>
+                            <br />
+                            <span style="font-size:13px;">我的留言</span>
                         </div>
                     </a>
                 </div>
             </li>
             <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="t_sjb.html?packageId=1099&type=dqb">
-                        <div style="margin:30px 0 0 0">
-                            <i class="am-icon-gift" style="color:#b9090e"></i>
-                            <br/>
-                            <span style="font-size:13px;">电器包</span>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
-                <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="t_sjb.html?packageId=1199&type=gxhb">
-                        <div style="margin:30px 0 0 0">
-                            <i class="am-icon-gift" style="color:#b9090e"></i>
-                            <br/>
-                            <span style="font-size:13px;">个性化包</span>
+                    <a href="u_live.html">
+                        <div style="margin-top:20px">
+                            <i class="am-icon-history" style="font-size:24px;color:#666"></i>
+                            <br />
+                            <span style="font-size:13px;">家装进度</span>
                         </div>
                     </a>
                 </div>
             </li>
         </ul>
-
         <ul class="am-avg-sm-3" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
             <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="tyg.html">
+                    <a href="u_order.html">
                         <div style="margin-top:20px">
-
+                            <i class="am-icon-check-square-o" style="font-size:24px;color:#666"></i>
+                            <br />
+                            <span style="font-size:13px;">我的订单</span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
+                <div class="am-dropdown" data-am-dropdown style="height:100px;margin-bottom:-8px">
+                    <a href="u_fav.html">
+                        <div style="margin:20px 0 0 0">
+                            <i class="am-icon-star-o" style="font-size:24px;color:#666"></i>
+                            <br />
+                            <span style="font-size:13px;">我的收藏</span>
                         </div>
                     </a>
                 </div>
             </li>
             <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="tyg.html">
+                    <a href="u_comment.html">
                         <div style="margin-top:20px">
-
+                            <i class="am-icon-comments-o" style="font-size:24px;color:#666"></i>
+                            <br />
+                            <span style="font-size:13px;">我的评论</span>
                         </div>
                     </a>
                 </div>
             </li>
-            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
-                <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="case.html">
-                        <div style="margin-top:20px">
-
-                        </div>
-                    </a>
-                </div>
-            </li>
+            
         </ul>
-         <ul class="am-avg-sm-3" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
+        <ul class="am-avg-sm-3" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
             <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="tyg.html">
+                    <a href="u_house.html">
                         <div style="margin-top:20px">
-
+                            <i class="am-icon-home" style="font-size:24px;color:#666"></i>
+                            <br />
+                            <span style="font-size:13px;">房屋信息</span>
                         </div>
                     </a>
                 </div>
             </li>
             <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="tyg.html">
+                    <a href="u_live.html">
                         <div style="margin-top:20px">
-
+                            <i class="am-icon-history" style="font-size:24px;color:#666"></i>
+                            <br />
+                            <span style="font-size:13px;">家装进度</span>
                         </div>
                     </a>
                 </div>
             </li>
             <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="case.html">
+                    <a href="u_coupon.html">
                         <div style="margin-top:20px">
-
+                            <i class="am-icon-certificate" style="font-size:24px;color:#666"></i>
+                            <br />
+                            <span style="font-size:13px;">我的优惠券</span>
                         </div>
                     </a>
                 </div>
             </li>
         </ul>
     </div>
-
+    <!--cubes end-->
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/amazeui.min.js"></script>
     <script src="js/libs/json.js"></script>
     <script src="js/libs/base.js"></script>
     <script src="js/libs/utils.js"></script>
     <script src="js/nav.js"></script>
-    <script src="js/package.js"></script>
+    <script src="js/center.js"></script>
 </body>
 
 </html>

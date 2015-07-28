@@ -7,6 +7,7 @@ $(function() {
     g.username = Base.userName;
     g.token = Utils.offLineStore.get("token", false);
     g.packageId = Utils.getQueryString("packageId");
+    g.type = Utils.getQueryString("type");
     g.totalPage = 1;
     g.currentPage = 1;
     g.paseSize = 10;
@@ -17,21 +18,6 @@ $(function() {
 
     getPackageDetail();
     getPackageMeterial();
-
-    function changeBtn(data){
-        var obj = data || '';
-        var $btn = $('#btn-buy');
-        $('#mainPic').attr('src','images/tc/tc_'+g.packageId+'.jpg');
-        if(obj.hasScrambled){
-            $btn.find("div").text("已抢购");
-        }else if(obj.hasAppointed){
-            $btn.find("div").text("立刻抢购");
-            $btn.attr('href','javascript:miaoSha(\'' + g.packageId + '\')');
-        }else{
-            $btn.find("div").text("立刻预约");
-            $btn.attr("href","subcheck.html?id="+g.packageId);
-        }
-    }
 
     function getPackageDetail(){
         var url = Base.packageDetail+'/'+g.packageId;
@@ -49,7 +35,7 @@ $(function() {
                 var status = data.status || "";
                 console.log(data);
                 if(status == "OK"){
-                    changeBtn(data.result);
+                    $('#mainPic').attr('src','images/sjb/sjb_'+g.type+'.jpg');
                 }else{
                     Utils.alert("套餐获取失败");
                 }
@@ -113,29 +99,24 @@ $(function() {
         $.AMUI.gallery.init();
     }
 
-    function miaoSha(id){
-        var url = Base.scramble;
+    function getPackageBrand(){
+        var url = Base.serverUrl+'/api/product/package/'+ g.packageId +'/materials';
         var condi = {};
-        condi.token = g.token;
-        condi.id = id;
-        condi.caseId = "";
+        condi.id = g.packageId;
         g.httpTip.show();
         $.ajax({
             url:url,
             data:condi,
-            type:"POST",
+            type:"GET",
             dataType:"json",
             context:this,
             global:false,
             success: function(data){
-                console.log("miaoSha",data);
                 var status = data.status || "";
                 if(status == "OK"){
-                    var orderId = data.result.id;
-                    location.href = "paycheck.html?id=" + orderId;
-                }
-                else{
-                    Utils.alert("抢购失败");
+                    changeMeterialHtml(data.result);
+                }else{
+                    Utils.alert("套餐主材获取失败");
                 }
                 g.httpTip.hide();
             },
@@ -145,5 +126,5 @@ $(function() {
         });
     }
 
-    window.miaoSha = miaoSha;
+
 });

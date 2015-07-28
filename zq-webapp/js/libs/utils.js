@@ -498,7 +498,7 @@ $(function(){
 	g.loginStatus = Utils.getUserInfo();
 
 	console.log(g.loginStatus);
-
+	
 	getPackages();
 
 	//获取字典
