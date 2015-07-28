@@ -281,6 +281,50 @@
         </div>
 		  </div>
 		</div>
+		<!--自定义广告区 开始-->
+		<div class="row" style="margin-top:30px">
+		  <div class="col-xs-6">
+        <div class="recent-work-wrap">
+          <img class="img-responsive" src="images/index_pt_6.png" alt="" style="height:150px">
+          <div class="overlay">
+            <div class="recent-work-inner">
+							<div class="row">
+							  <div class="col-xs-6">
+							  	【优惠券】现金抵用券<br/>
+							  	2015年8月30日前使用，每张抵用券在任意套餐只能使用一次。
+							  </div>
+							  <div class="col-xs-6" style="float:left">
+                	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+										<div id="yhqbtn1div"><a id="yhqbtn1" href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即领取</div></a></div>
+									</div>
+							  </div>
+							</div>
+            </div>
+          </div>
+        </div>
+		  </div>
+		  <div class="col-xs-6">
+        <div class="recent-work-wrap">
+          <img class="img-responsive" src="images/index_pt_7.png" alt="" style="height:150px">
+          <div class="overlay">
+            <div class="recent-work-inner">
+							<div class="row">
+							  <div class="col-xs-6">
+							  	【优惠券】电器包优惠券<br/>
+							  	2015年8月30日前使用，每张抵用券在任意套餐只能使用一次。
+							  </div>
+							  <div class="col-xs-6" style="float:left">
+                	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+										<div id="yhqbtn2div"><a id="yhqbtn2" href="javascript:void(0);"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即领取</div></a></div>
+									</div>
+							  </div>
+							</div>
+            </div>
+          </div>
+        </div>
+		  </div>
+		</div>
+		<!--自定义广告区 结束-->
   </div>
 </section>
 <!--集中展示区 结束-->
@@ -376,7 +420,7 @@
                 	电话：厦门网络公司0592-2129088<br/>厦门装饰公司0592-5109088
 
                 </h2>
-                <div style="margin-top:30px;text-shadow:none;" class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" >
+                <div style="text-shadow:none;" class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" >
                 	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">马上预约</button>
                 </div>
             </div>
