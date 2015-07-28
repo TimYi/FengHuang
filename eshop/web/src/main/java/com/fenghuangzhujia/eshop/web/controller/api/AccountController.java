@@ -1,5 +1,8 @@
 package com.fenghuangzhujia.eshop.web.controller.api;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationManager;
 import com.fenghuangzhujia.eshop.core.authentication.token.UserToken;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
+import com.fenghuangzhujia.eshop.core.user.UserService;
+import com.fenghuangzhujia.eshop.core.user.dto.UserDto;
 import com.fenghuangzhujia.eshop.core.validate.captcha.CaptchaManager;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
@@ -21,12 +26,13 @@ import com.fenghuangzhujia.foundation.utils.Servlets;
 public class AccountController {
 	
 	@Autowired
-	private MessageManager messageManager;
-	
+	private MessageManager messageManager;	
 	@Autowired
 	AuthenticationManager manager;
 	@Autowired
 	private CaptchaManager captchaManager;
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping(value="login",method=RequestMethod.POST)
 	public String login(@RequestParam String username,@RequestParam String password,@RequestParam String captcha,
@@ -35,7 +41,12 @@ public class AccountController {
 		String ip=Servlets.getClientIp(request);
 		UserToken token=manager.login(username, password, ip);
 		String tokenString=token.getToken();
-		return RequestResult.success(tokenString).toJson();
+		String userId=token.getUser().getId();
+		UserDto profile=userService.findOne(userId);
+		Map<String, Object> result=new HashMap<String, Object>();
+		result.put("token", tokenString);
+		result.put("profile", profile);
+		return RequestResult.success(result).toJson();
 	}
 	
 	@RequestMapping(value="logout",method=RequestMethod.POST)
