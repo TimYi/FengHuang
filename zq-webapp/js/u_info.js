@@ -12,13 +12,13 @@ $(function(){
 
 	$("#updatebtn").bind("click",updateUserInfo);
 	$("#updatebtn2").bind("click",updateUserInfo);
-	$("#loginoutbtn").bind("click",loginOut);
 	$("#updatepwdbtn").bind("click",updateUserPwd);
 
 	$("#updatepwdcodeimg").bind("click",getImgCode2);
 	$("#sendbtn").bind("click",getPhoneCode);
 
 	var loginStatus = Utils.getUserInfo();
+	console.log(loginStatus);
 	if(!loginStatus){
 		//未登录
 		location.replace("login.html");
@@ -46,12 +46,6 @@ $(function(){
 			},100);
 			g.username = Base.userName;
 		}
-	}
-
-	//安全退出
-	function loginOut(){
-		Utils.offLineStore.remove("userinfo",false);
-		location.href = "login.html";
 	}
 
 	//获取图形验证码
@@ -304,7 +298,6 @@ $(function(){
 		var url = Base.profileUrl;
 		var condi = {};
 		condi.token = g.token;
-		console.log(condi);
 		$.ajax({
 			url:url,
 			data:condi,

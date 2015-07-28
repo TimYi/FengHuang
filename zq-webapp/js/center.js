@@ -16,12 +16,6 @@ $(function(){
 
 	$('#loginOut').bind('click',loginOut);
 
-	//安全退出
-	function loginOut(){
-		Utils.offLineStore.remove("userinfo",false);
-		location.href = "login.html";
-	}
-	
 	function setCenterHtml(){
 		//var comments = obj.comments || 0;
 		//var coupons = obj.coupons || 0;
@@ -63,7 +57,7 @@ $(function(){
 		html.push('<a href="u_coupon.html?token=' +g.token +'&p=9" ' + (g.page == 9 ? h : "") + '>');
 		html.push('<div class="cbox"><i class="am-icon-certificate"></i><br /><span>我的优惠券</span></div></a></div></li>');
 		html.push('<li><div class="am-dropdown" data-am-dropdown>');
-		html.push('<a href="javscript:void(0);" id="loginOut">');
+		html.push('<a href="javascript:loginOut();">');
 		html.push('<div class="cbox"><i class="am-icon-sign-out"></i><br /><span>用户注销</span></div></a></div></li>');
 		html.push('</ul>');
 		$("#center").html(html.join(''));

@@ -100,7 +100,7 @@ $(function() {
     }
 
     function getPackageBrand(){
-        var url = Base.serverUrl+'/api/product/package/'+ g.packageId +'/materials';
+        var url = Base.serverUrl+'/api/product/package/'+ g.packageId +'/brands';
         var condi = {};
         condi.id = g.packageId;
         g.httpTip.show();
