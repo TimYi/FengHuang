@@ -14,34 +14,35 @@
     <link rel="stylesheet" href="assets/css/amazeui.min.css">
     <link rel="stylesheet" href="assets/css/app.css">
 </head>
-    <style>
-    .am-tabs-default .am-tabs-nav {
-        line-height: 40px;
-        background-color: #fff;
-        margin-top: 10px;
-    }
-    
-    .am-tabs-default .am-tabs-nav a {
-        color: #ccc;
-        line-height: 45px;
-    }
-    
-    .am-tabs-default .am-tabs-nav > .am-active a {
-        background-color: #fff;
-        color: #0e90d2;
-        box-shadow: inset -1px 0 1px -1px #999;
-    }
-    
-    .x {
-        box-shadow: inset -1px 0 1px -1px #999;
-    }
-    
-    .ttt {
-        font-size: 13px;
-        margin: -10px;
-        color: #666
-    }
-    </style>
+<style>
+.am-tabs-default .am-tabs-nav {
+    line-height: 40px;
+    background-color: #fff;
+    margin-top: 10px;
+}
+
+.am-tabs-default .am-tabs-nav a {
+    color: #ccc;
+    line-height: 45px;
+}
+
+.am-tabs-default .am-tabs-nav > .am-active a {
+    background-color: #fff;
+    color: #0e90d2;
+    box-shadow: inset -1px 0 1px -1px #999;
+}
+
+.x {
+    box-shadow: inset -1px 0 1px -1px #999;
+}
+
+.ttt {
+    font-size: 13px;
+    margin: -10px;
+    color: #666
+}
+</style>
+
 <body>
     <!--banner+menu start-->
     <div data-am-sticky>
@@ -68,60 +69,52 @@
         <ul class="am-slides" style="font-size:12px">
             <li>
                 <img src="images/s599.jpg">
-
             </li>
         </ul>
     </div>
-
     <div data-am-widget="tabs" class="am-tabs am-tabs-default" style="width:100%;padding:0;margin:0">
         <ul class="am-tabs-nav am-cf">
             <li class="am-active x" style="line-height:10px;">
                 <a href="[data-tab-panel-0]">
-                    <div class="ttt">套餐详情</div>
+                    <div class="ttt">预约抢购</div>
                 </a>
             </li>
-            <li class="am-active x" style="line-height:10px;">
+            <li class="x" style="line-height:10px;">
                 <a href="[data-tab-panel-1]">
                     <div class="ttt">主材展示</div>
                 </a>
             </li>
             <li class="x">
                 <a href="[data-tab-panel-2]">
-                    <div class="ttt">服务展示</div>
+                    <div class="ttt">空间展示</div>
                 </a>
             </li>
         </ul>
         <div class="am-tabs-bd" style="margin-top:10px;border:none; box-shadow:inset -1px 1px 1px -1px #999;padding:5px;">
             <div data-tab-panel-0 class="am-tab-panel am-active">
                 <div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-                    <a class="buy-pack" id="buy599" href="">
+                    <a id="btn-buy" class="buy-pack" href="">
                         <div>立刻抢购</div>
                     </a>
                 </div>
                 <p style="font-size:14px;line-height:18px;">
-                    599元/㎡家装套餐已开放抢购，先到者先得。提供免费验房、量房、设计，进度实时跟踪等服务，从毛坯到精装，史上性价比最高的家装解决方案。
+                    {根据不同套餐类型填充不同内容}
                 </p>
                 <hr/>
+              
                 <p style="font-size:14px;line-height:18px;color:#666">
-                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">人性化设计 HUMANIZED DESIGN</span></b>
+                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">专业化施工 + 人性化设计</span></b>
                     <br/>
                     <br/> 墙面处理 / 地面处理 / 防水处理 / 隐蔽施工 / 人性化设计 / 绿色环保 / 智能家居
+                    <br/>
+
                 </p>
                 <hr/>
-                <p style="font-size:14px;line-height:18px;color:#666">
-                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">名牌主辅材 FAMOUS MATERIAL</span></b>
-                    <br/>
-                    <br/> TATA、大自然、科勒、都芳、东鹏、金牌、九牧、友邦、西门子、雷士等10 大一线主材品牌,为您提供品质保障、极致体验。
-                </p>
-                <hr/>
-                <p style="font-size:14px;line-height:18px;color:#666">
-                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">35天工期 DAYS</span></b>
-                    <br/>
-                    <br/> 施工步骤紧密衔接，拒绝浪费时间，保证在35天内就为您完成装修，用最高效的方式让您享受最好最快的家装体验。39项标准节点和标准操作项目，三大改革装修不再磨洋工
-                </p>
                 <hr/>
                 <p style="font-size:14px;line-height:18px;color:#666">
                     <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">管家式服务 BUTLER SERVICE</span></b>
+                    <br/><br/>
+                    <img src="images/szjfw.gif" alt=""/>
                     <br/>
                     <br/> 专属服务：从下单到入住提供一对一全程服务；
                     <br/> 家装日报：装修进度每日更新；
@@ -133,115 +126,92 @@
                 </p>
             </div>
             <div data-tab-panel-1 class="am-tab-panel">
-    		        <span style="color:#000;font-size:14px;">大自然 ／ 实木地板</span>
-								<ul data-am-widget="gallery" class="am-gallery am-avg-sm-4
-								  am-gallery-default" data-am-gallery="{ pureview: true }">
-								  <li>
-								    <div class="am-gallery-item">
-								      <a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">
-								        <img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
-								      </a>
-								    </div>
-								  </li>
-								  <li>
-								    <div class="am-gallery-item">
-								      <a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">
-								        <img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
-								      </a>
-								    </div>
-								  </li>
-								  <li>
-								    <div class="am-gallery-item">
-								      <a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">
-								        <img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
-								      </a>
-								    </div>
-								  </li>
-								  <li>
-								    <div class="am-gallery-item">
-								      <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
-								        <img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
-								      </a>
-								    </div>
-								  </li>
-								</ul>    		        
-    		        <span style="color:#000;font-size:14px;">大自然 ／ 实木地板</span>
-								<ul data-am-widget="gallery" class="am-gallery am-avg-sm-4
-								  am-gallery-default" data-am-gallery="{ pureview: true }">
-								  <li>
-								    <div class="am-gallery-item">
-								      <a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">
-								        <img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
-								      </a>
-								    </div>
-								  </li>
-								  <li>
-								    <div class="am-gallery-item">
-								      <a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">
-								        <img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
-								      </a>
-								    </div>
-								  </li>
-								  <li>
-								    <div class="am-gallery-item">
-								      <a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">
-								        <img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
-								      </a>
-								    </div>
-								  </li>
-								  <li>
-								    <div class="am-gallery-item">
-								      <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
-								        <img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" />
-								      </a>
-								    </div>
-								  </li>
-								</ul>							
-            </div>
-            <div data-tab-panel-2 class="am-tab-panel">
-                <p style="font-size:14px;line-height:18px;">
-                    699元/㎡家装套餐已开放抢购，先到者先得。提供免费验房、量房、设计，进度实时跟踪等服务，从毛坯到精装，史上性价比最高的家装解决方案。
-                </p>
-                <hr/>
-                <p style="font-size:14px;line-height:18px;color:#666">
-                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">人性化设计 HUMANIZED DESIGN</span></b>
-                    <br/>
-                    <br/> 墙面处理 / 地面处理 / 防水处理 / 隐蔽施工 / 人性化设计 / 绿色环保 / 智能家居
-                </p>
-                <hr/>
                 <p style="font-size:14px;line-height:18px;color:#666">
                     <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">名牌主辅材 FAMOUS MATERIAL</span></b>
                     <br/>
                     <br/> TATA、大自然、科勒、都芳、东鹏、金牌、九牧、友邦、西门子、雷士等10 大一线主材品牌,为您提供品质保障、极致体验。
                 </p>
-                <hr/>
+                <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-gallery-default" data-am-gallery="{ pureview: true }">
+                  <li>
+                    <div class="am-gallery-item">
+                      <a href="http://www.ifhzj.com/assets/images/zfc/12.gif" class="">
+                        <img src="http://www.ifhzj.com/assets/images/zfc/12.gif" alt=""/>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="am-gallery-item">
+                      <a href="http://www.ifhzj.com/assets/images/zfc/10.gif" class="">
+                        <img src="http://www.ifhzj.com/assets/images/zfc/10.gif" alt=""/>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="am-gallery-item">
+                      <a href="http://www.ifhzj.com/assets/images/zfc/8.gif" class="">
+                        <img src="http://www.ifhzj.com/assets/images/zfc/8.gif" alt=""/>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="am-gallery-item">
+                      <a href="http://www.ifhzj.com/assets/images/zfc/3.gif" class="">
+                        <img src="http://www.ifhzj.com/assets/images/zfc/3.gif" alt=""/>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="am-gallery-item">
+                      <a href="http://www.ifhzj.com/assets/images/zfc/1.gif" class="">
+                        <img src="http://www.ifhzj.com/assets/images/zfc/1.gif" alt=""/>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="am-gallery-item">
+                      <a href="http://www.ifhzj.com/assets/images/s2.gif" class="">
+                        <img src="http://www.ifhzj.com/assets/images/s2.gif" alt=""/>
+                      </a>
+                    </div>
+                  </li>
+                </ul>                     	
+                <div id="meterialWrap"></div>
+            </div>
+            <div data-tab-panel-2 class="am-tab-panel">
                 <p style="font-size:14px;line-height:18px;color:#666">
-                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">35天工期 DAYS</span></b>
-                    <br/>
-                    <br/> 施工步骤紧密衔接，拒绝浪费时间，保证在35天内就为您完成装修，用最高效的方式让您享受最好最快的家装体验。39项标准节点和标准操作项目，三大改革装修不再磨洋工
+                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">厨房</span></b>
                 </p>
-                <hr/>
-                <p style="font-size:14px;line-height:18px;color:#666">
-                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">管家式服务 BUTLER SERVICE</span></b>
-                    <br/>
-                    <br/> 专属服务：从下单到入住提供一对一全程服务；
-                    <br/> 家装日报：装修进度每日更新；
-                    <br/> 在线客服：网上客服、400服务热线；
-                    <br/> 增值服务：提供丰富的专项增值服务；
-                    <br/> 终身维护：装修档案终身留存，迅捷维护；
-                    <br/> 售后维修：水电5年，基础施工2年质保；
-                    <br/> 实时互动：实时掌握家装动态，与施工人员实时沟通；
-                </p>
+                <form class="am-form">
+                    <p style="font-size:14px;line-height:26px;color:#333;font-weight:800;">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <table class="table u_ct_15" style="font-size:12px">
+                                    <tr class="u_th" style="border-bottom:2px solid #ddd;border-top:2px solid #fff;">
+                                        <th width=20%>项目</th>
+                                        <th width=20%>品牌</th>
+                                        <th width=20%>数量</th>
+                                        <th width=40%>详细说明</th>
+                                    </tr>
+                                    <tr style="border-bottom:1px solid #ddd;border-top:2px solid #fff;">
+                                        <td>地面</td>
+                                        <td>东鹏</td>
+                                        <td>不限</td>
+                                        <td>地砖（配套踢脚线）</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </p>  
             </div>
         </div>
     </div>
-
-
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/amazeui.min.js"></script>
     <script src="js/libs/json.js"></script>
     <script src="js/libs/base.js"></script>
     <script src="js/libs/utils.js"></script>
     <script src="js/nav.js"></script>
+    <script src="js/tc_detail.js"></script>
 </body>
+
 </html>
