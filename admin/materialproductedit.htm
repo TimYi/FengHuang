@@ -31,7 +31,7 @@ function onload(){
 }
 function afterGetBrands4Select(data){
 	if(!isErrorData(data)){
-		brands = data.result;
+		brands = data.result.result;
 		getDataById(MATERIAL_PRODUCT,id,afterGetDataById);
 	}
 }
