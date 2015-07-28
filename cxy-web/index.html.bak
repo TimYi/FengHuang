@@ -285,12 +285,16 @@
 		<div class="row" style="margin-top:30px">
 		  <div class="col-xs-6">
         <div class="recent-work-wrap">
-          <div style="border:1px dashed #f9f9f9;width:555px;height:150px"></div>
+          <div style="border:1px dashed #ccc;width:555px;height:150px;line-height:150px">
+          	首页广告区#001（555px×150px）
+          </div>
         </div>
 		  </div>
 		  <div class="col-xs-6">
         <div class="recent-work-wrap">
-					<div style="border:1px dashed #f9f9f9;width:555px;height:150px"></div>
+					<div style="border:1px dashed #ccc;width:555px;height:150px;line-height:150px">
+						首页广告区#002（555px×150px）
+					</div>
         </div>
 		  </div>
 		</div>
