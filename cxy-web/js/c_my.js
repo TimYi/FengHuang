@@ -263,7 +263,7 @@ $(function(){
 		var bloodgroup = obj.bloodType || {};
 
 		g.username = obj.username;
-		Base.userName = obj.username;
+		//Base.userName = obj.username;
 
 		//获取验证码
 		//getImgCode();

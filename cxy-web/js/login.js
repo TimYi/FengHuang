@@ -113,12 +113,12 @@ $(function(){
 				var status = data.status || "";
 				if(status == "OK"){
 					//保存用户数据
-					Utils.offLineStore.set("userinfo",JSON.stringify(condi),false);
+					Utils.offLineStore.set("userinfo",JSON.stringify(data.result.profile),false);
 					if(autoLogin){
 						//保存自动登录数据
 					}
 					//location.href = "center.html";
-					var token = data.result || "";
+					var token = data.result.token || "";
 					Utils.offLineStore.set("token",token,false);
 					location.href = "center.html?token=" + token + "&p=0";
 				}

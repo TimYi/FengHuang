@@ -453,7 +453,12 @@ if(typeof console == "undefined"){
 		var info = offLineStore.get("userinfo",false) || "";
 		if(info !== ""){
 			var obj = JSON.parse(info) || {};
-			var userName = obj.username;
+			var userName = obj.cnname || "";
+			if(userName === ""){
+				userName = obj.username || "";
+			}
+
+			Base.userName = userName;
 			//已登录
 			var html = [];
 			var token = Utils.offLineStore.get("token",false) || "";
