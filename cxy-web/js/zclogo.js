@@ -89,7 +89,7 @@ $(function(){
 		else if(pack == 1199){
 			title = "个性化包详情";
 		}
-		logo.push('<h2>' + title + 'q<span style="font-size:24px"> FAMOUS MATERIAL</span></h2>');
+		logo.push('<h2>' + title + '<span style="font-size:24px"> FAMOUS MATERIAL</span></h2>');
 		logo.push('<p class="lead">' + pb.join('、') + '等' + pb.length + ' 大一线主材品牌,为您提供品质保障、极致体验</p>');
 		logo.push('</div>');
 		logo.push('<div class="pricing-area text-center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">');
