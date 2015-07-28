@@ -76,8 +76,8 @@ function loginSubmit(){
 		submitAsyFormByJson(LOGIN, 'login', 
 			function(data){
 				if(data.status == 'OK') {
-					token = data.result;
-					//alert(token);
+					token = data.result.token;
+					alert(token);
 					window.location.href=INDEX+"?u="+$("#username").val()+"&token="+token;
 				}else{
 					friendlyTip(data);
