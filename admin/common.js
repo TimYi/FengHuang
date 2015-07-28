@@ -50,7 +50,10 @@ function filterSelected(items){
 //判断获取的数据是否正确
 function isErrorData(data){
 	if(data.status === 'ERROR'){
-		alert(data.error+'代码('+data.code+')，描述信息：'+data.errorDescription);
+		alert(data.error+'，描述信息：'+data.errorDescription);
+		if(data.code === 11){
+			window.parent.location.href = "login.html";
+		}
 		
 	}else if(data.status === 'OK'){
 		return false;
