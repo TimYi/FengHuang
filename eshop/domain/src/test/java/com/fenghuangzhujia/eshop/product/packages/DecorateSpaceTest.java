@@ -31,7 +31,7 @@ public class DecorateSpaceTest {
 		item1=createItem("五金", "九牧", "一套", "九牧八件套");
 		item2=createItem("洁具", "科勒", "一套", "淋浴花洒、坐便器（含角阀及软管）、台盆、龙头各1套");
 		items=createItems(item1,item2);		
-		addSpace("699", "卫生间", 1, "C:/Users/pc/Desktop/4.jpg", "C:/Users/pc/Desktop/5.jpg", "C:/Users/pc/Desktop/6.jpg", items);
+		addSpace("599", "卫生间", 1, "C:/Users/pc/Desktop/4.jpg", "C:/Users/pc/Desktop/5.jpg", "C:/Users/pc/Desktop/6.jpg", items);
 	}
 	
 	private DecorateItemDto createItem(String name, String brand, String number, String description) {
