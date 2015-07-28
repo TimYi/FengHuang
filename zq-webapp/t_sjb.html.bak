@@ -76,12 +76,12 @@
         <ul class="am-tabs-nav am-cf">
             <li class="am-active x" style="line-height:10px;">
                 <a href="[data-tab-panel-0]">
-                    <div class="ttt">升级包详情</div>
+                    <div class="ttt">预约</div>
                 </a>
             </li>
             <li class="am-active x" style="line-height:10px;">
                 <a href="[data-tab-panel-1]">
-                    <div class="ttt">主材展示</div>
+                    <div class="ttt">升级包详情</div>
                 </a>
             </li>
         </ul>
