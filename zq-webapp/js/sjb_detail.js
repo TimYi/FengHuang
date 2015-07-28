@@ -17,6 +17,7 @@ $(function() {
     g.loginStatus = Utils.getUserInfo();
 
     getPackageDetail();
+    getPackageBrand();
     getPackageMeterial();
 
     function getPackageDetail(){
@@ -114,9 +115,9 @@ $(function() {
             success: function(data){
                 var status = data.status || "";
                 if(status == "OK"){
-                    changeMeterialHtml(data.result);
+                    changeBrandHtml(data.result);
                 }else{
-                    Utils.alert("套餐主材获取失败");
+                    Utils.alert("套餐品牌获取失败");
                 }
                 g.httpTip.hide();
             },
@@ -126,5 +127,24 @@ $(function() {
         });
     }
 
+    function changeBrandHtml(data){
+        var obj = data || '';
+        var len = obj.length;
+        var html = [];
+        var logo_name = [];
+        for(var i =0;i<len;i++){
+            var logourl = obj[i].logo.url || '';
+            var name = obj[i].name || '';
+            logo_name.push(name);
+            html.push('<li><div class="am-gallery-item">');
+            html.push('<a href="'+ logourl +'" class="">');
+            html.push('<img src="'+ logourl +'" alt="'+ name +'"/>');
+            html.push('</a></div></li>');
+        }
+        $('#logoWrap').html(html.join(''));
+        $('#logo-all').html(logo_name.join('、'));
+        $('#logo-num').html(len);
+        $.AMUI.gallery.init();
+    }
 
 });
