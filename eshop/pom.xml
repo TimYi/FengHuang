@@ -16,5 +16,6 @@
 		<module>core</module>
 		<module>web</module>
 		<module>domain</module>
+		<module>admin</module>
 	</modules>
 </project>
