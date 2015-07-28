@@ -41,16 +41,16 @@ public class CouponsController {
 	}
 	
 	@RequestMapping(value="coupons/scramble",method=RequestMethod.GET)
-	public String scramble() {
-		CouponsDefDto def=couponsDefService.findByEvent("qg");
+	public String scramble(@RequestParam(defaultValue="qg") String event) {
+		CouponsDefDto def=couponsDefService.findByEvent(event);
 		return RequestResult.success(def).toJson();
 	}
 	
 	@RequestMapping(value="coupons/scramble",method=RequestMethod.POST)
-	public String doScramble(){
+	public String doScramble(@RequestParam(defaultValue="qg") String event) {
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userId=details.getId();
-		CouponsDto result=couponsAllocater.scramble(userId);
+		CouponsDto result=couponsAllocater.scramble(userId, event);
 		return RequestResult.success(result).toJson();
 	}
 }

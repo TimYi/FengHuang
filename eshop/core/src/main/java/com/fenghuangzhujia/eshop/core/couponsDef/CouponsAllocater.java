@@ -81,10 +81,10 @@ public class CouponsAllocater {
 	 * @param userId
 	 * @return 是否抢购成功
 	 */
-	public CouponsDto scramble(String userId) {
-		CouponsDef def=defRepository.findByEvent("qg");
+	public CouponsDto scramble(String userId, String event) {
+		CouponsDef def=defRepository.findByEvent(event);
 		if(def==null)throw new ErrorCodeException(SystemErrorCodes.OTHER, "还没有开始优惠券抢购活动，敬请期待");
-		List<Coupons> qgCouponses=couponsRepository.findByUserIdAndType(userId, "qg");
+		List<Coupons> qgCouponses=couponsRepository.findByUserIdAndType(userId, event);
 		if(qgCouponses==null || !qgCouponses.isEmpty())
 			throw new ErrorCodeException(SystemErrorCodes.OTHER, "您已经抢购过一张优惠券");
 		User user=userRepository.findOne(userId);

@@ -42,7 +42,7 @@ public class KhthService {
 		RefundRequestData data=new RefundRequestData(masterId, termSsn, osttDate, oacqSsn, mercCode, termCode,
 				tranAmt, remark1, remark2);
 		RequestModel model=new RequestModel(data);
-		String result=httpsService.postXml(RequestModel.TEST_URL, model.toXml());
+		String result=httpsService.postXml(RequestModel.PRODUCTION_URL, model.toXml());
 		ResponseModel<RefundResponseData> response=ResponseModel.fromXml(result, RefundResponseData.class);
 		return response;
 	}

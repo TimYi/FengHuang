@@ -25,7 +25,7 @@ public class CouponsDef extends UUIDBaseModel {
 	private String name;
 	/**优惠券金额*/
 	private Double money;
-	/**剩余优惠券数量*/
+	/**总共优惠券数量*/
 	private Integer remainCount=0;
 	/**已经分发优惠券数量*/
 	private Integer consumedCount=0;
@@ -37,6 +37,9 @@ public class CouponsDef extends UUIDBaseModel {
 	
 	@Transient
 	public Coupons generateCoupons(User user) {
+		if(!inUse) {
+			throw new ErrorCodeException(SystemErrorCodes.OTHER, "优惠券尚未开始发放");
+		}
 		Coupons coupons=new Coupons();
 		coupons.setUser(user);
 		coupons.setName(name);
