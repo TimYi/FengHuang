@@ -28,8 +28,8 @@
 					optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...',event:{change:onBrandChange}">
 				</select>
 				分类选择：
-				<select data-bind="value:selectedProduct,options:selectedBrand().productDic,optionsText:'name',
-						valueAllowUnset: true,optionsCaption: '请选择...', event:{change:onProductChange}">
+				<select data-bind="value:selectedProduct,options:productDic,optionsText:'name',
+						valueAllowUnset: false,optionsCaption: '请选择...', event:{change:onProductChange}">
 				</select>
 			</div>
 		</div>

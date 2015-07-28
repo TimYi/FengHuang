@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head> 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -27,87 +27,93 @@
     <script src="libs/json.js"></script>
 		<script src="libs/base.js"></script>
 		<script src="libs/utils.js"></script>
-
-</head><!--/head-->
+</head>
 <body>
-<!-- header-->
+
+<!-- 顶部BANNER 开始-->
 <header id="header" style="border-bottom:1px solid #f6f6f6;">
-    <div class="top-bar">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-xs-4">
-                    <div class="top-number">
-                    	<p>
-                    		<i class="fa fa-phone-square"></i>
-                    		<span style="color:#666">&nbsp;&nbsp;400-968-9088</span>
-                    		&nbsp;&nbsp;&nbsp;&nbsp;
-                    		<i class="fa fa-map-marker"></i>
-                    		<span style="color:#666">&nbsp;&nbsp;<span id="city">定位获取中...</span> <!--span style="font-size:12px;color:#aaa">[ <a href="">切换</a> ]</span--></span>
-                    	</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xs-8">
-                   <div class="social">
-                        <ul id="loginstatus" class="social-share">
-													<li style="padding-right:10px;">
-														<i class="fa fa-sign-in hui"></i>
-														<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
-															<a href="center/reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
-															<a href="center/login.html" style="width:30px">登录</a>
-														</b>
-													</li>
-                        </ul>
-                        <a href="yqcy.html">一起创业</a>
-                   </div>
-                </div>
+  <div class="top-bar">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-xs-4">
+            <div class="top-number">
+            	<p>
+            		<i class="fa fa-phone-square"></i>
+            		<span style="color:#666">&nbsp;&nbsp;400-968-9088</span>
+            		&nbsp;&nbsp;&nbsp;&nbsp;
+            		<i class="fa fa-map-marker"></i>
+            		<span style="color:#666">&nbsp;&nbsp;<span id="city">定位获取中...</span></span>
+            	</p>
             </div>
-        </div><!--/.container-->
-    </div><!--/.top-bar-->
+          </div>
+        <div class="col-sm-6 col-xs-8">
+         <div class="social">
+            <ul id="loginstatus" class="social-share">
+							<li style="padding-right:10px;">
+								<i class="fa fa-sign-in hui"></i>
+								<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
+									<a href="center/reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
+									<a href="center/login.html" style="width:30px">登录</a>
+								</b>
+							</li>
+            </ul>
+            <a href="yqcy.html">一起创业</a>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+	<!--导航栏 模板 开始-->
+	<nav id="navdiv" class="navbar navbar-inverse" role="banner" style="height:85px">
+	  <div class="container" style="display:none;">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="index.html"><img src="assets/images/fhzj.jpg" alt="logo"></a>
+	    </div>
+	
+	    <div class="collapse navbar-collapse navbar-right">
+	      <ul class="nav navbar-nav">
+	        <li></li>
+	        <li class="dropdown">
+	          <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-angle-down"></i></a>
+	          <ul class="dropdown-menu">
+	            <li></li>
+	            <li></li>
+	            <li></li>
+	            <li></li>
+	            <li></li>
+	          </ul>
+	        </li>
+	        <li></li>
+	        <li></li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-angle-down"></i></a>
+	          <ul class="dropdown-menu">
+							<li></li>
+							<li></li>
+	          </ul>
+	        </li>
+					<li></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	<!--导航栏 模板 结束-->
+		
+	<!--导航栏 加载 开始-->
+	<script src="js/navigations.js" type="text/javascript"></script>
+	<!--导航栏 加载 结束-->
 
-    <nav id="navdiv" class="navbar navbar-inverse" role="banner" style="height:85px">
-        <div class="container" style="display:none;">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html"><img src="assets/images/fhzj.jpg" alt="logo"></a>
-            </div>
+</header>
+<!-- 顶部BANNER 结束-->
 
-            <div class="collapse navbar-collapse navbar-right">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.html">首页</a></li>
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">家装套餐 <i class="fa fa-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="tc_799.html">软装套餐</a></li>
-                            <li style="padding:0 5px;margin:5px 0;border-bottom:1px solid #555"></li>
-                            <li><a href="tmzs.html">流程展示</a></li>
-                            <li><a href="gyzs.html">工艺展示</a></li>
-                            <li><a href="zczs.html">主材展示</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="jzd.html">家装贷</a></li>
-                    <li><a href="tyg.html">体验馆</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">案例 / Live直播 <i class="fa fa-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-													<li><a href="case.html">案例集锦</a></li>
-													<li><a href="live.html">家装进行时</a></li>
-                        </ul>
-                    </li>
-										<li style="border:0px"><a href="fhgj.html">凤凰管家</a></li>
-                </ul>
-            </div>
-        </div><!--/.container-->
-    </nav><!--/nav-->
-    <script src="js/navigations.js" type="text/javascript"></script>
-    <script type="text/javascript">
-	//$($("#navul li")[0]).addClass("active");
-    </script>
-</header><!--/header-->
+<!--客服弹窗 模板 开始-->
 <link rel="stylesheet" href="assets/css/index.css" type="text/css" media="screen" />
 <div class="service_box">
   <ul class="tab_nav">
@@ -134,402 +140,165 @@
     </div>
   </div>
 </div>
+<!--客服弹窗 模板 结束-->
 
-<script type="text/javascript" src="assets/js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript">
-$(".service_box .tab_nav li").hover(function(){
-	var i=$(this).index();
-	$(this).addClass("active").siblings().removeClass("active");
-	$(".service_box .tab_plan:eq("+i+")").show().siblings().hide();
-});
-$(function(){
-	var t;
-	$(".service_box").hover(function(){
-		$(".service_box").animate({right:0},300)
-		clearTimeout(t);
-	},function(){
-		t=setTimeout(function(e){
-			$(".service_box").animate({right:"-146px"},300);
-			$(".service_box").find(".tab_nav li").removeClass("active");
-		},1000);
-	});
-});
-var isTransition=true;
-$(".m_logo").hover(function(){
-	var r=0;
-	if(isTransition){
-		animateTime = setInterval(function(){
-			if (r>=153){
-				clearInterval(animateTime);
-				isTransition=true;
-			}else{
-				isTransition=false;
-				r++;
-				$(".m_logo a").attr("style","-webkit-mask:-webkit-gradient(radial, 45 25, "+r+", 45 25, "+(r+15)+", from(rgb(0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0.2)), to(rgb(0, 0, 0)));")
-			};
-		},5);
-	}
-},function(){
-	return;
-});
-
-</script>
-
-
-<!--header-->
-
+<!--幻灯片 开始-->
 <script src="js/carousels.js" type="text/javascript"></script>
-<!--
-<section id="main-slider" class="no-margin">
-    <div class="carousel slide">
-        <ol class="carousel-indicators">
-            <li data-tarGet="#main-slider" data-slide-to="0" class="active"></li>
-            <li data-target="#main-slider" data-slide-to="1"></li>
-            <li data-target="#main-slider" data-slide-to="2"></li>
-            <li data-target="#main-slider" data-slide-to="3"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="item active" style="background-image: url(images/z_001.jpg)">
-                <div class="container">
-                    <div class="row slide-margin">
-                        <div class="col-sm-6 animation animated-item-1">
-                            <div class="carousel-content" style="margin-top:120px;">
-                                <img src="images/index_hd_1_left.png" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!--幻灯片 结束-->
 
-            <div class="item" style="background-image: url(images/699_bg_1.jpg)">
-                <div class="container">
-                    <div class="row slide-margin">
-                        <div class="col-sm-6">
-                            <div class="carousel-content"  style="margin:40px 0 0 300px;">
-																<img src="images/699_bg_2.png" class="animation animated-item-1" />
-			                        	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-																	<a href="tc_699.html" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">了解详情</div></a>
-																</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item" style="background-image: url(images/599_bg_1.jpg)">
-                <div class="container">
-                    <div class="row slide-margin">
-                        <div class="col-sm-6">
-                            <div class="carousel-content" style="margin:20px 0 0 320px;">
-                                <img src="images/599_bg_2.png" class="animation animated-item-1" />
-			                        	<div class="animation animated-item-3" style="margin-top:20px;margin-left:20px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-																	<a href="tc_599.html" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">了解详情</div></a>
-																</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item" style="background-image: url(images/jzd_bg_1.jpg)">
-                <div class="container">
-                    <div class="row slide-margin">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
-        <i class="fa fa-chevron-left"></i>
-    </a>
-    <a class="next hidden-xs" href="#main-slider" data-slide="next">
-        <i class="fa fa-chevron-right"></i>
-    </a>
-</section>/#main-slider-->
-
-
+<!--集中展示区 开始-->
 <section id="recent-works"  style="border-top:1px solid #f6f6f6;">
-    <div class="container">
-       	<div class="center wow fadeInDown">
-            <h2>家装套餐＋升级包选购<br/><span style="font-size:24px"> HOME IMPROVEMENT PACKAGES</span></h2>
-            <p class="lead">专注工艺，不抢工期，一线名牌主辅材料，预约体验所见即所得，现已开放抢购，2000套名额先到先得。</p>
-        </div>
-
-				<div class="row">
-				  <div class="col-xs-12 col-sm-6 col-md-8">
-                <div class="recent-work-wrap">
-                    <img class="img-responsive" src="images/index_pt_5.png" alt="" style="height:273px">
-                    <div class="overlay">
-                        <div class="recent-work-inner" style="padding-left:20px">
-                            <h3><a href="#">699元/㎡【奢华家装套餐】</a></h3>
-                            <p>
-															奢华精装套餐，包工包料，国际国内一线品牌主辅材，35天工期，网上预约，先到先得。
-			                        	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;display:none;">
-																	<a href="javascript:;" class="buynow699" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
-																</div>
-                            </p>
-                            <!--a class="preview" href=""images/space/space10.jpg"" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
-                        </div>
-                    </div>
-                </div>
-				  </div>
-				  <div class="col-xs-6 col-md-4">
-                <div class="recent-work-wrap">
-                    <img class="img-responsive" src="images/index_pt_1.png" alt="">
-                    <div class="overlay">
-                        <div class="recent-work-inner">
-                            <h3><a href="#">599元/㎡【豪华家装套餐】</a></h3>
-                            <p>
-															豪华精装套餐，包工包料，国内一线品牌主辅材，35天工期，网上预约，先到先得。
-			                        	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;display:none;">
-																	<a href="javascript:;" class="buynow599" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
-																</div>
-                            </p>
-                            <!--a class="preview" href="images/space/space1.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
-                        </div>
-                    </div>
-                </div>
-				  </div>
-				</div>
-				<div class="row" style="margin-top:30px">
-				  <div class="col-xs-6 col-sm-4">
-            <div class="recent-work-wrap">
-              <img class="img-responsive" src="images/index_pt_2.png" alt="">
-              <div class="overlay">
-                <div class="recent-work-inner">
-                    <h3><a href="#">【升级】电器包</a></h3>
-                    <p>
-											空调、冰箱、滚筒洗衣机（海尔）、热水器（史密斯）；详情请垂询当地体验店或拨打服务热线400-968-9088
-                      	<!--div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;display:none;">
-													<a href="javascript:;" class="buynow899" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
-												</div-->
-                    <div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-                    <a href="rzb.html?packageId=799"><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">了解详情</div></a>
-                    </div>                                                 
-                    </p>
-                    <!--a class="preview" href="images/space/space1.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
-                </div>
-              </div>
-            </div>
-				  </div>
-				  <div class="col-xs-6 col-sm-4">
-            <div class="recent-work-wrap">
-              <img class="img-responsive" src="images/index_pt_3.png" alt="">
-              <div class="overlay">
-                <div class="recent-work-inner">
-                  <h3><a href="#">【升级】软装包</a></h3>
-                  <p>
-										地毯、床上用品、家居摆件、钟表、画框；详情请垂询当地体验店或拨打服务热线400-968-9088
-                  	<!--div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;display:none;">
-											<a href="javascript:;" class="buynow799" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
-										</div-->
-                    <div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-                    <a href="rzb.html?packageId=799"><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">了解详情</div></a>
-                    </div>                                         
-                  </p>
-                  <!--a class="preview" href="images/space/space1.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
-                </div>
-              </div>
-            </div>
-				  </div>
-
-				  <div class="col-xs-6 col-sm-4">
-            <div class="recent-work-wrap">
-              <img class="img-responsive" src="images/index_pt_4.png" alt="">
-              <div class="overlay">
-                <div class="recent-work-inner">
-                  <h3><a href="#">【升级】个性化包</a></h3>
-                  <p>
-					壁纸、客厅吊顶、背景墙；详情请垂询当地体验店或拨打服务热线400-968-9088
-                    <!--div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;display:none;">
-                    <a href="javascript:;" class="buynow799" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
-                    </div-->
-                    <div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-                    <a href="gxhb.html?packageId=1199"><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">了解详情</div></a>
-                    </div>                                        
-                  </p>
-                  <!--a class="preview" href="images/space/space1.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> 了解详情</a-->
-                </div>
-              </div>
-            </div>
-				  </div>
-				</div>
-
-				<div class="row" style="margin-top:30px">
-				  <div class="col-xs-6">
-            <div class="recent-work-wrap">
-              <img class="img-responsive" src="images/index_pt_6.png" alt="" style="height:150px">
-              <div class="overlay">
-                <div class="recent-work-inner">
-									<div class="row">
-									  <div class="col-xs-6">
-									  	【优惠券】现金抵用券<br/>
-									  	2015年8月30日前使用，每张抵用券在任意套餐只能使用一次。
-									  </div>
-									  <div class="col-xs-6" style="float:left">
-                    	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-												<div id="yhqbtn1div"><a id="yhqbtn1" href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即领取</div></a></div>
-											</div>
-									  </div>
-									</div>
-                </div>
-              </div>
-            </div>
-				  </div>
-				  <div class="col-xs-6">
-            <div class="recent-work-wrap">
-              <img class="img-responsive" src="images/index_pt_7.png" alt="" style="height:150px">
-              <div class="overlay">
-                <div class="recent-work-inner">
-									<div class="row">
-									  <div class="col-xs-6">
-									  	【优惠券】电器包优惠券<br/>
-									  	2015年8月30日前使用，每张抵用券在任意套餐只能使用一次。
-									  </div>
-									  <div class="col-xs-6" style="float:left">
-                    	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-												<div id="yhqbtn2div"><a id="yhqbtn2" href="javascript:void(0);"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即领取</div></a></div>
-											</div>
-									  </div>
-									</div>
-                </div>
-              </div>
-            </div>
-				  </div>
-				</div>
+  <div class="container">
+   	<div class="center wow fadeInDown">
+      <h2>家装套餐＋升级包选购<br/><span style="font-size:24px"> HOME IMPROVEMENT PACKAGES</span></h2>
+      <p class="lead">专注工艺，不抢工期，一线名牌主辅材料，预约体验所见即所得，现已开放抢购，2000套名额先到先得。</p>
     </div>
-</section>
-
-
-<!--section id="feature" >
-    <div class="container">
-       	<div class="center wow fadeInDown">
-            <h2>家装套餐 <span style="font-size:24px">HOME RENOVATION PACKAGES</span></h2>
-            <p class="lead">699元/㎡家装套餐，提供可选软装包及电器包，限量抢购，先到先得！</p>
+		<div class="row">
+		  <div class="col-xs-12 col-sm-6 col-md-8">
+        <div class="recent-work-wrap">
+          <img class="img-responsive" src="images/index_pt_5.png" alt="" style="height:273px">
+          <div class="overlay">
+            <div class="recent-work-inner" style="padding-left:20px">
+               <h3><a href="#">699元/㎡【奢华家装套餐】</a></h3>
+              <p>
+								奢华精装套餐，包工包料，国际国内一线品牌主辅材，35天工期，网上预约，先到先得。
+              	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;display:none;">
+									<a href="javascript:;" class="buynow699" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
+								</div>
+              </p>
+            </div>
+          </div>
         </div>
-
-        <div class="row">
-					<div class="col-md-8 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-						<div style="background-image: url(assets/images/z_005.jpg);width:750px;height:400px">
-							<div>
-                <div class="feature-wrap" style="border:0;height:290px;color:#fff;text-shadow: 0 0 2px #333;color:#fff;margin-left:30px;">
-                    <h3 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="font-weight: 800;font-size:24px;text-shadow: 0 0 2px #333;color:#fff;margin-top:100px">RMB 699元/㎡ 【家装套餐】</h1>
-                    <h4 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="font-weight: 800;text-shadow: 0 0 2px #333;line-height:28px;color:#fff;line-height:24px;">
-                    	精装套餐，包工包料，一线品牌主辅材，35天工期，网上预约，先到先得
-                    </h2>
-                    <div style="margin-top:30px;text-shadow:none;" class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" >
-                    	<div style="height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;display:none;">
-												<a href="javascript:;" class="buynow" ><div style="text-align:center;line-height:45px;font-size:16px;color:#000;font-weight:800">立刻抢购</div></a>
-                    	</div>
-                    </div>
-                </div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" >
-						<div style="background-image: url(assets/images/z_004.jpg);width:360px;height:400px">
-							<div>
-                <div class="feature-wrap" style="border:0;height:350px;color:#fff;text-shadow: 0 0 2px #333;color:#fff;">
-                  <h3 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="font-weight: 800;font-size:24px;text-shadow: 0 0 2px #333;color:#fff;text-align:center;margin-top:50px">软装精品 799元/㎡起</h3>
-                  <h3 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="font-weight: 800;font-size:24px;text-shadow: 0 0 2px #333;color:#fff;text-align:center;margin-top:200px">电器套装 敬请期待</h3>
-                </div>
-							</div>
-						</div>
-					</div>
-				</div>
-    </div>
-</section-->
-
-
-
-
-
-<section id="about-us"  style="border-top:1px solid #f6f6f6;margin-bottom:-100px;background:#f9f9f9">
-    <div class="container">
-			<div class="center wow fadeInDown" style="padding-bottom:0px">
-          <h2>服务流程 <span style="font-size:24px">CASE PROCESS</span></h2>
-      </div>
-			<div class="row" style="margin:0 0 -100px 0">
-					<img src="images/fwlc.png">
-					<!--div class="col-md-2 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="margin-right:44px;">
-					    <div class="feature-wrap">
-					        <i class="fa fa-clock-o"></i>
-					        <h3 class="f_16">1 线上预约<br/>体验店选套餐</h3>
-
-					    </div>
-					</div>
-
-					<div class="col-md-2  wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="margin-right:44px;">
-					    <div class="feature-wrap">
-					        <i class="fa fa-rmb"></i>
-					        <h3 class="f_16">2 支付1千元定金<br/>银联微信支付宝</h3>
-					    </div>
-					</div>
-
-					<div class="col-md-2  wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="margin-right:44px;">
-					    <div class="feature-wrap">
-					        <i class="fa fa-check-square-o"></i>
-					        <h3 class="f_16">3 体验店选材</h3>
-					    </div>
-					</div>
-
-					<div class="col-md-2  wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="margin-right:44px;">
-					    <div class="feature-wrap">
-					        <i class="fa fa-pencil"></i>
-					        <h3 class="f_16">4 免费测量<br/>免费设计</h3>
-					    </div>
-					</div>
-
-					<div class="col-md-2  wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-					    <div class="feature-wrap">
-					        <i class="fa fa-file-text-o"></i>
-					        <h3 class="f_16">5 签订合同<br/>支付80%工程款</h3>
-					    </div>
-					</div>
-
-					<div style="clear:both"></div>
-
-					<div class="col-md-2  wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="margin-right:44px;">
-					    <div class="feature-wrap">
-					        <i class="fa fa-bookmark"></i>
-					        <h3 class="f_16">6 办开工手续<br/>装修准备工作</h3>
-					    </div>
-					</div>
-
-
-
-					<div class="col-md-2 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="margin-right:44px;">
-					    <div class="feature-wrap">
-					        <i class="fa fa-history"></i>
-					        <h3 class="f_16">7 开始装修</h3>
-					    </div>
-					</div>
-
-					<div class="col-md-2  wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="margin-right:44px;">
-					    <div class="feature-wrap">
-					        <i class="fa fa-user"></i>
-					        <h3 class="f_16">8 工程监理</h3>
-					    </div>
-					</div>
-
-					<div class="col-md-2  wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="margin-right:44px;">
-					    <div class="feature-wrap">
-					        <i class="fa fa-search"></i>
-					        <h3 class="f_16">9 免费验房</br>支付20%尾款</h3>
-					    </div>
-					</div>
-
-					<div class="col-md-2  wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-					    <div class="feature-wrap">
-					        <i class="fa fa-cog"></i>
-					        <h3 class="f_16">10 售后服务</h3>
-					    </div>
-					</div-->
-
-			</div>
+		  </div>
+		  <div class="col-xs-6 col-md-4">
+        <div class="recent-work-wrap">
+          <img class="img-responsive" src="images/index_pt_1.png" alt="">
+          <div class="overlay">
+            <div class="recent-work-inner">
+              <h3><a href="#">599元/㎡【豪华家装套餐】</a></h3>
+              <p>
+								豪华精装套餐，包工包料，国内一线品牌主辅材，35天工期，网上预约，先到先得。
+              	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;display:none;">
+									<a href="javascript:;" class="buynow599" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
+								</div>
+              </p>
+            </div>
+          </div>
+        </div>
+		  </div>
 		</div>
-	</div><!--/.container-->
-</section><!--/about-us-->
+		<div class="row" style="margin-top:30px">
+		  <div class="col-xs-6 col-sm-4">
+        <div class="recent-work-wrap">
+          <img class="img-responsive" src="images/index_pt_2.png" alt="">
+          <div class="overlay">
+            <div class="recent-work-inner">
+                <h3><a href="#">【升级】电器包</a></h3>
+                <p>
+									空调、冰箱、滚筒洗衣机（海尔）、热水器（史密斯）；详情请垂询当地体验店或拨打服务热线400-968-9088
+                <div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                <a href="rzb.html?packageId=799"><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">了解详情</div></a>
+                </div>                                                 
+                </p>
+            </div>
+          </div>
+        </div>
+		  </div>
+		  <div class="col-xs-6 col-sm-4">
+        <div class="recent-work-wrap">
+          <img class="img-responsive" src="images/index_pt_3.png" alt="">
+          <div class="overlay">
+            <div class="recent-work-inner">
+              <h3><a href="#">【升级】软装包</a></h3>
+              <p>
+								地毯、床上用品、家居摆件、钟表、画框；详情请垂询当地体验店或拨打服务热线400-968-9088
+                <div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                <a href="rzb.html?packageId=799"><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">了解详情</div></a>
+                </div>                                         
+              </p>
+            </div>
+          </div>
+        </div>
+		  </div>
+		  <div class="col-xs-6 col-sm-4">
+        <div class="recent-work-wrap">
+          <img class="img-responsive" src="images/index_pt_4.png" alt="">
+          <div class="overlay">
+            <div class="recent-work-inner">
+              <h3><a href="#">【升级】个性化包</a></h3>
+              <p>
+								壁纸、客厅吊顶、背景墙；详情请垂询当地体验店或拨打服务热线400-968-9088
+                <a href="javascript:;" class="buynow799" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
+                </div-->
+                <div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                <a href="gxhb.html?packageId=1199"><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">了解详情</div></a>
+                </div>                                        
+              </p>
+            </div>
+          </div>
+        </div>
+		  </div>
+		</div>
+		<div class="row" style="margin-top:30px">
+		  <div class="col-xs-6">
+        <div class="recent-work-wrap">
+          <img class="img-responsive" src="images/index_pt_6.png" alt="" style="height:150px">
+          <div class="overlay">
+            <div class="recent-work-inner">
+							<div class="row">
+							  <div class="col-xs-6">
+							  	【优惠券】现金抵用券<br/>
+							  	2015年8月30日前使用，每张抵用券在任意套餐只能使用一次。
+							  </div>
+							  <div class="col-xs-6" style="float:left">
+                	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+										<div id="yhqbtn1div"><a id="yhqbtn1" href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即领取</div></a></div>
+									</div>
+							  </div>
+							</div>
+            </div>
+          </div>
+        </div>
+		  </div>
+		  <div class="col-xs-6">
+        <div class="recent-work-wrap">
+          <img class="img-responsive" src="images/index_pt_7.png" alt="" style="height:150px">
+          <div class="overlay">
+            <div class="recent-work-inner">
+							<div class="row">
+							  <div class="col-xs-6">
+							  	【优惠券】电器包优惠券<br/>
+							  	2015年8月30日前使用，每张抵用券在任意套餐只能使用一次。
+							  </div>
+							  <div class="col-xs-6" style="float:left">
+                	<div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+										<div id="yhqbtn2div"><a id="yhqbtn2" href="javascript:void(0);"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即领取</div></a></div>
+									</div>
+							  </div>
+							</div>
+            </div>
+          </div>
+        </div>
+		  </div>
+		</div>
+  </div>
+</section>
+<!--集中展示区 结束-->
 
+<!--服务流程 开始-->
+<section id="about-us"  style="border-top:1px solid #f6f6f6;margin-bottom:-100px;background:#f9f9f9">
+  <div class="container">
+		<div class="center wow fadeInDown" style="padding-bottom:0px">
+        <h2>服务流程 <span style="font-size:24px">CASE PROCESS</span></h2>
+    </div>
+		<div class="row" style="margin:0 0 -100px 0">
+				<img src="images/fwlc.png">
+		</div>
+	</div>
+</section>
+<!--服务流程 结束-->
+
+<!--快捷注册弹窗 模板 开始-->
 <style>
 .form-group{padding-bottom:25px}
 </style>
@@ -574,21 +343,318 @@ $(".m_logo").hover(function(){
 				      <button id="getcodebtn" type="button" class="btn btn-default" style="float:right;margin-top:-34px;width:115px">发送短信</button>
 				    </div>
 				  </div>
-
 				  <div class="form-group" style="padding-top:20px 0 100px 0">
 				    <div class="col-sm-offset-2 col-sm-10" style="width:83%">
 				      <button id="sendbtn" type="button" class="btn btn-default btn-primary" style="margin-left:2px;margin-right:10px">注册</button>
 				      <button id="resetbtn" type="button" class="btn btn-default btn-primary">重置</button>
-                      &nbsp;&nbsp;<a href="center/login.html"><div class="btn btn-default btn-primary">登录</div></a>
-                    </div>
+							&nbsp;&nbsp;<a href="center/login.html"><div class="btn btn-default btn-primary">登录</div></a>
+						</div>
 				  </div>
-
         </form>
       </div>
     </div>
   </div>
 </div>
+<!--快捷注册弹窗 模板 结束-->
 
+
+<!--体验馆 开始-->
+<section id="feature" style="border-top:1px solid #f6f6f6;">
+  <div class="container">
+   	<div class="center wow fadeInDown">
+        <h2>体验馆 <span style="font-size:24px">EXPERIENCE MUSEUM</span></h2>
+        <p class="lead">实景样板空间，现场主材选购，所见即所得，一站式家装体验</p>
+    </div>
+    <div class="row">
+			<div class="col-md-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+				<div style="background-image: url(assets/images/banner_tyg.jpg);width:1140px;height:250px;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px;">
+					<div>
+            <div class="feature-wrap" style="border:0;height:290px;color:#fff;text-shadow: 0 0 2px #333;color:#fff;margin-left:30px;">
+                <h3 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="font-weight: 800;font-size:24px;text-shadow: 0 0 2px #333;color:#fff;margin-top:50px">厦门馆</h1>
+                <h4 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="font-weight: 800;text-shadow: 0 0 2px #333;line-height:28px;color:#fff;line-height:24px;">
+                	厦门市湖里区金泰路1798创业大街5层
+                </h2>
+                <div style="margin-top:30px;text-shadow:none;" class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" >
+                	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">马上预约</button>
+                </div>
+            </div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+				<div>
+					<div>
+            <div class="feature-wrap" style="border:0;height:290px;color:#fff;text-shadow: 0 0 2px #333;color:#fff;margin-left:40px;">
+                <h3 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="font-weight: 800;font-size:24px;text-shadow: 0 0 2px #333;color:#fff;margin-top:50px">北京馆即将开业 COME SOON</h1>
+                <h4 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="font-weight: 800;text-shadow: 0 0 2px #333;line-height:28px;color:#fff;line-height:24px;">
+                	北京市朝阳区朝阳路大黄庄桥西IdeaPark铭基国际创意公园C栋
+                </h2>
+            </div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+</section>
+<!--体验馆 结束-->
+
+<!--我们的团队 开始-->
+<section id="recent-works" style="border-top:1px solid #f6f6f6;background:#f9f9f9">
+  <div class="container">
+    <div class="center wow fadeInDown">
+        <h2>我们的团队 <span style="font-size:24px">OUR TEAM</span></h2>
+        <p class="lead">家装一体化团队，全标准化作业流程，从验房、量房到设计、施工、交付，高效、便捷一站式服务</p>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="recent-work-wrap">
+          <img class="img-responsive" src="assets/images/o-1.jpg" alt="">
+          <div class="overlay">
+              <div class="recent-work-inner">
+                  <h3><a href="#">销售团队</a> </h3>
+                  <p>所有客户都享受一对一的专属销售服务</p>
+                  <!--备用按钮-->
+                  <!--a class="preview" href="fhzj/images/team/team_1.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a-->
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="recent-work-wrap">
+          <img class="img-responsive" src="assets/images/o-2.jpg" alt="">
+          <div class="overlay">
+            <div class="recent-work-inner">
+              <h3><a href="#">设计团队</a></h3>
+              <p>每个家装项目都有专属的设计团队负责，每个作品都是凤凰筑家的样板间</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="recent-work-wrap">
+          <img class="img-responsive" src="assets/images/o-3.jpg" alt="">
+          <div class="overlay">
+            <div class="recent-work-inner">
+              <h3><a href="#">测量团队</a></h3>
+              <p>专业测量团队，精准、精确</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="recent-work-wrap">
+          <img class="img-responsive" src="assets/images/o-4.jpg" alt="">
+          <div class="overlay">
+            <div class="recent-work-inner">
+              <h3><a href="#">施工团队</a></h3>
+              <p>自有专业施工人员，标准化作业</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="recent-work-wrap">
+          <img class="img-responsive" src="assets/images/o-5.jpg" alt="">
+          <div class="overlay">
+            <div class="recent-work-inner">
+              <h3><a href="#">客服团队</a></h3>
+              <p>在线客服24小时竭诚为您服务</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="recent-work-wrap">
+          <img class="img-responsive" src="assets/images/o-6.jpg" alt="">
+          <div class="overlay">
+            <div class="recent-work-inner">
+                <h3><a href="#">售后团队</a></h3>
+                <p>终身维护是凤凰的承诺，我们不仅筑巢，更是爱巢的卫士</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="recent-work-wrap">
+          <img class="img-responsive" src="assets/images/o-7.jpg" alt="">
+          <div class="overlay">
+            <div class="recent-work-inner">
+                <h3><a href="#">监理团队</a></h3>
+                <p>严格监管施工质量，严格控制实施进度，保障装修质量</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="recent-work-wrap">
+          <img class="img-responsive" src="assets/images/o-8.jpg" alt="">
+          <div class="overlay">
+            <div class="recent-work-inner">
+              <h3><a href="#">管理团队</a></h3>
+              <p>专业化管理团队，结合高效化管理经验，保障客户利益</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--我们的团队 结束-->
+
+<!--联系电话JS 开始-->
+<script src="js/tel.js"></script>
+<!--联系电话JS 结束-->
+
+<!--底部文章 开始-->
+<section id="bottom" style="padding:40px 0">
+  <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+    <div class="row">
+      <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:185px;margin-right:35px">
+        <div class="widget">
+          <h3>帮助中心</h3>
+          <ul>
+            <li><a href="newsshow.html?cid=21&id=22">服务指南</a></li>
+            <li><a href="newsshow.html?cid=21&id=23">支付方式</a></li>
+            <li><a href="newsshow.html?cid=21&id=24">常见问题</a></li>
+          </ul>
+        </div>
+      </div><!--/.col-md-3-->
+
+      <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
+        <div class="widget">
+          <h3>服务支持</h3>
+          <ul>
+            <li><a href="newsshow.html?cid=22&id=25">售后政策</a></li>
+            <li><a href="newsshow.html?cid=22&id=26">自助服务</a></li>
+            <li><a href="newsshow.html?cid=22&id=27">相关下载</a></li>
+          </ul>
+        </div>
+      </div><!--/.col-md-3-->
+
+      <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
+        <div class="widget">
+          <h3>凤凰之家</h3>
+          <ul>
+            <li><a href="newsshow.html?cid=23&id=28">会员俱乐部</a></li>
+            <li><a href="newsshow.html?cid=23&id=29">会员活动</a></li>
+            <li><a href="newsshow.html?cid=23&id=30">VIP服务</a></li>
+          </ul>
+        </div>
+      </div><!--/.col-md-3-->
+
+      <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
+        <div class="widget">
+          <h3>关于我们</h3>
+          <ul>
+            <li><a href="newsshow.html?cid=24&id=31">联系我们</a></li>
+            <li><a href="newsshow.html?cid=24&id=32">了解我们</a></li>
+            <!--li><a href="newsshow.html?cid=24&id=33">加入我们</a></li-->
+          </ul>
+        </div>
+      </div><!--/.col-md-3-->
+
+      <div class="col-md-3 col-sm-6" style="width:190px;margin-right:45px">
+        <div class="widget">
+          <h3>官方媒体</h3>
+          <ul>
+            <li><a href="#">新浪微博</a></li>
+            <li><a href="#">微信公众号</a></li>
+            <li><a href="#">天猫网店</a></li>
+          </ul>
+        </div>
+      </div><!--/.col-md-3-->
+    </div>
+  </div>
+</section>
+<!--底部文章 结束-->
+
+
+<!--底部BANNER 开始-->
+<footer id="footer" class="midnight-blue">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+          &copy; 2015 厦门凤凰筑家网络科技有限公司 保留所有权利
+      </div>
+      <div class="col-sm-6">
+        <ul class="pull-right">
+          <li><a href="#">闽ICP备15010680号-1</li>
+          <!--li><a href="#">京网文29239-12312</a></li-->
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!--底部BANNER 结束-->
+
+
+<!--BAIDU定位JS 开始-->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=9Z4yvIoj9jnpKfPA4igxxbLP"></script>
+<div id="allmap"></div>
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");
+	var point = new BMap.Point(116.331398,39.897445);
+	map.centerAndZoom(point,12);
+
+	function myFun(result){
+		var cityName = result.name;
+		map.setCenter(cityName);
+		$("#city").html(cityName);
+	}
+	var myCity = new BMap.LocalCity();
+	myCity.get(myFun);
+</script>
+<!--BAIDU定位JS 结束-->
+
+<!--客服弹窗JS 开始-->
+<script type="text/javascript" src="assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(".service_box .tab_nav li").hover(function(){
+	var i=$(this).index();
+	$(this).addClass("active").siblings().removeClass("active");
+	$(".service_box .tab_plan:eq("+i+")").show().siblings().hide();
+});
+$(function(){
+	var t;
+	$(".service_box").hover(function(){
+		$(".service_box").animate({right:0},300)
+		clearTimeout(t);
+	},function(){
+		t=setTimeout(function(e){
+			$(".service_box").animate({right:"-146px"},300);
+			$(".service_box").find(".tab_nav li").removeClass("active");
+		},1000);
+	});
+});
+var isTransition=true;
+$(".m_logo").hover(function(){
+	var r=0;
+	if(isTransition){
+		animateTime = setInterval(function(){
+			if (r>=153){
+				clearInterval(animateTime);
+				isTransition=true;
+			}else{
+				isTransition=false;
+				r++;
+				$(".m_logo a").attr("style","-webkit-mask:-webkit-gradient(radial, 45 25, "+r+", 45 25, "+(r+15)+", from(rgb(0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0.2)), to(rgb(0, 0, 0)));")
+			};
+		},5);
+	}
+},function(){
+	return;
+});
+</script>
+<!--客服弹窗JS 结束-->
+
+<!--快捷注册弹窗JS 开始-->
 <script>
 $('#exampleModal').on('show.bs.modal', function (event) {
 	//判断是否已注册
@@ -616,267 +682,9 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 	}
 })
 </script>
+<!--快捷注册弹窗JS 结束-->
 
-<section id="feature" style="border-top:1px solid #f6f6f6;">
-    <div class="container">
-       	<div class="center wow fadeInDown">
-            <h2>体验馆 <span style="font-size:24px">EXPERIENCE MUSEUM</span></h2>
-            <p class="lead">实景样板空间，现场主材选购，所见即所得，一站式家装体验</p>
-        </div>
-
-        <div class="row">
-					<div class="col-md-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-						<div style="background-image: url(assets/images/banner_tyg.jpg);width:1140px;height:250px;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px;">
-							<div>
-                <div class="feature-wrap" style="border:0;height:290px;color:#fff;text-shadow: 0 0 2px #333;color:#fff;margin-left:30px;">
-                    <h3 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="font-weight: 800;font-size:24px;text-shadow: 0 0 2px #333;color:#fff;margin-top:50px">厦门馆</h1>
-                    <h4 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="font-weight: 800;text-shadow: 0 0 2px #333;line-height:28px;color:#fff;line-height:24px;">
-                    	厦门市湖里区金泰路1798创业大街5层
-                    </h2>
-                    <div style="margin-top:30px;text-shadow:none;" class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" >
-                    	<!--div style="height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-												<a id="subbtn" href="center/reg.html"  ><div style="text-align:center;line-height:45px;font-size:16px;color:#000;font-weight:800">马上预约</div></a>
-                    	</div-->
-                    	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">马上预约</button>
-                    </div>
-                </div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-						<div>
-							<div>
-                <div class="feature-wrap" style="border:0;height:290px;color:#fff;text-shadow: 0 0 2px #333;color:#fff;margin-left:40px;">
-                    <h3 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="font-weight: 800;font-size:24px;text-shadow: 0 0 2px #333;color:#fff;margin-top:50px">北京馆即将开业 COME SOON</h1>
-                    <h4 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" style="font-weight: 800;text-shadow: 0 0 2px #333;line-height:28px;color:#fff;line-height:24px;">
-                    	北京市朝阳区朝阳路大黄庄桥西IdeaPark铭基国际创意公园C栋
-                    </h2>
-                </div>
-							</div>
-						</div>
-					</div>
-				</div>
-    </div>
-</section>
-
-
-<section id="recent-works" style="border-top:1px solid #f6f6f6;background:#f9f9f9">
-    <div class="container">
-        <div class="center wow fadeInDown">
-            <h2>我们的团队 <span style="font-size:24px">OUR TEAM</span></h2>
-            <p class="lead">家装一体化团队，全标准化作业流程，从验房、量房到设计、施工、交付，高效、便捷一站式服务</p>
-        </div>
-
-        <div class="row">
-            <div class="col-xs-12 col-sm-4 col-md-3">
-                <div class="recent-work-wrap">
-                    <img class="img-responsive" src="assets/images/o-1.jpg" alt="">
-                    <div class="overlay">
-                        <div class="recent-work-inner">
-                            <h3><a href="#">销售团队</a> </h3>
-                            <p>所有客户都享受一对一的专属销售服务</p>
-                            <!--a class="preview" href="fhzj/images/team/team_1.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-4 col-md-3">
-                <div class="recent-work-wrap">
-                    <img class="img-responsive" src="assets/images/o-2.jpg" alt="">
-                    <div class="overlay">
-                        <div class="recent-work-inner">
-                            <h3><a href="#">设计团队</a></h3>
-                            <p>每个家装项目都有专属的设计团队负责，每个作品都是凤凰筑家的样板间</p>
-                            <!--a class="preview" href="fhzj/images/team/team_2.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-4 col-md-3">
-                <div class="recent-work-wrap">
-                    <img class="img-responsive" src="assets/images/o-3.jpg" alt="">
-                    <div class="overlay">
-                        <div class="recent-work-inner">
-                            <h3><a href="#">测量团队</a></h3>
-                            <p>专业测量团队，精准、精确</p>
-                            <!--a class="preview" href="fhzj/images/team/team_3.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-4 col-md-3">
-                <div class="recent-work-wrap">
-                    <img class="img-responsive" src="assets/images/o-4.jpg" alt="">
-                    <div class="overlay">
-                        <div class="recent-work-inner">
-                            <h3><a href="#">施工团队</a></h3>
-                            <p>自有专业施工人员，标准化作业</p>
-                            <!--a class="preview" href="fhzj/images/team/team_12.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-4 col-md-3">
-                <div class="recent-work-wrap">
-                    <img class="img-responsive" src="assets/images/o-5.jpg" alt="">
-                    <div class="overlay">
-                        <div class="recent-work-inner">
-                            <h3><a href="#">客服团队</a></h3>
-                            <p>在线客服24小时竭诚为您服务</p>
-                            <!--a class="preview" href="fhzj/images/team/team_5.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-4 col-md-3">
-                <div class="recent-work-wrap">
-                    <img class="img-responsive" src="assets/images/o-6.jpg" alt="">
-                    <div class="overlay">
-                        <div class="recent-work-inner">
-                            <h3><a href="#">售后团队</a></h3>
-                            <p>终身维护是凤凰的承诺，我们不仅筑巢，更是爱巢的卫士</p>
-                            <!--a class="preview" href="fhzj/images/team/team_10.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-4 col-md-3">
-                <div class="recent-work-wrap">
-                    <img class="img-responsive" src="assets/images/o-7.jpg" alt="">
-                    <div class="overlay">
-                        <div class="recent-work-inner">
-                            <h3><a href="#">监理团队</a></h3>
-                            <p>严格监管施工质量，严格控制实施进度，保障装修质量</p>
-                            <!--a class="preview" href="fhzj/images/team/team_7.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-4 col-md-3">
-                <div class="recent-work-wrap">
-                    <img class="img-responsive" src="assets/images/o-8.jpg" alt="">
-                    <div class="overlay">
-                        <div class="recent-work-inner">
-                            <h3><a href="#">管理团队</a></h3>
-                            <p>专业化管理团队，结合高效化管理经验，保障客户利益</p>
-                            <!--a class="preview" href="fhzj/images/team/team_9.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!--/.row-->
-    </div><!--/.container-->
-</section><!--/#recent-works-->
-<!--footer-->
-
-<!--联系电话-->
-<script src="js/tel.js"></script>
-
-
-<section id="bottom" style="padding:40px 0">
-    <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-        <div class="row">
-            <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:185px;margin-right:35px">
-                <div class="widget">
-                    <h3>帮助中心</h3>
-                    <ul>
-                        <li><a href="newsshow.html?cid=21&id=22">服务指南</a></li>
-                        <li><a href="newsshow.html?cid=21&id=23">支付方式</a></li>
-                        <li><a href="newsshow.html?cid=21&id=24">常见问题</a></li>
-                    </ul>
-                </div>
-            </div><!--/.col-md-3-->
-
-            <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
-                <div class="widget">
-                    <h3>服务支持</h3>
-                    <ul>
-                        <li><a href="newsshow.html?cid=22&id=25">售后政策</a></li>
-                        <li><a href="newsshow.html?cid=22&id=26">自助服务</a></li>
-                        <li><a href="newsshow.html?cid=22&id=27">相关下载</a></li>
-                    </ul>
-                </div>
-            </div><!--/.col-md-3-->
-
-            <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
-                <div class="widget">
-                    <h3>凤凰之家</h3>
-                    <ul>
-                        <li><a href="newsshow.html?cid=23&id=28">会员俱乐部</a></li>
-                        <li><a href="newsshow.html?cid=23&id=29">会员活动</a></li>
-                        <li><a href="newsshow.html?cid=23&id=30">VIP服务</a></li>
-                    </ul>
-                </div>
-            </div><!--/.col-md-3-->
-
-            <div class="col-md-3 col-sm-6" style="border-right:1px solid #ccc;width:190px;margin-right:45px">
-                <div class="widget">
-                    <h3>关于我们</h3>
-                    <ul>
-                        <li><a href="newsshow.html?cid=24&id=31">联系我们</a></li>
-                        <li><a href="newsshow.html?cid=24&id=32">了解我们</a></li>
-                        <!--li><a href="newsshow.html?cid=24&id=33">加入我们</a></li-->
-                    </ul>
-                </div>
-            </div><!--/.col-md-3-->
-
-            <div class="col-md-3 col-sm-6" style="width:190px;margin-right:45px">
-                <div class="widget">
-                    <h3>官方媒体</h3>
-                    <ul>
-                        <li><a href="#">新浪微博</a></li>
-                        <li><a href="#">微信公众号</a></li>
-                        <li><a href="#">天猫网店</a></li>
-                    </ul>
-                </div>
-            </div><!--/.col-md-3-->
-        </div>
-    </div>
-</section><!--/#bottom-->
-
-<footer id="footer" class="midnight-blue">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                &copy; 2015 厦门凤凰筑家网络科技有限公司 保留所有权利
-            </div>
-            <div class="col-sm-6">
-                <ul class="pull-right">
-                    <li><a href="#">闽ICP备15010680号-1</li>
-                    <!--li><a href="#">京网文29239-12312</a></li-->
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer><!--/#footer-->
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=9Z4yvIoj9jnpKfPA4igxxbLP"></script>
-<div id="allmap"></div>
-<script type="text/javascript">
-	// 百度地图API功能
-	var map = new BMap.Map("allmap");
-	var point = new BMap.Point(116.331398,39.897445);
-	map.centerAndZoom(point,12);
-
-	function myFun(result){
-		var cityName = result.name;
-		map.setCenter(cityName);
-		$("#city").html(cityName);
-	}
-	var myCity = new BMap.LocalCity();
-	myCity.get(myFun);
-</script>
-
-<!--footer-->
-
-
-
+<!--JS引用区 开始-->
 <script type="text/javascript" src="assets/js/sales.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/jquery.prettyPhoto.js"></script>
@@ -884,6 +692,8 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 <script src="assets/js/wow.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/reg.js"></script>
+<!--JS引用区 结束-->
+
 </body>
 </html>
 

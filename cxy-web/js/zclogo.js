@@ -49,7 +49,7 @@ $(function(){
 				console.log("sendBrandsHttp",data);
 				var status = data.status || "";
 				if(status == "OK"){
-					changeMeteriasHtml(data.result);
+					changeBrandsHtml(data.result);
 				}
 				else{
 					var msg = data.errorDescription || "";
@@ -64,7 +64,7 @@ $(function(){
 	}
 
 
-	function changeMeteriasHtml(data){
+	function changeBrandsHtml(data){
 		var obj = data || [];
 
 		var pb = [];
@@ -117,8 +117,8 @@ $(function(){
 			var products = obj[j].products || [];
 			for(var k = 0,klen = products.length; k < klen; k++){
 				var pname = products[k].name || "";
-
-				phtml.push('<tr style="border-top:2px solid #ccc">');
+				var css = j == 0 ? "border-top:2px solid #ccc" : "border-top:1px solid #ccc";
+				phtml.push('<tr style="' + css + '">');
 				if(k == 0){
 					phtml.push('<td style="vertical-align: middle;" rowspan=' + klen + '>' + logoName + '</td>');
 				}

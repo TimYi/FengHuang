@@ -958,14 +958,15 @@ input[placeholder],[placeholder],*[placeholder] {
    	margin:-41px 1px 0 0;
    	width:15px;
 } 
-.input-group-addon, .input-group-btn {
+.input-group-addon, .input-group-btn { 
     vertical-align: middle;
     white-space: nowrap;
     width: 1%;
 }
+/*
 .am-form input[type="text"]{border-color:#e0e0e0}
 .am-form input:focus[type="text"]{border-color:#e0e0e0}
-
+*/
 .u_message > ul{list-style:none;padding:15px;}
 .u_message > ul > dt{font-size:16px}
 .u_message > ul > dd{font-size:13px;color:#aaa;}

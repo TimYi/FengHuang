@@ -36,7 +36,7 @@
 						changeCarouselsHtml(data);
 					}
 					else{
-						var msg = data.error || "";
+						var msg = data.errorDescription || "";
 						Utils.alert("获取轮播图错误:" + msg);
 					}
 					//g.httpTip.hide();
@@ -47,7 +47,7 @@
 			});
 		}
 		else{
-			alert("链接错误");
+			//alert("链接错误");
 		}
 	}
 
