@@ -1,7 +1,6 @@
 package com.fenghuangzhujia.eshop.core.couponsDef;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,9 +83,11 @@ public class CouponsAllocater {
 	public CouponsDto scramble(String userId, String event) {
 		CouponsDef def=defRepository.findByEvent(event);
 		if(def==null)throw new ErrorCodeException(SystemErrorCodes.OTHER, "还没有开始优惠券抢购活动，敬请期待");
+		/** 临时去掉优惠券抢购限制
 		List<Coupons> qgCouponses=couponsRepository.findByUserIdAndType(userId, event);
 		if(qgCouponses==null || !qgCouponses.isEmpty())
 			throw new ErrorCodeException(SystemErrorCodes.OTHER, "您已经抢购过一张优惠券");
+			*/
 		User user=userRepository.findOne(userId);
 		Coupons coupons=def.generateCoupons(user);
 		if(coupons==null)throw new ErrorCodeException(SystemErrorCodes.OTHER, "优惠券已经抢光喽");

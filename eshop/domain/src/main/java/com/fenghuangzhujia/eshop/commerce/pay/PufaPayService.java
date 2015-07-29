@@ -4,10 +4,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.SignatureException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.lang3.StringUtils;
 import org.sharechina.pay.pufa.protocal.AccountType;
 import org.sharechina.pay.pufa.protocal.PayBank;
 import org.sharechina.pay.pufa.protocal.PayType;
@@ -79,7 +80,7 @@ public class PufaPayService {
 	 * @return
 	 */
 	public RequestModel calculatePayArgs(String userId, String orderId,
-			String couponsId, PayBank payBank, AccountType accountType, SourceType source) {
+			String[] couponsId, PayBank payBank, AccountType accountType, SourceType source) {
 		User user=userRepository.findOne(userId);
 		if(user==null) throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "错误的用户");
 		GoodOrder order=orderRepository.findOne(orderId);
@@ -102,11 +103,18 @@ public class PufaPayService {
 			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "订单已经支付成功，请勿重复支付");
 		
 		//计算优惠结果		
-		if(StringUtils.isNotBlank(couponsId)) {	
-			Coupons coupons=couponsRepository.findOne(couponsId);
-			if(coupons!=null) {
-				Set<Coupons> couponsSet=new HashSet<Coupons>();
-				couponsSet.add(coupons);
+		if(couponsId!=null) {	
+			Map<String, Coupons> couponses=new HashMap<String, Coupons>();
+			for (String id : couponsId) {
+				Coupons coupons=couponsRepository.findOne(id);
+				if(coupons==null) continue;
+				if(couponses.containsKey(coupons.getType())) {
+					throw new ErrorCodeException(SystemErrorCodes.PAY_FAILED, "同种优惠券只能使用一张");
+				}
+				couponses.put(coupons.getType(), coupons);
+			}
+			if(!couponses.isEmpty()) {
+				Set<Coupons> couponsSet=new HashSet<>(couponses.values());
 				orderPayService.useCoupons(pay, couponsSet);//将优惠计算委托给上级服务
 			}			
 		}				

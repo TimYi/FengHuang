@@ -35,6 +35,7 @@ public class KhcxService {
 		throws SignatureException {
 		QueryRequestData data=new QueryRequestData(mercCode, OTranAbbr, termSsn);
 		RequestModel model=new RequestModel(data);
+		System.out.println(model.toXml());
 		String result=httpsService.postXml(RequestModel.PRODUCTION_URL, model.toXml());
 		return ResponseModel.fromXml(result, QueryResponseData.class);
 	}
