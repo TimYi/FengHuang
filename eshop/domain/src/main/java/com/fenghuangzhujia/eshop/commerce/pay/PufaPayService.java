@@ -42,8 +42,8 @@ import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 public class PufaPayService {
 	
 	/**客户号*/
-	private static final String MERC_CODE="983708160009501";//测试客户号
-	//private static final String MERC_CODE="360448160000101";//正式客户号
+	//private static final String MERC_CODE="983708160009501";//测试客户号
+	private static final String MERC_CODE="360448160000101";//正式客户号
 	
 	//private static Logger logger=LoggerFactory.getLogger(PufaPayService.class);
 
