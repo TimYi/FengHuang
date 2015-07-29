@@ -763,7 +763,7 @@ $(function(){
 				$(".buynow" + price).html('<div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">已结束</div>');
 			}
 
-			$(".buynow" + price).parent().show();
+			//$(".buynow" + price).parent().show();
 
 		}
 	}
