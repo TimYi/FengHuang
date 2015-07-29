@@ -242,7 +242,7 @@
         </div>
 		  </div>
 		</div>
-		<div class="row" style="margin-top:30px">
+		<div class="row" style="margin-top:30px;display:none;">
 		  <div class="col-xs-6">
         <div class="recent-work-wrap">
           <img class="img-responsive" src="images/index_pt_6.png" alt="" style="height:150px">
