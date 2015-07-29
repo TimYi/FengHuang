@@ -60,7 +60,7 @@ function afterGetMaterialTypes(data){
 		for(var i in types)		{
 			typeDic.push(types[i].name);
 		}
-		getData(MATERIAL_BRAND,null,afterGetBrands4Select);	
+		getData(MATERIAL_BRAND+'/all',null,afterGetBrands4Select);	
 	}
 }
 function onload(){
@@ -76,7 +76,7 @@ function onload(){
 		}
 	);
 
-	getData(ORDER_PACKAGE,null,afterGetPackages);	
+	getData(ORDER_PACKAGE+'/all',null,afterGetPackages);	
 }
 function afterGetBrands4Select(data){
 	if(!isErrorData(data)){

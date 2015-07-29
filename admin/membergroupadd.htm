@@ -75,7 +75,7 @@ function submitUserGroup(){
 				<td width="25%"  align="right" height="40">头衔颜色：</td>
 				<td width="75%" >
 				<select data-bind="value:selectedColor,options:selectableColor,optionsText:'name',
-				valueAllowUnset: true,optionsCaption: '请选择...'" class="input">
+				valueAllowUnset: true,optionsCaption: '请选择...'" >
 				</select>
 				<input type="hidden" name='colorId' size=100 data-bind="value:selectedColor()?selectedColor().id:''"></td>
 			</tr>
