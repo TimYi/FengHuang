@@ -232,8 +232,7 @@
               <h3><a href="#">【升级】个性化包</a></h3>
               <p>
 								壁纸、客厅吊顶、背景墙；详情请垂询当地体验店或拨打服务热线400-968-9088
-                <a href="javascript:;" class="buynow799" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a>
-                </div-->
+                <!--a href="javascript:;" class="buynow799" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div></a-->
                 <div class="animation animated-item-3" style="margin-top:20px;height:45px;width:160px;background:#fff;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
                 <a href="gxhb.html?packageId=1199"><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">了解详情</div></a>
                 </div>
