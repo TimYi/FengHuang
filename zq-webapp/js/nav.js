@@ -82,11 +82,11 @@
 					}else if(url.indexOf('live') > -1){
 						url = "case.html?pt=1";
 					}else if(url.indexOf('rzb') > -1){
-						url = "tcdetails.html?packageId=799";
+						url = "t_sjb.html?packageId=799&type=rzb";
 					}else if(url.indexOf('dqb') > -1){
-						url = "tcdetails.html?packageId=1099";
+						url = "t_sjb.html?packageId=1099&type=dqb";
 					}else if(url.indexOf('gxhb') > -1){
-						url = "tcdetails.html?packageId=1199";
+						url = "t_sjb.html?packageId=1199&type=gxhb";
 					}
 				}
 				var title = sub[j].title || "";
