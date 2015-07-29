@@ -59,13 +59,13 @@ public class DecorateSpaceAdapter extends
 			MultipartFile picFile2=t.getPicFile2();
 			if(picFile2!=null) {
 				MediaContent pic2=d.getPic2();
-				pic2=mediaService.update(pic2, picFile1);
+				pic2=mediaService.update(pic2, picFile2);
 				d.setPic2(pic2);
 			}
 			MultipartFile picFile3=t.getPicFile3();
 			if(picFile3!=null) {
 				MediaContent pic3=d.getPic3();
-				pic3=mediaService.update(pic3, picFile1);
+				pic3=mediaService.update(pic3, picFile3);
 				d.setPic3(pic3);
 			}
 		} catch (Exception e) {

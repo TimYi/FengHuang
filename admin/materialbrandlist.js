@@ -51,6 +51,11 @@ function bindData(data){
 		ko.mapping.fromJS(data, dataModel);
 	}
 	dataModel.remove = function(item){
+		//判断
+		if(item.products().length >0){
+			alert('请先清空品牌下关联的产品记录，之后再进行删除操作。');
+			return;
+		}
 		if(ConfDel(0)){
 			var url = genUrl(MATERIAL_BRAND)+'/'+item.id();
 			deleteReq(url,function(dataObj){

@@ -7,6 +7,7 @@ var SYSTEM_NAVIGATION = 'navigation';
 var TEMPLATE_CAROUSEL = 'carousel';
 var TEMPLATE_TEMPLATE = 'template';
 var ORDER_DRAWBACK = 'drawback';
+var PACKAGE_SPACE = 'decorateSpace';
 function PagingJson2ViewModel(data){
 
 	return ko.mapping.fromJS(data);

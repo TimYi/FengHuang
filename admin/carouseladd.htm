@@ -74,62 +74,6 @@ function afterGetNav4Select(data){
    		ko.applyBindings(viewModel);
 	}
 }
-function submitCar(){
-	//提交前获取选择的pageId,并填充到hidden
-	if(typeof viewModel.selectedNav() == 'undefined' ){
-		alert('请选择所属页面！');
-		return ;
-	}
-	if(viewModel.selectedNav().type == 'DROPDOWN' ){
-		if( viewModel.selectedSubNav().type == null){
-			alert('请选择一个URL类型的菜单作为所属页面！');
-			return ;
-		}else{
-			$('#pageId').val(viewModel.selectedSubNav().id);
-		}
-	}else{
-		$('#pageId').val(viewModel.selectedNav().id);
-	}
-	var url = genUrl(TEMPLATE_CAROUSEL);
-	var mainfiles = $('input[name="picFile"]').prop('files');//获取到文件列表
-	var subfiles = $('input[name$="].picFile"]').prop('files');//获取到文件列表
-	alert(mainfiles.length);
-	alert(subfiles.length)
-	if(mainfiles.length == 0 && subfiles.length == 0){
-	//	alert('普通提交');
-		submitAsyFormByJson(url,'bTForm',function(data){	 			
-			friendlyTip(data);
-			window.location.href='carousellist.htm';
-		});		
-	}else{
-		//改用ajaxFileupload提交
-		var dataStr = "{";
-		//静态的
-		dataStr += '"pageId":'+'"'+$('#pageId').val()+'",';
-		dataStr += '"ordernum":'+'"'+$('#ordernum').val()+'",';
-		dataStr += '"fragmentInfo.templateId":'+'"'+$('#templateId').val()+'"}';
-		alert(dataStr);
-		var dataObj = JSON.parse(dataStr);
-		var fileElementIdArr = new Array();
-		fileElementIdArr.push('picFile');
-		fileElementIdArr.push('fragmentInfo.values[1].picFile');
-		$.ajaxFileUpload({  
-            url:url,  
-            secureuri:false,  
-            fileElementId:fileElementIdArr,//file标签的id  
-            dataType: 'json',//返回数据的类型  
-            data:dataObj,//一同上传的数据  
-            success: function(data){	 			
-				friendlyTip(data);
-				window.location.href='carousellist.htm';
-			},  
-            error: function (data, status, e) {  
-                alert(e);  
-            }  
-        });  
-
-	}
-}
 function submitCarousel(){
 	//提交前获取选择的pageId,并填充到hidden
 	if(typeof viewModel.selectedNav() == 'undefined' ){

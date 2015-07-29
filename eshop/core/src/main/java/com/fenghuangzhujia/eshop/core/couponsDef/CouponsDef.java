@@ -46,13 +46,17 @@ public class CouponsDef extends UUIDBaseModel {
 		coupons.setCouponsMoney(money);
 		coupons.setExpireTime(expireTime);
 		
-		//为了熬夜加班做抢购临时加入的逻辑
-		if(event==null || !event.equals("qg"))return coupons;
-		if(remainCount>consumedCount) {
-			consumedCount=consumedCount+1;
-			coupons.setType("qg");
-		} else {
-			throw new ErrorCodeException(SystemErrorCodes.OTHER, "本次优惠券已抢光");
+		//优惠券的类型即优惠券定义的事件类型
+		coupons.setType(event);
+		
+		//判断数量限制
+		if(remainCount!=null) {
+			if(consumedCount==null)consumedCount=0;
+			if(remainCount>consumedCount) {
+				consumedCount=consumedCount+1;
+			} else {
+				throw new ErrorCodeException(SystemErrorCodes.OTHER, "本次优惠券已抢光");
+			}
 		}
 		return coupons;
 	}

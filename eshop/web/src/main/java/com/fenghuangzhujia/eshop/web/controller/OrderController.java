@@ -67,7 +67,7 @@ public class OrderController {
 	}
 	
 	@RequestMapping(value="order/{orderId}/pay/pufa",method=RequestMethod.POST)
-	public String pufaPay(@PathVariable String orderId, String couponsId, 
+	public String pufaPay(@PathVariable String orderId, String[] couponsId, 
 			PayBank payBank, AccountType accountType, HttpServletRequest request){
 		//验证请求来源
 		BrowserType browserType=UserAgentUtil.getBrowserType(request);
