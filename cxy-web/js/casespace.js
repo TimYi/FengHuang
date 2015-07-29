@@ -135,7 +135,7 @@ $(function(){
 				var brand = items[n].brand || "";
 				var number = items[n].number || "";
 				var description = items[n].description || "";
-				if(i == 0){
+				if(n == 0){
 					phtml.push('<tr style="border-top:2px solid #ccc">');
 				}else{
 					phtml.push('<tr style="border-top:1px solid #ccc">');
