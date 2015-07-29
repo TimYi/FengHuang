@@ -108,6 +108,7 @@ $(function(){
 		phtml.push('<th>主辅材料</th>');
 		phtml.push('</tr>');
 
+		var bb = 0;
 		for(var j = 0, len = obj.length; j < len; j++){
 			var logoUrl = obj[j].logo || "";
 			if(logoUrl !== ""){
@@ -128,8 +129,9 @@ $(function(){
 			var products = obj[j].products || [];
 			for(var k = 0,klen = products.length; k < klen; k++){
 				var pname = products[k].name || "";
-				var css = j == 0 ? "border-top:2px solid #ccc" : "border-top:1px solid #ccc";
+				var css = bb == 0 ? "border-top:2px solid #ccc" : "border-top:1px solid #ccc";
 				phtml.push('<tr style="' + css + '">');
+				bb++;
 				if(k == 0){
 					phtml.push('<td style="vertical-align: middle;" rowspan=' + klen + '>' + logoName + '</td>');
 				}
