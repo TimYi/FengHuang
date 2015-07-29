@@ -32,49 +32,7 @@
             <a href="javascript: void(0)" class="am-menu-toggle">
                 <i class="am-menu-toggle-icon am-icon-bars"></i>
             </a>
-            <div class="am-offcanvas">
-                <div class="am-offcanvas-bar" style="background:#333 none repeat scroll 0 0">
-                    <ul class="am-menu-nav sm-block-grid-1">
-                        <li class="">
-                            <a href="index.html">首页</a>
-                        </li>
-                        <li class="am-parent">
-                            <a href="#c3">家装套餐</a>
-                            <ul class="am-menu-sub am-collapse am-avg-sm-1">
-                                <li class="">
-                                    <a href="jztc.html?pt=0">699元家装套餐</a>
-                                </li>
-                                <li class="">
-                                    <a href="jztc.html?pt=1">软装套餐</a>
-                                </li>
-                                <li class="">
-                                    <a href="fwzs.html?pt=0">流程展示</a>
-                                </li>
-                                <li class="">
-                                    <a href="fwzs.html?pt=1">工艺展示</a>
-                                </li>
-                                <li class="">
-                                    <a href="fwzs.html?pt=2">主材展示</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="">
-                            <a href="jzd.html">家装贷</a>
-                        </li>
-                        <li class="">
-                            <a href="tyg.html">体验馆</a>
-                        </li>
-                        <li class="">
-                            <a href="alzb.html?pt=0">案例集锦</a>
-                        </li>
-                        <li class="">
-                            <a href="alzb.html?pt=1">Live直播</a>
-                        </li>
-                        <li class="">
-                            <a href="fhgj.html">凤凰管家</a>
-                        </li>
-                    </ul>
-                </div>
+            <div id="navBar" class="am-offcanvas">
             </div>
         </nav>
     </div>
@@ -82,13 +40,13 @@
     <div data-am-widget="slider" class="am-slider am-slider-c3" data-am-slider='{&quot;controlNav&quot;:false}'>
         <ul class="am-slides" style="font-size:12px">
             <li>
-                <img src="images/tyg_xm.jpg">
+                <img src="images/tc/tyg_1.jpg">
                 <div class="am-slider-desc">
                     <div class="am-slider-counter" style="background:#b9090e">
                         <span class="am-active">1</span>/2</div>体验中心厦门站已开放接受预约</div>
             </li>
             <li>
-                <img src="images/s_2.jpg">
+                <img src="images/tyg_bj.jpg">
                 <div class="am-slider-desc">
                     <div class="am-slider-counter" style="background:#b9090e">
                         <span class="am-active">2</span>/2</div>体验中心北京站即将开放COME SOON</div>
@@ -99,7 +57,7 @@
         <ul class="am-avg-sm-2" style="padding:5px 0 5px 0;box-shadow: inset 0 -1px 1px -1px #aaa;background:#fff;">
             <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;" data-am-widget="navbar">
                 <div class="am-dropdown" data-am-dropdown style="height:100px;width:100%;">
-                    <a href="sub_tyg_xm.html">
+                    <a href="sub_tyg.html">
                         <div style="margin-top:20px">
                             <i class="am-icon-tags" style="font-size:24px;color:#666"></i>
                             <br />
@@ -121,7 +79,7 @@
             </li>
             <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;display:none;">
                 <div class="am-dropdown" data-am-dropdown style="height:100px">
-                    <a href="sub_tyg_bj.html">
+                    <a href="sub_tyg.html">
                         <div style="margin-top:20px">
                             <i class="am-icon-tags" style="font-size:24px;color:#666"></i>
                             <br />
@@ -152,5 +110,6 @@
     <script src="js/libs/json.js"></script>
     <script src="js/libs/base.js"></script>
     <script src="js/libs/utils.js"></script>
+    <script src="js/nav.js"></script>
 </body>
 </html>
