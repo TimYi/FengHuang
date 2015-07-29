@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>修改装修空间</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="assets/js/json2.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/plugin/editor/kindeditor-min.js"></script>
+<script type="text/javascript" src="assets/plugin/editor/lang/zh_CN.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript">
+var id;
+var packageDic;
+var space;
+var packages;
+var Package = function(id,name){
+			this.id = id;
+			this.name = name;
+}
+function onload(){
+	id = getUrlParam(window.location.search,"id");
+	getDataById(PACKAGE_SPACE,id,afterGetDataById);
+}
+function afterGetDataById(data){
+	if(!isErrorData(data)){
+		space = data.result;
+		var items = space.items;
+		for(var i in items){
+			items[i].no = i;
+		}
+		space.items = items;
+		//获取可选模板
+		getData(ORDER_PACKAGE+'/all',null,afterGetPackage4Select);	
+	}
+}
+
+function afterGetPackage4Select(data){
+	if(!isErrorData(data)){
+		packages = data.result.result;
+		viewModel = ko.mapping.fromJS(space);
+		viewModel.selectablePackage = ko.observableArray();	
+		viewModel.selectedPackage = ko.observable();		
+		packageDic = new Array();
+		var find = false;
+		for(var i in packages){
+			var pac = new Package(packages[i].id,packages[i].name);
+			if(!find &&space.decoratePackage!=null) {
+				if(space.decoratePackage.id == packages[i].id){
+					//若在一级菜单中找到时
+					find = true;
+					viewModel.selectedPackage(pac);
+				}
+			}
+			packageDic.push(pac);
+		}
+		viewModel.selectablePackage(packageDic);
+		viewModel.remove = function(item){
+			if(ConfDel(0)){
+				viewModel.items.remove(item);
+			}
+		}
+		ko.applyBindings(viewModel);
+	}
+}
+function submitSpace(){
+	//提交前获取选择的pageId,并填充到hidden
+	if(viewModel.selectedPackage() == null ){
+		alert('请选择所属套餐！');
+		return ;
+	}
+	var url = genUrl(PACKAGE_SPACE)+'/'+id;
+	var mainfiles = $('input[id^="picFile"]').prop('files');//获取到文件列表
+
+	if(mainfiles.length == 0){
+		submitAsyFormByJson(url,'bTForm',function(data){	 			
+			friendlyTip(data);
+			window.location.href='spacelist.htm';
+		});		
+	}else{
+		submitFormWithMultipart(url,'bTForm',
+			function(formData, jqForm, options){
+				//判断是否要上传文件，若不需要上传文件时			 			
+			 	return true;  
+			 }
+			 ,function(data){			 			
+			 	friendlyTip(data);
+			 	window.location.href='spacelist.htm';
+			 }
+		);
+	}
+}
+function addItem(){
+	var name = $("#itemName").val();
+	var ordernum = $("#itemOrdernum").val();
+	var brand = $("#itemBrand").val();
+	var number = $("#itemNumber").val();
+	var description = $("#itemDescription").val();
+	var no = viewModel.items().length;
+	var item = {
+		no : no,
+		name : name,
+		ordernum : ordernum,
+		brand : brand,
+		number : number,
+		description : description
+	}
+	viewModel.items.push(ko.mapping.fromJS(item));
+}
+function onSelectFile(obj){
+	
+	obj.name =  obj.id;
+}
+</script>
+</head>
+<body onload="onload()">
+<div class="formHeader">
+	 <span class="title">修改装修空间</span> 
+	 <a href="javascript:location.reload();" class="reload">刷新</a> 
+</div>
+<form name="bTForm" id="bTForm" method="post" enctype="multipart/form-data">
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>			
+			<tr>
+				<td align="right"  height="40">所属套餐:</td>
+				<td >
+					<select data-bind="value:selectedPackage,options:selectablePackage,optionsText:'name',
+						optionsCaption: '请选择...'">
+					</select>					
+					<!--提交时将选择的pageId填入-->
+					<input id='decoratePackageId'  type="hidden" name='decoratePackageId' data-bind="value:selectedPackage()?selectedPackage().id:''"/>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" width="25%" height="40">名称:</td>
+				<td width="75%" >
+					<input type="text"  class="input" data-bind="value:name" name='name' >
+				</td>
+			</tr>
+			<tr>
+				<td align="right" width="25%" height="40">序号:</td>
+				<td width="75%" >
+					<input type="text"  class="input" data-bind="value:ordernum" name='ordernum' >
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >图片1：</td>
+				<td width="75%" >					
+					<img data-bind='attr:{src:pic1.url}' style='display: inline; width: 300px; height: 90px;' alt=''/>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >更换图片：</td>
+				<td width="75%" >					
+					<input type="file"  id='picFile1' onchange="onSelectFile(this)" >
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >图片2：</td>
+				<td width="75%" >					
+					<img data-bind='attr:{src:pic2.url}' style='display: inline; width: 300px; height: 90px;' alt=''/>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >更换图片：</td>
+				<td width="75%" >					
+					<input type="file"  id='picFile2' onchange="onSelectFile(this)" >
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >图片3：</td>
+				<td width="75%" >					
+					<img data-bind='attr:{src:pic3.url}'  style='display: inline; width: 300px; height: 90px;' alt=''/>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >更换图片：</td>
+				<td width="75%" >					
+					<input type="file"  id='picFile3' onchange="onSelectFile(this)" >
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2>装修内容</td>
+			</tr>
+		</tbody>
+	</table>	
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<thead>
+			<tr class="head" align="left">
+				<!--td width="15%">ID</td-->
+				<td width="10%">名称</td>
+				<td width="10%">序号</td>
+				<td width="10%">品牌</td>
+				<td width="10%">数量</td>
+				<td width="40%">详情</td>
+				<td class="endCol" width="20%">操作</td>
+			</tr>
+		</thead>
+		<tbody data-bind='foreach: items'>
+			<tr >
+				<td  width="10%" height="40" >
+					<input type='text' data-bind = "attr:{name:'items['+no()+'].name'},value:name" />
+				</td>
+				<td  width="10%" height="40" >
+					<input type='text' data-bind = "attr:{name:'items['+no()+'].ordernum'},value:ordernum" />
+				</td>
+				<td  width="10%" height="40" >
+					<input type='text' data-bind = "attr:{name:'items['+no()+'].brand'},value:brand" />
+				</td>
+				<td  width="10%" height="40" >
+					<input type='text' data-bind = "attr:{name:'items['+no()+'].number'},value:number" />
+				</td>
+				<td width="40%" height="40" >
+					<input type='text' size=100 data-bind = "attr:{name:'items['+no()+'].description'},value:description" />
+				</td>
+				<td class="action endCol" width="20%">				
+					<span class="nb"><a href="#" data-bind='click: $root.remove'>删除</a></span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr >
+				<td  width="10%" height="40" >
+					<input type='text' id = "itemName" />
+				</td>
+				<td  width="10%" height="40" >
+					<input type='text' id = "itemOrdernum" />
+				</td>
+				<td  width="10%" height="40" >
+					<input type='text' id = "itemBrand" />
+				</td>
+				<td  width="10%" height="40" >
+					<input type='text' id = "itemNumber"/>
+				</td>
+				<td width="40%" height="40" >
+					<input type='text' size=100 id = "itemDescription" />
+				</td>
+				<td class="action endCol" width="20%">				
+					<span class="nb"><a href="#" onclick ="javascript:addItem();">增加</a></span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="formSubBtn">
+		<input class="submit" value="提交" type="button" onclick='submitSpace()'/>
+		<input class="back" value="返回" onclick="history.go(-1)" type="button">
+	</div>
+</form>
+
+</body></html>

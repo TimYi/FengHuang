@@ -18,6 +18,7 @@
 	var MODULE_CAROUSEL_URL = MODULE_HOST_URL + "carousellist.htm";
 	var MODULE_TEMPLATE_URL = MODULE_HOST_URL + "templatelist.htm";
 	var MODULE_DRAWBACK_URL = MODULE_HOST_URL + "drawbacklist.htm";
+	var MODULE_DECORATESPACE_URL = MODULE_HOST_URL + "spacelist.htm";
 	function openUsrMgr(){		
 		window.parent.frames["main"].location.href=MODULE_USR_URL;
 	}
@@ -84,6 +85,10 @@
 	function openDrawbackMgr(){
 		window.parent.frames["main"].location.href=MODULE_DRAWBACK_URL;
 	}
+	function openDecorateSpaceMgr(){
+		window.parent.frames["main"].location.href=MODULE_DECORATESPACE_URL;
+	}
+	
 </script>
 </head>
 <body>
@@ -171,6 +176,13 @@
 					<a href="#" onclick ="javascript:openMaterialBrandMgr();return false;"  target="main"><span class="subType_leftmenu">材料品牌</span></a>					
 					<a href="#" onclick ="javascript:openMaterialTypeMgr();return false;"  target="main"><span class="subType_leftmenu">产品分类</span></a>					
 					<a href="#" onclick ="javascript:openMaterialMgr();return false;"  target="main"><span class="subType_leftmenu">材料管理</span></a>					
+				</div>
+			</div>
+			<div class="hr_5"></div>
+			<div class="menubox">
+				<div class="title" onclick="DisplayMenu('leftmenu10');" title="点击切换显示或隐藏"> 装修空间管理 </div>
+				<div id="leftmenu10" style="display:none"> 
+					<a href="#" onclick ="javascript:openDecorateSpaceMgr();return false;"  target="main"><span class="subType_leftmenu">装修空间</span></a>
 				</div>
 			</div>
 			<div class="hr_5"></div>
