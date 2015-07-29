@@ -36,8 +36,7 @@ public class OrderPayService {
 		//取消之前使用的优惠券
 		if(orderPay.getCouponses()!=null) {
 			for (Coupons coupons : orderPay.getCouponses()) {
-				coupons.setUsed(false);
-				
+				coupons.setUsed(false);				
 			}
 		}		
 		
