@@ -116,7 +116,7 @@ function onSelectFile(obj){
 						optionsCaption: '请选择...'">
 					</select>					
 					<!--提交时将选择的pageId填入-->
-					<input id='decoratePackageId'  type="text" name='decoratePackageId' data-bind="value:selectedPackage()?selectedPackage().id:''"/>
+					<input id='decoratePackageId'  type="hidden" name='decoratePackageId' data-bind="value:selectedPackage()?selectedPackage().id:''"/>
 				</td>
 			</tr>
 			<tr>
