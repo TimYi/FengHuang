@@ -135,7 +135,11 @@ $(function(){
 				var brand = items[n].brand || "";
 				var number = items[n].number || "";
 				var description = items[n].description || "";
-				phtml.push('<tr style="border-top:2px solid #ccc">');
+				if(i == 0){
+					phtml.push('<tr style="border-top:2px solid #ccc">');
+				}else{
+					phtml.push('<tr style="border-top:1px solid #ccc">');
+				}
 				phtml.push('<td>' + (n + 1) + '</td>');
 				phtml.push('<td>' + name + '</td>');
 				phtml.push('<td>' + brand + '</td>');
