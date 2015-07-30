@@ -60,10 +60,10 @@ $(function() {
             shtml.push('<table class="table u_ct_15" style="font-size:12px">');
             shtml.push('<thead>');
             shtml.push('<tr class="u_th" style="border-bottom:2px solid #ddd;border-top:2px solid #fff;">');
-            shtml.push('<th width="20%">项目</th>');
-            shtml.push('<th width="20%">品牌</th>');
-            shtml.push('<th width="20%">数量</th>');
-            shtml.push('<th width="20%">详细说明</th>');
+            shtml.push('<th>项目</th>');
+            shtml.push('<th>品牌</th>');
+            shtml.push('<th>数量</th>');
+            shtml.push('<th>详细说明</th>');
             shtml.push('</tr></thead>');
             shtml.push('<tbody>');
             var items = spaces[i].items;
