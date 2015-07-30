@@ -72,7 +72,7 @@ $(function() {
                 var item_name = items[j].name;
                 var num = items[j].number;
                 var desc = items[j].description;
-                shtml.push('<tr style="border-bottom:1px solid #ddd;line-height:12px;">');
+                shtml.push('<tr style="border-bottom:1px solid #ddd;line-height:20px;">');
                 shtml.push('<td>'+ item_name +'</td>');
                 shtml.push('<td>'+ brand +'</td>');
                 shtml.push('<td>'+ num +'</td>');

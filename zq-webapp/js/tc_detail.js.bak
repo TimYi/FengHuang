@@ -60,10 +60,10 @@ $(function() {
             shtml.push('<table class="table u_ct_15" style="font-size:12px">');
             shtml.push('<thead>');
             shtml.push('<tr class="u_th" style="border-bottom:2px solid #ddd;border-top:2px solid #fff;">');
-            shtml.push('<th width="10%">项目</th>');
+            shtml.push('<th width="20%">项目</th>');
             shtml.push('<th width="20%">品牌</th>');
-            shtml.push('<th width="10%">数量</th>');
-            shtml.push('<th width="60%">详细说明</th>');
+            shtml.push('<th width="20%">数量</th>');
+            shtml.push('<th width="40%">详细说明</th>');
             shtml.push('</tr></thead>');
             shtml.push('<tbody>');
             var items = spaces[i].items;
@@ -72,7 +72,7 @@ $(function() {
                 var item_name = items[j].name;
                 var num = items[j].number;
                 var desc = items[j].description;
-                shtml.push('<tr style="border-bottom:1px solid #ddd;">');
+                shtml.push('<tr style="border-bottom:1px solid #ddd;line-height:12px;">');
                 shtml.push('<td>'+ item_name +'</td>');
                 shtml.push('<td>'+ brand +'</td>');
                 shtml.push('<td>'+ num +'</td>');
