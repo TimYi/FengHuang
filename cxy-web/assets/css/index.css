@@ -64,7 +64,7 @@ ul.tabs1 li a {
 }
 ul.tabs1 li a:hover {
 	background: #ccc;
-}	
+}
 html ul.tabs1 li.active, html ul.tabs1 li.active a:hover  {
 	background: #fff;
 	border-bottom: 1px solid #fff;
@@ -73,7 +73,7 @@ html ul.tabs1 li.active, html ul.tabs1 li.active a:hover  {
 	/*border: 1px solid #999;*/
 	border-top: none;
 	clear: both;
-	float: left; 
+	float: left;
 	width: 100%;
 	background: #fff;
 	-moz-border-radius-bottomright: 5px;
@@ -98,7 +98,7 @@ html ul.tabs1 li.active, html ul.tabs1 li.active a:hover  {
 }
 .tab_content img {
 	float: left;
-	margin: 0 20px 20px 0;
+	margin: 0 10px 0px 0px;
 	border: 1px solid #ddd;
 	padding: 5px;
 }

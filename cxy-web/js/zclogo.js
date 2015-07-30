@@ -140,7 +140,7 @@ $(function(){
 
 				var meterias = products[k].materials || [];
 				for(var n = 0,nlen = meterias.length; n < nlen; n++){
-					var margin = n == 0 ? "margin-bottom:0;width:100px;" : "margin-bottom:0;width:100px;margin-left:-10px";
+					var margin = n == 0 ? "margin-bottom:0;width:100px;" : "margin-bottom:0;width:100px;";
 					var mpic = meterias[n].pic || "";
 					if(mpic !== ""){
 						mpic = mpic.url;
