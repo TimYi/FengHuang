@@ -199,7 +199,7 @@ $(function() {
         var logo_name = [];
         for(var i =0;i<len;i++){
             var logo = obj[i].logo || '';
-            var logourl = logo.url || '';
+            var logourl = logo.url || ''; 
             var name = obj[i].name || '';
             logo_name.push(name);
             if(logourl){
