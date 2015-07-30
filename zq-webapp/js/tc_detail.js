@@ -156,7 +156,7 @@ $(function() {
                 var picurl = pic.url || '';
                 html.push('<li><div class="am-gallery-item">');
                 html.push('<a href="'+ picurl +'" class="">');
-                html.push('<img class="am-thumbnail" src="'+ picurl +'" style="height:10px"/>');
+                html.push('<img class="am-thumbnail" src="'+ picurl +'"/>');
                 html.push('</a></div></li>');
             }
             html.push('</ul>');
@@ -205,7 +205,7 @@ $(function() {
             if(logourl){
                 html.push('<li><div class="am-gallery-item">');
                 html.push('<a href="'+ logourl +'" class="">');
-                html.push('<img src="'+ logourl +'" alt="'+ name +'"/>');
+                html.push('<img src="'+ logourl +'" alt="'+ name +' style="height:10px"/>');
                 html.push('</a></div></li>');
             }
         }
