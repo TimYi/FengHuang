@@ -154,7 +154,7 @@ $(function() {
             for(var i = 0,len=mete.length;i<len;i++){
                 var pic = mete[i].pic || '';
                 var picurl = pic.url || '';
-                html.push('<li><div class="am-gallery-item">');
+                html.push('<li><div class="am-gallery-item" style="margin-bottom:0;padding-bottom:0">');
                 html.push('<a href="'+ picurl +'" class="">');
                 html.push('<img class="am-thumbnail" src="'+ picurl +'"/>');
                 html.push('</a></div></li>');
