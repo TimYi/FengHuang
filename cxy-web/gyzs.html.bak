@@ -166,22 +166,22 @@ $(".m_logo").hover(function(){
 			</div>
 			<div class="container">
 				<div class="row" style="margin:-20px 0 30px 0">
-					<div class="col-md-4">
-						<div class="col-md-6" style="margi:10px">
+					<div class="col-md-6">
+						<div class="col-md-6" style="margin:10px">
 							<img class="img-responsive" src="assets/images/dl1.gif" alt="">
 						</div>
-						<div class="col-md-6" style="margi:10px">
+						<div class="col-md-6" style="margin:10px">
 							<img class="img-responsive" src="assets/images/dl1.gif" alt="">
 						</div>
-						<div class="col-md-6" style="margi:10px">
+						<div class="col-md-6" style="margin:10px">
 							<img class="img-responsive" src="assets/images/dl1.gif" alt="">
 						</div>
-						<div class="col-md-6" style="margi:10px">
+						<div class="col-md-6" style="margin:10px">
 							<img class="img-responsive" src="assets/images/dl1.gif" alt="">
 						</div>																		
 					</div>
 
-					<div class="col-md-8">
+					<div class="col-md-6">
 						<div class="overlay">
 							<div class="recent-work-inner">
 								<p style="font-size:16px;">
