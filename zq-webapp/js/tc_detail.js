@@ -61,9 +61,9 @@ $(function() {
             shtml.push('<thead>');
             shtml.push('<tr class="u_th" style="border-bottom:2px solid #ddd;border-top:2px solid #fff;">');
             shtml.push('<th width="20%">项目</th>');
-            shtml.push('<th width="20%">品牌</th>');
+            shtml.push('<th width="30%">品牌</th>');
             shtml.push('<th width="20%">数量</th>');
-            shtml.push('<th width="40%">详细说明</th>');
+            shtml.push('<th width="30%">详细说明</th>');
             shtml.push('</tr></thead>');
             shtml.push('<tbody>');
             var items = spaces[i].items;
