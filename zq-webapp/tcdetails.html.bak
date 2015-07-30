@@ -187,10 +187,10 @@
                                 <table class="table u_ct_15" style="font-size:12px">
                                     <thead>
                                         <tr class="u_th" style="border-bottom:2px solid #ddd;border-top:2px solid #fff;">
-                                            <th width="20%">项目</th>
-                                            <th width="20%">品牌</th>
-                                            <th width="20%">数量</th>
-                                            <th width="20%">详细说明</th>
+                                            <th>项目</th>
+                                            <th>品牌</th>
+                                            <th>数量</th>
+                                            <th>详细说明</th>
                                         </tr>
                                     </thead>
                                     <tbody>
