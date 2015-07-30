@@ -98,7 +98,7 @@ html ul.tabs1 li.active, html ul.tabs1 li.active a:hover  {
 }
 .tab_content img {
 	float: left;
-	margin: 0 10px 0px 0px;
+	margin: 5px 10px 0px 0px;
 	border: 1px solid #ddd;
 	padding: 5px;
 }
