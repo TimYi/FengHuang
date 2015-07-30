@@ -105,7 +105,7 @@ $(function(){
 		phtml.push('<tr style="border-top:2px solid #fff">');
 		phtml.push('<th width=100>品牌</th>');
 		phtml.push('<th width=180>产品</th>');
-		phtml.push('<th>图示</th>');
+		phtml.push('<th>主辅材料</th>');
 		phtml.push('</tr>');
 
 		var bb = 0;
