@@ -159,7 +159,7 @@ $(function() {
                 html.push('<img class="am-thumbnail" src="'+ picurl +'"/>');
                 html.push('</a></div></li>');
             }
-            html.push('</ul>');
+            html.push('</ul><hr/>');
         }
         $('#meterialWrap').html(html.join(''));
         $.AMUI.gallery.init();
