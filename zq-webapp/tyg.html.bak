@@ -114,29 +114,29 @@
               am-avg-md-3 am-avg-lg-4 am-gallery-default" data-am-gallery="{ pureview: true }">
               <li>
                 <div class="am-gallery-item">
-                  <a href="http://www.ifhzj.com/images/space/space1.jpg" class="">
-                    <img src="http://www.ifhzj.com/images/space/space1.jpg" alt=""/>
+                  <a href="images/space/space1.jpg" class="">
+                    <img src="images/space/space1.jpg" alt=""/>
                   </a>
                 </div>
               </li>
               <li>
                 <div class="am-gallery-item">
-                  <a href="http://www.ifhzj.com/images/space/space2.jpg" class="">
-                    <img src="http://www.ifhzj.com/images/space/space2.jpg" alt=""/>
+                  <a href="images/space/space2.jpg" class="">
+                    <img src="images/space/space2.jpg" alt=""/>
                   </a>
                 </div>
               </li>
               <li>
                 <div class="am-gallery-item">
-                  <a href="http://www.ifhzj.com/images/space/space3.jpg" class="">
-                    <img src="http://www.ifhzj.com/images/space/space3.jpg" alt=""/>
+                  <a href="images/space/space3.jpg" class="">
+                    <img src="images/space/space3.jpg" alt=""/>
                   </a>
                 </div>
               </li>
               <li>
                 <div class="am-gallery-item">
-                  <a href="http://www.ifhzj.com/images/space/space4.jpg" class="">
-                    <img src="http://www.ifhzj.com/images/space/space4.jpg" alt=""/>
+                  <a href="images/space/space4.jpg" class="">
+                    <img src="images/space/space4.jpg" alt=""/>
                   </a>
                 </div>
               </li>
@@ -145,7 +145,7 @@
             <p style="font-size:14px;line-height:18px;color:#666">
                 &nbsp;&nbsp;<span style="color:#000">地图位置 </span>
                 <br/><br/>
-                <img src="http://www.ifhzj.com/images/xiamenmap.jpg" style="padding:0 10px">
+                <img src="images/xiamenmap.jpg" style="padding:0 10px">
             </p>
 
         </div>
