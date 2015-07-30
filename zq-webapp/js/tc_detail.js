@@ -46,7 +46,7 @@ $(function() {
             shtml.push('<p style="font-size:14px;line-height:18px;color:#666">');
             shtml.push('<i class="am-icon-heart" style="font-size:14px;"></i>');
             shtml.push('<b>&nbsp;&nbsp;<span style="color:#000">'+ name +'</span></b></p>');
-            shtml.push('<ul id="logoWrap" data-am-widget="gallery" class="am-gallery am-avg-sm-3 am-gallery-default" data-am-gallery="{ pureview: true }" style="margin-bottom:-30px;">');
+            shtml.push('<ul id="logoWrap" data-am-widget="gallery" class="am-gallery am-avg-sm-3 am-gallery-default" data-am-gallery="{ pureview: true }">');
             shtml.push('<li><div class="am-gallery-item"><a href="'+ pic1 +'" class="">');
             shtml.push('<img class="am-thumbnail" src="'+ pic1 +'" /></a></div></li>');
             shtml.push('<li><div class="am-gallery-item"><a href="'+ pic2 +'" class="">');
