@@ -94,15 +94,60 @@
     <div class="am-tabs-bd" style="margin-top:10px;border:none;">
         <div data-tab-panel-0 class="am-tab-panel am-active">
             <p style="font-size:14px;line-height:18px;">
-                <span style="display:none;">北京馆：朝阳区东四环海德尔大厦三层<br/></span>厦门馆地址：厦门市湖里区金泰路1798创业大街5层
+                <span style="display:none;">北京馆：朝阳区东四环海德尔大厦三层<br/></span>
+                地址：厦门市湖里区金泰路1798创业大街5层<br/>
+                厦门网络公司：0592-2129088<BR/>
+                厦门装修公司：0592-5109088
             </p>
-            <hr/>
+            <!--hr/>
             <p style="font-size:14px;line-height:18px;color:#666">
                 <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">温馨提示 REMINDER</span></b>
                 <br/>
                 <br/> 您可以通过在线预约或电话预约的方式，预约到店参观，体验馆提供实景装修样板间，即选即得，欢迎您的到来。
             </p>
+            <hr/-->
             <hr/>
+            <p style="font-size:14px;line-height:18px;color:#666">
+                &nbsp;&nbsp;<span style="color:#000">体验馆实景 </span>
+            </p>
+            <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
+              am-avg-md-3 am-avg-lg-4 am-gallery-default" data-am-gallery="{ pureview: true }">
+              <li>
+                <div class="am-gallery-item">
+                  <a href="http://www.ifhzj.com/images/space/space1.jpg" class="">
+                    <img src="http://www.ifhzj.com/images/space/space1.jpg" alt=""/>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="am-gallery-item">
+                  <a href="http://www.ifhzj.com/images/space/space2.jpg" class="">
+                    <img src="http://www.ifhzj.com/images/space/space2.jpg" alt=""/>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="am-gallery-item">
+                  <a href="http://www.ifhzj.com/images/space/space3.jpg" class="">
+                    <img src="http://www.ifhzj.com/images/space/space3.jpg" alt=""/>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="am-gallery-item">
+                  <a href="http://www.ifhzj.com/images/space/space4.jpg" class="">
+                    <img src="http://www.ifhzj.com/images/space/space4.jpg" alt=""/>
+                  </a>
+                </div>
+              </li>
+            </ul>
+            <hr/>
+            <p style="font-size:14px;line-height:18px;color:#666">
+                &nbsp;&nbsp;<span style="color:#000">地图位置 </span>
+                <br/><br/>
+                <img src="http://www.ifhzj.com/images/xiamenmap.jpg" style="padding:0 10px">
+            </p>
+
         </div>
     </div>
     <script src="js/libs/jquery.min.js"></script>
