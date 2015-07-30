@@ -203,9 +203,9 @@ $(function() {
             var name = obj[i].name || '';
             logo_name.push(name);
             if(logourl){
-                html.push('<li><div class="am-gallery-item">');
+                html.push('<li><div class="am-gallery-item"  style="height:50px">');
                 html.push('<a href="'+ logourl +'" class="">');
-                html.push('<img src="'+ logourl +'" alt="'+ name +'"  style="height:10px"/>');
+                html.push('<img src="'+ logourl +'" alt="'+ name +'"/>');
                 html.push('</a></div></li>');
             }
         }
