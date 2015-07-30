@@ -1,6 +1,6 @@
 package com.fenghuangzhujia.eshop.materialManage.brand.dto;
 
-import java.util.Set;
+import java.util.List;
 
 import com.fenghuangzhujia.eshop.materialManage.product.dto.ProductDto;
 import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
@@ -20,7 +20,7 @@ public class BrandVo extends DtoBaseModel {
 	/**品牌logo*/
 	private MediaContentDto logo;
 	/**品牌旗下产品*/
-	private Set<ProductDto> products;
+	private List<ProductDto> products;
 	
 	public String getName() {
 		return name;
@@ -40,10 +40,10 @@ public class BrandVo extends DtoBaseModel {
 	public void setLogo(MediaContentDto logo) {
 		this.logo = logo;
 	}
-	public Set<ProductDto> getProducts() {
+	public List<ProductDto> getProducts() {
 		return products;
 	}
-	public void setProducts(Set<ProductDto> products) {
+	public void setProducts(List<ProductDto> products) {
 		this.products = products;
 	}
 }

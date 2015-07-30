@@ -1,6 +1,6 @@
 package com.fenghuangzhujia.eshop.materialManage.product.dto;
 
-import java.util.Set;
+import java.util.List;
 
 import com.fenghuangzhujia.eshop.materialManage.brand.dto.SimpleBrandDto;
 import com.fenghuangzhujia.eshop.materialManage.material.dto.MaterialDto;
@@ -13,7 +13,7 @@ public class ProductDto extends DtoBaseModel {
 	/**排序序号*/
 	private int ordernum;
 	/**品牌主材展示*/
-	private Set<MaterialDto> materials;
+	private List<MaterialDto> materials;
 	/**品牌*/
 	private SimpleBrandDto brand;
 	
@@ -29,10 +29,10 @@ public class ProductDto extends DtoBaseModel {
 	public void setOrdernum(int ordernum) {
 		this.ordernum = ordernum;
 	}
-	public Set<MaterialDto> getMaterials() {
+	public List<MaterialDto> getMaterials() {
 		return materials;
 	}
-	public void setMaterials(Set<MaterialDto> materials) {
+	public void setMaterials(List<MaterialDto> materials) {
 		this.materials = materials;
 	}
 	public SimpleBrandDto getBrand() {
