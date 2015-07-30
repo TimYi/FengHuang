@@ -104,14 +104,14 @@
                     <br/><br/>
                     <img src="images/zyh/zyh_699.png">
                     <br/>
-		                <p style="font-size:12px;line-height:18px;color:#666">
-		                    &nbsp;&nbsp;<span style="color:#000">墙面处理</span></b>
-		                    <br/><br/>
+		                <p style="font-size:14px;line-height:18px;color:#666">
+		                    <span style="color:#000;font-weight:800">#1 墙面处理</span></b>
+		                    <br/>
 		                    墙面修复，四层涂刷（界面剂、底层石膏、美巢400、墙面漆），为保障墙面干燥，每层腻子间隔1-2天（一般2-3层）
 		                </p>
 		                <p style="font-size:12px;line-height:18px;color:#666">
-		                    &nbsp;&nbsp;<span style="color:#000">地面处理</span></b>
-		                    <br/><br/>
+		                    <span style="color:#000;font-weight:800">#2 地面处理</span></b>
+		                    <br/>
 		                    地固防潮、防火，找平地面充分干燥（夏季10-15天，冬季15-20天）
 		                </p>		                
                     <br/>
@@ -123,15 +123,49 @@
                     <br/><br/>
                     <img src="images/szjfw.gif" alt=""/>
                     <br/>
-                    <span style="font-size:12px;">
-                    <br/> 专属服务：从下单到入住提供一对一全程服务
-                    <br/> 家装日报：装修进度每日更新
-                    <br/> 在线客服：网上客服、400服务热线
-                    <br/> 增值服务：提供丰富的专项增值服务
-                    <br/> 终身维护：装修档案终身留存，迅捷维护
-                    <br/> 售后维修：水电5年，基础施工2年质保
+		                <p style="font-size:14px;line-height:18px;color:#666">
+		                    <span style="color:#000;font-weight:800">#1 实时互动</span></b>
+		                    <br/>
+		                    实时掌握家装动态，与施工人员实时沟通
+		                </p>                    
+                    <br/>
+		                <p style="font-size:14px;line-height:18px;color:#666">
+		                    <span style="color:#000;font-weight:800">#2 专属服务</span></b>
+		                    <br/>
+		                    从下单到入住提供一对一全程服务
+		                </p>
+                    <br/>
+		                <p style="font-size:14px;line-height:18px;color:#666">
+		                    <span style="color:#000;font-weight:800">#3 在线客服</span></b>
+		                    <br/>
+		                    网上客服、400服务热线
+		                </p>
+                    <br/>
+		                <p style="font-size:14px;line-height:18px;color:#666">
+		                    <span style="color:#000;font-weight:800">#4 终身维护</span></b>
+		                    <br/>
+		                    装修档案终身留存，迅捷维护
+		                </p>
+                    <br/>
+		                <p style="font-size:14px;line-height:18px;color:#666">
+		                    <span style="color:#000;font-weight:800">#5 售后服务</span></b>
+		                    <br/>
+		                    水电5年，基础施工2年质保
+		                </p>
+                    <br/>
+		                <p style="font-size:14px;line-height:18px;color:#666">
+		                    <span style="color:#000;font-weight:800">#6 增值服务</span></b>
+		                    <br/>
+		                    提供丰富的专项增值服务
+		                </p>		                		                		                		                										
+                    <br/>
+		                <p style="font-size:14px;line-height:18px;color:#666">
+		                    <span style="color:#000;font-weight:800">#7 家装日报</span></b>
+		                    <br/>
+		                    装修进度每日更新
+		                </p>
+		                <br/>
                     </span>
-                    <br/> 实时互动：实时掌握家装动态，与施工人员实时沟通；
                 </p>
             </div>
             <div data-tab-panel-1 class="am-tab-panel">
