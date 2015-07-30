@@ -76,7 +76,7 @@ $(function() {
                 shtml.push('<td>'+ item_name +'</td>');
                 shtml.push('<td>'+ brand +'</td>');
                 shtml.push('<td>'+ num +'</td>');
-                shtml.push('<td style="line-height:12px;">'+ desc +'</td>');
+                shtml.push('<td>'+ desc +'</td>');
                 shtml.push('</tr>');
             }
             shtml.push('</tbody></table>');
