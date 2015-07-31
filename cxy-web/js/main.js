@@ -857,7 +857,7 @@ $(function(){
 	}
 
 	function sendSignupHttp(condi){
-		var url = Base.serverUrl + "api/signup";
+		var url = Base.serverUrl + "/api/signup";
 		g.httpTip.show();
 		$.ajax({
 			url:url,
@@ -871,6 +871,7 @@ $(function(){
 				var status = data.status || "";
 				if(status == "OK"){
 					alert("报名成功!");
+					$('#baoming').modal('hide');
 				}
 				else{
 					var msg = data.errorDescription || "";
