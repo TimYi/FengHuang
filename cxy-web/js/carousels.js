@@ -180,7 +180,7 @@ $(function(){
 		else if(href == "#HOME_BAOMIN#"){
 			btn.attr({"href":"#","data-toggle":"modal","data-target":"#baoming","data-whatever":"@mdo"});
 		}
-		else if(href == "#"){
+		else{
 			btn.attr("href","javascript:void(0);");
 		}
 	}
