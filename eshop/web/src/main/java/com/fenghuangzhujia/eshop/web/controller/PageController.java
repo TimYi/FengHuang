@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fenghuangzhujia.eshop.decorateProcess.DecorateProcessService;
 import com.fenghuangzhujia.eshop.decorateProcess.dto.DecorateProcessDto;
+import com.fenghuangzhujia.eshop.signup.Signup;
+import com.fenghuangzhujia.eshop.signup.SignupService;
 import com.fenghuangzhujia.eshop.view.carousel.CarouselService;
 import com.fenghuangzhujia.eshop.view.carousel.dto.CarouselDto;
 import com.fenghuangzhujia.eshop.view.decorateTechnology.DecorateTechnologyService;
@@ -27,6 +29,8 @@ public class PageController {
 	private DecorateProcessService decorateProcessService;
 	@Autowired
 	private DecorateTechnologyService technologyService;
+	@Autowired
+	private SignupService signupService;
 
 	@RequestMapping(value="navigations",method=RequestMethod.GET)
 	public String navagations() {
@@ -50,5 +54,11 @@ public class PageController {
 	public String technologies() {
 		Iterable<DecorateTechnologyDto> result=technologyService.findAll();
 		return RequestResult.success(result).toJson();
+	}
+	
+	@RequestMapping(value="signup",method=RequestMethod.POST)
+	public String signup(Signup signup) {
+		signupService.add(signup);
+		return RequestResult.success("报名成功").toJson();
 	}
 }
