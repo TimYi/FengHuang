@@ -392,6 +392,54 @@
 </div>
 <!--快捷注册弹窗 模板 结束-->
 
+<!--报名模板 开始-->
+<div class="modal fade" id="baoming" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document" style="width:420px">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel"></h4>
+      </div>
+      <div class="modal-body" style="height:300px;width:420px">
+        <form>
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">姓名</label>
+            <div class="col-sm-10" style="width:83%">
+              <input type="" class="form-control" id="inputEmail3" placeholder="请输入您的真实姓名">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPhone3" class="col-sm-2 control-label">手机号</label>
+            <div class="col-sm-10" style="width:83%">
+              <input type="text" maxLength=11 class="form-control" id="inputPhone3" placeholder="请输入您的手机号">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputImgCode3" class="col-sm-2 control-label">验证码</label>
+            <div class="col-sm-10" style="width:83%">
+              <input type="text" class="form-control" id="inputImgCode3" placeholder="请输入图形验证码" style="width:160px;float: left;">
+              <img id="imgcodebtn" src="" alt="" style="height: 33px;margin-top:0;width: 115px;float:right;border:1px solid #ccc;background:url(images/yzmbg.gif)" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputCode3" class="col-sm-2 control-label">验证码</label>
+            <div class="col-sm-10" style="width:83%">
+              <input type="text" class="form-control" id="inputCode3" placeholder="请输入短信验证码" style="width:160px">
+              <button id="getcodebtn" type="button" class="btn btn-default" style="float:right;margin-top:-34px;width:115px">发送短信</button>
+            </div>
+          </div>
+          <div class="form-group" style="padding-top:20px 0 100px 0">
+            <div class="col-sm-offset-2 col-sm-10" style="width:83%">
+              <button id="sendbtn" type="button" class="btn btn-default btn-primary" style="margin-left:2px;margin-right:10px">确认</button>
+              <button id="resetbtn" type="button" class="btn btn-default btn-primary">重置</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!--报名模板 模板 结束-->
 
 <!--体验馆 开始-->
 <section id="feature" style="border-top:1px solid #f6f6f6;">
@@ -627,6 +675,7 @@
       </div>
     </div>
   </div>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#baoming" data-whatever="@mdo">马上报名</button>
 </footer>
 <!--底部BANNER 结束-->
 
@@ -720,6 +769,36 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 })
 </script>
 <!--快捷注册弹窗JS 结束-->
+
+<!--报名弹窗JS 开始-->
+<script>
+$('#baoming').on('show.bs.modal', function (event) {
+  //判断是否已注册
+  var loginStatus = Utils.getUserInfo();
+  if(loginStatus){
+    var userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
+    if(userprofile !== ""){
+      var obj = JSON.parse(userprofile);
+      var name = obj.realName || "";
+      var mobile = obj.mobile || "";
+      if(name !== "" && mobile !== ""){
+        location.href = "subappoint.html";
+      }
+      else{
+        location.href = "center/c_my.html?token=" + g.token + "&p=1";
+      }
+    }
+  }
+  else{
+    var button = $(event.relatedTarget);
+    var recipient = button.data('whatever');
+    var modal = $(this);
+    modal.find('.modal-title').text('马上报名');
+    modal.find('.modal-body input').val(recipient);
+  }
+})
+</script>
+<!--报名弹窗JS 结束-->
 
 <!--JS引用区 开始-->
 <script type="text/javascript" src="assets/js/sales.js"></script>
