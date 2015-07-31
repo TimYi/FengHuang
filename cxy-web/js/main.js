@@ -819,6 +819,71 @@ $(function(){
 			location.href = url;
 		}
 	}
+
+
+	//马上报名
+	$("#bmsendbtn").bind("click",baoMingBtnUp);
+	$("#bmresetbtn").bind("click",baoMingResetBtnUp);
+	function baoMingBtnUp(){
+		var name = $("#inputEmail3bm").val() || "";
+		var phone = $("#inputPhone3bm").val() || "";
+		if(name !== ""){
+			if(phone !== ""){
+				var reg = /^1[3,5,7,8]\d{9}$/g;
+				if(reg.test(phone)){
+					var condi = {};
+					condi.name = name;
+					condi.telephone = phone;
+					sendSignupHttp(condi);
+				}
+				else{
+					Utils.alert("手机号码输入不合法!");
+					$("#inputPhone3bm").focus();
+				}
+			}
+			else{
+				Utils.alert("请输入手机号码!");
+				$("#inputPhone3bm").focus();
+			}
+		}
+		else{
+			Utils.alert("请输入姓名!");
+			$("#inputEmail3bm").focus();
+		}
+	}
+	function baoMingResetBtnUp(){
+		$("#inputEmail3bm").val("");
+		$("#inputPhone3bm").val("");
+	}
+
+	function sendSignupHttp(condi){
+		var url = Base.serverUrl + "api/signup";
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"POST",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("sendSignupHttp",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					alert("报名成功!");
+				}
+				else{
+					var msg = data.errorDescription || "";
+					alert("报名失败:" + msg);
+				}
+				g.httpTip.hide();
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+
 	window.miaoSha = miaoSha;
 	window.buyTip = buyTip;
 });

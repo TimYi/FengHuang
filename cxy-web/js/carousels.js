@@ -167,9 +167,6 @@ $(function(){
 				btn.attr({"href":"#","data-toggle":"modal","data-target":"#exampleModal","data-whatever":"@mdo"});
 			}
 		}
-		else if(href == "#"){
-			btn.attr("href","javascript:void(0);");
-		}
 		else if(href == "#TC599_BTNURL#" || href == "#TC699_BTNURL#" || href == "#RZB_BTNURL#" || href == "#DQB_BTNURL#" || href == "#GXHB_BTNURL#"){
 			//599套餐
 			//预约套餐
@@ -179,6 +176,12 @@ $(function(){
 			else{
 				btn.attr({"href":"#","data-toggle":"modal","data-target":"#exampleModal","data-whatever":"@mdo"});
 			}
+		}
+		else if(href == "#HOME_BAOMIN#"){
+			btn.attr({"href":"#","data-toggle":"modal","data-target":"#baoming","data-whatever":"@mdo"});
+		}
+		else(href == "#"){
+			btn.attr("href","javascript:void(0);");
 		}
 	}
 
