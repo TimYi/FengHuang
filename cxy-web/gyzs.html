@@ -176,7 +176,7 @@ img{border:none;}
 #myscroll a:hover .intro{bottom:0px;}
 
 #mybtns{width:100%; display:block; height:42px;}
-#mybtns a{width:42px; height:42px; display:block; float:left; margin-right:1px; background-color: #c1c1c1;}
+#mybtns a{width:42px; height:42px; display:block; margin-right:1px; background-color: #c1c1c1;}
 #mybtns a:hover{background-color: #d7000f;}
 #mybtns a:hover, #myscroll, #mybtns a,#myscroll a:hover .intro, #myscroll a .intro,#myscroll #myscrollbox{
 	-webkit-transition: all 0.5s ease;
@@ -185,8 +185,8 @@ img{border:none;}
 	-o-transition: all 0.5s ease;
 	transition: all 0.5s ease;
 }
-#mybtns #left{background-image:url(images/jt_l.png);}
-#mybtns #right{background-image:url(images/jt_r.png);}
+#mybtns #left{background-image:url(images/jt_l.png);float:left; margin-left:-60px;margin-top:200px}
+#mybtns #right{background-image:url(images/jt_r.png);float:right; margin-right:-60px;margin-top:200px}
 
 @media(min-width:1170px){
 .scrollpic{max-width:1170px; width:100%;}
@@ -263,11 +263,15 @@ $(document).ready(function() {
 			<h2>工艺展示<span style="font-size:24px"></span></h2>
 			<p class="lead">六类标准化工艺</p>
 		</div>
-		  <a href="javascript:;" id="left"></a>
-		  <a href="javascript:;" id="right"></a>
 	</div>
 </section>
+
 <div class="scrollpic">
+	<div id="mybtns">
+	  <a href="javascript:;" id="left"></a>
+	  <a href="javascript:;" id="right"></a>
+	</div>
+
 	<div id="myscroll">
 		<div id="myscrollbox">
 			<ul>
