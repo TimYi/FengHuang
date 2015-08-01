@@ -168,7 +168,7 @@ img{border:none;}
 #myscroll #myscrollbox{display:block; float:left; position:absolute; left:0; top:0; width:1000000px;}
 #myscroll ul{display:block; float:left; list-style-type:none; padding:0; margin:0;}
 #myscroll ul li{display:block; float:left; padding:0; margin:0;}
-#myscroll ul li a{display:block; float:left; width:232px; padding:0; position:relative; height:390px; color:#333;}
+#myscroll ul li a{display:block; float:left; width:234px; padding:0; position:relative; height:390px; color:#333;}
 #myscroll a .intro{position:absolute; left:0; z-index:10; background-color:rgba(255,255,255,.80); padding:0 10px;}
 #myscroll a .intro h5{padding:0; margin:0; font-size:16px; font-weight:bold; padding:0 47px 0 15px; background:url(images/go.png) right no-repeat; height:40px; width:180px; line-height:40px; border-bottom:1px solid rgba(215,0,15,.2);}
 #myscroll a .intro p{font-size:13px; line-height:20px; margin:10px 15px; height:40px; overflow:hidden;}
@@ -264,14 +264,14 @@ $(document).ready(function() {
 	<div id="myscroll">
 		<div id="myscrollbox">
 			<ul>
-				<li><a href="http://sc.chinaz.com/"><img src="images/01.jpg" width="232" height="390"><span class="intro"><h5>标题1</h5><p>这里写上简介文字</p></span></a></li>
-				<li><a href="http://sc.chinaz.com/"><img src="images/02.jpg" width="232" height="390"><span class="intro"><h5>标题2</h5><p>文字信息文字信息文字信息文字信息文字信息文字信息文字信息</p></span></a></li>
-				<li><a href="http://sc.chinaz.com/"><img src="images/03.jpg" width="232" height="390"><span class="intro"><h5>标题3</h5><p>这里写上简介文字</p></span></a></li>
-				<li><a href="http://sc.chinaz.com/"><img src="images/04.jpg" width="232" height="390"><span class="intro"><h5>标题4</h5><p>文字信息文字信息文字信息文字信息文字信息文字信息文字信息</p></span></a></li>
-				<li><a href="http://sc.chinaz.com/"><img src="images/01.jpg" width="232" height="390"><span class="intro"><h5>标题5</h5><p>这里写上简介文字</p></span></a></li>
-				<li><a href="http://sc.chinaz.com/"><img src="images/02.jpg" width="232" height="390"><span class="intro"><h5>标题6</h5><p>文字信息文字信息文字信息文字信息文字信息文字信息文字信息</p></span></a></li>
-				<li><a href="http://sc.chinaz.com/"><img src="images/03.jpg" width="232" height="390"><span class="intro"><h5>标题7</h5><p>这里写上简介文字</p></span></a></li>
-				<li><a href="http://sc.chinaz.com/"><img src="images/04.jpg" width="232" height="390"><span class="intro"><h5>标题8</h5><p>文字信息文字信息文字信息文字信息文字信息文字信息文字信息</p></span></a></li>
+				<li><a href="http://sc.chinaz.com/"><img src="images/01.jpg" width="234" height="390"><span class="intro"><h5>标题1</h5><p>这里写上简介文字</p></span></a></li>
+				<li><a href="http://sc.chinaz.com/"><img src="images/02.jpg" width="234" height="390"><span class="intro"><h5>标题2</h5><p>文字信息文字信息文字信息文字信息文字信息文字信息文字信息</p></span></a></li>
+				<li><a href="http://sc.chinaz.com/"><img src="images/03.jpg" width="234" height="390"><span class="intro"><h5>标题3</h5><p>这里写上简介文字</p></span></a></li>
+				<li><a href="http://sc.chinaz.com/"><img src="images/04.jpg" width="234" height="390"><span class="intro"><h5>标题4</h5><p>文字信息文字信息文字信息文字信息文字信息文字信息文字信息</p></span></a></li>
+				<li><a href="http://sc.chinaz.com/"><img src="images/01.jpg" width="234" height="390"><span class="intro"><h5>标题5</h5><p>这里写上简介文字</p></span></a></li>
+				<li><a href="http://sc.chinaz.com/"><img src="images/02.jpg" width="234" height="390"><span class="intro"><h5>标题6</h5><p>文字信息文字信息文字信息文字信息文字信息文字信息文字信息</p></span></a></li>
+				<li><a href="http://sc.chinaz.com/"><img src="images/03.jpg" width="234" height="390"><span class="intro"><h5>标题7</h5><p>这里写上简介文字</p></span></a></li>
+				<li><a href="http://sc.chinaz.com/"><img src="images/04.jpg" width="234" height="390"><span class="intro"><h5>标题8</h5><p>文字信息文字信息文字信息文字信息文字信息文字信息文字信息</p></span></a></li>
 			</ul>
 		</div>
 	</div>
