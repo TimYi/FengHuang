@@ -8,6 +8,10 @@ var TEMPLATE_CAROUSEL = 'carousel';
 var TEMPLATE_TEMPLATE = 'template';
 var ORDER_DRAWBACK = 'drawback';
 var PACKAGE_SPACE = 'decorateSpace';
+var MUSEUM_MUSEUM = 'experienceMuseum';
+//var AREA_CITY = 'area/level/CITY';
+var AREA_CITY = 'area';
+
 function PagingJson2ViewModel(data){
 
 	return ko.mapping.fromJS(data);
