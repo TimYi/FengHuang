@@ -278,7 +278,7 @@ $(document).ready(function() {
 
 	<!--script src="js/gyzs.js"></script-->
 
-	<section id="feature"  style="border-top:1px solid #f6f6f6;">
+	<!--section id="feature"  style="border-top:1px solid #f6f6f6;">
 		<div class="container"  style="margin-bottom:-50px">
 			<div class="center wow fadeInDown">
 				<h2>电路改造工艺<span style="font-size:24px"> FREE SERVICE</span></h2>
@@ -287,18 +287,6 @@ $(document).ready(function() {
 			<div class="container">
 				<div class="row" style="margin:-20px 0 30px 0">
 					<div class="col-md-4">
-						<!--div class="col-md-6" style="padding:5px">
-							<img class="img-responsive" src="assets/images/dl1.gif" alt="">
-						</div>
-						<div class="col-md-6" style="padding:5px">
-							<img class="img-responsive" src="assets/images/dl1.gif" alt="">
-						</div>
-						<div class="col-md-6" style="padding:5px">
-							<img class="img-responsive" src="assets/images/dl1.gif" alt="">
-						</div>
-						<div class="col-md-6" style="padding:5px">
-							<img class="img-responsive" src="assets/images/dl1.gif" alt="">
-						</div-->	
 						<div class="recent-work-wrap">
 							<img class="img-responsive" src="assets/images/dl1.gif" style="height:200px;width:330px;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius:10px;">
 						</div>																							
@@ -468,7 +456,7 @@ $(document).ready(function() {
 				</div>
 			</div>
 		</div>
-	</section>
+	</section-->
 
 
 <!--footer-->
