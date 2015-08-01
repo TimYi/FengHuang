@@ -188,11 +188,12 @@ img{border:none;}
 #mybtns #left{background-image:url(images/jt_l.png);}
 #mybtns #right{background-image:url(images/jt_r.png);}
 
-@media(min-width:1572px){
-.scrollpic{max-width:1572px; width:100%;}
-#myscroll{width:1572px;}
+@media(min-width:1170px){
+.scrollpic{max-width:1170px; width:100%;}
+#myscroll{width:1170px;}
 }
-@media(max-width:1571px){
+
+/*@media(max-width:1571px){
 .scrollpic{max-width:1310px; width:100%;}
 #myscroll{width:1310px;}
 }
@@ -211,7 +212,7 @@ img{border:none;}
 @media(max-width:523px){
 .scrollpic{max-width:262px; width:100%;}
 #myscroll{width:262px;}
-}
+}*/
 </style>
 
 <script type="text/javascript">
