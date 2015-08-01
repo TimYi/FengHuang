@@ -267,7 +267,6 @@ $(document).ready(function() {
 		  <a href="javascript:;" id="left"></a>
 		  <a href="javascript:;" id="right"></a>
 		</div>
-
 	</div>
 </section>
 <div class="scrollpic">
