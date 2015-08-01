@@ -1,8 +1,3 @@
-/**
- * file:登录
- * author:chenxy
- * date:2015-05-23
-*/
 
 //页面初始化
 $(function(){
