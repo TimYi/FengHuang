@@ -172,7 +172,7 @@ img{border:none;}
 #myscroll a .intro{position:absolute; left:0; z-index:10; background-color:rgba(255,255,255,.80); padding:0 10px;}
 #myscroll a .intro h5{padding:0; margin:0; font-size:16px; font-weight:bold; padding:0 0 0 15px; height:80px; width:204px; line-height:40px; }
 #myscroll a .intro p{font-size:13px; line-height:20px; margin:10px 15px; height:80px; overflow:hidden;}
-#myscroll a .intro{bottom:-61px;}
+#myscroll a .intro{bottom:-121px;}
 #myscroll a:hover .intro{bottom:0px;}
 
 #mybtns{margin:10px; width:100%; display:block; height:42px;}
