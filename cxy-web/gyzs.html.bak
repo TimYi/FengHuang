@@ -275,11 +275,11 @@ $(document).ready(function() {
 		<div id="myscrollbox">
 			<ul>
 				<li><a href=""><img src="images/gyzs/g1.jpg" width="234" height="390"><span class="intro"><h5>电路改造工艺</h5><p>PVC线管线盒，暗管暗槽横平竖直，电线导管无折皱、无裂缝保证电线导管畅通；强弱电要分开，互不干扰很重要“左零右火中间零”安装面板要记牢；10A以上大功率电器，必须使用4mm的电源线设置专用供电回路，确保大功率电器稳定运行。</p></span></a></li>
-				<li><a href=""><img src="images/gyzs/g1.jpg" width="234" height="390"><span class="intro"><h5>水路改造工艺</h5><p>PPR水管（冷、热水管），暗管暗槽横平竖直，避免其他工程误操作；水管做打压试验，测试压力不低于0.60Mpa，稳压1小时；通水实验同样重要，保证每个出水口都能正常出。</p></span></a></li>
-				<li><a href=""><img src="images/gyzs/g1.jpg" width="234" height="390"><span class="intro"><h5>防水施工工艺</h5><p>柔性防水砂浆，环保性能、物理性能优越，寿命长；防水高度卫生间淋浴区域1.8m，其它区域高出地面0.3m；防水做完后地面薄刮纯水泥浆保护防水免遭破坏，同时增加了瓷砖与墙面的粘结度；闭水试验蓄水水位高出地面最高点2厘米，24小时后观察楼下卫生间及卫生间公用墙有无水痕。</p></span></a></li>
-				<li><a href=""><img src="images/gyzs/g1.jpg" width="234" height="390"><span class="intro"><h5>墙面乳胶漆工艺</h5><p>批刮粉刷石膏前在原基层涂刷界面剂封底，增加粘接强度；墙面有裂缝及开槽的地方应贴穿孔纸袋进行处理；批刮腻子完成后墙顶面用高标号砂纸打磨，减少砂纸痕迹，达到良好效果。</p></span></a></li>
-				<li><a href=""><img src="images/gyzs/g1.jpg" width="234" height="390"><span class="intro"><h5>铺贴墙地砖工艺</h5><p>粘贴墙地砖，砂浆要饱满无空鼓；贴厨房、卫生间墙砖要压地砖，地砖应适当放坡（坡度为6－8mm），保证能使地面残水从地漏流尽而不积水；铺地砖，基层用粗砂，水泥按3：1的比例加适量的水调和，保证砂浆充实无空鼓（即找平），保证房间的最高处水泥砂浆有20mm厚。</p></span></a></li>
-				<li><a href=""><img src="images/gyzs/g1.jpg" width="234" height="390"><span class="intro"><h5>地面找平工艺</h5><p>原地面清理，刷地固；水泥、中砂搅拌抹平；找平压光后，做洒水水保养。</p></span></a></li>
+				<li><a href=""><img src="images/gyzs/g2.jpg" width="234" height="390"><span class="intro"><h5>水路改造工艺</h5><p>PPR水管（冷、热水管），暗管暗槽横平竖直，避免其他工程误操作；水管做打压试验，测试压力不低于0.60Mpa，稳压1小时；通水实验同样重要，保证每个出水口都能正常出。</p></span></a></li>
+				<li><a href=""><img src="images/gyzs/g3.jpg" width="234" height="390"><span class="intro"><h5>防水施工工艺</h5><p>柔性防水砂浆，环保性能、物理性能优越，寿命长；防水高度卫生间淋浴区域1.8m，其它区域高出地面0.3m；防水做完后地面薄刮纯水泥浆保护防水免遭破坏，同时增加了瓷砖与墙面的粘结度；闭水试验蓄水水位高出地面最高点2厘米，24小时后观察楼下卫生间及卫生间公用墙有无水痕。</p></span></a></li>
+				<li><a href=""><img src="images/gyzs/g4.jpg" width="234" height="390"><span class="intro"><h5>墙面乳胶漆工艺</h5><p>批刮粉刷石膏前在原基层涂刷界面剂封底，增加粘接强度；墙面有裂缝及开槽的地方应贴穿孔纸袋进行处理；批刮腻子完成后墙顶面用高标号砂纸打磨，减少砂纸痕迹，达到良好效果。</p></span></a></li>
+				<li><a href=""><img src="images/gyzs/g5.jpg" width="234" height="390"><span class="intro"><h5>铺贴墙地砖工艺</h5><p>粘贴墙地砖，砂浆要饱满无空鼓；贴厨房、卫生间墙砖要压地砖，地砖应适当放坡（坡度为6－8mm），保证能使地面残水从地漏流尽而不积水；铺地砖，基层用粗砂，水泥按3：1的比例加适量的水调和，保证砂浆充实无空鼓（即找平），保证房间的最高处水泥砂浆有20mm厚。</p></span></a></li>
+				<li><a href=""><img src="images/gyzs/g6.jpg" width="234" height="390"><span class="intro"><h5>地面找平工艺</h5><p>原地面清理，刷地固；水泥、中砂搅拌抹平；找平压光后，做洒水水保养。</p></span></a></li>
 			</ul>
 		</div>
 	</div>
