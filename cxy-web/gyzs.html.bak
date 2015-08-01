@@ -257,7 +257,7 @@ $(document).ready(function() {
 </script>
 
 
-<section id="feature"  style="border-top:1px solid #f6f6f6;">
+<section id="feature"  style="">
 	<div class="container"  style="margin-bottom:-50px">
 		<div class="center wow fadeInDown">
 			<h2>工艺展示<span style="font-size:24px"></span></h2>
