@@ -70,7 +70,7 @@ function afterGetMaterialTypes(data){
 	if(!isErrorData(data)){
 		types = data.result;
 		//获取品牌
-		getData(MATERIAL_BRAND,null,afterGetBrands4Select);	
+		getData(MATERIAL_BRAND+'/all',null,afterGetBrands4Select);	
 	}
 }
 function afterGetBrands4Select(data){
