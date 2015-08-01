@@ -8,8 +8,11 @@ var TEMPLATE_CAROUSEL = 'carousel';
 var TEMPLATE_TEMPLATE = 'template';
 var ORDER_DRAWBACK = 'drawback';
 var PACKAGE_SPACE = 'decorateSpace';
+var DECORATE_TECH = 'decorateTechnology';
 var MUSEUM_MUSEUM = 'experienceMuseum';
-//var AREA_CITY = 'area/level/CITY';
+var MUSEUM_APPOINT= 'experienceAppoint';
+
+// AREA_CITY = 'area/level/CITY';
 var AREA_CITY = 'area';
 
 function PagingJson2ViewModel(data){

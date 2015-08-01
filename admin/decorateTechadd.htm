@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>新增装修工艺</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/json2.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/plugin/editor/kindeditor-min.js"></script>
+<script type="text/javascript" src="assets/plugin/editor/lang/zh_CN.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript">
+
+function submitDT(){
+	var url = genUrl(DECORATE_TECH);	 
+	var files = $('input[name="picFile"]').prop('files');//获取到文件列表		
+	if(files.length == 0){
+			  	submitAsyFormByJson(url, 'form', 
+					function(data){		 			
+			 			friendlyTip(data);
+			 			window.location.href='decorateTechlist.htm';
+		 		 	});
+			}else{	 
+		 		submitFormWithMultipart(url,'form',
+			 		function(formData, jqForm, options){
+			 			//判断是否要上传文件，若不需要上传文件时			 			
+			 			return true;  
+			 		} 			 		
+			 		,function(data){			 			
+			 			friendlyTip(data);
+			 			window.location.href='decorateTechlist.htm';
+			 		}
+			 	);
+	 		} 
+}
+</script>
+</head>
+<body onload="onload()">
+<div class="formHeader">
+	 <span class="title">新增装修工艺</span> 
+	 <a href="javascript:location.reload();" class="reload">刷新</a> 
+</div>
+<form name="form" id="form" method="post" enctype="multipart/form-data"  onsubmit="return cfm_upadmin();">
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td align="right" width="25%" height="40">名称:</td>
+				<td width="75%" ><input   class="input" name='name' type="text"></td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >序号：</td>
+				<td width="75%" ><input   class="input" type="text" name='ordernum'></td>				
+			</tr>
+			<tr>
+				<td align="right" height="40" >详情：</td>
+				<td width="75%" style="padding:10px 0">
+					<textarea name='description'  class="kindeditor" id="description" >
+					</textarea>
+					<script>
+						var editor;
+						KindEditor.ready(function(K) {
+							editor = K.create('textarea[name="description"]', {
+								allowFileManager : true,
+								width:'667px',
+								height:'280px',
+								afterBlur: function(){this.sync();}/*,
+								extraFileUploadParams : {
+									sessionid :  'f6pqand0gdtrnhi1n0vd2kgq21'
+								}*/
+							});
+						});
+					</script>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" height="40" >选择示意图：</td>
+				<td width="75%" >					
+					<input type="file"  name='picFile'>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="formSubBtn">
+		<input class="submit" value="提交" type="button" onclick ='click:submitDT();'/>
+		<input class="back" value="返回" onclick="history.go(-1)" type="button">
+	</div>
+</form>
+
+</body></html>

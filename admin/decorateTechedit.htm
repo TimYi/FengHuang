@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>编辑直播</title>
+<title>编辑材料品牌</title>
 <link href="assets/css/admin.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/js/jquery.js"></script>
 <script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
@@ -9,32 +9,39 @@
 <script type="text/javascript" src="assets/js/json2.js"></script>
 <script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
 <script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/plugin/editor/kindeditor-min.js"></script>
+<script type="text/javascript" src="assets/plugin/editor/lang/zh_CN.js"></script>
 <script type="text/javascript" src="assets/js/ajax.js"></script>
 <script type="text/javascript" src="global_url.js"></script>
 <script type="text/javascript" src="global_var.js"></script>
 <script type="text/javascript" src="common.js"></script>
 <script type="text/javascript">
+var id;
 var viewModel;
 function onload(){
 	//第一步：先获取id	
-	var id = getUrlParam(window.location.search,"id");
-		getDataById(LIVE_LIVE,id,afterGetDataById);
+	id = getUrlParam(window.location.search,"id");
+	getDataById(DECORATE_TECH,id,afterGetDataById);
 }
 function afterGetDataById(data){
 
 	//先判断并处理错误数据
 	if(!isErrorData(data)){
 		//数据正确时进行绑定
-		data.result.lives = null; 	
-	 	viewModel = ko.mapping.fromJS(data.result);		 	
-	 	viewModel.submit = function(){	 	
-	 		var url = genUrl(LIVE_LIVE)+'/'+viewModel.id();	 		
-	 		var files = $('input[name="mainPicFile"]').prop('files');//获取到文件列表
-			if(files.length == 0){
+		$("#description").val(data.result.description);
+		editor.html(data.result.description); 
+	 	viewModel = ko.mapping.fromJS(data.result);	
+		ko.applyBindings(viewModel);
+	}
+}
+function submitDT(){
+	var url = genUrl(DECORATE_TECH)+'/'+id;	 
+	var files = $('input[name="picFile"]').prop('files');//获取到文件列表		
+	if(files.length == 0){
 			  	submitAsyFormByJson(url, 'form', 
 					function(data){		 			
 			 			friendlyTip(data);
-			 			window.location.href='livelist.htm';
+			 			window.location.href='decorateTechlist.htm';
 		 		 	});
 			}else{	 
 		 		submitFormWithMultipart(url,'form',
@@ -44,20 +51,17 @@ function afterGetDataById(data){
 			 		} 			 		
 			 		,function(data){			 			
 			 			friendlyTip(data);
-			 			window.location.href='livelist.htm';
+			 			window.location.href='decorateTechlist.htm';
 			 		}
 			 	);
-	 		}	 		
-	 	}
-		ko.applyBindings(viewModel);
-	}
+	 		} 
 }
-
 </script>
 </head>
 <body onload="onload()">
 <div class="formHeader">
- <span class="title">编辑直播</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
+	 <span class="title">编辑材料品牌</span> 
+	 <a href="javascript:location.reload();" class="reload">刷新</a> 
 </div>
 <form name="form" id="form" method="post" enctype="multipart/form-data"  onsubmit="return cfm_upadmin();">
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -65,62 +69,52 @@ function afterGetDataById(data){
 			<tr>
 				<td align="right" width="25%" height="40">ID:</td>
 				<td width="75%" ><span data-bind='text:id'></span></td>
-			</tr>
-			<tr>
-				<td align="right" width="25%" height="40">用户:</td>
-				<td width="75%" ><span data-bind='text:user.username'></td>
-			</tr>
+			</tr>		
 			<tr>
 				<td align="right" width="25%" height="40">名称:</td>
 				<td width="75%" ><input   class="input" name='name' type="text" data-bind='value:name'></td>
 			</tr>
 			<tr>
-				<td align="right" height="40" >小区：</td>
-				<td width="75%" ><input   class="input" type="text" name='village' data-bind='value:village'></td>				
+				<td align="right" height="40" >序号：</td>
+				<td width="75%" ><input   class="input" type="text" name='ordernum' data-bind='value:ordernum'></td>				
 			</tr>
 			<tr>
-				<td align="right" height="40" >户型：</td>
-				<td width="75%" ><input   class="input" type="text" name='house' data-bind='value:house'></td>				
-			</tr>
+				<td align="right" height="40" >详情：</td>
+				<td width="75%" style="padding:10px 0">
+					<textarea name='description'  class="kindeditor" id="description" >
+					</textarea>
+					<script>
+						var editor;
+						KindEditor.ready(function(K) {
+							editor = K.create('textarea[name="description"]', {
+								allowFileManager : true,
+								width:'667px',
+								height:'280px',
+								afterBlur: function(){this.sync();}/*,
+								extraFileUploadParams : {
+									sessionid :  'f6pqand0gdtrnhi1n0vd2kgq21'
+								}*/
+							});
+						});
+					</script>
+				</td>				
+			</tr>			
 			<tr>
-				<td align="right" height="40" >面积：</td>
-				<td width="75%" ><input   class="input" type="text" name='area' data-bind='value:area'></td>				
-			</tr>
-			<tr>
-				<td align="right" height="40">开始日期：</td>
-				<td><input type="text" id="startDate" name='startDate' class="inputms" data-bind="value:startDate" readonly="readonly" />
-				<script type="text/javascript" src="assets/plugin/calendar/calendar.js"></script> 
-				<script type="text/javascript">
-				Calendar.setup({
-					inputField     :    "startDate",
-					//ifFormat       :    "%Y-%m-%d",
-					ifFormat       :    "%Y-%m-%d %H:%M:%S",
-					showsTime      :    true,
-					timeFormat     :    "24"
-				});
-				</script>
-				</td>
-			</tr>
-			<tr>
-				<td align="right"  height="40">是否可见: </td>
-				<td  >&nbsp;&nbsp;<input type="checkbox" name="shouldShow" data-bind='checked:shouldShow' />&nbsp;可见				
-			</tr>
-			<tr>
-				<td align="right" height="40" >图片：</td>
+				<td align="right" height="40" >示意图：</td>
 				<td width="75%" >
-					<img data-bind='attr:{src:mainPic.url}'/>				
+					<img data-bind='attr:{src:pic.url}'/>				
 				</td>				
 			</tr>
 			<tr>
-				<td align="right" height="40" >更改图片：</td>
-				<td width="75%" >
-					<input type="file"  name='mainPicFile'>
+				<td align="right" height="40" >更换示意图：</td>
+				<td width="75%" >					
+					<input type="file"  name='picFile'>
 				</td>				
 			</tr>			
 		</tbody>
 	</table>
 	<div class="formSubBtn">
-		<input class="submit" value="提交" type="button" data-bind='click:submit'/>
+		<input class="submit" value="提交" type="button" onclick ='click:submitDT();'/>
 		<input class="back" value="返回" onclick="history.go(-1)" type="button">
 	</div>
 </form>
