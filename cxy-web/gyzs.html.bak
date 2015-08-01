@@ -168,7 +168,7 @@ img{border:none;}
 #myscroll #myscrollbox{display:block; float:left; position:absolute; left:0; top:0; width:1000000px;}
 #myscroll ul{display:block; float:left; list-style-type:none; padding:0; margin:0;}
 #myscroll ul li{display:block; float:left; padding:0; margin:0;}
-#myscroll ul li a{display:block; float:left; width:242px; padding:0 10px; position:relative; height:390px; color:#333;}
+#myscroll ul li a{display:block; float:left; width:242px; padding:0; position:relative; height:390px; color:#333;}
 #myscroll a .intro{position:absolute; left:0; z-index:10; background-color:rgba(255,255,255,.80); padding:0 10px;}
 #myscroll a .intro h5{padding:0; margin:0; font-size:16px; font-weight:bold; padding:0 47px 0 15px; background:url(images/go.png) right no-repeat; height:40px; width:180px; line-height:40px; border-bottom:1px solid rgba(215,0,15,.2);}
 #myscroll a .intro p{font-size:13px; line-height:20px; margin:10px 15px; height:40px; overflow:hidden;}
@@ -195,6 +195,7 @@ img{border:none;}
 @media(max-width:1571px){
 .scrollpic{max-width:1310px; width:100%;}
 #myscroll{width:1310px;}
+
 }
 @media(max-width:1309px){
 .scrollpic{max-width:1048px; width:100%;}
