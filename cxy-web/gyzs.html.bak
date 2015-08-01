@@ -175,7 +175,7 @@ img{border:none;}
 #myscroll a .intro{bottom:-320px;}
 #myscroll a:hover .intro{bottom:0px;}
 
-#mybtns{width:100%; display:block; height:42px;}
+#mybtns{display:block; height:42px;}
 #mybtns a{width:42px; height:42px; display:block; float:left; margin-right:1px; background-color: #c1c1c1;}
 #mybtns a:hover{background-color: #d7000f;}
 #mybtns a:hover, #myscroll, #mybtns a,#myscroll a:hover .intro, #myscroll a .intro,#myscroll #myscrollbox{
