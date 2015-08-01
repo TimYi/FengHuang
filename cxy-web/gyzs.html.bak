@@ -163,7 +163,7 @@ body{font-family:"微软雅黑";}
 img{border:none;}
 
 /* scrollpic */
-.scrollpic{max-width:1048px;min-height:550px;margin:20px auto;}
+.scrollpic{max-width:1070px;min-height:550px;margin:20px auto;}
 #myscroll{display:block; width:100%; position:relative; height:390px; overflow:hidden;}
 #myscroll #myscrollbox{display:block; float:left; position:absolute; left:0; top:0; width:1000000px;}
 #myscroll ul{display:block; float:left; list-style-type:none; padding:0; margin:0;}
@@ -212,7 +212,7 @@ img{border:none;}
 .scrollpic{max-width:262px; width:100%;}
 #myscroll{width:262px;}
 }
-
+</style>
 
 <script type="text/javascript">
 $(document).ready(function() {
