@@ -264,13 +264,13 @@ $(document).ready(function() {
 	<div id="myscroll">
 		<div id="myscrollbox">
 			<ul>
-				<li><a href="http://sc.chinaz.com/"><img src="images/01.jpg" width="234" height="390"><span class="intro"><h5>标题1</h5><p>这里写上简介文字</p></span></a></li>
+				<li><a href="http://sc.chinaz.com/"><img src="images/01.jpg" width="234" height="390"><span class="intro"><h5>标题1</h5><p>文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息</p></span></a></li>
 				<li><a href="http://sc.chinaz.com/"><img src="images/02.jpg" width="234" height="390"><span class="intro"><h5>标题2</h5><p>文字信息文字信息文字信息文字信息文字信息文字信息文字信息</p></span></a></li>
-				<li><a href="http://sc.chinaz.com/"><img src="images/03.jpg" width="234" height="390"><span class="intro"><h5>标题3</h5><p>这里写上简介文字</p></span></a></li>
+				<li><a href="http://sc.chinaz.com/"><img src="images/03.jpg" width="234" height="390"><span class="intro"><h5>标题3</h5><p>文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息</p></span></a></li>
 				<li><a href="http://sc.chinaz.com/"><img src="images/04.jpg" width="234" height="390"><span class="intro"><h5>标题4</h5><p>文字信息文字信息文字信息文字信息文字信息文字信息文字信息</p></span></a></li>
-				<li><a href="http://sc.chinaz.com/"><img src="images/01.jpg" width="234" height="390"><span class="intro"><h5>标题5</h5><p>这里写上简介文字</p></span></a></li>
+				<li><a href="http://sc.chinaz.com/"><img src="images/01.jpg" width="234" height="390"><span class="intro"><h5>标题5</h5><p>文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息</p></span></a></li>
 				<li><a href="http://sc.chinaz.com/"><img src="images/02.jpg" width="234" height="390"><span class="intro"><h5>标题6</h5><p>文字信息文字信息文字信息文字信息文字信息文字信息文字信息</p></span></a></li>
-				<li><a href="http://sc.chinaz.com/"><img src="images/03.jpg" width="234" height="390"><span class="intro"><h5>标题7</h5><p>这里写上简介文字</p></span></a></li>
+				<li><a href="http://sc.chinaz.com/"><img src="images/03.jpg" width="234" height="390"><span class="intro"><h5>标题7</h5><p>文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息文字信息</p></span></a></li>
 				<li><a href="http://sc.chinaz.com/"><img src="images/04.jpg" width="234" height="390"><span class="intro"><h5>标题8</h5><p>文字信息文字信息文字信息文字信息文字信息文字信息文字信息</p></span></a></li>
 			</ul>
 		</div>
