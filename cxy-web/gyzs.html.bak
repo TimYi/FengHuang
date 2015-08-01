@@ -188,8 +188,8 @@ img{border:none;}
 #mybtns #left{background-image:url(images/jt_l.png);}
 #mybtns #right{background-image:url(images/jt_r.png);}
 
-@media(min-width:1770px){
-.scrollpic{max-width:1770px; width:100%;}
+@media(min-width:1170px){
+.scrollpic{max-width:1170px; width:100%;}
 #myscroll{width:1170px;}
 }
 /*
