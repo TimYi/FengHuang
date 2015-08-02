@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-		<script type="text/javascript" src="http://tajs.qq.com/stats?sId=49608730" charset="UTF-8"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -835,7 +834,7 @@ $('#baoming').on('show.bs.modal', function (event) {
 <script src="js/main.js"></script>
 <script src="js/reg.js"></script>
 <!--JS引用区 结束-->
-
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=49608730" charset="UTF-8"></script>
 </body>
 </html>
 
