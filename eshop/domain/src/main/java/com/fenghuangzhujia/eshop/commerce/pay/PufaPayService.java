@@ -44,7 +44,8 @@ public class PufaPayService {
 	
 	/**客户号*/
 	//private static final String MERC_CODE="983708160009501";//测试客户号
-	private static final String MERC_CODE="360448160000301";//正式客户号
+	private static final String MERC_CODE="360448160000301";//正式客户号，借记卡
+	private static final String CREDIT_MERC_CODE="360448160000401";//信用卡支付客户号
 	
 	//private static Logger logger=LoggerFactory.getLogger(PufaPayService.class);
 
@@ -81,6 +82,12 @@ public class PufaPayService {
 	 */
 	public RequestModel calculatePayArgs(String userId, String orderId,
 			String[] couponsId, PayBank payBank, AccountType accountType, SourceType source) {
+		String mercCode;
+		if(accountType==AccountType.JIEJJI) {
+			mercCode=MERC_CODE;
+		} else {
+			mercCode=CREDIT_MERC_CODE;
+		}
 		User user=userRepository.findOne(userId);
 		if(user==null) throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "错误的用户");
 		GoodOrder order=orderRepository.findOne(orderId);
@@ -137,7 +144,7 @@ public class PufaPayService {
 			revokeUrl=null;
 		}
 		//调用浦发支付服务，计算支付参数并返回
-		return KhzfService.getKhzfRequestData(null, pay.getPufaPay().getTermSsn(), MERC_CODE, null, 
+		return KhzfService.getKhzfRequestData(null, pay.getPufaPay().getTermSsn(), mercCode, null, 
 				pay.getShouldPayMoney(), payBank, accountType, PayType.BUY, order.getName(), order.getName(),
 				null, null, revokeUrl, null);
 	}
