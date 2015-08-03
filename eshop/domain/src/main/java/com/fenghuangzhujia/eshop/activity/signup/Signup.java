@@ -11,6 +11,8 @@ public class Signup extends UUIDBaseModel {
 	private String name;
 	private String telephone2;
 	private String name2;
+	/**第二个报名人与第一个报名人的关系*/
+	private String relation;
 	public String getTelephone() {
 		return telephone;
 	}
@@ -34,5 +36,11 @@ public class Signup extends UUIDBaseModel {
 	}
 	public void setName2(String name2) {
 		this.name2 = name2;
+	}
+	public String getRelation() {
+		return relation;
+	}
+	public void setRelation(String relation) {
+		this.relation = relation;
 	}
 }
