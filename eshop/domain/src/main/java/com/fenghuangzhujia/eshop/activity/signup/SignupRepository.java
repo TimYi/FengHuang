@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.signup;
+package com.fenghuangzhujia.eshop.activity.signup;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 

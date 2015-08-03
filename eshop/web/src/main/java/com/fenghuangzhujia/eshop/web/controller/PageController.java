@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fenghuangzhujia.eshop.activity.signup.Signup;
+import com.fenghuangzhujia.eshop.activity.signup.SignupService;
 import com.fenghuangzhujia.eshop.decorateProcess.DecorateProcessService;
 import com.fenghuangzhujia.eshop.decorateProcess.dto.DecorateProcessDto;
-import com.fenghuangzhujia.eshop.signup.Signup;
-import com.fenghuangzhujia.eshop.signup.SignupService;
 import com.fenghuangzhujia.eshop.view.carousel.CarouselService;
 import com.fenghuangzhujia.eshop.view.carousel.dto.CarouselDto;
 import com.fenghuangzhujia.eshop.view.decorateTechnology.DecorateTechnologyService;

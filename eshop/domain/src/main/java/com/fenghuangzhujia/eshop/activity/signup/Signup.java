@@ -1,4 +1,4 @@
-package com.fenghuangzhujia.eshop.signup;
+package com.fenghuangzhujia.eshop.activity.signup;
 
 import javax.persistence.Entity;
 
@@ -9,6 +9,8 @@ public class Signup extends UUIDBaseModel {
 
 	private String telephone;
 	private String name;
+	private String telephone2;
+	private String name2;
 	public String getTelephone() {
 		return telephone;
 	}
@@ -20,5 +22,17 @@ public class Signup extends UUIDBaseModel {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getTelephone2() {
+		return telephone2;
+	}
+	public void setTelephone2(String telephone2) {
+		this.telephone2 = telephone2;
+	}
+	public String getName2() {
+		return name2;
+	}
+	public void setName2(String name2) {
+		this.name2 = name2;
 	}
 }
