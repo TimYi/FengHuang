@@ -36,7 +36,7 @@ public class ExperienceAppointController {
 		return RequestResult.success(result).toJson();
 	}
 	
-	@RequestMapping(value="{id}/calcel",method=RequestMethod.POST)
+	@RequestMapping(value="{id}/cancel",method=RequestMethod.POST)
 	public String cancel(@PathVariable String id) {
 		service.calcelAppoint(id);
 		return RequestResult.success("取消成功").toJson();

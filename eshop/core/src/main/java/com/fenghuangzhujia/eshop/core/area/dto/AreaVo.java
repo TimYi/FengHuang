@@ -3,8 +3,9 @@ package com.fenghuangzhujia.eshop.core.area.dto;
 import java.util.Set;
 
 import com.fenghuangzhujia.eshop.core.area.Area.AreaLevel;
+import com.fenghuangzhujia.foundation.core.dto.DtoBaseModel;
 
-public class AreaVo {
+public class AreaVo extends DtoBaseModel {
 
 	private String name;
 	private AreaLevel level;
