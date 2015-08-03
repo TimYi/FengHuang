@@ -836,7 +836,8 @@ $(function(){
 				if(reg.test(phone)){
 					if(name2 !== ""){
 						if(phone2 !== ""){
-							if(reg.test(phone2)){
+							var reg2 = /^1[3,5,7,8]\d{9}$/g;
+							if(reg2.test(phone2)){
 								if(relation !== ""){
 									var condi = {};
 									condi.name = name;
