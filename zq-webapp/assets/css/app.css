@@ -1014,5 +1014,4 @@ input[placeholder],[placeholder],*[placeholder] {
 .login-btn,.login-btn:hover{display:block;background:orange;border:none;color:#000;height:45px;line-height: 45px;font-size:18px;font-weight:800;padding:0;border-radius:7px;}
 #logoWrap{overflow:hidden;}
 #logoWrap .am-gallery-item {border:1px solid #ddd;padding:2px;}
-#logoWrap .am-gallery-item a{width:100%;height:0;padding-bottom:75%;overflow:hidden;display:block;}
 #logoWrap .am-gallery-item img{margin:0;border:none;padding:0;}
