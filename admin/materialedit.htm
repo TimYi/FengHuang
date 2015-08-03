@@ -70,7 +70,7 @@ function afterGetMaterialTypes(data){
 	if(!isErrorData(data)){
 		types = data.result;
 		//获取品牌
-		getData(MATERIAL_BRAND,null,afterGetBrands4Select);	
+		getData(MATERIAL_BRAND+'/all',null,afterGetBrands4Select);	
 	}
 }
 function afterGetBrands4Select(data){
@@ -209,11 +209,11 @@ function onBrandChange(){
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tbody>
 			<tr>
-				<td align="right" width="25%" height="40">ID:</td>
+				<td align="right" width="25%" height="40">ID：</td>
 				<td width="75%" ><span data-bind='text:id'></span></td>
 			</tr>		
 			<tr>
-				<td align="right" width="25%" height="40">描述:</td>
+				<td align="right" width="25%" height="40">描述：</td>
 				<td width="75%" >
 					<input   class="input" name='description' type="text" data-bind='value:description'>
 				</td>
@@ -228,7 +228,7 @@ function onBrandChange(){
 				<td align="right" height="40" >类别：</td>
 				<!--可选，可输入-->
 				<td width="75%" >
-					<input type="radio" id='newOne' name='typeGroup' > 文本输入
+					<input type="radio" id='newOne' name='typeGroup' > 文本输入  &nbsp;&nbsp;&nbsp;&nbsp;
 					<input type="radio" id='selectOne' name='typeGroup' checked='checked' > 列表选择
 				</td>				
 			</tr>
@@ -236,7 +236,7 @@ function onBrandChange(){
 				<td align="right" height="40" ></td>
 				<!--可选，可输入-->
 				<td width="75%" >
-					<select   class="input" id='selectType' data-bind="value:selectedType,options:typeDic,
+					<select id='selectType' data-bind="value:selectedType,options:typeDic,
 						valueAllowUnset: true">
 					</select>
 					<input   class="input" type='text' style="display:none;" id='inputType' name='typeName' 
@@ -246,7 +246,7 @@ function onBrandChange(){
 			<tr>
 				<td align="right" height="40" >所属品牌：</td>
 				<td>
-					<select  class="input"  data-bind="value:selectedBrand,options:brandDic,optionsText:'name',
+					<select data-bind="value:selectedBrand,options:brandDic,optionsText:'name',
 						valueAllowUnset: true,optionsCaption: '请选择...',event:{change:onBrandChange}">
 					</select>
 					<input  type="hidden" name='brandId' 
@@ -256,20 +256,20 @@ function onBrandChange(){
 			<tr>
 				<td align="right" height="40" >产品类型：</td>
 				<td>
-					<select   class="input" data-bind="value:selectedProduct,options:productDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					<select data-bind="value:selectedProduct,options:productDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 					</select>
 					<input type="hidden" name='productId' 
 						data-bind="value:selectedProduct()?selectedProduct().id:''">
 				</td>
 			</tr>	
 			<tr>
-				<td align="right" height="40" >套餐：</td>
+				<td align="right" height="40" >选择套餐：</td>
 				<td>
-					<select   class="input" data-bind="selectedOptions:selectedPackages,options:packageDic,optionsText:'name',
-						valueAllowUnset: true" multiple="true" 	style="height:100px;">
+					<select data-bind="selectedOptions:selectedPackages,options:packageDic,optionsText:'name',
+						valueAllowUnset: true" multiple="true" 	style="height:180px;width:285px">
 					</select>
 					<!--提交前构造值-->
-					<input   class="input" type="hidden" size=100 name='packageIds' id='packageIds' />
+					<input class="input" type="hidden" size=100 name='packageIds' id='packageIds' />
 				</td>
 			</tr>		
 			<tr>
@@ -279,9 +279,9 @@ function onBrandChange(){
 				</td>
 			</tr>
 			<tr>
-				<td align="right" height="40" >图片：</td>
+				<td align="right" height="40" >图片预览：</td>
 				<td width="75%">
-					<img data-bind='attr:{src:pic.url}'/>
+					<img data-bind='attr:{src:pic.url}' style="width:285px"/>
 				</td>
 			</tr>
 		</tbody>

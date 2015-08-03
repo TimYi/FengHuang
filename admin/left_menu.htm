@@ -19,6 +19,9 @@
 	var MODULE_TEMPLATE_URL = MODULE_HOST_URL + "templatelist.htm";
 	var MODULE_DRAWBACK_URL = MODULE_HOST_URL + "drawbacklist.htm";
 	var MODULE_DECORATESPACE_URL = MODULE_HOST_URL + "spacelist.htm";
+	var MODULE_MUSEUM_URL = MODULE_HOST_URL + "experienceMuseumlist.htm";
+	var MODULE_EXPAPPOINT_URL = MODULE_HOST_URL + "experienceAppointlist.htm";
+	var MODULE_DECORATETECH_URL = MODULE_HOST_URL + "decorateTechlist.htm";
 	function openUsrMgr(){		
 		window.parent.frames["main"].location.href=MODULE_USR_URL;
 	}
@@ -88,7 +91,15 @@
 	function openDecorateSpaceMgr(){
 		window.parent.frames["main"].location.href=MODULE_DECORATESPACE_URL;
 	}
-	
+	function openMuseumMgr(){
+		window.parent.frames["main"].location.href=MODULE_MUSEUM_URL;
+	}
+	function openExpAppointMgr(){
+		window.parent.frames["main"].location.href=MODULE_EXPAPPOINT_URL;
+	}
+	function openDecorateTechMgr(){
+		window.parent.frames["main"].location.href=MODULE_DECORATETECH_URL;
+	}
 </script>
 </head>
 <body>
@@ -183,6 +194,17 @@
 				<div class="title" onclick="DisplayMenu('leftmenu10');" title="点击切换显示或隐藏"> 装修空间管理 </div>
 				<div id="leftmenu10" style="display:none"> 
 					<a href="#" onclick ="javascript:openDecorateSpaceMgr();return false;"  target="main"><span class="subType_leftmenu">装修空间</span></a>
+					<a href="#" onclick ="javascript:openDecorateTechMgr();return false;"  target="main"><span class="subType_leftmenu">装修工艺</span></a>
+					
+				</div>
+			</div>
+			<div class="hr_5"></div>
+			<div class="menubox">
+				<div class="title" onclick="DisplayMenu('leftmenu11');" title="点击切换显示或隐藏"> 体验馆管理 </div>
+				<div id="leftmenu11" style="display:none"> 
+					<a href="#" onclick ="javascript:openMuseumMgr();return false;"  target="main"><span class="subType_leftmenu">体验馆管理</span></a>
+					<a href="#" onclick ="javascript:openExpAppointMgr();return false;"  target="main"><span class="subType_leftmenu">体验馆预约</span></a>
+
 				</div>
 			</div>
 			<div class="hr_5"></div>

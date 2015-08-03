@@ -156,9 +156,140 @@ $(".m_logo").hover(function(){
 </script>
 <!--header-->
 
+
+
+<style type="text/css">
+body{font-family:"微软雅黑";}
+img{border:none;}
+
+/* scrollpic */
+.scrollpic{max-width:1170px;min-height:550px;margin:0px auto;}
+#myscroll{display:block; width:100%; position:relative; height:390px; overflow:hidden;}
+#myscroll #myscrollbox{display:block; float:left; position:absolute; left:0; top:0; width:1000000px;}
+#myscroll ul{display:block; float:left; list-style-type:none; padding:0; margin:0;}
+#myscroll ul li{display:block; float:left; padding:0; margin:0;}
+#myscroll ul li a{display:block; float:left; width:234px; padding:0; position:relative; height:390px; color:#000;}
+#myscroll a .intro{position:absolute; left:0; z-index:10; background-color:rgba(0,0,0,.50); padding:0 10px;}
+#myscroll a .intro h5{padding:0; margin:0; font-size:16px; font-weight:bold; padding:0 0 0 15px; height:40px; width:204px; line-height:40px; color:#fff}
+#myscroll a .intro p{font-size:13px; line-height:20px; margin:10px 15px; height:300px; overflow:hidden;color:#fff}
+#myscroll a .intro{bottom:-320px;}
+#myscroll a:hover .intro{bottom:0px;}
+
+#mybtns{width:100%; display:block; height:42px;}
+#mybtns a{width:42px; height:42px; display:block; margin-right:1px; background-color: #c1c1c1;}
+#mybtns a:hover{background-color: #d7000f;}
+#mybtns a:hover, #myscroll, #mybtns a,#myscroll a:hover .intro, #myscroll a .intro,#myscroll #myscrollbox{
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+#mybtns #left{background-image:url(images/jt_l.png);float:left; margin-left:-60px}
+#mybtns #right{background-image:url(images/jt_r.png);float:right; margin-right:-60px}
+
+@media(min-width:1170px){
+.scrollpic{max-width:1170px; width:100%;}
+#myscroll{width:1170px;}
+}
+/*
+@media(max-width:1571px){
+.scrollpic{max-width:1310px; width:100%;}
+#myscroll{width:1310px;}
+
+}
+@media(max-width:1309px){
+.scrollpic{max-width:1048px; width:100%;}
+#myscroll{width:1048px;}
+}
+@media(max-width:1047px){
+.scrollpic{max-width:786px; width:100%;}
+#myscroll{width:786px;}
+}
+@media(max-width:767px){
+.scrollpic{max-width:524px; width:100%;}
+#myscroll{width:524px;}
+}
+@media(max-width:523px){
+.scrollpic{max-width:262px; width:100%;}
+#myscroll{width:262px;}
+}*/
+</style>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	  var blw=$("#myscrollbox li").width();
+	  //获取单个子元素所需宽度
+	  var liArr = $("#myscrollbox ul").children("li");
+	  //获取子元素数量
+	  var mysw = $("#myscroll").width();
+	  //获取子元素所在区域宽度
+	  var mus = parseInt(mysw/blw);
+	  //计算出需要显示的子元素的数量
+	  var length = liArr.length-mus;
+	  //计算子元素可移动次数（被隐藏的子元素数量）
+	  var i=0
+	  $("#right").click(function(){
+		  i++
+		  //点击i加1
+		  if(i<length){
+		      $("#myscrollbox").css("left",-(blw*i));
+			  //子元素集合向左移动，距离为子元素的宽度乘以i。
+		  }else{
+			  i=length;
+			  $("#myscrollbox").css("left",-(blw*length));
+			  //超出可移动范围后点击不再移动。最后几个隐藏的元素显示时i数值固定位已经移走的子元素数量。
+	      }
+      });
+	  $("#left").click(function(){
+		  i--
+		  //点击i减1
+		  if(i>=0){
+		     $("#myscrollbox").css("left",-(blw*i));
+			 //子元素集合向右移动，距离为子元素的宽度乘以i。
+		  }else{
+			 i=0;
+			 $("#myscrollbox").css("left",0);
+			 //超出可移动范围后点击不再移动。最前几个子元素被显示时i为0。
+	      }
+      });
+});
+</script>
+
+
+<section id="feature"  style="">
+	<div class="container"  style="margin-bottom:-80px">
+		<div class="center wow fadeInDown">
+			<h2>工艺展示<span style="font-size:24px"></span></h2>
+			<p class="lead">六类标准化工艺</p>
+		</div>
+	</div>
+</section>
+
+<div class="scrollpic">
+	<div id="mybtns">
+	  <a href="javascript:;" id="left"></a>
+	  <a href="javascript:;" id="right"></a>
+	</div>
+
+	<div id="myscroll">
+		<div id="myscrollbox">
+			<ul>
+				<li><a href=""><img src="images/gyzs/g1.jpg" width="234" height="390"><span class="intro"><h5>电路改造工艺</h5><p>PVC线管线盒，暗管暗槽横平竖直，电线导管无折皱、无裂缝保证电线导管畅通；强弱电要分开，互不干扰很重要“左零右火中间零”安装面板要记牢；10A以上大功率电器，必须使用4mm的电源线设置专用供电回路，确保大功率电器稳定运行。</p></span></a></li>
+				<li><a href=""><img src="images/gyzs/g2.jpg" width="234" height="390"><span class="intro"><h5>水路改造工艺</h5><p>PPR水管（冷、热水管），暗管暗槽横平竖直，避免其他工程误操作；水管做打压试验，测试压力不低于0.60Mpa，稳压1小时；通水实验同样重要，保证每个出水口都能正常出。</p></span></a></li>
+				<li><a href=""><img src="images/gyzs/g3.jpg" width="234" height="390"><span class="intro"><h5>防水施工工艺</h5><p>柔性防水砂浆，环保性能、物理性能优越，寿命长；防水高度卫生间淋浴区域1.8m，其它区域高出地面0.3m；防水做完后地面薄刮纯水泥浆保护防水免遭破坏，同时增加了瓷砖与墙面的粘结度；闭水试验蓄水水位高出地面最高点2厘米，24小时后观察楼下卫生间及卫生间公用墙有无水痕。</p></span></a></li>
+				<li><a href=""><img src="images/gyzs/g4.jpg" width="234" height="390"><span class="intro"><h5>墙面乳胶漆工艺</h5><p>批刮粉刷石膏前在原基层涂刷界面剂封底，增加粘接强度；墙面有裂缝及开槽的地方应贴穿孔纸袋进行处理；批刮腻子完成后墙顶面用高标号砂纸打磨，减少砂纸痕迹，达到良好效果。</p></span></a></li>
+				<li><a href=""><img src="images/gyzs/g5.jpg" width="234" height="390"><span class="intro"><h5>铺贴墙地砖工艺</h5><p>粘贴墙地砖，砂浆要饱满无空鼓；贴厨房、卫生间墙砖要压地砖，地砖应适当放坡（坡度为6－8mm），保证能使地面残水从地漏流尽而不积水；铺地砖，基层用粗砂，水泥按3：1的比例加适量的水调和，保证砂浆充实无空鼓（即找平），保证房间的最高处水泥砂浆有20mm厚。</p></span></a></li>
+				<li><a href=""><img src="images/gyzs/g6.jpg" width="234" height="390"><span class="intro"><h5>地面找平工艺</h5><p>原地面清理，刷地固；水泥、中砂搅拌抹平；找平压光后，做洒水水保养。</p></span></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
 	<!--script src="js/gyzs.js"></script-->
 
-	<section id="feature"  style="border-top:1px solid #f6f6f6;">
+	<!--section id="feature"  style="border-top:1px solid #f6f6f6;">
 		<div class="container"  style="margin-bottom:-50px">
 			<div class="center wow fadeInDown">
 				<h2>电路改造工艺<span style="font-size:24px"> FREE SERVICE</span></h2>
@@ -167,18 +298,6 @@ $(".m_logo").hover(function(){
 			<div class="container">
 				<div class="row" style="margin:-20px 0 30px 0">
 					<div class="col-md-4">
-						<!--div class="col-md-6" style="padding:5px">
-							<img class="img-responsive" src="assets/images/dl1.gif" alt="">
-						</div>
-						<div class="col-md-6" style="padding:5px">
-							<img class="img-responsive" src="assets/images/dl1.gif" alt="">
-						</div>
-						<div class="col-md-6" style="padding:5px">
-							<img class="img-responsive" src="assets/images/dl1.gif" alt="">
-						</div>
-						<div class="col-md-6" style="padding:5px">
-							<img class="img-responsive" src="assets/images/dl1.gif" alt="">
-						</div-->	
 						<div class="recent-work-wrap">
 							<img class="img-responsive" src="assets/images/dl1.gif" style="height:200px;width:330px;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius:10px;">
 						</div>																							
@@ -339,7 +458,8 @@ $(".m_logo").hover(function(){
 						<div class="overlay">
 							<div class="recent-work-inner">
 								<ul style="font-size:18px;line-height:40px;" >
-									原地面清理，刷地固；水泥、中砂搅拌抹平；找平压光后，做洒水水保养
+									<li style="list-style:disc">原地面清理，刷地固</li>
+									<li style="list-style:disc">水泥、中砂搅拌抹平；找平压光后，做洒水水保养</li>
 								</ul>
 							</div>
 						</div>
@@ -347,7 +467,7 @@ $(".m_logo").hover(function(){
 				</div>
 			</div>
 		</div>
-	</section>
+	</section-->
 
 
 <!--footer-->

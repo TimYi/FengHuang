@@ -144,42 +144,50 @@ $(function(){
 	var loginStatus = Utils.getUserInfo();
 
 	var subbtn = $(".subbtn");
-	if(subbtn.length == 0){
-		subbtn = $(".buynow");
+	if(subbtn.length != 0){
+		repleacHref(subbtn);
 	}
-	for(var i = 0,len = subbtn.length; i < len; i++){
-		var btn = $(subbtn[i]);
-		var href = btn.attr("href");
-		if(href == "#TYG_XM_BTNTITLE#" || href == "#TYG_BJ_BTNTITLE#"){
-			//预约体验馆
-			if(loginStatus){
-				if(href == "#TYG_BJ_BTNTITLE#"){
-					btn.attr("href","subappoint.html?type=0");
-				}
-				else if(href == "#TYG_XM_BTNTITLE#"){
-					btn.attr("href","subappoint.html?type=1");
+	var subbtn = $(".buynow");
+	if(subbtn.length != 0){
+		repleacHref(subbtn);
+	}
+	function repleacHref(subbtn){
+		for(var i = 0,len = subbtn.length; i < len; i++){
+			var btn = $(subbtn[i]);
+			var href = btn.attr("href");
+			if(href == "#TYG_XM_BTNTITLE#" || href == "#TYG_BJ_BTNTITLE#"){
+				//预约体验馆
+				if(loginStatus){
+					if(href == "#TYG_BJ_BTNTITLE#"){
+						btn.attr("href","subappoint.html?type=0");
+					}
+					else if(href == "#TYG_XM_BTNTITLE#"){
+						btn.attr("href","subappoint.html?type=1");
+					}
+					else{
+						btn.attr("href","subappoint.html");
+					}
 				}
 				else{
-					btn.attr("href","subappoint.html");
+					btn.attr({"href":"#","data-toggle":"modal","data-target":"#exampleModal","data-whatever":"@mdo"});
 				}
 			}
-			else{
-				btn.attr({"href":"#","data-toggle":"modal","data-target":"#exampleModal","data-whatever":"@mdo"});
+			else if(href == "#TC599_BTNURL#" || href == "#TC699_BTNURL#" || href == "#RZB_BTNURL#" || href == "#DQB_BTNURL#" || href == "#GXHB_BTNURL#"){
+				//599套餐
+				//预约套餐
+				if(loginStatus){
+					btn.attr("href","javascript:void(0);");
+				}
+				else{
+					btn.attr({"href":"#","data-toggle":"modal","data-target":"#exampleModal","data-whatever":"@mdo"});
+				}
 			}
-		}
-		else if(href == "#"){
-			btn.attr("href","javascript:void(0);");
-		}
-		else if(href == "#TC599_BTNURL#" || href == "#TC699_BTNURL#" || href == "#RZB_BTNURL#" || href == "#DQB_BTNURL#" || href == "#GXHB_BTNURL#"){
-			//599套餐
-			//预约套餐
-			if(loginStatus){
+			else if(href == "#HOME_BAOMIN#"){
+				btn.attr({"href":"#","data-toggle":"modal","data-target":"#baoming","data-whatever":"@mdo"});
+			}
+			else if(href == "#"){
 				btn.attr("href","javascript:void(0);");
-			}
-			else{
-				btn.attr({"href":"#","data-toggle":"modal","data-target":"#exampleModal","data-whatever":"@mdo"});
 			}
 		}
 	}
-
 });
