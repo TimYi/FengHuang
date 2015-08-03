@@ -146,7 +146,7 @@ $(function(){
 					if(mpic !== ""){
 						mpic = mpic.url;
 					}
-					phtml.push('<img src="' + mpic + '" style="' + margin + '" alt="' + description + '" >');
+					phtml.push('<img src="' + mpic + '" style="' + margin + '" alt="' + description + '" />');
 				}
 				phtml.push('</td>');
 				phtml.push('</tr>');
