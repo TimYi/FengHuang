@@ -142,10 +142,11 @@ $(function(){
 				for(var n = 0,nlen = meterias.length; n < nlen; n++){
 					var margin = n == 0 ? "margin-bottom:0;width:100px;" : "margin-bottom:0;width:100px;";
 					var mpic = meterias[n].pic || "";
+					var description = meterias[n].description || "";
 					if(mpic !== ""){
 						mpic = mpic.url;
 					}
-					phtml.push('<img src="' + mpic + '" style="' + margin + '">');
+					phtml.push('<img src="' + mpic + '" style="' + margin + '" alt="' + description + '" >');
 				}
 				phtml.push('</td>');
 				phtml.push('</tr>');
