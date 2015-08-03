@@ -827,33 +827,66 @@ $(function(){
 	function baoMingBtnUp(){
 		var name = $("#inputEmail3bm").val() || "";
 		var phone = $("#inputPhone3bm").val() || "";
+		var name2 = $("#inputEmail32bm").val() || "";
+		var phone2 = $("#inputPhone32bm").val() || "";
+		var relation = $("#inputrelationbm").val() || "";
 		if(name !== ""){
 			if(phone !== ""){
 				var reg = /^1[3,5,7,8]\d{9}$/g;
 				if(reg.test(phone)){
-					var condi = {};
-					condi.name = name;
-					condi.telephone = phone;
-					sendSignupHttp(condi);
+					if(name2 !== ""){
+						if(phone2 !== ""){
+							if(reg.test(phone2)){
+								if(relation !== ""){
+									var condi = {};
+									condi.name = name;
+									condi.telephone = phone;
+									condi.name2 = name2;
+									condi.telephone2 = phone2;
+									condi.relation = relation;
+									sendSignupHttp(condi);
+								}
+								else{
+									Utils.alert("请输入选手关系!");
+									$("#inputrelationbm").focus();
+								}
+							}
+							else{
+								Utils.alert("选手二手机号码输入不合法!");
+								$("#inputPhone32bm").focus();
+							}
+						}
+						else{
+							Utils.alert("请输入选手二手机号码!");
+							$("#inputPhone32bm").focus();
+						}
+					}
+					else{
+						Utils.alert("请输入选手二姓名!");
+						$("#inputEmail32bm").focus();
+					}
 				}
 				else{
-					Utils.alert("手机号码输入不合法!");
+					Utils.alert("选手一手机号码输入不合法!");
 					$("#inputPhone3bm").focus();
 				}
 			}
 			else{
-				Utils.alert("请输入手机号码!");
+				Utils.alert("请输入选手一手机号码!");
 				$("#inputPhone3bm").focus();
 			}
 		}
 		else{
-			Utils.alert("请输入姓名!");
+			Utils.alert("请输入选手一姓名!");
 			$("#inputEmail3bm").focus();
 		}
 	}
 	function baoMingResetBtnUp(){
 		$("#inputEmail3bm").val("");
 		$("#inputPhone3bm").val("");
+		$("#inputEmail32bm").val("");
+		$("#inputPhone32bm").val("");
+		$("#inputrelationbm").val("");
 	}
 
 	function sendSignupHttp(condi){
