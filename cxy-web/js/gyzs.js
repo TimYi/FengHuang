@@ -35,6 +35,18 @@
 		var obj = data.result || [];
 
 		var html = [];
+
+		html.push('<div class="scrollpic">');
+
+		html.push('<div id="mybtns">');
+		html.push('<a href="javascript:;" id="left"></a>');
+		html.push('<a href="javascript:;" id="right"></a>');
+		html.push('</div>');
+
+		html.push('<div id="myscroll">');
+		html.push('<div id="myscrollbox">');
+		html.push('<ul>');
+
 		for(var i = 0, len = obj.length; i < len; i++){
 			var name = obj[i].name || "";
 			var pic = obj[i].pic || "";
@@ -43,6 +55,17 @@
 			}
 			var description = obj[i].description || "";
 
+
+			html.push('<li><a href="javascript:void(0);">');
+			html.push('<img src="' + pic + '" width="234" height="390">');
+			html.push('<span class="intro"><h5>');
+			html.push(name);
+			html.push('</h5>');
+			html.push('<p>');
+			html.push(description);
+			html.push('</p></span></a></li>');
+
+			/*
 			html.push('<section style="border-top:1px solid #f6f6f6;">');
 			html.push('<div class="container"  style="margin-bottom:-50px">');
 			html.push('<div class="center wow fadeInDown">');
@@ -70,7 +93,10 @@
 			html.push('</div>');
 			html.push('</div>');
 			html.push('</section>');
+			*/
 		}
+		html.push('</ul></div></div></div>');
+
 		document.write(html.join(''));
 	}
 
