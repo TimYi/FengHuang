@@ -28,7 +28,7 @@ function onload(){
 }
 function afterGetCitys4Select(data){
 	if(!isErrorData(data)){
-		citys = data.result.result;
+		citys = data.result;
 		getDataById(MUSEUM_MUSEUM,id,afterGetDataById);
 	}
 }
