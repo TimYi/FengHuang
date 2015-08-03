@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>新增报名信息</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/json2.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript">
+var viewModel;
+function onload(){
+	viewModel = {};
+	viewModel.submit = function(){	
+		var url = genUrl(MUSEUM_SIGNUP);	
+		submitAsyFormByJson(url, 'signupForm', 
+			function(data){
+				friendlyTip(data);
+				window.location.href='signuplist.htm';
+			});
+	};
+	ko.applyBindings(viewModel);
+}
+</script>
+</head>
+<body onload="onload()">
+<div class="formHeader">
+ 	<span class="title">新增报名信息</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
+</div>
+<form name="signupForm" id="signupForm" method="post">
+	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>		
+			<tr>
+				<td width="25%"  align="right"  height="40">报名人:</td>
+				<td width="75%" >
+					<input type="text"  class="input" name="name" >
+				</td>
+			</tr>
+			<tr>
+				<td width="25%"  align="right"  height="40">电话:</td>
+				<td width="75%" >
+					<input type="text"  class="input" name="telephone" >
+				</td>
+			</tr>
+			<tr>
+				<td width="25%"  align="right"  height="40">陪同人:</td>
+				<td width="75%" >
+					<input type="text"  class="input"  name="name2">
+				</td>
+			</tr>
+			<tr>
+				<td width="25%"  align="right"  height="40">陪同人电话:</td>
+				<td width="75%" >
+					<input type="text"  class="input"  name="telephone2">
+				</td>
+			</tr>
+			<tr>
+				<td width="25%"  align="right" height="40">陪同人与报名人关系：</td>
+				<td width="75%" >
+					<input type="text"  class="input" name="relation">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="formSubBtn">
+		<input class="submit" value="提交" type="button" data-bind="click:submit"/>
+		<input class="back" value="返回" onclick="history.go(-1)" type="button">
+	</div>
+</form>
+</body></html>
