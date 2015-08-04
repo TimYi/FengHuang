@@ -2,6 +2,7 @@ package com.fenghuangzhujia.eshop.prudoct.packages.space;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -72,7 +73,7 @@ public class DecorateSpace extends UUIDBaseModel {
 	public void setPic3(MediaContent pic3) {
 		this.pic3 = pic3;
 	}
-	@OneToMany(mappedBy="space")
+	@OneToMany(mappedBy="space",cascade=CascadeType.ALL)
 	@OrderBy("ordernum")
 	public Set<DecorateItem> getItems() {
 		return items;
