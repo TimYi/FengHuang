@@ -57,14 +57,14 @@ function submitSpace(){
 		return ;
 	}
 	var url = genUrl(PACKAGE_SPACE);
-	var mainfiles = $('input[id^="picFile"]').prop('files');//获取到文件列表
+	/*var mainfiles = $('input[name^="picFile"]').prop('files');//获取到文件列表
 
 	if(mainfiles.length == 0){
 		submitAsyFormByJson(url,'bTForm',function(data){	 			
 			friendlyTip(data);
 			window.location.href='spacelist.htm';
 		});		
-	}else{
+	}else{*/
 		//alert("带文件");
 		submitFormWithMultipart(url,'bTForm',
 			function(formData, jqForm, options){
@@ -76,7 +76,7 @@ function submitSpace(){
 			 	window.location.href='spacelist.htm';
 			 }
 		);
-	}
+	//}
 }
 function addItem(){
 	var name = $("#itemName").val();
