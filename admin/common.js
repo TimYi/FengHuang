@@ -11,9 +11,10 @@ var PACKAGE_SPACE = 'decorateSpace';
 var DECORATE_TECH = 'decorateTechnology';
 var MUSEUM_MUSEUM = 'experienceMuseum';
 var MUSEUM_APPOINT= 'experienceAppoint';
+var MUSEUM_SIGNUP= 'signup';
 
-// AREA_CITY = 'area/level/CITY';
-var AREA_CITY = 'area';
+var AREA_CITY = 'area/level/CITY';
+//var AREA_CITY = 'area';
 
 function PagingJson2ViewModel(data){
 

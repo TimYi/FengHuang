@@ -16,6 +16,9 @@ public class SignupAdpater extends SimpleDtoAdapter<Signup, Signup, Signup> {
 	public Signup update(Signup t, Signup d) {
 		d.setName(t.getName());
 		d.setTelephone(t.getTelephone());
+		d.setName2(t.getName2());
+		d.setTelephone2(t.getTelephone2());
+		d.setRelation(t.getRelation());
 		return d;
 	}
 

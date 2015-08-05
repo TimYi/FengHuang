@@ -27,7 +27,7 @@
 			<input type="hidden" id='selectStatus' name='status' data-bind="value:selectStatus()?selectStatus().value:''"></td>
 
 		</form>
-	</span>
+	</span>	
 </span>
 	<a href="javascript:location.reload();" class="reload">刷新</a></div>
 <form name="form" id="form" method="post">
@@ -40,12 +40,13 @@
 		<li class="line">&nbsp;</li>
 		<li class="line">&nbsp;</li>
 		<li class="line">&nbsp;</li>
-		<!--li><a href="javascript:;" onclick="searchMembers();">
-			<input name="keyword" id="keyword" title="输入关键字进行搜索" type="text">&nbsp;搜索
-			</a>
-		</li-->
+		<li>
+			<select  data-bind="value:selectedSearch,options:searchDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '选择搜索条件'">
+			</select>
+			<input name="keyword" id="keyword" title="输入关键字进行搜索" type="text">
+			<a href="javascript:;" onclick="doSearch();">&nbsp;搜索</a>
+		</li>
 	</ul>	
-	<div class="cl"></div>
 </div>
 	<table class="dataTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<thead>

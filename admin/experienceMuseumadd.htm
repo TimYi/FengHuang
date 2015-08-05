@@ -28,7 +28,7 @@ function onload(){
 }
 function afterGetCitys4Select(data){
 	if(!isErrorData(data)){
-		citys = data.result.result;
+		citys = data.result;
 		getDataById(MUSEUM_MUSEUM,id,afterGetDataById);
 	}
 }
@@ -51,13 +51,13 @@ function afterGetDataById(data){
 function submitMuseum(){
 	var url = genUrl(MUSEUM_MUSEUM);	 
 	var files = $('input[name="picFile"]').prop('files');//获取到文件列表		
-	if(files.length == 0){
+	/*if(files.length == 0){
 			  	submitAsyFormByJson(url, 'form', 
 					function(data){		 			
 			 			friendlyTip(data);
 			 			window.location.href='experienceMuseumlist.htm';
 		 		 	});
-			}else{	 
+			}else{*/	 
 		 		submitFormWithMultipart(url,'form',
 			 		function(formData, jqForm, options){
 			 			//判断是否要上传文件，若不需要上传文件时			 			
@@ -68,7 +68,7 @@ function submitMuseum(){
 			 			window.location.href='experienceMuseumlist.htm';
 			 		}
 			 	);
-	 		} 
+	 		//} 
 }
 </script>
 </head>

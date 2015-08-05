@@ -20,7 +20,7 @@
     }
     
     .am-tabs-default .am-tabs-nav {
-    	line-height: 40px;
+        line-height: 40px;
         background-color: #fff;
         margin-top: 10px;
     }
@@ -45,42 +45,53 @@
         margin-top: -15px;
         color: #666
     }
-    .logo-wrap{
-        padding:0;
+    
+    .logo-wrap {
+        padding: 0;
     }
-    .logo-wrap li{
-        float:left;
-        width:32%;
-        background-color:#fff;
-        text-align:center;
+    
+    .logo-wrap li {
+        float: left;
+        width: 32%;
+        background-color: #fff;
+        text-align: center;
         list-style: none;
-        border:1px solid #efefef;
-        margin:10px 2% 0 0;
+        border: 1px solid #efefef;
+        margin: 10px 2% 0 0;
         box-sizing: border-box;
     }
-    .logo-wrap li:nth-child(3n){
-        margin-right:0;
+    
+    .logo-wrap li:nth-child(3n) {
+        margin-right: 0;
     }
-    .logo-wrap li img{
-        width:95%;
+    
+    .logo-wrap li img {
+        width: 95%;
     }
-    .m-tit{
-        text-align:center;
-        margin:0;
-        padding:5px 0;
-        font-size:18px;
+    
+    .m-tit {
+        text-align: center;
+        margin: 0;
+        padding: 5px 0;
+        font-size: 18px;
     }
-    .m-wrap .u_th{
-        border-bottom:2px solid #ddd;
-        border-top:2px solid #fff;
+    
+    .m-wrap .u_th {
+        border-bottom: 2px solid #ddd;
+        border-top: 2px solid #fff;
     }
-    .m-wrap table td{
+    
+    .m-wrap table td {
         vertical-align: middle!important;
     }
-    .m-wrap table img{
-        max-width:30%;
-        max-height:100px;
-        margin-right:3%;
+    
+    .m-wrap table img {
+        max-width: 30%;
+        max-height: 100px;
+        margin-right: 3%;
+    }
+    #techWrap hr:last-child{
+        display: none;
     }
     </style>
 </head>
@@ -418,33 +429,15 @@
                     </p>
                 </form>
             </div>
-            <div data-tab-panel-1 class="am-tab-panel ">
-                <p style="font-size:14px;line-height:18px;color:#666">
-                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">电路改造工艺</span></b>
-                    <br/><br/>
-                    PVC线管线盒，暗管暗槽横平竖直，电线导管无折皱、无裂缝保证电线导管畅通。强弱电要分开，互不干扰很重要“左零右火中间零”安装面板要记牢.10A以上大功率电器，必须使用4mm的电源线设置专用供电回路，确保大功率电器稳定运行
-                </p>
-                <hr/>
-                <p style="font-size:14px;line-height:18px;color:#666">
-                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">水路改造工艺</span></b>
-                    <br/><br/>
-                    PPR水管（冷、热水管），暗管暗槽横平竖直，避免其他工程误操作；水管做打压试验，测试压力不低于0.60Mpa，稳压1小时；通水实验同样重要，保证每个出水口都能正常出
-                    <br/>
-                </p>
-                <hr/>
-                <p style="font-size:14px;line-height:18px;color:#666">
-                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">防水施工工艺</span></b>
-                    <br/><br/>
-                    柔性防水砂浆，环保性能、物理性能优越，寿命长；防水高度卫生间淋浴区域1.8m，其它区域高出地面0.3m；防水做完后地面薄刮纯水泥浆保护防水免遭破坏，同时增加了瓷砖与墙面的粘结度；闭水试验蓄水水位高出地面最高点2厘米，24小时后观察楼下卫生间及卫生间公用墙有无水痕。
-                    <br/>
-                </p>
-                <hr/>
-                <p style="font-size:14px;line-height:18px;color:#666">
-                    <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">墙面乳胶漆工艺</span></b>
-                    <br/><br/>
-                    批刮粉刷石膏前在原基层涂刷界面剂封底，增加粘接强度；墙面有裂缝及开槽的地方应贴穿孔纸袋进行处理；批刮腻子完成后墙顶面用高标号砂纸打磨，减少砂纸痕迹，达到良好效果。
-                    <br/>
-                </p>
+            <div data-tab-panel-1 class="am-tab-panel">
+                <div id="techWrap">
+                    <p style="font-size:14px;line-height:18px;color:#666">
+                        <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">电路改造工艺</span></b>
+                        <br/>
+                        <br/> PVC线管线盒，暗管暗槽横平竖直，电线导管无折皱、无裂缝保证电线导管畅通。强弱电要分开，互不干扰很重要“左零右火中间零”安装面板要记牢.10A以上大功率电器，必须使用4mm的电源线设置专用供电回路，确保大功率电器稳定运行
+                    </p>
+                    <hr/>
+                </div>
             </div>
             <!--div data-tab-panel-2 class="am-tab-panel">
                 <div class="m-wrap">
@@ -481,7 +474,9 @@
     <script src="js/libs/base.js"></script>
     <script src="js/libs/utils.js"></script>
     <script src="js/nav.js"></script>
+    <script src="js/tmzs.js"></script>
     <script src="js/materials.js"></script>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=49712707" charset="UTF-8"></script>  
 </body>
 
 </html>

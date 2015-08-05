@@ -22,6 +22,7 @@
 	var MODULE_MUSEUM_URL = MODULE_HOST_URL + "experienceMuseumlist.htm";
 	var MODULE_EXPAPPOINT_URL = MODULE_HOST_URL + "experienceAppointlist.htm";
 	var MODULE_DECORATETECH_URL = MODULE_HOST_URL + "decorateTechlist.htm";
+	var MODULE_SIGNUP_URL = MODULE_HOST_URL + "signuplist.htm";
 	function openUsrMgr(){		
 		window.parent.frames["main"].location.href=MODULE_USR_URL;
 	}
@@ -99,6 +100,9 @@
 	}
 	function openDecorateTechMgr(){
 		window.parent.frames["main"].location.href=MODULE_DECORATETECH_URL;
+	}
+	function openSignupMgr(){
+		window.parent.frames["main"].location.href=MODULE_SIGNUP_URL;
 	}
 </script>
 </head>
@@ -204,6 +208,7 @@
 				<div id="leftmenu11" style="display:none"> 
 					<a href="#" onclick ="javascript:openMuseumMgr();return false;"  target="main"><span class="subType_leftmenu">体验馆管理</span></a>
 					<a href="#" onclick ="javascript:openExpAppointMgr();return false;"  target="main"><span class="subType_leftmenu">体验馆预约</span></a>
+					<a href="#" onclick ="javascript:openSignupMgr();return false;"  target="main"><span class="subType_leftmenu">报名管理</span></a>
 
 				</div>
 			</div>

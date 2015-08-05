@@ -8,6 +8,7 @@ $(function(){
 	g.sendTime = 60;
 	g.username = Base.userName;
 	g.token = Utils.offLineStore.get("token",false);
+	g.ctype = Utils.getQueryString("type") - 0 || "";
 	g.page = Utils.getQueryString("p") - 0;
 	g.id = Utils.getQueryString("id") - 0;
 	g.totalPage = 1;
@@ -15,10 +16,11 @@ $(function(){
 	g.paseSize = 20;
 	g.httpTip = new Utils.httpTip({});
 	g.listdata = [];
-	g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
+	g.userprofile = Utils.offLineStore.get("userinfo",false) || "";
 	//验证登录状态
 	g.loginStatus = Utils.getUserInfo();
 	g.reserveStatus = false;
+
 	if(!g.loginStatus){
 		alert('请先登录');
 		location.href='login.html';
@@ -31,16 +33,14 @@ $(function(){
 		if(name !== "" && mobile !== ""){
 			//允许预约
 			g.reserveStatus = true;
-		}
-		else{
+			$("#name").val(name);
+			$("#phone").val(mobile);
+		}else{
 			g.reserveStatus = false;
 			alert("个人资料不完善,无法预约");
 			location.href = "u_info.html?token=" + g.token + "&p=1";
 			return;
 		}
-		$("#name").val(name);
-		$("#phone").val(mobile);
-
 		getImgCode();
 	}
 
@@ -49,35 +49,31 @@ $(function(){
 	$("#imgcodebtn").bind("click",getImgCode);
 	$("#getcodebtn").bind("click",getValidCode);
 	$("#buybtn").bind("click",reserverBtnUp);
-	$("#provId").bind("change",getProvCity);
 
-	getAppointCategory();
-	getProv();
-	function getProvCity(){
-		var id = $(this).val();
-		getCity(id,1);
-	}
-	//获取字典
-	function getProv(){
-		var url = Base.cityUrl + "/PROV";
-		g.httpTip.show();
+	getMuseumsList();
+
+	function getMuseumsList(){
+		var url = Base.serverUrl + '/api/museums';
+		var condi = {};
+		condi.page = 1;
+		condi.size = 100;
 		$.ajax({
 			url:url,
-			data:{},
+			data:condi,
 			type:"GET",
 			dataType:"json",
 			context:this,
 			global:false,
+			async: false,
 			success: function(data){
-				console.log("getProv",data);
+				console.log(data);
 				var status = data.status || "";
 				if(status == "OK"){
-					changeSelectHtml("provId",data.result || []);
-					var id = data.result[0].id;
-					getCity(id,0);
+					changeMuseumsSelectHtml("typeid",data.result || []);
 				}
 				else{
-					Utils.alert("城市获取失败");
+					var msg = data.error || "";
+					alert("获取数据错误:" + msg);
 				}
 				g.httpTip.hide();
 			},
@@ -86,74 +82,22 @@ $(function(){
 			}
 		});
 	}
-	function getCity(id,b){
-		var url = Base.subareasUrl + "/" + id;
-		g.httpTip.show();
-		$.ajax({
-			url:url,
-			data:{},
-			type:"GET",
-			dataType:"json",
-			context:this,
-			global:false,
-			success: function(data){
-				console.log("getCity",data);
-				var status = data.status || "";
-				if(status == "OK"){
-					switch(b){
-						case 0:
-							changeSelectHtml("cityId",data.result || []);
-						break;
-						case 1:
-							changeSelectHtml("cityId",data.result || []);
-						break;
-					}
-				}
-				else{
-					Utils.alert("城市获取失败");
-				}
-				g.httpTip.hide();
-			},
-			error:function(data){
-				g.httpTip.hide();
+
+	function changeMuseumsSelectHtml(domid,data){
+		var obj = data.result || [];
+		if(obj.length > 0){
+			var option = [];
+			for(var i = 0,len = obj.length; i < len; i++){
+				var id = obj[i].id || "";
+				var name = obj[i].name || "";
+				option.push('<option value="' + id + '"' + ( i == 0 ? "selected" : "") + '>' + name + '</option>');
 			}
-		});
-	}
-	function getAppointCategory(){
-		var url = Base.categoryUrl + "/appoint";
-		g.httpTip.show();
-		$.ajax({
-			url:url,
-			data:{},
-			type:"GET",
-			dataType:"json",
-			context:this,
-			global:false,
-			success: function(data){
-				console.log("getAppointCategory",data);
-				var status = data.status || "";
-				if(status == "OK"){
-					changeSelectHtml("typeid",data.result || []);
-					//changeSelectHtml("typeid2",data.result || []);
-				}
-				else{
-					Utils.alert("预约类别获取失败");
-				}
-				g.httpTip.hide();
-			},
-			error:function(data){
-				g.httpTip.hide();
+			$("#" + domid).html(option.join(''));
+
+			if(g.ctype !== ""){
+				$("#" + domid)[0].selectedIndex = g.ctype;
 			}
-		});
-	}
-	function changeSelectHtml(domid,data){
-		var option = [];
-		for(var i = 0,len = data.length; i < len; i++){
-			var id = data[i].id || "";
-			var name = data[i].name || "";
-			option.push('<option value="' + id + '"' + ( i == 0 ? "selected" : "") + '>' + name + '</option>');
 		}
-		$("#" + domid).html(option.join(''));
 	}
 
 	//获取图形验证码
@@ -183,17 +127,17 @@ $(function(){
 					}
 				}
 				else{
-					Utils.alert("输入图形验证码");
+					alert("输入图形验证码");
 					$("#inputImgCode3").focus();
 				}
 			}
 			else{
-				Utils.alert("手机输入不合法");
+				alert("手机输入不合法");
 				$("#phone").focus();
 			}
 		}
 		else{
-			Utils.alert("请输入手机号");
+			alert("请输入手机号");
 			$("#phone").focus();
 		}
 	}
@@ -237,8 +181,7 @@ $(function(){
 			validater:根据用户绑定手机号码，发送的短信验证码
 			*/
 			condi.token = g.token;
-			condi.typeId = $("#typeid").val() || "";
-			condi.cityId = "404040e64e2a016a014e2a017a2f0001";
+			condi.id = $("#typeid").val() || "";
 			condi.realName = $("#name").val() || "";
 			condi.mobile = $("#phone").val() || "";
 			condi.captcha = $("#inputImgCode3").val() || "";
@@ -249,26 +192,26 @@ $(function(){
 					var reg = /^1[3,5,7,8]\d{9}$/g;
 					if(reg.test(condi.mobile)){
 						if(condi.captcha !== ""){
-							if(condi.msgcode !== ""){
+							if(condi.validater !== ""){
 								sendAppointHttp(condi);
 							}
 							else{
-								Utils.alert("输入短信验证码");
+								alert("输入短信验证码");
 								$("#msgcode").focus();
 							}
 						}
 						else{
-							Utils.alert("输入图形验证码");
+							alert("输入图形验证码");
 							$("#inputImgCode3").focus();
 						}
 					}
 					else{
-						Utils.alert("手机输入不合法");
+						alert("手机输入不合法");
 						$("#phone").focus();
 					}
 				}
 				else{
-					Utils.alert("请输入手机号");
+					alert("请输入手机号");
 					$("#phone").focus();
 				}
 			}
@@ -318,7 +261,7 @@ $(function(){
 	}
 
 	function sendAppointHttp(condi){
-		var url = Base.appointUrl;
+		var url = Base.serverUrl + '/api/museum/'+ condi.id +'/appoint';
 		g.httpTip.show();
 		$.ajax({
 			url:url,
@@ -332,13 +275,13 @@ $(function(){
 				var status = data.status || "";
 				console.log(data);
 				if(status == "OK"){
-					Utils.alert("预约体验馆成功");
+					alert("预约体验馆成功");
 					setTimeout(function(){
-						history.go(-1);
+						location.href = 'u_sub.html?token='+g.token+ "&p=5";
 					},1000);
 				}
 				else{
-					Utils.alert("预约体验馆失败");
+					alert(data.errorDescription);
 				}
 				g.httpTip.hide();
 			},
