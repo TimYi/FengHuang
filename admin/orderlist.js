@@ -47,7 +47,7 @@ function getDatas4page(page){
 	getDatas();
 }
 function getDatas(){
-	getData(MENU_ARTICLE,param,afterGetDatas);
+	getData(ORDER_ORDER,param,afterGetDatas);
 }
 function afterGetDatas(data){
 	//先判断并处理错误数据
