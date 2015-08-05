@@ -805,12 +805,13 @@ $('#baoming').on('show.bs.modal', function (event) {
   if(loginStatus){
   }
   else{
+   }
     var button = $(event.relatedTarget);
     var recipient = button.data('whatever');
     var modal = $(this);
     modal.find('.modal-title').text('“为爱而唱”活动报名');
     modal.find('.modal-body input').val(recipient);
-  }
+
 })
 </script>
 <!--报名弹窗JS 结束-->
