@@ -803,18 +803,6 @@ $('#baoming').on('show.bs.modal', function (event) {
   //判断是否已注册
   var loginStatus = Utils.getUserInfo();
   if(loginStatus){
-    var userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
-    if(userprofile !== ""){
-      var obj = JSON.parse(userprofile);
-      var name = obj.realName || "";
-      var mobile = obj.mobile || "";
-      if(name !== "" && mobile !== ""){
-        location.href = "subappoint.html";
-      }
-      else{
-        location.href = "center/c_my.html?token=" + g.token + "&p=1";
-      }
-    }
   }
   else{
     var button = $(event.relatedTarget);
