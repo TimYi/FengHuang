@@ -48,9 +48,9 @@
 				<td data-bind="text: name"></td>
 				<td data-bind="text: decoratePackage?decoratePackage.name:'&nbsp;'"></td>
 				<td data-bind="text: ordernum"></td>
-				<td><img data-bind="attr:{src:pic1.url}" style='display: inline; width: 120px; height: 36px;' alt=''></td>
-				<td><img data-bind="attr:{src:pic2.url}" style='display: inline; width: 120px; height: 36px;' alt=''></td>
-				<td><img data-bind="attr:{src:pic3.url}" style='display: inline; width: 120px; height: 36px;' alt=''></td>
+				<td><img data-bind="attr:{src:pic1.url}" style='display: inline; width: 60px; height: 40px;' alt=''></td>
+				<td><img data-bind="attr:{src:pic2.url}" style='display: inline; width: 60px; height: 40px;' alt=''></td>
+				<td><img data-bind="attr:{src:pic3.url}" style='display: inline; width: 60px; height: 40px;' alt=''></td>
 				<td class="action endCol">				
 					<span class="nb"><a href="#" data-bind='click: $root.remove'>删除</a></span> | 
 					<span><a href="#" data-bind='click: $root.modify'>修改</a></span>
