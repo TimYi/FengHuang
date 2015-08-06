@@ -26,4 +26,9 @@ public class AuthenticationService {
 		SimpleUserDetails userDetail=(SimpleUserDetails)authentication.getDetails();
 		return userDetail;
 	}
+	
+	public static boolean isLogin() {
+		Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
+		return authentication instanceof UsernamePasswordAuthenticationToken;
+	}
 }
