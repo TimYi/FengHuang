@@ -15,20 +15,17 @@
 <script type="text/javascript" src="spacelist.js"></script>
 </head>
 <body onload="onload()">
-<div class="topToolbar"> <span class="title">装修空间管理</span>
-
-<form name="form" id="form" method="post" >
-<span class="toolbarTab">
-		<span id="search"> 
-			<select data-bind="value:selectedPackage,options:selectablePackage,optionsText:'name',
-				optionsCaption: '请选择...',event:{change:onPackageChange}">
-			</select>			
-		</span>
-</span>
-	  
+<form name="form" id="form" method="post" >	
+	
+<div class="topToolbar"> 
+	<span class="title">装修空间管理</span>&nbsp;&nbsp;&nbsp;
+	<span id="search"> 
+		<select data-bind="value:selectedPackage,options:selectablePackage,optionsText:'name',
+			optionsCaption: '请选择...',event:{change:onPackageChange}">
+		</select>			
+	</span>
 	<a href="javascript:location.reload();" class="reload">刷新</a></div>
 
-<form name="form" id="form" method="post">	
 	<table class="dataTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<thead>
 			<tr class="head" align="left">
