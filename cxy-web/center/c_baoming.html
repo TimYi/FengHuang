@@ -24,6 +24,11 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../images/ico/apple-touch-icon-57-precomposed.png">
+    <style type="text/css">
+		.liactive{
+			background:#b9090e;color:#fff;
+		}
+    </style>
     <script src="../assets/js/jquery.js"></script>
 		<script src="../libs/json.js"></script>
 		<script src="../libs/base.js"></script>
@@ -128,7 +133,7 @@ $(".m_logo").hover(function(){
 						        <div class="row">
 						            <div class="col-sm-6">
 						                <ul id="myTab" class="blog_category">
-						                		<li class="active"><a href="#baoming">报名入口 </a></li>
+						                		<li class="liactive" ><a href="#baoming">报名入口 </a></li>
 						                		<li><a href="#bmcx">非会员况查询 </a></li>
 						                		<li><a href="#gfsm">官方说明 </a></li>
 						                </ul>
@@ -266,6 +271,9 @@ $(".m_logo").hover(function(){
     $('#myTab a').click(function (e) {
       e.preventDefault();//阻止a链接的跳转行为
       $(this).tab('show');//显示当前选中的链接及关联的content
+
+      $("myTab > li").removeClass("liactive");
+      $(this).addClass("licative");
     })
   })
 </script>
