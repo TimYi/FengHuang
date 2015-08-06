@@ -28,9 +28,9 @@
     <link rel="apple-touch-icon-precomposed" href="assets/images/ico/apple-touch-icon-57-precomposed.png">
 
     <script src="assets/js/jquery.js"></script>
-	<script src="libs/json.js"></script>
-	<script src="libs/base.js"></script>
-	<script src="libs/utils.js"></script>
+		<script src="libs/json.js"></script>
+		<script src="libs/base.js"></script>
+		<script src="libs/utils.js"></script>
 
 </head><!--/head-->
 
