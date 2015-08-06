@@ -88,18 +88,22 @@ function submitArticle(){
 		<tbody>
 			<tr>
 				<td align="right" width="25%" height="40">编码：</td>
-				<td width="75%" ><input name='code' data-bind='value:code' type="text" class="input"></td>
+				<td width="75%" ><input name='code' data-bind='value:code' type="text" class="input"><span>　标示字符，请勿随意修改</span></td>
 			</tr>	
 			<tr>
 				<td align="right"  height="40">栏目：</td>
 				<td >
-					<select data-bind="value:menu,options:menuDic,optionsText:'name',optionsCaption: '请选择...'" class="input"></select>
+					<select data-bind="value:menu,options:menuDic,optionsText:'name',optionsCaption: '请选择...'"></select>
 					<input type="hidden" name='menuid' data-bind="value:menu()?menu().id:''">
 				</td>
 			</tr>	
 			<tr>
 				<td align="right" width="25%" height="40">标题：</td>
 				<td width="75%" ><input name='title' data-bind='value:title' type="text" class="input"></td>
+			</tr>
+			<tr>
+				<td align="right" width="25%" height="40">点击数：</td>
+				<td width="75%" ><input name='hits' data-bind='value:hits' type="text" class="input"></td>
 			</tr>
 			<!--tr>
 				<td align="right" width="25%" height="40">来源:</td>
@@ -119,15 +123,16 @@ function submitArticle(){
 			</tr-->
 			<tr>
 				<td align="right" width="25%" height="40">内容：</td>
-				<td width="75%" >
-					<textarea name='content'  class="kindeditor" id="content" class="input" style="margin:10px 0"></textarea>
+				<td width="75%" style="padding:10px 0">
+					<textarea name='content'  class="kindeditor" id="content" class="input">
+					</textarea>
 					<script>
 						var editor;
 						KindEditor.ready(function(K) {
 							editor = K.create('textarea[name="content"]', {
 								allowFileManager : true,
-								width:'667px',
-								height:'280px',
+								width:'750px',
+								height:'750px',
 								afterBlur: function(){this.sync();}/*,
 								extraFileUploadParams : {
 									sessionid :  'f6pqand0gdtrnhi1n0vd2kgq21'
@@ -136,11 +141,7 @@ function submitArticle(){
 						});
 					</script>
 				</td>
-			</tr>
-			<tr>
-				<td align="right" width="25%" height="40">点击数：</td>
-				<td width="75%" ><input name='hits' data-bind='value:hits' type="text" class="input"></td>
-			</tr>
+			</tr>			
 		</tbody>
 	</table>
 	<div class="formSubBtn">

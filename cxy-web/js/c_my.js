@@ -339,6 +339,7 @@ $(function(){
 		var messages = obj.messages || "";
 		var appoints = obj.appoints || "";
 		var collects = obj.collects || "";
+		var orders = obj.orders || "";
 
 		var html = [];
 		html.push('<ul class="blog_category">');
@@ -348,7 +349,7 @@ $(function(){
 		html.push('<li><a href="c_ing.html?token=' + g.token + '&p=4" ' + (g.page == 4 ? h : "") + '  >家装进度 </a></li>');
 		html.push('<li><a href="c_message.html?token=' + g.token + '&p=5" ' + (g.page == 5 ? h : "") + '  >我的留言 <span class="badge">' + messages + '</span></a></li>');
 		html.push('<li><a href="c_sub.html?token=' + g.token + '&p=6" ' + (g.page == 6 ? h : "") + '  >我的预约 <span class="badge">' + appoints + '</span></a></li>');
-		html.push('<li><a href="c_order.html?token=' + g.token + '&p=7" ' + (g.page == 7 ? h : "") + '  >我的订单 <span class="badge"></span></a></li>');
+		html.push('<li><a href="c_order.html?token=' + g.token + '&p=7" ' + (g.page == 7 ? h : "") + '  >我的订单 <span class="badge">' + orders + '</span></a></li>');
 		html.push('<li><a href="c_comment.html?token=' + g.token + '&p=8" ' + (g.page == 8 ? h : "") + '  >我的评论 <span class="badge">' + comments + '</span></a></li>');
 		html.push('<li><a href="c_fav.html?token=' + g.token + '&p=9" ' + (g.page == 9 ? h : "") + '  >我的收藏 <span class="badge">' + collects + '</span></a></li>');
 		html.push('<li><a href="c_coupon.html?token=' + g.token + '&p=10" ' + (g.page == 10 ? h : "") + '  >我的优惠券 <span class="badge">' + coupons + '</span></a></li>');
