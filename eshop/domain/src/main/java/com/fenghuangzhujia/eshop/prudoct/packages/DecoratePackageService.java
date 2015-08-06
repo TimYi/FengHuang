@@ -134,7 +134,7 @@ public class DecoratePackageService extends DtoSpecificationService<DecoratePack
 			    	if(shouldPay) {
 			    		lifeCycle=PackageLifeCycle.PAY;
 			    	} else {
-						lifeCycle=PackageLifeCycle.FINISHED;
+						lifeCycle=PackageLifeCycle.COMPLETE;
 					}
 			    }
 			    dto.setLifeCycle(lifeCycle);
