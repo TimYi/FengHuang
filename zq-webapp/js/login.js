@@ -34,7 +34,6 @@ $(function(){
 	function codeKeyDown(evt){
 		evt = evt || event;
 		if(evt.keyCode == 13){
-			//
 			$("#loginbtn").trigger("click");
 		}
 	}

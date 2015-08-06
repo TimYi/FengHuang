@@ -803,26 +803,15 @@ $('#baoming').on('show.bs.modal', function (event) {
   //判断是否已注册
   var loginStatus = Utils.getUserInfo();
   if(loginStatus){
-    var userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
-    if(userprofile !== ""){
-      var obj = JSON.parse(userprofile);
-      var name = obj.realName || "";
-      var mobile = obj.mobile || "";
-      if(name !== "" && mobile !== ""){
-        location.href = "subappoint.html";
-      }
-      else{
-        location.href = "center/c_my.html?token=" + g.token + "&p=1";
-      }
-    }
   }
   else{
+   }
     var button = $(event.relatedTarget);
     var recipient = button.data('whatever');
     var modal = $(this);
     modal.find('.modal-title').text('“为爱而唱”活动报名');
     modal.find('.modal-body input').val(recipient);
-  }
+
 })
 </script>
 <!--报名弹窗JS 结束-->

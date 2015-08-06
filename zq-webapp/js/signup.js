@@ -11,15 +11,30 @@ $(function() {
         var url = Base.serverUrl + '/api/signup';
         var posting = true;
         var condi = {};
-        condi.username = $('#username').val();
+        condi.name = $('#name').val();
         condi.telephone = $('#telephone').val();
+        condi.name2 = $('#name2').val();
+        condi.telephone2 = $('#telephone2').val();
+        condi.relation = $('#relation').val();
 
-        if (condi.username == '') {
-            alert('请输入姓名');
+        if(condi.name == '') {
+            alert('请输入选手一姓名');
             posting = false;
             return false;
-        } else if (condi.telephone == '') {
-            alert('请输入手机号');
+        }else if(condi.telephone == '') {
+            alert('请输入选手一手机号');
+            posting = false;
+            return false;
+        }else if(condi.name2 == '') {
+            alert('请输入选手二姓名');
+            posting = false;
+            return false;
+        }else if(condi.telephone2 == '') {
+            alert('请输入选手二手机号');
+            posting = false;
+            return false;
+        }else if(condi.relation == ''){
+            alert('请输入选手关系');
             posting = false;
             return false;
         }

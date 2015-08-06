@@ -76,14 +76,14 @@ function submitSpace(){
 		return ;
 	}
 	var url = genUrl(PACKAGE_SPACE)+'/'+id;
-	var mainfiles = $('input[id^="picFile"]').prop('files');//获取到文件列表
-
-	if(mainfiles.length == 0){
+	var mainfiles = $('input[name^="picFile"]').prop('files');//获取到文件列表
+	//alert(mainfiles.length);
+	/*if(typeof mainfiles == 'undefined'||mainfiles.length == 0){
 		submitAsyFormByJson(url,'bTForm',function(data){	 			
 			friendlyTip(data);
 			window.location.href='spacelist.htm';
 		});		
-	}else{
+	}else{*/
 		submitFormWithMultipart(url,'bTForm',
 			function(formData, jqForm, options){
 				//判断是否要上传文件，若不需要上传文件时			 			
@@ -94,7 +94,7 @@ function submitSpace(){
 			 	window.location.href='spacelist.htm';
 			 }
 		);
-	}
+	//}
 }
 function addItem(){
 	var name = $("#itemName").val();
@@ -114,7 +114,6 @@ function addItem(){
 	viewModel.items.push(ko.mapping.fromJS(item));
 }
 function onSelectFile(obj){
-	
 	obj.name =  obj.id;
 }
 </script>
