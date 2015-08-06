@@ -24,6 +24,7 @@ $(function(){
 	//马上报名
 	$("#bmsendbtn").bind("click",baoMingBtnUp);
 	$("#bmresetbtn").bind("click",baoMingResetBtnUp);
+	$("#bmquerybtn").bind("click",baoMingQueryBtnUp);
 	function baoMingBtnUp(){
 		var name = $("#inputEmail3bm").val() || "";
 		var phone = $("#inputPhone3bm").val() || "";
@@ -106,7 +107,7 @@ $(function(){
 				var status = data.status || "";
 				if(status == "OK"){
 					alert("报名成功!");
-					$('#baoming').modal('hide');
+					//$('#baoming').modal('hide');
 				}
 				else{
 					var msg = data.errorDescription || "";
@@ -149,5 +150,90 @@ $(function(){
 				g.httpTip.hide();
 			}
 		});
+	}
+
+	function baoMingQueryBtnUp(){
+		var telephone = $("#inputPhone3q").val() || "";
+		if(telephone !== ""){
+			var reg = /^1[3,5,7,8]\d{9}$/g;
+			if(reg.test(telephone)){
+				var condi = {};
+				condi.telephone = telephone;
+				sendBaoMingQueryHttp(condi);
+			}
+			else{
+				Utils.alert("查询手机号码输入不合法!");
+				$("#inputPhone3q").focus();
+			}
+		}
+		else{
+			Utils.alert("请输入查询手机号码!");
+			$("#inputPhone3q").focus();
+		}
+	}
+
+	function sendBaoMingQueryHttp(condi){
+		var url = Base.serverUrl + "/api/signup/query";
+		g.httpTip.show();
+		$.ajax({
+			url:url,
+			data:condi,
+			type:"GET",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("sendBaoMingQueryHttp",data);
+				var status = data.status || "";
+				if(status == "OK"){
+					changeBaoMingListHtml(data);
+				}
+				else{
+					var msg = data.errorDescription || "";
+					alert("报名查询失败:" + msg);
+				}
+				g.httpTip.hide();
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+
+	function changeBaoMingListHtml(data){
+		var obj = data.result || [];
+		var html = [];
+		html.push('<table class="table u_ct_15">');
+		html.push('<tr style="border-top:2px solid #fff">');
+		html.push('<th>#</th>');
+		html.push('<th>选手姓名</th>');
+		html.push('<th>选手电话</th>');
+		html.push('<th>选手关系</th>');
+		html.push('<th>报名时间</th>');
+		html.push('</tr>');
+
+		if(obj.length == 0){
+			html.push('<tr style="border-top:1px solid #ccc;border-bottom:2px solid #ccc;">');
+			html.push('<td colspan=5>没有报名信息!</td>');
+			html.push('</tr>');
+		}
+		for(var i = 0,len = obj.length; i < len; i++){
+			var name = obj[i].name || "";
+			var tel = obj[i].telephone || "";
+			var name2 = obj[i].name2 || "";
+			var relation = obj[i].relation || "";
+			var time = "";
+			html.push('<tr style="border-top:2px solid #ccc">');
+			html.push('<td>' + (i + 1) + '</td>');
+			html.push('<td>' + name + '</td>');
+			html.push('<td>' + tel+ '</td>');
+			html.push('<td>' + relation + '</td>');
+			html.push('<td>' + time + '</td>');
+			html.push('</tr>');
+		}
+		html.push('</table>');
+
+		$("#baominglist").html(html.join(''));
+		$("#baominglist").show();
 	}
 });
