@@ -66,7 +66,6 @@ function afterGetMenus4Select(data){
 				<td >
 					<select data-bind="value:selectedMenu,options:selectableMenu,optionsText:'name',optionsCaption: '栏目选择'"></select>
 					<input type="hidden" name='menuid' data-bind="value:selectedMenu()?selectedMenu().id:''">
-					<span>　可以在【栏目管理】列表中进行添加</span>
 				</td>
 			</tr>	
 			<tr>
