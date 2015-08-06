@@ -131,8 +131,8 @@ function submitArticle(){
 						KindEditor.ready(function(K) {
 							editor = K.create('textarea[name="content"]', {
 								allowFileManager : true,
-								width:'667px',
-								height:'280px',
+								width:'750px',
+								height:'400px',
 								afterBlur: function(){this.sync();}/*,
 								extraFileUploadParams : {
 									sessionid :  'f6pqand0gdtrnhi1n0vd2kgq21'
