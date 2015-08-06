@@ -49,15 +49,15 @@
 			<tr class="head" align="left">
 				<td class="firstCol" width="5%" height="36"><input name="checkid" id="checkid" onclick="CheckAll(this.checked);" type="checkbox"></td>
 				<!--td width="15%">ID</td-->
-				<td width="10%">编码</td>
+				<td>编码</td>
 				<!--td width="10%">栏目</td-->
-				<td width="10%">标题</td>				
-				<td width="10%">作者</td>
+				<td>标题</td>				
+				<!--td width="10%">作者</td-->
 				<!--td width="5%">来源</td>
 				<td width="10%">来源链接</td-->
 				<!--td width="10%">关键字</td-->	
 				<!--td width="10%">描述</td-->
-				<td width="10%">点击数</td>			
+				<!--td width="10%">点击数</td-->			
 				<td class="endCol" width="20%">操作</td>
 			</tr>
 		</thead>
@@ -68,13 +68,13 @@
 				<td data-bind='text: code'></td>
 				<!--td data-bind="text: menu()?menu().name:''"></td-->
 				<td data-bind="text: title"></td>	
-				<td data-bind='text: author'></td>	
+				<!--td data-bind='text: author'></td-->	
 				<!--td data-bind='text: source'></td>
 				<td data-bind='text: sourceLink'></td>
 				<td data-bind='text: author'></td>
 				<td data-bind='text: keywords'></td>
 				<td data-bind='text: description'></td-->
-				<td data-bind='text: hits'></td>
+				<!--td data-bind='text: hits'></td-->
 				<td class="action endCol">				
 					<span class="nb"><a href="#" data-bind='click: $root.remove'>删除</a></span> | 
 					<span><a href="#" data-bind='click: $root.modify'>修改</a></span><!-- | 

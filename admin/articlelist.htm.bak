@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>文章列表</title>
 <link href="assets/css/admin.css" rel="stylesheet" type="text/css">
@@ -49,15 +49,15 @@
 			<tr class="head" align="left">
 				<td class="firstCol" width="5%" height="36"><input name="checkid" id="checkid" onclick="CheckAll(this.checked);" type="checkbox"></td>
 				<!--td width="15%">ID</td-->
-				<td width="10%">编码</td>
+				<td>编码</td>
 				<!--td width="10%">栏目</td-->
-				<td width="10%">标题</td>				
-				<td width="10%">作者</td>
+				<td>标题</td>				
+				<!--td width="10%">作者</td-->
 				<!--td width="5%">来源</td>
 				<td width="10%">来源链接</td-->
 				<!--td width="10%">关键字</td-->	
 				<!--td width="10%">描述</td-->
-				<td width="10%">点击数</td>			
+				<!--td width="10%">点击数</td-->			
 				<td class="endCol" width="20%">操作</td>
 			</tr>
 		</thead>
@@ -74,7 +74,7 @@
 				<td data-bind='text: author'></td>
 				<td data-bind='text: keywords'></td>
 				<td data-bind='text: description'></td-->
-				<td data-bind='text: hits'></td>
+				<!--td data-bind='text: hits'></td-->
 				<td class="action endCol">				
 					<span class="nb"><a href="#" data-bind='click: $root.remove'>删除</a></span> | 
 					<span><a href="#" data-bind='click: $root.modify'>修改</a></span><!-- | 

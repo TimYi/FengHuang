@@ -21,7 +21,7 @@
 	<span class="title">装修空间管理</span>&nbsp;&nbsp;&nbsp;
 	<span id="search"> 
 		<select data-bind="value:selectedPackage,options:selectablePackage,optionsText:'name',
-			optionsCaption: '请选择空间类别',event:{change:onPackageChange}">
+			optionsCaption: '请选择...',event:{change:onPackageChange}">
 		</select>			
 	</span>
 	<a href="javascript:location.reload();" class="reload">刷新</a></div>

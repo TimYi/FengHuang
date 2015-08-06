@@ -99,6 +99,14 @@ public class GoodOrderService {
 		return converter.convert(order);
 	}
 	
+	public Long countByStatus(OrderStatus status) {
+		return repository.countByStatus(status);
+	}
+	
+	public Long countByUserAndStatus(String userId, OrderStatus status) {
+		return repository.countByUserIdAndStatus(userId, status);
+	}
+	
 	
 	//以下为后台管理用到接口
 	

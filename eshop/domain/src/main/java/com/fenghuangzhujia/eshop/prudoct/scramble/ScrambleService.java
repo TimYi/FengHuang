@@ -2,6 +2,8 @@ package com.fenghuangzhujia.eshop.prudoct.scramble;
 
 import static com.fenghuangzhujia.eshop.core.base.SystemErrorCodes.*;
 
+import java.text.MessageFormat;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,8 @@ import com.fenghuangzhujia.eshop.core.couponsDef.CouponsAllocater;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.eshop.core.utils.CodeGenerater;
+import com.fenghuangzhujia.eshop.message.Message;
+import com.fenghuangzhujia.eshop.message.MessageRepository;
 import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppoint;
 import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppointRepository;
 import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppointService;
@@ -55,6 +59,8 @@ public class ScrambleService {
 	private GoodOrderDtoConverter converter;
 	@Autowired
 	private CouponsAllocater couponsAllocater;
+	@Autowired
+	private MessageRepository messageRepository;
 	
 	public GoodOrderDto scramble(String userId, String packageId, String caseId) {
 		//验证是否有可用预约
@@ -103,6 +109,15 @@ public class ScrambleService {
 		
 		//触发抢购套餐分发优惠券事件
 		couponsAllocater.allocate(CouponsAllocater.SCRAMBLE, userId);
+		
+		//为用户留言
+		Message message=new Message();
+		message.setUser(user);
+		message.setTitle("套餐预约成功");
+		String pattern="尊进的客户您好，您已成功抢购{0}，请尽快完成支付。";
+		String content=MessageFormat.format(pattern, decoratePackage.getName());
+		message.setContent(content);
+		message=messageRepository.save(message);
 		
 		GoodOrderDto result=converter.convert(order);
 		return result;		

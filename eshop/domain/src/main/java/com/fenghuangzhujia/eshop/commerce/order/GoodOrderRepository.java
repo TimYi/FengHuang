@@ -13,4 +13,7 @@ public interface GoodOrderRepository extends SpecificationRepository<GoodOrder, 
 	
 	public Page<GoodOrder> findByUserIdAndStatus(String userid, OrderStatus status, Pageable pageable);
 	
+	Long countByStatus(OrderStatus status);	
+	
+	Long countByUserIdAndStatus(String userId, OrderStatus status);
 }

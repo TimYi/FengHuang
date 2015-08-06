@@ -10,12 +10,18 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fenghuangzhujia.eshop.commerce.order.GoodOrder.OrderStatus;
+import com.fenghuangzhujia.eshop.commerce.order.GoodOrderRepository;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppoint;
 import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppointValidater;
+import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage.ScrambleStatus;
 import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageDto;
 import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageInputArgs;
+import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageDto.PackageLifeCycle;
+import com.fenghuangzhujia.eshop.prudoct.packages.space.DecorateSpaceService;
+import com.fenghuangzhujia.eshop.prudoct.packages.space.dto.DecorateSpaceDto;
 import com.fenghuangzhujia.eshop.prudoct.scramble.PackageGood;
 import com.fenghuangzhujia.eshop.prudoct.scramble.PackageGoodRepository;
 import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
@@ -34,6 +40,10 @@ public class DecoratePackageService extends DtoSpecificationService<DecoratePack
 	private PackageAppointValidater appointValidater;
 	@Autowired
 	private PackageGoodRepository packageGoodRepository;
+	@Autowired
+	private DecorateSpaceService decorateSpaceService;
+	@Autowired
+	private GoodOrderRepository orderRepository;
 	
 	@Override
 	public DecoratePackageRepository getRepository() {
@@ -43,6 +53,17 @@ public class DecoratePackageService extends DtoSpecificationService<DecoratePack
 	@Autowired
 	public void setDecoratePackageRepository(DecoratePackageRepository repository) {
 		super.setRepository(repository);
+	}
+	
+	public DecoratePackageDto findOne(String id, String userId) {
+		if(StringUtils.isBlank(userId)) return findOne(id);
+		User user=userRepository.findOne(userId);
+		if(user==null) return findOne(id);
+		DecoratePackage decoratePackage=getRepository().findOne(id);
+		DecoratePackageDto result=getConverter(user).convert(decoratePackage);
+		List<DecorateSpaceDto> spaces=decorateSpaceService.findByPackage(id);
+		result.setSpaces(spaces);
+		return result;
 	}
 	
 	/**
@@ -63,7 +84,12 @@ public class DecoratePackageService extends DtoSpecificationService<DecoratePack
 		PageRequest request=new PageRequest(page-1, size);
 		Page<DecoratePackage> list=getRepository().findAll(request);
 		//根据用户预约状态，加入hasAppointed和couldAppoint以及reasonForCantAppoint信息
-		Page<DecoratePackageDto> result=list.map(new Converter<DecoratePackage, DecoratePackageDto>() {
+		Page<DecoratePackageDto> result=list.map(getConverter(user));
+		return new PagedList<>(result);
+	}
+	
+	private Converter<DecoratePackage, DecoratePackageDto> getConverter(User user) {
+		return new Converter<DecoratePackage, DecoratePackageDto>() {
 			@Override
 			public DecoratePackageDto convert(DecoratePackage source) {
 				PackageAppoint appoint=appointValidater.getAliveAppoint(user, source);
@@ -82,14 +108,39 @@ public class DecoratePackageService extends DtoSpecificationService<DecoratePack
 					dto.setReasonForCantAppoint("您在一个月内已经预约此套餐");
 				}
 				//判断用户是否已经预约过
-			    List<PackageGood> good=packageGoodRepository.processingUserPackageOrder(userId, source.getId());
-			    System.out.println(good);
+			    List<PackageGood> good=packageGoodRepository.processingUserPackageOrder(user.getId(), source.getId());
 			    if(good!=null && !good.isEmpty() ) {
 			    	dto.setHasScrambled(true);
 			    }
+			    
+			    PackageLifeCycle lifeCycle=null;			    
+			    //开始判断套餐对用户的声明周期
+			    if(dto.isHasAppointed()) {
+			    	//已经预约
+			    	ScrambleStatus status=dto.getStatus();
+			    	if(status==ScrambleStatus.PREPARE) {
+			    		lifeCycle=PackageLifeCycle.WAITING;
+			    	} else if(status==ScrambleStatus.SCRAMBLE) {
+						 lifeCycle=PackageLifeCycle.SCRAMBLE;
+					} else {
+						lifeCycle=PackageLifeCycle.FINISHED;
+					}
+			    } else if(dto.isCouldAppoint()) {
+			    	//没预约且可以预约
+			    	lifeCycle=PackageLifeCycle.APPOINT;
+			    } else {
+			    	//没预约且不能预约
+			    	boolean shouldPay=orderRepository.countByUserIdAndStatus(user.getId(), OrderStatus.WAITING)>0;
+			    	if(shouldPay) {
+			    		lifeCycle=PackageLifeCycle.PAY;
+			    	} else {
+						lifeCycle=PackageLifeCycle.COMPLETE;
+					}
+			    }
+			    dto.setLifeCycle(lifeCycle);
+			    
 				return dto;
 			}
-		});
-		return new PagedList<>(result);
+		};
 	}
 }

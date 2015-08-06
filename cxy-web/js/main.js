@@ -110,6 +110,9 @@ $(function(){
 			g.reserveStatus = false;
 			//$("#subbtn").attr("href","center/c_my.html?token=" + g.token + "&p=1");
 		}
+
+		$("#inputEmail3bm").val(name);
+		$("#inputPhone3bm").val(mobile);
 		//$("#name").val(name);
 		//$("#phone").val(mobile);
 
