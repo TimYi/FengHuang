@@ -45,6 +45,14 @@ public class DecoratePackageService extends DtoSpecificationService<DecoratePack
 		super.setRepository(repository);
 	}
 	
+	public DecoratePackageDto findOne(String id, String userId) {
+		if(StringUtils.isBlank(userId)) return findOne(id);
+		User user=userRepository.findOne(userId);
+		if(user==null) return findOne(id);
+		DecoratePackage decoratePackage=getRepository().findOne(id);
+		return getConverter(user).convert(decoratePackage);
+	}
+	
 	/**
 	 * 为获取的列表附加用户能否预约等信息
 	 * @param page
@@ -63,7 +71,12 @@ public class DecoratePackageService extends DtoSpecificationService<DecoratePack
 		PageRequest request=new PageRequest(page-1, size);
 		Page<DecoratePackage> list=getRepository().findAll(request);
 		//根据用户预约状态，加入hasAppointed和couldAppoint以及reasonForCantAppoint信息
-		Page<DecoratePackageDto> result=list.map(new Converter<DecoratePackage, DecoratePackageDto>() {
+		Page<DecoratePackageDto> result=list.map(getConverter(user));
+		return new PagedList<>(result);
+	}
+	
+	private Converter<DecoratePackage, DecoratePackageDto> getConverter(User user) {
+		return new Converter<DecoratePackage, DecoratePackageDto>() {
 			@Override
 			public DecoratePackageDto convert(DecoratePackage source) {
 				PackageAppoint appoint=appointValidater.getAliveAppoint(user, source);
@@ -82,14 +95,13 @@ public class DecoratePackageService extends DtoSpecificationService<DecoratePack
 					dto.setReasonForCantAppoint("您在一个月内已经预约此套餐");
 				}
 				//判断用户是否已经预约过
-			    List<PackageGood> good=packageGoodRepository.processingUserPackageOrder(userId, source.getId());
+			    List<PackageGood> good=packageGoodRepository.processingUserPackageOrder(user.getId(), source.getId());
 			    System.out.println(good);
 			    if(good!=null && !good.isEmpty() ) {
 			    	dto.setHasScrambled(true);
 			    }
 				return dto;
 			}
-		});
-		return new PagedList<>(result);
+		};
 	}
 }
