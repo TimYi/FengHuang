@@ -1,5 +1,9 @@
 package com.fenghuangzhujia.eshop.prudoct.appoint;
 
+import java.text.MessageFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,6 +16,8 @@ import com.fenghuangzhujia.eshop.core.couponsDef.CouponsAllocater;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
+import com.fenghuangzhujia.eshop.message.Message;
+import com.fenghuangzhujia.eshop.message.MessageRepository;
 import com.fenghuangzhujia.eshop.prudoct.appoint.dto.PackageAppointDto;
 import com.fenghuangzhujia.eshop.prudoct.appoint.dto.PackageAppointInputArgs;
 import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage;
@@ -35,6 +41,8 @@ public class PackageAppointService extends DtoSpecificationService<PackageAppoin
 	private PackageAppointValidater appointValidater;
 	@Autowired
 	private CouponsAllocater couponsAllocater;
+	@Autowired
+	private MessageRepository messageRepository;
 	
 	public PackageAppointDto appointByUser(PackageAppointInputArgs args) {
 		PackageAppoint appoint=new PackageAppoint();
@@ -72,6 +80,19 @@ public class PackageAppointService extends DtoSpecificationService<PackageAppoin
 		
 		//触发成功预约套餐分发优惠券事件
 		couponsAllocater.allocate(CouponsAllocater.APPOINT_PACKAGE, user.getId());
+		
+		//为用户留言
+		Message message=new Message();
+		message.setUser(user);
+		message.setTitle("套餐预约成功");
+		String pattern="尊进的客户您好，您已成功预约{0}，套餐开枪时间为{1}，祝您购物愉快。";
+		SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date startDate=decoratePackage.getScrambleStartTime();
+		startDate=startDate==null?new Date():startDate;
+		String startTime=format.format(decoratePackage.getScrambleStartTime());
+		String content=MessageFormat.format(pattern, decoratePackage.getName(), startTime);
+		message.setContent(content);
+		message=messageRepository.save(message);
 		
 		return adapter.convertToDetailedDto(appoint);
 	}
