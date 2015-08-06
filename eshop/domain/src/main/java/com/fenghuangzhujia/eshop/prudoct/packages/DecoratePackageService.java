@@ -10,12 +10,16 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fenghuangzhujia.eshop.commerce.order.GoodOrder.OrderStatus;
+import com.fenghuangzhujia.eshop.commerce.order.GoodOrderRepository;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
 import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppoint;
 import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppointValidater;
+import com.fenghuangzhujia.eshop.prudoct.packages.DecoratePackage.ScrambleStatus;
 import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageDto;
 import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageInputArgs;
+import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageDto.PackageLifeCycle;
 import com.fenghuangzhujia.eshop.prudoct.packages.space.DecorateSpaceService;
 import com.fenghuangzhujia.eshop.prudoct.packages.space.dto.DecorateSpaceDto;
 import com.fenghuangzhujia.eshop.prudoct.scramble.PackageGood;
@@ -38,6 +42,8 @@ public class DecoratePackageService extends DtoSpecificationService<DecoratePack
 	private PackageGoodRepository packageGoodRepository;
 	@Autowired
 	private DecorateSpaceService decorateSpaceService;
+	@Autowired
+	private GoodOrderRepository orderRepository;
 	
 	@Override
 	public DecoratePackageRepository getRepository() {
@@ -103,10 +109,36 @@ public class DecoratePackageService extends DtoSpecificationService<DecoratePack
 				}
 				//判断用户是否已经预约过
 			    List<PackageGood> good=packageGoodRepository.processingUserPackageOrder(user.getId(), source.getId());
-			    System.out.println(good);
 			    if(good!=null && !good.isEmpty() ) {
 			    	dto.setHasScrambled(true);
 			    }
+			    
+			    PackageLifeCycle lifeCycle=null;			    
+			    //开始判断套餐对用户的声明周期
+			    if(dto.isHasAppointed()) {
+			    	//已经预约
+			    	ScrambleStatus status=dto.getStatus();
+			    	if(status==ScrambleStatus.PREPARE) {
+			    		lifeCycle=PackageLifeCycle.WAITING;
+			    	} else if(status==ScrambleStatus.SCRAMBLE) {
+						 lifeCycle=PackageLifeCycle.SCRAMBLE;
+					} else {
+						lifeCycle=PackageLifeCycle.FINISHED;
+					}
+			    } else if(dto.isCouldAppoint()) {
+			    	//没预约且可以预约
+			    	lifeCycle=PackageLifeCycle.APPOINT;
+			    } else {
+			    	//没预约且不能预约
+			    	boolean shouldPay=orderRepository.countByUserIdAndStatus(user.getId(), OrderStatus.WAITING)>0;
+			    	if(shouldPay) {
+			    		lifeCycle=PackageLifeCycle.PAY;
+			    	} else {
+						lifeCycle=PackageLifeCycle.FINISHED;
+					}
+			    }
+			    dto.setLifeCycle(lifeCycle);
+			    
 				return dto;
 			}
 		};

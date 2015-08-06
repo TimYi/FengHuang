@@ -34,6 +34,8 @@ public class DecoratePackageDto extends DtoBaseModel {
 	private boolean hasScrambled;
 	/**装修空间详情*/
 	private List<DecorateSpaceDto> spaces;
+	/**套餐对用某个用户的声明周期*/
+	private PackageLifeCycle lifeCycle;
 	
 	public String getName() {
 		return name;
@@ -130,5 +132,26 @@ public class DecoratePackageDto extends DtoBaseModel {
 	}
 	public void setSpaces(List<DecorateSpaceDto> spaces) {
 		this.spaces = spaces;
+	}
+	public PackageLifeCycle getLifeCycle() {
+		return lifeCycle;
+	}
+	public void setLifeCycle(PackageLifeCycle lifeCycle) {
+		this.lifeCycle = lifeCycle;
+	}
+
+	public static enum PackageLifeCycle {
+		/**用户没有预约，并且可以预约，就让用户去预约*/
+		APPOINT,
+		/**用户已经预约，套餐抢购尚未开始*/
+		WAITING,
+		/**用户已经预约，套餐也可以抢购*/
+		SCRAMBLE,
+		/**用户不能够预约，套餐抢购结束*/
+		FINISHED,
+		/**用户没有可用预约，且不能再次预约，且已经抢购一个套餐并且没有支付，让用户去支付*/
+		PAY,
+		/**用户完成了预约抢购支付全部内容，并且没有可以用预约，也无法进行下一次预约*/
+		COMPLETE,
 	}
 }
