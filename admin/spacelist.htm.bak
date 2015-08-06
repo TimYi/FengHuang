@@ -18,13 +18,13 @@
 <div class="topToolbar"> <span class="title">装修空间管理</span>
 
 <form name="form" id="form" method="post" >
-<div class="toolbarTab">
-		<div id="search"> 
-			菜单选择：<select data-bind="value:selectedPackage,options:selectablePackage,optionsText:'name',
+<span class="toolbarTab">
+		<span id="search"> 
+			<select data-bind="value:selectedPackage,options:selectablePackage,optionsText:'name',
 				optionsCaption: '请选择...',event:{change:onPackageChange}">
 			</select>			
-		</div>
-</div>
+		</span>
+</span>
 	  
 	<a href="javascript:location.reload();" class="reload">刷新</a></div>
 
