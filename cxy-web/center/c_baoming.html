@@ -128,7 +128,7 @@ $(".m_logo").hover(function(){
 						        <div class="row">
 						            <div class="col-sm-6">
 						                <ul id="myTab" class="blog_category">
-						                		<li><a href="#baoming">报名入口 </a></li>
+						                		<li class="active"><a href="#baoming">报名入口 </a></li>
 						                		<li><a href="#bmcx">非会员况查询 </a></li>
 						                		<li><a href="#gfsm">官方说明 </a></li>
 						                </ul>
@@ -177,7 +177,7 @@ $(".m_logo").hover(function(){
 						          </div>
 						        </form>
 						    </div>
-						    
+
 								<div class="tab-pane" id="bmcx">
 										<div class="tab-content" style="padding-left:0;margin-left:0;margin-top:0;padding-top:0;">
 											<table class="table u_ct_15">
@@ -198,11 +198,11 @@ $(".m_logo").hover(function(){
 													<td>易天明</td>
 													<td>13665655555</td>
 													<td>同事</td>
-												</tr>	
+												</tr>
 
 												<tr style="border-top:1px solid #ccc;border-bottom:2px solid #ccc;">
 													<td colspan=4>报名时间：2015-08-01</td>
-												</tr>	
+												</tr>
 											</table>
 										</div>
 
@@ -229,10 +229,11 @@ $(".m_logo").hover(function(){
 						        </form>
 						        </div>
 
-						        
+
 								</div>
-					
+
 								<div class="tab-pane" id="gfsm">
+									<!--
 			            <p style="font-size:14px;">
 			            <b>活动细则：</b><br/>
 			            填写姓名、联系方式，在线报名活动，参与者必须以家庭、情侣为单位参赛，每赛季每赛区<br/>
@@ -249,24 +250,25 @@ $(".m_logo").hover(function(){
 			            <br/><b>赞助商：</b><br/>上海恭明金融信息服务有限公司（公明贷）<br/>
 			                    荣昌耀华网络技术（北京）有限公司（E袋洗）<br/>
 			            </P>
-								</div>						    
-						    
-						    
+			            -->
+								</div>
+
+
 						</div>
         </div>
     </div>
 </section>
 
 
-<script> 
-  $(function () { 
-    $('#myTab a:last').tab('show');//初始化显示哪个tab 
-    $('#myTab a').click(function (e) { 
-      e.preventDefault();//阻止a链接的跳转行为 
-      $(this).tab('show');//显示当前选中的链接及关联的content 
-    }) 
-  }) 
-</script> 
+<script>
+  $(function () {
+    //$('#myTab a:last').tab('show');//初始化显示哪个tab
+    $('#myTab a').click(function (e) {
+      e.preventDefault();//阻止a链接的跳转行为
+      $(this).tab('show');//显示当前选中的链接及关联的content
+    })
+  })
+</script>
 
 <!--联系电话-->
 <script src="../js/tel.js"></script>
@@ -374,6 +376,6 @@ $(".m_logo").hover(function(){
 
 	<script src="../assets/js/sales.js"></script>
 	<script src="../assets/js/main.js"></script>
-	
+
 </body>
 </html>
