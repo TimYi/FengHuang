@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="keyword" content="互联网家装,凤凰筑家,厦门装修,北京装修" />
+    <meta name="description" content="互联网家装,凤凰筑家,厦门装修,北京装修" />
 	  <title>凤凰筑家 | ifhzj.com</title>
 		<!-- core CSS -->
     <link href="assets/css/bootstrap.min1.css" rel="stylesheet">
@@ -27,13 +28,14 @@
     <link rel="apple-touch-icon-precomposed" href="assets/images/ico/apple-touch-icon-57-precomposed.png">
 
     <script src="assets/js/jquery.js"></script>
-	<script src="libs/json.js"></script>
-	<script src="libs/base.js"></script>
-	<script src="libs/utils.js"></script>
+		<script src="libs/json.js"></script>
+		<script src="libs/base.js"></script>
+		<script src="libs/utils.js"></script>
 
 </head><!--/head-->
 
 <body class="homepage">
+	<script type="text/javascript" src="http://tajs.qq.com/stats?sId=49712707" charset="UTF-8"></script>
 <!-- header-->
 <header id="header" style="border-bottom:1px solid #f6f6f6;">
     <div class="top-bar">
@@ -1051,8 +1053,8 @@ $(".m_logo").hover(function(){
 						                            	<div class="fw_num">05<br /></div>
 						                            	<div class="fw_title">凤凰筑家<br/>木门</div>
 						                            </a>
-						                        </div>						                        
-						                        
+						                        </div>
+
 						                    </div>
 						                </div>
 						            </div>
@@ -1214,7 +1216,7 @@ $(".m_logo").hover(function(){
                 <p class="lead">墙面处理 / 地面处理 / 防水处理 / 隐蔽施工 / 人性化设计 / 绿色环保 / 智能家居</p>
             </div>
             <div class="center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-            	<img src="images/gxsj2.png">
+            	<img src="images/gxsj599.png">
             </div>
         </div><!--/.container-->
     </section><!--/#feature-->
@@ -2360,7 +2362,7 @@ $(".m_logo").hover(function(){
     <section id="feature"  style="border-top:1px solid #f6f6f6;background:#f0f0f0">
         <div class="container">
            	<div class="center wow fadeInDown">
-                <h2>360°筑家服务 <span style="font-size:24px"> FULL SERVICE</span></h2>
+                <h2>凤凰管家服务 <span style="font-size:24px"> FULL SERVICE</span></h2>
                 <p class="lead">为您提供全天候家装专属服务，丰富的增值服务，安心的售后维护服务</p>
             </div>
             <div class="center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
