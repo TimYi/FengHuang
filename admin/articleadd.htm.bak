@@ -58,24 +58,24 @@ function afterGetMenus4Select(data){
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tbody>
 			<tr>
-				<td align="right" width="25%" height="40">编码：</td>
-				<td width="75%" ><input   class="input" name='code' type="text"><span>　标示字符，前台加载文章时使用</span></td>
+				<td align="right" width="25%" height="40">编码:</td>
+				<td width="75%" ><input   class="input" name='code' type="text"></td>
 			</tr>	
 			<tr>
-				<td align="right"  height="40">栏目：</td>
+				<td align="right"  height="40">栏目:</td>
 				<td >
-					<select data-bind="value:selectedMenu,options:selectableMenu,optionsText:'name',optionsCaption: '栏目选择'"></select>
-					<input type="hidden" name='menuid' data-bind="value:selectedMenu()?selectedMenu().id:''">
+					<select  class="input" data-bind="value:selectedMenu,options:selectableMenu,optionsText:'name',optionsCaption: '请选择...'"></select>
+					<input  type="hidden" name='menuid' data-bind="value:selectedMenu()?selectedMenu().id:''">
 				</td>
 			</tr>	
 			<tr>
-				<td align="right" width="25%" height="40">标题：</td>
+				<td align="right" width="25%" height="40">标题:</td>
 				<td width="75%" ><input   class="input" name='title' type="text"></td>
 			</tr>
-			<!--tr>
-				<td align="right" width="25%" height="40">点击数：</td>
+				<tr>
+				<td align="right" width="25%" height="40">点击数:</td>
 				<td width="75%" ><input   class="input" name='hits' type="text"></td>
-			</tr-->
+			</tr>
 			<!--tr>
 				<td align="right" width="25%" height="40">来源:</td>
 				<td width="75%" ><input name='source' type="text"></td>
@@ -93,7 +93,7 @@ function afterGetMenus4Select(data){
 				<td width="75%" ><input   class="input" name='description' type="text"></td>
 			</tr-->
 			<tr>
-				<td align="right" width="25%" height="40">内容：</td>
+				<td align="right" width="25%" height="40">内容:</td>
 				<td width="75%" >
 					<textarea name='content'  class="kindeditor" id="content" ></textarea>
 					<script>
@@ -101,8 +101,8 @@ function afterGetMenus4Select(data){
 						KindEditor.ready(function(K) {
 							editor = K.create('textarea[name="content"]', {
 								allowFileManager : true,
-								width:'750px',
-								height:'500px',
+								width:'667px',
+								height:'280px',
 								afterBlur: function(){this.sync();}/*,
 								extraFileUploadParams : {
 									sessionid :  'f6pqand0gdtrnhi1n0vd2kgq21'
