@@ -16,6 +16,8 @@ import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppoint;
 import com.fenghuangzhujia.eshop.prudoct.appoint.PackageAppointValidater;
 import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageDto;
 import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageInputArgs;
+import com.fenghuangzhujia.eshop.prudoct.packages.space.DecorateSpaceService;
+import com.fenghuangzhujia.eshop.prudoct.packages.space.dto.DecorateSpaceDto;
 import com.fenghuangzhujia.eshop.prudoct.scramble.PackageGood;
 import com.fenghuangzhujia.eshop.prudoct.scramble.PackageGoodRepository;
 import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
@@ -34,6 +36,8 @@ public class DecoratePackageService extends DtoSpecificationService<DecoratePack
 	private PackageAppointValidater appointValidater;
 	@Autowired
 	private PackageGoodRepository packageGoodRepository;
+	@Autowired
+	private DecorateSpaceService decorateSpaceService;
 	
 	@Override
 	public DecoratePackageRepository getRepository() {
@@ -50,7 +54,10 @@ public class DecoratePackageService extends DtoSpecificationService<DecoratePack
 		User user=userRepository.findOne(userId);
 		if(user==null) return findOne(id);
 		DecoratePackage decoratePackage=getRepository().findOne(id);
-		return getConverter(user).convert(decoratePackage);
+		DecoratePackageDto result=getConverter(user).convert(decoratePackage);
+		List<DecorateSpaceDto> spaces=decorateSpaceService.findByPackage(id);
+		result.setSpaces(spaces);
+		return result;
 	}
 	
 	/**

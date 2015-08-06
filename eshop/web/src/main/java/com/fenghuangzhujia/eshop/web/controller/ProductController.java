@@ -64,7 +64,14 @@ public class ProductController {
 	
 	@RequestMapping(value="product/package/{id}",method=RequestMethod.GET)
 	public String product(@PathVariable String id) {
-		DecoratePackageDto result=decoratePackageService.findOne(id);
+		String userId;
+		try {
+			SimpleUserDetails details=AuthenticationService.getUserDetail();
+			userId=details.getId();
+		} catch (Exception e) {
+			userId=null;
+		}
+		DecoratePackageDto result=decoratePackageService.findOne(id,userId);
 		return RequestResult.success(result).toJson();
 	}
 	
