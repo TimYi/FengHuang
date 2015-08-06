@@ -88,8 +88,7 @@ function submitArticle(){
 		<tbody>
 			<tr>
 				<td align="right" width="25%" height="40">编码：</td>
-				<td width="75%" ><input name='code' data-bind='value:code' type="text" class="input"></td>
-				<td>标示字符，请勿随意修改</td>
+				<td width="75%" ><input name='code' data-bind='value:code' type="text" class="input"><span> 标示字符，请勿随意修改</span></td>
 			</tr>	
 			<tr>
 				<td align="right"  height="40">栏目：</td>
