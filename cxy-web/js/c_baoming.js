@@ -223,7 +223,13 @@ $(function(){
 			var name2 = obj[i].name2 || "";
 			var relation = obj[i].relation || "";
 			var time = "";
-			html.push('<tr style="border-top:2px solid #ccc">');
+
+			if(i == (len - 1)){
+				html.push('<tr style="border-top:2px solid #ccc;border-bottom:2px solid #ccc">');
+			}
+			else{
+				html.push('<tr style="border-top:2px solid #ccc">');
+			}
 			html.push('<td>' + (i + 1) + '</td>');
 			html.push('<td>' + name + '</td>');
 			html.push('<td>' + tel+ '</td>');
