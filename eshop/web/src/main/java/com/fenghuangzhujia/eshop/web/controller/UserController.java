@@ -132,7 +132,7 @@ public class UserController {
 		counts.put("collects", collectCount);
 		Long couponsCount=couponsService.countByIsReaded(userid, false);
 		counts.put("coupons", couponsCount);
-		Long orderCount=orderService.countByStatus(OrderStatus.WAITING);
+		Long orderCount=orderService.countByUserAndStatus(userid, OrderStatus.WAITING);
 		counts.put("orders", orderCount);
 		return RequestResult.success(counts).toJson();		
 	}

@@ -103,6 +103,10 @@ public class GoodOrderService {
 		return repository.countByStatus(status);
 	}
 	
+	public Long countByUserAndStatus(String userId, OrderStatus status) {
+		return repository.countByUserIdAndStatus(userId, status);
+	}
+	
 	
 	//以下为后台管理用到接口
 	
