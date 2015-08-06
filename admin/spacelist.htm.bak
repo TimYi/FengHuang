@@ -31,17 +31,17 @@
 			<tr class="head" align="left">
 				<td class="firstCol" width="5%" height="36"><input name="checkid" id="checkid" onclick="CheckAll(this.checked);" type="checkbox"></td>
 				<!--td width="15%">ID</td-->
-				<td width="10%">名称</td>
-				<td width="10%">套餐</td>
-				<td width="5%">序号</td>
-				<td width="15%">图片1</td>
-				<td width="15%">图片2</td>
-				<td width="15%">图片3</td>
+				<td width="">名称</td>
+				<td width="">套餐</td>
+				<td width="">序号</td>
+				<td width="">图片1</td>
+				<td width="">图片2</td>
+				<td width="">图片3</td>
 				<td class="endCol" width="20%">操作</td>
 			</tr>
 		</thead>
 		<div data-bind='if:result()'>
-        <tbody data-bind='foreach: result'>
+    <tbody data-bind='foreach: result'>
 			<tr class="dataTr" align="left">
 				<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox" data-bind="checked: selected"></td>
 				<!--td data-bind='text: id'></td-->
