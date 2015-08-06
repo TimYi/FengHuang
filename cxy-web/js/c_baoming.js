@@ -19,6 +19,17 @@ $(function(){
 	g.listdata = [];
 	g.httpTip = new Utils.httpTip({});
 
+	g.userprofile = Utils.offLineStore.get("login_userprofile",false) || "";
+	//验证登录状态
+	g.loginStatus = Utils.getUserInfo();
+	if(g.loginStatus && g.userprofile !== ""){
+		var obj = JSON.parse(g.userprofile);
+		var name = obj.realName || "";
+		var mobile = obj.mobile || "";
+		$("#inputEmail3bm").val(name);
+		$("#inputPhone3bm").val(mobile);
+	}
+
 	sendArticalHttp("报名活动官方说明");
 
 	//马上报名
