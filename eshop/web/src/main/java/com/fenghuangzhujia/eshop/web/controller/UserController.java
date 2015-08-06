@@ -14,6 +14,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fenghuangzhujia.eshop.collect.CollectService;
 import com.fenghuangzhujia.eshop.comment.CommentItemService;
+import com.fenghuangzhujia.eshop.commerce.order.GoodOrderService;
+import com.fenghuangzhujia.eshop.commerce.order.GoodOrder.OrderStatus;
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationManager;
 import com.fenghuangzhujia.eshop.core.authentication.AuthenticationService;
 import com.fenghuangzhujia.eshop.core.authentication.SimpleUserDetails;
@@ -49,6 +51,8 @@ public class UserController {
 	private AuthenticationManager authenticationManager;
 	@Autowired
 	private ExperienceAppointService experienceAppointService;
+	@Autowired
+	private GoodOrderService orderService;
 	
 	/**
 	 * 获取用户个人信息
@@ -128,7 +132,9 @@ public class UserController {
 		counts.put("collects", collectCount);
 		Long couponsCount=couponsService.countByIsReaded(userid, false);
 		counts.put("coupons", couponsCount);
-		return RequestResult.success(counts).toJson();
+		Long orderCount=orderService.countByStatus(OrderStatus.WAITING);
+		counts.put("orders", orderCount);
+		return RequestResult.success(counts).toJson();		
 	}
 	
 	public static class UserVo {
