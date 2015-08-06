@@ -133,7 +133,7 @@ $(".m_logo").hover(function(){
 						        <div class="row">
 						            <div class="col-sm-6">
 						                <ul id="myTab" class="blog_category">
-						                		<li class="liactive" ><a href="#baoming">报名入口 </a></li>
+						                		<li ><a class="liactive" href="#baoming">报名入口 </a></li>
 						                		<li><a href="#bmcx">非会员况查询 </a></li>
 						                		<li><a href="#gfsm">官方说明 </a></li>
 						                </ul>
@@ -272,7 +272,7 @@ $(".m_logo").hover(function(){
       e.preventDefault();//阻止a链接的跳转行为
       $(this).tab('show');//显示当前选中的链接及关联的content
 
-      $("myTab > li").removeClass("liactive");
+      $("myTab > li > a").removeClass("liactive");
       $(this).addClass("licative");
     })
   })
