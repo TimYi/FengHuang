@@ -17,7 +17,7 @@
 var viewModel;
 function submitMB(){
 	var url = genUrl(MATERIAL_BRAND);	 		
-	 		/*var files = $('input[name="logoFile"]').prop('files');//获取到文件列表
+	 		var files = $('input[name="logoFile"]').prop('files');//获取到文件列表
 			if(files.length == 0){
 			  	submitAsyFormByJson(url, 'form', 
 					function(data){		 			
@@ -35,18 +35,8 @@ function submitMB(){
 			 			window.location.href='materialbrandlist.htm';
 			 		}
 			 	);
-	 		}*/
-	submitFormWithMultipart(url,'form',
-		function(formData, jqForm, options){
-			//判断是否要上传文件，若不需要上传文件时			 			
-			return true;  
-		 }
-		,function(data){			 			
-			friendlyTip(data);
-			window.location.href='materialbrandlist.htm';
-		}
-	);
-}
+	 		}
+	 	}
 </script>
 </head>
 <body>
