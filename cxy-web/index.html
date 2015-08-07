@@ -25,10 +25,13 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="fhzj/images/ico/apple-touch-icon-57-precomposed.png">
-		<script src="assets/js/jquery.js"></script>
-    <script src="libs/json.js"></script>
-		<script src="libs/base.js"></script>
-		<script src="libs/utils.js"></script>
+
+	<script src="assets/js/jquery.js"></script>
+	<script src="libs/json.js"></script>
+	<script src="libs/base.js"></script>
+	<script src="libs/utils.js"></script>
+
+		<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101236679" data-redirecturi="http://ifhzj.com/api/qq/revoke" charset="utf-8"></script>
     </head>
 <body>
 <script type="text/javascript" src="http://tajs.qq.com/stats?sId=49712707" charset="UTF-8"></script>
@@ -52,12 +55,21 @@
         <div class="col-sm-6 col-xs-8">
          <div class="social">
             <ul id="loginstatus" class="social-share">
+		    <li style="margin-right:40px;">
+			<span id="qqLoginBtn"></span>
+			<script type="text/javascript">
+			QC.Login({
+				btnId:"qqLoginBtn"    //插入按钮的节点id
+			});
+			</script>
+		    </li>
 							<li style="padding-right:10px;">
 								<i class="fa fa-sign-in hui"></i>
 								<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
 									<a href="center/reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
 									<a href="center/login.html" style="width:30px">登录</a>
 								</b>
+
 							</li>
             </ul>
             <a href="yqcy.html">一起创业</a>
