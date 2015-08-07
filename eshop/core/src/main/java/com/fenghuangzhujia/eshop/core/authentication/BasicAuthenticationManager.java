@@ -4,6 +4,8 @@ import static com.fenghuangzhujia.eshop.core.base.SystemErrorCodes.*;
 
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -23,6 +25,12 @@ import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.utils.Identities;
 import com.fenghuangzhujia.foundation.utils.validater.UsernameValidater;
+import com.qq.connect.QQConnectException;
+import com.qq.connect.api.OpenID;
+import com.qq.connect.api.qzone.UserInfo;
+import com.qq.connect.javabeans.AccessToken;
+import com.qq.connect.javabeans.qzone.UserInfoBean;
+import com.qq.connect.oauth.Oauth;
 
 @Service(value="authenticateService")
 @Transactional
@@ -193,6 +201,59 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 		user.setPassword(password);
 		entryptPassword(user);
 		userRepository.save(user);
+	}
+	
+	/**
+	 * qq登录
+	 * @param token
+	 * @return
+	 */
+	public UserToken qqLogin(HttpServletRequest request) {
+		try {
+			
+			AccessToken token = (new Oauth()).getAccessTokenByRequest(request);
+			if (token.getAccessToken().equals("")) {
+               throw new ErrorCodeException(SystemErrorCodes.OTHER, "没有获取到响应参数");
+			}
+			//从qq端获取openId
+			String accessToken = token.getAccessToken();
+			//Long tokenExpireIn = token.getExpireIn();
+			OpenID openIDObj =  new OpenID(accessToken);
+	        String openID = openIDObj.getUserOpenID();
+	        
+	        //如果用户已存在，返回token
+	        User user=userRepository.getByQqid(openID);
+	        if(user!=null) {
+	        	UserToken userToken=tokenRepository.getByUser(user);
+	        	if(userToken==null) {
+	        		userToken=new UserToken();
+	        		userToken.setUser(user);
+	        		userToken=refreshToken(userToken);
+	        	}
+	        	return userToken;
+	        }
+	        
+	        //如果用户不存在，根据qq账户内容，生成新用户
+	        UserInfo qzoneUserInfo = new UserInfo(accessToken, openID);
+	        UserInfoBean userInfoBean = qzoneUserInfo.getUserInfo();
+	        if (userInfoBean.getRet() == 0) {
+	        	//String sex=userInfoBean.getGender();
+	        	String cname=userInfoBean.getNickname();
+	        	user=new User();
+	        	user.setQqid(openID);
+	        	user.setCnname(cname);
+	        	user=userRepository.save(user);
+	        	UserToken userToken=new UserToken();
+	        	userToken.setUser(user);
+	        	userToken=refreshToken(userToken);
+	        	return userToken;
+	        } else {
+				throw new ErrorCodeException(SystemErrorCodes.OTHER, "很抱歉，我们没能正确获取到您的信息，原因是： " + userInfoBean.getMsg());
+			}
+	        
+		} catch (QQConnectException e) {
+			throw new ErrorCodeException(SystemErrorCodes.QQ_CONNECTION_ERROR, e);
+		}		
 	}
 	
 	/**

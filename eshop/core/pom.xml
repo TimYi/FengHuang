@@ -202,6 +202,12 @@
 			<groupId>com.cloopen</groupId>
 			<artifactId>com.cloopen.rest.sdk</artifactId>
 		</dependency>
+		<!-- qq auth begin -->
+		<dependency>
+			<groupId>com.tecent</groupId>
+			<artifactId>qq-auth</artifactId>
+		</dependency>
+		<!-- qq auth end -->
 		
 		<!-- test begin -->
 		<dependency>
