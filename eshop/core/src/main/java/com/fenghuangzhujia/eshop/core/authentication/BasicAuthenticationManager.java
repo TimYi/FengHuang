@@ -210,10 +210,6 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	 */
 	public UserToken qqLogin(HttpServletRequest request) {
 		try {
-			String queryString = ((HttpServletRequest) request).getQueryString();
-			if(queryString!=null) {
-				throw new ErrorCodeException(SystemErrorCodes.OTHER, queryString);
-			}
 			
 			AccessToken token = (new Oauth()).getAccessTokenByRequest(request);
 			if (token.getAccessToken().equals("")) {
