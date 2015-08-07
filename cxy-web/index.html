@@ -31,7 +31,30 @@
 	<script src="libs/base.js"></script>
 	<script src="libs/utils.js"></script>
 
-		<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101236679" data-redirecturi="http://ifhzj.com/api/qq/revoke" charset="utf-8"></script>
+	<!--<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101236679" data-redirecturi="http://ifhzj.com/api/qq/revoke" charset="utf-8"></script>-->
+
+	<script type="text/javascript">
+//从页面收集OpenAPI必要的参数。get_user_info不需要输入参数，因此paras中没有参数
+//~ var paras = {};
+//~
+//~ //用JS SDK调用OpenAPI
+//~ QC.api("get_user_info", paras)
+	//~ //指定接口访问成功的接收函数，s为成功返回Response对象
+	//~ .success(function(s){
+		//~ //成功回调，通过s.data获取OpenAPI的返回数据
+		//~ alert("获取用户信息成功！当前用户昵称为："+s.data.nickname);
+	//~ })
+	//~ //指定接口访问失败的接收函数，f为失败返回Response对象
+	//~ .error(function(f){
+		//~ //失败回调
+		//~ alert("获取用户信息失败！");
+	//~ })
+	//~ //指定接口完成请求后的接收函数，c为完成请求返回Response对象
+	//~ .complete(function(c){
+		//~ //完成请求回调
+		//~ alert("获取用户信息完成！");
+	//~ });
+</script>
     </head>
 <body>
 <script type="text/javascript" src="http://tajs.qq.com/stats?sId=49712707" charset="UTF-8"></script>
@@ -55,13 +78,8 @@
         <div class="col-sm-6 col-xs-8">
          <div class="social">
             <ul id="loginstatus" class="social-share">
-		    <li style="margin-right:40px;">
-			<span id="qqLoginBtn"></span>
-			<script type="text/javascript">
-			QC.Login({
-				btnId:"qqLoginBtn"    //插入按钮的节点id
-			});
-			</script>
+		    <li style="margin-right:40px;display:none;">
+			<span id="qqLoginBtn"><a href="javascript:;" onclick="return window.open('http://ifhzj.com/api/qq/auth', 'oauth2Login_10313' ,'height=525,width=585, toolbar=no, menubar=no, scrollbars=no, status=no, location=yes, resizable=yes');"><img src="http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Connect_logo_7.png" alt="QQ登录" border="0"></a></span>
 		    </li>
 							<li style="padding-right:10px;">
 								<i class="fa fa-sign-in hui"></i>
