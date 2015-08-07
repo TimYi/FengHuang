@@ -62,12 +62,12 @@
 				<td class="firstCol" width="5%" height="36"><input name="checkid" id="checkid" onclick="CheckAll(this.checked);" type="checkbox"></td>
 				<!--td width="15%">ID</td-->
 				<td>编码</td>
+				<td>姓名</td>		
+				<td>手机</td>		
+				<td>商品</td>								
 				<td>价格</td>
 				<td>状态</td>				
-				<td>商品</td>
 				<td>数量</td>
-				<td>手机</td>
-				<td>姓名</td>
 				<td>商品图片</td>
 				<td>用户名</td>
 				<td>支付时间</td>
@@ -79,12 +79,12 @@
 				<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox" data-bind="checked: selected"></td>
 				<!--td data-bind='text: id'></td-->
 				<td data-bind='text: code'></td>
+				<td data-bind='text: realName'></td>
+				<td data-bind='text: mobile'></td>							
+				<td data-bind='text: name'></td>	
 				<td data-bind="text: price"></td>
 				<td data-bind="text: status"></td>	
-				<td data-bind='text: name'></td>	
 				<td data-bind='text: count'></td>
-				<td data-bind='text: mobile'></td>
-				<td data-bind='text: realName'></td>
 				<td data-bind='text: mainPic'></td>
 				<td data-bind="text: user?user.username:''"></td>
 				<td data-bind='text: payTime'></td>
