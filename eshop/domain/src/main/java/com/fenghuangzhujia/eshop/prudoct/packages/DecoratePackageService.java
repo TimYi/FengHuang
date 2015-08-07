@@ -10,7 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fenghuangzhujia.eshop.commerce.order.GoodOrder.OrderStatus;
+import com.fenghuangzhujia.eshop.commerce.order.GoodOrder;
 import com.fenghuangzhujia.eshop.commerce.order.GoodOrderRepository;
 import com.fenghuangzhujia.eshop.core.user.User;
 import com.fenghuangzhujia.eshop.core.user.UserRepository;
@@ -22,7 +22,6 @@ import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageInputArgs;
 import com.fenghuangzhujia.eshop.prudoct.packages.dto.DecoratePackageDto.PackageLifeCycle;
 import com.fenghuangzhujia.eshop.prudoct.packages.space.DecorateSpaceService;
 import com.fenghuangzhujia.eshop.prudoct.packages.space.dto.DecorateSpaceDto;
-import com.fenghuangzhujia.eshop.prudoct.scramble.PackageGood;
 import com.fenghuangzhujia.eshop.prudoct.scramble.PackageGoodRepository;
 import com.fenghuangzhujia.foundation.core.dto.DtoSpecificationService;
 import com.fenghuangzhujia.foundation.core.model.PagedList;
@@ -108,8 +107,8 @@ public class DecoratePackageService extends DtoSpecificationService<DecoratePack
 					dto.setReasonForCantAppoint("您在一个月内已经预约此套餐");
 				}
 				//判断用户是否已经预约过
-			    List<PackageGood> good=packageGoodRepository.processingUserPackageOrder(user.getId(), source.getId());
-			    if(good!=null && !good.isEmpty() ) {
+			    List<GoodOrder> orders=packageGoodRepository.processingUserOrder(user.getId(), source.getId());
+			    if(orders!=null && !orders.isEmpty() ) {
 			    	dto.setHasScrambled(true);
 			    }
 			    
@@ -129,10 +128,9 @@ public class DecoratePackageService extends DtoSpecificationService<DecoratePack
 			    	//没预约且可以预约
 			    	lifeCycle=PackageLifeCycle.APPOINT;
 			    } else {
-			    	//没预约且不能预约
-			    	boolean shouldPay=orderRepository.countByUserIdAndStatus(user.getId(), OrderStatus.WAITING)>0;
-			    	if(shouldPay) {
+			    	if(dto.isHasScrambled()) {
 			    		lifeCycle=PackageLifeCycle.PAY;
+			    		dto.setOrderId(orders.get(0).getId());
 			    	} else {
 						lifeCycle=PackageLifeCycle.COMPLETE;
 					}

@@ -36,6 +36,8 @@ public class DecoratePackageDto extends DtoBaseModel {
 	private List<DecorateSpaceDto> spaces;
 	/**套餐对用某个用户的声明周期*/
 	private PackageLifeCycle lifeCycle;
+	/**待支付订单id*/
+	private String orderId;
 	
 	public String getName() {
 		return name;
@@ -138,6 +140,12 @@ public class DecoratePackageDto extends DtoBaseModel {
 	}
 	public void setLifeCycle(PackageLifeCycle lifeCycle) {
 		this.lifeCycle = lifeCycle;
+	}
+	public String getOrderId() {
+		return orderId;
+	}
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
 	}
 
 	public static enum PackageLifeCycle {
