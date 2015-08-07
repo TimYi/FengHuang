@@ -233,7 +233,10 @@ $(function(){
 			var tel = obj[i].telephone || "";
 			var name2 = obj[i].name2 || "";
 			var relation = obj[i].relation || "";
-			var time = "";
+			var time = obj[i].createTime || "";
+			if(time !== ""){
+				time = time.substring(0,10);
+			}
 
 			if(i == (len - 1)){
 				html.push('<tr style="border-top:2px solid #ccc;border-bottom:2px solid #ccc">');
