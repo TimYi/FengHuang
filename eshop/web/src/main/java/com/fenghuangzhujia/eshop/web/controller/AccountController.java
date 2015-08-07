@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fenghuangzhujia.eshop.core.authentication.AuthenticationManager;
+import com.fenghuangzhujia.eshop.core.authentication.BasicAuthenticationManager;
 import com.fenghuangzhujia.eshop.core.authentication.token.UserToken;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.user.UserService;
@@ -21,14 +21,13 @@ import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 import com.fenghuangzhujia.foundation.utils.Servlets;
-
 @RestController
 public class AccountController {
 	
 	@Autowired
 	private MessageManager messageManager;	
 	@Autowired
-	AuthenticationManager manager;
+	BasicAuthenticationManager manager;
 	@Autowired
 	private CaptchaManager captchaManager;
 	@Autowired
@@ -104,5 +103,16 @@ public class AccountController {
 			@RequestParam String password) {
 		manager.changeForgotPassword(username, validater, password);
 		return RequestResult.success("修改成功").toJson();
+	}
+	
+	@RequestMapping(value="qq/revoke")
+	public String qqLogin(HttpServletRequest request) {
+		UserToken token=manager.qqLogin(request);
+		String userId=token.getUser().getId();
+		UserDto profile=userService.findOne(userId);
+		Map<String, Object> result=new HashMap<String, Object>();
+		result.put("token", token.getToken());
+		result.put("profile", profile);
+		return RequestResult.success(result).toJson();
 	}
 }
