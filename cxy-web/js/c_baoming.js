@@ -217,8 +217,10 @@ $(function(){
 		html.push('<table class="table u_ct_15">');
 		html.push('<tr style="border-top:2px solid #fff">');
 		html.push('<th>#</th>');
-		html.push('<th>选手姓名</th>');
-		html.push('<th>选手电话</th>');
+		html.push('<th>选手一姓名</th>');
+		html.push('<th>选手一电话</th>');
+		html.push('<th>选手二姓名</th>');
+		html.push('<th>选手二电话</th>');
 		html.push('<th>选手关系</th>');
 		html.push('<th>报名时间</th>');
 		html.push('</tr>');
@@ -232,6 +234,7 @@ $(function(){
 			var name = obj[i].name || "";
 			var tel = obj[i].telephone || "";
 			var name2 = obj[i].name2 || "";
+			var tel2 = obj[i].telephone2 || "";
 			var relation = obj[i].relation || "";
 			var time = obj[i].createTime || "";
 			if(time !== ""){
@@ -246,7 +249,9 @@ $(function(){
 			}
 			html.push('<td>' + (i + 1) + '</td>');
 			html.push('<td>' + name + '</td>');
-			html.push('<td>' + tel+ '</td>');
+			html.push('<td>' + tel + '</td>');
+			html.push('<td>' + name2 + '</td>');
+			html.push('<td>' + tel2 + '</td>');
 			html.push('<td>' + relation + '</td>');
 			html.push('<td>' + time + '</td>');
 			html.push('</tr>');
