@@ -124,7 +124,7 @@ public class SystemErrorCodes {
 		FILE_ERROR=new ErrorCode(10, "文件处理异常");
 		ACCESS_DENIED=new ErrorCode(11, "您没有相应权限");
 		MESSAGE_SEND_ERROR=new ErrorCode(12, "短信发送错误");
-		QQ_CONNECTION_ERROR=new ErrorCode(13, "与qq网管连接错误");
+		QQ_CONNECTION_ERROR=new ErrorCode(13, "与qq网关连接错误");
 		
 		
 		

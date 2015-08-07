@@ -212,6 +212,9 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	public UserToken qqLogin(HttpServletRequest request) {
 		try {
 			AccessToken token = (new Oauth()).getAccessTokenByRequest(request);
+			if (token.getAccessToken().equals("")) {
+               throw new ErrorCodeException(SystemErrorCodes.OTHER, "没有获取到响应参数");
+			}
 			//从qq端获取openId
 			String accessToken = token.getAccessToken();
 			//Long tokenExpireIn = token.getExpireIn();
