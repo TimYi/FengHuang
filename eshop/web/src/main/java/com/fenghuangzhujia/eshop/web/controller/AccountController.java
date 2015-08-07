@@ -1,9 +1,11 @@
 package com.fenghuangzhujia.eshop.web.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,8 @@ import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 import com.fenghuangzhujia.foundation.utils.Servlets;
+import com.qq.connect.QQConnectException;
+import com.qq.connect.oauth.Oauth;
 @RestController
 public class AccountController {
 	
@@ -103,6 +107,15 @@ public class AccountController {
 			@RequestParam String password) {
 		manager.changeForgotPassword(username, validater, password);
 		return RequestResult.success("修改成功").toJson();
+	}
+	
+	@RequestMapping(value="qq/auth")
+	public void qqAuth(HttpServletRequest request,HttpServletResponse response) throws IOException {
+		 try {
+            response.sendRedirect(new Oauth().getAuthorizeURL(request));
+        } catch (QQConnectException e) {
+            throw new ErrorCodeException(SystemErrorCodes.QQ_CONNECTION_ERROR, e);
+        }
 	}
 	
 	@RequestMapping(value="qq/revoke")
