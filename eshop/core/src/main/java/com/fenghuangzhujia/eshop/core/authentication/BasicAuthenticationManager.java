@@ -25,7 +25,6 @@ import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.utils.Identities;
 import com.fenghuangzhujia.foundation.utils.validater.UsernameValidater;
-
 import com.qq.connect.QQConnectException;
 import com.qq.connect.api.OpenID;
 import com.qq.connect.api.qzone.UserInfo;
@@ -211,6 +210,11 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	 */
 	public UserToken qqLogin(HttpServletRequest request) {
 		try {
+			String queryString = ((HttpServletRequest) request).getQueryString();
+			if(queryString!=null) {
+				throw new ErrorCodeException(SystemErrorCodes.OTHER, queryString);
+			}
+			
 			AccessToken token = (new Oauth()).getAccessTokenByRequest(request);
 			if (token.getAccessToken().equals("")) {
                throw new ErrorCodeException(SystemErrorCodes.OTHER, "没有获取到响应参数");
