@@ -40,7 +40,7 @@
 	<a href="javascript:location.reload();" class="reload">刷新</a></div>
 
 	<div id="list">
-	<!--div class="toolbarTab">
+	<div class="toolbarTab">
 		<ul>
 			<li class="on"><a href="javascript:;" onclick="getAll()">全部</a></li>
 			<li class="line">-</li>
@@ -55,7 +55,7 @@
 				<a href="javascript:;" onclick="doSearch();">&nbsp;搜索</a>
 			</li>
 		</ul>	
-	</div-->
+	</div>
 	<table class="dataTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<thead>
 			<tr class="head" align="left">
