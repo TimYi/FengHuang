@@ -313,6 +313,8 @@ $(function(){
 					Utils.offLineStore.set("login_userprofile",JSON.stringify(data.result.user),false);
 				}
 				else{
+					Utils.offLineStore.remove("userinfo",false);
+					Utils.offLineStore.remove("login_userprofile",false);
 					var msg = data.error || "";
 					alert("获取个人信息错误:" + msg);
 					if(msg == "您需要登录"){

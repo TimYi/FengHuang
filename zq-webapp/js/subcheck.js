@@ -19,6 +19,10 @@ $(function(){
 	if(!g.loginStatus){
 		alert('请先登录！');
 		location.href='login.html';
+	}else if(!g.userprofile){
+		g.reserveStatus = false;
+		alert("个人资料不完善,无法预约");
+		location.href = "u_info.html?token=" + g.token + "&p=1";
 	}else if(g.loginStatus && g.userprofile !== ""){
 		var obj = JSON.parse(g.userprofile);
 		console.log(obj);
