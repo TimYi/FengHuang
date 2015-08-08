@@ -15,19 +15,25 @@ $(function(){
 	//验证登录状态
 	g.loginStatus = Utils.getUserInfo();
 	g.reserveStatus = false;
+	console.log(g.userprofile);
 	if(!g.loginStatus){
 		alert('请先登录！');
 		location.href='login.html';
+	}else if(!g.userprofile){
+		g.reserveStatus = false;
+		alert("个人资料不完善,无法预约");
+		location.href = "u_info.html?token=" + g.token + "&p=1";
 	}else if(g.loginStatus && g.userprofile !== ""){
 		var obj = JSON.parse(g.userprofile);
+		console.log(obj);
 		var name = obj.realName || "";
 		var mobile = obj.mobile || "";
-		if(name !== "" && mobile !== ""){
-			//允许预约
-			g.reserveStatus = true;
-		}
-		else{
+		if(name.length == 0 || mobile.length == 0){
 			g.reserveStatus = false;
+			alert("个人资料不完善,无法预约");
+			location.href = "u_info.html?token=" + g.token + "&p=1";
+		}else if(name.length != 0 && mobile.length != 0){
+			g.reserveStatus = true;
 		}
 		$("#name").val(name);
 		$("#phone").val(mobile);
