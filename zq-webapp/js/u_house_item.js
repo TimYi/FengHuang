@@ -23,6 +23,7 @@ $(function(){
 	}else if(g.houseId){
 		getHomeDetail();
 		$("#updatebtn").bind("click",updateHome);
+		$('#deletebtn').bind('click',deleteHouse);
 	}else{
 		$("#updatebtn").bind("click",addHome);
 	}
@@ -318,6 +319,48 @@ $(function(){
 					if(msg == "您需要登录"){
 						location.href = "login.html";
 					}
+				}
+			},
+			error:function(data){
+				g.httpTip.hide();
+			}
+		});
+	}
+
+	function deleteHouse(){
+		if(confirm("确认要删除?")) {
+				//删除
+				var id = g.houseId;
+				var condi = {};
+				condi.token = g.token;
+				condi.id = id;
+				//console.log(condi);
+				sendDeleteHomeHttp(condi);
+			}
+
+	}
+
+	function sendDeleteHomeHttp(condi){
+		var url = Base.serverUrl + '/api/user/house/'+g.houseId;
+		$.ajax({
+			url:url,
+			headers:{"fhzj_auth_token":condi.token},
+			data:condi,
+			type:"DELETE",
+			dataType:"json",
+			context:this,
+			global:false,
+			success: function(data){
+				console.log("sendDeleteHomeHttp",data);
+				g.httpTip.hide();
+				var status = data.status || "";
+				if(status == "OK"){
+					alert("删除成功");
+					location.href="u_house.html?token="+g.token+"&p=2";
+				}
+				else{
+					var msg = data.error || "";
+					alert("删除房屋信息错误:" + msg);
 				}
 			},
 			error:function(data){
