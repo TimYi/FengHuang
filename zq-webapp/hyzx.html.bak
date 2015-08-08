@@ -171,6 +171,17 @@
                     </a>
                 </div>
             </li>
+            <li style="padding:0;box-shadow:inset -1px 0 1px -1px #999;text-align:center;">
+                <div class="am-dropdown" data-am-dropdown style="height:100px">
+                    <a href="u_coupon.html">
+                        <div style="margin-top:20px">
+                            <i class="am-icon-sign-out" style="font-size:24px;color:#666"></i>
+                            <br />
+                            <span style="font-size:13px;">用户注销</span>
+                        </div>
+                    </a>
+                </div>
+            </li>
         </ul>
     </div>
     <!--cubes end-->
@@ -181,6 +192,7 @@
     <script src="js/libs/utils.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/center.js"></script>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=49712707" charset="UTF-8"></script>  
 </body>
 
 </html>
