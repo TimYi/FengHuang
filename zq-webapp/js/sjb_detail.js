@@ -91,7 +91,7 @@ $(function() {
                 var picurl = pic.url || '';
                 html.push('<li><div class="am-gallery-item">');
                 html.push('<a href="'+ picurl +'" class="">');
-                html.push('<img class="am-thumbnail" src="'+ picurl +'" />');
+                html.push('<img class="am-thumbnail" src="'+ picurl +'" style="margin-bottom:0;border:1px solid #eee;" />');
                 html.push('</a></div></li>');
             }
             html.push('</ul>');
