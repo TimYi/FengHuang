@@ -21,7 +21,6 @@ function onload(){
 	//第一步：先获取id	
 	id = getUrlParam(window.location.search,"id");
 	getData(MENU_MENU,null,afterGetMenus4Select);
-	
 }
 function submitArticle(){
 	var url = genUrl(MENU_ARTICLE);
@@ -77,6 +76,9 @@ function submitArticle(){
 		friendlyTip(data);
 	});	 	
 }
+function openMenuMgr(){		
+		window.location.href=MODULE_MENU_URL;
+	}
 </script>
 </head>
 <body onload="onload()">
@@ -95,7 +97,7 @@ function submitArticle(){
 				<td >
 					<select data-bind="value:menu,options:menuDic,optionsText:'name',optionsCaption: '栏目选择'"></select>
 					<input type="hidden" name='menuid' data-bind="value:menu()?menu().id:''">
-					<span>　可以在【栏目管理】列表中进行添加</span>
+					<span>　可以在<a href="#" onclick ="javascript:openMenuMgr();return false;">【栏目管理】</a>列表中进行添加</span>
 				</td>
 			</tr>	
 			<tr>
