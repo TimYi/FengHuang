@@ -183,7 +183,8 @@ $(function(){
 				}
 			}
 			else if(href == "#HOME_BAOMIN#"){
-				btn.attr({"href":"#","data-toggle":"modal","data-target":"#baoming","data-whatever":"@mdo"});
+				//btn.attr({"href":"#","data-toggle":"modal","data-target":"#baoming","data-whatever":"@mdo"});
+				btn.attr({"href":"center/c_baoming.html"});
 			}
 			else if(href == "#"){
 				btn.attr("href","javascript:void(0);");

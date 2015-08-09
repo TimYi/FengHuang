@@ -219,6 +219,7 @@ public class User extends UUIDBaseModel {
 	 * qqid
 	 * @return
 	 */
+	@Column(unique=true)
 	public String getQqid() {
 		return qqid;
 	}

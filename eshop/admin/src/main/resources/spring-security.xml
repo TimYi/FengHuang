@@ -21,9 +21,8 @@
 		<intercept-url pattern="/login" access="permitAll"/>
 		<intercept-url pattern="/accessDenied" access="permitAll"/>
 		
-		<!-- 
 		<intercept-url pattern="/**" access="authenticated"/>
-		-->
+
 		<!-- 
 		<intercept-url pattern="/admin" access="hasAnyRole('${authority.designer}','${authority.admin}','${authority.enter}')"/>
 		<intercept-url pattern="/admin/authentication" access="hasRole('${authority.admin}')"/>

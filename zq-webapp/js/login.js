@@ -86,7 +86,7 @@ $(function(){
 			success: function(data){
 				console.log("sendLoginHttp",data);
 				//保存数据
-				//Utils.offLineStore.set("userinfo_login",data);
+				Utils.offLineStore.set("userinfo_login",data);
 				var status = data.status || "";
 				if(status == "OK"){
 					//保存用户数据
