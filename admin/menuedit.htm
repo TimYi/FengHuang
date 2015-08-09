@@ -88,8 +88,11 @@ function afterGetDataById(data){
 			</tr>
 			<tr>
 				<td align="right"  height="40">上级品牌类型：</td>
-				<td  ><select data-bind="value:type,options:menuTypeDic,optionsText:'name',optionsCaption: '请选择...'" class="input">
-				</select><input type="hidden" name='typeid' data-bind="value:type()?type().id:''" class="input"></td>
+				<td  >
+					<select data-bind="value:type,options:menuTypeDic,optionsText:'name',optionsCaption: '请选择...'" >
+					</select>
+					<input type="hidden" name='typeid' data-bind="value:type()?type().id:''" class="input">
+				</td>
 			</tr>		
 		</tbody>
 	</table>
