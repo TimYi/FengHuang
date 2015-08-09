@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>订单列表</title>
+<link href="assets/css/admin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/forms.js"></script>
+<script type="text/javascript" src="assets/js/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="assets/js/mapping_debug.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="assets/js/jqPaginator.min.js"></script>
+<script type="text/javascript" src="global_url.js"></script>
+<script type="text/javascript" src="global_var.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript" src="orderlist.js"></script>
+</head>
+<body onload="onload()">
+<div class="topToolbar"> <span class="title">订单列表</span>                           
+<span class="alltype">
+	<a href="javascript:;" class="btn">条件筛选</a>
+	<span class="drop">
+		<form name="filterForm" id="filterForm" method="get">
+			<label>订单状态：</label>
+			<select  data-bind="value:selectStatus,options:statusDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+			</select>
+			<input type="hidden" id='selectStatus' name='status' data-bind="value:selectStatus()?selectStatus().value:''"></td>
+		</form>
+	</span>	
+</span>
+	<a href="javascript:location.reload();" class="reload">刷新</a></div>
+<form name="form" id="form" method="post">
+<div class="toolbarTab">
+	<ul>
+		<li class="on"><a href="javascript:;" onclick="getAll()">全部</a></li>
+		<li class="line">-</li>
+		<li class=""><a href="javascript:;" onclick="filter()">筛选</a></li>
+		<li class="line">&nbsp;</li>
+		<li class="line">&nbsp;</li>
+		<li class="line">&nbsp;</li>
+		<li>
+			<select  data-bind="value:selectedSearch,options:searchDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '选择搜索条件'">
+			</select>
+			<input name="keyword" id="keyword" title="输入关键字进行搜索" type="text">
+			<a href="javascript:;" onclick="doSearch();">&nbsp;搜索</a>
+		</li>
+	</ul>	
+</div>
+	<table class="dataTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<thead>
+			<tr class="head" align="left">
+				<td class="firstCol" width="5%" height="36"><input name="checkid" id="checkid" onclick="CheckAll(this.checked);" type="checkbox"></td>
+				<!--td width="15%">ID</td-->
+				<td width="10%">编码</td>
+				<td width="5%">价格</td>
+				<td width="5%">状态</td>				
+				<td width="10%">商品</td>
+				<td width="5%">数量</td>
+				<td width="5%">手机</td>
+				<td width="5%">姓名</td>
+				<td width="10%">商品图片</td>
+				<td width="10%">用户名</td>
+				<td width="20%">支付时间</td>
+				<td class="endCol" width="10%">操作</td>
+			</tr>
+		</thead>
+        <tbody data-bind='foreach: result'>
+			<tr class="dataTr" align="left">
+				<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox" data-bind="checked: selected"></td>
+				<!--td data-bind='text: id'></td-->
+				<td data-bind='text: code'></td>
+				<td data-bind="text: price"></td>
+				<td data-bind="text: status"></td>	
+				<td data-bind='text: name'></td>	
+				<td data-bind='text: count'></td>
+				<td data-bind='text: mobile'></td>
+				<td data-bind='text: realName'></td>
+				<td data-bind='text: mainPic'></td>
+				<td data-bind="text: user?user.username:''"></td>
+				<td data-bind='text: payTime'></td>
+				<td class="action endCol">				
+					<!--span class="nb"><a href="#" data-bind='click: $root.remove'>删除</a></span-->
+					<span><a href="#" data-bind='click: $root.modify'>修改状态</a></span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</form>
+<div class="bottomToolbar">
+	<!--span class="selArea"><span>选择：</span> 
+		<a href="javascript:CheckAll(true);">全部</a> - 
+		<a href="javascript:CheckAll(false);">无</a> - 
+		<a href="#" data-bind='click: removeSelected'>删除</a>
+	</span-->
+</div>
+<div class="page"> 
+	<div class="pageList">	
+	</div> 
+</div>
+</body></html>
