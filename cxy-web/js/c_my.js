@@ -291,8 +291,9 @@ $(function(){
 		$("#emailtext").val(email);
 		if(phone != ""){
 			//手机号
-			$("#phonetext").val(phone);
-			$("#bindbtn").html("解绑");
+			//$("#phonetext").val(phone);
+			//$("#bindbtn").html("解绑");
+			setPhoneHtml(phone);
 			g.isBind = false;
 		}
 		//QQ号
@@ -333,6 +334,14 @@ $(function(){
 		$("#loginoutbtn").show();
 
 	}
+
+	function setPhoneHtml(tel){
+		var html = [];
+		html.push('<label>绑定手机号 *</label>');
+		html.push('<input id="phonetext" value="' + tel + '" type="text" readonly class="form-control" required="required">');
+		$("#phonediv").html(html.join(''));
+	}
+
 
 	function setUserFunHtml(obj){
 		//style="background:#b9090e;color:#fff;"
