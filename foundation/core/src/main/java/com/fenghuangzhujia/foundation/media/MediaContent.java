@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.fenghuangzhujia.foundation.core.entity.UUIDBaseModel;
 
 @Entity
@@ -25,6 +27,8 @@ public class MediaContent extends UUIDBaseModel {
 	private String path;
 	/**文件名称*/
 	private String fileName;
+	/**外部路径*/
+	private String link;
 	
 	public String getRemark() {
 		return remark;
@@ -89,8 +93,15 @@ public class MediaContent extends UUIDBaseModel {
 		this.fileName = fileName;
 	}
 	
+	public String getLink() {
+		return link;
+	}
+	public void setLink(String link) {
+		this.link = link;
+	}
 	@Transient
 	public String getUrl() {
+		if(StringUtils.isNotBlank(link))return link;
 		return MediaServiceConfig.getMediaUrl(path);
 	}
 }
