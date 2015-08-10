@@ -41,7 +41,7 @@
 			async: false,
 			global:false,
 			success: function(data){
-				console.log(data);
+				console.log("qq_sendGetUserInfoHttp",data);
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
@@ -65,9 +65,4 @@
 			}
 		});
 	}
-
-
-
-
-
 })();
