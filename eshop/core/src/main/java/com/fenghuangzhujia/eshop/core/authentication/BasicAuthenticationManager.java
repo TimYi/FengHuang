@@ -242,6 +242,7 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	        	user=new User();
 	        	user.setQqid(openID);
 	        	user.setCnname(cname);
+	        	user.setVerified(true);
 	        	user=userRepository.save(user);
 	        	UserToken userToken=new UserToken();
 	        	userToken.setUser(user);

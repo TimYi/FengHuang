@@ -58,7 +58,7 @@ public class TokenAuthFilter extends GenericFilterBean {
 				shouldClean=true;			
 			}
 		} catch(ErrorCodeException e) {
-			logger.error(e.getMessage(), e);
+			logger.debug(e.getMessage(), e);
 		}
 		catch (Exception e) {
 			logger.error(e.getMessage(), e);
