@@ -247,7 +247,10 @@ $(function(){
 		var nikeName = obj.cnname || "";
 		var validName = obj.realName || "";
 		var eName = obj.ename || "";
-		var sex = obj.sex || "404040e64dd26ab5014dd26ac61f0013";
+		var sex = obj.sex || "";
+		if(sex !== ""){
+			sex = sex.id || "404040e64dd26ab5014dd26ac61f0013";
+		}
 		var message = obj.intro || "";
 		var email = obj.email || "";
 		var phone = obj.mobile || "";
@@ -288,8 +291,9 @@ $(function(){
 		$("#emailtext").val(email);
 		if(phone != ""){
 			//手机号
-			$("#phonetext").val(phone);
-			$("#bindbtn").html("解绑");
+			//$("#phonetext").val(phone);
+			//$("#bindbtn").html("解绑");
+			setPhoneHtml(phone);
 			g.isBind = false;
 		}
 		//QQ号
@@ -310,7 +314,7 @@ $(function(){
 
 		var li = [];
 		//li.push('<li>ID：' + obj.username + '</li>');
-		li.push('<li>' + obj.username + '</li>');
+		li.push('<li>' + (obj.username || nikeName) + '</li>');
 		li.push('<li>' + phone + '</li>');
 		$("#user_ul").html(li.join(''));
 
@@ -330,6 +334,14 @@ $(function(){
 		$("#loginoutbtn").show();
 
 	}
+
+	function setPhoneHtml(tel){
+		var html = [];
+		html.push('<label>绑定手机号 *</label>');
+		html.push('<input id="phonetext" value="' + tel + '" type="text" readonly class="form-control" required="required">');
+		$("#phonediv").html(html.join(''));
+	}
+
 
 	function setUserFunHtml(obj){
 		//style="background:#b9090e;color:#fff;"

@@ -73,6 +73,7 @@ function CheckForm()
 }
 function loginSubmit(){
 	if(CheckForm()){
+		var LOGIN = 'http://www.ifhzj.com/api/admin/login';
 		submitAsyFormByJson(LOGIN, 'login', 
 			function(data){
 				if(data.status == 'OK') {

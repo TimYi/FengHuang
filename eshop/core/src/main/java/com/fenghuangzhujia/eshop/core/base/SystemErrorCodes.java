@@ -45,6 +45,8 @@ public class SystemErrorCodes {
 	
 	public static final ErrorCode MESSAGE_SEND_ERROR;
 	
+	public static final ErrorCode QQ_CONNECTION_ERROR;
+	
 	//支付相关异常81~90
 	public static final ErrorCode PAY_FAILED;
 	public static final ErrorCode SIGNATURE_WRONG;
@@ -122,7 +124,7 @@ public class SystemErrorCodes {
 		FILE_ERROR=new ErrorCode(10, "文件处理异常");
 		ACCESS_DENIED=new ErrorCode(11, "您没有相应权限");
 		MESSAGE_SEND_ERROR=new ErrorCode(12, "短信发送错误");
-		
+		QQ_CONNECTION_ERROR=new ErrorCode(13, "与qq网关连接错误");
 		
 		
 		

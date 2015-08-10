@@ -15,16 +15,31 @@
 <script type="text/javascript" src="livelist.js"></script>
 </head>
 <body onload="onload()">
-<div class="topToolbar"> <span class="title">直播管理</span>                           
-
+<div class="topToolbar"> <span class="title">直播管理</span>
 	<a href="javascript:location.reload();" class="reload">刷新</a></div>
-<form name="form" id="form" method="post" action="member_save.php">
+<form name="form" id="form" method="post">
+	<div class="toolbarTab">
+		<ul>
+			<li class="on"><a href="javascript:;" onclick="getAll()">全部</a></li>			
+			<li class="line">&nbsp;</li>
+			<li class="line">&nbsp;</li>
+			<li class="line">&nbsp;</li>
+			<li>
+				<select  data-bind="value:selectedSearch,options:searchDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '选择搜索条件'">
+				</select>
+				<input name="keyword" id="keyword" title="输入关键字进行搜索" type="text">
+				<a href="javascript:;" onclick="doSearch();">&nbsp;搜索</a>
+			</li>
+		</ul>	
+	</div>
 	<table class="dataTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<thead>
 			<tr class="head" align="left">
 				<td class="firstCol" width="5%" height="36"><input name="checkid" id="checkid" onclick="CheckAll(this.checked);" type="checkbox"></td>
 				<!--td width="15%">ID</td-->
-				<td width="10%">客户</td>
+				<td width="10%">用户名</td>
+				<td width="10%">用户姓名</td>
+				<td width="10%">用户手机</td>
 				<td width="5%">名称</td>
 				<td width="5%">小区</td>
 				<td width="5%">房屋面积</td>			
@@ -39,6 +54,8 @@
 				<td class="firstCol" height="60"><input name="checkid[]" id="checkid[]" value="1" type="checkbox" data-bind="checked: selected"></td>
 				<!--td data-bind='text: id'></td-->
 				<td data-bind="text: user == null?'':user.username"></td>
+				<td data-bind="text: user == null?'':user.realName"></td>
+				<td data-bind="text: user == null?'':user.mobile"></td>
 				<td data-bind="text: name"></td>		
 				<td data-bind='text: village'></td>
 				<td data-bind='text: area'></td>

@@ -114,10 +114,14 @@ function filter(){
 	getData(url,param,afterGetDatas);
 }
 function getAll(){
+	rePage = true;
+	curPage = 1;
 	initParam();
 	getData(ORDER_ORDER,param,afterGetDatas);
 }
 function doSearch(){
+	rePage = true;
+	curPage = 1;
 	initParam();
 	//查询格式：search_operator_param=value
 	var selectedSearch = dataModel.selectedSearch();
@@ -128,7 +132,6 @@ function doSearch(){
 	var searchParam = selectedSearch.value;
 	var value = $("#keyword").val();
 	var searchType;
-	
 	if(searchParam == 'ID'){
 		param.search_like_id = value;
 	}else if(searchParam == 'code'){

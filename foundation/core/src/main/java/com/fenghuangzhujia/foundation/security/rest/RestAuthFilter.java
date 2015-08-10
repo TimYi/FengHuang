@@ -26,7 +26,7 @@ import org.springframework.web.filter.GenericFilterBean;
 public class RestAuthFilter extends GenericFilterBean {
 	
 	/**验证信息所在请求头*/
-	private String authHeader="Auth_Token";
+	private String authHeader="fhzj_auth_token";
 	@Autowired
 	private RestAuthManager restAuthManager;
 
@@ -77,6 +77,9 @@ public class RestAuthFilter extends GenericFilterBean {
 	protected String getToken(HttpServletRequest request) {
 		String token;
 		token=request.getHeader(authHeader);
+		if(token==null) {
+			token=request.getParameter("token");
+		}
 		return token;
 	}
 

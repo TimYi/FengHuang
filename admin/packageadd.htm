@@ -32,7 +32,7 @@ function onload(){
     	selectableStatus : ko.observableArray(statusDic),
         selectedStatus:ko.observable() 
     };
-   	ko.applyBindings(viewModel);	
+   	ko.applyBindings(viewModel);
 }
 function submitPackage(){
 	var url = genUrl(ORDER_PACKAGE);	
@@ -40,7 +40,6 @@ function submitPackage(){
 			if(files.length == 0){
 			  	submitAsyFormByJson(url, 'packageForm', 
 					function(data){
-		 			
 			 			friendlyTip(data);
 			 			//window.location.href='packageedit.htm?id='+viewModel.id();
 		 		 	}
@@ -48,8 +47,7 @@ function submitPackage(){
 			}else{	 
 		 		submitFormWithMultipart(url,'packageForm',
 			 		function(formData, jqForm, options){
-			 			//判断是否要上传文件，若不需要上传文件时
-			 			
+			 			//判断是否要上传文件，若不需要上传文件时			 			
 			 			return true;  
 			 		} 
 			 		
@@ -60,8 +58,6 @@ function submitPackage(){
 			 		}
 			 	);
 	 		}
-}
-
 </script>
 </head>
 <body onload="onload()">
@@ -72,11 +68,11 @@ function submitPackage(){
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tbody>
 			<tr>
-				<td align="right" width="25%" height="40">套餐名称:</td>				
+				<td align="right" width="25%" height="40">套餐名称：</td>				
 				<td width="75%" ><input   class="input" name='name' type="text" ></td>
 			</tr>
 			<tr>
-				<td align="right" width="25%" height="40">套餐价格:</td>				
+				<td align="right" width="25%" height="40">套餐价格：</td>				
 				<td width="75%" ><input   class="input" name='price' type="text" ></td>
 			</tr>
 			<tr>
@@ -102,7 +98,7 @@ function submitPackage(){
 			<tr>
 				<td align="right" height="40">抢购开始时间：</td>
 				<td>
-					<input   class="input" type="text" id="scrambleStartTime" name='scrambleStartTime' class="inputms" readonly="readonly" />
+					<input  type="text" id="scrambleStartTime" name='scrambleStartTime' class="inputms" readonly="readonly" />
 					<script type="text/javascript" src="assets/plugin/calendar/calendar.js"></script> 
 					<script type="text/javascript">
 						Calendar.setup({
@@ -118,7 +114,7 @@ function submitPackage(){
 			<tr>
 				<td align="right" height="40">抢购截止时间：</td>
 				<td>
-					<input   class="input" type="text" id="scrambleEndTime" name='scrambleEndTime' class="inputms"  readonly="readonly" />
+					<input  type="text" id="scrambleEndTime" name='scrambleEndTime' class="inputms"  readonly="readonly" />
 					<!--script type="text/javascript" src="assets/plugin/calendar/calendar.js"></script--> 
 					<script type="text/javascript">
 						Calendar.setup({
@@ -135,17 +131,17 @@ function submitPackage(){
 				<td align="right" height="40" >套餐状态：</td>
 				<td width="75%" >
 					<!--input type="text" name='status' data-bind='value:selectStatus().value'-->
-					<select class="input"  data-bind="value:selectedStatus,options:selectableStatus,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
+					<select data-bind="value:selectedStatus,options:selectableStatus,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
 					</select>
 					<input type="hidden" name='status' data-bind="value:selectedStatus().value"></td>
-				</td>				
+				</td>
 			</tr>
 			<tr>
 				<td align="right" height="40" >上传图片：</td>
 				<td width="75%" >					
 					<input type="file"  name='mainPicFile'>
-				</td>				
-			</tr>			
+				</td>
+			</tr>
 		</tbody>
 	</table>
 	<div class="formSubBtn">

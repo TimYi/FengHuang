@@ -22,16 +22,49 @@ $(function() {
     function changeDetailHtml(data){
         var obj = data || '';
         var $btn = $('#btn-buy');
+        var $other = $('#otherInfo');
+        var orderId = obj.orderId || '';
+        var status = obj.status || '';
         $('#mainPic').attr('src','images/tc/tc_'+g.packageId+'.jpg');
-        if(obj.hasScrambled){
-            $btn.find("div").text("已抢购");
-        }else if(obj.hasAppointed){
-            $btn.find("div").text("立刻抢购");
-            $btn.attr('href','javascript:miaoSha(\'' + g.packageId + '\')');
+        var cycle = obj.lifeCycle;
+        if(status == "PREPARE"){
+            $btn.find('div').text("未开始");
+        }else if(status == "SCRAMBLE"){
+            if(!g.loginStatus){
+                $btn.find('div').text("立即预约");
+                $btn.attr('href','subcheck.html?id='+g.packageId);
+            }else{
+                if(cycle == 'COMPLETE'){
+                    $btn.find('div').text("已成功抢购");
+                }else if(cycle == 'PAY'){
+                    $btn.find('div').text("已抢购，去支付");
+                    $btn.attr('href','paycheck.html?id=' + orderId);
+                }else if(cycle == 'SCRAMBLE'){
+                    $btn.find('div').text('立即抢购');
+                    $btn.attr('href','javascript:miaoSha(\'' + g.packageId + '\')');
+                }else if(cycle == 'WAITING'){
+                    $btn.find('div').text('抢购即将开始');
+                    $other.text('抢购开始时间：'+obj.scrambleStartTime);
+                }else if(cycle == 'APPOINT'){
+                    $btn.find('div').text('立刻预约');
+                    $btn.attr('href','subcheck.html?id='+g.packageId);
+                }else if(cycle == 'FINISHED'){
+                    $btn.find('div').text('已结束');
+                }
+            }
         }else{
-            $btn.find("div").text("立刻预约");
-            $btn.attr("href","subcheck.html?id="+g.packageId);
+            $btn.find('div').text("已结束");
         }
+
+        // if(obj.hasScrambled){
+        //     $btn.find("div").text("已抢购");
+        // }else if(obj.hasAppointed){
+        //     $btn.find("div").text("立刻抢购");
+        //     $btn.attr('href','javascript:miaoSha(\'' + g.packageId + '\')');
+        // }else{
+        //     $btn.find("div").text("立刻预约");
+        //     $btn.attr("href","subcheck.html?id="+g.packageId);
+        // }
 
         var spaces = obj.spaces;
         var shtml = [];
@@ -89,6 +122,7 @@ $(function() {
         var url = Base.packageDetail+'/'+g.packageId;
         var condi = {};
         condi.id = g.packageId;
+        condi.token = g.token;
         g.httpTip.show();
         $.ajax({
             url:url,

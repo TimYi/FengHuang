@@ -12,6 +12,7 @@ import com.fenghuangzhujia.eshop.admin.auth.SystemAuthManager;
 import com.fenghuangzhujia.eshop.admin.user.SystemToken;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.validate.captcha.CaptchaManager;
+import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 
 @RestController(value="adminAccountController")
@@ -39,7 +40,11 @@ public class AccountController {
 	
 	@RequestMapping(value="login",method=RequestMethod.POST)
 	public String login(String username, String password, String captcha) {
-		captchaManager.validate(username, captcha);
+		try {
+			captchaManager.validate(username, captcha);
+		} catch (Exception e) {
+			throw new ErrorCodeException(SystemErrorCodes.CAPTCHA_ERROR, "验证码输入错误");
+		}		
 		SystemToken token=manager.login(username, password);
 		Map<String, Object> result=new HashMap<String, Object>();
 		result.put("token", token.getToken());

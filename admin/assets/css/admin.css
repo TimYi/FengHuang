@@ -174,7 +174,7 @@ input[type="button"]:focus,input[type="submit"]:focus{outline:none;}
 .topToolbar span.alltype .drop span:hover{background:#ffffe1;text-decoration:none;_color:#fdab36;}
 
 .bottomToolbar{height:50px;line-height:50px;}
-.bottomToolbar a.dataBtn{float:right;height:30px;line-height:30px;margin-top:15px;padding:0 11px;background:#3d566d;font-size:13px;color:#fff;}
+.bottomToolbar a.dataBtn{float:right;height:30px;line-height:30px;margin-top:15px;padding:0 11px;background:#3d566d;font-size:13px;color:#fff;margin:0 1px;}
 .bottomToolbar a.dataBtn:hover{background:#4f6880;text-decoration:none;}
 .bottomToolbar a.dataBack{float:right;margin:5px 20px 0 0;}
 .bottomToolbar span.selArea{float:left;}

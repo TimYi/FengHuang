@@ -96,6 +96,7 @@ $(function(){
 			var pic1 = spaces[j].pic1 || "";
 			var pic2 = spaces[j].pic2 || "";
 			var pic3 = spaces[j].pic3 || "";
+			var name = spaces[j].name || "";
 			var imgs = [];
 			if(pic1 !== ""){
 				imgs.push(pic1.url);
@@ -123,7 +124,7 @@ $(function(){
 			phtml.push('<table class="table u_ct_15">');
 			phtml.push('<tr style="border-top:2px solid #fff">');
 			phtml.push('<th>#</th>');
-			phtml.push('<th width="150">客厅包含项目</th>');
+			phtml.push('<th width="150">' + name + '包含项目</th>');
 			phtml.push('<th>品牌</th>');
 			phtml.push('<th>数量</th>');
 			phtml.push('<th>详细说明</th>');

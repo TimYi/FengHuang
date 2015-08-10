@@ -7,4 +7,6 @@ public interface UserRepository extends SpecificationRepository<User, String> {
 	User getByUsername(String username);
 	
 	User getByMobile(String mobile);
+	
+	User getByQqid(String qqid);
 }

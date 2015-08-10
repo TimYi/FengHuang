@@ -17,9 +17,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  */
 @MappedSuperclass
 public abstract class BaseModel implements IBaseModel,LogicDeleteModel {
-	@JsonIgnore
 	private Date createTime;
-	@JsonIgnore
 	private Date updateTime;
 	@JsonIgnore
 	private boolean deleted;

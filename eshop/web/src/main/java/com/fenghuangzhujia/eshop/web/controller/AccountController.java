@@ -1,17 +1,20 @@
 package com.fenghuangzhujia.eshop.web.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.fenghuangzhujia.eshop.core.authentication.AuthenticationManager;
+import com.fenghuangzhujia.eshop.core.authentication.BasicAuthenticationManager;
 import com.fenghuangzhujia.eshop.core.authentication.token.UserToken;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.user.UserService;
@@ -21,14 +24,15 @@ import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
 import com.fenghuangzhujia.foundation.core.rest.RequestResult;
 import com.fenghuangzhujia.foundation.utils.Servlets;
-
+import com.qq.connect.QQConnectException;
+import com.qq.connect.oauth.Oauth;
 @RestController
 public class AccountController {
 	
 	@Autowired
 	private MessageManager messageManager;	
 	@Autowired
-	AuthenticationManager manager;
+	BasicAuthenticationManager manager;
 	@Autowired
 	private CaptchaManager captchaManager;
 	@Autowired
@@ -104,5 +108,23 @@ public class AccountController {
 			@RequestParam String password) {
 		manager.changeForgotPassword(username, validater, password);
 		return RequestResult.success("修改成功").toJson();
+	}
+	
+	@RequestMapping(value="qq/auth")
+	public void qqAuth(HttpServletRequest request,HttpServletResponse response) throws IOException {
+		 try {
+            response.sendRedirect(new Oauth().getAuthorizeURL(request));
+        } catch (QQConnectException e) {
+            throw new ErrorCodeException(SystemErrorCodes.QQ_CONNECTION_ERROR, e);
+        }
+	}
+	
+	@RequestMapping(value="qq/revoke")
+	public ModelAndView qqLogin(HttpServletRequest request) {
+		ModelAndView view=new ModelAndView("redirect:http://www.ifhzj.com/center/center.html");
+		UserToken token=manager.qqLogin(request);
+		String tokenString=token.getToken();
+		view.addObject("token", tokenString);
+		return view;
 	}
 }

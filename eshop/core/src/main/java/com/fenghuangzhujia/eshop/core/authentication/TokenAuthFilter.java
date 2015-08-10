@@ -17,6 +17,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;
 
+import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
+
 @Component(value="tokenAuthFilter")
 public class TokenAuthFilter extends GenericFilterBean {
 	
@@ -55,8 +57,11 @@ public class TokenAuthFilter extends GenericFilterBean {
 				SecurityContextHolder.setContext(context);
 				shouldClean=true;			
 			}
-		} catch (Exception e) {
+		} catch(ErrorCodeException e) {
 			logger.debug(e.getMessage(), e);
+		}
+		catch (Exception e) {
+			logger.error(e.getMessage(), e);
 		}
 		chain.doFilter(request, response);
 		if(shouldClean) {

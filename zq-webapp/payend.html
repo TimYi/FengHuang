@@ -37,23 +37,33 @@
         </nav>
     </div>
     <!--banner+menu end-->
-
     <div class="am-tabs-bd" style="margin-top:10px;border:none;">
         <div data-tab-panel-0 class="am-tab-panel am-active">
             <p style="font-size:14px;line-height:18px;color:#666">
                 <i class="am-icon-heart" style="font-size:14px;"></i><b>&nbsp;&nbsp;<span style="color:#000">支付结果 PAY RESULT</span></b>
                 <hr/>
             </p>
-            <p style="font-size:14px;line-height:18px;color:#666">
-                您已成功支付，请您于*年*月*日前到**地点体验馆实景体验和选购家装材料。
-                <hr/>
-            </p>
-            <div class="animation animated-item-3" style="margin:0 auto;margin-top:20px;margin-bottom:15px;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-                <a href="javascript:;" id="buynow" onclick="">
-                    <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">返回首页</div>
-                </a>
+            <div class="pay-ok">
+                <p id="payresult" style="font-size:14px;line-height:18px;color:#666">
+                    您已成功支付！
+                </p>
+                <div class="animation animated-item-3" style="margin:0 auto;margin-top:20px;margin-bottom:15px;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                    <a href="index.html" id="buynow">
+                        <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">返回首页</div>
+                    </a>
+                </div>
             </div>
-            </p>
+            <div class="pay-error" style="display:none;">
+                <p style="font-size:14px;line-height:18px;color:#666">
+                    支付失败，请您重新支付。支付过程的遇到的问题，请您致电支付银行客服和凤凰筑家客服<a href="tel:4009689088" style="color:#b9090e;font-weight:800">400-968-9088</a>具体咨询。
+                    <hr/>
+                </p>
+                <div class="animation animated-item-3" style="margin:0 auto;margin-top:20px;margin-bottom:15px;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                    <a href="" id="payAgain">
+                        <div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">返回支付界面</div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     <!--cubes end-->
@@ -63,7 +73,8 @@
     <script src="js/libs/base.js"></script>
     <script src="js/libs/utils.js"></script>
     <script src="js/nav.js"></script>
-    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=49712707" charset="UTF-8"></script>  
+    <script src="js/payend.js"></script>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=49712707" charset="UTF-8"></script>
 </body>
 
 </html>

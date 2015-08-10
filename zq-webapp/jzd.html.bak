@@ -65,8 +65,15 @@
         </nav>
     </div>
     <!--banner+menu end-->
+    <div data-am-widget="slider" class="am-slider am-slider-c3" data-am-slider='{&quot;controlNav&quot;:false}'>
+        <ul class="am-slides" style="font-size:12px">
+            <li>
+                <img src="images/fhzj.jpg">
+            </li>
+        </ul>
+    </div>    
     <div data-am-widget="tabs" class="am-tabs am-tabs-default" style="width:100%;padding:0;margin:0">
-        <ul class="am-tabs-nav am-cf">
+        <!--ul class="am-tabs-nav am-cf">
             <li class="am-active x" style="line-height:10px;">
                 <a href="[data-tab-panel-0]">
                     <i class="am-icon-bookmark" style="font-size:24px;"></i>
@@ -88,8 +95,8 @@
                     <div class="ttt">常见问题</div>
                 </a>
             </li>
-        </ul>
-        <div class="am-tabs-bd" style="margin-top:10px;border:none; box-shadow:inset -1px 1px 1px -1px #999;padding:5px;">
+        </ul-->
+        <div class="am-tabs-bd" style="niborder:none; box-shadow:inset -1px 1px 1px -1px #999;padding:5px;">
             <div data-tab-panel-0 class="am-tab-panel am-active">
                 <div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;display:none;">
                     <a href="javascript:;" id="buynow" onclick="Buy_jzd();">
@@ -103,7 +110,7 @@
                     <br/>
                     <b>审批快速：</b>绿色贷款通道，最快1天完成审核
                     <br/>
-                    <b>额度灵活：</b>循环授信额度，最高可贷20万
+                    <b>额度灵活：</b>循环授信额度，最高可贷50万
                     <br/>
                     <b>免手续费：</b>提前还款，0手续费，0服务费
                     <br/>
@@ -119,7 +126,7 @@
                 </p>
                 <hr/>
             </div>
-            <div data-tab-panel-1 class="am-tab-panel ">
+            <!--div data-tab-panel-1 class="am-tab-panel ">
                 <form class="am-form loan-cal">
                     <p style="font-size:14px;line-height:26px;color:#333;font-weight:800">
                         贷款金额：<em id="dkje">0</em> 元<br/>
@@ -169,11 +176,8 @@
                     <br/>
                     <br/><b>问：如果提前还款会收手续费吗？</b>
                     <br/> 答：您好。凤凰筑家装修贷提前还款，不收取任何手续费或者违约金。您可以在任何时间提前还款，利息也只按照您实际贷款天数计算。
-                </p>
-                <!--div class="animation animated-item-3" style="margin:0 auto;margin-top:15px;margin-bottom:15px;height:45px;width:160px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-        <a href="javascript:;" id="buynow" onclick="Buy_699();" ><div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div></a>
-      </div-->
-            </div>
+                </p>ß
+            </div-->
         </div>
     </div>
     <script src="js/libs/jquery.min.js"></script>
@@ -183,6 +187,7 @@
     <script src="js/libs/utils.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/jzd.js"></script>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=49712707" charset="UTF-8"></script>  
 </body>
 
 </html>

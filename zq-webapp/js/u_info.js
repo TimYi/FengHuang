@@ -168,7 +168,7 @@ $(function(){
 		//电子邮箱
 		condi.email = $("#emailtext").val();
 		//手机号
-		//condi.phone = $("#phonetext").val();
+		condi.phone = $("#phonetext").val();
 		//QQ号
 		condi.qq = $("#qqtext").val();
 		//微信
@@ -191,6 +191,7 @@ $(function(){
 	//修改个人资料
 	function setUserInfoHtml(data){
 		var obj = data.user || {};
+		console.log(obj);
 		var nikeName = obj.cnname || "";
 		var validName = obj.realName || "";
 		var eName = obj.ename || "";
@@ -313,6 +314,8 @@ $(function(){
 					Utils.offLineStore.set("login_userprofile",JSON.stringify(data.result.user),false);
 				}
 				else{
+					Utils.offLineStore.remove("userinfo",false);
+					Utils.offLineStore.remove("login_userprofile",false);
 					var msg = data.error || "";
 					alert("获取个人信息错误:" + msg);
 					if(msg == "您需要登录"){
@@ -340,6 +343,7 @@ $(function(){
 			success: function(data){
 				g.httpTip.hide();
 				var status = data.status || "";
+				console.log(data);
 				if(status == "OK"){
 					Utils.offLineStore.set("login_userprofile",JSON.stringify(data.result),false);
 					alert("修改个人资料成功");

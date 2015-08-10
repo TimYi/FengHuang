@@ -748,7 +748,7 @@ $(function(){
 							////~ hasScrambled:标识是否已经抢购完并且尚未付款
 							if(hasScrambled){
 								var page = "center/c_order.html?token=" + g.token + "&p=7";
-								var msg = "尊敬的" + g.username + "用户，您好！本月您已成功抢购过该套餐且已完成定金支付，\\n每人每月仅限抢购一次，请下个月再试，谢谢您的参与。";
+								var msg = "尊敬的" + g.username + "用户，您好！本月您已成功抢购过该套餐，\\n每人每月仅限抢购一次，请下个月再试，谢谢您的参与。";
 								$(".buynow" + price).html('<div onclick="buyTip(\'' + msg + '\',\'' + page + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
 							}
 							else{
@@ -821,105 +821,6 @@ $(function(){
 		if(confirm(msg)){
 			location.href = url;
 		}
-	}
-
-
-	//马上报名
-	$("#bmsendbtn").bind("click",baoMingBtnUp);
-	$("#bmresetbtn").bind("click",baoMingResetBtnUp);
-	function baoMingBtnUp(){
-		var name = $("#inputEmail3bm").val() || "";
-		var phone = $("#inputPhone3bm").val() || "";
-		var name2 = $("#inputEmail32bm").val() || "";
-		var phone2 = $("#inputPhone32bm").val() || "";
-		var relation = $("#inputrelationbm").val() || "";
-		if(name !== ""){
-			if(phone !== ""){
-				var reg = /^1[3,5,7,8]\d{9}$/g;
-				if(reg.test(phone)){
-					if(name2 !== ""){
-						if(phone2 !== ""){
-							var reg2 = /^1[3,5,7,8]\d{9}$/g;
-							if(reg2.test(phone2)){
-								if(relation !== ""){
-									var condi = {};
-									condi.name = name;
-									condi.telephone = phone;
-									condi.name2 = name2;
-									condi.telephone2 = phone2;
-									condi.relation = relation;
-									sendSignupHttp(condi);
-								}
-								else{
-									Utils.alert("请输入选手关系!");
-									$("#inputrelationbm").focus();
-								}
-							}
-							else{
-								Utils.alert("选手二手机号码输入不合法!");
-								$("#inputPhone32bm").focus();
-							}
-						}
-						else{
-							Utils.alert("请输入选手二手机号码!");
-							$("#inputPhone32bm").focus();
-						}
-					}
-					else{
-						Utils.alert("请输入选手二姓名!");
-						$("#inputEmail32bm").focus();
-					}
-				}
-				else{
-					Utils.alert("选手一手机号码输入不合法!");
-					$("#inputPhone3bm").focus();
-				}
-			}
-			else{
-				Utils.alert("请输入选手一手机号码!");
-				$("#inputPhone3bm").focus();
-			}
-		}
-		else{
-			Utils.alert("请输入选手一姓名!");
-			$("#inputEmail3bm").focus();
-		}
-	}
-	function baoMingResetBtnUp(){
-		$("#inputEmail3bm").val("");
-		$("#inputPhone3bm").val("");
-		$("#inputEmail32bm").val("");
-		$("#inputPhone32bm").val("");
-		$("#inputrelationbm").val("");
-	}
-
-	function sendSignupHttp(condi){
-		var url = Base.serverUrl + "/api/signup";
-		g.httpTip.show();
-		$.ajax({
-			url:url,
-			data:condi,
-			type:"POST",
-			dataType:"json",
-			context:this,
-			global:false,
-			success: function(data){
-				console.log("sendSignupHttp",data);
-				var status = data.status || "";
-				if(status == "OK"){
-					alert("报名成功!");
-					$('#baoming').modal('hide');
-				}
-				else{
-					var msg = data.errorDescription || "";
-					alert("报名失败:" + msg);
-				}
-				g.httpTip.hide();
-			},
-			error:function(data){
-				g.httpTip.hide();
-			}
-		});
 	}
 
 	window.miaoSha = miaoSha;

@@ -44,7 +44,20 @@
 </span>
 	<a href="javascript:location.reload();" class="reload">刷新</a></div>
 <form name="form" id="form" method="post">
-	
+	<div class="toolbarTab">
+		<ul>
+			<li class="on"><a href="javascript:;" onclick="getAll()">全部</a></li>			
+			<li class="line">&nbsp;</li>
+			<li class="line">&nbsp;</li>
+			<li class="line">&nbsp;</li>
+			<li>
+				<select  data-bind="value:selectedSearch,options:searchDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '选择搜索条件'">
+				</select>
+				<input name="keyword" id="keyword" title="输入关键字进行搜索" type="text">
+				<a href="javascript:;" onclick="doSearch();">&nbsp;搜索</a>
+			</li>
+		</ul>	
+	</div>
 	<table class="dataTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<thead>
 			<tr class="head" align="left">
