@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.fenghuangzhujia.eshop.core.authentication.BasicAuthenticationManager;
 import com.fenghuangzhujia.eshop.core.authentication.token.UserToken;
@@ -119,13 +120,11 @@ public class AccountController {
 	}
 	
 	@RequestMapping(value="qq/revoke")
-	public String qqLogin(HttpServletRequest request) {
+	public ModelAndView qqLogin(HttpServletRequest request) {
+		ModelAndView view=new ModelAndView("redirect:http://www.ifhzj.com/center/center.html");
 		UserToken token=manager.qqLogin(request);
-		String userId=token.getUser().getId();
-		UserDto profile=userService.findOne(userId);
-		Map<String, Object> result=new HashMap<String, Object>();
-		result.put("token", token.getToken());
-		result.put("profile", profile);
-		return RequestResult.success(result).toJson();
+		String tokenString=token.getToken();
+		view.addObject("token", tokenString);
+		return view;
 	}
 }
