@@ -262,9 +262,9 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	        	String avatar=userInfoBean.getAvatar().getAvatarURL100();
 	        	MediaContent media=new MediaContent();
 	        	media.setLink(avatar);
-	        	media=mediaContentRepository.save(media);
-	        	
+	        	media=mediaContentRepository.save(media);	        	
 	        	user.setAvatar(media);
+	        	
 	        	user.setQqid(openID);
 	        	user.setCnname(cname);
 	        	user.setVerified(true);
