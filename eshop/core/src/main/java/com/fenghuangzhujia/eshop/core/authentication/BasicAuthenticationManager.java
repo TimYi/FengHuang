@@ -227,9 +227,9 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	        	UserToken userToken=tokenRepository.getByUser(user);
 	        	if(userToken==null) {
 	        		userToken=new UserToken();
-	        		userToken.setUser(user);
-	        		userToken=refreshToken(userToken);
+	        		userToken.setUser(user);	        		
 	        	}
+	        	userToken=refreshToken(userToken);
 	        	return userToken;
 	        }
 	        
@@ -242,6 +242,7 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	        	user=new User();
 	        	user.setQqid(openID);
 	        	user.setCnname(cname);
+	        	user.setVerified(true);
 	        	user=userRepository.save(user);
 	        	UserToken userToken=new UserToken();
 	        	userToken.setUser(user);
