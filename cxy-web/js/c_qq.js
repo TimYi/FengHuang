@@ -12,7 +12,6 @@
 	g.sendTime = 60;
 	g.isBind = true;
 	g.token = Utils.getQueryString("token") || "";
-alert(g.token);
 	//验证登录状态
 	var loginStatus = Utils.getUserInfo();
 	if(!loginStatus && g.token != "" ){
@@ -28,7 +27,7 @@ alert(g.token);
 
 	//获取个人资料请求
 	function sendGetUserInfoHttp(token){
-		g.httpTip.show();
+		//g.httpTip.show();
 		var url = Base.profileUrl;
 		var condi = {};
 		condi.token = token;
