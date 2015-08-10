@@ -121,7 +121,7 @@ public class AccountController {
 	
 	@RequestMapping(value="qq/revoke")
 	public ModelAndView qqLogin(HttpServletRequest request) {
-		ModelAndView view=new ModelAndView("redirect:http://www.ifhzj.com/center/center.html");
+		ModelAndView view=new ModelAndView("redirect:http://www.ifhzj.com/center/center1.html");
 		UserToken token=manager.qqLogin(request);
 		String tokenString=token.getToken();
 		view.addObject("token", tokenString);
