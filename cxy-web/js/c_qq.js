@@ -12,7 +12,7 @@
 	g.sendTime = 60;
 	g.isBind = true;
 	g.token = Utils.getQueryString("token") || "";
-debugger
+alert(g.token);
 	//验证登录状态
 	var loginStatus = Utils.getUserInfo();
 	if(!loginStatus && g.token != "" ){
