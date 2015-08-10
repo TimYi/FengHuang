@@ -227,9 +227,9 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	        	UserToken userToken=tokenRepository.getByUser(user);
 	        	if(userToken==null) {
 	        		userToken=new UserToken();
-	        		userToken.setUser(user);
-	        		userToken=refreshToken(userToken);
+	        		userToken.setUser(user);	        		
 	        	}
+	        	userToken=refreshToken(userToken);
 	        	return userToken;
 	        }
 	        
