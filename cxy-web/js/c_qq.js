@@ -58,7 +58,7 @@ alert(g.token);
 					Utils.offLineStore.remove("login_userprofile",false);
 					var msg = data.error || "";
 					alert("获取个人信息错误:" + msg);
-					location.href = "login.html";
+					//location.href = "login.html";
 				}
 			},
 			error:function(data){
