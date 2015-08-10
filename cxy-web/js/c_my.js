@@ -310,7 +310,7 @@ $(function(){
 
 		var li = [];
 		//li.push('<li>ID：' + obj.username + '</li>');
-		li.push('<li>' + obj.username + '</li>');
+		li.push('<li>' + (obj.username || nikeName) + '</li>');
 		li.push('<li>' + phone + '</li>');
 		$("#user_ul").html(li.join(''));
 

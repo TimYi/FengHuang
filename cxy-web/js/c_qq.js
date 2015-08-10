@@ -44,9 +44,9 @@
 				var status = data.status || "";
 				if(status == "OK"){
 					Utils.offLineStore.set("userinfo",JSON.stringify(data.result.user),false);
-					if(autoLogin){
+					//if(autoLogin){
 						//保存自动登录数据
-					}
+					//}
 					//location.href = "center.html";
 					Utils.offLineStore.set("token",g.token,false);
 				}
