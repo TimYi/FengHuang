@@ -40,9 +40,7 @@
 			async: false,
 			global:false,
 			success: function(data){
-				debugger
 				console.log("qq_sendGetUserInfoHttp",data);
-				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
 					Utils.offLineStore.set("userinfo",JSON.stringify(data.result.user),false);
@@ -57,7 +55,7 @@
 					Utils.offLineStore.remove("login_userprofile",false);
 					var msg = data.error || "";
 					alert("获取个人信息错误:" + msg);
-					//location.href = "login.html";
+					location.href = "login.html";
 				}
 			},
 			error:function(data){
