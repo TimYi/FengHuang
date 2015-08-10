@@ -12,7 +12,7 @@
 	g.sendTime = 60;
 	g.isBind = true;
 	g.token = Utils.getQueryString("token") || "";
-
+alert(g.token);
 	//验证登录状态
 	var loginStatus = Utils.getUserInfo();
 	if(!loginStatus && g.token != "" ){
@@ -41,7 +41,8 @@
 			async: false,
 			global:false,
 			success: function(data){
-				console.log(data);
+				debugger
+				console.log("qq_sendGetUserInfoHttp",data);
 				g.httpTip.hide();
 				var status = data.status || "";
 				if(status == "OK"){
@@ -65,9 +66,4 @@
 			}
 		});
 	}
-
-
-
-
-
 })();
