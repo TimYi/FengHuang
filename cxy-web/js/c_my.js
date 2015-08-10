@@ -247,7 +247,10 @@ $(function(){
 		var nikeName = obj.cnname || "";
 		var validName = obj.realName || "";
 		var eName = obj.ename || "";
-		var sex = obj.sex || "404040e64dd26ab5014dd26ac61f0013";
+		var sex = obj.sex || "";
+		if(sex !== ""){
+			sex = sex.id || "404040e64dd26ab5014dd26ac61f0013";
+		}
 		var message = obj.intro || "";
 		var email = obj.email || "";
 		var phone = obj.mobile || "";
