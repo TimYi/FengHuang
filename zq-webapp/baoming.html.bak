@@ -36,6 +36,40 @@
             </div>
         </nav>
     </div>	
+    
+
+    <div data-am-widget="tabs" class="am-tabs am-tabs-default" style="width:100%;padding:0;margin:0">
+        <ul class="am-tabs-nav am-cf">
+            <li class="am-active x" style="line-height:10px;">
+                <a href="[data-tab-panel-0]">
+                    <div class="ttt">马上报名</div>
+                </a>
+            </li>
+            <li class="x" style="line-height:10px;">
+                <a href="[data-tab-panel-1]">
+                    <div class="ttt">报名查询</div>
+                </a>
+            </li>
+            <li class="x">
+                <a href="[data-tab-panel-2]">
+                    <div class="ttt">官方说明</div>
+                </a>
+            </li>
+        </ul>
+        <div class="am-tabs-bd" style="margin-top:10px;border:none; box-shadow:inset -1px 1px 1px -1px #999;padding:5px;">
+            <div data-tab-panel-0 class="am-tab-panel am-active">
+ 						1
+            </div>
+            <div data-tab-panel-1 class="am-tab-panel">
+ 						2
+            </div>
+            <div data-tab-panel-2 class="am-tab-panel">
+						3
+            </div>
+        </div>
+    </div>
+    
+    
     <div style="height:10px;"></div>
     <div class="am-g">
         <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered" style="width:95%">
