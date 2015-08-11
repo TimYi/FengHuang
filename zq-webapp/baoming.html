@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="no-js">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,6 +43,7 @@
     color: #666
 }
 </style>
+
 <body>
     <!--banner+menu start-->
     <div data-am-sticky>
@@ -62,9 +64,7 @@
             <div id="navBar" class="am-offcanvas">
             </div>
         </nav>
-    </div>	
-    
-
+    </div>
     <div data-am-widget="tabs" class="am-tabs am-tabs-default" style="width:100%;padding:0;margin:0">
         <ul class="am-tabs-nav am-cf">
             <li class="am-active x" style="line-height:10px;">
@@ -85,88 +85,91 @@
         </ul>
         <div class="am-tabs-bd" style="margin-top:10px;border:none; box-shadow:inset -1px 1px 1px -1px #999;padding:5px;">
             <div data-tab-panel-0 class="am-tab-panel am-active">
-					    <div class="am-g">
-					        <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
-					            <form id="form" method="post" action="" class="am-form">
-					                <div style="height:10px;"></div>
-					                <input type="text" id="name" placeholder="请输入选手一真实姓名" />
-					                <div style="height:10px;"></div>
-					                <input type="text" id="telephone" placeholder="输入选手一手机号" />
-					                <div style="height:10px;"></div>
-					                <input type="text" id="name2" placeholder="输入选手二真实姓名" />
-					                <div style="height:10px;"></div>
-					                <input type="text" id="telephone2" placeholder="输入选手二手机号" />
-					                <div style="height:10px;"></div>
-					                <input type="text" id="relation" placeholder="选手关系：夫妻、情侣、父母子女等" />
-					                <div style="height:10px;"></div>
-					                <div style="clear:both;height:20px;"></div>
-					                <div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-					                    <a id="signupbtn" class="buy-pack" href="javascript:void(0);">
-					                        <div>马上报名</div>
-					                    </a>
-					                </div>
-					            </form>
-					        </div>
-					    </div>
+                <div class="am-g">
+                    <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+                        <form id="form" method="post" action="" class="am-form">
+                            <div style="height:10px;"></div>
+                            <input type="text" id="name" placeholder="请输入选手一真实姓名" />
+                            <div style="height:10px;"></div>
+                            <input type="text" id="telephone" placeholder="输入选手一手机号" />
+                            <div style="height:10px;"></div>
+                            <input type="text" id="name2" placeholder="输入选手二真实姓名" />
+                            <div style="height:10px;"></div>
+                            <input type="text" id="telephone2" placeholder="输入选手二手机号" />
+                            <div style="height:10px;"></div>
+                            <input type="text" id="relation" placeholder="选手关系：夫妻、情侣、父母子女等" />
+                            <div style="height:10px;"></div>
+                            <div style="clear:both;height:20px;"></div>
+                            <div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                                <a id="signupbtn" class="buy-pack" href="javascript:void(0);">
+                                    <div>马上报名</div>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
             <div data-tab-panel-1 class="am-tab-panel">
-					    <div class="am-g">
-					        <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
-					            <form id="form" method="post" action="" class="am-form">
-					                <div style="height:10px;"></div>
-					                <span style="display:"> <!--查询前隐藏，查询后显示，若没有结果 提示：没有搜索到改选手报名信息-->
-					                选手一：陈宣宇（13545454544）<br>
-					                选手二：易天明（13545454544）<br>
-					                报名时间：2015-10-12<br>
-					                </span>
-					                <hr/>
-					                
-					                <div style="height:10px;"></div>
-					                <input type="text" id="name" placeholder="请输入报名人手机号码" />
-					                <div style="clear:both;height:20px;"></div>
-					                <div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
-					                    <a id="signupbtn" class="buy-pack" href="javascript:void(0);">
-					                        <div>查询报名情况</div>
-					                    </a>
-					                </div>
-					            </form>
-					        </div>
-					    </div>
+                <div class="am-g">
+                    <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+                        <form id="form" method="post" action="" class="am-form">
+                            <div style="height:10px;"></div>
+                            <div id="result">
+                            </div>
+                            <div style="height:10px;"></div>
+                            <input type="tel" id="queryText" placeholder="请输入报名人手机号码" />
+                            <div style="clear:both;height:20px;"></div>
+                            <div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+                                <a id="querybtn" class="buy-pack" href="javascript:void(0);">
+                                    <div>查询报名情况</div>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
             <div data-tab-panel-2 class="am-tab-panel">
-	            <p style="font-size:14px;">
-	            <b>活动细则：</b><br/>
-	            填写姓名、联系方式，在线报名活动，参与者必须以家庭、情侣为单位参赛，每赛季每赛区<br/>
-	            <br/><b>冠军</b>　豪华精装修全包套餐费用全免（限90㎡以内）<br/>
-	            <b>亚军</b>　2万装修抵用券<br/>
-	            <b>季军</b>　1万装修抵用券<br/>
-	            <br/>其他名次获得者可获得家装惊喜礼包，比赛时间、地点由凤凰筑家官方统一通知<br/>
-	            <br/><b>报名期限：</b>2015年8月1日起<br/>
-	            <b>启动仪式：</b>2015年8月8日<br/>
-	            <b>启动地址：</b>厦门市蔡塘BRT旁1798创业1号楼5层<br/>
-	            <br/><b>主办方：</b><br/>厦门凤凰筑家网络科技有限公司<br/>
-	                    凤凰筑家（厦门）装饰工程有限公司<br/>
-	                    凤凰筑家（北京）装饰工程有限公司<br/>
-	            <br/><b>赞助商：</b><br/>上海恭明金融信息服务有限公司（公明贷）<br/>
-	                    荣昌耀华网络技术（北京）有限公司（E袋洗）<br/>
-	            </P>
+                <p style="font-size:14px;">
+                    <b>活动细则：</b>
+                    <br/> 填写姓名、联系方式，在线报名活动，参与者必须以家庭、情侣为单位参赛，每赛季每赛区
+                    <br/>
+                    <br/><b>冠军</b>　豪华精装修全包套餐费用全免（限90㎡以内）
+                    <br/>
+                    <b>亚军</b>　2万装修抵用券
+                    <br/>
+                    <b>季军</b>　1万装修抵用券
+                    <br/>
+                    <br/>其他名次获得者可获得家装惊喜礼包，比赛时间、地点由凤凰筑家官方统一通知
+                    <br/>
+                    <br/><b>报名期限：</b>2015年8月1日起
+                    <br/>
+                    <b>启动仪式：</b>2015年8月8日
+                    <br/>
+                    <b>启动地址：</b>厦门市蔡塘BRT旁1798创业1号楼5层
+                    <br/>
+                    <br/><b>主办方：</b>
+                    <br/>厦门凤凰筑家网络科技有限公司
+                    <br/> 凤凰筑家（厦门）装饰工程有限公司
+                    <br/> 凤凰筑家（北京）装饰工程有限公司
+                    <br/>
+                    <br/><b>赞助商：</b>
+                    <br/>上海恭明金融信息服务有限公司（公明贷）
+                    <br/> 荣昌耀华网络技术（北京）有限公司（E袋洗）
+                    <br/>
+                </P>
             </div>
         </div>
     </div>
-    
-    
     <div style="height:10px;"></div>
-
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/json.js"></script>
     <script src="js/libs/base.js"></script>
     <script src="js/libs/utils.js"></script>
     <script src="js/signup.js"></script>
-    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=49712707" charset="UTF-8"></script>  
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=49712707" charset="UTF-8"></script>
     <script src="js/libs/amazeui.min.js"></script>
     <script src="js/libs/utils.js"></script>
     <script src="js/nav.js"></script>
-    
 </body>
 
 </html>
