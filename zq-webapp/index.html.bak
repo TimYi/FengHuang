@@ -40,21 +40,21 @@
     <div data-am-widget="slider" class="am-slider am-slider-c3" data-am-slider='{&quot;controlNav&quot;:false}'>
         <ul class="am-slides" style="font-size:12px">
             <li>
-                <img src="images/home.jpg">
+               <a href="baoming.html"><img src="images/baoming.jpg"></a>
+            </li>             
+            <li>
+                <a href="/"><img src="images/home.jpg"></a>
             </li>
             <li>
-                <img src="images/s599.jpg">
+                <a href="tcdetails.html?packageId=699"><img src="images/s599.jpg"></a>
             </li>
             <li>
-                <img src="images/s699.jpg">
+                <a href="tcdetails.html?packageId=599"><img src="images/s699.jpg"></a>
             </li>
             <li>
-                <img src="images/sjzd.jpg">
+                <a href="jzd.html"><img src="images/sjzd.jpg"></a>
             </li>
-            <li>
-               <a href="images/sjzd.jpg"><img src="images/sjzd.jpg"></a>
-            </li>            
-        </ul>
+       </ul>
     </div>
     <div class="am-form">
         <ul class="am-avg-sm-5" style="padding:0 0 0 0;box-shadow: inset 0 -1px 1px -1px #aaa;margin-bottom:1px">
