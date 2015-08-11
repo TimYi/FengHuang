@@ -39,7 +39,7 @@ $(function(){
 			var imgurl = img.url || '';
 			html.push('<p style="font-size:14px;line-height:18px;color:#666">');
 			html.push('<b><span style="color:#000">'+ tit +'</span></b>');
-			html.push('<div class="am-g"><div class="am-u-sm-4"><img src="images/01.jpg" style="width:20px"/></div>');			
+			html.push('<div class="am-g"><div class="am-u-sm-4"><img src="images/01.jpg" style=""/></div>');			
 			html.push('<div class="am-u-sm-8">'+des+'</div></div>');
 		}
 		$('#techWrap').html(html.join(''));
