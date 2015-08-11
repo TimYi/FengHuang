@@ -97,12 +97,12 @@
 					                <div style="height:10px;"></div>
 					                <input type="text" id="telephone2" placeholder="输入选手二手机号" />
 					                <div style="height:10px;"></div>
-					                <input type="text" id="relation" placeholder="选手关系：夫妻/情侣/父母子女" />
+					                <input type="text" id="relation" placeholder="选手关系：夫妻、情侣、父母子女等" />
 					                <div style="height:10px;"></div>
 					                <div style="clear:both;height:20px;"></div>
-					                <div id="signupbtn" class="am-cf">
-					                    <a href="javascript:void(0);">
-					                        <div class="am-btn am-btn-secondary" style="background:#f25618;border-color:#f25618;width:100%" type="button">马上报名</div>
+					                <div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+					                    <a id="signupbtn" class="buy-pack" href="javascript:void(0);">
+					                        <div>马上报名</div>
 					                    </a>
 					                </div>
 					            </form>
@@ -114,11 +114,18 @@
 					        <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
 					            <form id="form" method="post" action="" class="am-form">
 					                <div style="height:10px;"></div>
+					                
+					                选手一：陈宣宇 13545454544
+					                选手二：易天明 13545454544
+					                报名时间：2015-10-12
+					                
+					                
+					                <div style="height:10px;"></div>
 					                <input type="text" id="name" placeholder="请输入报名人手机号码" />
 					                <div style="clear:both;height:20px;"></div>
-					                <div id="signupbtn" class="am-cf">
-					                    <a href="javascript:void(0);">
-					                        <div class="am-btn am-btn-secondary" style="background:#f25618;border-color:#f25618;width:100%" type="button">查询报名情况</div>
+					                <div class="animation animated-item-3" style="margin:0 auto;margin-top:5px;margin-bottom:15px;height:45px;background:orange;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;">
+					                    <a id="signupbtn" class="buy-pack" href="javascript:void(0);">
+					                        <div>查询报名情况</div>
 					                    </a>
 					                </div>
 					            </form>
