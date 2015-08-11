@@ -114,11 +114,12 @@
 					        <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
 					            <form id="form" method="post" action="" class="am-form">
 					                <div style="height:10px;"></div>
-					                
-					                选手一：陈宣宇 13545454544
-					                选手二：易天明 13545454544
-					                报名时间：2015-10-12
-					                
+					                <span style="display:"> <!--查询前隐藏，查询后显示，若没有结果 提示：没有搜索到改选手报名信息-->
+					                选手一：陈宣宇（13545454544）<br>
+					                选手二：易天明（13545454544）<br>
+					                报名时间：2015-10-12<br>
+					                </span>
+					                <hr/>
 					                
 					                <div style="height:10px;"></div>
 					                <input type="text" id="name" placeholder="请输入报名人手机号码" />
