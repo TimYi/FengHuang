@@ -434,7 +434,7 @@
                     <p style="font-size:14px;line-height:18px;color:#666">
                         <b><span style="color:#000">电路改造工艺</span></b>
 												<div class="am-g">
-												  <div class="am-u-sm-4"><img src="images/01.jpg" style="width:20px"/></div>
+												  <div class="am-u-sm-4"><img src="images/01.jpg" /></div>
 												  <div class="am-u-sm-8">
 														PVC线管线盒，暗管暗槽横平竖直，电线导管无折皱、无裂缝保证电线导管畅通。强弱电要分开，互不干扰很重要“左零右火中间零”安装面板要记牢.10A以上大功率电器，必须使用4mm的电源线设置专用供电回路，确保大功率电器稳定运行
 												  </div>
