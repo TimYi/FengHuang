@@ -18,13 +18,11 @@ html.push('<div class="tab_content1">');
 html.push('<div class="tab_plan">');
 html.push('<p class="fs14">售前客服<br />');
 html.push('<!-- WPA Button Begin --><script charset="utf-8" type="text/javascript" src="http://wpa.b.qq.com/cgi/wpa.php?key=XzkzODAyNzI2OV8zMDkzNjRfNDAwOTY4OTA4OF8"></script><!-- WPA Button End -->');
-/*html.push('<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=' + __QQ1__ + '&amp;site=qq&amp;menu=yes" class="qq_link"><img border="0" src="http://wpa.qq.com/pa?p=2:' + __QQ1__ + ':41" alt="点击这里给我发消息" title="点击这里给我发消息"></a></p>');*/
+/*html.push('<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=' + __QQ1__ + '&amp;site=qq&amp;menu=yes" class="qq_link"><img border="0" src="http://wpa.qq.com/pa?p=2:' + __QQ1__ + ':41" alt="点击这里给我发消息" title="点击这里给我发消息"></a></p>');
 html.push('<p class="fs14 mt10">售中客服<br />');
-html.push('<!-- WPA Button Begin --><script charset="utf-8" type="text/javascript" src="http://wpa.b.qq.com/cgi/wpa.php?key=XzkzODAyNzI2OV8zMDkzNjRfNDAwOTY4OTA4OF8"></script><!-- WPA Button End -->');
-/*html.push('<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=' + __QQ2__ + '&amp;site=qq&amp;menu=yes" class="qq_link"><img border="0" src="http://wpa.qq.com/pa?p=2:' + __QQ2__ + ':41" alt="点击这里给我发消息" title="点击这里给我发消息"></a></p>');*/
+html.push('<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=' + __QQ2__ + '&amp;site=qq&amp;menu=yes" class="qq_link"><img border="0" src="http://wpa.qq.com/pa?p=2:' + __QQ2__ + ':41" alt="点击这里给我发消息" title="点击这里给我发消息"></a></p>');
 html.push('<p class="fs14 mt10">售后客服<br />');
-html.push('<!-- WPA Button Begin --><script charset="utf-8" type="text/javascript" src="http://wpa.b.qq.com/cgi/wpa.php?key=XzkzODAyNzI2OV8zMDkzNjRfNDAwOTY4OTA4OF8"></script><!-- WPA Button End -->');
-/*html.push('<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=' + __QQ3__ + '&amp;site=qq&amp;menu=yes" class="qq_link"><img border="0" src="http://wpa.qq.com/pa?p=2:' + __QQ3__ + ':41" alt="点击这里给我发消息" title="点击这里给我发消息"></a></p>');*/
+html.push('<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=' + __QQ3__ + '&amp;site=qq&amp;menu=yes" class="qq_link"><img border="0" src="http://wpa.qq.com/pa?p=2:' + __QQ3__ + ':41" alt="点击这里给我发消息" title="点击这里给我发消息"></a></p>');*/
 html.push('<p class="mt10"><b>电话客服</b><br />');
 html.push(__Tel__ + '<br />');
 html.push('</P>');
