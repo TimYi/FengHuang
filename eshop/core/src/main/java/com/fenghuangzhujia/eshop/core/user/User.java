@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.apache.commons.lang3.StringUtils;
+import org.hibernate.annotations.Where;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fenghuangzhujia.eshop.core.authentication.authority.AbstractAuthority;
@@ -24,6 +25,7 @@ import com.fenghuangzhujia.foundation.media.MediaContent;
 
 @Entity
 @Table(name="fhzj_user")
+@Where(clause="deleted=false")
 public class User extends UUIDBaseModel {
 	private String username;	
 	@JsonIgnore
