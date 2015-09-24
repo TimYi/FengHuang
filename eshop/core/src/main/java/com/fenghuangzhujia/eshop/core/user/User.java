@@ -47,7 +47,7 @@ public class User extends UUIDBaseModel {
 	/**
 	 * @return the username
 	 */
-	@Column(unique=true,updatable=false)
+	@Column(updatable=false)
 	public String getUsername() {
 		return username;
 	}
