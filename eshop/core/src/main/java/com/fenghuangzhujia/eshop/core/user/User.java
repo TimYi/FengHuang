@@ -25,7 +25,7 @@ import com.fenghuangzhujia.foundation.media.MediaContent;
 
 @Entity
 @Table(name="fhzj_user")
-@Where(clause="deleted=false")
+@Where(clause="deleted=0")
 public class User extends UUIDBaseModel {
 	private String username;	
 	@JsonIgnore
