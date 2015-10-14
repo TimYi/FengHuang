@@ -94,7 +94,7 @@ public class UserController {
 	public String bindMobile(@RequestParam String mobile,@RequestParam String validater) {
 		SimpleUserDetails details=AuthenticationService.getUserDetail();
 		String userid=details.getId();
-		messageManager.validate(mobile, validater);
+		messageManager.validate(mobile, validater);		
 		userService.bindMobile(userid, mobile);
 		return RequestResult.success("绑定成功").toJson();
 	}
