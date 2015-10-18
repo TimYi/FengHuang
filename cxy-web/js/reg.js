@@ -126,7 +126,8 @@ $(function(){
 			}
 		}
 		else{
-			Utils.alert("用户名输入错误,请输入邮箱或者手机号");
+			//Utils.alert("用户名输入错误,请输入邮箱或者手机号");
+			Utils.alert("用户名输入错误");
 			$("#inputEmail3").focus();
 		}
 
