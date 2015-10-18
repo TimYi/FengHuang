@@ -53,6 +53,13 @@ if(typeof console == "undefined"){
 	console.log = function(){};
 }
 
+function alert(msg){
+	//如果页面引入了layer,采用layer弹出提示
+	if(typeof(layer) != "undefined"){
+		layer.msg(msg);
+		return;
+	}
+}
 
 (function(window){
 	if (typeof Utils === "undefined") {
