@@ -11,7 +11,7 @@ public class KhthServiceTest {
 	public void khth() {
 		KhthService service=new KhthService();
 		try {
-			ResponseModel<RefundResponseData> result=service.sendKhthRequest(null, "20150722HZtm", "20150722", "100001042405", "983708160009501", null, 500.0, null, null);
+			ResponseModel<RefundResponseData> result=service.sendKhthRequest(null, "20150808Km2n", "20150808", "100001440390", "360448160000301", null, 1000.0, null, null);
 			if(result.isSuccess()) {
 				RefundResponseData data=result.getData();
 				TestUtils.printEachField(data);

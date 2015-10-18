@@ -62,6 +62,7 @@ public class SimpleHttpsService implements HttpsService {
 	 */
 	public String postXml(String url, String xml) {
 		try {
+			//System.out.println(xml);
 			HttpPost httpPost = new HttpPost(url);
 			//得指明使用GBK编码，否则到API服务器XML的中文不能被成功识别
 		    StringEntity postEntity = new StringEntity(xml, "GBK");

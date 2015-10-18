@@ -14,7 +14,7 @@ public class KhcxServiceTest {
 	public void khcx() {
 		KhcxService service=new KhcxService();
 		try {
-			ResponseModel<QueryResponseData> result=service.sendKhcxRequest(/*"983708160009501"*/"360448160000101", TransName.KHZF, "201507223mwM");
+			ResponseModel<QueryResponseData> result=service.sendKhcxRequest(/*"983708160009501"*/"360448160000301", TransName.KHTH, "20150808Km1n");
 			if(result.isSuccess()) {
 				TestUtils.printEachField(result.getData());
 			} else {

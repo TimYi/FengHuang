@@ -23,7 +23,7 @@ public class AccountController {
 	@Autowired
 	private SystemAuthManager manager;
 
-	@RequestMapping(value="unauto")
+	@RequestMapping(value="unauth")
 	public String unauth() {
 		return RequestResult.error(SystemErrorCodes.UNAUTH, "您需要登录").toJson();
 	}

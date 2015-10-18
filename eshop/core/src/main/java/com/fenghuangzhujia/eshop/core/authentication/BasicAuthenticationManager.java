@@ -144,6 +144,8 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 		user.setVerified(true);
 		user.setRegIp(ip);//保存用户注册id
 		user.setRegTime(new Date());//保存用户注册时间
+		user.setLoginip(ip);
+		user.setLoginTime(new Date());
 		user.setMobile(mobile);
 		entryptPassword(user);
 		user=userRepository.save(user);

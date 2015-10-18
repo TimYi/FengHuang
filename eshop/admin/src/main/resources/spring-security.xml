@@ -18,9 +18,10 @@
 		<!-- 所有因没有登录而报错的接口将重定向到/unauth，返回错误消息 -->
 		<form-login login-page="/unauth" login-processing-url="/unauth"/>
 		<access-denied-handler error-page="/admin/accessDenied"/>
+		<intercept-url pattern="/unauth" access="permitAll"/>
 		<intercept-url pattern="/login" access="permitAll"/>
 		<intercept-url pattern="/accessDenied" access="permitAll"/>
-		
+		 
 		<intercept-url pattern="/**" access="authenticated"/>
 
 		<!-- 
