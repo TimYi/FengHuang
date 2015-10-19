@@ -737,7 +737,7 @@ $(function(){
 				}
 				else if(lifeCycle == "FINISHED"){
 					//用户处于无法预约的状态,且套餐抢购已结束
-					var msg = "尊敬的" + g.username + "用户，您好！抢购已结束！";
+					var msg = "尊敬的" + g.username + "用户，您好！抢购已结束！\n敬请期待下次抢购！";
 					$(".buynow").html('<div onclick="alert(\'' + msg + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">已结束</div>');
 				}
 				else if(lifeCycle == "PAY"){

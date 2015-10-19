@@ -696,8 +696,60 @@ $(function(){
 			var couldAppoint = obj.couldAppoint || false;
 			var hasScrambled = obj.hasScrambled || false;
 
+			var lifeCycle = obj.lifeCycle || "";
+
+			var hasshow = true;
+
+			if(!g.loginStatus){
+				//没登录,去登录
+				var page = "center/login.html";
+				$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻预约</div>');
+				return;
+			}
+
 			if(id == Utils.getQueryString("packageId")){
-				//699
+				if(lifeCycle == "APPOINT"){
+					//用户没有预约,并且可以预约,让用户去预约
+					if(g.reserveStatus){
+						var page = "subcheck.html?id=" + id;
+						$(".buynow").html('<div onclick="location.href=\'' + page + '\'" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
+					}
+					else{
+						var page = "center/c_my.html?token=" + g.token + "&p=1";
+						var msg = "尊敬的" + g.username + "用户，您好！预约前，请先到会员中心完善个人资料。是否前往？";
+						$(".buynow").html('<div onclick="buyTip(\'' + msg + '\',\'' + page + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立即预约</div>');
+					}
+				}
+				else if(lifeCycle == "WAITING"){
+					//用户已经预约,套餐抢购尚未开始,
+					var msg = "尊敬的" + g.username + "用户，您好！您已经预约成功，等待最新抢购消息！";
+					$(".buynow").html('<div onclick="alert(\'' + msg + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">抢购未开始</div>');
+				}
+				else if(lifeCycle == "SCRAMBLE"){
+					//让用户抢购套餐
+					$(".buynow").html('<div onclick="miaoSha(\'' + id + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+				}
+				else if(lifeCycle == "FINISHED"){
+					//用户处于无法预约的状态,且套餐抢购已结束
+					var msg = "尊敬的" + g.username + "用户，您好！抢购已结束！\n敬请期待下次抢购！";
+					$(".buynow").html('<div onclick="alert(\'' + msg + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">已结束</div>');
+				}
+				else if(lifeCycle == "PAY"){
+					//用户没有可用预约,且不能再次预约,且已经抢购一个套餐且没有支付,让用户去支付
+					var page = "center/c_order.html?token=" + g.token + "&p=7";
+					//var msg = "尊敬的" + g.username + "用户，您好！本月您已成功抢购过该套餐，\\n每人每月仅限抢购一次，请下个月再试，谢谢您的参与。";
+					var msg = "尊敬的" + g.username + "用户，您好！本月您已成功抢购过该套餐，\\n请尽快完成支付。";
+					$(".buynow").html('<div onclick="buyTip(\'' + msg + '\',\'' + page + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+				}
+				else if(lifeCycle == "COMPLETE"){
+					//用户完成预约抢购支付全部内容,并且没有可以用的预约,也无法进行下一次预约
+					var msg = "尊敬的" + g.username + "用户，您好！本月您已成功抢购过该套餐，\\n每人每月仅限抢购一次，请下个月再试，谢谢您的参与。";
+					$(".buynow").html('<div onclick="alert(\'' + msg + '\')" style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">立刻抢购</div>');
+				}
+			}
+			/*
+			if(id == Utils.getQueryString("packageId")){
+				//599
 				if(status == "PREPARE"){
 					$(".buynow").html('<div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">未开始</div>');
 				}
@@ -769,8 +821,11 @@ $(function(){
 					$(".buynow").html('<div style="font-weight:800;text-align:center;line-height:45px;font-size:18px;color:#000;">已结束</div>');
 				}
 
-				$(".buynow").parent().show();
+				if(hasshow){
+					$(".buynow").parent().show();
+				}
 			}
+			*/
 		}
 	}
 
