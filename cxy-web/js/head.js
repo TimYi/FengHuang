@@ -28,8 +28,15 @@ else{
 	html.push('<li style="padding-right:10px;">');
 	html.push('<i class="fa fa-sign-in hui"></i>');
 	html.push('<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">');
-	html.push('<a href="center/reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">');
-	html.push('<a href="center/login.html" style="width:30px">登录</a>');
+	var page = location.href.indexOf("/center/");
+	if(page > -1){
+		html.push('<a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">');
+		html.push('<a href="login.html" style="width:30px">登录</a>');
+	}
+	else{
+		html.push('<a href="center/reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">');
+		html.push('<a href="center/login.html" style="width:30px">登录</a>');
+	}
 	html.push('</b>');
 	html.push('</li>');
 }
