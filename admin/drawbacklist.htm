@@ -34,13 +34,16 @@
 				<tr class="head" align="left">
 					<td class="firstCol" width="5%" height="36"><input name="checkid" id="checkid" onclick="CheckAll(this.checked);" type="checkbox"></td>
 					<!--td width="15%">ID</td-->
-					<td width="10%">退款原因</td>					
-					<td width="10%">订单</td>
+					<td width="15%">退款原因</td>					
+					<td width="10%">订单名称</td>
+					<td width="15%">订单号</td>
+					<td width="5%">申请人</td>
+					<td width="10%">申请人手机</td>
 					<td width="10%">处理日期</td>
 					<td width="10%">状态</td>
 					<td width="10%">拒退原因</td>
-					<td width="10%">审核人</td>
-					<td class="endCol" width="10%">操作</td>
+					<td width="5%">审核人</td>
+					<td class="endCol" width="5%">操作</td>
 				</tr>
 			</thead>
 	        <tbody data-bind='foreach: result'>
@@ -49,6 +52,9 @@
 					<!--td data-bind='text: id'></td-->
 					<td data-bind="text: reason"></td>
 					<td data-bind="text: order.name"></td>
+					<td data-bind="text: order.code"></td>
+					<td data-bind="text: order.realName"></td>
+					<td data-bind="text: order.mobile"></td>
 					<td data-bind="text: processDate"></td>
 					<td data-bind="text: status"></td>
 					<td data-bind="text: reasonForDisapprove"></td>
