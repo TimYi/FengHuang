@@ -30,7 +30,7 @@
 	<script src="../libs/json.js"></script>
 	<script src="../libs/base.js"></script>
 	<script src="../libs/utils.js"></script>
-
+	<script src="../libs/layer.js"></script>
 </head><!--/head-->
 
 <body class="homepage">
@@ -53,13 +53,18 @@
                 <div class="col-sm-6 col-xs-8">
                    <div class="social">
                         <ul id="loginstatus" class="social-share">
+													<!--登陆状态加载 开始-->
+				<script src="../js/head.js" type="text/javascript"></script>
+				<!--登陆状态加载 加载 结束-->
+				<!--
 													<li style="padding-right:10px;">
 														<i class="fa fa-sign-in hui"></i>
 														<b style="border-right:1px solid #ddd;padding:0 10px;font-weight:normal">
-															<a href="reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
-															<a href="login.html" style="width:30px">登录</a>
+															<a href="center/reg.html" style="width:30px">注册</a></b><b style="padding:0 10px;font-weight:normal">
+															<a href="center/login.html" style="width:30px">登录</a>
 														</b>
 													</li>
+				-->
                         </ul>
                         <a href="../yqcy.html">一起创业</a>
                    </div>
@@ -104,9 +109,9 @@
 
 
 				                <div class="col-xs-12 col-sm-5" style="margin:100px 0 0 90px">
-														<div class="form-horizontal piao_mid" style="height:250px;padding-top:100px">
+														<div class="form-horizontal piao_mid" style="height:300px;padding-top:100px">
 														</div>
-														<div style="width:350px;margin-top:-220px;margin-left:20px">
+														<div style="width:350px;margin-top:-270px;margin-left:20px">
 																<form action="" onsubmit="return false;" class="form-horizontal" class="media contact-info wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
 																  <div class="form-group">
 																    <label for="inputEmail3" class="col-sm-2 control-label">账户</label>
@@ -129,7 +134,7 @@
 																      <!--<button type="button" class="btn btn-default" style="float:right;margin-top:10px;width:150px">换一组图片</button>-->
 																    </div>
 																  </div>
-																  <div class="form-group" style="margin-top:-30px;padding:20px 0 100px 0">
+																  <div class="form-group" style="margin-top:-30px;padding:20px 0 16px 0">
 																    <div class="col-sm-offset-2 col-sm-10" style="width:83%">
 																      <button id="loginbtn" type="button" class="btn btn-default btn-primary" style="margin-left:2px;margin-right:10px">登录</button>
 																      <!--button id="regbtn" type="button"  class="btn btn-default btn-primary">　注册用户　</button-->
@@ -137,16 +142,19 @@
 																      <button id="findpwd" type="button" class="btn btn-default btn-primary">忘记密码</button>
 																    </div>
 																  </div>
-																  <!--div class="form-group">
-																    <label for="inputEmail3" class="col-sm-2 control-label">授权登录</label>
+																  <div class="form-group">
+																    <label for="inputEmail3" class="col-sm-2 control-label" style="padding-top: 0px;">授权登录</label>
 																    <div class="col-sm-10" style="width:83%">
-														          <div class="breadcrumb" style="background:none">
-																			  <li><a href="../#" title="微信登录"><i class="fa fa-weixin" style="font-size:1.5em;color:#44b549"></i></a></li>
-																			  <li><a href="../#" title="QQ登录"><i class="fa fa-qq" style="font-size:1.5em;color:#66b2df"></i></a></li>
-																			  <li class="active"><a href="../#" title="新浪微博登录"><i class="fa fa-weibo" style="font-size:1.5em;color:#e82f37"></i></a></li>
+														          <div class="breadcrumb" style="background:none;margin-left: -10px;margin-top: -2px;">
+																			<li><a href="http://ifhzj.com/api/qq/auth" title="QQ登录" target="_self"><img src="http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Connect_logo_7.png" alt="QQ登录" border="0"></a></li>
+																			<!--
+																			  <li><a href="../#" title="微信登录"><i class="fa fa-weixin" style="font-size:1.5em;color:#44b549;display:none;"></i></a></li>
+
+																			  <li class="active"><a href="../#" title="新浪微博登录"><i class="fa fa-weibo" style="font-size:1.5em;color:#e82f37;display:none;"></i></a></li>
+																			-->
 																			</div>
 																    </div>
-																  </div-->
+																  </div>
 																</form>
 														</div>
 				                </div>

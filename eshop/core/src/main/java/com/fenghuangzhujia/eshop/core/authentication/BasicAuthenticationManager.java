@@ -3,6 +3,7 @@ package com.fenghuangzhujia.eshop.core.authentication;
 import static com.fenghuangzhujia.eshop.core.base.SystemErrorCodes.*;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fenghuangzhujia.eshop.core.authentication.token.TokenRepository;
 import com.fenghuangzhujia.eshop.core.authentication.token.UserToken;
+import com.fenghuangzhujia.eshop.core.base.Dics;
 import com.fenghuangzhujia.eshop.core.base.SystemErrorCodes;
 import com.fenghuangzhujia.eshop.core.couponsDef.CouponsAllocater;
 import com.fenghuangzhujia.eshop.core.user.User;
@@ -23,6 +25,10 @@ import com.fenghuangzhujia.eshop.core.validate.core.Validater;
 import com.fenghuangzhujia.eshop.core.validate.dao.DaoValidaterService;
 import com.fenghuangzhujia.eshop.core.validate.message.MessageManager;
 import com.fenghuangzhujia.foundation.core.rest.ErrorCodeException;
+import com.fenghuangzhujia.foundation.dics.CategoryItem;
+import com.fenghuangzhujia.foundation.dics.CategoryItemRepository;
+import com.fenghuangzhujia.foundation.media.MediaContent;
+import com.fenghuangzhujia.foundation.media.MediaContentRepository;
 import com.fenghuangzhujia.foundation.utils.Identities;
 import com.fenghuangzhujia.foundation.utils.validater.UsernameValidater;
 import com.qq.connect.QQConnectException;
@@ -46,6 +52,10 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	private MessageManager messageManager;
 	@Autowired
 	private DaoValidaterService daoValidaterService;
+	@Autowired
+	private CategoryItemRepository categoryItemRepository;
+	@Autowired
+	private MediaContentRepository mediaContentRepository;
 	
 	/**
 	 * 确保加载全部权限信息
@@ -134,6 +144,8 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 		user.setVerified(true);
 		user.setRegIp(ip);//保存用户注册id
 		user.setRegTime(new Date());//保存用户注册时间
+		user.setLoginip(ip);
+		user.setLoginTime(new Date());
 		user.setMobile(mobile);
 		entryptPassword(user);
 		user=userRepository.save(user);
@@ -227,9 +239,9 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	        	UserToken userToken=tokenRepository.getByUser(user);
 	        	if(userToken==null) {
 	        		userToken=new UserToken();
-	        		userToken.setUser(user);
-	        		userToken=refreshToken(userToken);
+	        		userToken.setUser(user);	        		
 	        	}
+	        	userToken=refreshToken(userToken);
 	        	return userToken;
 	        }
 	        
@@ -238,10 +250,26 @@ public class BasicAuthenticationManager implements AuthenticationManager {
 	        UserInfoBean userInfoBean = qzoneUserInfo.getUserInfo();
 	        if (userInfoBean.getRet() == 0) {
 	        	//String sex=userInfoBean.getGender();
-	        	String cname=userInfoBean.getNickname();
+	        	String cname=userInfoBean.getNickname();	        	   	
 	        	user=new User();
+	        	
+	        	String gender=userInfoBean.getGender();	     
+	        	List<CategoryItem> genders=categoryItemRepository.findByCategoryType(Dics.SEX);
+	        	for (CategoryItem categoryItem : genders) {
+					if(categoryItem.getName().equals(gender)) {
+						user.setSex(categoryItem);
+					}
+				}
+	        	
+	        	String avatar=userInfoBean.getAvatar().getAvatarURL100();
+	        	MediaContent media=new MediaContent();
+	        	media.setLink(avatar);
+	        	media=mediaContentRepository.save(media);	        	
+	        	user.setAvatar(media);
+	        	
 	        	user.setQqid(openID);
 	        	user.setCnname(cname);
+	        	user.setVerified(true);
 	        	user=userRepository.save(user);
 	        	UserToken userToken=new UserToken();
 	        	userToken.setUser(user);

@@ -53,6 +53,13 @@ if(typeof console == "undefined"){
 	console.log = function(){};
 }
 
+function alert(msg){
+	//如果页面引入了layer,采用layer弹出提示
+	if(typeof(layer) != "undefined"){
+		layer.msg(msg);
+		return;
+	}
+}
 
 (function(window){
 	if (typeof Utils === "undefined") {
@@ -424,6 +431,14 @@ if(typeof console == "undefined"){
 	*/
 	var tout = null;
 	function alert(msg,b){
+
+		//如果页面引入了layer,采用layer弹出提示
+		if(typeof(layer) != "undefined"){
+			layer.msg(msg);
+			return;
+		}
+
+
 		var box = $("#message-alert");
 		if(box.length == 0){
 			box = $("<div id='message-alert' class='rp_tishi' ><span>"+msg+"</span></div>");

@@ -38,9 +38,9 @@ $(function(){
 			var img = obj[i].pic || '';
 			var imgurl = img.url || '';
 			html.push('<p style="font-size:14px;line-height:18px;color:#666">');
-			html.push('<i class="am-icon-heart" style="font-size:14px;"></i>');
-			html.push('<b>&nbsp;&nbsp;<span style="color:#000">'+ tit +'</span></b>');
-			html.push('<br/><br/>'+des+'</p><hr/>');
+			html.push('<b><span style="color:#000">'+ tit +'</span></b>');
+			html.push('<div class="am-g"><div class="am-u-sm-4" style="margin-left:0;padding-left:0"><img src="'+ imgurl +'" style=""/></div>');
+			html.push('<div class="am-u-sm-8">'+des+'</div></div><hr/>');
 		}
 		$('#techWrap').html(html.join(''));
 	}

@@ -1,0 +1,486 @@
+﻿<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>服务展示</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link href="fhzj/css/bootstrap.min1.css" rel="stylesheet">
+    <style>
+    a:hover {
+        text-decoration: none;
+    }
+    
+    .am-tabs-default .am-tabs-nav {
+        line-height: 40px;
+        background-color: #fff;
+        margin-top: 10px;
+    }
+    
+    .am-tabs-default .am-tabs-nav a {
+        color: #ccc;
+        line-height: 45px;
+    }
+    
+    .am-tabs-default .am-tabs-nav > .am-active a {
+        background-color: #fff;
+        color: #0e90d2;
+        box-shadow: inset -1px 0 1px -1px #999;
+    }
+    
+    .x {
+        box-shadow: inset -1px 0 1px -1px #999;
+    }
+    
+    .ttt {
+        font-size: 13px;
+        margin-top: -15px;
+        color: #666
+    }
+    
+    .logo-wrap {
+        padding: 0;
+    }
+    
+    .logo-wrap li {
+        float: left;
+        width: 32%;
+        background-color: #fff;
+        text-align: center;
+        list-style: none;
+        border: 1px solid #efefef;
+        margin: 10px 2% 0 0;
+        box-sizing: border-box;
+    }
+    
+    .logo-wrap li:nth-child(3n) {
+        margin-right: 0;
+    }
+    
+    .logo-wrap li img {
+        width: 95%;
+    }
+    
+    .m-tit {
+        text-align: center;
+        margin: 0;
+        padding: 5px 0;
+        font-size: 18px;
+    }
+    
+    .m-wrap .u_th {
+        border-bottom: 2px solid #ddd;
+        border-top: 2px solid #fff;
+    }
+    
+    .m-wrap table td {
+        vertical-align: middle!important;
+    }
+    
+    .m-wrap table img {
+        max-width: 30%;
+        max-height: 100px;
+        margin-right: 3%;
+    }
+    #techWrap hr:last-child{
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <!--banner+menu start-->
+    <div data-am-sticky>
+        <header data-am-widget="header" class="am-header am-header-default" style="border-top:1px solid #000111;background:#000;">
+            <div class="am-header-left am-header-nav">
+                <img src="images/logo.png" style="width:152px;height:18px;margin-top:-5px">
+            </div>
+            <div class="am-header-right am-header-nav">
+                <a id="uCenter" href="javascript:void(0)" class="am-menu-toggle">
+                    <i class="am-menu-toggle-icon am-icon-user" style="font-size:20px;padding-right:50px"></i>
+                </a>
+            </div>
+        </header>
+        <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
+            <a href="javascript: void(0)" class="am-menu-toggle">
+                <i class="am-menu-toggle-icon am-icon-bars"></i>
+            </a>
+            <div id="navBar" class="am-offcanvas">
+            </div>
+        </nav>
+    </div>
+    <!--banner+menu end-->
+    <div data-am-widget="tabs" class="am-tabs am-tabs-default" style="width:100%;padding:0;margin:0">
+        <ul class="am-tabs-nav am-cf">
+            <li class="am-active x" style="line-height:10px;">
+                <a href="[data-tab-panel-0]">
+                    <i class="am-icon-film" style="font-size:24px;"></i>
+                    <br />
+                    <div class="ttt">流程展示</div>
+                </a>
+            </li>
+            <li class="x">
+                <a href="[data-tab-panel-1]">
+                    <i class="am-icon-random" style="font-size:24px;"></i>
+                    <br />
+                    <div class="ttt">工艺展示</div>
+                </a>
+            </li>
+            <!--li class="x" style="box-shadow:0;">
+                <a href="[data-tab-panel-2]">
+                    <i class="am-icon-tree" style="font-size:24px;"></i>
+                    <br />
+                    <div class="ttt">主材展示</div>
+                </a>
+            </li-->
+        </ul>
+        <div class="am-tabs-bd" style="margin-top:10px;border:none; box-shadow:inset -1px 1px 1px -1px #999;padding:5px;">
+            <div data-tab-panel-0 class="am-tab-panel am-active">
+                <p style="font-size:14px;line-height:18px;">
+                    施工步骤紧密衔接，拒绝浪费时间，保证在35天内就为您完成装修，用最高效的方式让您享受最好最快的家装体验。55项标准节点和标准操作项目，三大改革装修不再磨洋工
+                </p>
+                <hr/>
+                <p style="font-size:14px;line-height:18px;color:#666">
+                    <b><span style="color:#000">售前流程 PRE SALES PROCESS</span></b>
+                </p>
+                <form class="am-form">
+                    <p style="font-size:14px;line-height:26px;color:#333;font-weight:800;">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <table class="table u_ct_15">
+                                    <tr class="u_th" style="border-bottom:2px solid #ddd;border-top:2px solid #fff;">
+                                        <th width=15%></th>
+                                        <th width=65%>流程</th>
+                                        <th width=20%>备注</th>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>网上下单</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>缴纳定金</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>实体店选材</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>签署正式合同</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>预约量房</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>制作设计方案</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>确定施工方案</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr style="border-bottom:2px solid #ddd;">
+                                        <td>8</td>
+                                        <td>进入施工阶段</td>
+                                        <td>-</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </p>
+                    <p style="font-size:14px;line-height:18px;color:#666">
+                        <b><span style="color:#000">售中流程 SALES PROCESS</span></b>
+                    </p>
+                    <p style="font-size:14px;line-height:26px;color:#333;font-weight:800;">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <table class="table u_ct_15">
+                                    <tr class="u_th" style="border-bottom:2px solid #ddd;border-top:2px solid #fff;">
+                                        <th width=15%></th>
+                                        <th width=65%>流程</th>
+                                        <th width=20%>备注</th>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>原有电路、上下水检测</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>墙体拆除</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>放线定位</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>橱柜测量、厨房水电定位</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>材料进场（水电（电线、水管等）供料）</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>室内水电路定位</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>水电路开槽</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>水电路管线敷设</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>水路打压测试及水电路验收</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>封堵线槽</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>11</td>
+                                        <td>材料进场（瓦工（砖、水泥沙子等）供料）</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12</td>
+                                        <td>新建墙体、包立管</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>13</td>
+                                        <td>卫生间防水</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>14</td>
+                                        <td>闭水试验</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>15</td>
+                                        <td>防水地面抹灰（做保护层）</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>厨卫瓷砖、客厅地面瓷砖铺贴</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>17</td>
+                                        <td>厨柜测量、门口测量</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>18</td>
+                                        <td>材料进场（油工（腻子、胶、石膏线、油漆）供料）</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>19</td>
+                                        <td>室内墙、顶面基层处理</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>20</td>
+                                        <td>石膏线安装</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>21</td>
+                                        <td>墙体面阴阳角找直</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>22</td>
+                                        <td>批刮腻子</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>23</td>
+                                        <td>砂纸打磨</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>涂刷底层油漆</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>25</td>
+                                        <td>涂刷面层油漆</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>26</td>
+                                        <td>厨卫吊顶安装</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>27</td>
+                                        <td>室内面板安装</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>28</td>
+                                        <td>厨柜安装（含烟机灶具）</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>29</td>
+                                        <td>安装大理石</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30</td>
+                                        <td>室内门安装</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>31</td>
+                                        <td>木地板安装</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>32</td>
+                                        <td>卫浴五金安装</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>33</td>
+                                        <td>灯具安装</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>34</td>
+                                        <td>细节修补调试</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>35</td>
+                                        <td>收尾清理</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr style="border-bottom:2px solid #ddd;">
+                                        <td>36</td>
+                                        <td>竣工验收、签订保修单</td>
+                                        <td>-</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </p>
+                    <p style="font-size:14px;line-height:18px;color:#666">
+                        <b><span style="color:#000">售后服务 CUSTOMER SERVICE</span></b>
+                    </p>
+                    <p style="font-size:14px;line-height:26px;color:#333;font-weight:800;">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <table class="table u_ct_15">
+                                    <tr class="u_th" style="border-bottom:2px solid #ddd;border-top:2px solid #fff;">
+                                        <th width=15%></th>
+                                        <th width=65%>流程</th>
+                                        <th width=20%>备注</th>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>电话回访</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr style="border-bottom:2px solid #ddd;">
+                                        <td>2</td>
+                                        <td>定期回访</td>
+                                        <td>-</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </p>
+                </form>
+            </div>
+            <div data-tab-panel-1 class="am-tab-panel">
+                <div id="techWrap">
+                    <p style="font-size:14px;line-height:18px;color:#666">
+                        <b><span style="color:#000">电路改造工艺</span></b>
+												<div class="am-g">
+												  <div class="am-u-sm-4"><img src="images/01.jpg" /></div>
+												  <div class="am-u-sm-8">
+														PVC线管线盒，暗管暗槽横平竖直，电线导管无折皱、无裂缝保证电线导管畅通。强弱电要分开，互不干扰很重要“左零右火中间零”安装面板要记牢.10A以上大功率电器，必须使用4mm的电源线设置专用供电回路，确保大功率电器稳定运行
+												  </div>
+												</div>                        
+                    </p>
+                    <hr/>
+                </div>
+            </div>
+            <!--div data-tab-panel-2 class="am-tab-panel">
+                <div class="m-wrap">
+                    <h3 class="m-tit">名牌主辅材</h3>
+                    <ul id="logoWrap" class="logo-wrap clearfix">
+                    </ul>
+                    <div class="carousel-inner">
+                            <div class="item active">
+                                <table id="mTable" class="table u_ct_15">
+                                    <thead>
+                                        <tr class="u_th">
+                                            <th width="20%">品牌</th>
+                                            <th width="30%">产品</th>
+                                            <th width="50%">主辅材料</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>网单</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                </div>
+            </div-->
+        </div>
+    </div>
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/amazeui.min.js"></script>
+    <script src="js/libs/json.js"></script>
+    <script src="js/libs/base.js"></script>
+    <script src="js/libs/utils.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/tmzs.js"></script>
+    <script src="js/materials.js"></script>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=49712707" charset="UTF-8"></script>  
+</body>
+
+</html>

@@ -202,7 +202,7 @@ function onSelectFile(obj){
 				<td width="75%" ><input   class="input" id='ordernum'  name='ordernum' type="text"></td>
 			</tr>
 			<tr>
-				<td align="right" height="40" >上传图片：</td>
+				<td align="right" height="40" >上传示意图：</td>
 				<td width="75%" >
 					<input type="file" id='picFile'  onchange="onSelectFile(this)">
 				</td>
@@ -226,7 +226,7 @@ function onSelectFile(obj){
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%"
 		data-bind="foreach:definitions">
 		<tr >
-			<td align="right" width="25%" height="40" data-bind = "text:'变量'+name+'的值:'"></td>
+			<td align="right" width="25%" height="40" data-bind = "text:name+'：'"></td>
 			<td width="75%">
 			<!--input type="text" data-bind="attr:{name:'fragmentInfo.values['+no+'].id'},value:id"-->
 			<input type="hidden" data-bind="attr:{name:'fragmentInfo.values['+no+'].name'},value:name">

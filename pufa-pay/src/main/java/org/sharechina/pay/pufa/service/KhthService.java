@@ -8,6 +8,8 @@ import org.sharechina.pay.pufa.protocal.RequestModel;
 import org.sharechina.pay.pufa.protocal.ResponseModel;
 import org.sharechina.pay.pufa.protocal.refund.RefundRequestData;
 import org.sharechina.pay.pufa.protocal.refund.RefundResponseData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,6 +19,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class KhthService {
+	
+	public static Logger logger=LoggerFactory.getLogger(KhthService.class);
 
 	private HttpsService httpsService=new SimpleHttpsService();
 
@@ -42,7 +46,9 @@ public class KhthService {
 		RefundRequestData data=new RefundRequestData(masterId, termSsn, osttDate, oacqSsn, mercCode, termCode,
 				tranAmt, remark1, remark2);
 		RequestModel model=new RequestModel(data);
+		logger.error("退货调用记录：\n"+model.toXml());
 		String result=httpsService.postXml(RequestModel.PRODUCTION_URL, model.toXml());
+		logger.error("退货调用返回记录：\n"+result);
 		ResponseModel<RefundResponseData> response=ResponseModel.fromXml(result, RefundResponseData.class);
 		return response;
 	}

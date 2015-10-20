@@ -12,12 +12,27 @@ $(function(){
 	g.sendTime = 60;
 	g.httpTip = new Utils.httpTip({});
 
+	//$("#inputEmail3").bind("blur",validUserName);
 	$("#inputPhone3").bind("blur",getImgCode);
 	$("#getcodebtn").bind("click",getValidCode);
 	$("#resetbtn").bind("click",resetRegInfo);
 	$("#sendbtn").bind("click",regBtnUp);
 	$("#imgcodebtn").bind("click",getImgCode);
 
+
+	function validUserName(){
+		var reg = /^[0-9,A-Z,a-z]{2,10}$/g;
+		var reg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+		var val = $("#inputEmail3").val() || "";
+		if(val !== ""){
+			if(reg.test(val)){
+
+			}
+			else{
+				Utils.alert("用户名只能输入2-10位数字和字母");
+			}
+		}
+	}
 
 	//获取图形验证码
 	function getImgCode(evt){
@@ -111,7 +126,8 @@ $(function(){
 			}
 		}
 		else{
-			Utils.alert("用户名输入错误,请输入邮箱或者手机号");
+			//Utils.alert("用户名输入错误,请输入邮箱或者手机号");
+			Utils.alert("用户名输入错误");
 			$("#inputEmail3").focus();
 		}
 
@@ -178,7 +194,15 @@ $(function(){
 					Utils.offLineStore.set("token",token,false);
 					//保存用户数据
 					Utils.offLineStore.set("userinfo",JSON.stringify(condi),false);
-					location.href = "center.html?token=" + token;
+
+					var page = location.href.indexOf("/center/");
+					if(page > -1){
+						location.href = "center.html?token=" + token;
+					}
+					else{
+						location.href = "center/center.html?token=" + token;
+					}
+
 				}
 				else{
 					var msg = data.error + "," + data.errorDescription;

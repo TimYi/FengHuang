@@ -75,7 +75,7 @@ public class UserService extends DtoSpecificationService<User, UserDto, UserInpu
 		if(!PhoneNumberValidater.isMobile(mobile))throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "请输入正确的11位手机号码");
 		//检查手机号是否已经使用
 		User user=getRepository().getByMobile(mobile);
-		if(user!=null && !mobile.equals(user.getMobile()))
+		if(user!=null && !id.equals(user.getId()))
 			throw new ErrorCodeException(SystemErrorCodes.ILLEGAL_ARGUMENT, "手机号已被其它账号绑定，请更换");
 		
 		//绑定手机号

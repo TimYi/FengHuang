@@ -14,6 +14,8 @@ public class SystemUser extends UUIDBaseModel {
 	private String username;
 	/**密码*/
 	private String password;
+	/**真实姓名*/
+	private String realname;
 	/**是否通过验证*/
 	private boolean verified;
 	
@@ -29,6 +31,12 @@ public class SystemUser extends UUIDBaseModel {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getRealname() {
+		return realname;
+	}
+	public void setRealname(String realname) {
+		this.realname = realname;
 	}
 	public boolean isVerified() {
 		return verified;

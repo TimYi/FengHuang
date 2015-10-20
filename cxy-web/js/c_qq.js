@@ -12,7 +12,6 @@
 	g.sendTime = 60;
 	g.isBind = true;
 	g.token = Utils.getQueryString("token") || "";
-
 	//验证登录状态
 	var loginStatus = Utils.getUserInfo();
 	if(!loginStatus && g.token != "" ){
@@ -28,7 +27,7 @@
 
 	//获取个人资料请求
 	function sendGetUserInfoHttp(token){
-		g.httpTip.show();
+		//g.httpTip.show();
 		var url = Base.profileUrl;
 		var condi = {};
 		condi.token = token;
@@ -41,14 +40,13 @@
 			async: false,
 			global:false,
 			success: function(data){
-				console.log(data);
-				g.httpTip.hide();
+				console.log("qq_sendGetUserInfoHttp",data);
 				var status = data.status || "";
 				if(status == "OK"){
 					Utils.offLineStore.set("userinfo",JSON.stringify(data.result.user),false);
-					if(autoLogin){
+					//if(autoLogin){
 						//保存自动登录数据
-					}
+					//}
 					//location.href = "center.html";
 					Utils.offLineStore.set("token",g.token,false);
 				}
@@ -65,9 +63,4 @@
 			}
 		});
 	}
-
-
-
-
-
 })();
