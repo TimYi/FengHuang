@@ -34,20 +34,23 @@ function getDatas4page(page){
 	getDatas();
 }
 function getDatas(){
-	getData(USER_WORKER,param,afterGetDatas);
+	getData(SYSTEM_ADMIN,param,afterGetDatas);
 }
 function afterGetDatas(data){
 
 	//先判断并处理错误数据
 	if(!isErrorData(data))
+	{
 		//数据正确时进行绑定
-	bindData(data.result);	
+		bindData(data.result);
+	}
 }
 function bindData(data){
 	total = data.totalCount;
 	var results = data.result;
 	for(var i in results){
 		results[i].selected = false;
+		results[i].verifyDisp = (results[i].verified ? '是':'否');		
 	}
 	if(!bind){
 		dataModel = ko.mapping.fromJS(data);	
@@ -58,10 +61,10 @@ function bindData(data){
 		
 		if(ConfDel(0)){
 			
-			var url = genUrl(USER_WORKER)+'/'+item.id();
+			var url = genUrl(SYSTEM_ADMIN)+'/'+item.id();
 			deleteReq(url,function(dataObj){
-				
-					friendlyTip(dataObj);
+			
+				friendlyTip(dataObj);
 			    	if(dataObj.status === 'OK'){
 			    	  	dataModel.result.remove(item);
 			    	}
@@ -76,10 +79,9 @@ function bindData(data){
 			alert(filterSelected(dataModel.result()).length);
 		}
 	}
-	dataModel.modify = function(item){
-		
+	dataModel.modify = function(item){		
 		//alert('modify'+item.id);
-		window.location.href='workeredit.htm?id='+item.id();
+		window.location.href='adminedit.htm?id='+item.id();
 	}	
 	if(!bind){
 		bind = true;
@@ -97,5 +99,5 @@ function handlePageChange (num, type) {
 }
 function add(){
 	
-	window.location.href="workeradd.htm";
+	window.location.href="adminadd.htm";
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>修改工人</title>
+<title>修改管理员</title>
 <link href="assets/css/admin.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/js/jquery.js"></script>
 <script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
@@ -15,81 +15,62 @@
 <script type="text/javascript" src="common.js"></script>
 <script type="text/javascript">
 var viewModel;
-var workerTypeDic;
 var id;
 function onload(){
 	id = getUrlParam(window.location.search,"id");
-	$.getJSON(CATEGORY_QUERY+'worker',null,function(data){
-	 		workerTypeDic = data.result;	 		
-			getDataById(USER_WORKER,id,afterGetDataById);
-	 	});
+	getDataById(SYSTEM_ADMIN,id,afterGetDataById);
 }
 function afterGetDataById(data){
-
 	//先判断并处理错误数据
 	if(!isErrorData(data)){
+
 		//数据正确时进行绑定
 	 	viewModel = ko.mapping.fromJS(data.result);
-	 	//var selectedTypeId = viewModel.type.id();
-		if(typeof viewModel.type !== 'function'){
-	 		//注意：sex 为 null时，是function ,不为null时是object
-		 	for(var i in workerTypeDic){
-		 		if(workerTypeDic[i].id === viewModel.type.id()){
-		 			viewModel.type = ko.observable(workerTypeDic[i]);
-		 			break;
-		 		}
-		 	}
-	 	}	 	
-		ko.applyBindings(viewModel);
-	}
+	 	viewModel.submit = function(){
+	 		var url = genUrl(SYSTEM_ADMIN)+'/'+id;	
+	 		submitAsyFormByJson(url, 'adminForm', 
+				function(data){		 			
+			 		friendlyTip(data);
+		 		 }
+	 		);
+	 	}
+	 }
+	ko.applyBindings(viewModel);
 }
-function submitWorker(){
-	var url = genUrl(USER_WORKER)+'/'+id;	
-	 		submitAsyFormByJson(url, 'workerForm', 
+function submitAdmin(){
+	var url = genUrl(SYSTEM_ADMIN)+'/'+id;	
+	 		submitAsyFormByJson(url, 'adminForm', 
 					function(data){		 			
 			 			friendlyTip(data);
-			 		//	window.location.href='couponedit.htm?id='+viewModel.id();
+			 			window.location.href='adminlist.htm';
 		 		 	}
 	 			);
-	
 }
 </script>
 </head>
 <body onload="onload()">
 <div class="formHeader">
- <span class="title">修改工人</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
+ <span class="title">修改管理员</span> <a href="javascript:location.reload();" class="reload">刷新</a> 
 </div>
-<form name="workerForm" id="workerForm" >
+<form name="adminForm" id="adminForm" >
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tbody>
 			<tr>
-				<td align="right" width="25%" height="40">ID:</td>
-				<td width="75%" ><span data-bind='text:id'></span></td>
-			</tr>
-			<tr>
 				<td align="right" width="25%" height="40">用户:</td>
-				<td width="75%" ><span data-bind='text:user.username'></td>
+				<td width="75%" ><input type='text' data-bind='value:username' name="username"></td>
 			</tr>
 			<tr>
 				<td align="right" width="25%" height="40">姓名:</td>
-				<td width="75%" ><input type='text' data-bind='value:name' name="name"></td>
+				<td width="75%" ><input type='text' data-bind='value:realname' name="realname"></td>
 			</tr>
 			<tr>
-				<td align="right" height="40" >工种：</td>
-				<td>
-					<select data-bind="value:type,options:workerTypeDic,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
-					</select>
-					<input type='text' name="typeId" data-bind="value:type()?type().id:''"/>
-				</td>
-			</tr>		
-			<tr>
-				<td align="right" height="40">经验：</td>
-				<td ><input type='text' name="expVal" data-bind='value:expVal'/></td>
-			</tr>		
+				<td align="right" height="40">是否启用：</td>
+				<td ><input type="checkbox" name="verified" data-bind="checked: verified" />&nbsp;启用</td>
+			</tr>
 		</tbody>
 	</table>
 	<div class="formSubBtn">
-		<input class="submit" value="提交" type="button" onclick='submitWorker();'/>
+		<input class="submit" value="提交" type="button" onclick='submitAdmin();'/>
 		<input class="back" value="返回" onclick="history.go(-1)" type="button">
 	</div>
 </form>

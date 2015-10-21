@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>新增工人</title>
+<title>新增管理员</title>
 <link href="assets/css/admin.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/js/jquery.js"></script>
 <script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
@@ -15,57 +15,9 @@
 <script type="text/javascript" src="common.js"></script>
 <script type="text/javascript">
 var viewModel;
-//var workerTypeDic;
-var bloodTypeDic;
-
-var id;
-/*var WorkerType = function(id,name){
-	this.id = id;
-	this.name = name;
-}*/
-var Category = function(id,name){
-	this.id = id;
-	this.name = name;
-}
-function onload(){
-	id = getUrlParam(window.location.search,"id");
-	$.getJSON(CATEGORY_QUERY+'worker',null,afterGetBloodTypeDic);
-}
-function afterGetBloodTypeDic(data){
-	var bloodTypes = data.result;	
-	bloodTypeDic = new Array();
-	//alert(bloodTypes.length);
-	for(var i in bloodTypes){
-		var bloodType = new Category(bloodTypes[i].id,bloodTypes[i].name);
-		bloodTypeDic.push(bloodType);
-	}
-	viewModel = {				
-		bloodType:ko.observable(),
-		bloodTypeDic:ko.observableArray(bloodTypeDic)		
-	};
-	ko.applyBindings(viewModel);
-}
-function afterGetBloodTypeDic_bak(data){
-		workerTypes = data.result;
-	 	workerTypeDic = new Array();	 
-	 	for(var i in workerTypes){
-	 		//alert(workerTypes[i].id+workerTypes[i].name);
-	 		var workerType = new WorkerType(workerTypes[i].id,workerTypes[i].name);
-	 		workerTypeDic.push(workerType);
-	 		alert(i);
-	 	}		
-		veiwModel = {
-			selectedWorkerType:ko.observable(),
-			selectableWorkerType:ko.observableArray(workerTypeDic)
-		};
-		alert(1);
-		ko.applyBindings(viewModel);
-		alert();
-		//	ko.applyBindings(viewModel);
-}
-function submitWorker(){
-	var url = genUrl(USER_WORKER);	
-	 		submitAsyFormByJson(url, 'workerForm', 
+function submitAdmin(){
+	var url = genUrl(SYSTEM_ADMIN);	
+	 		submitAsyFormByJson(url, 'adminForm', 
 					function(data){		 			
 			 			friendlyTip(data);
 			 			window.location.href='adminlist.htm';
@@ -77,41 +29,33 @@ function submitWorker(){
 </head>
 <body onload="onload()">
 <div class="formHeader">
- <span class="title">新增工人</span> 
+ <span class="title">新增管理员</span> 
  <a href="javascript:location.reload();" class="reload">刷新</a> 
 </div>
-<form name="workerForm" id="workerForm" >
+<form name="adminForm" id="adminForm" >
 	<table class="formTable" border="0" cellpadding="0" cellspacing="0" width="100%">
 		<tbody>
 			
 			<tr>
-				<td align="right" width="25%" height="40">用户名:</td>
-				<td width="75%" ><input type='text'name='username' class="input"></td>
+				<td align="right" width="25%" height="40">用户名：</td>
+				<td width="75%" ><input type='text' name='username' class="input"></td>
 			</tr>
 			<tr>
-				<td align="right" width="25%" height="40">密码:</td>
+				<td align="right" width="25%" height="40">密码：</td>
 				<td width="75%" ><input type='password' name='password' class="input"></td>
 			</tr>
 			<tr>
-				<td align="right" width="25%" height="40">姓名:</td>
-				<td width="75%" ><input type='text'  name="name"></td>
+				<td align="right" width="25%" height="40">姓名：</td>
+				<td width="75%" ><input type='text'  name="realname" class="input"></td>
 			</tr>
 			<tr>
-				<td align="right" height="40" >工种：</td>
-				<td>
-					<select data-bind="value:bloodType ,options:bloodTypeDic ,optionsText:'name',valueAllowUnset: true,optionsCaption: '请选择...'">
-					</select>
-					<input type='text' name="typeId" data-bind="value:bloodType()?bloodType().id:''"/>
-				</td>
-			</tr>		
-			<tr>
-				<td align="right" height="40">经验：</td>
-				<td ><input type='text' name="expVal" /></td>
-			</tr>		
+				<td align="right" height="40">是否启用：</td>
+				<td ><input type="checkbox" name="verified" />&nbsp;启用</td>
+			</tr>
 		</tbody>
 	</table>
 	<div class="formSubBtn">
-		<input class="submit" value="提交" type="button" onclick='submitWorker();'/>
+		<input class="submit" value="提交" type="button" onclick='submitAdmin();'/>
 		<input class="back" value="返回" onclick="history.go(-1)" type="button">
 	</div>
 </form>

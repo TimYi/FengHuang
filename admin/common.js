@@ -12,7 +12,7 @@ var DECORATE_TECH = 'decorateTechnology';
 var MUSEUM_MUSEUM = 'experienceMuseum';
 var MUSEUM_APPOINT= 'experienceAppoint';
 var MUSEUM_SIGNUP= 'signup';
-
+var SYSTEM_ADMIN = 'systemUser';
 var AREA_CITY = 'area/level/CITY';
 //var AREA_CITY = 'area';
 
